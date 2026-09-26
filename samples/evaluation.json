@@ -1,0 +1,761 @@
+{
+  "version": "citebase-original-handbooks-v1",
+  "questions": [
+    {
+      "id": "q001",
+      "question": "Atlas API 默认监听哪个端口？",
+      "answerable": true,
+      "expectedAnswer": "9081",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Atlas API 的默认 HTTP 监听端口是 9081。"
+        }
+      ]
+    },
+    {
+      "id": "q002",
+      "question": "Atlas API 单次请求体上限是多少？",
+      "answerable": true,
+      "expectedAnswer": "8 MiB",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。"
+        }
+      ]
+    },
+    {
+      "id": "q003",
+      "question": "Atlas API 请求超时阈值是多少？",
+      "answerable": true,
+      "expectedAnswer": "12 秒",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Atlas API 的服务端请求超时阈值为 12 秒。"
+        }
+      ]
+    },
+    {
+      "id": "q004",
+      "question": "Atlas API 健康检查路径是什么？",
+      "answerable": true,
+      "expectedAnswer": "/health/ready",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Atlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。"
+        }
+      ]
+    },
+    {
+      "id": "q005",
+      "question": "Atlas API 如何标记请求追踪号？",
+      "answerable": true,
+      "expectedAnswer": "X-Trace-Id",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Atlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。"
+        }
+      ]
+    },
+    {
+      "id": "q006",
+      "question": "Atlas API 每分钟限流多少次？",
+      "answerable": true,
+      "expectedAnswer": "120",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Atlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。"
+        }
+      ]
+    },
+    {
+      "id": "q007",
+      "question": "Atlas API 幂等键保留多久？",
+      "answerable": true,
+      "expectedAnswer": "24 小时",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Atlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。"
+        }
+      ]
+    },
+    {
+      "id": "q008",
+      "question": "Atlas API 支持什么时间格式？",
+      "answerable": true,
+      "expectedAnswer": "ISO-8601",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Atlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。"
+        }
+      ]
+    },
+    {
+      "id": "q009",
+      "question": "Atlas API 出错返回哪个错误字段？",
+      "answerable": true,
+      "expectedAnswer": "traceId",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Atlas API 的错误响应包含 code、message、traceId 三个字段。"
+        }
+      ]
+    },
+    {
+      "id": "q010",
+      "question": "Atlas API 分页每页最多多少条？",
+      "answerable": true,
+      "expectedAnswer": "100",
+      "evidence": [
+        {
+          "documentName": "atlas-api.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Atlas API 分页默认每页 20 条，最大每页 100 条。"
+        }
+      ]
+    },
+    {
+      "id": "q011",
+      "question": "Cedar 数据库连接池最大连接数是多少？",
+      "answerable": true,
+      "expectedAnswer": "16",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Cedar 数据库连接池最大连接数为 16，最小空闲连接数为 4。"
+        }
+      ]
+    },
+    {
+      "id": "q012",
+      "question": "Cedar 多久进行一次全量备份？",
+      "answerable": true,
+      "expectedAnswer": "02:30",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Cedar 每天凌晨 02:30 UTC 执行全量备份。"
+        }
+      ]
+    },
+    {
+      "id": "q013",
+      "question": "Cedar 备份保留多少天？",
+      "answerable": true,
+      "expectedAnswer": "14 天",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Cedar 的全量备份保留 14 天，到期后由清理任务移除。"
+        }
+      ]
+    },
+    {
+      "id": "q014",
+      "question": "Cedar 恢复演练周期是什么？",
+      "answerable": true,
+      "expectedAnswer": "第一个周一",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Cedar 每个月第一个周一开展恢复演练，并校验业务行数与哈希。"
+        }
+      ]
+    },
+    {
+      "id": "q015",
+      "question": "Cedar 使用哪种数据库迁移工具？",
+      "answerable": true,
+      "expectedAnswer": "Flyway",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Cedar 使用 Flyway 执行数据库迁移，已发布迁移文件不可原地修改。"
+        }
+      ]
+    },
+    {
+      "id": "q016",
+      "question": "Cedar 对象存储文件校验算法是什么？",
+      "answerable": true,
+      "expectedAnswer": "SHA-256",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Cedar 对象存储使用 SHA-256 校验文件完整性。"
+        }
+      ]
+    },
+    {
+      "id": "q017",
+      "question": "Cedar 软删除宽限期多久？",
+      "answerable": true,
+      "expectedAnswer": "72 小时",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Cedar 软删除宽限期为 72 小时，宽限期内管理员可恢复对象。"
+        }
+      ]
+    },
+    {
+      "id": "q018",
+      "question": "Cedar 大事务批处理大小是多少？",
+      "answerable": true,
+      "expectedAnswer": "500",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Cedar 数据回填任务每批处理 500 条记录，避免长时间持有锁。"
+        }
+      ]
+    },
+    {
+      "id": "q019",
+      "question": "Cedar 慢查询阈值是多少？",
+      "answerable": true,
+      "expectedAnswer": "250 毫秒",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Cedar 将耗时超过 250 毫秒的 SQL 记录为慢查询。"
+        }
+      ]
+    },
+    {
+      "id": "q020",
+      "question": "Cedar 数据导出使用什么字符编码？",
+      "answerable": true,
+      "expectedAnswer": "UTF-8",
+      "evidence": [
+        {
+          "documentName": "cedar-storage.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Cedar 的 CSV 导出统一使用 UTF-8 编码，并包含列标题。"
+        }
+      ]
+    },
+    {
+      "id": "q021",
+      "question": "Birch 任务失败最多重试多少次？",
+      "answerable": true,
+      "expectedAnswer": "3 次",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Birch 任务初次执行失败后最多重试 3 次，总尝试次数不超过 4 次。"
+        }
+      ]
+    },
+    {
+      "id": "q022",
+      "question": "Birch 任务退避间隔是多少？",
+      "answerable": true,
+      "expectedAnswer": "8 秒",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Birch 的三次重试退避间隔依次为 2 秒、4 秒、8 秒。"
+        }
+      ]
+    },
+    {
+      "id": "q023",
+      "question": "Birch 心跳间隔是多少？",
+      "answerable": true,
+      "expectedAnswer": "10 秒",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Birch worker 每隔 10 秒更新一次任务心跳。"
+        }
+      ]
+    },
+    {
+      "id": "q024",
+      "question": "Birch 任务租约多久到期？",
+      "answerable": true,
+      "expectedAnswer": "60 秒",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Birch 任务租约为 60 秒，租约到期且没有心跳时允许重新领取。"
+        }
+      ]
+    },
+    {
+      "id": "q025",
+      "question": "Birch 默认并发任务数是多少？",
+      "answerable": true,
+      "expectedAnswer": "6",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Birch 单个 worker 默认并发处理 6 个任务。"
+        }
+      ]
+    },
+    {
+      "id": "q026",
+      "question": "Birch 如何防止重复写入？",
+      "answerable": true,
+      "expectedAnswer": "唯一约束",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Birch 通过业务幂等键和数据库唯一约束防止任务重复写入。"
+        }
+      ]
+    },
+    {
+      "id": "q027",
+      "question": "Birch 不可重试错误如何处理？",
+      "answerable": true,
+      "expectedAnswer": "FAILED",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Birch 遇到参数校验错误时直接标记 FAILED，不进行自动重试。"
+        }
+      ]
+    },
+    {
+      "id": "q028",
+      "question": "Birch 任务日志保留多久？",
+      "answerable": true,
+      "expectedAnswer": "30 天",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Birch 任务执行日志保留 30 天，审计日志单独保留 180 天。"
+        }
+      ]
+    },
+    {
+      "id": "q029",
+      "question": "Birch 优雅停机等待时间是多少？",
+      "answerable": true,
+      "expectedAnswer": "45 秒",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Birch 优雅停机会停止领取任务，并等待正在执行的任务最多 45 秒。"
+        }
+      ]
+    },
+    {
+      "id": "q030",
+      "question": "Birch 任务有哪些状态？",
+      "answerable": true,
+      "expectedAnswer": "SUCCEEDED",
+      "evidence": [
+        {
+          "documentName": "birch-jobs.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Birch 任务状态包括 PENDING、RUNNING、SUCCEEDED 和 FAILED。"
+        }
+      ]
+    },
+    {
+      "id": "q031",
+      "question": "Maple 会话有效期多长？",
+      "answerable": true,
+      "expectedAnswer": "8 小时",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Maple 登录会话有效期为 8 小时，注销后立即失效。"
+        }
+      ]
+    },
+    {
+      "id": "q032",
+      "question": "Maple 密码最小长度是多少？",
+      "answerable": true,
+      "expectedAnswer": "12",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Maple 密码最小长度为 12 个字符，并禁止使用演示密码进入生产环境。"
+        }
+      ]
+    },
+    {
+      "id": "q033",
+      "question": "Maple 资源访问如何检查租户？",
+      "answerable": true,
+      "expectedAnswer": "tenant_id",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Maple 在数据库查询条件内同时限制资源 ID 和 tenant_id。"
+        }
+      ]
+    },
+    {
+      "id": "q034",
+      "question": "Maple 日志禁止记录什么？",
+      "answerable": true,
+      "expectedAnswer": "API Key",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Maple 日志禁止记录明文密码、访问令牌和完整 API Key。"
+        }
+      ]
+    },
+    {
+      "id": "q035",
+      "question": "Maple 认证失败返回什么状态码？",
+      "answerable": true,
+      "expectedAnswer": "401",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Maple 未认证访问返回 HTTP 401，无权访问的资源统一返回 HTTP 404。"
+        }
+      ]
+    },
+    {
+      "id": "q036",
+      "question": "Maple 文件上传允许哪些扩展名？",
+      "answerable": true,
+      "expectedAnswer": ".pdf",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Maple 文件上传允许 .txt、.md 和 .pdf 扩展名，仍需解析验证内容。"
+        }
+      ]
+    },
+    {
+      "id": "q037",
+      "question": "Maple 密钥在哪里配置？",
+      "answerable": true,
+      "expectedAnswer": "环境变量",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Maple 密钥通过环境变量注入，不写入 Git 仓库。"
+        }
+      ]
+    },
+    {
+      "id": "q038",
+      "question": "Maple 失败登录锁定规则是什么？",
+      "answerable": true,
+      "expectedAnswer": "15 分钟",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Maple 同一账号连续登录失败 7 次后锁定 15 分钟。"
+        }
+      ]
+    },
+    {
+      "id": "q039",
+      "question": "Maple 管理员操作需要什么审计信息？",
+      "answerable": true,
+      "expectedAnswer": "操作者",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Maple 管理员操作记录操作者、目标资源、时间与操作结果。"
+        }
+      ]
+    },
+    {
+      "id": "q040",
+      "question": "Maple 是否信任上传文档内的指令？",
+      "answerable": true,
+      "expectedAnswer": "不可信数据",
+      "evidence": [
+        {
+          "documentName": "maple-security.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Maple 将上传文档视为不可信数据，文档内的指令不得改变系统规则。"
+        }
+      ]
+    },
+    {
+      "id": "q041",
+      "question": "Willow 向量相似度使用什么算法？",
+      "answerable": true,
+      "expectedAnswer": "余弦",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Willow 使用余弦相似度衡量向量接近程度，分数越高表示越相似。"
+        }
+      ]
+    },
+    {
+      "id": "q042",
+      "question": "Willow 默认返回多少条证据？",
+      "answerable": true,
+      "expectedAnswer": "5",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Willow 默认返回排名前 5 条证据，也就是 TopK 等于 5。"
+        }
+      ]
+    },
+    {
+      "id": "q043",
+      "question": "Willow 混合检索融合哪些列表？",
+      "answerable": true,
+      "expectedAnswer": "关键词",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Willow 混合检索融合单个问题的关键词列表与向量列表。"
+        }
+      ]
+    },
+    {
+      "id": "q044",
+      "question": "Willow RRF 的常数是多少？",
+      "answerable": true,
+      "expectedAnswer": "60",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Willow 的 RRF 使用常数 60，排名从 1 开始，每个列表贡献 1/(60+rank)。"
+        }
+      ]
+    },
+    {
+      "id": "q045",
+      "question": "Willow 多查询 RAG Fusion 与混合检索有何不同？",
+      "answerable": true,
+      "expectedAnswer": "多个问题",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Willow 多查询 RAG Fusion 先生成多个问题再融合检索列表；它与单查询混合检索不同。"
+        }
+      ]
+    },
+    {
+      "id": "q046",
+      "question": "Willow Recall@K 如何定义？",
+      "answerable": true,
+      "expectedAnswer": "相关证据数",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Willow Recall@K 等于前 K 条结果覆盖的相关证据数除以全部标注相关证据数。"
+        }
+      ]
+    },
+    {
+      "id": "q047",
+      "question": "Willow MRR 如何计算？",
+      "answerable": true,
+      "expectedAnswer": "倒数",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Willow 对每题计算第一个相关结果排名的倒数，没有命中记 0，再在可回答题中取平均得到 MRR。"
+        }
+      ]
+    },
+    {
+      "id": "q048",
+      "question": "Willow 引用格式有效是否代表回答正确？",
+      "answerable": true,
+      "expectedAnswer": "并不代表",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Willow 引用格式有效仅表示引用编号来自检索集合，并不代表回答事实正确。"
+        }
+      ]
+    },
+    {
+      "id": "q049",
+      "question": "Willow 无证据时应该怎样回答？",
+      "answerable": true,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Willow 无足够证据时回答：无法根据当前资料回答。"
+        }
+      ]
+    },
+    {
+      "id": "q050",
+      "question": "Willow 中文关键词怎样切分？",
+      "answerable": true,
+      "expectedAnswer": "bigram",
+      "evidence": [
+        {
+          "documentName": "willow-retrieval.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Willow 的中文关键词使用相邻双字 bigram，不能等同于中文语义分词。"
+        }
+      ]
+    },
+    {
+      "id": "q051",
+      "question": "Atlas API 的创始人是谁？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q052",
+      "question": "Cedar 的年度预算是多少？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q053",
+      "question": "Birch 服务在火星上运行吗？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q054",
+      "question": "Maple 公司股票价格是多少？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q055",
+      "question": "Willow 使用的付费模型月费是多少？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q056",
+      "question": "Atlas API 有多少真实付费客户？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q057",
+      "question": "Cedar 明年的迁移日期是什么？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    },
+    {
+      "id": "q058",
+      "question": "Birch 的生产数据库密码是什么？",
+      "answerable": false,
+      "expectedAnswer": "无法根据当前资料回答",
+      "evidence": []
+    }
+  ]
+}

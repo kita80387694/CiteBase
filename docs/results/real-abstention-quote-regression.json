@@ -1,0 +1,95 @@
+{
+  "verifiedAt": "2026-09-26T06:41:53.924Z",
+  "modelMode": "real",
+  "description": "A cited explanation of refusal policy must not itself be treated as refusal",
+  "answer": {
+    "id": "b11cb3e6-2b0c-45b7-a122-ad8a16d7baf2",
+    "question": "Willow 无证据时应该怎样回答？",
+    "answer": "根据证据，Willow 在无足够证据时应该回答：无法根据当前资料回答。[337a8b60-df51-480f-a925-86a20752d128]",
+    "mode": "vector",
+    "modelMode": "real",
+    "evidence": [
+      {
+        "id": "337a8b60-df51-480f-a925-86a20752d128",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 10,
+        "startOffset": 361,
+        "endOffset": 388,
+        "text": "Willow 无足够证据时回答：无法根据当前资料回答。",
+        "score": 0.7804001569747925
+      },
+      {
+        "id": "e8db6b70-e54d-4d3c-aca6-06aa106f16e7",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 15,
+        "text": "# Willow 检索实验说明",
+        "score": 0.673069139512454
+      },
+      {
+        "id": "eb5a296c-8be4-4d33-9e8e-7f60aa839181",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 3,
+        "startOffset": 52,
+        "endOffset": 87,
+        "text": "Willow 默认返回排名前 5 条证据，也就是 TopK 等于 5。",
+        "score": 0.6330498298347245
+      },
+      {
+        "id": "b9f07c0c-53ac-4e2e-a5b2-3513a013ee1c",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 7,
+        "startOffset": 222,
+        "endOffset": 267,
+        "text": "Willow Recall@K 等于前 K 条结果覆盖的相关证据数除以全部标注相关证据数。",
+        "score": 0.6024755598590122
+      },
+      {
+        "id": "88407cce-7d56-4855-8688-f15b5f1cea9f",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 11,
+        "startOffset": 390,
+        "endOffset": 429,
+        "text": "Willow 的中文关键词使用相邻双字 bigram，不能等同于中文语义分词。",
+        "score": 0.5948520302772522
+      }
+    ],
+    "citations": [
+      {
+        "id": "337a8b60-df51-480f-a925-86a20752d128",
+        "documentId": "913d9516-9dc0-4097-8d69-939269f058f5",
+        "documentName": "willow-retrieval.md",
+        "versionId": "e286a4cf-0fe7-426f-8968-ba6dbc4699a0",
+        "page": 1,
+        "paragraph": 10,
+        "startOffset": 361,
+        "endOffset": 388,
+        "text": "Willow 无足够证据时回答：无法根据当前资料回答。",
+        "score": 0.7804001569747925
+      }
+    ],
+    "citationValid": true,
+    "abstained": false,
+    "retrievalMs": 2674,
+    "totalMs": 22955,
+    "promptTokens": 807,
+    "completionTokens": 41,
+    "error": null
+  }
+}

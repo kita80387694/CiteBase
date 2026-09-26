@@ -1,0 +1,50 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.2-pg17
+    environment:
+      POSTGRES_DB: citebase
+      POSTGRES_USER: citebase
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-citebase-local}
+    ports:
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    volumes:
+      - citebase-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U citebase -d citebase"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/citebase
+      DB_USER: citebase
+      DB_PASSWORD: ${DB_PASSWORD:-citebase-local}
+      MODEL_MODE: ${MODEL_MODE:-mock}
+      CHAT_BASE_URL: ${CHAT_BASE_URL:-https://api.siliconflow.cn}
+      CHAT_API_KEY: ${CHAT_API_KEY:-}
+      CHAT_MODEL: ${CHAT_MODEL:-deepseek-ai/DeepSeek-V3.2}
+      EMBEDDING_BASE_URL: ${EMBEDDING_BASE_URL:-https://api.siliconflow.cn}
+      EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-BAAI/bge-m3}
+      MODEL_TIMEOUT_SECONDS: ${MODEL_TIMEOUT_SECONDS:-60}
+    ports:
+      - "127.0.0.1:${API_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health || exit 1"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+      start_period: 30s
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:${WEB_PORT:-5173}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+volumes:
+  citebase-db:

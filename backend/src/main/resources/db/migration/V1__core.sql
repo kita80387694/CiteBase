@@ -1,0 +1,12 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE TABLE app_user(id text PRIMARY KEY,username text UNIQUE NOT NULL,password_hash text NOT NULL);
+CREATE TABLE auth_session(token_hash text PRIMARY KEY,user_id text NOT NULL REFERENCES app_user ON DELETE CASCADE,expires_at timestamptz NOT NULL);
+CREATE TABLE knowledge_base(id text PRIMARY KEY,user_id text NOT NULL REFERENCES app_user ON DELETE CASCADE,name text NOT NULL,created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE document(id text PRIMARY KEY,kb_id text NOT NULL REFERENCES knowledge_base ON DELETE CASCADE,name text NOT NULL,status text NOT NULL,error text,active_version_id text,created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE document_version(id text PRIMARY KEY,document_id text NOT NULL REFERENCES document ON DELETE CASCADE,content_hash text NOT NULL,source bytea NOT NULL,media_type text NOT NULL,status text NOT NULL,created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE chunk(id text PRIMARY KEY,version_id text NOT NULL REFERENCES document_version ON DELETE CASCADE,document_id text NOT NULL REFERENCES document ON DELETE CASCADE,page int NOT NULL,paragraph int NOT NULL,start_offset int NOT NULL,end_offset int NOT NULL,content text NOT NULL,content_hash text NOT NULL,embedding vector NOT NULL,lexical text NOT NULL,embedding_model text NOT NULL);
+CREATE TABLE index_task(id text PRIMARY KEY,document_id text NOT NULL REFERENCES document ON DELETE CASCADE,version_id text NOT NULL REFERENCES document_version ON DELETE CASCADE,status text NOT NULL,attempts int NOT NULL DEFAULT 0,error text,available_at timestamptz NOT NULL DEFAULT now(),started_at timestamptz,created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX kb_owner_idx ON knowledge_base(user_id);
+CREATE INDEX document_kb_idx ON document(kb_id);
+CREATE INDEX chunk_version_idx ON chunk(version_id);
+CREATE INDEX task_pending_idx ON index_task(status,available_at);

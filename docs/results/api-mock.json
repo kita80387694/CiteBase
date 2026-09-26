@@ -1,0 +1,246 @@
+{
+  "verifiedAt": "2026-09-26T06:46:54.343Z",
+  "modelMode": "mock",
+  "checks": 50,
+  "status": "PASSED",
+  "scope": "Actual HTTP endpoints: login, upload, duplicate, index, vector/hybrid ACL, documents/tasks/history/citations/evaluation/export isolation, deletion revocation, no-evidence abstention",
+  "answer": {
+    "id": "77c07b09-27ad-460f-889b-44d000e70348",
+    "question": "测试验收服务的 HTTP 监听端口是多少？",
+    "answer": "【MOCK 流程演示，非模型回答】证据摘录：测试验收服务的 HTTP 监听端口是 9081。 [ee836b7a-d8c4-4308-a1e1-9850107609e7]",
+    "mode": "hybrid",
+    "modelMode": "mock",
+    "evidence": [
+      {
+        "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+        "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+        "documentName": "验收.md",
+        "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+        "page": 1,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 24,
+        "text": "测试验收服务的 HTTP 监听端口是 9081。",
+        "score": 0.03278688524590164
+      }
+    ],
+    "citations": [
+      {
+        "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+        "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+        "documentName": "验收.md",
+        "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+        "page": 1,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 24,
+        "text": "测试验收服务的 HTTP 监听端口是 9081。",
+        "score": 0.03278688524590164
+      }
+    ],
+    "citationValid": true,
+    "abstained": false,
+    "retrievalMs": 12,
+    "totalMs": 18,
+    "promptTokens": null,
+    "completionTokens": null,
+    "error": null
+  },
+  "evaluation": {
+    "id": "08e2918e-9b48-47d9-a640-1d6c580a24e6",
+    "name": "API双模式验收",
+    "status": "COMPLETED",
+    "modelMode": "mock",
+    "createdAt": "2026-09-26T06:46:54.214500227Z",
+    "error": null,
+    "config": {
+      "modelMode": "mock",
+      "chatModel": "mock-extract-v1",
+      "embeddingModel": "mock-hash-256-v1",
+      "topK": 5,
+      "fusion": "keyword-vector RRF",
+      "rrfConstant": 60,
+      "candidateK": 20,
+      "keywordAnalyzer": "Latin words + Han bigrams v1",
+      "temperature": 0,
+      "provider": {
+        "provider": "mock-local"
+      },
+      "chunking": {
+        "strategy": "page-paragraph-window-v1",
+        "strideChars": 700,
+        "offsetUnit": "UTF-16",
+        "maxChars": 900
+      },
+      "minimumSimilarity": null,
+      "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+      "dataset": {
+        "version": "api-v1",
+        "questions": [
+          {
+            "id": "port",
+            "question": "测试验收服务的 HTTP 监听端口是多少？",
+            "answerable": true,
+            "expectedAnswer": "9081",
+            "evidence": [
+              {
+                "documentName": "验收.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "测试验收服务的 HTTP 监听端口是 9081。"
+              }
+            ]
+          }
+        ]
+      },
+      "dataVersions": [
+        {
+          "id": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+          "name": "验收.md",
+          "version_id": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+          "content_hash": "d9daab8e3de83c4867f3fbb077e6d6afa69dc8311c04af435f1b53aabe0bdd71"
+        }
+      ]
+    },
+    "summary": {
+      "vector": {
+        "count": 1,
+        "answerableCount": 1,
+        "recallAtK": 1,
+        "mrr": 1,
+        "retrievalMs": 1,
+        "totalMs": 1,
+        "errorCount": 0
+      },
+      "hybrid": {
+        "count": 1,
+        "answerableCount": 1,
+        "recallAtK": 1,
+        "mrr": 1,
+        "retrievalMs": 2,
+        "totalMs": 3,
+        "errorCount": 0
+      }
+    },
+    "results": [
+      {
+        "id": "f9016d40-24e6-4721-b781-0bac75c14907",
+        "question": "测试验收服务的 HTTP 监听端口是多少？",
+        "answer": "【MOCK 流程演示，非模型回答】证据摘录：测试验收服务的 HTTP 监听端口是 9081。 [ee836b7a-d8c4-4308-a1e1-9850107609e7]",
+        "mode": "vector",
+        "modelMode": "mock",
+        "evidence": [
+          {
+            "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+            "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+            "documentName": "验收.md",
+            "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+            "page": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 24,
+            "text": "测试验收服务的 HTTP 监听端口是 9081。",
+            "score": 0.8807048130455517
+          }
+        ],
+        "citations": [
+          {
+            "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+            "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+            "documentName": "验收.md",
+            "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+            "page": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 24,
+            "text": "测试验收服务的 HTTP 监听端口是 9081。",
+            "score": 0.8807048130455517
+          }
+        ],
+        "citationValid": true,
+        "abstained": false,
+        "retrievalMs": 1,
+        "totalMs": 1,
+        "promptTokens": null,
+        "completionTokens": null,
+        "error": null,
+        "caseId": "port",
+        "expectedAnswer": "9081",
+        "answerable": true,
+        "expectedEvidence": [
+          {
+            "documentName": "验收.md",
+            "page": 1,
+            "paragraph": 1,
+            "quote": "测试验收服务的 HTTP 监听端口是 9081。"
+          }
+        ],
+        "recallAtK": 1,
+        "mrr": 1,
+        "evidenceHit": true,
+        "answerCorrect": null,
+        "referenceAnswerMatch": true,
+        "abstentionCorrect": null
+      },
+      {
+        "id": "827e8801-0a69-4caa-9d90-0bd8add6edf0",
+        "question": "测试验收服务的 HTTP 监听端口是多少？",
+        "answer": "【MOCK 流程演示，非模型回答】证据摘录：测试验收服务的 HTTP 监听端口是 9081。 [ee836b7a-d8c4-4308-a1e1-9850107609e7]",
+        "mode": "hybrid",
+        "modelMode": "mock",
+        "evidence": [
+          {
+            "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+            "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+            "documentName": "验收.md",
+            "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+            "page": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 24,
+            "text": "测试验收服务的 HTTP 监听端口是 9081。",
+            "score": 0.03278688524590164
+          }
+        ],
+        "citations": [
+          {
+            "id": "ee836b7a-d8c4-4308-a1e1-9850107609e7",
+            "documentId": "5f0f9466-67d7-4694-866a-4ac154a23fd7",
+            "documentName": "验收.md",
+            "versionId": "e7fbc08a-2f8b-4070-bb08-8631920dedf5",
+            "page": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 24,
+            "text": "测试验收服务的 HTTP 监听端口是 9081。",
+            "score": 0.03278688524590164
+          }
+        ],
+        "citationValid": true,
+        "abstained": false,
+        "retrievalMs": 2,
+        "totalMs": 3,
+        "promptTokens": null,
+        "completionTokens": null,
+        "error": null,
+        "caseId": "port",
+        "expectedAnswer": "9081",
+        "answerable": true,
+        "expectedEvidence": [
+          {
+            "documentName": "验收.md",
+            "page": 1,
+            "paragraph": 1,
+            "quote": "测试验收服务的 HTTP 监听端口是 9081。"
+          }
+        ],
+        "recallAtK": 1,
+        "mrr": 1,
+        "evidenceHit": true,
+        "answerCorrect": null,
+        "referenceAnswerMatch": true,
+        "abstentionCorrect": null
+      }
+    ]
+  }
+}

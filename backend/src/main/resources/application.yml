@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8080}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/citebase}
+    username: ${DB_USER:citebase}
+    password: ${DB_PASSWORD:citebase-local}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 11MB
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+citebase:
+  mode: ${MODEL_MODE:mock}
+  worker-enabled: ${WORKER_ENABLED:true}
+logging:
+  level:
+    org.springframework.ai.openai: ERROR
