@@ -55,3 +55,15 @@
 - 交付README、PLAN、ARCHITECTURE、REFERENCES、EVALUATION、PROGRESS、DEMO、RESUME及完整源代码。验收清单已逐项完成。无剩余MVP阻塞；保留明确产品边界：无OCR、单实例、精确检索适合小语料、真实效果仅自建小样本、答案语义未人工全量评分。
 - 后续建议（非本次验收缺口）：更大且更贴近使用场景的人工标注语料、生产账号管理/速率限制、按质量需求决定ANN索引和任务租约；不把这些建议写作已有能力。
 - 14:53最终文案修正：评测导入提示改为真实路径samples/evaluation.json。第一次重建因宿主CoreCLR内存分配失败未执行；停止已不用的本地mock Java/Vite后重建成功，三服务运行正常，实时浏览器确认修正已生效。最终入口以Docker 15173为准。
+
+## 第二阶段开始（2026-09-28）
+- 当前工作区干净，基线1559a144e6a978a107e4584ddd6e773c4777d862；已创建feat/citebase-phase2，本地Git不支持switch，使用兼容checkout -b，未合并或推送。
+- 重新运行当前基线：36项后端测试0失败0跳过（真实Testcontainers），前端生产构建通过。日志.tools/phase2-baseline-tests.log及phase2-baseline-frontend.log；历史结果未当成本次验证。
+- 阶段一并行工作：原创扩充语料/稳定分组标签；严格导入与可审计评分；前端真实评分流程。主Agent负责集成、隔离运行环境和真实基线。
+- 现有演示保持15173/18080/15432；第二阶段使用独立Compose项目citebase-phase2、端口25173/28080/25432，不清空现有数据。
+
+### 阶段一实现冻结（2026-09-28 15:00）
+- 新增12份CC0原创语料、156题（132可答/24不可答）、24独立安全用例；主题分组dev104/test52，200个精确证据标签，生产解析器220块。node scripts/check-phase2.mjs --regenerate通过，manifest 6273a8d9c172df402faa5dbfe1049dd11091bdb9d1aef57f0d6441a3c94fee14。
+- 严格JSON/活动原文定位/证据组指标/可审计人工评分落地。后端46项0失败0错误0跳过，含真实Testcontainers；汇总防漏批2项通过。证据results/phase2/stage1-verification.json。
+- 前端构建与扩展Mock API E2E通过（1 passed,15.2s）；评分追加两次、持久化、筛选空态、导出null未评分均验证。主Agent亲自查看评分及审计截图，路径screenshots/phase2-stage1-*.png；自动E2E评分明确不计真实人工评审。
+- 原有演示未改动，独立数据库V3迁移成功。162份非忽略文件检查未发现当前配置密钥。真实新增语料基线与安全调用尚未执行，阶段一未验收完成。下一步冻结本地实现提交、独立服务切real、先冒烟再批量评测。

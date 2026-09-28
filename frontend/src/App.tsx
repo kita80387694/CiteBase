@@ -1,5 +1,11 @@
 import { useEffect, useState, type FormEvent } from "react";
 import {
+  EvaluationAnalysis,
+  EvaluationReview,
+  type ManualScore,
+  type EvidenceLabel,
+} from "./EvaluationAnalysis";
+import {
   BookOpen,
   MessageSquare,
   FlaskConical,
@@ -33,7 +39,7 @@ type Task = {
   attempts: number;
   error?: string;
 };
-type Evidence = {
+export type Evidence = {
   id: string;
   documentName: string;
   page: number;
@@ -59,25 +65,35 @@ type QA = {
   completionTokens?: number;
   error?: string;
 };
-type Result = QA & {
+export type Result = QA & {
   caseId: string;
   answerable: boolean;
   expectedAnswer?: string;
   recallAtK?: number;
   mrr?: number;
   evidenceHit: boolean;
-  answerCorrect?: boolean;
+  answerCorrect?: boolean | null;
+  citationSupported?: boolean | null;
+  category?: string | null;
+  split?: string | null;
+  group?: string | null;
+  topic?: string | null;
+  expectedEvidence?: EvidenceLabel[];
+  evidenceGroupCount?: number;
+  hitEvidenceGroupCount?: number;
+  allEvidenceHit?: boolean;
+  manualScore?: ManualScore | null;
   referenceAnswerMatch?: boolean;
   abstentionCorrect?: boolean;
 };
-type Metric = {
+export type Metric = {
   recallAtK: number;
   mrr: number;
   retrievalMs: number;
   totalMs: number;
   count: number;
 };
-type Run = {
+export type Run = {
   id: string;
   name: string;
   status: string;
@@ -85,6 +101,8 @@ type Run = {
   config: unknown;
   summary?: Record<string, Metric>;
   results?: Result[];
+  manualScores?: ManualScore[];
+  breakdowns?: Record<string, Record<string, Record<string, Metric>>>;
   error?: string;
   createdAt: string;
 };
@@ -911,6 +929,9 @@ export default function App() {
                               id: "q1",
                               question: "示例问题",
                               answerable: true,
+                              category: "fact",
+                              split: "dev",
+                              group: "example-topic",
                               expectedAnswer: "预期答案",
                               evidence: [
                                 {
@@ -918,6 +939,7 @@ export default function App() {
                                   page: 1,
                                   paragraph: 1,
                                   quote: "原文证据",
+                                  groupId: "required-fact",
                                 },
                               ],
                             },
@@ -1035,58 +1057,19 @@ export default function App() {
                     </table>
                   </div>
                   <p className="metric-note">
-                    Recall@K：相关标注证据的召回比例；MRR：首个相关结果倒数排名。引用格式有效不等于答案正确。详细统计口径见
+                    Recall@K：命中证据组数 /
+                    全部必需组数（同组可替代）；MRR：首个命中任一组结果的倒数排名。引用格式有效不等于答案正确。详细统计口径见
                     EVALUATION.md。
                   </p>
                   <details>
                     <summary>查看可复现配置</summary>
                     <pre>{JSON.stringify(run.config, null, 2)}</pre>
                   </details>
-                  <div className="section-label">逐题结果 · 点击查看证据</div>
-                  <div className="table-scroll">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>问题 / 配置</th>
-                          <th>证据命中</th>
-                          <th>引用格式</th>
-                          <th>答案判定</th>
-                          <th>耗时</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {run.results?.map((r, i) => (
-                          <tr
-                            key={i}
-                            className="clickable"
-                            onClick={() => setDetail(r)}
-                          >
-                            <td>
-                              <button
-                                className="question-button"
-                                onClick={() => setDetail(r)}
-                              >
-                                {r.question}
-                              </button>
-                              <small className="muted">
-                                {r.caseId} · {r.mode}
-                              </small>
-                            </td>
-                            <td>{r.evidenceHit ? "命中" : "未命中"}</td>
-                            <td>{r.citationValid ? "有效" : "无效"}</td>
-                            <td>
-                              {r.answerCorrect == null
-                                ? "未评分"
-                                : r.answerCorrect
-                                  ? "通过"
-                                  : "未通过"}
-                            </td>
-                            <td>{fmt(r.totalMs)} ms</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  <EvaluationAnalysis
+                    key={run.id}
+                    run={run}
+                    onSelect={setDetail}
+                  />
                 </section>
               )}
             </>
@@ -1152,6 +1135,30 @@ export default function App() {
               Recall@K {fmt(detail.recallAtK)} · MRR {fmt(detail.mrr)} ·{" "}
               {detail.answerable ? "可回答" : "不可回答"}
             </p>
+            {run && (
+              <EvaluationReview
+                key={`${run.id}-${detail.caseId}-${detail.mode}`}
+                result={detail}
+                run={run}
+                onScore={async (score) => {
+                  const saved = await api<ManualScore>(
+                    `/evaluations/${run.id}/scores`,
+                    { method: "POST", body: JSON.stringify(score) },
+                  );
+                  const next: Run = {
+                    ...run,
+                    manualScores: [...(run.manualScores || []), saved],
+                    results: run.results?.map((row) =>
+                      row.caseId === saved.caseId && row.mode === saved.mode
+                        ? { ...row, manualScore: saved }
+                        : row,
+                    ),
+                  };
+                  setRun(next);
+                  setDetail({ ...detail, manualScore: saved });
+                }}
+              />
+            )}
             <h3>检索证据</h3>
             {detail.evidence?.map((ev) => (
               <div className="case-evidence" key={ev.id}>

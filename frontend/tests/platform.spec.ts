@@ -17,7 +17,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
     page.getByRole("heading", { name: "登录工作空间" }),
   ).toBeVisible();
   await page.screenshot({
-    path: "../docs/screenshots/01-login.png",
+    path: "test-results/screenshots/01-login.png",
     fullPage: true,
   });
   await page.getByLabel("密码", { exact: true }).fill("incorrect-password");
@@ -52,7 +52,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
     timeout: 60_000,
   });
   await page.screenshot({
-    path: "../docs/screenshots/02-documents.png",
+    path: "test-results/screenshots/02-documents.png",
     fullPage: true,
   });
 
@@ -61,7 +61,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(task).toBeVisible();
   await expect(task.getByText("成功", { exact: true })).toBeVisible();
   await page.screenshot({
-    path: "../docs/screenshots/03-tasks.png",
+    path: "test-results/screenshots/03-tasks.png",
     fullPage: true,
   });
 
@@ -83,7 +83,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(page.locator(".drawer .source-text")).toContainText(evidence);
   await expect(page.locator(".drawer")).toContainText(documentName);
   await page.screenshot({
-    path: "../docs/screenshots/04-chat-evidence.png",
+    path: "test-results/screenshots/04-chat-evidence.png",
     fullPage: true,
   });
   await page.getByRole("button", { name: "关闭证据" }).click();
@@ -98,12 +98,17 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
         question: "CiteBase 索引更新失败时如何处理？",
         answerable: true,
         expectedAnswer: "保留上一份可用索引",
+        category: "lifecycle",
+        split: "test",
+        group: "index-updates",
+        topic: "indexing",
         evidence: [
           {
             documentName,
             page: 1,
             paragraph: 1,
             quote: "索引更新失败时保留上一份可用索引",
+            groupId: "availability",
           },
         ],
       },
@@ -112,10 +117,41 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
         question: "火星天气怎样？",
         answerable: false,
         expectedAnswer: null,
+        category: "unanswerable",
+        split: "test",
         evidence: [],
       },
     ],
   };
+  const beforeRuns = await page.locator(".run-row").count();
+  await page
+    .getByLabel("导入评测集 JSON")
+    .setInputFiles({
+      name: "broken.json",
+      mimeType: "application/json",
+      buffer: Buffer.from("{broken"),
+    });
+  await page.getByRole("button", { name: "运行向量 / 混合对比" }).click();
+  await expect(page.getByRole("alert")).toContainText("不是有效 JSON");
+  await expect(page.locator(".run-row")).toHaveCount(beforeRuns);
+  await page
+    .getByLabel("导入评测集 JSON")
+    .setInputFiles({
+      name: "unknown-field.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(
+        JSON.stringify({ ...dataset, unsupportedClientField: true }),
+      ),
+    });
+  const rejectedImport = page.waitForResponse(
+    (response) =>
+      response.url().endsWith("/api/evaluations") &&
+      response.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "运行向量 / 混合对比" }).click();
+  expect((await rejectedImport).status()).toBe(400);
+  await expect(page.getByRole("alert")).toContainText("unsupportedClientField");
+  await expect(page.locator(".run-row")).toHaveCount(beforeRuns);
   await page.getByLabel("导入评测集 JSON").setInputFiles({
     name: "evaluation.json",
     mimeType: "application/json",
@@ -133,9 +169,10 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(
     page.locator(".results tbody").last().getByRole("row"),
   ).toHaveCount(4);
+  await page.locator('.results').scrollIntoViewIfNeeded();
   await page.screenshot({
-    path: "../docs/screenshots/05-evaluation.png",
-    fullPage: true,
+    path: "test-results/screenshots/05-evaluation.png",
+    fullPage: false,
   });
   await page
     .getByRole("button", {
@@ -147,11 +184,62 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(page.locator(".drawer.wide")).toContainText("预期答案");
   await expect(page.locator(".drawer.wide")).toContainText("实际回答");
   await expect(page.locator(".drawer.wide")).toContainText(documentName);
+  await expect(page.locator(".case-tags")).toContainText("lifecycle");
+  await expect(page.locator(".case-tags")).toContainText("test");
+  await expect(page.locator(".evidence-group")).toContainText("availability");
+  await expect(page.locator(".review-metrics")).toContainText("未评分");
+  await expect(page.locator(".review-metrics")).toContainText("未评估");
+  await page.getByLabel("人工答案正确性").selectOption("true");
+  await page.getByLabel("人工引用支持", { exact: true }).selectOption("true");
+  await page
+    .getByLabel("评分依据")
+    .fill(
+      "自动 E2E 模拟交互，仅验证评分存储，不计真实人工评审。证据说明保留上一份可用索引。",
+    );
+  await page.getByLabel("评分规则版本").fill("e2e-human-v1");
+  const savedScore = page.waitForResponse(
+    (response) =>
+      response.url().endsWith("/scores") &&
+      response.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "保存人工评分", exact: true }).click();
+  const firstScore = await (await savedScore).json();
+  expect(firstScore.source).toBe("human");
+  expect(firstScore.scoredBy).toBeTruthy();
+  expect(firstScore.scoredAt).toBeTruthy();
+  await expect(page.locator(".score-form")).toContainText("人工评分已保存");
+  await expect(page.locator(".score-history")).toContainText("e2e-human-v1");
+  await expect(page.locator(".review-metrics")).toContainText("未评分");
+  await page.getByLabel("人工答案正确性").selectOption("false");
+  await page.getByLabel("人工引用支持", { exact: true }).selectOption("false");
+  await page.getByLabel("答案与证据矛盾", { exact: true }).check();
+  await page
+    .getByLabel("评分依据")
+    .fill(
+      "自动 E2E 模拟交互：第二条评分验证审计追加，不计真实人工评审或模型效果结论。",
+    );
+  await page.getByLabel("评分规则版本").fill("e2e-human-v2");
+  await page.getByRole("button", { name: "保存人工评分", exact: true }).click();
+  await expect(page.locator(".score-history article")).toHaveCount(2);
+  await expect(page.locator(".score-history")).toContainText("答案与证据矛盾");
+  await page.locator('.score-form').evaluate(node=>node.scrollIntoView({block:'start'}));
   await page.screenshot({
-    path: "../docs/screenshots/06-evaluation-detail.png",
-    fullPage: true,
+    path: "test-results/screenshots/06-evaluation-detail.png",
+    fullPage: false,
   });
+  await page.locator('.score-history').evaluate(node=>node.scrollIntoView({block:'start'}));
+  await page.screenshot({path:'test-results/screenshots/07-score-audit.png'});
   await page.getByRole("button", { name: "关闭问题详情" }).click();
+  await page.locator(".run-row").filter({ hasText: evaluationName }).click();
+  await expect(page.locator(".question-results")).toContainText("人工：错误");
+  await page.getByLabel("错误与评分筛选").selectOption("contradiction");
+  await expect(page.locator(".question-results tbody tr")).toHaveCount(1);
+  await page.getByLabel("题型筛选").selectOption("unanswerable");
+  await expect(
+    page.getByText("没有符合筛选条件的问题。可调整筛选后重试。"),
+  ).toBeVisible();
+  await page.getByLabel("题型筛选").selectOption("");
+  await page.getByLabel("错误与评分筛选").selectOption("");
 
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出 JSON" }).click();
@@ -166,6 +254,19 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   expect(exported.config.dataset.version).toBe(dataset.version);
   expect(exported.summary.vector.count).toBe(2);
   expect(exported.summary.hybrid.count).toBe(2);
+  expect(exported.manualScores).toHaveLength(2);
+  expect(
+    exported.results.every(
+      (result: { answerCorrect: unknown }) => result.answerCorrect === null,
+    ),
+  ).toBe(true);
+  const scored = exported.results.find(
+    (result: { manualScore: unknown }) => !!result.manualScore,
+  );
+  expect(scored.manualScore.answerCorrect).toBe(false);
+  expect(scored.manualScore.citationSupported).toBe(false);
+  expect(scored.manualScore.errorCategories).toEqual(["contradiction"]);
+  expect(exported.breakdowns.category.lifecycle.vector.count).toBe(1);
   expect(errors).toEqual([]);
 
   // Only delete this test's own uniquely named knowledge base.

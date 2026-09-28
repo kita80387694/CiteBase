@@ -1,0 +1,3855 @@
+{
+  "version": "citebase-phase2-v1",
+  "seed": 20260928,
+  "split": "all",
+  "questions": [
+    {
+      "id": "harbor-001",
+      "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+      "answerable": true,
+      "expectedAnswer": "2–6 摄氏度",
+      "category": "事实",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "quote": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-002",
+      "question": "Harbor 主探头的采样间隔是多少？",
+      "answerable": true,
+      "expectedAnswer": "40 秒",
+      "category": "事实",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "quote": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-003",
+      "question": "Harbor 的签收单保存多长时间？",
+      "answerable": true,
+      "expectedAnswer": "400 天",
+      "category": "事实",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Harbor archive card: signed receipts are retained for 400 days independently\nof photograph retention.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-004",
+      "question": "到货记录重发了一次，Harbor 应再开一张收货凭据吗？",
+      "answerable": true,
+      "expectedAnswer": "不生成第二单，返回原签收单",
+      "category": "同义",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 696,
+          "endOffset": 747,
+          "quote": "Harbor 同一箱号同一到站批次只能有一张有效签收单。重传同一交接序号应返回原签收单，不生成第二单。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-005",
+      "question": "Harbor 收货凭据录错后能直接抹掉旧温度记录吗？",
+      "answerable": true,
+      "expectedAnswer": "禁止覆盖原始探头读数",
+      "category": "同义",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 956,
+          "endOffset": 1002,
+          "quote": "Harbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-006",
+      "question": "Harbor 主温度计又稳定了，要连续取得几次有效读数才能取消数据质量红灯？",
+      "answerable": true,
+      "expectedAnswer": "5 次",
+      "category": "同义",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 102,
+          "quote": "Harbor recovery card: DQ-RED is cleared only after 5 consecutive valid samples\nfrom the primary probe.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-007",
+      "question": "Harbor 到站签收倒计时依据 ETA 还是 ATA？这两个缩写分别是什么？",
+      "answerable": true,
+      "expectedAnswer": "ATA，实际到站；ETA，预计到站",
+      "category": "缩写",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 115,
+          "endOffset": 178,
+          "quote": "Harbor 将 ETA 定义为预计到站时刻，ATA 定义为实际到站时刻。窗口从 ATA 开始计时，ETA 只用于安排卸货位。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-008",
+      "question": "Harbor 收到 POD 就表示质量已经放行了吗，POD 是什么？",
+      "answerable": true,
+      "expectedAnswer": "不是；proof of delivery",
+      "category": "缩写",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "quote": "Harbor terminology: POD means proof of delivery. A POD alone is not a quality\nrelease decision.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-009",
+      "question": "旧站允许 25 分钟，Harbor HBR-24 到站后也能等 25 分钟再签收吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，正式站窗口18分钟",
+      "category": "近事实干扰",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "quote": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 18,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 153,
+          "quote": "Harbor scope card: the normal receipt window is 18 minutes after actual\narrival. The procedure defines custody evidence, not insurance or medical\npolicy.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-010",
+      "question": "Harbor 岛屿线路有32分钟卸货预约，是否把签收窗口延长到32分钟？",
+      "answerable": true,
+      "expectedAnswer": "不延长；预约不是签收窗口，窗口18分钟",
+      "category": "近事实干扰",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "quote": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "quote": "Harbor special route: the island route has a 32-minute unloading reservation.\nThis reservation is not a receipt window.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-011",
+      "question": "Harbor 备用探头连续丢3点但主探头正常，能按主探头丢点规则直接判定吗？",
+      "answerable": true,
+      "expectedAnswer": "不能混用；以主探头连续点数判定",
+      "category": "近事实干扰",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "quote": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "quote": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-012",
+      "question": "Harbor 封条破损但温度正常、校准未过期，能自动签收吗？谁决定放行？",
+      "answerable": true,
+      "expectedAnswer": "不能自动签收；质量岗决定",
+      "category": "跨段落",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 244,
+          "endOffset": 295,
+          "quote": "Harbor 只对密封完好且探头校准在有效期内的箱子执行自动签收；密封损坏不允许使用补拍照片绕过复核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 801,
+          "endOffset": 846,
+          "quote": "Harbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-013",
+      "question": "Harbor 超带告警解除后，数据质量红灯是否自动解除？红灯由什么触发？",
+      "answerable": true,
+      "expectedAnswer": "不自动解除；连续缺失3个采样点",
+      "category": "跨段落",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "quote": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 899,
+          "endOffset": 954,
+          "quote": "Harbor 在 2027 年虚构演练中把主探头丢点和温度超带作为两条独立告警；一个告警解除并不解除另一告警。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-014",
+      "question": "Harbor 断网时录好的草稿可以立即计作已签收吗？补传是否允许重复建单？",
+      "answerable": true,
+      "expectedAnswer": "不可以；不允许，同一序号返回原单",
+      "category": "跨段落",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 696,
+          "endOffset": 747,
+          "quote": "Harbor 同一箱号同一到站批次只能有一张有效签收单。重传同一交接序号应返回原签收单，不生成第二单。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 749,
+          "endOffset": 799,
+          "quote": "Harbor 发生网络中断时可以采集本地草稿，但草稿不得显示为已签收；联网后补传仍需核验主探头序列。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-015",
+      "question": "Harbor 超带300秒的箱子应怎样处理，放在哪里？",
+      "answerable": true,
+      "expectedAnswer": "隔离复核；Q-库位，不与正常箱同架",
+      "category": "跨段落",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 355,
+          "endOffset": 475,
+          "quote": "Harbor 风险等级表\n| 等级 | 温度超带持续时间 | 动作 |\n| H1 | 不超过 80 秒 | 记录偏差 |\n| H2 | 超过 80 秒且不超过 240 秒 | 暂停签收 |\n| H3 | 超过 240 秒 | 隔离并复核 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 848,
+          "endOffset": 897,
+          "quote": "Harbor 被隔离的箱子不得与正常箱同架存放，库位编码前缀为 Q-；待签收箱的库位前缀为 W-。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-016",
+      "question": "Harbor 封条破损后谁有放行权，还需补充什么材料？",
+      "answerable": true,
+      "expectedAnswer": "质量岗；隔离照片和质量岗签名",
+      "category": "跨文档",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 801,
+          "endOffset": 846,
+          "quote": "Harbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "quote": "Harbor exception card: a seal breach requires a quarantine photograph and a\nquality officer signature before release.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-017",
+      "question": "Harbor 网络故障7小时后还可以补签原本地草稿吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；草稿不等于签收，6小时后需重采",
+      "category": "跨文档",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 749,
+          "endOffset": 799,
+          "quote": "Harbor 发生网络中断时可以采集本地草稿，但草稿不得显示为已签收；联网后补传仍需核验主探头序列。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 121,
+          "quote": "Harbor outage card: local drafts expire after 6 hours. Expired drafts must be\nrecaptured; they are never silently signed.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-018",
+      "question": "Harbor 解除DQ-RED需要多少有效样本，按主探头周期至少覆盖多长的首末样本跨度？",
+      "answerable": true,
+      "expectedAnswer": "5个；4个间隔共160秒",
+      "category": "跨文档",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "quote": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 102,
+          "quote": "Harbor recovery card: DQ-RED is cleared only after 5 consecutive valid samples\nfrom the primary probe.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-019",
+      "question": "Harbor 修订单必须关联哪个原始编号，电子审计另外要求何种时间格式？",
+      "answerable": true,
+      "expectedAnswer": "原签收单号；UTC时间",
+      "category": "跨文档",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 956,
+          "endOffset": 1002,
+          "quote": "Harbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-cards.pdf",
+          "sourceHash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 102,
+          "quote": "Harbor audit card: each correction event records actor, UTC time, reason, and\nthe previous receipt ID.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-020",
+      "question": "Harbor 超带正好240秒应按哪个等级采取什么动作？",
+      "answerable": true,
+      "expectedAnswer": "H2，暂停签收",
+      "category": "表格",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 355,
+          "endOffset": 475,
+          "quote": "Harbor 风险等级表\n| 等级 | 温度超带持续时间 | 动作 |\n| H1 | 不超过 80 秒 | 记录偏差 |\n| H2 | 超过 80 秒且不超过 240 秒 | 暂停签收 |\n| H3 | 超过 240 秒 | 隔离并复核 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-021",
+      "question": "Harbor 主探头与备用探头的校准有效期相差几天？",
+      "answerable": true,
+      "expectedAnswer": "15天",
+      "category": "表格",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 477,
+          "endOffset": 551,
+          "quote": "Harbor 校准证明表\n| 探头 | 有效期 | 签发方 |\n| 主探头 | 45 天 | 计量岗 |\n| 备用探头 | 30 天 | 计量岗 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-022",
+      "question": "Harbor 人工复核照片比正常签收照片多保留多少天？",
+      "answerable": true,
+      "expectedAnswer": "99天",
+      "category": "表格",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 553,
+          "endOffset": 631,
+          "quote": "Harbor 交接照片保留表\n| 场景 | 保存时长 |\n| 正常签收 | 21 天 |\n| 人工复核 | 120 天 |\n| 无效重复照片 | 3 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-023",
+      "question": "Harbor 应采购哪个品牌的冷链探头？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "harbor-024",
+      "question": "Harbor 超温药品药效具体下降百分之几？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "harbor-025",
+      "question": "Harbor 承运人每次延迟应赔偿多少元？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "harbor-026",
+      "question": "Harbor 值班质量官的个人手机号码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "quartz-001",
+      "question": "Quartz 团体预约最早提前多少天开放？",
+      "answerable": true,
+      "expectedAnswer": "14天",
+      "category": "事实",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "quote": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-002",
+      "question": "Quartz 夜场团队从哪个门进入？",
+      "answerable": true,
+      "expectedAnswer": "南门",
+      "category": "事实",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-003",
+      "question": "Quartz 候补团接到名额后有多久确认？",
+      "answerable": true,
+      "expectedAnswer": "45分钟",
+      "category": "事实",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 113,
+          "quote": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-004",
+      "question": "Quartz 门票扫码重复扫了，是否会再扣一个入场名额？",
+      "answerable": true,
+      "expectedAnswer": "不会，显示首次入场时间",
+      "category": "同义",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 104,
+          "quote": "Quartz rescan card: a duplicate scan shows the first entry timestamp and does\nnot consume another place.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-005",
+      "question": "Quartz 名单里把名字拼错了，订正拼写是否等于换了一个参观者？",
+      "answerable": true,
+      "expectedAnswer": "不是，仍为同一成员",
+      "category": "同义",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-006",
+      "question": "Quartz 借出的耳机弄丢了，应向哪处工作人员登记？",
+      "answerable": true,
+      "expectedAnswer": "出口柜台",
+      "category": "同义",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Quartz equipment card: a lost receiver is reported to the exit counter. The\noperations guide does not specify compensation.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-007",
+      "question": "Quartz 的 ACK 和 RSVP 都能证明订位成功吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；ACK仅传递确认，RSVP才是预约确认",
+      "category": "缩写",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 96,
+          "quote": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-008",
+      "question": "Quartz GSL 是什么状态，何时开始？",
+      "answerable": true,
+      "expectedAnswer": "团体名单锁定，场次前3小时",
+      "category": "缩写",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-009",
+      "question": "Quartz 常设展馆可以沿用去年临展30人的团体规模吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，最多24人",
+      "category": "近事实干扰",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "quote": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-010",
+      "question": "Quartz 收到48小时前提醒，是否意味着取消期限自动延长48小时？",
+      "answerable": true,
+      "expectedAnswer": "不延长",
+      "category": "近事实干扰",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-011",
+      "question": "Quartz 场次码能正常读取，但场次已关闭，候补团还能进去吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，码不证明资格且关闭场次不入场",
+      "category": "近事实干扰",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "quote": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 111,
+          "quote": "Quartz closure card: a fully closed session never admits a waitlisted group,\neven if its scan code is readable.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-012",
+      "question": "Quartz 已有24名访客还要加一名入馆讲解员，能复制同一名单绕过限制吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，讲解员计入24人上限且禁止复制名单绕过",
+      "category": "跨段落",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "quote": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-013",
+      "question": "Quartz 儿童团的成年联系人缺席，能把随团讲解员默认当监护人直接入馆吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，先指定联系人，讲解员非默认监护人",
+      "category": "跨段落",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "quote": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "quote": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-014",
+      "question": "Quartz 夜场无障碍团队应从何门沿什么路线进入？",
+      "answerable": true,
+      "expectedAnswer": "南门，经一层坡道",
+      "category": "跨段落",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "quote": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-015",
+      "question": "Quartz 团体迟到准备改下一场，只凭原场次二维码能直接进入吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；需余量和预约岗迁移，二维码不证明资格",
+      "category": "跨段落",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "quote": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "quote": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-016",
+      "question": "Quartz 团体改场后旧扫码能继续使用吗，还需取得什么？",
+      "answerable": true,
+      "expectedAnswer": "旧码失效，需要新RSVP",
+      "category": "跨文档",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 120,
+          "quote": "Quartz transfer card: moving a confirmed group to another session requires a\nnew RSVP and invalidates the old scan code.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-017",
+      "question": "Quartz 南门坡道关闭时，无障碍团队能照常直接走原定路线吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，入场前由服务台处理",
+      "category": "跨文档",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "quote": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 122,
+          "quote": "Quartz weather card: if the southern ramp is closed, an accessibility request\nis handled by the service desk before entry.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-018",
+      "question": "Quartz 预订下午14:10场，名单何时锁定，锁定后增加成员怎么办？",
+      "answerable": true,
+      "expectedAnswer": "11:10，预约岗审核",
+      "category": "跨文档",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "quote": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "quartz-019",
+      "question": "Quartz 名单锁定后志愿讲解员能批准加人吗，应由谁处理？",
+      "answerable": true,
+      "expectedAnswer": "不能，由预约岗审核",
+      "category": "跨文档",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "quote": "Quartz guide card: voluntary tour guides may explain exhibits but cannot\napprove roster overrides.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-020",
+      "question": "Quartz 上午团体数上限比夜场多多少？",
+      "answerable": true,
+      "expectedAnswer": "5个团体",
+      "category": "表格",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "quote": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-021",
+      "question": "Quartz 参观前正好24小时取消，名额何时返还？",
+      "answerable": true,
+      "expectedAnswer": "立即返还",
+      "category": "表格",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "quote": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-022",
+      "question": "Quartz 一个团同时借两块无障碍平板和一台发射器是否超限，分别在哪归还？",
+      "answerable": true,
+      "expectedAnswer": "未超限；平板服务台，发射器出口柜台",
+      "category": "表格",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 488,
+          "endOffset": 582,
+          "quote": "Quartz 设备借用表\n| 设备 | 单团上限 | 归还处 |\n| 接收耳机 | 24 | 出口柜台 |\n| 无障碍平板 | 2 | 服务台 |\n| 讲解发射器 | 1 | 出口柜台 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-023",
+      "question": "Quartz 本周六成人门票价格是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "quartz-024",
+      "question": "Quartz 耳机遗失需要赔偿多少元？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "quartz-025",
+      "question": "Quartz 南门停车场每小时收费多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "quartz-026",
+      "question": "Quartz 门口公交车今晚最后一班几点开？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "moss-001",
+      "question": "Moss 封装后要静置多久才能完成密封检查？",
+      "answerable": true,
+      "expectedAnswer": "48小时",
+      "category": "事实",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 204,
+          "endOffset": 242,
+          "quote": "Moss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-002",
+      "question": "Moss 长期低温库的设定温度是多少？",
+      "answerable": true,
+      "expectedAnswer": "负18摄氏度",
+      "category": "事实",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 49,
+          "endOffset": 96,
+          "quote": "Moss 常温预处理柜维持 18 摄氏度，长期低温库维持负18摄氏度；预处理柜不是长期保存库。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-003",
+      "question": "Moss 对外交换往来信件保留几年？",
+      "answerable": true,
+      "expectedAnswer": "8年",
+      "category": "事实",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 67,
+          "quote": "Moss archive card: exchange correspondence is retained for 8 years.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-004",
+      "question": "Moss 一包种子更改了物种学名，是不是应该重新分配批次号？",
+      "answerable": true,
+      "expectedAnswer": "不应，保留原LOT并加分类修订注记",
+      "category": "同义",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 103,
+          "quote": "Moss traceability card: a renamed species retains its original LOT and gains a\ntaxonomic revision note.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-005",
+      "question": "Moss 种子太湿不能封装时，是直接扔掉还是重新调理？",
+      "answerable": true,
+      "expectedAnswer": "返回预处理调理，不自动丢弃",
+      "category": "同义",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "quote": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-006",
+      "question": "Moss 收件人九天没确认签收，会自动再寄一份吗？",
+      "answerable": true,
+      "expectedAnswer": "不会，启动跟进",
+      "category": "同义",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 145,
+          "quote": "Moss exchange card: external recipients acknowledge receipt within 9 days;\nmissing acknowledgement starts a follow-up, not automatic replacement.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-007",
+      "question": "Moss 的 MC 指什么，封装前上限是多少？",
+      "answerable": true,
+      "expectedAnswer": "含水率，7%",
+      "category": "缩写",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "quote": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-008",
+      "question": "Moss 例外复核中的 DRI 是谁，与 GR 指标有什么区别？",
+      "answerable": true,
+      "expectedAnswer": "DRI为直接责任人，GR为发芽率",
+      "category": "缩写",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 154,
+          "endOffset": 202,
+          "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 109,
+          "quote": "Moss terminology: DRI means the directly responsible individual for a review,\nnot the equipment manufacturer.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-009",
+      "question": "Moss 批次发芽率80%，高于旧实验75%标准，能按常规直接入库吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，常规门槛82%，需评议",
+      "category": "近事实干扰",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 154,
+          "endOffset": 202,
+          "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 507,
+          "endOffset": 553,
+          "quote": "Moss 早期实验批次曾采用75%的GR门槛；这仅用于历史研究，不替代常规82%的入库标准。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-010",
+      "question": "Moss 备用冻库负16度能无限期替代长期库负18度吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，转移最长72小时",
+      "category": "近事实干扰",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 49,
+          "endOffset": 96,
+          "quote": "Moss 常温预处理柜维持 18 摄氏度，长期低温库维持负18摄氏度；预处理柜不是长期保存库。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Moss emergency card: the backup freezer operates at minus 16 degrees Celsius\nand is for transfers lasting at most 72 hours.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-011",
+      "question": "Moss 温度日志完整，年度盘点能不检查袋数吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，仍需袋数封口标签检查",
+      "category": "近事实干扰",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 830,
+          "endOffset": 873,
+          "quote": "Moss 年度盘点需核对袋数、封口状态和标签关联；温度日志齐全不代表袋数盘点可以省略。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-012",
+      "question": "Moss 同品种两个不同采集地可通过重打标签合并LOT吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，采集地不同不得合并",
+      "category": "跨段落",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "quote": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 647,
+          "endOffset": 692,
+          "quote": "Moss 标签打印错误时生成新标签并记录旧标签号；不能把不同采集地批次重新贴成同一LOT。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-013",
+      "question": "Moss 发芽复测袋用完后，能把永久袋当测试袋拆开吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，须补样申请",
+      "category": "跨段落",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-014",
+      "question": "Moss 一个LOT共有6袋永久样，申请出3袋即使双岗批准仍符合最低库存吗？",
+      "answerable": true,
+      "expectedAnswer": "不符合，剩3袋低于4袋底线",
+      "category": "跨段落",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "moss-015",
+      "question": "Moss 对外交换的保温箱外和提供给收件人的资料是否应列精确采集坐标？",
+      "answerable": true,
+      "expectedAnswer": "不应，坐标在受控数据库，默认不公开",
+      "category": "跨段落",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "quote": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "quote": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-016",
+      "question": "Moss 设备故障转库时，设施岗可以自行确定并执行最终LOT转移清单吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，保藏岗决定并批准清单",
+      "category": "跨文档",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 694,
+          "endOffset": 740,
+          "quote": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-017",
+      "question": "Moss 超标含水率样品需要采取什么处理，重新封装前须达到什么数值？",
+      "answerable": true,
+      "expectedAnswer": "返回调理，MC不高于7%",
+      "category": "跨文档",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "quote": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "quote": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-018",
+      "question": "Moss 一次标准发芽复测需要几粒种子，应优先取哪类袋？",
+      "answerable": true,
+      "expectedAnswer": "200粒；发芽复测袋",
+      "category": "跨文档",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 90,
+          "quote": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-019",
+      "question": "Moss 低于GR门槛的批次走例外评议还要准备哪两项信息？",
+      "answerable": true,
+      "expectedAnswer": "保藏理由和具名复核负责人",
+      "category": "跨文档",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 154,
+          "endOffset": 202,
+          "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-020",
+      "question": "Moss 野花混合样和禾本科的复测周期相差几个月？",
+      "answerable": true,
+      "expectedAnswer": "12个月",
+      "category": "表格",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "quote": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-021",
+      "question": "Moss 每个LOT标准配置一共有多少袋，交换袋占几袋？",
+      "answerable": true,
+      "expectedAnswer": "9袋，其中交换1袋",
+      "category": "表格",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-022",
+      "question": "Moss 常规一次出2袋需要哪些岗位审核？",
+      "answerable": true,
+      "expectedAnswer": "保藏岗与科研岗",
+      "category": "表格",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-023",
+      "question": "Moss 这个LOT在市场上一公斤售价多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "moss-024",
+      "question": "Moss 种子库的野花种子可以直接食用吗？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "moss-025",
+      "question": "Moss 采集员采样点的精确经纬度是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "moss-026",
+      "question": "Moss 豆科样品明年亩产预计多少公斤？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "lumen-001",
+      "question": "Lumen 中文字幕单行字数上限是多少，标点算不算？",
+      "answerable": true,
+      "expectedAnswer": "16个汉字，标点计入",
+      "category": "事实",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-002",
+      "question": "Lumen 单条字幕最长显示多久？",
+      "answerable": true,
+      "expectedAnswer": "6秒",
+      "category": "事实",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "quote": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-003",
+      "question": "Lumen 正式复核报告保存几年？",
+      "answerable": true,
+      "expectedAnswer": "5年",
+      "category": "事实",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "quote": "Lumen archival card: formal review reports are retained for 5 years.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-004",
+      "question": "Lumen 没改内容只是重发交付包，还需要换包号或校验值吗？",
+      "answerable": true,
+      "expectedAnswer": "不需要，沿用相同包号和哈希",
+      "category": "同义",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-005",
+      "question": "Lumen 遇到不能解码的文本，能用替代字符凑合导入吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，拒绝畸形UTF-8",
+      "category": "同义",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 106,
+          "quote": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-006",
+      "question": "Lumen 看不见声源但会影响理解的报警声，听障字幕是否需要表现？",
+      "answerable": true,
+      "expectedAnswer": "需要，标记必要画外报警",
+      "category": "同义",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-007",
+      "question": "Lumen CPS 指什么，中文上限是多少？",
+      "answerable": true,
+      "expectedAnswer": "每秒显示字符数，每秒12个汉字",
+      "category": "缩写",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-008",
+      "question": "Lumen SDH 和 QC 各自指什么？",
+      "answerable": true,
+      "expectedAnswer": "聋人和听障者字幕；质量控制包括时间轴",
+      "category": "缩写",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "quote": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "quote": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-009",
+      "question": "Lumen 中文正式版能沿用英文试映版每行42字符规则吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，中文每行16字",
+      "category": "近事实干扰",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "quote": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-010",
+      "question": "Lumen 紧急修订承诺4小时，能省掉时间轴复核吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，两道复核均需通过",
+      "category": "近事实干扰",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 107,
+          "quote": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-011",
+      "question": "Lumen 字幕恰好在切镜时结束，也必须因为跨镜头而拒绝吗？",
+      "answerable": true,
+      "expectedAnswer": "不必；恰好结束可接受，延伸超过切镜才需复核",
+      "category": "近事实干扰",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "quote": "Lumen timing card: a cue ending exactly on a cut is acceptable; extending\nbeyond a cut requires explicit timing review.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-012",
+      "question": "Lumen 画面尚未锁定但语言与时间轴均通过，能作为正式版交付吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，只能预览",
+      "category": "跨段落",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "quote": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-013",
+      "question": "Lumen 一条24汉字字幕显示1.2秒是否满足速度要求？",
+      "answerable": true,
+      "expectedAnswer": "不满足，20字/秒超过12字/秒",
+      "category": "跨段落",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "quote": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-014",
+      "question": "Lumen 旧包改正人名后，能直接删原审核意见来保持报告干净吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；沿术语表并保留修订和原意见",
+      "category": "跨段落",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 706,
+          "endOffset": 745,
+          "quote": "Lumen 所有出现的人名沿用项目术语表的批准写法；新姓名须先提出术语变更单。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "quote": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-015",
+      "question": "Lumen 两行各16字的字幕显示2秒，行长合规就可以发布吗？",
+      "answerable": true,
+      "expectedAnswer": "不行，16字/秒超过速度上限",
+      "category": "跨段落",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-016",
+      "question": "Lumen 剪辑没变但字幕内容改了，交付包身份和画面关联如何处理？",
+      "answerable": true,
+      "expectedAnswer": "新包号，继续关联原画面版本",
+      "category": "跨文档",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Lumen correction card: a changed subtitle file receives a new package ID even\nwhen the picture version is unchanged.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-017",
+      "question": "Lumen 按项目帧率计算，字幕延后3帧等于多少毫秒？",
+      "answerable": true,
+      "expectedAnswer": "120毫秒",
+      "category": "跨文档",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 229,
+          "endOffset": 277,
+          "quote": "Lumen 时间码以25帧每秒的项目帧率检查，项目帧率改变时必须重新换算，不允许只替换头部字段。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 74,
+          "quote": "Lumen frame card: one frame at 25 frames per second lasts 40 milliseconds.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-018",
+      "question": "Lumen 新人名提出术语变更后，谁签署后才能导出？",
+      "answerable": true,
+      "expectedAnswer": "语言负责人签署",
+      "category": "跨文档",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 706,
+          "endOffset": 745,
+          "quote": "Lumen 所有出现的人名沿用项目术语表的批准写法；新姓名须先提出术语变更单。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "quote": "Lumen glossary card: approved terminology changes require a language lead\nsignature before export.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-019",
+      "question": "Lumen 修订字幕后清理下游缓存只看文件名够吗，应保留什么身份关联？",
+      "answerable": true,
+      "expectedAnswer": "不够，用包号；保存哈希、画面版本及报告关联",
+      "category": "跨文档",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 877,
+          "endOffset": 922,
+          "quote": "Lumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 14,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 106,
+          "quote": "Lumen cache card: downstream invalidation uses the package ID; filename alone\nis not a reliable cache key.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-020",
+      "question": "Lumen 网页播放器和档案库分别接收哪种字幕格式？",
+      "answerable": true,
+      "expectedAnswer": "WebVTT和SRT",
+      "category": "表格",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 279,
+          "endOffset": 383,
+          "quote": "Lumen 交付格式表\n| 渠道 | 格式 | 字符编码 |\n| 网页播放器 | WebVTT | UTF-8 |\n| 档案库 | SRT | UTF-8 |\n| 放映服务器 | TTML | UTF-8 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-021",
+      "question": "Lumen 专名不一致和多余空格是否都阻断交付？",
+      "answerable": true,
+      "expectedAnswer": "专名不一致阻断，空格不阻断",
+      "category": "表格",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 385,
+          "endOffset": 471,
+          "quote": "Lumen 复核等级表\n| 等级 | 问题 | 阻断交付 |\n| L1 | 多余空格 | 否 |\n| L2 | 专名不一致 | 是 |\n| L3 | 时间轴错位 | 是 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-022",
+      "question": "Lumen 简体中文听障字幕应使用哪种后缀？",
+      "answerable": true,
+      "expectedAnswer": "zh-Hans-SDH",
+      "category": "表格",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "quote": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-023",
+      "question": "Lumen 这部影片的发行分成比例是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "lumen-024",
+      "question": "Lumen 未提供的第三幕第一句对白应该怎么翻译？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "lumen-025",
+      "question": "Lumen 配音演员的私人邮箱是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "lumen-026",
+      "question": "Lumen 获得该影片全球播映权需要多少钱？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "tide-001",
+      "question": "Tide 常规样在装瓶后保持多少摄氏度？",
+      "answerable": true,
+      "expectedAnswer": "4摄氏度",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "quote": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-002",
+      "question": "Tide 现场电导率仪多久校验一次？",
+      "answerable": true,
+      "expectedAnswer": "每个采样日一次",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-003",
+      "question": "Tide 监管链例外决定保留多少年？",
+      "answerable": true,
+      "expectedAnswer": "7年",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 14,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 70,
+          "quote": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-004",
+      "question": "Tide 快递换了一条行车路线，能不能把采样计时重新开始？",
+      "answerable": true,
+      "expectedAnswer": "不能，采集时间戳不重置",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-005",
+      "question": "Tide 拒收的样本能在报告里填成污染物含量为零吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，应注明拒收与原因",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 109,
+          "quote": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-006",
+      "question": "Tide 河岸太危险没采成，能把上次读数当作本次结果吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，停止该站采样",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-007",
+      "question": "Tide COC 表示什么，只有运输签收单够不够？",
+      "answerable": true,
+      "expectedAnswer": "样品监管链，不够",
+      "category": "缩写",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-008",
+      "question": "Tide DUP 和 FB 都是空白水样吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；DUP为现场重复样，FB为现场空白样",
+      "category": "缩写",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "quote": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-009",
+      "question": "Tide 未启用暴雨任务，常规水样是否必须按6小时时限送达？",
+      "answerable": true,
+      "expectedAnswer": "常规时限8小时",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "quote": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "quote": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-010",
+      "question": "Tide 箱温合格但移交签字缺失，能认为监管链正常吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，触发监管链例外",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "quote": "Tide chain card: a missing handover signature starts a chain exception even\nwhen the water temperature is acceptable.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-011",
+      "question": "Tide 容器外壁脏污是否足以判定水样化学超标？",
+      "answerable": true,
+      "expectedAnswer": "不足以，先清洁记录",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 707,
+          "endOffset": 750,
+          "quote": "Tide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-012",
+      "question": "Tide 车辆到站但事件号与COC不一致，能登记已核验吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，瓶号事件号COC均一致才核验",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "quote": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-013",
+      "question": "Tide 换手套后是否可省掉清洁采样杆并从排口倒回上游采样？",
+      "answerable": true,
+      "expectedAnswer": "不能，杆需清洁且先上游",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "quote": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "quote": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-014",
+      "question": "Tide 每站包括现场空白共准备多少毫升容积，其中现场空白能否替代河水报告环境结果？",
+      "answerable": true,
+      "expectedAnswer": "1500毫升；不能替代河水样",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "quote": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-015",
+      "question": "Tide 周报仅写河段代号，但附照片含GPS水印并把异味写为浓度超标，合规吗？",
+      "answerable": true,
+      "expectedAnswer": "不合规；处理照片坐标，不把感官描述当浓度数值",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "quote": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 843,
+          "endOffset": 882,
+          "quote": "Tide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-016",
+      "question": "Tide 常规样9小时送达是否直接由司机宣布有效？",
+      "answerable": true,
+      "expectedAnswer": "不能，超时标记并由实验室主管评议",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "quote": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Tide delay card: an overdue routine sample is reviewed by the laboratory\nsupervisor; the courier cannot waive the deadline.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-017",
+      "question": "Tide 正式启用暴雨采样前要谁签字，送达时限随之变成多少？",
+      "answerable": true,
+      "expectedAnswer": "现场协调员，6小时",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "quote": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 104,
+          "quote": "Tide storm card: activation of the storm task requires the field coordinator\nsignature before departure.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-018",
+      "question": "Tide 校验首次失败后换新标准再失败，仪器还能出正式数据吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，退出使用",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 145,
+          "quote": "Tide instrument card: failed conductivity calibration is repeated once with\nfresh standard; a second failure removes the instrument from service.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-019",
+      "question": "Tide 现场采样时间如何对齐时区，改变车程会不会改变8小时截止起点？",
+      "answerable": true,
+      "expectedAnswer": "出发前同步UTC，不改变采集完成时间起点",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "quote": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 83,
+          "quote": "Tide audit card: collection clocks are synchronized to UTC before the crew\ndeparts.",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "tide-020",
+      "question": "Tide 采样顺序中排口邻近点前后各是什么点？",
+      "answerable": true,
+      "expectedAnswer": "前上游背景点，后下游混合点",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 371,
+          "endOffset": 435,
+          "quote": "Tide 采样顺序表\n| 河段 | 顺序 |\n| 上游背景点 | 1 |\n| 排口邻近点 | 2 |\n| 下游混合点 | 3 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-021",
+      "question": "Tide 容器破裂与标签模糊但COC可核对的样品，处理相同吗？",
+      "answerable": true,
+      "expectedAnswer": "不同，破裂拒收，模糊双人补标",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "quote": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-022",
+      "question": "Tide 常规分析与复核备用的单瓶容量差多少？",
+      "answerable": true,
+      "expectedAnswer": "250毫升",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "quote": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-023",
+      "question": "Tide 下游今天的铅浓度是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-024",
+      "question": "Tide 这段河水未经处理是否能直接饮用？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-025",
+      "question": "Tide 排口邻近点的精确GPS坐标是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-026",
+      "question": "Tide 第三方实验室一次检测收费多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-001",
+      "question": "Ember 标准釉烧的峰值温度是多少？",
+      "answerable": true,
+      "expectedAnswer": "1180摄氏度",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-002",
+      "question": "Ember 作品与加热元件至少间隔多少毫米？",
+      "answerable": true,
+      "expectedAnswer": "50毫米",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "quote": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-003",
+      "question": "Ember 釉料试片连同批号保存多久？",
+      "answerable": true,
+      "expectedAnswer": "18个月",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "quote": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-004",
+      "question": "Ember 意外断电重新开炉，可以删除之前停电时刻让曲线看起来连续吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，保留中断记录",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "quote": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-005",
+      "question": "Ember 釉料流下来粘住垫板，垫板清理后能不检查就再用吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，受影响窑板须检查",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "quote": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-006",
+      "question": "Ember 磨坯产生粉尘，可以吹到公共房间里散掉吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，工位收集",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-007",
+      "question": "Ember RAMP和HOLD分别是什么，标准釉烧取什么值？",
+      "answerable": true,
+      "expectedAnswer": "升温斜率前段100摄氏度每小时；保温25分钟",
+      "category": "缩写",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "quote": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "quote": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-008",
+      "question": "Ember TC读数能作为食用器具安全认证吗，TC指什么？",
+      "answerable": true,
+      "expectedAnswer": "不能；热电偶",
+      "category": "缩写",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 112,
+          "quote": "Ember terminology: TC means thermocouple; a TC reading is temperature\nevidence, not a food-safety certification.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-009",
+      "question": "Ember 工作室标准素烧可以照教学小窑850度模板记录吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，标准900度",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 561,
+          "endOffset": 611,
+          "quote": "Ember 小型教学演示窑允许850摄氏度素烧，但工作室标准素烧仍为900摄氏度，不能混用记录模板。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-010",
+      "question": "Ember 温度刚好降到80摄氏度，符合开窑条件吗？",
+      "answerable": true,
+      "expectedAnswer": "不符合，必须低于80度",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-011",
+      "question": "Ember 为了自然冷却更快，打开窑门是否等同改善环境通风？",
+      "answerable": true,
+      "expectedAnswer": "不是，不强行开门加速",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "quote": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-012",
+      "question": "Ember 表面干燥但没有干燥检查记录的作品能直接按标准曲线烧吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，先通过干燥检查",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "quote": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-013",
+      "question": "Ember 学生遇到停电能自己恢复控制器并接着原记录烧吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，窑务负责人批准并另建复烧事件",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "quote": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-014",
+      "question": "Ember 同一天给不同釉料作品拍了色卡，是否能不用釉浆编号并合并批次？",
+      "answerable": true,
+      "expectedAnswer": "不能，不同体系分批且需釉浆编号",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Ember 陶瓷工作室每次烧制分配一个 KILN 批次号；不同釉料体系不得仅因同日入窑而合并批次记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "quote": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-015",
+      "question": "Ember 贯穿裂纹作品能完整交付吗；能用釉浆标签当食品安全认证来放行吗？",
+      "answerable": true,
+      "expectedAnswer": "不能完整交付，釉浆标签也不代表食品接触认证",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "quote": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-016",
+      "question": "Ember 前段从100度升到600度按标准斜率需要多久，不计保温？",
+      "answerable": true,
+      "expectedAnswer": "5小时",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "quote": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-017",
+      "question": "Ember 热电偶故障时有人说温度低于80度，开窑前还要什么确认？",
+      "answerable": true,
+      "expectedAnswer": "独立校准探头确认温度",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 121,
+          "quote": "Ember cooling card: a thermocouple fault blocks unloading until an independent\ncalibrated probe confirms the temperature.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-018",
+      "question": "Ember 卸件包装前应依据哪份图清点，这张图是否属于烧成记录？",
+      "answerable": true,
+      "expectedAnswer": "窑位图，属于烧成记录",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 89,
+          "quote": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-019",
+      "question": "Ember 断电后谁批准复烧，批准前对装载物还要做什么？",
+      "answerable": true,
+      "expectedAnswer": "窑务负责人，先检查装载物",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "quote": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-020",
+      "question": "Ember 标准釉烧后段比前段每小时多升温多少？",
+      "answerable": true,
+      "expectedAnswer": "45摄氏度",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-021",
+      "question": "Ember 流釉粘板和轻微色差分别怎样处置？",
+      "answerable": true,
+      "expectedAnswer": "前者隔离检查窑板，后者记录分级",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-022",
+      "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+      "answerable": true,
+      "expectedAnswer": "卸件护目镜，上釉围裙",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "quote": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-023",
+      "question": "Ember 1180度烧成的杯子一定符合食品接触国标吗？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-024",
+      "question": "Ember 这窑作品每件应该卖多少钱？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-025",
+      "question": "Ember 烧一窑需要缴纳多少元电费？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-026",
+      "question": "Ember 控制器管理员的维修密码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    }
+  ]
+}

@@ -12,16 +12,22 @@ public class RagController {
   private final QuestionService questions;
   private final RetrievalService retrieval;
   private final EvaluationService evaluations;
+  private final EvaluationInput evaluationInput;
+  private final EvaluationScoringService scoring;
 
   public RagController(
       AuthService auth,
       QuestionService questions,
       RetrievalService retrieval,
-      EvaluationService evaluations) {
+      EvaluationService evaluations,
+      EvaluationInput evaluationInput,
+      EvaluationScoringService scoring) {
     this.auth = auth;
     this.questions = questions;
     this.retrieval = retrieval;
     this.evaluations = evaluations;
+    this.evaluationInput = evaluationInput;
+    this.scoring = scoring;
   }
 
   public record Ask(String kbId, String question, String mode, Integer topK) {}
@@ -48,8 +54,25 @@ public class RagController {
   }
 
   @PostMapping("/evaluations")
-  public Object run(@RequestBody EvaluationService.Request body, HttpServletRequest req) {
-    return evaluations.run(auth.require(req), body);
+  public Object run(@RequestBody String body, HttpServletRequest req) {
+    String user = auth.require(req);
+    try {
+      return evaluations.run(user, evaluationInput.request(body));
+    } catch (IllegalArgumentException e) {
+      throw new org.springframework.web.server.ResponseStatusException(
+          HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+  }
+
+  @PostMapping("/evaluations/{id}/scores")
+  public Object score(@PathVariable String id, @RequestBody String body, HttpServletRequest req) {
+    String user = auth.require(req);
+    try {
+      return scoring.score(user, id, evaluationInput.score(body));
+    } catch (IllegalArgumentException e) {
+      throw new org.springframework.web.server.ResponseStatusException(
+          HttpStatus.BAD_REQUEST, e.getMessage());
+    }
   }
 
   @GetMapping("/evaluations")

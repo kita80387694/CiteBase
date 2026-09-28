@@ -16,9 +16,26 @@ public class EvaluationService {
       String question,
       boolean answerable,
       String expectedAnswer,
-      List<EvaluationMetrics.Label> evidence) {}
+      List<EvaluationMetrics.Label> evidence,
+      String category,
+      String split,
+      String group,
+      String topic) {
+    public Case(
+        String id,
+        String question,
+        boolean answerable,
+        String expectedAnswer,
+        List<EvaluationMetrics.Label> evidence) {
+      this(id, question, answerable, expectedAnswer, evidence, null, null, null, null);
+    }
+  }
 
-  public record Dataset(String version, List<Case> questions) {}
+  public record Dataset(String version, List<Case> questions, Integer seed, String split) {
+    public Dataset(String version, List<Case> questions) {
+      this(version, questions, null, null);
+    }
+  }
 
   public record Request(String kbId, String name, Dataset dataset, Integer topK) {}
 
@@ -27,6 +44,8 @@ public class EvaluationService {
   private final AccessService access;
   private final ObjectMapper mapper;
   private final ModelGateway model;
+  private final EvaluationLabels labels;
+  private final EvaluationScoringService scoring;
   private final org.springframework.transaction.support.TransactionTemplate progressTransaction;
 
   public EvaluationService(
@@ -35,12 +54,16 @@ public class EvaluationService {
       AccessService access,
       ObjectMapper mapper,
       ModelGateway model,
+      EvaluationLabels labels,
+      EvaluationScoringService scoring,
       org.springframework.transaction.PlatformTransactionManager transactionManager) {
     this.db = db;
     this.questions = questions;
     this.access = access;
     this.mapper = mapper;
     this.model = model;
+    this.labels = labels;
+    this.scoring = scoring;
     progressTransaction =
         new org.springframework.transaction.support.TransactionTemplate(transactionManager);
     progressTransaction.setPropagationBehavior(
@@ -65,7 +88,7 @@ public class EvaluationService {
         || request.name() == null
         || request.name().isBlank()
         || request.name().length() > 120) throw new IllegalArgumentException("名称或 topK 无效");
-    Dataset dataset = request.dataset();
+    Dataset dataset = labels.resolve(user, request.kbId(), request.dataset());
     if (dataset == null
         || dataset.version() == null
         || dataset.version().isBlank()
@@ -105,6 +128,16 @@ public class EvaluationService {
             user,
             request.kbId()));
     run.put("config", config);
+    var versionHashes = new HashMap<String, String>();
+    db.query(
+        "SELECT v.id,v.content_hash FROM document_version v JOIN document d ON"
+            + " d.active_version_id=v.id JOIN knowledge_base k ON k.id=d.kb_id WHERE k.id=? AND"
+            + " k.user_id=?",
+        rs -> {
+          versionHashes.put(rs.getString(1), rs.getString(2));
+        },
+        request.kbId(),
+        user);
     run.put("summary", Map.of());
     var results = new ArrayList<Map<String, Object>>();
     run.put("results", results);
@@ -122,8 +155,18 @@ public class EvaluationService {
           var answer = questions.ask(user, request.kbId(), c.question(), mode, k, false);
           Map<String, Object> row =
               mapper.convertValue(answer, new TypeReference<LinkedHashMap<String, Object>>() {});
-          var score = EvaluationMetrics.compute(c.evidence(), answer.evidence());
+          var score = EvaluationMetrics.compute(c.evidence(), answer.evidence(), versionHashes);
           row.put("caseId", c.id());
+          row.put("category", c.category());
+          row.put("split", c.split());
+          row.put("group", c.group());
+          row.put("topic", c.topic());
+          int groupCount = EvaluationMetrics.groups(c.evidence()).size();
+          long groupHits =
+              EvaluationMetrics.hitGroups(c.evidence(), answer.evidence(), versionHashes);
+          row.put("evidenceGroupCount", groupCount);
+          row.put("hitEvidenceGroupCount", groupHits);
+          row.put("allEvidenceHit", groupCount > 0 && groupHits == groupCount);
           row.put("expectedAnswer", c.expectedAnswer());
           row.put("answerable", c.answerable());
           row.put("expectedEvidence", c.evidence());
@@ -170,6 +213,31 @@ public class EvaluationService {
         summary.put(mode, metrics);
       }
       run.put("summary", summary);
+      var breakdowns = new LinkedHashMap<String, Object>();
+      for (String dimension : List.of("category", "split", "group", "topic")) {
+        var dimensionResults = new LinkedHashMap<String, Object>();
+        results.stream()
+            .map(r -> r.get(dimension))
+            .filter(Objects::nonNull)
+            .distinct()
+            .forEach(
+                value -> {
+                  var modes = new LinkedHashMap<String, Object>();
+                  for (String mode : List.of("vector", "hybrid"))
+                    modes.put(
+                        mode,
+                        summarize(
+                            results.stream()
+                                .filter(
+                                    r ->
+                                        value.equals(r.get(dimension))
+                                            && mode.equals(r.get("mode")))
+                                .toList()));
+                  dimensionResults.put(value.toString(), modes);
+                });
+        breakdowns.put(dimension, dimensionResults);
+      }
+      run.put("breakdowns", breakdowns);
       run.put("status", "COMPLETED");
       if (results.stream().anyMatch(r -> r.get("error") != null)) {
         run.put("status", "COMPLETED_WITH_ERRORS");
@@ -190,6 +258,25 @@ public class EvaluationService {
 
   private void persist(String sql, Object... args) {
     progressTransaction.executeWithoutResult(status -> db.update(sql, args));
+  }
+
+  private Map<String, Object> summarize(List<Map<String, Object>> rows) {
+    var result = new LinkedHashMap<String, Object>();
+    result.put("count", rows.size());
+    result.put(
+        "answerableCount",
+        rows.stream().filter(r -> Boolean.TRUE.equals(r.get("answerable"))).count());
+    result.put("errorCount", rows.stream().filter(r -> r.get("error") != null).count());
+    for (String key : List.of("recallAtK", "mrr", "retrievalMs", "totalMs")) {
+      var values =
+          rows.stream()
+              .map(r -> r.get(key))
+              .filter(Objects::nonNull)
+              .mapToDouble(v -> ((Number) v).doubleValue())
+              .average();
+      result.put(key, values.isPresent() ? values.getAsDouble() : null);
+    }
+    return result;
   }
 
   private static String normalize(String s) {
@@ -214,6 +301,6 @@ public class EvaluationService {
     if (rows.isEmpty())
       throw new org.springframework.web.server.ResponseStatusException(
           org.springframework.http.HttpStatus.NOT_FOUND, "评测不存在或无权限");
-    return rows.getFirst();
+    return scoring.overlay(user, id, rows.getFirst());
   }
 }

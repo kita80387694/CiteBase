@@ -1,0 +1,121 @@
+{
+  "documentName": "lumen-handbook.md",
+  "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+  "extractor": "UTF-8 + CRLF normalization",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。\n\nLumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。\n\nLumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。\n\nLumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。\n\nLumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。\n\nLumen 时间码以25帧每秒的项目帧率检查，项目帧率改变时必须重新换算，不允许只替换头部字段。\n\nLumen 交付格式表\n| 渠道 | 格式 | 字符编码 |\n| 网页播放器 | WebVTT | UTF-8 |\n| 档案库 | SRT | UTF-8 |\n| 放映服务器 | TTML | UTF-8 |\n\nLumen 复核等级表\n| 等级 | 问题 | 阻断交付 |\n| L1 | 多余空格 | 否 |\n| L2 | 专名不一致 | 是 |\n| L3 | 时间轴错位 | 是 |\n\nLumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |\n\nLumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。\n\nLumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。\n\nLumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。\n\nLumen 所有出现的人名沿用项目术语表的批准写法；新姓名须先提出术语变更单。\n\nLumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。\n\nLumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。\n\nLumen 片尾署名只使用项目确认的译者名，软件登录用户名不自动作为署名。\n\nLumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。\n\nLumen 不规定影片发行分成、演员合约费用、配音演员个人联系方式或尚未提供的对白翻译。\n",
+      "paragraphs": [
+        {
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。"
+        },
+        {
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。"
+        },
+        {
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。"
+        },
+        {
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。"
+        },
+        {
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。"
+        },
+        {
+          "paragraph": 6,
+          "startOffset": 229,
+          "endOffset": 277,
+          "text": "Lumen 时间码以25帧每秒的项目帧率检查，项目帧率改变时必须重新换算，不允许只替换头部字段。"
+        },
+        {
+          "paragraph": 7,
+          "startOffset": 279,
+          "endOffset": 383,
+          "text": "Lumen 交付格式表\n| 渠道 | 格式 | 字符编码 |\n| 网页播放器 | WebVTT | UTF-8 |\n| 档案库 | SRT | UTF-8 |\n| 放映服务器 | TTML | UTF-8 |"
+        },
+        {
+          "paragraph": 8,
+          "startOffset": 385,
+          "endOffset": 471,
+          "text": "Lumen 复核等级表\n| 等级 | 问题 | 阻断交付 |\n| L1 | 多余空格 | 否 |\n| L2 | 专名不一致 | 是 |\n| L3 | 时间轴错位 | 是 |"
+        },
+        {
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |"
+        },
+        {
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。"
+        },
+        {
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。"
+        },
+        {
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。"
+        },
+        {
+          "paragraph": 13,
+          "startOffset": 706,
+          "endOffset": 745,
+          "text": "Lumen 所有出现的人名沿用项目术语表的批准写法；新姓名须先提出术语变更单。"
+        },
+        {
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。"
+        },
+        {
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。"
+        },
+        {
+          "paragraph": 16,
+          "startOffset": 838,
+          "endOffset": 875,
+          "text": "Lumen 片尾署名只使用项目确认的译者名，软件登录用户名不自动作为署名。"
+        },
+        {
+          "paragraph": 17,
+          "startOffset": 877,
+          "endOffset": 922,
+          "text": "Lumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。"
+        },
+        {
+          "paragraph": 18,
+          "startOffset": 924,
+          "endOffset": 968,
+          "text": "Lumen 不规定影片发行分成、演员合约费用、配音演员个人联系方式或尚未提供的对白翻译。"
+        }
+      ]
+    }
+  ]
+}
