@@ -1,0 +1,417 @@
+{
+  "version": "citebase-phase2-v1",
+  "seed": 20260928,
+  "split": "dev",
+  "questions": [
+    {
+      "id": "harbor-026",
+      "question": "Harbor 值班质量官的个人手机号码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "moss-026",
+      "question": "Moss 豆科样品明年亩产预计多少公斤？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "lumen-003",
+      "question": "Lumen 正式复核报告保存几年？",
+      "answerable": true,
+      "expectedAnswer": "5年",
+      "category": "事实",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "quote": "Lumen archival card: formal review reports are retained for 5 years.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-001",
+      "question": "Quartz 团体预约最早提前多少天开放？",
+      "answerable": true,
+      "expectedAnswer": "14天",
+      "category": "事实",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "quote": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-004",
+      "question": "Moss 一包种子更改了物种学名，是不是应该重新分配批次号？",
+      "answerable": true,
+      "expectedAnswer": "不应，保留原LOT并加分类修订注记",
+      "category": "同义",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-cards.pdf",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 103,
+          "quote": "Moss traceability card: a renamed species retains its original LOT and gains a\ntaxonomic revision note.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "harbor-005",
+      "question": "Harbor 收货凭据录错后能直接抹掉旧温度记录吗？",
+      "answerable": true,
+      "expectedAnswer": "禁止覆盖原始探头读数",
+      "category": "同义",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 956,
+          "endOffset": 1002,
+          "quote": "Harbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "quartz-007",
+      "question": "Quartz 的 ACK 和 RSVP 都能证明订位成功吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；ACK仅传递确认，RSVP才是预约确认",
+      "category": "缩写",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 96,
+          "quote": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "lumen-008",
+      "question": "Lumen SDH 和 QC 各自指什么？",
+      "answerable": true,
+      "expectedAnswer": "聋人和听障者字幕；质量控制包括时间轴",
+      "category": "缩写",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "quote": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "quote": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "harbor-022",
+      "question": "Harbor 人工复核照片比正常签收照片多保留多少天？",
+      "answerable": true,
+      "expectedAnswer": "99天",
+      "category": "表格",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 553,
+          "endOffset": 631,
+          "quote": "Harbor 交接照片保留表\n| 场景 | 保存时长 |\n| 正常签收 | 21 天 |\n| 人工复核 | 120 天 |\n| 无效重复照片 | 3 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "moss-022",
+      "question": "Moss 常规一次出2袋需要哪些岗位审核？",
+      "answerable": true,
+      "expectedAnswer": "保藏岗与科研岗",
+      "category": "表格",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-016",
+      "question": "Lumen 剪辑没变但字幕内容改了，交付包身份和画面关联如何处理？",
+      "answerable": true,
+      "expectedAnswer": "新包号，继续关联原画面版本",
+      "category": "跨文档",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Lumen correction card: a changed subtitle file receives a new package ID even\nwhen the picture version is unchanged.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-019",
+      "question": "Quartz 名单锁定后志愿讲解员能批准加人吗，应由谁处理？",
+      "answerable": true,
+      "expectedAnswer": "不能，由预约岗审核",
+      "category": "跨文档",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "quote": "Quartz guide card: voluntary tour guides may explain exhibits but cannot\napprove roster overrides.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "moss-014",
+      "question": "Moss 一个LOT共有6袋永久样，申请出3袋即使双岗批准仍符合最低库存吗？",
+      "answerable": true,
+      "expectedAnswer": "不符合，剩3袋低于4袋底线",
+      "category": "跨段落",
+      "topic": "moss",
+      "group": "moss",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "harbor-014",
+      "question": "Harbor 断网时录好的草稿可以立即计作已签收吗？补传是否允许重复建单？",
+      "answerable": true,
+      "expectedAnswer": "不可以；不允许，同一序号返回原单",
+      "category": "跨段落",
+      "topic": "harbor",
+      "group": "harbor",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 696,
+          "endOffset": 747,
+          "quote": "Harbor 同一箱号同一到站批次只能有一张有效签收单。重传同一交接序号应返回原签收单，不生成第二单。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "harbor-handbook.md",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 749,
+          "endOffset": 799,
+          "quote": "Harbor 发生网络中断时可以采集本地草稿，但草稿不得显示为已签收；联网后补传仍需核验主探头序列。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "quartz-010",
+      "question": "Quartz 收到48小时前提醒，是否意味着取消期限自动延长48小时？",
+      "answerable": true,
+      "expectedAnswer": "不延长",
+      "category": "近事实干扰",
+      "topic": "quartz",
+      "group": "quartz",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "quote": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "lumen-010",
+      "question": "Lumen 紧急修订承诺4小时，能省掉时间轴复核吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，两道复核均需通过",
+      "category": "近事实干扰",
+      "topic": "lumen",
+      "group": "lumen",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 107,
+          "quote": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "groupId": "g2"
+        }
+      ]
+    }
+  ]
+}
