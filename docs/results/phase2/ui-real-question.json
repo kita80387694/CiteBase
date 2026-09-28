@@ -1,0 +1,93 @@
+{
+  "status": 200,
+  "result": {
+    "id": "089e477d-5781-466f-9aed-c7ac15fba847",
+    "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+    "answer": "根据证据，Harbor 正式站运输箱的正常温度范围是 2–6 摄氏度 [eeabafcd-3e50-4757-af8d-44549fc3f66c]。",
+    "mode": "vector",
+    "modelMode": "real",
+    "evidence": [
+      {
+        "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+        "documentId": "93180857-f249-4663-9974-170f89012888",
+        "documentName": "harbor-handbook.md",
+        "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "page": 1,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 68,
+        "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+        "score": 0.8223978737833108
+      },
+      {
+        "id": "b9bf9c67-f312-4ee0-9909-150ef11df5d9",
+        "documentId": "93180857-f249-4663-9974-170f89012888",
+        "documentName": "harbor-handbook.md",
+        "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "page": 1,
+        "paragraph": 10,
+        "startOffset": 633,
+        "endOffset": 694,
+        "text": "Harbor 旧站试行窗口为 25 分钟，但 HBR-24 正式站不沿用该值；旧站温度带为 1–7 摄氏度，同样不得套用。",
+        "score": 0.6852981635750545
+      },
+      {
+        "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+        "documentId": "93180857-f249-4663-9974-170f89012888",
+        "documentName": "harbor-handbook.md",
+        "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "page": 1,
+        "paragraph": 2,
+        "startOffset": 70,
+        "endOffset": 113,
+        "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+        "score": 0.6442932910569605
+      },
+      {
+        "id": "60f54984-cb39-4c2b-9efe-045a0a534221",
+        "documentId": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "documentName": "harbor-cards.pdf",
+        "versionId": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "page": 10,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 120,
+        "text": "Harbor alarm card: temperature alerts are acknowledged by the duty operator;\nacknowledgement does not authorize release.",
+        "score": 0.5970243873872477
+      },
+      {
+        "id": "44d49614-6a86-4db9-ae10-904144f0c84a",
+        "documentId": "93180857-f249-4663-9974-170f89012888",
+        "documentName": "harbor-handbook.md",
+        "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "page": 1,
+        "paragraph": 4,
+        "startOffset": 180,
+        "endOffset": 242,
+        "text": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+        "score": 0.5895408881257947
+      }
+    ],
+    "citations": [
+      {
+        "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+        "documentId": "93180857-f249-4663-9974-170f89012888",
+        "documentName": "harbor-handbook.md",
+        "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "page": 1,
+        "paragraph": 1,
+        "startOffset": 0,
+        "endOffset": 68,
+        "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+        "score": 0.8223978737833108
+      }
+    ],
+    "citationValid": true,
+    "abstained": false,
+    "retrievalMs": 313,
+    "totalMs": 3549,
+    "promptTokens": 879,
+    "completionTokens": 46,
+    "error": null
+  }
+}

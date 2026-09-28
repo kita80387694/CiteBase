@@ -1,0 +1,2052 @@
+{
+  "status": "COMPLETE",
+  "metricDefinitionVersion": "phase2-derived-v2",
+  "generatedAt": "2026-09-28T07:33:19.063Z",
+  "label": "baseline",
+  "split": "dev",
+  "rawFiles": [
+    "baseline-dev-0-f48514ed.json",
+    "baseline-dev-16-f48514ed.json",
+    "baseline-dev-24-f48514ed.json",
+    "baseline-dev-32-f48514ed.json",
+    "baseline-dev-40-f48514ed.json",
+    "baseline-dev-48-f48514ed.json",
+    "baseline-dev-56-f48514ed.json",
+    "baseline-dev-64-f48514ed.json",
+    "baseline-dev-72-f48514ed.json",
+    "baseline-dev-8-f48514ed.json",
+    "baseline-dev-80-f48514ed.json",
+    "baseline-dev-88-f48514ed.json",
+    "baseline-dev-96-f48514ed.json"
+  ],
+  "definition": "Per-question macro Recall/MRR on answerable rows (failure/missing=0); latency on all returned numeric rows; nearest-rank percentiles; missing provider usage=null, observed sum is not total when coverage incomplete. Error-induced abstention remains in the denominator but is not a correct refusal (raw legacy abstentionCorrect retained untouched).",
+  "summary": {
+    "vector": {
+      "count": 104,
+      "answerableCount": 88,
+      "unanswerableCount": 16,
+      "recallAtK": 0.9015151515151515,
+      "mrr": 0.8535984848484849,
+      "errorCount": 9,
+      "errorRate": 0.08653846153846154,
+      "citationValidCount": 95,
+      "allEvidenceHitCount": 76,
+      "referenceAnswerMatchCount": 17,
+      "abstentionCorrectCount": 16,
+      "defensiveAbstentionErrorCount": 0,
+      "humanCorrectness": null,
+      "note": "No human review inferred from citations or reference containment.",
+      "retrievalMs": {
+        "count": 104,
+        "mean": 352.22115384615387,
+        "p50": 303,
+        "p95": 665
+      },
+      "totalMs": {
+        "count": 104,
+        "mean": 10274.48076923077,
+        "p50": 7141,
+        "p95": 27173
+      },
+      "promptTokens": {
+        "availableCount": 104,
+        "unavailableCount": 0,
+        "observedSum": 93710
+      },
+      "completionTokens": {
+        "availableCount": 104,
+        "unavailableCount": 0,
+        "observedSum": 8350
+      }
+    },
+    "hybrid": {
+      "count": 104,
+      "answerableCount": 88,
+      "unanswerableCount": 16,
+      "recallAtK": 0.7405303030303031,
+      "mrr": 0.7547348484848484,
+      "errorCount": 11,
+      "errorRate": 0.10576923076923077,
+      "citationValidCount": 93,
+      "allEvidenceHitCount": 58,
+      "referenceAnswerMatchCount": 15,
+      "abstentionCorrectCount": 13,
+      "defensiveAbstentionErrorCount": 3,
+      "humanCorrectness": null,
+      "note": "No human review inferred from citations or reference containment.",
+      "retrievalMs": {
+        "count": 104,
+        "mean": 340.8557692307692,
+        "p50": 311,
+        "p95": 516
+      },
+      "totalMs": {
+        "count": 104,
+        "mean": 9741.60576923077,
+        "p50": 7065,
+        "p95": 21799
+      },
+      "promptTokens": {
+        "availableCount": 104,
+        "unavailableCount": 0,
+        "observedSum": 102459
+      },
+      "completionTokens": {
+        "availableCount": 104,
+        "unavailableCount": 0,
+        "observedSum": 7754
+      }
+    }
+  },
+  "byCategory": {
+    "事实": {
+      "vector": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 0.9444444444444443,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 12,
+        "allEvidenceHitCount": 12,
+        "referenceAnswerMatchCount": 10,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 329.25,
+          "p50": 288,
+          "p95": 665
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 10116.166666666666,
+          "p50": 5071,
+          "p95": 27173
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 10253
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 498
+        }
+      },
+      "hybrid": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 0.75,
+        "mrr": 0.6875,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 12,
+        "allEvidenceHitCount": 9,
+        "referenceAnswerMatchCount": 8,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 316.0833333333333,
+          "p50": 311,
+          "p95": 376
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 7842.416666666667,
+          "p50": 4789,
+          "p95": 19889
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 10500
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 486
+        }
+      }
+    },
+    "同义": {
+      "vector": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 0.6666666666666666,
+        "mrr": 0.47500000000000003,
+        "errorCount": 2,
+        "errorRate": 0.16666666666666666,
+        "citationValidCount": 10,
+        "allEvidenceHitCount": 8,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 306.8333333333333,
+          "p50": 292,
+          "p95": 450
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 7616,
+          "p50": 5254,
+          "p95": 22794
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 10871
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 723
+        }
+      },
+      "hybrid": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 0.08333333333333333,
+        "mrr": 0.041666666666666664,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 12,
+        "allEvidenceHitCount": 1,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 332.6666666666667,
+          "p50": 309,
+          "p95": 524
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 6924.333333333333,
+          "p50": 4295,
+          "p95": 20540
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 13090
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 296
+        }
+      }
+    },
+    "缩写": {
+      "vector": {
+        "count": 8,
+        "answerableCount": 8,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 1,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 8,
+        "allEvidenceHitCount": 8,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 8,
+          "mean": 295.125,
+          "p50": 296,
+          "p95": 360
+        },
+        "totalMs": {
+          "count": 8,
+          "mean": 12503,
+          "p50": 9357,
+          "p95": 32325
+        },
+        "promptTokens": {
+          "availableCount": 8,
+          "unavailableCount": 0,
+          "observedSum": 7426
+        },
+        "completionTokens": {
+          "availableCount": 8,
+          "unavailableCount": 0,
+          "observedSum": 1064
+        }
+      },
+      "hybrid": {
+        "count": 8,
+        "answerableCount": 8,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 1,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 8,
+        "allEvidenceHitCount": 8,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 8,
+          "mean": 352.625,
+          "p50": 303,
+          "p95": 545
+        },
+        "totalMs": {
+          "count": 8,
+          "mean": 18232.5,
+          "p50": 10897,
+          "p95": 52531
+        },
+        "promptTokens": {
+          "availableCount": 8,
+          "unavailableCount": 0,
+          "observedSum": 8033
+        },
+        "completionTokens": {
+          "availableCount": 8,
+          "unavailableCount": 0,
+          "observedSum": 1103
+        }
+      }
+    },
+    "跨文档": {
+      "vector": {
+        "count": 16,
+        "answerableCount": 16,
+        "unanswerableCount": 0,
+        "recallAtK": 0.8333333333333333,
+        "mrr": 0.8177083333333334,
+        "errorCount": 2,
+        "errorRate": 0.125,
+        "citationValidCount": 14,
+        "allEvidenceHitCount": 11,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 402.4375,
+          "p50": 302,
+          "p95": 915
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 10892.3125,
+          "p50": 6356,
+          "p95": 39809
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 13727
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 1530
+        }
+      },
+      "hybrid": {
+        "count": 16,
+        "answerableCount": 16,
+        "unanswerableCount": 0,
+        "recallAtK": 0.5729166666666666,
+        "mrr": 0.8333333333333333,
+        "errorCount": 3,
+        "errorRate": 0.1875,
+        "citationValidCount": 13,
+        "allEvidenceHitCount": 3,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 352.1875,
+          "p50": 310,
+          "p95": 562
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 10093.125,
+          "p50": 7065,
+          "p95": 35846
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 15685
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 1515
+        }
+      }
+    },
+    "表格": {
+      "vector": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 0.9166666666666666,
+        "errorCount": 1,
+        "errorRate": 0.08333333333333333,
+        "citationValidCount": 11,
+        "allEvidenceHitCount": 12,
+        "referenceAnswerMatchCount": 7,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 338.5,
+          "p50": 298,
+          "p95": 544
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 11148.083333333334,
+          "p50": 9677,
+          "p95": 26297
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 11186
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 858
+        }
+      },
+      "hybrid": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 0.9444444444444443,
+        "errorCount": 1,
+        "errorRate": 0.08333333333333333,
+        "citationValidCount": 11,
+        "allEvidenceHitCount": 12,
+        "referenceAnswerMatchCount": 7,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 305.3333333333333,
+          "p50": 307,
+          "p95": 332
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 10140.666666666666,
+          "p50": 7129,
+          "p95": 18587
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 11745
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 893
+        }
+      }
+    },
+    "不可回答": {
+      "vector": {
+        "count": 16,
+        "answerableCount": 0,
+        "unanswerableCount": 16,
+        "recallAtK": null,
+        "mrr": null,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 16,
+        "allEvidenceHitCount": 0,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 16,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 387.4375,
+          "p50": 307,
+          "p95": 983
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 5971.9375,
+          "p50": 2935,
+          "p95": 25141
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 14403
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 244
+        }
+      },
+      "hybrid": {
+        "count": 16,
+        "answerableCount": 0,
+        "unanswerableCount": 16,
+        "recallAtK": null,
+        "mrr": null,
+        "errorCount": 3,
+        "errorRate": 0.1875,
+        "citationValidCount": 13,
+        "allEvidenceHitCount": 0,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 13,
+        "defensiveAbstentionErrorCount": 3,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 371.625,
+          "p50": 317,
+          "p95": 620
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 6155.5625,
+          "p50": 4254,
+          "p95": 20585
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 14857
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 319
+        }
+      }
+    },
+    "近事实干扰": {
+      "vector": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 0.8333333333333334,
+        "mrr": 0.9166666666666666,
+        "errorCount": 1,
+        "errorRate": 0.08333333333333333,
+        "citationValidCount": 11,
+        "allEvidenceHitCount": 9,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 384.8333333333333,
+          "p50": 310,
+          "p95": 1122
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 10893.166666666666,
+          "p50": 7762,
+          "p95": 31799
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 11427
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 1118
+        }
+      },
+      "hybrid": {
+        "count": 12,
+        "answerableCount": 12,
+        "unanswerableCount": 0,
+        "recallAtK": 0.8333333333333334,
+        "mrr": 0.8333333333333334,
+        "errorCount": 1,
+        "errorRate": 0.08333333333333333,
+        "citationValidCount": 11,
+        "allEvidenceHitCount": 9,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 12,
+          "mean": 333.4166666666667,
+          "p50": 310,
+          "p95": 432
+        },
+        "totalMs": {
+          "count": 12,
+          "mean": 8838.166666666666,
+          "p50": 6522,
+          "p95": 26445
+        },
+        "promptTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 12327
+        },
+        "completionTokens": {
+          "availableCount": 12,
+          "unavailableCount": 0,
+          "observedSum": 791
+        }
+      }
+    },
+    "跨段落": {
+      "vector": {
+        "count": 16,
+        "answerableCount": 16,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 0.9375,
+        "errorCount": 3,
+        "errorRate": 0.1875,
+        "citationValidCount": 13,
+        "allEvidenceHitCount": 16,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 332.4375,
+          "p50": 303,
+          "p95": 530
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 13838.3125,
+          "p50": 11569,
+          "p95": 39568
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 14417
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 2315
+        }
+      },
+      "hybrid": {
+        "count": 16,
+        "answerableCount": 16,
+        "unanswerableCount": 0,
+        "recallAtK": 1,
+        "mrr": 0.9375,
+        "errorCount": 3,
+        "errorRate": 0.1875,
+        "citationValidCount": 13,
+        "allEvidenceHitCount": 16,
+        "referenceAnswerMatchCount": 0,
+        "abstentionCorrectCount": 0,
+        "defensiveAbstentionErrorCount": 0,
+        "humanCorrectness": null,
+        "note": "No human review inferred from citations or reference containment.",
+        "retrievalMs": {
+          "count": 16,
+          "mean": 349.8125,
+          "p50": 321,
+          "p95": 516
+        },
+        "totalMs": {
+          "count": 16,
+          "mean": 12646.3125,
+          "p50": 11342,
+          "p95": 26623
+        },
+        "promptTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 16222
+        },
+        "completionTokens": {
+          "availableCount": 16,
+          "unavailableCount": 0,
+          "observedSum": 2351
+        }
+      }
+    }
+  },
+  "casesNeedingReview": [
+    {
+      "caseId": "harbor-003",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-004",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-004",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-005",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-005",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-006",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-006",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-007",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-007",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-008",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-008",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-017",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-017",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-018",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-018",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.3333333333333333,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-019",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-019",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-020",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-020",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-023",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": null,
+      "mrr": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "caseId": "harbor-025",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": null,
+      "mrr": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "caseId": "quartz-003",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.3333333333333333,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-003",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-004",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-004",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-005",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-005",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-006",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-006",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-007",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-007",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-008",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-008",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-009",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-009",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-010",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-010",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-011",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-011",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-012",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-012",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-013",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-013",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-014",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-014",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-015",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-015",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-016",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 0.3333333333333333,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-016",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-017",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-017",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-018",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.3333333333333333,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-018",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.6666666666666666,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-019",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-019",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 0.5,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-022",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "quartz-022",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-004",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.2,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-004",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-005",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-005",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-006",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-006",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-007",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-007",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-008",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-008",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-009",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-009",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-010",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-010",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-011",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-011",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-012",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-012",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-013",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-013",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-014",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-014",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-015",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-015",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-016",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-016",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-017",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-017",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-018",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-018",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-019",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-019",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-021",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-021",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.3333333333333333,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "moss-023",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": null,
+      "mrr": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "caseId": "lumen-001",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-001",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-009",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-009",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-010",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-010",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-011",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-011",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-012",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-012",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-013",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-013",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-014",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-014",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-015",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-015",
+      "mode": "hybrid",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-016",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "harbor-016",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-003",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-004",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-004",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-005",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-005",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-006",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-006",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-007",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-007",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-008",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-008",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-009",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-009",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-010",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-010",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-011",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-011",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0,
+      "mrr": 0,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-012",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-012",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-013",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-013",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-014",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-014",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-015",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-015",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-016",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-016",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-017",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 0.5,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-017",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-018",
+      "mode": "vector",
+      "error": "模型引用不属于本次检索结果",
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-018",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-019",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-019",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-020",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-020",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-021",
+      "mode": "vector",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "caseId": "lumen-021",
+      "mode": "hybrid",
+      "error": null,
+      "recallAtK": 1,
+      "mrr": 1,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ]
+}

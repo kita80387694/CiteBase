@@ -55,7 +55,7 @@ try {
 
 阶段一已新增12份原创文档、156题评测集（按主题冻结dev/test）和24个独立安全用例，入口在 `samples/phase2/`。已实现严格标签导入、sourceHash与原文位置校验、同组可替代/跨组必需证据指标，以及逐题人工答案、引用支持和错误分类评分。评分追加保存依据、规则版本、用户与时间，未评分保持null，不覆盖自动原始结果。
 
-**新增语料的真实双配置基线正在运行，第二阶段尚未验收完成。** 后续检索优化、受控Agent、异步任务与多worker治理三项均未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
+**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 后续检索优化、受控Agent、异步任务与多worker治理三项均未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
 
 真实实验需已配置有效模型密钥。以下为新实验的复现入口，会产生真实供应商调用；已有运行应恢复原label及部署清单，不重新生成运行时清单或重复创建收费评测：
 
@@ -67,7 +67,7 @@ node scripts/phase2-experiment.mjs --label stage1-reproduce --seed --run --split
 node scripts/summarize-phase2.mjs stage1-reproduce dev
 ```
 
-脚本以每批8题保存提交状态和原始结果，重跑同一命令会核对既有服务端记录；断线后优先恢复已有评测，不能直接更换label重提。独立test需显式 `--split test`，仅在配置冻结后运行，不用于选参。当前正在执行的基线原始记录位于 [baseline](docs/results/phase2/baseline/) 和 [baseline-holdout](docs/results/phase2/baseline-holdout/)，运行状态与复现约束见 [实验记录](docs/EXPERIMENTS.md)。
+脚本以每批8题保存提交状态和原始结果，重跑同一命令会核对既有服务端记录；断线后优先恢复已有评测，不能直接更换label重提。独立test需显式 `--split test`；本轮基线已封存，优化配置须先在dev冻结后再运行test，不用于选参。已完成的基线原始记录位于 [baseline](docs/results/phase2/baseline/) 和 [baseline-holdout](docs/results/phase2/baseline-holdout/)，运行状态与复现约束见 [实验记录](docs/EXPERIMENTS.md)。
 
 ## 真实模型
 

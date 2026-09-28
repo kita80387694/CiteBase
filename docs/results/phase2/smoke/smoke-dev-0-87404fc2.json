@@ -1,0 +1,704 @@
+{
+  "id": "e00607ff-3cd9-4cc7-bacb-9189fef9af7f",
+  "name": "smoke-dev-0-87404fc2",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:02:02.978416436Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "harbor-001",
+          "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+          "answerable": true,
+          "expectedAnswer": "2–6 摄氏度",
+          "evidence": [
+            {
+              "documentName": "harbor-handbook.md",
+              "page": 1,
+              "paragraph": 1,
+              "quote": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+              "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+              "startOffset": 0,
+              "endOffset": 68,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "dev",
+          "group": "harbor",
+          "topic": "harbor"
+        },
+        {
+          "id": "harbor-023",
+          "question": "Harbor 应采购哪个品牌的冷链探头？",
+          "answerable": false,
+          "expectedAnswer": null,
+          "evidence": [],
+          "category": "不可回答",
+          "split": "dev",
+          "group": "harbor",
+          "topic": "harbor"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 2,
+      "answerableCount": 1,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 503,
+      "totalMs": 12895,
+      "errorCount": 0
+    },
+    "hybrid": {
+      "count": 2,
+      "answerableCount": 1,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 349.5,
+      "totalMs": 13450,
+      "errorCount": 1
+    }
+  },
+  "results": [
+    {
+      "id": "b7c9c054-a71a-4b5b-a432-df6da331fe31",
+      "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+      "answer": "根据证据，Harbor 正式站运输箱的正常温度范围是 2–6 摄氏度 [eeabafcd-3e50-4757-af8d-44549fc3f66c]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.8223978737833108
+        },
+        {
+          "id": "b9bf9c67-f312-4ee0-9909-150ef11df5d9",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 633,
+          "endOffset": 694,
+          "text": "Harbor 旧站试行窗口为 25 分钟，但 HBR-24 正式站不沿用该值；旧站温度带为 1–7 摄氏度，同样不得套用。",
+          "score": 0.6852981635750545
+        },
+        {
+          "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "score": 0.6442932910569605
+        },
+        {
+          "id": "60f54984-cb39-4c2b-9efe-045a0a534221",
+          "documentId": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+          "documentName": "harbor-cards.pdf",
+          "versionId": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 120,
+          "text": "Harbor alarm card: temperature alerts are acknowledged by the duty operator;\nacknowledgement does not authorize release.",
+          "score": 0.5970243873872477
+        },
+        {
+          "id": "44d49614-6a86-4db9-ae10-904144f0c84a",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "text": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "score": 0.5895408881257947
+        }
+      ],
+      "citations": [
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.8223978737833108
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 715,
+      "totalMs": 14879,
+      "promptTokens": 879,
+      "completionTokens": 46,
+      "error": null,
+      "caseId": "harbor-001",
+      "category": "事实",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "2–6 摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "startOffset": 0,
+          "endOffset": 68,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "94374491-540a-4fbe-b3d3-07a2cec39997",
+      "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+      "answer": "根据证据，Harbor 正式站运输箱的正常温度范围是 2–6 摄氏度 [eeabafcd-3e50-4757-af8d-44549fc3f66c]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "b9bf9c67-f312-4ee0-9909-150ef11df5d9",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 633,
+          "endOffset": 694,
+          "text": "Harbor 旧站试行窗口为 25 分钟，但 HBR-24 正式站不沿用该值；旧站温度带为 1–7 摄氏度，同样不得套用。",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "44d49614-6a86-4db9-ae10-904144f0c84a",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "text": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "score": 0.030090497737556562
+        },
+        {
+          "id": "a5f93aa5-5cda-44e6-a23e-0299a43e4665",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 848,
+          "endOffset": 897,
+          "text": "Harbor 被隔离的箱子不得与正常箱同架存放，库位编码前缀为 Q-；待签收箱的库位前缀为 W-。",
+          "score": 0.029857397504456328
+        },
+        {
+          "id": "c873fce0-393e-4663-b7e8-a2238ecbd3a8",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 355,
+          "endOffset": 475,
+          "text": "Harbor 风险等级表\n| 等级 | 温度超带持续时间 | 动作 |\n| H1 | 不超过 80 秒 | 记录偏差 |\n| H2 | 超过 80 秒且不超过 240 秒 | 暂停签收 |\n| H3 | 超过 240 秒 | 隔离并复核 |",
+          "score": 0.02904040404040404
+        }
+      ],
+      "citations": [
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 401,
+      "totalMs": 3606,
+      "promptTokens": 928,
+      "completionTokens": 46,
+      "error": null,
+      "caseId": "harbor-001",
+      "category": "事实",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "2–6 摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "harbor-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "sourceHash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+          "startOffset": 0,
+          "endOffset": 68,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "db99400d-a3b2-4240-8488-41166dda3353",
+      "question": "Harbor 应采购哪个品牌的冷链探头？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.6416272712238813
+        },
+        {
+          "id": "2189f222-c6fc-412a-bc7b-527fe0daae02",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 244,
+          "endOffset": 295,
+          "text": "Harbor 只对密封完好且探头校准在有效期内的箱子执行自动签收；密封损坏不允许使用补拍照片绕过复核。",
+          "score": 0.588851809501648
+        },
+        {
+          "id": "ae367d13-731e-46a5-ad99-36c217c12d09",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "text": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "score": 0.5698232907162145
+        },
+        {
+          "id": "28fff678-9956-4470-a109-da6f15362a9c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 477,
+          "endOffset": 551,
+          "text": "Harbor 校准证明表\n| 探头 | 有效期 | 签发方 |\n| 主探头 | 45 天 | 计量岗 |\n| 备用探头 | 30 天 | 计量岗 |",
+          "score": 0.5550047159194946
+        },
+        {
+          "id": "44d49614-6a86-4db9-ae10-904144f0c84a",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "text": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "score": 0.5484886169433594
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 291,
+      "totalMs": 10911,
+      "promptTokens": 873,
+      "completionTokens": 113,
+      "error": null,
+      "caseId": "harbor-023",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "f53de203-7d02-40f7-a974-76723a3a8a43",
+      "question": "Harbor 应采购哪个品牌的冷链探头？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "28fff678-9956-4470-a109-da6f15362a9c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 477,
+          "endOffset": 551,
+          "text": "Harbor 校准证明表\n| 探头 | 有效期 | 签发方 |\n| 主探头 | 45 天 | 计量岗 |\n| 备用探头 | 30 天 | 计量岗 |",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.03177805800756621
+        },
+        {
+          "id": "ae367d13-731e-46a5-ad99-36c217c12d09",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "text": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "2189f222-c6fc-412a-bc7b-527fe0daae02",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 244,
+          "endOffset": 295,
+          "text": "Harbor 只对密封完好且探头校准在有效期内的箱子执行自动签收；密封损坏不允许使用补拍照片绕过复核。",
+          "score": 0.031054405392392875
+        },
+        {
+          "id": "9f7271b5-7590-47aa-80c4-9713a7a8eccb",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 1062,
+          "endOffset": 1111,
+          "text": "Harbor 手册刻意不规定货品的药理效力、承运人赔偿金额或设备采购品牌；温控偏差不等于效力结论。",
+          "score": 0.03055037313432836
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 298,
+      "totalMs": 23294,
+      "promptTokens": 869,
+      "completionTokens": 68,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "harbor-023",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "事实": {
+        "vector": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 715,
+          "totalMs": 14879
+        },
+        "hybrid": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 401,
+          "totalMs": 3606
+        }
+      },
+      "不可回答": {
+        "vector": {
+          "count": 1,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 291,
+          "totalMs": 10911
+        },
+        "hybrid": {
+          "count": 1,
+          "answerableCount": 0,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 298,
+          "totalMs": 23294
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 503,
+          "totalMs": 12895
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 349.5,
+          "totalMs": 13450
+        }
+      }
+    },
+    "group": {
+      "harbor": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 503,
+          "totalMs": 12895
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 349.5,
+          "totalMs": 13450
+        }
+      }
+    },
+    "topic": {
+      "harbor": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 503,
+          "totalMs": 12895
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 1,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 349.5,
+          "totalMs": 13450
+        }
+      }
+    }
+  }
+}

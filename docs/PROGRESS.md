@@ -80,3 +80,8 @@
 - 阶段一发现指标缺陷：旧abstentionCorrect把错误导致拒答也记true。冻结真实运行不改，原始结果保留；派生摘要升级phase2-derived-v2，要求无error且引用有效的真实拒答才计正确，失败仍留分母并单列。新增风险单测通过，汇总共3项；后端字段口径待基线结束后修正。
 
 - 拒答指标与NUL导入修复已通过25项实际JUnit/Testcontainers测试（0失败/跳过，.tools/phase2-metric-fix-test.log）。新结果标记metricDefinitionVersion，旧payload不重算；仍未部署到运行中的基线镜像。证明记录results/phase2/metric-fix-verification.json。
+
+### 阶段一真实基线完成（2026-09-28）
+- 全156题×2配置312行、20个唯一批次，SQL确认无重复创建。dev104题208行已汇总，test52题104行仅做完整性检查封存，不用于选参。所有错误与原始JSON保留。
+- 开发集vector Recall@5=.901515/MRR=.853598，hybrid=.740530/.754735；错误9/104与11/104；聊天实际usage全覆盖，embedding usage不可用。未评分正确性仍null。详见EXPERIMENTS及results/phase2/baseline/summary-dev.json。
+- 真实安全20/24通过，4次过度拒答失败未放宽断言；真实UI一次通过。阶段一实施与真实基线已具备验收证据，待最终分析入库后提交记录，下一步检索优化。
