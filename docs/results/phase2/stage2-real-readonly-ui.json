@@ -1,0 +1,47 @@
+{
+  "kind": "read-only-existing-history-ui-verification",
+  "startedAt": "2026-09-28T08:06:46.881Z",
+  "url": "http://localhost:25173",
+  "status": "PASSED",
+  "newQuestionRequests": 0,
+  "newEvaluationRequests": 0,
+  "existingQuestionId": "14aca232-77ba-4176-9af2-15e01bedcf3d",
+  "question": "Lumen 正式复核报告保存几年？",
+  "retrievalOptions": {
+    "rerank": true,
+    "candidateK": 20,
+    "citationStyle": "compact",
+    "keywordWeight": 1
+  },
+  "error": null,
+  "usage": {
+    "rerank": {
+      "billedUnits": {
+        "image_tokens": 0,
+        "input_tokens": 2730,
+        "search_units": 0,
+        "output_tokens": 0,
+        "classifications": 0
+      },
+      "totalTokens": null,
+      "promptTokens": 2730,
+      "providerTokens": {
+        "image_tokens": 0,
+        "input_tokens": 2730,
+        "output_tokens": 0
+      },
+      "completionTokens": 0
+    },
+    "embedding": {
+      "totalTokens": 12,
+      "promptTokens": 12
+    }
+  },
+  "screenshots": [
+    "docs/screenshots/stage2-real-diagnostics.png",
+    "docs/screenshots/stage2-real-citation.png"
+  ],
+  "note": "Only existing history and citation APIs were read after login. Other API mutation requests were blocked by a browser guard; no blocked mutation was attempted. Actual supplier usage is shown, including output 0 and missing totalTokens null.",
+  "rejectedMutations": [],
+  "finishedAt": "2026-09-28T08:06:48.268Z"
+}

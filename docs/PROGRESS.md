@@ -101,3 +101,9 @@
 
 - 阶段二UI首轮暴露登录初始化期间新建按钮可点击的竞态，已加loading禁用并让E2E等待真实ready；失败日志保留。后续完整mock流程通过，最终再次通过1项（25.0s），覆盖配置/版本/引用/评测/导出/重排错误。主Agent亲自查看四张截图，纠正把执行错误标成普通证据不足的徽标，最终失败明确显示“执行失败·已停止回答”。mock结果不作为检索质量结论。
 - V4迁移后逐行比对数据库存储与20批原始结果/配置，312行一致。GET导出额外附加的manualScore=null与POST原始结果表示不同；仅在比较副本中移除已验证为空的附加字段，原文件未改；过程记录results/phase2/stage2-migration-preservation.json，不读取holdout质量。
+
+### 阶段二运行冻结与真实冒烟
+- 实现本地提交da20d5193a5862d37ad03d3f39ddd51005d0a7f2，未推送；真实隔离Compose镜像ce29871312627ee4763dc0aa9ce0f403eb1c0db6351d705f7deb4dcce5063a70，运行摘要.tools/phase2-stage2-runtime.json。后端源码冻结，后续实验输出单独提交。
+- 真实hybrid+独立BGE reranker+compact引用+引用访问通过，原始问答/usage见stage2-real-smoke.json。首次脚本把引用对象当ID访问而HTTP400；修复为cited.id，从问答历史按问题/模式/配置字段取回唯一结果（JSON对象顺序不能当配置差异），未重复模型调用。保留checkpoint和失败日志。
+- 已开始6个隔离知识库的真实索引，原baseline知识库不修改。之后按A→B1→B2→C→D→全dev确认→冻结→独立test执行，最大2并发/700生成行。15项脚本风险测试通过，日志.tools/phase2-stage2-runner-tests.log。
+- 已只读验证真实历史问答UI并亲自查看两张截图，展示reranker输入2730/输出0/总量null、embedding12/12、PDF第8页实际证据。浏览器拦截所有非登录写请求，未追加模型调用，证明记录stage2-real-readonly-ui.json。
