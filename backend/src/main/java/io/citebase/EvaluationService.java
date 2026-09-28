@@ -40,7 +40,12 @@ public class EvaluationService {
     }
   }
 
-  public record Request(String kbId, String name, Dataset dataset, Integer topK) {}
+  public record Request(
+      String kbId, String name, Dataset dataset, Integer topK, RetrievalOptions retrievalOptions) {
+    public Request(String kbId, String name, Dataset dataset, Integer topK) {
+      this(kbId, name, dataset, topK, null);
+    }
+  }
 
   private final JdbcTemplate db;
   private final QuestionService questions;
@@ -91,6 +96,7 @@ public class EvaluationService {
         || request.name() == null
         || request.name().isBlank()
         || request.name().length() > 120) throw new IllegalArgumentException("名称或 topK 无效");
+    var options = RetrievalOptions.resolve(request.retrievalOptions(), k);
     Dataset dataset = labels.resolve(user, request.kbId(), request.dataset());
     if (dataset == null
         || dataset.version() == null
@@ -121,15 +127,17 @@ public class EvaluationService {
     run.put("createdAt", Instant.now().toString());
     run.put("error", null);
     run.put("metricDefinitionVersion", METRIC_DEFINITION_VERSION);
-    var config = new LinkedHashMap<>(questions.config(k));
+    var config = new LinkedHashMap<>(questions.config(k, options));
     config.put("metricDefinitionVersion", METRIC_DEFINITION_VERSION);
     config.put("dataset", dataset);
     config.put(
         "dataVersions",
         db.queryForList(
-            "SELECT d.id,d.name,v.id version_id,v.content_hash FROM document d JOIN"
-                + " document_version v ON v.id=d.active_version_id JOIN knowledge_base kb ON"
-                + " kb.id=d.kb_id WHERE kb.user_id=? AND kb.id=? ORDER BY d.id",
+            "SELECT d.id,d.name,v.id"
+                + " version_id,v.content_hash,v.chunk_strategy,v.chunk_size,v.chunk_overlap FROM"
+                + " document d JOIN document_version v ON v.id=d.active_version_id JOIN"
+                + " knowledge_base kb ON kb.id=d.kb_id WHERE kb.user_id=? AND kb.id=? ORDER BY"
+                + " d.id",
             user,
             request.kbId()));
     run.put("config", config);
@@ -157,7 +165,9 @@ public class EvaluationService {
     try {
       for (Case c : dataset.questions())
         for (String mode : List.of("vector", "hybrid")) {
-          var answer = questions.ask(user, request.kbId(), c.question(), mode, k, false);
+          var answer =
+              questions.ask(
+                  user, request.kbId(), c.question(), mode, k, false, request.retrievalOptions());
           Map<String, Object> row =
               mapper.convertValue(answer, new TypeReference<LinkedHashMap<String, Object>>() {});
           var score = EvaluationMetrics.compute(c.evidence(), answer.evidence(), versionHashes);

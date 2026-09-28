@@ -35,10 +35,13 @@ public class EvaluationInput {
   }
 
   public EvaluationService.Request request(JsonNode root) {
-    object(root, Set.of("kbId", "name", "dataset", "topK"));
+    object(root, Set.of("kbId", "name", "dataset", "topK", "retrievalOptions"));
     text(root, "kbId", true);
     text(root, "name", true);
     integer(root, "topK", false);
+    retrievalOptions(
+        root.get("retrievalOptions"),
+        root.path("topK").isIntegralNumber() ? root.get("topK").intValue() : 5);
     var dataset = root.get("dataset");
     object(dataset, Set.of("version", "questions", "seed", "split"));
     text(dataset, "version", true);
@@ -110,6 +113,39 @@ public class EvaluationInput {
     for (var e : errors)
       if (!e.isTextual() || !EvaluationScoringService.CATEGORIES.contains(e.asText())) bad();
     return mapper.convertValue(root, EvaluationScoringService.Request.class);
+  }
+
+  public RagController.Ask ask(String source) {
+    var root = parse(source);
+    object(root, Set.of("kbId", "question", "mode", "topK", "retrievalOptions"));
+    text(root, "kbId", true);
+    text(root, "question", true);
+    text(root, "mode", false);
+    integer(root, "topK", false);
+    int topK = root.path("topK").isIntegralNumber() ? root.get("topK").intValue() : 5;
+    retrievalOptions(root.get("retrievalOptions"), topK);
+    if (root.hasNonNull("mode") && !Set.of("vector", "hybrid").contains(root.get("mode").asText()))
+      throw new IllegalArgumentException("mode必须vector或hybrid");
+    return mapper.convertValue(root, RagController.Ask.class);
+  }
+
+  private void retrievalOptions(JsonNode node, int topK) {
+    if (node == null || node.isNull()) {
+      RetrievalOptions.resolve(null, topK);
+      return;
+    }
+    object(node, Set.of("candidateK", "keywordWeight", "rerank", "citationStyle"));
+    integer(node, "candidateK", false);
+    text(node, "citationStyle", false);
+    var weight = node.get("keywordWeight");
+    if (weight != null
+        && !weight.isNull()
+        && (!weight.isNumber() || !Double.isFinite(weight.doubleValue())))
+      throw new IllegalArgumentException("keywordWeight必须有限数值");
+    var rerank = node.get("rerank");
+    if (rerank != null && !rerank.isNull() && !rerank.isBoolean())
+      throw new IllegalArgumentException("rerank必须boolean");
+    RetrievalOptions.resolve(mapper.convertValue(node, RetrievalOptions.class), topK);
   }
 
   private static void object(JsonNode node, Set<String> fields) {

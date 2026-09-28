@@ -5,6 +5,10 @@ import java.util.List;
 public interface ModelGateway {
   float[] embed(String text);
 
+  default EmbeddingResult embedWithUsage(String text) {
+    return new EmbeddingResult(embed(text), null);
+  }
+
   Generation generate(String question, List<Evidence> evidence);
 
   String mode();

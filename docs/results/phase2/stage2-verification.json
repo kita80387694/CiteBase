@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "stage": "phase2-stage2-engineering-verification",
+  "recordedAtUtc": "2026-09-28T07:57:59.1263649Z",
+  "source": {
+    "head": "fb7fddaa1c72119444230d4b3d01f2adf000f6f3",
+    "attribution": "Tests exercised uncommitted working-tree changes, not HEAD alone. Collection-time hashes do not prove every file remained unchanged since test execution.",
+    "diffStat": [
+      " .env.example                                       |   6 +",
+      " README.md                                          |   8 +",
+      " .../src/main/java/io/citebase/CoreController.java  |  32 +++-",
+      " .../src/main/java/io/citebase/DocumentParser.java  | 141 +++++++++++++-",
+      " .../src/main/java/io/citebase/DocumentService.java |  56 ++++--",
+      " .../src/main/java/io/citebase/EvaluationInput.java |  38 +++-",
+      " .../main/java/io/citebase/EvaluationMetrics.java   |   4 +-",
+      " .../main/java/io/citebase/EvaluationService.java   |  22 ++-",
+      " backend/src/main/java/io/citebase/IndexWorker.java |  24 ++-",
+      " .../main/java/io/citebase/ModelConfiguration.java  |  19 ++",
+      " .../src/main/java/io/citebase/ModelGateway.java    |   4 +",
+      " .../src/main/java/io/citebase/QuestionResult.java  |  40 +++-",
+      " .../src/main/java/io/citebase/QuestionService.java | 103 +++++++---",
+      " .../src/main/java/io/citebase/RagController.java   |  29 ++-",
+      " .../main/java/io/citebase/RetrievalService.java    | 210 +++++++++++++++++----",
+      " .../src/main/java/io/citebase/SpringAiGateway.java |  42 ++++-",
+      " compose.yaml                                       |   4 +",
+      " docs/ARCHITECTURE.md                               |  10 +",
+      " docs/PROGRESS.md                                   |   5 +",
+      " docs/REFERENCES.md                                 |   4 +",
+      " frontend/src/App.tsx                               | 102 +++++++++-",
+      " frontend/src/style.css                             | 152 +++++++++++++++",
+      " frontend/tests/README.md                           |  13 ++",
+      " 23 files changed, 947 insertions(+), 121 deletions(-)"
+    ],
+    "branch": "feat/citebase-phase2",
+    "workingTreeDirty": true,
+    "status": [
+      " M .env.example",
+      " M README.md",
+      " M backend/src/main/java/io/citebase/CoreController.java",
+      " M backend/src/main/java/io/citebase/DocumentParser.java",
+      " M backend/src/main/java/io/citebase/DocumentService.java",
+      " M backend/src/main/java/io/citebase/EvaluationInput.java",
+      " M backend/src/main/java/io/citebase/EvaluationMetrics.java",
+      " M backend/src/main/java/io/citebase/EvaluationService.java",
+      " M backend/src/main/java/io/citebase/IndexWorker.java",
+      " M backend/src/main/java/io/citebase/ModelConfiguration.java",
+      " M backend/src/main/java/io/citebase/ModelGateway.java",
+      " M backend/src/main/java/io/citebase/QuestionResult.java",
+      " M backend/src/main/java/io/citebase/QuestionService.java",
+      " M backend/src/main/java/io/citebase/RagController.java",
+      " M backend/src/main/java/io/citebase/RetrievalService.java",
+      " M backend/src/main/java/io/citebase/SpringAiGateway.java",
+      " M compose.yaml",
+      " M docs/ARCHITECTURE.md",
+      " M docs/PROGRESS.md",
+      " M docs/REFERENCES.md",
+      " M frontend/src/App.tsx",
+      " M frontend/src/style.css",
+      " M frontend/tests/README.md",
+      "?? backend/src/main/java/io/citebase/ChunkProfile.java",
+      "?? backend/src/main/java/io/citebase/CitationAliases.java",
+      "?? backend/src/main/java/io/citebase/EmbeddingResult.java",
+      "?? backend/src/main/java/io/citebase/RerankGateway.java",
+      "?? backend/src/main/java/io/citebase/RetrievalOptions.java",
+      "?? backend/src/main/java/io/citebase/RetrievalOutcome.java",
+      "?? backend/src/main/java/io/citebase/SiliconFlowRerankGateway.java",
+      "?? backend/src/main/resources/db/migration/V4__chunk_profiles.sql",
+      "?? backend/src/test/java/io/citebase/ChunkingIntegrationTest.java",
+      "?? backend/src/test/java/io/citebase/RetrievalProtocolTest.java",
+      "?? backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java",
+      "?? backend/src/test/java/io/citebase/StructureChunkingTest.java",
+      "?? docs/API-CONTRACT-PHASE2-RETRIEVAL.md",
+      "?? docs/CHUNKING.md",
+      "?? docs/results/phase2/reranker-provider-probe.json",
+      "?? docs/screenshots/phase2-stage2-evaluation.png",
+      "?? docs/screenshots/phase2-stage2-rerank-error.png",
+      "?? docs/screenshots/phase2-stage2-retrieval-diagnostics.png",
+      "?? docs/screenshots/phase2-stage2-structure-version.png",
+      "?? frontend/src/DocumentProfiles.tsx",
+      "?? frontend/src/RetrievalControls.tsx",
+      "?? frontend/tests/phase2-retrieval.spec.ts",
+      "?? scripts/phase2-client.mjs",
+      "?? scripts/phase2-client.test.mjs",
+      "?? scripts/phase2-comparability.mjs",
+      "?? scripts/phase2-metrics.mjs",
+      "?? scripts/phase2-metrics.test.mjs",
+      "?? scripts/phase2-optimize.mjs",
+      "?? scripts/phase2-real-smoke.mjs"
+    ],
+    "changedAndUntrackedCodeHashes": [
+      {
+        "sha256": "fe11395dbe86b2eba303197ebc373a8125f99f9436243e1a73fff53a609e78b5",
+        "path": ".env.example"
+      },
+      {
+        "sha256": "331c923b0104d319e3bbdfa3a117500a9d4a4417cb363f6ef2e8cbbed6fb6a1d",
+        "path": "backend/src/main/java/io/citebase/ChunkProfile.java"
+      },
+      {
+        "sha256": "bc7436badc60da6cd379d32f09ce16a5be91fb0ee656304b1bb7c4c04b1f5930",
+        "path": "backend/src/main/java/io/citebase/CitationAliases.java"
+      },
+      {
+        "sha256": "1d2487a56da778ce7b06f3e1450194345a35579ab6d7aad01d8693af717e8865",
+        "path": "backend/src/main/java/io/citebase/CoreController.java"
+      },
+      {
+        "sha256": "2613804a75a6a77772af34ab1f92fb9279c93a790ea51701a8f52966af1feebe",
+        "path": "backend/src/main/java/io/citebase/DocumentParser.java"
+      },
+      {
+        "sha256": "74e103c259f5c36bf02fd15534eed68159d15ef1b88250efb03ea94cc606222a",
+        "path": "backend/src/main/java/io/citebase/DocumentService.java"
+      },
+      {
+        "sha256": "8f76b012d9e6e28a6b926c07a580323dcaa3568ada0e28d524b9420aff116142",
+        "path": "backend/src/main/java/io/citebase/EmbeddingResult.java"
+      },
+      {
+        "sha256": "5b864890a924522bb611bd77bfe9f4c312239038a1dee4cd06118555cdb737b4",
+        "path": "backend/src/main/java/io/citebase/EvaluationInput.java"
+      },
+      {
+        "sha256": "f326cd5d2bb82d8b4d8092330a4370263ea27d052c5c7fe4df83dc329f36695d",
+        "path": "backend/src/main/java/io/citebase/EvaluationMetrics.java"
+      },
+      {
+        "sha256": "3cc5324908aeccf29f5bf2966b495f5b838fa9636fee6256f792858478d50b43",
+        "path": "backend/src/main/java/io/citebase/EvaluationService.java"
+      },
+      {
+        "sha256": "c82b4a2218aa8cea12cafb2a3c77a17f7450630eb4c0628a6cab0afe97359e61",
+        "path": "backend/src/main/java/io/citebase/IndexWorker.java"
+      },
+      {
+        "sha256": "acae1bd075380927b13e669ffdd56b4a62aabf50b1b7f3fb1590811bd6dcfdf4",
+        "path": "backend/src/main/java/io/citebase/ModelConfiguration.java"
+      },
+      {
+        "sha256": "e6fd87c7d4b1d3efc346e3d961fbf6333c2c629de8a9f609b7afb2ca74527501",
+        "path": "backend/src/main/java/io/citebase/ModelGateway.java"
+      },
+      {
+        "sha256": "4ae8536b4c6dd5117a8a8e2fa99b869dded1d8f9b773f694bd234c4c72b3eda9",
+        "path": "backend/src/main/java/io/citebase/QuestionResult.java"
+      },
+      {
+        "sha256": "376eec1efae46bdecf4d66081b5b99ae2c0d80c7f7dabd14c2e87a979254b116",
+        "path": "backend/src/main/java/io/citebase/QuestionService.java"
+      },
+      {
+        "sha256": "7258dab0dbcac821237fcbd8ee17970c98728376411644639c80abd59d121233",
+        "path": "backend/src/main/java/io/citebase/RagController.java"
+      },
+      {
+        "sha256": "29e06a92f643a7a58ca8a18a4e88f8142cbb2f6557ca5bd910cc87fb7976bd53",
+        "path": "backend/src/main/java/io/citebase/RerankGateway.java"
+      },
+      {
+        "sha256": "7ec4b0fc9d3d6cfaab2383f4a7157bada0f760cfcda34fa21419d997a2626ad9",
+        "path": "backend/src/main/java/io/citebase/RetrievalOptions.java"
+      },
+      {
+        "sha256": "c9e5c38b68d476ecca980c3432bb708c11d565b345150f335f0b5427b473b009",
+        "path": "backend/src/main/java/io/citebase/RetrievalOutcome.java"
+      },
+      {
+        "sha256": "1918da5188bba7e3ed90b1ac390fb9f163bd0a842ae8d31712394f28939f08aa",
+        "path": "backend/src/main/java/io/citebase/RetrievalService.java"
+      },
+      {
+        "sha256": "822e0bfc52ddf45de3975fa585fc3702543b6802891ce8eff543e4a568933edb",
+        "path": "backend/src/main/java/io/citebase/SiliconFlowRerankGateway.java"
+      },
+      {
+        "sha256": "9a1e867cd5b6ff67e8a8f4ff65aca7d46856ec199cb631f6746a78ce54d15693",
+        "path": "backend/src/main/java/io/citebase/SpringAiGateway.java"
+      },
+      {
+        "sha256": "f694fe690a7adf5539214a7c83d18f959e5ca04fb5c6cacc68398049a536766a",
+        "path": "backend/src/main/resources/db/migration/V4__chunk_profiles.sql"
+      },
+      {
+        "sha256": "753ad82c805a374e6fd25cff445143cd541049d6f8a887fcc42b0e0157c77831",
+        "path": "backend/src/test/java/io/citebase/ChunkingIntegrationTest.java"
+      },
+      {
+        "sha256": "f3ed75e1fdbb65e47002cf5f4a4e05b608e3404bc39e76041ed8c70450e53824",
+        "path": "backend/src/test/java/io/citebase/RetrievalProtocolTest.java"
+      },
+      {
+        "sha256": "e15ca5181c7ad3bd0be0942433a8a5767cefc557b9beebecf90707854d4f4e1a",
+        "path": "backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java"
+      },
+      {
+        "sha256": "2d91d79079e74f2a9cc9cd221e55ccbdb5bc488fd54ccc4deb947dc25cda42d1",
+        "path": "backend/src/test/java/io/citebase/StructureChunkingTest.java"
+      },
+      {
+        "sha256": "d555a902666f12d01acd7e6b50897e4611397604cd98998a7ddd49868e08a017",
+        "path": "compose.yaml"
+      },
+      {
+        "sha256": "59476865fd006786a8928a521f94566cab90703ae9a5c609d1662e573cd009ef",
+        "path": "frontend/src/App.tsx"
+      },
+      {
+        "sha256": "b999c53fd94d8f1ed422b20f02c76dba7d987441060e68904fd395a45b4b4e2f",
+        "path": "frontend/src/DocumentProfiles.tsx"
+      },
+      {
+        "sha256": "4d36b2a6e00eb5364fa4d5ddf4504bac69a9118d7db9df65f60d7fd5ec7c443e",
+        "path": "frontend/src/RetrievalControls.tsx"
+      },
+      {
+        "sha256": "80729043a1638478d5fbd00f28060e5521f010cfe24acf7f86baac20d267c8d1",
+        "path": "frontend/src/style.css"
+      },
+      {
+        "sha256": "7a84fd0b2a9bccb4c9b017ec6edf82d575cbab36108f0140ed93ad0db4342890",
+        "path": "frontend/tests/phase2-retrieval.spec.ts"
+      },
+      {
+        "sha256": "3846f4d405f416b636cf7024cd8307a3eca918e9b29bee0c48bd1d5f8d1849fe",
+        "path": "frontend/tests/README.md"
+      },
+      {
+        "sha256": "31faeca28b00bd48d1049b0b89730e4ea9be4de39a43f9038190ad15adc908fe",
+        "path": "scripts/phase2-client.mjs"
+      },
+      {
+        "sha256": "3e8e489f241bb38490487ede14a6f31419a04b981479167c8bf99b03e796eb2d",
+        "path": "scripts/phase2-client.test.mjs"
+      },
+      {
+        "sha256": "82b3016640f0a0827b4691e7934a88542b111b3359257a71967c17109fb48392",
+        "path": "scripts/phase2-comparability.mjs"
+      },
+      {
+        "sha256": "01c5c53a8d9a2577d01aec5aecd6c6a74d96e4dbc0ac69e96d0669544ca9351a",
+        "path": "scripts/phase2-metrics.mjs"
+      },
+      {
+        "sha256": "c3545be95dd882937fde11849598b59be529e312fb424f0bb5d5eab55c571b94",
+        "path": "scripts/phase2-metrics.test.mjs"
+      },
+      {
+        "sha256": "23a3b6ede52a82fb0f11243efebcb323b69a63b99934f4fc99dd2361f1f76a64",
+        "path": "scripts/phase2-optimize.mjs"
+      },
+      {
+        "sha256": "e3e74dddedf8be537d467fde8231c4f8dabe1ed05de0456b0a6ed1f7e64fc8eb",
+        "path": "scripts/phase2-real-smoke.mjs"
+      }
+    ],
+    "snapshotBeforeReportWrite": true
+  },
+  "junit": {
+    "evidence": ".tools/phase2-stage2-integrated-tests.log",
+    "skipped": 0,
+    "buildStatus": "SUCCESS",
+    "suites": [
+      {
+        "class": "io.citebase.DocumentParserTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 0.496,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.DocumentParserTest.xml",
+        "sha256": "fe1bef56c217d6691125ab60e59b7967a2a9a1a603b62f891c2740af6b55c0ea",
+        "testCases": [
+          "pdfPreservesPagesAndRejectsScannedPages",
+          "rejectsEmptyAndMalformedText",
+          "preservesParagraphOffsetsAndSplitsLongContent"
+        ]
+      },
+      {
+        "class": "io.citebase.RagUnitTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 0.007,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.RagUnitTest.xml",
+        "sha256": "2b082d6c61b686344d9899381e28895fad8f6403d5456c52078b51ece40e85ec",
+        "testCases": [
+          "abstentionCannotSmuggleUncitedClaimsOrInstructions",
+          "rrfRewardsBothListsWithDefinedConstant",
+          "incompleteEmptyAndNestedBracketsAreRejected",
+          "citationsRejectFabricatedAndUncitedAnswers",
+          "lexicalSupportsChineseBigramsButDoesNotPretendSynonyms",
+          "mockExplicitAndTokensUnavailable",
+          "citedExplanationOfAbstentionRulesIsNotItselfAnAbstention",
+          "metricsCountLabelsNotDuplicateChunksAndFindFirstRelevantRank"
+        ]
+      },
+      {
+        "class": "io.citebase.ProviderContractTest",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 2.61,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.ProviderContractTest.xml",
+        "sha256": "053f2048b084e77e4c2d78441aaf234e66488660a9ee23cee91fcc549e4b1616",
+        "testCases": [
+          "missingUsageIsUnavailable",
+          "malformedEmbeddingCannotEnterIndex",
+          "suppliedUsageIsPreserved",
+          "malformedChatIsNotSuccess",
+          "maliciousEvidenceRemainsUntrustedUserDataWithoutTools",
+          "timeoutReturnsBoundedFailure",
+          "rateLimitIsFailureNotFabricatedAnswer",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[1]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[2]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[3]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[4]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[5]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[6]",
+          "nullOrIncompleteChatResponseBecomesSafeFailure(String)[7]"
+        ]
+      },
+      {
+        "class": "io.citebase.CoreIntegrationTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 4.148,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.CoreIntegrationTest.xml",
+        "sha256": "fdd8c236e5f65259abd76726d77161738511e683778b01fa268f4b8d7414ea86",
+        "testCases": [
+          "sessionAndOwnership",
+          "exhaustedInterruptedTaskDoesNotRetryForever",
+          "deletionDuringEmbeddingCannotResurrectDocument",
+          "transientFailureRetriesAndReusesUnchangedEmbeddings",
+          "duplicateUpdateFailureRecoveryAndDelete",
+          "concurrentUploadsDeduplicateAndDeletionRevokesCitation"
+        ]
+      },
+      {
+        "class": "io.citebase.RagIntegrationTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 3.612,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.RagIntegrationTest.xml",
+        "sha256": "0cb1d2b05840dfcfec672b3013425abaab4d2494881447656c0303adbb1cec8a",
+        "testCases": [
+          "unfinishedEvaluationCommitsEachQuestionForOtherConnections",
+          "deletionRevokesSavedAnswersEvaluationAndEvidence",
+          "deletionWaitsForEvaluationReadLockThenRevokesResults",
+          "interruptedEvaluationRecoveryPreservesPartialPayload",
+          "realSqlIsolatesRetrievalHistoryCitationAndEvaluation"
+        ]
+      },
+      {
+        "class": "io.citebase.Phase2EvaluationUnitTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 0.012,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.Phase2EvaluationUnitTest.xml",
+        "sha256": "a795da0ff672e53584f88fb6b575dbc290cac37f1aa84f33f0b4b22cc424aa6b",
+        "testCases": [
+          "strictJsonRejectsUnknownCoercionDuplicatesAndSpoofedAudit",
+          "reconstructsOriginalParagraphAcrossChunks",
+          "stableOffsetsAndSnapshotHashAreRequired",
+          "alternativesAreOneGroupButDistinctGroupsAreRequired"
+        ]
+      },
+      {
+        "class": "io.citebase.Phase2EvaluationIntegrationTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 4.942,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.Phase2EvaluationIntegrationTest.xml",
+        "sha256": "c3230e860f68f29afaa7f3ab10a5cdc6a70eefc3d2abe602197cb84ee5c78b9e",
+        "testCases": [
+          "validLabelsResolveFromSourceAndPersistMetadata",
+          "nulImportRejectedBeforePersistence",
+          "forgedPositionsHashesNamesAndTenantLabelsRejectedBeforeModel",
+          "abstentionMetricsExcludeProviderAndCitationErrorsButPreserveLegacy",
+          "manualScoresAppendAuditWithoutMutatingAutomaticPayloadAndEnforceAcl",
+          "labelsCanSpanCandidateChunksAndAmbiguousLegacyLabelsFail",
+          "rejectsRunningUnknownRowsAndInvalidScoringTaxonomy",
+          "strictHttpRejectsUnknownFieldsAndSpoofedScorer"
+        ]
+      },
+      {
+        "class": "io.citebase.StructureChunkingTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 0.009,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.StructureChunkingTest.xml",
+        "sha256": "050cf0de64aed777648b15dd3a2469666e05a5c5694f75e21c8e772a2827a166",
+        "testCases": [
+          "preservesHierarchySourceAndCrossParagraphLabels",
+          "longProseDoesNotSplitSurrogatePairsAndLegacyRemainsUnchanged",
+          "preservesWholeTableRowsAndBoundedWholeUnitOverlap"
+        ]
+      },
+      {
+        "class": "io.citebase.ChunkingIntegrationTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 12.825,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.ChunkingIntegrationTest.xml",
+        "sha256": "f67311cf021b0a2ee43a87768e1bf1e542fdcb617fcadb57e2fbcb00621a0dbb",
+        "testCases": [
+          "sessionAndOwnership",
+          "exhaustedInterruptedTaskDoesNotRetryForever",
+          "deletionDuringEmbeddingCannotResurrectDocument",
+          "transientFailureRetriesAndReusesUnchangedEmbeddings",
+          "duplicateUpdateFailureRecoveryAndDelete",
+          "concurrentUploadsDeduplicateAndDeletionRevokesCitation",
+          "profileChangesPreserveOldIndexAndReuseOnlyExactEmbeddingInput",
+          "originalParagraphLabelsResolveAgainstCrossParagraphIndexedSpan"
+        ]
+      },
+      {
+        "class": "io.citebase.RetrievalProtocolTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 1.663,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.RetrievalProtocolTest.xml",
+        "sha256": "3cf71e54b98de41f4b965bd331c81d33fec0f2cc4ba5a56e5f65bcd25c82b433",
+        "testCases": [
+          "springAiDefaultsNeverInventMissingEmbeddingTokenFields",
+          "springAiEmbeddingCallExposesActualUsage",
+          "dedicatedProtocolPreservesActualUsageAndScores",
+          "rateLimitTimeoutAndMissingConfigurationAreFailures",
+          "malformedRerankNeverSilentlyFallsBack",
+          "missingUsageIsNullNotInvented",
+          "optionsRejectTypesUnknownsAndRanges",
+          "compactMappingValidatesEverySourceAndKeepsUuidDefault"
+        ]
+      },
+      {
+        "class": "io.citebase.Stage2RetrievalIntegrationTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "durationSeconds": 3.239,
+        "report": "backend/target/surefire-reports/TEST-io.citebase.Stage2RetrievalIntegrationTest.xml",
+        "sha256": "545373687f15602d9747dc4c5d3ebcbd938a5a451bec10a4aac0fc6e9221bcad",
+        "testCases": [
+          "compactMappingPreservesSourceChecksAndRawResponse",
+          "defaultRankingAndExplicitOptionsKeepAclAndExposeCandidateTrace",
+          "diagnosticsNeverPretendsToBeEndToEndAndEvaluationExportsOptions",
+          "mockRerankExplicitFailureRetainsDiagnosticsAndDoesNotGenerate"
+        ]
+      }
+    ],
+    "tests": 71,
+    "completedAt": "2026-09-28T15:51:46+08:00",
+    "errors": 0,
+    "evidenceSha256": "3b961227ab06d035ec2f4f1d1bdb60be49319f323a5a0ba70dce7868334f6356",
+    "scope": "Exactly 11 specified classes. Old External reports excluded. Counts are executions including inherited scenarios, not unique risks.",
+    "failures": 0
+  },
+  "node": {
+    "passed": 8,
+    "evidence": ".tools/phase2-stage2-node-tests.log",
+    "skipped": 0,
+    "command": "node --test scripts/phase2-metrics.test.mjs scripts/phase2-client.test.mjs scripts/phase2-summary.test.mjs",
+    "evidenceSha256": "cde61dccdee4a1eb142aae3495e7037c00bfa0e9a005dee884ade673d4b4929a",
+    "tests": 8,
+    "version": "v22.14.0",
+    "cancelled": 0,
+    "failed": 0
+  },
+  "databasePreservation": {
+    "container": "citebase-phase2-db-1",
+    "baselineQueryResult": "20|20|312",
+    "documentVersionsWithAnyNullChunkProfileParameter": 0,
+    "flywayVersions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "baselineQuery": "SELECT count(*),count(distinct name),sum(jsonb_array_length(payload->'results')) FROM evaluation_run WHERE name LIKE 'baseline-%'",
+    "allFlywaySuccess": true,
+    "database": "citebase",
+    "provenance": "Read-only checks executed and reported by parent agent; not re-executed by report author.",
+    "baselineBatches": 20,
+    "distinctBaselineNames": 20,
+    "baselineResultRows": 312
+  },
+  "limitations": [
+    "Mock model/provider engineering tests are not evidence of real RAG quality improvement.",
+    "Does not certify stage2 real-model ablations, holdout effectiveness, frontend build or visual checks.",
+    "Uncommitted source cannot be attributed to fb7fdda or any other commit alone.",
+    "No deployment, commit, branch change, fixture change or raw evaluation change by this report task."
+  ]
+}

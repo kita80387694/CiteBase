@@ -85,3 +85,19 @@
 - 全156题×2配置312行、20个唯一批次，SQL确认无重复创建。dev104题208行已汇总，test52题104行仅做完整性检查封存，不用于选参。所有错误与原始JSON保留。
 - 开发集vector Recall@5=.901515/MRR=.853598，hybrid=.740530/.754735；错误9/104与11/104；聊天实际usage全覆盖，embedding usage不可用。未评分正确性仍null。详见EXPERIMENTS及results/phase2/baseline/summary-dev.json。
 - 真实安全20/24通过，4次过度拒答失败未放宽断言；真实UI一次通过。阶段一实施与真实基线已具备验收证据，待最终分析入库后提交记录，下一步检索优化。
+
+### 阶段二开始
+- 阶段一全量结果与失败分析提交27ed749。独立test已封存，不用于选参。
+- 根据dev分析并行实现结构切分/检索参数与专用reranker/可关闭短引用别名/对应UI；保持默认旧策略和模型。
+- 已核实硅基流动官方rerank协议并用BAAI/bge-reranker-v2-m3真实调用一次，HTTP200，122 input tokens为供应商实际返回，output_tokens=0也如实保留；不是聊天模型评分。独立本地RERANK变量配置在忽略.env，未改原embedding。
+
+### 2026-09-28 阶段二工程集成验证（未提交工作区）
+
+- `.tools/phase2-stage2-integrated-tests.log`：指定 11 类 JUnit 共 71 次测试执行，失败 0、错误 0、跳过 0，15:51:46 +08:00 BUILD SUCCESS。仅收集本次指定 XML，排除旧 External 报告；继承核心用例的执行次数不等同独立风险数量。
+- 重新运行三个 Node 测试文件：8 项通过，失败/跳过 0，日志 `.tools/phase2-stage2-node-tests.log`。
+- 主 Agent 已执行真实数据库只读保留检查：baseline 20 批、20 个唯一名称、312 行；Flyway V1–V4 全部成功，文档版本任一切分参数为 NULL 的计数为 0。此项为主 Agent 实测报告，整理者未重复执行。
+- 机器记录 `docs/results/phase2/stage2-verification.json` 含指定类计数、用例名、报告 SHA256、当前 HEAD、未提交 diff/status 与变更源码哈希。当前 HEAD 为 fb7fddaa1c72119444230d4b3d01f2adf000f6f3，但实际运行的是含未提交改动的工作区，不能把这些测试归因于该提交本身。
+- 尚待主流程继续：阶段二真实控制变量实验、开发集选择与冻结后的独立集验证。上述工程测试不构成真实模型质量提升结论。本整理任务未部署、提交、切换分支或修改原始评测数据，完成后冻结本任务改动。
+
+- 阶段二UI首轮暴露登录初始化期间新建按钮可点击的竞态，已加loading禁用并让E2E等待真实ready；失败日志保留。后续完整mock流程通过，最终再次通过1项（25.0s），覆盖配置/版本/引用/评测/导出/重排错误。主Agent亲自查看四张截图，纠正把执行错误标成普通证据不足的徽标，最终失败明确显示“执行失败·已停止回答”。mock结果不作为检索质量结论。
+- V4迁移后逐行比对数据库存储与20批原始结果/配置，312行一致。GET导出额外附加的manualScore=null与POST原始结果表示不同；仅在比较副本中移除已验证为空的附加字段，原文件未改；过程记录results/phase2/stage2-migration-preservation.json，不读取holdout质量。

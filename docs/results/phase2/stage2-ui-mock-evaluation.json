@@ -1,0 +1,1200 @@
+{
+  "id": "4c1600ee-ab94-4c2e-bec7-9d32833c5ecb",
+  "name": "Stage2配置对比-1790582398373",
+  "error": null,
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "stage2-ui-1790582398373",
+      "questions": [
+        {
+          "id": "update",
+          "group": null,
+          "split": "dev",
+          "topic": null,
+          "category": "lifecycle",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "groupId": null,
+              "endOffset": 43,
+              "paragraph": 2,
+              "sourceHash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "question": "CiteBase 索引更新失败时如何处理？",
+          "answerable": true,
+          "expectedAnswer": "保留上一份可用索引"
+        },
+        {
+          "id": "unknown",
+          "group": null,
+          "split": "dev",
+          "topic": null,
+          "category": "unanswerable",
+          "evidence": [],
+          "question": "火星气温是多少？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "mock-local"
+    },
+    "reranker": {
+      "provider": "disabled-in-mock",
+      "configured": false
+    },
+    "chatModel": "mock-extract-v1",
+    "modelMode": "mock",
+    "candidateK": 12,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+        "name": "stage2-index-1790582398373.md",
+        "chunk_size": 900,
+        "version_id": "09690a42-f95f-4728-badc-395e348c3b0f",
+        "content_hash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+        "chunk_overlap": 200,
+        "chunk_strategy": "legacy"
+      }
+    ],
+    "embeddingModel": "mock-hash-256-v1",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 12,
+      "citationStyle": "compact",
+      "keywordWeight": 0.5
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "status": "COMPLETED",
+  "results": [
+    {
+      "id": "6154db1a-963d-453f-8390-4d0d48ecafe7",
+      "mrr": 1,
+      "mode": "vector",
+      "error": null,
+      "group": null,
+      "split": "dev",
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。 [a8d72921-70d5-454a-af3f-b0ec1d3ff91f]",
+      "caseId": "update",
+      "totalMs": 3,
+      "category": "lifecycle",
+      "evidence": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.5427204370498657,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "page": 1,
+          "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+          "score": 0.19738551072435118,
+          "endOffset": 83,
+          "paragraph": 4,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 52,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "page": 1,
+          "text": "# 索引手册",
+          "score": 0.17407766503327093,
+          "endOffset": 6,
+          "paragraph": 1,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 0,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "d062db14-fe05-433c-ad92-968b6463c810",
+          "page": 1,
+          "text": "## 权限",
+          "score": 0,
+          "endOffset": 50,
+          "paragraph": 3,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 45,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "question": "CiteBase 索引更新失败时如何处理？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.5427204370498657,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "modelMode": "mock",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.5427204370498657,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.19738551072435118,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.17407766503327093,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.5427204370498657,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.19738551072435118,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.17407766503327093,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 0,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 0,
+          "generationMs": 0
+        },
+        "aliasMap": {
+          "E1": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "E2": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "E3": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "E4": "d062db14-fe05-433c-ad92-968b6463c810"
+        },
+        "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。 [E1]",
+        "dataVersions": [
+          {
+            "id": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+            "name": "stage2-index-1790582398373.md",
+            "chunk_size": 900,
+            "version_id": "09690a42-f95f-4728-badc-395e348c3b0f",
+            "content_hash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 4,
+          "vector": 4,
+          "keyword": 0,
+          "selected": 4,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 1,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保留上一份可用索引",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "groupId": null,
+          "endOffset": 43,
+          "paragraph": 2,
+          "sourceHash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 12,
+        "citationStyle": "compact",
+        "keywordWeight": 0.5
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "2cfcde6e-9235-4ee0-ace2-22850f1e51e3",
+      "mrr": 1,
+      "mode": "hybrid",
+      "error": null,
+      "group": null,
+      "split": "dev",
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。 [a8d72921-70d5-454a-af3f-b0ec1d3ff91f]",
+      "caseId": "update",
+      "totalMs": 3,
+      "category": "lifecycle",
+      "evidence": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.02459016393442623,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "page": 1,
+          "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+          "score": 0.024193548387096774,
+          "endOffset": 83,
+          "paragraph": 4,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 52,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "page": 1,
+          "text": "# 索引手册",
+          "score": 0.023809523809523808,
+          "endOffset": 6,
+          "paragraph": 1,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 0,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "d062db14-fe05-433c-ad92-968b6463c810",
+          "page": 1,
+          "text": "## 权限",
+          "score": 0.015625,
+          "endOffset": 50,
+          "paragraph": 3,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 45,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "question": "CiteBase 索引更新失败时如何处理？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.02459016393442623,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "modelMode": "mock",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.02459016393442623,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.024193548387096774,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.023809523809523808,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0.015625,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.5427204370498657,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.19738551072435118,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.17407766503327093,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.8,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.1,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.1,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 0,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 0,
+          "generationMs": 0
+        },
+        "aliasMap": {
+          "E1": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "E2": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "E3": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "E4": "d062db14-fe05-433c-ad92-968b6463c810"
+        },
+        "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。 [E1]",
+        "dataVersions": [
+          {
+            "id": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+            "name": "stage2-index-1790582398373.md",
+            "chunk_size": 900,
+            "version_id": "09690a42-f95f-4728-badc-395e348c3b0f",
+            "content_hash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 4,
+          "vector": 4,
+          "keyword": 3,
+          "selected": 4,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 2,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保留上一份可用索引",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "groupId": null,
+          "endOffset": 43,
+          "paragraph": 2,
+          "sourceHash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 12,
+        "citationStyle": "compact",
+        "keywordWeight": 0.5
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "0e42c184-b3de-44c3-8b25-439cf5402cd3",
+      "mrr": null,
+      "mode": "vector",
+      "error": null,
+      "group": null,
+      "split": "dev",
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "unknown",
+      "totalMs": 2,
+      "category": "unanswerable",
+      "evidence": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.08164965604691676,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "page": 1,
+          "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+          "score": 0,
+          "endOffset": 83,
+          "paragraph": 4,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 52,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "page": 1,
+          "text": "# 索引手册",
+          "score": 0,
+          "endOffset": 6,
+          "paragraph": 1,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 0,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "d062db14-fe05-433c-ad92-968b6463c810",
+          "page": 1,
+          "text": "## 权限",
+          "score": 0,
+          "endOffset": 50,
+          "paragraph": 3,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 45,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "question": "火星气温是多少？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "mock",
+      "recallAtK": null,
+      "answerable": false,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.08164965604691676,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.08164965604691676,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 0,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 0,
+          "generationMs": 0
+        },
+        "aliasMap": {
+          "E1": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "E2": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "E3": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "E4": "d062db14-fe05-433c-ad92-968b6463c810"
+        },
+        "rawAnswer": "无法根据当前资料回答：证据不足。",
+        "dataVersions": [
+          {
+            "id": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+            "name": "stage2-index-1790582398373.md",
+            "chunk_size": 900,
+            "version_id": "09690a42-f95f-4728-badc-395e348c3b0f",
+            "content_hash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 4,
+          "vector": 4,
+          "keyword": 0,
+          "selected": 4,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": false,
+      "retrievalMs": 1,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 12,
+        "citationStyle": "compact",
+        "keywordWeight": 0.5
+      },
+      "abstentionCorrect": true,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "id": "3ad5d709-42e2-4ad4-9d15-b43e3fc6573f",
+      "mrr": null,
+      "mode": "hybrid",
+      "error": null,
+      "group": null,
+      "split": "dev",
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "unknown",
+      "totalMs": 3,
+      "category": "unanswerable",
+      "evidence": [
+        {
+          "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "page": 1,
+          "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+          "score": 0.01639344262295082,
+          "endOffset": 43,
+          "paragraph": 2,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 8,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "page": 1,
+          "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+          "score": 0.016129032258064516,
+          "endOffset": 83,
+          "paragraph": 4,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 52,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "page": 1,
+          "text": "# 索引手册",
+          "score": 0.015873015873015872,
+          "endOffset": 6,
+          "paragraph": 1,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 0,
+          "documentName": "stage2-index-1790582398373.md"
+        },
+        {
+          "id": "d062db14-fe05-433c-ad92-968b6463c810",
+          "page": 1,
+          "text": "## 权限",
+          "score": 0.015625,
+          "endOffset": 50,
+          "paragraph": 3,
+          "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+          "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+          "startOffset": 45,
+          "documentName": "stage2-index-1790582398373.md"
+        }
+      ],
+      "question": "火星气温是多少？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "mock",
+      "recallAtK": null,
+      "answerable": false,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.01639344262295082,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0.016129032258064516,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0.015873015873015872,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0.015625,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+              "page": 1,
+              "text": "CiteBase 索引更新失败时保留上一份可用索引，成功后切换新版本。",
+              "score": 0.08164965604691676,
+              "endOffset": 43,
+              "paragraph": 2,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 8,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+              "page": 1,
+              "text": "CiteBase 的知识库只允许拥有者读取，引用同样校验归属。",
+              "score": 0,
+              "endOffset": 83,
+              "paragraph": 4,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 52,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+              "page": 1,
+              "text": "# 索引手册",
+              "score": 0,
+              "endOffset": 6,
+              "paragraph": 1,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 0,
+              "documentName": "stage2-index-1790582398373.md"
+            },
+            {
+              "id": "d062db14-fe05-433c-ad92-968b6463c810",
+              "page": 1,
+              "text": "## 权限",
+              "score": 0,
+              "endOffset": 50,
+              "paragraph": 3,
+              "versionId": "09690a42-f95f-4728-badc-395e348c3b0f",
+              "documentId": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+              "startOffset": 45,
+              "documentName": "stage2-index-1790582398373.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 0,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 0,
+          "generationMs": 0
+        },
+        "aliasMap": {
+          "E1": "a8d72921-70d5-454a-af3f-b0ec1d3ff91f",
+          "E2": "1c0302bb-8874-4fb7-809c-446752ce54fe",
+          "E3": "8f317336-4c0b-4670-98a7-a7f29acabdb5",
+          "E4": "d062db14-fe05-433c-ad92-968b6463c810"
+        },
+        "rawAnswer": "无法根据当前资料回答：证据不足。",
+        "dataVersions": [
+          {
+            "id": "06d184c2-076d-4e02-9441-7427d4ff31a3",
+            "name": "stage2-index-1790582398373.md",
+            "chunk_size": 900,
+            "version_id": "09690a42-f95f-4728-badc-395e348c3b0f",
+            "content_hash": "55ec91afe322e1195950c632d11c0139529e63799a0f3f9308ca2f151e970ae8",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 4,
+          "vector": 4,
+          "keyword": 0,
+          "selected": 4,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": false,
+      "retrievalMs": 1,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 12,
+        "citationStyle": "compact",
+        "keywordWeight": 0.5
+      },
+      "abstentionCorrect": true,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    }
+  ],
+  "summary": {
+    "hybrid": {
+      "mrr": 1,
+      "count": 2,
+      "totalMs": 3,
+      "recallAtK": 1,
+      "errorCount": 0,
+      "retrievalMs": 1.5,
+      "answerableCount": 1
+    },
+    "vector": {
+      "mrr": 1,
+      "count": 2,
+      "totalMs": 2.5,
+      "recallAtK": 1,
+      "errorCount": 0,
+      "retrievalMs": 1,
+      "answerableCount": 1
+    }
+  },
+  "createdAt": "2026-09-28T08:00:18.722485106Z",
+  "modelMode": "mock",
+  "breakdowns": {
+    "group": {},
+    "split": {
+      "dev": {
+        "hybrid": {
+          "mrr": 1,
+          "count": 2,
+          "totalMs": 3,
+          "recallAtK": 1,
+          "errorCount": 0,
+          "retrievalMs": 1.5,
+          "answerableCount": 1
+        },
+        "vector": {
+          "mrr": 1,
+          "count": 2,
+          "totalMs": 2.5,
+          "recallAtK": 1,
+          "errorCount": 0,
+          "retrievalMs": 1,
+          "answerableCount": 1
+        }
+      }
+    },
+    "topic": {},
+    "category": {
+      "lifecycle": {
+        "hybrid": {
+          "mrr": 1,
+          "count": 1,
+          "totalMs": 3,
+          "recallAtK": 1,
+          "errorCount": 0,
+          "retrievalMs": 2,
+          "answerableCount": 1
+        },
+        "vector": {
+          "mrr": 1,
+          "count": 1,
+          "totalMs": 3,
+          "recallAtK": 1,
+          "errorCount": 0,
+          "retrievalMs": 1,
+          "answerableCount": 1
+        }
+      },
+      "unanswerable": {
+        "hybrid": {
+          "mrr": null,
+          "count": 1,
+          "totalMs": 3,
+          "recallAtK": null,
+          "errorCount": 0,
+          "retrievalMs": 1,
+          "answerableCount": 0
+        },
+        "vector": {
+          "mrr": null,
+          "count": 1,
+          "totalMs": 2,
+          "recallAtK": null,
+          "errorCount": 0,
+          "retrievalMs": 1,
+          "answerableCount": 0
+        }
+      }
+    }
+  },
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "manualScores": []
+}

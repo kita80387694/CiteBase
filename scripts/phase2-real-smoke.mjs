@@ -1,0 +1,13 @@
+import {client,read,immutable,sha} from './phase2-client.mjs';
+import {existsSync,readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const path='docs/results/phase2/stage2-real-smoke.json';
+assert(!existsSync(path),'Smoke already saved; inspect rather than repeat paid calls');
+const runtime=read('.tools/phase2-stage2-runtime.json'),api=await client();
+const kb=(await api.request('/api/knowledge-bases')).find(x=>x.name==='Phase2 baseline');assert(kb,'Run frozen baseline seed first');
+const question=read('docs/results/phase2/registration/tuning.json').questions.find(x=>x.answerable);
+const input={kbId:kb.id,question:question.question,mode:'hybrid',topK:5,retrievalOptions:{candidateK:20,keywordWeight:1,rerank:true,citationStyle:'compact'}};
+const answer=await api.request('/api/questions',input);
+const citations=[];for(const id of answer.citations)citations.push(await api.request('/api/citations/'+id));
+immutable(path,{createdAt:new Date().toISOString(),runtime,scriptSha256:sha(readFileSync('scripts/phase2-real-smoke.mjs')),input,answer,citations,note:'One real pipeline smoke; not used to choose retrieval parameters or establish answer correctness.'});
+assert.equal(answer.modelMode,'real');assert.equal(answer.error,null);assert.equal(answer.citationValid,true);assert(answer.evidence.length>0);assert(answer.diagnostics.candidateCounts.rerankInput>0);assert(answer.usage.rerank);console.log('Real stage2 rerank/compact smoke saved; actual usage retained.');

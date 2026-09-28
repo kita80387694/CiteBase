@@ -28,7 +28,9 @@ public final class EvaluationMetrics {
         && (label.sourceHash() == null
             || Objects.equals(label.sourceHash(), versionHashes.get(e.versionId())))
         && (label.page() == null || label.page() == e.page())
-        && (label.paragraph() == null || label.paragraph() == e.paragraph())
+        && (label.startOffset() != null
+            || label.paragraph() == null
+            || label.paragraph() == e.paragraph())
         && label.quote() != null
         && !label.quote().isBlank()
         && (label.startOffset() == null

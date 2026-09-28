@@ -5,6 +5,158 @@
   font-synthesis: none;
   font-size: 14px;
 }
+.retrieval-controls,
+.chunk-controls {
+  padding: 14px 16px;
+  background: #f6f9f7;
+  border: 1px solid #e1eae4;
+  border-radius: 7px;
+  margin: 16px 0;
+  color: #5d7870;
+  font-size: 11px;
+}
+.chunk-controls {
+  margin: 0 24px 22px;
+}
+.retrieval-controls summary,
+.chunk-controls summary {
+  font-weight: 500;
+  line-height: 1.8;
+}
+.retrieval-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 13px;
+  margin: 16px 0;
+}
+.retrieval-fields label {
+  font-size: 11px !important;
+  margin: 0 !important;
+}
+.retrieval-fields input,
+.retrieval-fields select {
+  width: 100%;
+  min-width: 0;
+  padding: 9px;
+  font-size: 12px;
+}
+.retrieval-controls .check-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  margin: 14px 0;
+  font-size: 12px;
+}
+.check-option input {
+  accent-color: #137f75;
+}
+.retrieval-controls p,
+.chunk-controls p {
+  font-size: 10px;
+  line-height: 1.9;
+  color: #83968d;
+  margin: 13px 0 0;
+}
+.retrieval-diagnostics {
+  padding: 14px 0;
+  margin-top: 14px;
+  border-top: 1px solid #e2ebe5;
+  font-size: 11px;
+}
+.retrieval-diagnostics summary {
+  line-height: 1.8;
+}
+.diagnostic-config,
+.rerank-status {
+  font-size: 11px;
+  color: #607e71;
+  margin: 16px 0 12px;
+  line-height: 1.8;
+}
+.stage-timings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 9px;
+}
+.stage-timings > div {
+  background: #f5f8f6;
+  padding: 12px;
+  border-radius: 5px;
+}
+.stage-timings small {
+  display: block;
+  color: #8ba194;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.stage-timings strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.diagnostic-counts {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  color: #8a9f92;
+  line-height: 1.9;
+}
+.provider-usage {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #719181;
+}
+.provider-usage p {
+  margin: 6px 0;
+}
+.provider-usage small {
+  font-size: 10px;
+  color: #91a497;
+}
+.retrieval-diagnostics pre {
+  max-height: 300px;
+  overflow: auto;
+  font-size: 10px;
+}
+.legacy-diagnostics {
+  font-size: 10px;
+  color: #a0aea7;
+}
+.run-retrieval-config {
+  font-size: 11px;
+  color: #678778;
+  margin: 0;
+  padding: 0 24px 20px;
+  line-height: 1.9;
+}
+.version-card {
+  border: 1px solid #e1eae4;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 18px 0;
+}
+.version-card > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.version-card strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.version-card p {
+  font-size: 12px;
+  margin: 15px 0;
+  color: #6b887b;
+}
+.version-card small {
+  font-size: 10px;
+  color: #96a89c;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
 .analysis-notice,
 .analysis-note {
   font-size: 11px;

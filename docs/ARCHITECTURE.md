@@ -64,3 +64,13 @@ flowchart LR
 ## 局限
 
 不含OCR、注册/密码管理、生产速率限制、SSO、多实例调度、异步流式答案。已提供逐题人工评分与审计，但未实现标注任务分发、多人独立复核、争议仲裁或标注者一致性统计；人工评分来源记录本身不保证判断正确。同步评测请求可长时间占用连接，Nginx超时30分钟；模型超时有上限。保留历史版本会占数据库空间，当前没有自动归档策略。训练/索引/运行均不需要外部Python服务。
+
+## 阶段二检索扩展（实现状态；效果等待本轮实验）
+
+V4为每个文档版本保存`chunk_strategy/chunk_size/chunk_overlap`，为块保存`heading_path`。旧版本补全legacy 900/200，不重建、不更换embedding模型。上传或更新可以选structure-v1；具体段落/标题/表格边界、超长行限制、UTF-16位置约束见CHUNKING.md。配置不同即新版本，只有全部索引成功后切换；实际相同内容和embedding模型仍可复用已有向量。
+
+`RetrievalOptions`使候选数、关键词RRF权重、专用reranker和引用风格可配置。单查询加权RRF为`1/(60+vectorRank) + keywordWeight/(60+keywordRank)`；不是多查询RAG Fusion。候选SQL始终带用户、知识库、当前活动版本和embedding模型条件。reranker只能接收已授权候选，供应商索引必须唯一、整数且在候选范围内；超时、限流和异常映射返回明确失败，不伪装为成功降级。
+
+可选compact模式将本次证据UUID映射为E1…En供生成使用，再由代码严格映射回实际UUID并执行原引用校验。未知别名、混用UUID或残缺引用均拒绝。此机制只改善格式传输，不证明引用支持论断。诊断保存实际原始回答、别名映射、各路候选、阶段耗时及配置，不记录隐藏思维链。
+
+阶段二补充实际embedding/reranker usage；无值保持null，供应商明确返回0才记录0，不通过总和估算缺失total。此前冻结基线未采集embedding usage的限制仍适用于历史记录。新增`/api/retrieval-diagnostics`是授权的纯检索入口，不能当作完整问答延迟。专用reranker使用独立RERANK_*配置，mock明确拒绝该真实调用，不消耗密钥。当前尚未改变上述单实例任务恢复和同步评测语义；这些是阶段四待办。

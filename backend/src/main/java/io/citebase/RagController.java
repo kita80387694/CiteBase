@@ -30,17 +30,38 @@ public class RagController {
     this.scoring = scoring;
   }
 
-  public record Ask(String kbId, String question, String mode, Integer topK) {}
+  public record Ask(
+      String kbId, String question, String mode, Integer topK, RetrievalOptions retrievalOptions) {
+    public Ask(String kbId, String question, String mode, Integer topK) {
+      this(kbId, question, mode, topK, null);
+    }
+  }
 
   @PostMapping("/questions")
-  public QuestionResult ask(@RequestBody Ask body, HttpServletRequest req) {
+  public QuestionResult ask(@RequestBody String source, HttpServletRequest req) {
+    String user = auth.require(req);
+    var body = evaluationInput.ask(source);
     return questions.ask(
-        auth.require(req),
+        user,
         body.kbId(),
         body.question(),
         body.mode() == null ? "vector" : body.mode(),
         body.topK() == null ? 5 : body.topK(),
-        true);
+        true,
+        body.retrievalOptions());
+  }
+
+  @PostMapping("/retrieval-diagnostics")
+  public Object diagnose(@RequestBody String source, HttpServletRequest req) {
+    String user = auth.require(req);
+    var body = evaluationInput.ask(source);
+    return questions.diagnose(
+        user,
+        body.kbId(),
+        body.question(),
+        body.mode() == null ? "vector" : body.mode(),
+        body.topK() == null ? 5 : body.topK(),
+        body.retrievalOptions());
   }
 
   @GetMapping("/questions")

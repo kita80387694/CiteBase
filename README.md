@@ -135,3 +135,11 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 [架构](docs/ARCHITECTURE.md) · [计划](docs/PLAN.md) · [进度](docs/PROGRESS.md) · [评测](docs/EVALUATION.md) · [五分钟演示](docs/DEMO.md) · [简历素材](docs/RESUME.md)
 
 设计参考 [langchain-ai/rag-from-scratch](https://github.com/langchain-ai/rag-from-scratch) 的索引、检索、生成及排名融合思路。保持Java核心实现，未复制其代码；参考提交、实际阅读文件及许可边界见 [REFERENCES](docs/REFERENCES.md)。样例语料为本项目原创，按CC0分发。
+
+## 第二阶段：可选检索实验
+
+保留默认legacy分块与向量问答。文档上传/更新的分块选项可选择`structure-v1`，查看版本可核对实际策略、长度与重叠。问答和评测的“检索设置”支持候选数量、关键词权重、专用重排和简短引用编号；设置会随结果保存。诊断面板展示检索阶段及实际用量，null表示供应商未提供。
+
+专用重排需独立设置`RERANK_BASE_URL`（硅基流动为`https://api.siliconflow.cn`，不带`/v1`）、`RERANK_API_KEY`、`RERANK_MODEL=BAAI/bge-reranker-v2-m3`及`RERANK_TIMEOUT_SECONDS=10`。密钥放未跟踪的`.env`，不提交。关闭rerank不要求这些凭据；mock打开rerank会返回明确错误，以免误用真实服务。DeepSeek聊天和BGE-M3向量配置保持不变。
+
+实验过程见docs/EXPERIMENTS.md与预登记plan.json。`scripts/phase2-optimize.mjs`仅用于专用测试库，依次执行seed、a、b1、b2、c、d、dev、freeze、test；须先保存刚构建镜像的runtime清单到`.tools/phase2-stage2-runtime.json`。它拒绝mock、保留原始失败结果并核对已提交批次，不盲目重复提交。真实调用会产生供应商计费，当前实验上限为700条新增生成结果、最多两个并发评测请求；这不是生产服务的全局配额。尚未执行或未通过的实验不能从此启动说明推断为已完成。

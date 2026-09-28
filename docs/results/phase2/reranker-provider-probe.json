@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-28T07:39:01.534Z",
+  "endpoint": "https://api.siliconflow.cn/v1/rerank",
+  "input": {
+    "model": "BAAI/bge-reranker-v2-m3",
+    "query": "Harbor 正式站运输箱正常温度范围是多少？",
+    "documents": [
+      "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度。",
+      "Quartz 展馆每个普通场次最多接收 48 名访客。",
+      "Moss 种子库的纸质封袋在入库前必须检查封口是否完整。"
+    ],
+    "top_n": 3,
+    "return_documents": false
+  },
+  "status": 200,
+  "body": {
+    "id": "01a0e6f3f4d27ebd9b709269e45c778c",
+    "results": [
+      {
+        "index": 0,
+        "document": null,
+        "relevance_score": 0.9959506988525391
+      },
+      {
+        "index": 1,
+        "document": null,
+        "relevance_score": 0.00001653132858336903
+      },
+      {
+        "index": 2,
+        "document": null,
+        "relevance_score": 0.000016332785889972
+      }
+    ],
+    "meta": {
+      "tokens": {
+        "input_tokens": 122,
+        "output_tokens": 0,
+        "image_tokens": 0
+      },
+      "billed_units": {
+        "input_tokens": 122,
+        "output_tokens": 0,
+        "image_tokens": 0,
+        "search_units": 0,
+        "classifications": 0
+      }
+    }
+  },
+  "note": "Protocol availability probe only; not a retrieval-quality experiment."
+}

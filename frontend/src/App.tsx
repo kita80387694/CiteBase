@@ -1,5 +1,20 @@
 import { useEffect, useState, type FormEvent } from "react";
 import {
+  RetrievalControls,
+  RetrievalDiagnostics,
+  defaultRetrievalOptions,
+  type RetrievalOptions,
+  type RetrievalDetails,
+} from "./RetrievalControls";
+import {
+  ChunkControls,
+  DocumentVersions,
+  defaultChunkProfile,
+  validateChunkProfile,
+  type ChunkProfile,
+  type DocumentVersion,
+} from "./DocumentProfiles";
+import {
   EvaluationAnalysis,
   EvaluationReview,
   type ManualScore,
@@ -30,6 +45,7 @@ type Doc = {
   status: string;
   error?: string;
   activeVersionId?: string;
+  activeProfile?: ChunkProfile | null;
 };
 type Task = {
   id: string;
@@ -49,7 +65,7 @@ export type Evidence = {
   text: string;
   score: number;
 };
-type QA = {
+type QA = RetrievalDetails & {
   id: string;
   question: string;
   answer: string;
@@ -98,7 +114,7 @@ export type Run = {
   name: string;
   status: string;
   modelMode: string;
-  config: unknown;
+  config: { retrievalOptions?: RetrievalOptions; [key: string]: unknown };
   summary?: Record<string, Metric>;
   results?: Result[];
   manualScores?: ManualScore[];
@@ -124,6 +140,12 @@ const fmt = (n: number | undefined) =>
   n == null ? "不可用" : Number(n).toFixed(2);
 
 export default function App() {
+  const [retrievalOptions, setRetrievalOptions] = useState<RetrievalOptions>(
+    defaultRetrievalOptions,
+  );
+  const [chunkProfile, setChunkProfile] =
+    useState<ChunkProfile>(defaultChunkProfile);
+  const [versionDocument, setVersionDocument] = useState<Doc | null>(null);
   const [token, setToken] = useState(
     localStorage.getItem("citebase.token") || "",
   );
@@ -245,6 +267,7 @@ export default function App() {
     setKb("");
     setRun(null);
     setEvidence(null);
+    setVersionDocument(null);
   };
   async function login(e: FormEvent) {
     e.preventDefault();
@@ -259,8 +282,12 @@ export default function App() {
   }
   async function upload(file: File, documentId?: string) {
     await action(async () => {
+      validateChunkProfile(chunkProfile);
       const form = new FormData();
       form.append("file", file);
+      form.append("chunkStrategy", chunkProfile.strategy);
+      form.append("chunkSize", String(chunkProfile.size));
+      form.append("chunkOverlap", String(chunkProfile.overlap));
       if (documentId) form.append("documentId", documentId);
       await api(`/knowledge-bases/${kb}/documents`, {
         method: "POST",
@@ -281,7 +308,13 @@ export default function App() {
     await action(async () => {
       const result = await api<QA>("/questions", {
         method: "POST",
-        body: JSON.stringify({ kbId: kb, question, mode, topK }),
+        body: JSON.stringify({
+          kbId: kb,
+          question,
+          mode,
+          topK,
+          retrievalOptions,
+        }),
       });
       setHistory((h) => [result, ...h]);
       setQuestion("");
@@ -298,7 +331,13 @@ export default function App() {
       }
       const result = await api<Run>("/evaluations", {
         method: "POST",
-        body: JSON.stringify({ kbId: kb, name: evalName, dataset: data, topK }),
+        body: JSON.stringify({
+          kbId: kb,
+          name: evalName,
+          dataset: data,
+          topK,
+          retrievalOptions,
+        }),
       });
       setRun(result);
       await refresh();
@@ -498,7 +537,7 @@ export default function App() {
             {page === "library" && (
               <button
                 className="primary"
-                disabled={busy}
+                disabled={busy || loading}
                 onClick={() => {
                   const name = prompt("新知识库名称");
                   if (name?.trim())
@@ -613,6 +652,11 @@ export default function App() {
                     支持文本型
                     PDF、Markdown、TXT。重复内容自动检测；更新成功后切换索引版本。
                   </div>
+                  <ChunkControls
+                    value={chunkProfile}
+                    onChange={setChunkProfile}
+                    disabled={busy}
+                  />
                   {!docs.length ? (
                     <Empty
                       text="还没有文档"
@@ -648,9 +692,22 @@ export default function App() {
                                     ? d.activeVersionId.slice(0, 8)
                                     : "尚未索引"}
                                 </span>
+                                {d.activeProfile && (
+                                  <small className="result-sub">
+                                    {d.activeProfile.strategy} ·{" "}
+                                    {d.activeProfile.size} /{" "}
+                                    {d.activeProfile.overlap}
+                                  </small>
+                                )}
                               </td>
                               <td>
                                 <div className="actions">
+                                  <button
+                                    className="quiet"
+                                    onClick={() => setVersionDocument(d)}
+                                  >
+                                    版本
+                                  </button>
                                   <label className="button quiet">
                                     更新
                                     <input
@@ -759,6 +816,12 @@ export default function App() {
                     required
                     disabled={!kb || busy}
                   />
+                  <RetrievalControls
+                    value={retrievalOptions}
+                    onChange={setRetrievalOptions}
+                    topK={topK}
+                    disabled={busy}
+                  />
                   <div className="ask-bottom">
                     <div className="actions">
                       <select
@@ -804,10 +867,16 @@ export default function App() {
                         <MessageSquare size={17} />
                         <h3>{q.question}</h3>
                       </div>
-                      {q.abstained && (
-                        <span className="badge pending">
-                          证据不足 · 拒绝推断
+                      {q.error ? (
+                        <span className="badge failed">
+                          执行失败 · 已停止回答
                         </span>
+                      ) : (
+                        q.abstained && (
+                          <span className="badge pending">
+                            证据不足 · 拒绝推断
+                          </span>
+                        )
                       )}
                       <p className="answer-text">{renderAnswer(q, cite)}</p>
                       {q.error && <div className="inline-error">{q.error}</div>}
@@ -837,6 +906,7 @@ export default function App() {
                           引用格式 {q.citationValid ? "有效" : "无效"}
                         </span>
                       </div>
+                      <RetrievalDiagnostics result={q} />
                       <details>
                         <summary>
                           查看本次检索证据（{q.evidence?.length || 0}）
@@ -960,6 +1030,13 @@ export default function App() {
                       onChange={(e) => setTopK(Number(e.target.value))}
                     />
                   </label>
+                  <RetrievalControls
+                    value={retrievalOptions}
+                    onChange={setRetrievalOptions}
+                    topK={topK}
+                    disabled={busy}
+                    forEvaluation
+                  />
                   <button
                     className="primary"
                     disabled={!kb || !dataset || busy}
@@ -1026,6 +1103,16 @@ export default function App() {
                     </button>
                   </div>
                   {run.error && <div className="alert">{run.error}</div>}
+                  {run.config?.retrievalOptions && (
+                    <p className="run-retrieval-config">
+                      本次统一配置：候选{" "}
+                      {run.config.retrievalOptions.candidateK} · 关键词权重{" "}
+                      {run.config.retrievalOptions.keywordWeight}（向量权重 1）
+                      · 重排{" "}
+                      {run.config.retrievalOptions.rerank ? "开启" : "关闭"} ·
+                      引用 {run.config.retrievalOptions.citationStyle}
+                    </p>
+                  )}
                   <div className="table-scroll">
                     <table>
                       <thead>
@@ -1079,6 +1166,16 @@ export default function App() {
           CiteBase 知据 <span>让知识可检索，让答案可验证。</span>
         </footer>
       </main>
+      {versionDocument && (
+        <DocumentVersions
+          document={
+            docs.find((document) => document.id === versionDocument.id) ||
+            versionDocument
+          }
+          load={(id) => api<DocumentVersion[]>(`/documents/${id}/versions`)}
+          onClose={() => setVersionDocument(null)}
+        />
+      )}
       {evidence && (
         <div className="drawer-backdrop" onClick={() => setEvidence(null)}>
           <aside className="drawer" onClick={(e) => e.stopPropagation()}>
@@ -1131,6 +1228,7 @@ export default function App() {
               })}
             </p>
             {detail.error && <div className="alert">{detail.error}</div>}
+            <RetrievalDiagnostics result={detail} />
             <p className="muted">
               Recall@K {fmt(detail.recallAtK)} · MRR {fmt(detail.mrr)} ·{" "}
               {detail.answerable ? "可回答" : "不可回答"}

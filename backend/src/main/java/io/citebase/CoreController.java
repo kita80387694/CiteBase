@@ -70,10 +70,22 @@ public class CoreController {
   @GetMapping("/knowledge-bases/{id}/documents")
   Object documents(HttpServletRequest req, @PathVariable String id) {
     access.requireKnowledgeBase(auth.require(req), id);
-    return db.queryForList(
-        "select id,name,status,error,active_version_id as \"activeVersionId\",created_at as"
-            + " \"createdAt\" from document where kb_id=? order by created_at",
-        id);
+    return db.query(
+        "select d.id,d.name,d.status,d.error,d.active_version_id,d.created_at,"
+            + " v.chunk_strategy,v.chunk_size,v.chunk_overlap from document d left join"
+            + " document_version v on v.id=d.active_version_id where d.kb_id=? order by d.created_at",
+        (rs, n) -> {
+          var row = new LinkedHashMap<String, Object>();
+          row.put("id", rs.getString(1));
+          row.put("name", rs.getString(2));
+          row.put("status", rs.getString(3));
+          row.put("error", rs.getString(4));
+          row.put("activeVersionId", rs.getString(5));
+          row.put("createdAt", rs.getTimestamp(6).toInstant().toString());
+          row.put("activeProfile", rs.getString(5) == null ? null : Map.of(
+              "strategy", rs.getString(7), "size", rs.getInt(8), "overlap", rs.getInt(9)));
+          return row;
+        }, id);
   }
 
   @PostMapping("/knowledge-bases/{id}/documents")
@@ -81,10 +93,14 @@ public class CoreController {
       HttpServletRequest req,
       @PathVariable String id,
       @RequestParam MultipartFile file,
-      @RequestParam(required = false) String documentId)
+      @RequestParam(required = false) String documentId,
+      @RequestParam(required = false) String chunkStrategy,
+      @RequestParam(required = false) Integer chunkSize,
+      @RequestParam(required = false) Integer chunkOverlap)
       throws java.io.IOException {
     return docs.upload(
-        auth.require(req), id, documentId, file.getOriginalFilename(), file.getBytes());
+        auth.require(req), id, documentId, file.getOriginalFilename(), file.getBytes(),
+        ChunkProfile.of(chunkStrategy, chunkSize, chunkOverlap));
   }
 
   @DeleteMapping("/documents/{id}")
@@ -96,7 +112,9 @@ public class CoreController {
   Object versions(HttpServletRequest req, @PathVariable String id) {
     access.requireDocument(auth.require(req), id);
     return db.queryForList(
-        "select id,content_hash as \"contentHash\",status,created_at as \"createdAt\" from"
+        "select id,content_hash as \"contentHash\",status,created_at as \"createdAt\","
+            + " chunk_strategy as \"chunkStrategy\",chunk_size as \"chunkSize\","
+            + " chunk_overlap as \"chunkOverlap\" from"
             + " document_version where document_id=? order by created_at",
         id);
   }

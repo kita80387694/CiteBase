@@ -20,7 +20,14 @@ public class DocumentService {
   @Transactional
   public Map<String, Object> upload(
       String user, String kb, String documentId, String name, byte[] source) {
+    return upload(user, kb, documentId, name, source, ChunkProfile.defaults());
+  }
+
+  @Transactional
+  public Map<String, Object> upload(
+      String user, String kb, String documentId, String name, byte[] source, ChunkProfile profile) {
     access.requireKnowledgeBase(user, kb);
+    if (profile == null) throw new IllegalArgumentException("切分配置不能为空");
     if (name == null
         || name.isBlank()
         || name.length() > 255
@@ -38,14 +45,22 @@ public class DocumentService {
       var same =
           db.queryForList(
               "select d.id from document d join document_version v on v.id=d.active_version_id"
-                  + " where d.kb_id=? and v.content_hash=? union select d.id from document d join"
+                  + " where d.kb_id=? and v.content_hash=? and v.chunk_strategy=? and"
+                  + " v.chunk_size=? and v.chunk_overlap=? union select d.id from document d join"
                   + " document_version v on v.document_id=d.id where d.kb_id=? and v.content_hash=?"
-                  + " and v.status in ('PENDING','PROCESSING')",
+                  + " and v.chunk_strategy=? and v.chunk_size=? and v.chunk_overlap=? and v.status"
+                  + " in ('PENDING','PROCESSING')",
               String.class,
               kb,
               hash,
+              profile.strategy(),
+              profile.size(),
+              profile.overlap(),
               kb,
-              hash);
+              hash,
+              profile.strategy(),
+              profile.size(),
+              profile.overlap());
       if (!same.isEmpty()) return view(same.getFirst());
       documentId = UUID.randomUUID().toString();
       db.update(
@@ -67,22 +82,30 @@ public class DocumentService {
           > 0) throw new ResponseStatusException(HttpStatus.CONFLICT, "文档仍在处理，请稍后更新");
       if (db.queryForObject(
               "select count(*) from document_version v join document d on d.active_version_id=v.id"
-                  + " where d.id=? and v.content_hash=?",
+                  + " where d.id=? and v.content_hash=? and v.chunk_strategy=? and v.chunk_size=?"
+                  + " and v.chunk_overlap=?",
               Integer.class,
               documentId,
-              hash)
+              hash,
+              profile.strategy(),
+              profile.size(),
+              profile.overlap())
           > 0) return view(documentId);
       db.update("update document set status='PENDING',error=null where id=?", documentId);
     }
     String version = UUID.randomUUID().toString();
     db.update(
-        "insert into document_version(id,document_id,content_hash,source,media_type,status)"
-            + " values(?,?,?,?,?,'PENDING')",
+        "insert into"
+            + " document_version(id,document_id,content_hash,source,media_type,status,chunk_strategy,chunk_size,chunk_overlap)"
+            + " values(?,?,?,?,?,'PENDING',?,?,?)",
         version,
         documentId,
         hash,
         source,
-        type);
+        type,
+        profile.strategy(),
+        profile.size(),
+        profile.overlap());
     db.update(
         "insert into index_task(id,document_id,version_id,status) values(?,?,?,'PENDING')",
         UUID.randomUUID().toString(),
@@ -92,10 +115,19 @@ public class DocumentService {
   }
 
   public Map<String, Object> view(String id) {
-    return db.queryForMap(
-        "select id,name,status,error,active_version_id as \"activeVersionId\",created_at as"
-            + " \"createdAt\" from document where id=?",
-        id);
+    var result =
+        db.queryForMap(
+            "select id,name,status,error,active_version_id as \"activeVersionId\",created_at as"
+                + " \"createdAt\" from document where id=?",
+            id);
+    var profiles =
+        db.query(
+            "select v.chunk_strategy,v.chunk_size,v.chunk_overlap from document_version v join"
+                + " document d on d.active_version_id=v.id where d.id=?",
+            (r, n) -> new ChunkProfile(r.getString(1), r.getInt(2), r.getInt(3)),
+            id);
+    result.put("activeProfile", profiles.isEmpty() ? null : profiles.getFirst());
+    return result;
   }
 
   @Transactional

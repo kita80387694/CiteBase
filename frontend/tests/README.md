@@ -16,6 +16,19 @@ npm run test:e2e
 
 评分测试只通过真实 UI 调用真实评分 API，没有模拟后端响应。评分依据明确标识「自动 E2E 模拟交互」，仅验证评分流程、持久化与审计追加，不计入真实人工评审或模型效果结论。断言自动 `answerCorrect` 始终为 `null`，人工评分只保存在独立审计事件中。新版测试需要包含第二阶段评分接口的后端，旧后端会明确失败。
 
+## 阶段二检索与切分的 Mock 验证
+
+在已部署阶段二接口的 Mock 环境中运行：
+
+```powershell
+$env:E2E_BASE_URL='http://localhost:25173'
+node node_modules/@playwright/test/cli.js test tests/phase2-retrieval.spec.ts
+```
+
+该独立测试使用唯一知识库，验证分块参数错误、structure-v1 上传、同内容改 legacy 后的新版本与活动 profile、候选数和关键词权重、compact 引用、真实阶段诊断及供应商用量 null、双模式统一配置导出。开启重排时断言 Mock 后端明确报错，不把未调用的模型伪装成成功。完成后仅删除自建知识库，失败时保留供排查。
+
+截图保存为 `docs/screenshots/phase2-stage2-*.png`，不覆盖阶段一证据；结果附件由 Playwright 报告保留。测试不改变模型参数选择依据，不用于真实检索效果结论。
+
 ## 真实模型界面验证
 
 Vite 可通过环境变量 `API_TARGET` 代理另一个后端（默认 `http://localhost:8080`）。例如在 PowerShell 中：

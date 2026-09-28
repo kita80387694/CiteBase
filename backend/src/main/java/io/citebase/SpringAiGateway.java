@@ -67,8 +67,21 @@ public class SpringAiGateway implements ModelGateway {
   }
 
   public float[] embed(String text) {
+    return embedWithUsage(text).vector();
+  }
+
+  public EmbeddingResult embedWithUsage(String text) {
     try {
-      float[] result = embedding.embed(text);
+      var response =
+          embedding.call(
+              new org.springframework.ai.embedding.EmbeddingRequest(List.of(text), null));
+      if (response == null
+          || response.getResults() == null
+          || response.getResults().size() != 1
+          || response.getResult() == null
+          || response.getResult().getIndex() != 0)
+        throw new IllegalStateException("invalid embedding result count/index");
+      float[] result = response.getResult().getOutput();
       if (result == null || result.length == 0) throw new IllegalStateException("empty embedding");
       double norm = 0;
       for (float n : result) {
@@ -76,7 +89,14 @@ public class SpringAiGateway implements ModelGateway {
         norm += n * n;
       }
       if (norm == 0) throw new IllegalStateException("zero embedding");
-      return result;
+      var usage = response.getMetadata() == null ? null : response.getMetadata().getUsage();
+      Map<String, Object> actual = null;
+      if (usage != null && usage.getNativeUsage() instanceof OpenAiApi.Usage raw) {
+        actual = new LinkedHashMap<>();
+        actual.put("promptTokens", actualCount(raw.promptTokens()));
+        actual.put("totalTokens", actualCount(raw.totalTokens()));
+      }
+      return new EmbeddingResult(result, actual);
     } catch (Exception e) {
       throw new ModelFailure("Embedding 供应商调用失败（超时、限流或异常响应），请检查服务配置", e);
     }
@@ -105,14 +125,12 @@ public class SpringAiGateway implements ModelGateway {
       if (answer == null || answer.isBlank()) throw new IllegalStateException("empty generation");
       var usage = response.getMetadata() == null ? null : response.getMetadata().getUsage();
       // Spring AI EmptyUsage returns zeros: represent missing supplier usage as unavailable.
-      boolean present =
-          usage != null && !(usage instanceof org.springframework.ai.chat.metadata.EmptyUsage);
-      Long in =
-          present && usage.getPromptTokens() != null ? usage.getPromptTokens().longValue() : null;
-      Long out =
-          present && usage.getCompletionTokens() != null
-              ? usage.getCompletionTokens().longValue()
+      OpenAiApi.Usage raw =
+          usage != null && usage.getNativeUsage() instanceof OpenAiApi.Usage nativeUsage
+              ? nativeUsage
               : null;
+      Long in = raw == null ? null : actualCount(raw.promptTokens());
+      Long out = raw == null ? null : actualCount(raw.completionTokens());
       return new Generation(answer, in, out, null);
     } catch (Exception e) {
       return new Generation(Citations.ABSTENTION, null, null, "聊天供应商调用失败（超时、限流或异常响应）");
@@ -121,6 +139,12 @@ public class SpringAiGateway implements ModelGateway {
 
   public String mode() {
     return "real";
+  }
+
+  private static Long actualCount(Integer value) {
+    if (value == null) return null;
+    if (value < 0) throw new IllegalArgumentException("negative provider usage");
+    return value.longValue();
   }
 
   public String chatModel() {

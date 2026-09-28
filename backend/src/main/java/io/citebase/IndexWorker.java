@@ -93,10 +93,18 @@ public class IndexWorker {
         version = (String) task.get("version_id");
     try {
       var versions =
-          db.queryForList("select source,media_type from document_version where id=?", version);
+          db.queryForList(
+              "select source,media_type,chunk_strategy,chunk_size,chunk_overlap from"
+                  + " document_version where id=?",
+              version);
       if (versions.isEmpty()) return true;
       var v = versions.getFirst();
-      var parts = parser.parse((byte[]) v.get("source"), (String) v.get("media_type"));
+      var profile =
+          new ChunkProfile(
+              (String) v.get("chunk_strategy"),
+              ((Number) v.get("chunk_size")).intValue(),
+              ((Number) v.get("chunk_overlap")).intValue());
+      var parts = parser.parse((byte[]) v.get("source"), (String) v.get("media_type"), profile);
       List<Object[]> rows = new ArrayList<>();
       String embeddingModel = model.embeddingModel();
       for (var part : parts) {
@@ -104,11 +112,12 @@ public class IndexWorker {
         var previous =
             db.queryForList(
                 "select embedding::text from chunk where document_id=? and content_hash=? and"
-                    + " embedding_model=? limit 1",
+                    + " embedding_model=? and content=? limit 1",
                 String.class,
                 doc,
                 hash,
-                embeddingModel);
+                embeddingModel,
+                part.text());
         String vector;
         if (previous.isEmpty()) {
           float[] values = model.embed(part.text());
@@ -130,7 +139,8 @@ public class IndexWorker {
               hash,
               vector,
               Lexical.tokens(part.text()),
-              embeddingModel
+              embeddingModel,
+              part.headingPath()
             });
       }
       tx.executeWithoutResult(
@@ -143,8 +153,8 @@ public class IndexWorker {
             db.update("delete from chunk where version_id=?", version);
             db.batchUpdate(
                 "insert into"
-                    + " chunk(id,version_id,document_id,page,paragraph,start_offset,end_offset,content,content_hash,embedding,lexical,embedding_model)"
-                    + " values(?,?,?,?,?,?,?,?,?,?::vector,?,?)",
+                    + " chunk(id,version_id,document_id,page,paragraph,start_offset,end_offset,content,content_hash,embedding,lexical,embedding_model,heading_path)"
+                    + " values(?,?,?,?,?,?,?,?,?,?::vector,?,?,?)",
                 rows);
             db.update("update document_version set status='SUCCESS' where id=?", version);
             db.update(
