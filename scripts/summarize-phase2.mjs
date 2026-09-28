@@ -27,7 +27,8 @@ function metrics(selected) {
     citationValidCount: selected.filter(r => r.citationValid).length,
     allEvidenceHitCount: answerable.filter(r => r.allEvidenceHit).length,
     referenceAnswerMatchCount: answerable.filter(r => r.referenceAnswerMatch).length,
-    abstentionCorrectCount: unanswerable.filter(r => r.abstentionCorrect).length,
+    abstentionCorrectCount: unanswerable.filter(r => r.abstained === true && r.citationValid === true && r.error == null).length,
+    defensiveAbstentionErrorCount: unanswerable.filter(r => r.abstained && r.error).length,
     humanCorrectness: null, note: 'No human review inferred from citations or reference containment.' };
   for (const field of ['retrievalMs', 'totalMs']) {
     const values = selected.map(r => r[field]).filter(v => typeof v === 'number');
@@ -40,8 +41,8 @@ function metrics(selected) {
   return result;
 }
 const modes = [...new Set(rows.map(r => r.mode))];
-const report = { status:'COMPLETE', generatedAt: new Date().toISOString(), label, split, rawFiles: files,
-  definition: 'Per-question macro Recall/MRR on answerable rows (failure/missing=0); latency on all returned numeric rows; nearest-rank percentiles; missing provider usage=null, observed sum is not total when coverage incomplete.',
+const report = { status:'COMPLETE', metricDefinitionVersion:'phase2-derived-v2', generatedAt: new Date().toISOString(), label, split, rawFiles: files,
+  definition: 'Per-question macro Recall/MRR on answerable rows (failure/missing=0); latency on all returned numeric rows; nearest-rank percentiles; missing provider usage=null, observed sum is not total when coverage incomplete. Error-induced abstention remains in the denominator but is not a correct refusal (raw legacy abstentionCorrect retained untouched).',
   summary: Object.fromEntries(modes.map(mode => [mode, metrics(rows.filter(r => r.mode === mode))])),
   byCategory: Object.fromEntries([...new Set(rows.map(r => r.category || 'unspecified'))].map(category => [category, Object.fromEntries(modes.map(mode => [mode, metrics(rows.filter(r => r.mode === mode && (r.category || 'unspecified') === category))]))])),
   casesNeedingReview: rows.filter(r => r.error || (r.answerable && (!r.allEvidenceHit || !r.referenceAnswerMatch)) || (!r.answerable && !r.abstentionCorrect)).map(r => ({caseId:r.caseId,mode:r.mode,error:r.error,recallAtK:r.recallAtK,mrr:r.mrr,referenceAnswerMatch:r.referenceAnswerMatch,abstentionCorrect:r.abstentionCorrect})) };

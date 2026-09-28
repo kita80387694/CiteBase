@@ -21,6 +21,67 @@ import org.testcontainers.junit.jupiter.*;
 @AutoConfigureMockMvc
 @Testcontainers(disabledWithoutDocker = true)
 class Phase2EvaluationIntegrationTest {
+  @Test
+  void abstentionMetricsExcludeProviderAndCitationErrorsButPreserveLegacy() {
+    var unanswerable =
+        new EvaluationService.Dataset(
+            "abstention-v2",
+            List.of(
+                new EvaluationService.Case(
+                    "unknown", "alpha unknown fact", false, null, List.of())));
+    for (Generation generation :
+        List.of(
+            new Generation(Citations.ABSTENTION, null, null, "provider timeout"),
+            new Generation("fabricated [999]", 1L, 2L, null))) {
+      org.mockito.Mockito.doReturn(generation)
+          .when(model)
+          .generate(
+              org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
+      var run = evaluations.run(alice, request(unanswerable));
+      for (var value : (List<?>) run.get("results")) {
+        var row = (Map<?, ?>) value;
+        assertEquals(true, row.get("abstained"));
+        assertNotNull(row.get("error"));
+        assertEquals(false, row.get("abstentionCorrect"));
+      }
+      assertEquals(EvaluationService.METRIC_DEFINITION_VERSION, run.get("metricDefinitionVersion"));
+    }
+    org.mockito.Mockito.doReturn(new Generation(Citations.ABSTENTION, 1L, 2L, null))
+        .when(model)
+        .generate(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
+    var normal = evaluations.run(alice, request(unanswerable));
+    for (var value : (List<?>) normal.get("results"))
+      assertEquals(true, ((Map<?, ?>) value).get("abstentionCorrect"));
+    var answerable = evaluations.run(alice, request(dataset(label())));
+    for (var value : (List<?>) answerable.get("results"))
+      assertNull(((Map<?, ?>) value).get("abstentionCorrect"));
+    String id = (String) normal.get("id");
+    db.update("update evaluation_run set payload=payload-'metricDefinitionVersion' where id=?", id);
+    String before =
+        db.queryForObject("select payload::text from evaluation_run where id=?", String.class, id);
+    var legacy = (Map<?, ?>) evaluations.get(alice, id);
+    assertEquals("legacy-unversioned", legacy.get("metricDefinitionVersion"));
+    assertNotNull(legacy.get("metricDefinitionNote"));
+    assertEquals(
+        before,
+        db.queryForObject("select payload::text from evaluation_run where id=?", String.class, id));
+  }
+
+  @Test
+  void nulImportRejectedBeforePersistence() throws Exception {
+    String body =
+        json.encode(request(dataset(label())))
+            .replace("\"name\":\"phase2\"", "\"name\":\"bad\\u0000name\"");
+    mvc.perform(
+            post("/api/evaluations")
+                .header("Authorization", "Bearer " + aliceToken)
+                .contentType("application/json")
+                .content(body))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.message").value("字段不得包含NUL字符：name"));
+    assertEquals(0, db.queryForObject("select count(*) from evaluation_run", Integer.class));
+  }
+
   @Container
   static PostgreSQLContainer<?> postgres =
       new PostgreSQLContainer<>(

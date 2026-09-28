@@ -33,6 +33,42 @@ node scripts/seed-demo.mjs --evaluate
 
 本次已配置的工作区保留真实Docker演示：**http://localhost:15173**，API为18080，数据库15432；未提交的.env已设置端口、模型与项目名 `citebase-real`。直接 `docker compose up --build -d` 可恢复，无需覆盖.env或重新评测。全新下载仍按上方默认端口启动；已有真实116行结果可直接在评测页查看。
 
+## 第二阶段开发入口与当前状态
+
+第二阶段在专用分支 `feat/citebase-phase2` 开发，使用独立 Compose 项目 `citebase-phase2`：前端 **http://localhost:25173**、API **http://localhost:28080**、数据库端口25432。独立项目使用独立数据卷，不影响原演示15173及其数据；不要更改或覆盖原 `.env`。在当前分支的项目根目录，通过 PowerShell 临时覆盖端口即可启动，模型配置仍读取已有 `.env`：
+
+```powershell
+$phase2Ports = @{ WEB_PORT='25173'; API_PORT='28080'; DB_PORT='25432' }
+$priorPorts = @{}
+foreach ($name in $phase2Ports.Keys) {
+  $priorPorts[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
+  [Environment]::SetEnvironmentVariable($name, $phase2Ports[$name], 'Process')
+}
+try {
+  docker compose -p citebase-phase2 up --build -d
+} finally {
+  foreach ($name in $phase2Ports.Keys) {
+    [Environment]::SetEnvironmentVariable($name, $priorPorts[$name], 'Process')
+  }
+}
+```
+
+阶段一已新增12份原创文档、156题评测集（按主题冻结dev/test）和24个独立安全用例，入口在 `samples/phase2/`。已实现严格标签导入、sourceHash与原文位置校验、同组可替代/跨组必需证据指标，以及逐题人工答案、引用支持和错误分类评分。评分追加保存依据、规则版本、用户与时间，未评分保持null，不覆盖自动原始结果。
+
+**新增语料的真实双配置基线正在运行，第二阶段尚未验收完成。** 后续检索优化、受控Agent、异步任务与多worker治理三项均未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
+
+真实实验需已配置有效模型密钥。以下为新实验的复现入口，会产生真实供应商调用；已有运行应恢复原label及部署清单，不重新生成运行时清单或重复创建收费评测：
+
+```powershell
+$env:CITEBASE_URL = 'http://localhost:28080'
+# 仅首次：完成构建并冻结后端源码后，记录实际部署镜像与源码。
+node scripts/capture-runtime.mjs citebase-phase2-backend .tools/phase2-runtime.json
+node scripts/phase2-experiment.mjs --label stage1-reproduce --seed --run --split dev --runtime-manifest .tools/phase2-runtime.json
+node scripts/summarize-phase2.mjs stage1-reproduce dev
+```
+
+脚本以每批8题保存提交状态和原始结果，重跑同一命令会核对既有服务端记录；断线后优先恢复已有评测，不能直接更换label重提。独立test需显式 `--split test`，仅在配置冻结后运行，不用于选参。当前正在执行的基线原始记录位于 [baseline](docs/results/phase2/baseline/) 和 [baseline-holdout](docs/results/phase2/baseline-holdout/)，运行状态与复现约束见 [实验记录](docs/EXPERIMENTS.md)。
+
 ## 真实模型
 
 将 `.env` 的 `MODEL_MODE=real`，填写 `CHAT_API_KEY`、`CHAT_MODEL`、`CHAT_BASE_URL`、`EMBEDDING_API_KEY`、`EMBEDDING_MODEL`、`EMBEDDING_BASE_URL`。两个供应商可不同。Base URL 不带 `/v1`，SDK会追加 `/v1/chat/completions`、`/v1/embeddings`。`MODEL_TIMEOUT_SECONDS` 默认60。真实接口需有效密钥及可用额度，调用按供应商规则计费；项目不购买额度。
@@ -82,7 +118,7 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 - 用户在检索SQL内隔离；删除文档撤回引用，并清除所属知识库的问答/评测快照，避免历史内容泄露。
 - 单查询向量检索、关键词+向量等权RRF（常数60），中文关键词为双字bigram，非语义分词；未实现多查询RAG Fusion。
 - 引用编号必须来自本次检索，不将引用格式有效等同答案正确。无模型工具调用能力；文档作为不可信证据。
-- 评测保存模型、数据版本、配置和逐题结果；人工语义正确性保留未评分，不用LLM分数替代正确性。
+- 评测保存模型、数据版本、配置和逐题结果；支持追加人工答案正确性与引用支持评分，未人工评分保持null，不用LLM分数或引用存在替代正确性。
 - 单实例模块化单体：恢复逻辑面向一个后端实例，不支持横向多实例worker。精确向量扫描适合MVP小规模语料，不宣称海量性能。
 
 ## 常见故障

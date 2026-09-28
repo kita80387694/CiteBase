@@ -66,20 +66,6 @@
       "skipped": "0"
     },
     {
-      "name": "io.citebase.ExternalCoreIntegrationTest",
-      "tests": "6",
-      "failures": "0",
-      "errors": "0",
-      "skipped": "0"
-    },
-    {
-      "name": "io.citebase.ExternalRagIntegrationTest",
-      "tests": "5",
-      "failures": "0",
-      "errors": "0",
-      "skipped": "0"
-    },
-    {
       "name": "io.citebase.Phase2EvaluationIntegrationTest",
       "tests": "6",
       "failures": "0",
@@ -117,5 +103,7 @@
   ],
   "command": "mvn -f backend/pom.xml -Dtest=DocumentParserTest,RagUnitTest,ProviderContractTest,CoreIntegrationTest,RagIntegrationTest,Phase2EvaluationUnitTest,Phase2EvaluationIntegrationTest test",
   "log": ".tools/phase2-stage1-all-tests.log",
-  "summaryTests": "node --test scripts/phase2-summary.test.mjs: 2 passed"
+  "summaryTests": "node --test scripts/phase2-summary.test.mjs: 2 passed",
+  "totalTests": 46,
+  "collectionCorrection": "The initial collector also picked up two historical External* XML reports. They were not in this command; only the seven explicitly executed suites are listed here (46 tests). Test outputs and raw model results are unchanged."
 }

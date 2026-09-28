@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EvaluationService {
+  public static final String METRIC_DEFINITION_VERSION =
+      "grouped-evidence-v2-error-aware-abstention";
+
   public record Case(
       String id,
       String question,
@@ -117,7 +120,9 @@ public class EvaluationService {
     run.put("modelMode", model.mode());
     run.put("createdAt", Instant.now().toString());
     run.put("error", null);
+    run.put("metricDefinitionVersion", METRIC_DEFINITION_VERSION);
     var config = new LinkedHashMap<>(questions.config(k));
+    config.put("metricDefinitionVersion", METRIC_DEFINITION_VERSION);
     config.put("dataset", dataset);
     config.put(
         "dataVersions",
@@ -181,7 +186,7 @@ public class EvaluationService {
               c.expectedAnswer() == null
                   ? null
                   : normalize(answer.answer()).contains(normalize(c.expectedAnswer())));
-          row.put("abstentionCorrect", !c.answerable() ? answer.abstained() : null);
+          row.put("abstentionCorrect", abstentionCorrect(c.answerable(), answer));
           results.add(row);
           persist(
               "UPDATE evaluation_run SET payload=?::jsonb WHERE id=? AND user_id=?",
@@ -260,6 +265,12 @@ public class EvaluationService {
     progressTransaction.executeWithoutResult(status -> db.update(sql, args));
   }
 
+  static Boolean abstentionCorrect(boolean answerable, QuestionResult answer) {
+    return answerable
+        ? null
+        : answer.abstained() && answer.error() == null && answer.citationValid();
+  }
+
   private Map<String, Object> summarize(List<Map<String, Object>> rows) {
     var result = new LinkedHashMap<String, Object>();
     result.put("count", rows.size());
@@ -301,6 +312,14 @@ public class EvaluationService {
     if (rows.isEmpty())
       throw new org.springframework.web.server.ResponseStatusException(
           org.springframework.http.HttpStatus.NOT_FOUND, "评测不存在或无权限");
-    return scoring.overlay(user, id, rows.getFirst());
+    @SuppressWarnings("unchecked")
+    var view = (Map<String, Object>) rows.getFirst();
+    if (!view.containsKey("metricDefinitionVersion")) {
+      view.put("metricDefinitionVersion", "legacy-unversioned");
+      view.put(
+          "metricDefinitionNote",
+          "历史abstentionCorrect仅反映abstained，可能包含供应商或引用校验错误导致的防御拒答；原始指标未重算，正确拒答统计须另排除error并要求citationValid。此说明仅为导出视图，未修改持久化原始结果。");
+    }
+    return scoring.overlay(user, id, view);
   }
 }

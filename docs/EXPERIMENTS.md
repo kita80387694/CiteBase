@@ -28,3 +28,7 @@
 - 检索消融：未开始，不使用独立测试集选参。
 - Agent对比：未开始。
 - 异步与多worker验证：未开始。
+
+## 拒答口径修正
+
+冻结基线后端的原始abstentionCorrect仅表示不可回答题输出了拒答，可能把供应商失败或非法引用拦截误计为正确。原始JSON保留不改；派生摘要phase2-derived-v2仅在abstained=true、citationValid=true、error=null时计正确拒答，失败仍进入不可回答题分母，另列defensiveAbstentionErrorCount。不能将防御性失败归为正常答案。node --test scripts/phase2-summary.test.mjs新增对应测试通过。后端展示字段需在后续代码更新统一修正，不将基线原字段直接作为结论。

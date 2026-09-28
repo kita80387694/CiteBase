@@ -21,3 +21,12 @@ test('a lost batch cannot produce a complete effectiveness summary',()=>withFixt
   const result=spawnSync(process.execPath,[script,'check','dev'],{cwd,encoding:'utf8'});assert.notEqual(result.status,0);
   const summary=JSON.parse(readFileSync(join(root,'summary-dev.json')));assert.equal(summary.status,'INCOMPLETE');assert.deepEqual(summary.missing,['b:vector']);assert.equal(summary.conclusionAllowed,false);
 }));
+
+test('provider or citation failures cannot inflate correct abstention',()=>withFixture((cwd,root)=>{
+  writeFileSync(join(root,'state.json'),JSON.stringify({expectedBySplit:{dev:['a:vector','b:vector','c:vector']}}));
+  const results=[null,'timeout','invalid citation'].map((error,i)=>({...row(['a','b','c'][i],0,error,null),answerable:false,abstained:true,citationValid:true,abstentionCorrect:true}));
+  writeFileSync(join(root,'check-dev-0-hash.json'),JSON.stringify({results}));
+  const result=spawnSync(process.execPath,[script,'check','dev'],{cwd,encoding:'utf8'});assert.equal(result.status,0,result.stderr);
+  const summary=JSON.parse(readFileSync(join(root,'summary-dev.json'))).summary.vector;
+  assert.equal(summary.unanswerableCount,3);assert.equal(summary.abstentionCorrectCount,1);assert.equal(summary.defensiveAbstentionErrorCount,2);assert.equal(summary.errorRate,2/3);
+}));

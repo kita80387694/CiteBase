@@ -129,6 +129,8 @@ public class EvaluationInput {
       if (required) throw new IllegalArgumentException("缺少字段：" + field);
       return;
     }
+    if (value.isTextual() && value.asText().indexOf('\u0000') >= 0)
+      throw new IllegalArgumentException("字段不得包含NUL字符：" + field);
     if (!value.isTextual() || value.asText().isBlank() || value.asText().length() > 16000)
       throw new IllegalArgumentException("字段必须为非空字符串且不超过16000字符：" + field);
   }

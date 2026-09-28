@@ -67,3 +67,16 @@
 - 严格JSON/活动原文定位/证据组指标/可审计人工评分落地。后端46项0失败0错误0跳过，含真实Testcontainers；汇总防漏批2项通过。证据results/phase2/stage1-verification.json。
 - 前端构建与扩展Mock API E2E通过（1 passed,15.2s）；评分追加两次、持久化、筛选空态、导出null未评分均验证。主Agent亲自查看评分及审计截图，路径screenshots/phase2-stage1-*.png；自动E2E评分明确不计真实人工评审。
 - 原有演示未改动，独立数据库V3迁移成功。162份非忽略文件检查未发现当前配置密钥。真实新增语料基线与安全调用尚未执行，阶段一未验收完成。下一步冻结本地实现提交、独立服务切real、先冒烟再批量评测。
+
+### 真实基线启动（2026-09-28 15:06）
+- 实现提交90145a5dacd9aab40b9f484681e16cc67cdab9c5；运行镜像sha256:0d48f21551b50ac1c2a57abbaea2d90c091cecfe36e97d930301bfd50ad1ef52，运行清单保存源码摘要，独立Compose已健康启动real。12份文档真实BGE索引全部成功。
+- 两题×两配置smoke四行保留于results/phase2/smoke：3行无错误，1行模型未知引用被代码拦截并拒答（COMPLETED_WITH_ERRORS），不是全通过。
+- 冻结开发集与独立测试基线分别在baseline、baseline-holdout运行；测试集仅留原始输出，选参前不分析其错题。每8题落盘；安全24用例独立运行，已有过度拒答失败，保留原始断言不放宽。
+- Git差异检查出现的PDF尾空格属于合法xref格式；新增.gitattributes标记二进制并固定数据字节，避免跨平台换行损坏PDF及manifest。源码与数据不改动。
+
+- 验证记录采集修正：surefire目录存在上一阶段External*历史XML，首次收集误纳入两项历史suite；stage1-verification现仅保留本次命令指定7suite/46tests，日志原样，未删测试或排除失败。
+- 第二阶段真实UI一次执行通过（1 passed,8.9s）：12文档、真实Harbor回答与点击引用、四行smoke含失败详情及导出。主Agent亲自查看phase2-real-citation/error-detail截图；未重试筛选成功。
+
+- 阶段一发现指标缺陷：旧abstentionCorrect把错误导致拒答也记true。冻结真实运行不改，原始结果保留；派生摘要升级phase2-derived-v2，要求无error且引用有效的真实拒答才计正确，失败仍留分母并单列。新增风险单测通过，汇总共3项；后端字段口径待基线结束后修正。
+
+- 拒答指标与NUL导入修复已通过25项实际JUnit/Testcontainers测试（0失败/跳过，.tools/phase2-metric-fix-test.log）。新结果标记metricDefinitionVersion，旧payload不重算；仍未部署到运行中的基线镜像。证明记录results/phase2/metric-fix-verification.json。
