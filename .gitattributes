@@ -4,3 +4,8 @@
 samples/phase2/** -text
 scripts/generate-phase2*.mjs -text
 scripts/generate-phase2-pdf-text.java -text
+# Experiment source manifests and raw-result SHA256 values are byte-exact too.
+# Disable platform checkout conversion without disabling textual diffs.
+backend/** -text
+scripts/*.mjs -text
+docs/results/** -text
