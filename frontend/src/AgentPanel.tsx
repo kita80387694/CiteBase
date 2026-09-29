@@ -14,6 +14,12 @@ import {
 } from "lucide-react";
 import type { Evidence } from "./App";
 import {
+  taskLabels,
+  taskTerminal,
+  ProgressView,
+  type TaskProgress,
+} from "./TaskPanel";
+import {
   RetrievalControls,
   defaultRetrievalOptions,
   type RetrievalOptions,
@@ -71,11 +77,15 @@ const reasons: Record<string, string> = {
   INVALID_CITATION: "引用校验失败",
   SOURCE_CHANGED: "文档版本变化",
   CONFIG_CHANGED: "模型或策略配置已变化，请重新创建运行",
+  UNSAFE_TO_RESUME: "存在无法确认的外部调用，不能安全续跑；请显式新建运行",
   OUTPUT_LIMIT: "模型输出达到上限，已停止回答",
   INTERRUPTED: "服务中断",
   CANCELLED: "执行已取消",
 };
 export type AgentRun = {
+  taskId?: string;
+  taskStatus?: string;
+  progress?: TaskProgress;
   id: string;
   kbId: string;
   status: string;
@@ -121,6 +131,12 @@ export type AgentRun = {
 };
 const terminal = (state: string) =>
   ["COMPLETED", "FAILED", "CANCELLED", "INTERRUPTED"].includes(state);
+const runTerminal = (run: AgentRun) =>
+  run.taskStatus ? taskTerminal(run.taskStatus) : terminal(run.status);
+const visibleStatus = (run: AgentRun) => run.taskStatus || run.status;
+const completed = (run: AgentRun) =>
+  ["COMPLETED", "SUCCEEDED"].includes(run.status) &&
+  (!run.taskStatus || run.taskStatus === "SUCCEEDED");
 const showError = (error: unknown) =>
   error instanceof Error ? error.message : "请求失败";
 const json = (value: unknown) => JSON.stringify(value ?? null, null, 2);
@@ -226,7 +242,7 @@ export function AgentPanel({
     };
   }, [kbId, reload, storageKey, pendingKey]);
   useEffect(() => {
-    if (!run || terminal(run.status)) return;
+    if (!run || runTerminal(run)) return;
     let active = true,
       polling = false;
     const timer = setInterval(async () => {
@@ -237,7 +253,7 @@ export function AgentPanel({
         const value = await apiRef.current<AgentRun>(`/agent-runs/${run.id}`);
         if (active) {
           setRun(value);
-          if (terminal(value.status)) void reload().catch(() => {});
+          if (runTerminal(value)) void reload().catch(() => {});
         }
       } catch (e) {
         if (active) {
@@ -254,12 +270,14 @@ export function AgentPanel({
       active = false;
       clearInterval(timer);
     };
-  }, [run?.id, run?.status, reload]);
+  }, [run?.id, run?.status, run?.taskStatus, reload]);
   async function execute(value: AgentRun) {
     if (executing) return;
     setExecuting(value.id);
     setError("");
-    setNotice("已请求执行，可同时查看进度或取消。离开页面不会取消服务端调用。");
+    setNotice(
+      "已请求加入任务队列，可同时查看进度或取消。离开页面不会取消服务端工作。",
+    );
     try {
       const saved = await apiRef.current<AgentRun>(
         `/agent-runs/${value.id}/execute`,
@@ -351,11 +369,15 @@ export function AgentPanel({
     setMutation(true);
     setError("");
     try {
-      selectRun(
-        await apiRef.current<AgentRun>(`/agent-runs/${run.id}/cancel`, {
-          method: "POST",
-        }),
-      );
+      if (run.taskId) {
+        await apiRef.current(`/tasks/${run.taskId}/cancel`, { method: "POST" });
+        selectRun(await apiRef.current<AgentRun>(`/agent-runs/${run.id}`));
+      } else
+        selectRun(
+          await apiRef.current<AgentRun>(`/agent-runs/${run.id}/cancel`, {
+            method: "POST",
+          }),
+        );
       await reload();
       setNotice(
         "取消请求已保存。在途供应商请求可能继续计费，晚到结果不会成为成功答案。",
@@ -516,13 +538,19 @@ export function AgentPanel({
           <article className="answer-card agent-run" data-run-id={run.id}>
             <div className="panel-title">
               <h3>{run.request.question}</h3>
-              <span className={`badge ${run.status.toLowerCase()}`}>
-                {statuses[run.status] || run.status}
+              <span className={`badge ${visibleStatus(run).toLowerCase()}`}>
+                {taskLabels[visibleStatus(run)] ||
+                  statuses[run.status] ||
+                  run.status}
               </span>
             </div>
-            <div className="agent-run-id">运行 {run.id}</div>
+            <div className="agent-run-id">
+              运行 {run.id}
+              {run.taskId && ` · 任务 ${run.taskId}`}
+            </div>
+            {run.taskId && <ProgressView progress={run.progress} />}
             <div className="actions agent-actions">
-              {run.status === "CREATED" && (
+              {run.status === "CREATED" && !run.taskId && (
                 <button
                   className="primary"
                   disabled={!!executing || mutation}
@@ -531,13 +559,15 @@ export function AgentPanel({
                   执行此运行
                 </button>
               )}
-              {!terminal(run.status) && (
+              {!runTerminal(run) && (
                 <button
-                  disabled={mutation || run.status === "CANCEL_REQUESTED"}
+                  disabled={
+                    mutation || visibleStatus(run) === "CANCEL_REQUESTED"
+                  }
                   onClick={() => void cancel()}
                 >
                   <Square size={14} />
-                  {run.status === "CANCEL_REQUESTED"
+                  {visibleStatus(run) === "CANCEL_REQUESTED"
                     ? "等待在途调用结束"
                     : "取消运行"}
                 </button>
@@ -550,7 +580,7 @@ export function AgentPanel({
                 <Download size={14} />
                 导出 Agent 记录
               </button>
-              {terminal(run.status) && (
+              {runTerminal(run) && (
                 <button
                   onClick={() => {
                     setQuestion(run.request.question);
@@ -617,7 +647,7 @@ export function AgentPanel({
                 {run.result?.error ? ` · ${run.result.error}` : ""}
               </div>
             )}
-            {run.status === "CREATED" && (
+            {run.status === "CREATED" && !run.taskId && (
               <p className="muted">
                 等待显式执行。刷新或重新打开页面不会自动开始模型调用。
               </p>
@@ -668,17 +698,17 @@ export function AgentPanel({
             {run.result && (
               <div className="agent-result">
                 <h4>
-                  {run.status === "COMPLETED" ? "最终答案" : "已保存部分结果"}{" "}
+                  {completed(run) ? "最终答案" : "已保存部分结果"}{" "}
                   {run.result.modelMode === "mock" && (
                     <span className="badge pending">MOCK · 仅流程验证</span>
                   )}
                 </h4>
-                {run.status === "COMPLETED" &&
+                {completed(run) &&
                   run.result.abstained &&
                   !run.result.error && (
                     <span className="badge pending">证据不足 · 明确拒答</span>
                   )}
-                {run.status === "COMPLETED" && !run.result.error && (
+                {completed(run) && !run.result.error && (
                   <>
                     <p className="answer-text">
                       {run.result.answer
@@ -722,7 +752,7 @@ export function AgentPanel({
                     </p>
                   </>
                 )}
-                {run.status !== "COMPLETED" && (
+                {!completed(run) && (
                   <p className="muted">
                     本次尚未成功完成回答。以下仅为已保存证据与用量，不代表正常答案或正确拒答。
                   </p>
@@ -792,8 +822,10 @@ export function AgentPanel({
           >
             <strong>{item.request.question}</strong>
             <span>
-              {statuses[item.status] || item.status} ·{" "}
-              {new Date(item.createdAt).toLocaleString("zh-CN")}
+              {taskLabels[visibleStatus(item)] ||
+                statuses[item.status] ||
+                item.status}{" "}
+              · {new Date(item.createdAt).toLocaleString("zh-CN")}
             </span>
           </button>
         ))}

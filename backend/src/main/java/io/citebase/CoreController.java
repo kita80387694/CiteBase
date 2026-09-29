@@ -73,7 +73,8 @@ public class CoreController {
     return db.query(
         "select d.id,d.name,d.status,d.error,d.active_version_id,d.created_at,"
             + " v.chunk_strategy,v.chunk_size,v.chunk_overlap from document d left join"
-            + " document_version v on v.id=d.active_version_id where d.kb_id=? order by d.created_at",
+            + " document_version v on v.id=d.active_version_id where d.kb_id=? order by"
+            + " d.created_at",
         (rs, n) -> {
           var row = new LinkedHashMap<String, Object>();
           row.put("id", rs.getString(1));
@@ -82,10 +83,15 @@ public class CoreController {
           row.put("error", rs.getString(4));
           row.put("activeVersionId", rs.getString(5));
           row.put("createdAt", rs.getTimestamp(6).toInstant().toString());
-          row.put("activeProfile", rs.getString(5) == null ? null : Map.of(
-              "strategy", rs.getString(7), "size", rs.getInt(8), "overlap", rs.getInt(9)));
+          row.put(
+              "activeProfile",
+              rs.getString(5) == null
+                  ? null
+                  : Map.of(
+                      "strategy", rs.getString(7), "size", rs.getInt(8), "overlap", rs.getInt(9)));
           return row;
-        }, id);
+        },
+        id);
   }
 
   @PostMapping("/knowledge-bases/{id}/documents")
@@ -99,7 +105,11 @@ public class CoreController {
       @RequestParam(required = false) Integer chunkOverlap)
       throws java.io.IOException {
     return docs.upload(
-        auth.require(req), id, documentId, file.getOriginalFilename(), file.getBytes(),
+        auth.require(req),
+        id,
+        documentId,
+        file.getOriginalFilename(),
+        file.getBytes(),
         ChunkProfile.of(chunkStrategy, chunkSize, chunkOverlap));
   }
 
@@ -117,20 +127,5 @@ public class CoreController {
             + " chunk_overlap as \"chunkOverlap\" from"
             + " document_version where document_id=? order by created_at",
         id);
-  }
-
-  @GetMapping("/tasks")
-  Object tasks(HttpServletRequest req) {
-    return db.queryForList(
-        "select t.id,t.document_id as \"documentId\",d.name as"
-            + " \"documentName\",t.status,t.attempts,t.error,t.created_at as \"createdAt\" from"
-            + " index_task t join document d on d.id=t.document_id join knowledge_base k on"
-            + " k.id=d.kb_id where k.user_id=? order by t.created_at desc",
-        auth.require(req));
-  }
-
-  @PostMapping("/tasks/{id}/retry")
-  void retry(HttpServletRequest req, @PathVariable String id) {
-    docs.retry(auth.require(req), id);
   }
 }

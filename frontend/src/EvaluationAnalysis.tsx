@@ -313,6 +313,15 @@ export function EvaluationReview({
   run: Run;
   onScore: (score: ScoreInput) => Promise<void>;
 }) {
+  const canScore =
+    run.canScore ??
+    [
+      "COMPLETED",
+      "COMPLETED_WITH_ERRORS",
+      "FAILED",
+      "SUCCEEDED",
+      "CANCELLED",
+    ].includes(run.status);
   const [answerCorrect, setAnswerCorrect] = useState("");
   const [citationSupported, setCitationSupported] = useState("");
   const [errorCategories, setErrorCategories] = useState<string[]>([]);
@@ -332,6 +341,10 @@ export function EvaluationReview({
   });
   async function submit(event: FormEvent) {
     event.preventDefault();
+    if (!canScore) {
+      setError("评测进入终态且结果已固定后才能评分。");
+      return;
+    }
     setSaving(true);
     setError("");
     setNotice("");
@@ -405,7 +418,11 @@ export function EvaluationReview({
       ) : (
         [...groups].map(([key, items]) => (
           <div className="evidence-group" key={key}>
-            <strong>{key.startsWith('group:') ? key.slice(6) : `独立必需证据 ${key.slice(5)}`}</strong>
+            <strong>
+              {key.startsWith("group:")
+                ? key.slice(6)
+                : `独立必需证据 ${key.slice(5)}`}
+            </strong>
             <small>
               {items.length > 1
                 ? `${items.length} 个可替代来源，任一命中即可`
@@ -453,7 +470,7 @@ export function EvaluationReview({
             value={answerCorrect}
             aria-label="人工答案正确性"
             onChange={(e) => setAnswerCorrect(e.target.value)}
-            disabled={saving}
+            disabled={saving || !canScore}
           >
             <option value="">请选择人工判定</option>
             <option value="true">正确</option>
@@ -466,14 +483,14 @@ export function EvaluationReview({
             value={citationSupported}
             aria-label="人工引用支持"
             onChange={(e) => setCitationSupported(e.target.value)}
-            disabled={saving}
+            disabled={saving || !canScore}
           >
             <option value="">未评估</option>
             <option value="true">支持答案结论</option>
             <option value="false">不支持答案结论</option>
           </select>
         </label>
-        <fieldset disabled={saving}>
+        <fieldset disabled={saving || !canScore}>
           <legend>错误分析与拒答标签（可多选）</legend>
           {Object.entries(errorLabels).map(([value, label]) => (
             <label key={value} className="error-category">
@@ -500,7 +517,7 @@ export function EvaluationReview({
             value={rationale}
             onChange={(e) => setRationale(e.target.value)}
             placeholder="指出答案与哪条原文一致或冲突，说明判断依据。"
-            disabled={saving}
+            disabled={saving || !canScore}
           />
         </label>
         <label>
@@ -511,7 +528,7 @@ export function EvaluationReview({
             value={ruleVersion}
             onChange={(e) => setRuleVersion(e.target.value)}
             placeholder="例如 human-rubric-v1"
-            disabled={saving}
+            disabled={saving || !canScore}
           />
         </label>
         {error && (
@@ -528,7 +545,7 @@ export function EvaluationReview({
           className="primary"
           disabled={
             saving ||
-            run.status === "RUNNING" ||
+            !canScore ||
             !answerCorrect ||
             !rationale.trim() ||
             !ruleVersion.trim()
@@ -540,7 +557,7 @@ export function EvaluationReview({
               ? "重试保存人工评分"
               : "保存人工评分"}
         </button>
-        {run.status === "RUNNING" && (
+        {!canScore && (
           <p className="analysis-note">评测结束后才能提交人工评分。</p>
         )}
       </form>

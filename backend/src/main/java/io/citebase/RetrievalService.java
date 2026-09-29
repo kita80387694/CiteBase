@@ -33,7 +33,26 @@ public class RetrievalService {
 
   public RetrievalOutcome retrieveDetailed(
       String user, String kb, String question, String mode, int topK, RetrievalOptions supplied) {
+    return retrieveDetailed(user, kb, question, mode, topK, supplied, null);
+  }
+
+  RetrievalOutcome retrieveDetailed(
+      String user,
+      String kb,
+      String question,
+      String mode,
+      int topK,
+      RetrievalOptions supplied,
+      String evaluationId) {
     access.requireKnowledgeBase(user, kb);
+    if (evaluationId != null) requireEvaluation(user, kb, evaluationId);
+    String from =
+        evaluationId == null ? FROM : FROM.replace(" AND d.active_version_id=c.version_id", "");
+    String scope =
+        evaluationId == null
+            ? ""
+            : " AND EXISTS(SELECT 1 FROM evaluation_snapshot es WHERE es.evaluation_id=? AND"
+                + " es.version_id=c.version_id AND es.document_id=d.id)";
     if (!Set.of("vector", "hybrid").contains(mode) || topK < 1 || topK > 20)
       throw new IllegalArgumentException("检索模式或 topK 无效");
     if (question == null
@@ -58,9 +77,14 @@ public class RetrievalService {
     usage.put("rerank", null);
     long started = System.nanoTime(), stage = started;
     String current = "embeddingMs";
+    TaskContext task = TaskContext.current();
+    TaskCall activeCall = null;
     try {
       if (model.mode().equals("real")) AgentPolicy.beforeExternal();
+      activeCall = begin(task, "embedding", question);
       var embedded = model.embedWithUsage(question);
+      complete(task, activeCall, embedded.usage());
+      activeCall = null;
       AgentPolicy.externalUsage("embedding", embedded.usage());
       usage.put("embedding", embedded.usage());
       String vector = Arrays.toString(embedded.vector());
@@ -78,16 +102,16 @@ public class RetrievalService {
               "SELECT "
                   + FIELDS
                   + ",1-(c.embedding <=> ?::vector) score"
-                  + FROM
-                  + " WHERE k.user_id=? AND k.id=? AND c.embedding_model=? ORDER BY c.embedding <=>"
+                  + from
+                  + " WHERE k.user_id=? AND k.id=? AND c.embedding_model=?"
+                  + scope
+                  + " ORDER BY c.embedding <=>"
                   + " ?::vector,c.id LIMIT ?",
               RetrievalService::row,
-              vector,
-              user,
-              kb,
-              model.embeddingModel(),
-              vector,
-              candidates);
+              scopedArgs(
+                  evaluationId,
+                  new Object[] {vector, user, kb, model.embeddingModel()},
+                  new Object[] {vector, candidates}));
       timings.put(current, elapsed(stage));
       trace.put("vector", semantic);
       counts.put("vector", semantic.size());
@@ -102,17 +126,17 @@ public class RetrievalService {
                 "SELECT "
                     + FIELDS
                     + ",ts_rank_cd(to_tsvector('simple',c.lexical),to_tsquery('simple',?)) score"
-                    + FROM
-                    + " WHERE k.user_id=? AND k.id=? AND c.embedding_model=? AND"
+                    + from
+                    + " WHERE k.user_id=? AND k.id=? AND c.embedding_model=?"
+                    + scope
+                    + " AND"
                     + " to_tsvector('simple',c.lexical) @@ to_tsquery('simple',?) ORDER BY score"
                     + " DESC,c.id LIMIT ?",
                 RetrievalService::row,
-                query,
-                user,
-                kb,
-                model.embeddingModel(),
-                query,
-                candidates);
+                scopedArgs(
+                    evaluationId,
+                    new Object[] {query, user, kb, model.embeddingModel()},
+                    new Object[] {query, candidates}));
         timings.put(current, elapsed(stage));
       }
       trace.put("keyword", lexical);
@@ -134,7 +158,14 @@ public class RetrievalService {
         if (model.mode().equals("real")
             && Boolean.TRUE.equals(reranker.configuration().get("configured")))
           AgentPolicy.beforeExternal();
+        if (evaluationId != null) requireEvaluation(user, kb, evaluationId);
+        activeCall =
+            Boolean.TRUE.equals(reranker.configuration().get("configured"))
+                ? begin(task, "rerank", question)
+                : null;
         var reranked = reranker.rerank(question, fused, topK);
+        complete(task, activeCall, reranked.usage());
+        activeCall = null;
         AgentPolicy.externalUsage("rerank", reranked.usage());
         usage.put("rerank", reranked.usage());
         var ranked = new ArrayList<Evidence>();
@@ -151,10 +182,100 @@ public class RetrievalService {
       counts.put("selected", selected.size());
       return new RetrievalOutcome(selected, options, diagnostics, usage, null, elapsed(started));
     } catch (SpringAiGateway.ModelFailure e) {
+      if (activeCall != null)
+        task.completeExternalCall(activeCall, Map.of("error", e.getMessage()), null);
       timings.put(current, elapsed(stage));
       return new RetrievalOutcome(
           List.of(), options, diagnostics, usage, e.getMessage(), elapsed(started));
     }
+  }
+
+  private TaskCall begin(TaskContext context, String kind, String input) {
+    if (context == null) return null;
+    context.checkActive();
+    if (!model.mode().equals("real")
+        && !Boolean.TRUE.equals(model.configuration().get("externalNetwork"))) return null;
+    return context.beginExternalCall(
+        EvaluationCallScope.operation(kind),
+        kind,
+        AuthService.hash(input.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+  }
+
+  private void complete(TaskContext context, TaskCall call, Object usage) {
+    if (call != null) context.completeExternalCall(call, Map.of("received", true), usage);
+    if (context != null) context.checkActive();
+  }
+
+  private Object[] scopedArgs(String evaluationId, Object[] before, Object[] after) {
+    var args = new ArrayList<Object>(Arrays.asList(before));
+    if (evaluationId != null) args.add(evaluationId);
+    args.addAll(Arrays.asList(after));
+    return args.toArray();
+  }
+
+  void requireEvaluation(String user, String kb, String id) {
+    if (db.queryForObject(
+            "SELECT count(*) FROM evaluation_run r JOIN knowledge_base k ON k.id=r.kb_id WHERE"
+                + " r.id=? AND r.user_id=? AND k.user_id=? AND r.kb_id=?",
+            Integer.class,
+            id,
+            user,
+            user,
+            kb)
+        != 1) throw AccessService.missing();
+  }
+
+  List<Map<String, Object>> snapshot(String user, String kb, String id) {
+    requireEvaluation(user, kb, id);
+    return db.query(
+        "SELECT metadata::text FROM evaluation_snapshot WHERE evaluation_id=? ORDER BY document_id",
+        (rs, n) -> {
+          try {
+            return new com.fasterxml.jackson.databind.ObjectMapper()
+                .readValue(
+                    rs.getString(1),
+                    new com.fasterxml.jackson.core.type.TypeReference<Map<String, Object>>() {});
+          } catch (Exception e) {
+            throw new IllegalStateException(e);
+          }
+        },
+        id);
+  }
+
+  public Evidence evaluationCitation(String user, String id, String chunk) {
+    var owned =
+        db.queryForList(
+            "SELECT kb_id,task_id FROM evaluation_run WHERE id=? AND user_id=?", id, user);
+    if (owned.isEmpty()) throw AccessService.missing();
+    if (owned.getFirst().get("task_id") == null) {
+      if (db.queryForObject(
+              "SELECT count(*) FROM evaluation_run r WHERE r.id=? AND r.user_id=? AND EXISTS(SELECT"
+                  + " 1 FROM jsonb_array_elements(r.payload->'results') result,"
+                  + " jsonb_array_elements(result->'evidence') e WHERE e->>'id'=?)",
+              Integer.class,
+              id,
+              user,
+              chunk)
+          != 1) throw AccessService.missing();
+      return citation(user, chunk);
+    }
+    var rows =
+        db.query(
+            "SELECT "
+                + FIELDS
+                + ",0 score"
+                + FROM.replace(" AND d.active_version_id=c.version_id", "")
+                + " JOIN evaluation_snapshot es ON es.document_id=d.id AND"
+                + " es.version_id=c.version_id WHERE k.user_id=? AND es.evaluation_id=? AND c.id=?"
+                + " AND EXISTS(SELECT 1 FROM evaluation_item i,"
+                + " jsonb_array_elements(i.result->'evidence') e WHERE"
+                + " i.evaluation_id=es.evaluation_id AND e->>'id'=c.id)",
+            RetrievalService::row,
+            user,
+            id,
+            chunk);
+    if (rows.isEmpty()) throw AccessService.missing();
+    return rows.getFirst();
   }
 
   private static long elapsed(long start) {

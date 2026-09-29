@@ -3,8 +3,6 @@ package io.citebase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
-public class AgentRunRepository implements ApplicationRunner {
+public class AgentRunRepository {
   private final JdbcTemplate db;
   private final TransactionTemplate tx;
   private final AccessService access;
@@ -20,6 +18,7 @@ public class AgentRunRepository implements ApplicationRunner {
   private final QuestionService questions;
   private final ObjectMapper json;
   private final AgentPlannerGateway planner;
+  private final TaskRepository tasks;
 
   public AgentRunRepository(
       JdbcTemplate db,
@@ -28,7 +27,8 @@ public class AgentRunRepository implements ApplicationRunner {
       RetrievalService retrieval,
       QuestionService questions,
       ObjectMapper json,
-      AgentPlannerGateway planner) {
+      AgentPlannerGateway planner,
+      TaskRepository tasks) {
     this.db = db;
     this.tx = new TransactionTemplate(tm);
     this.access = access;
@@ -36,12 +36,7 @@ public class AgentRunRepository implements ApplicationRunner {
     this.questions = questions;
     this.json = json;
     this.planner = planner;
-  }
-
-  public void run(ApplicationArguments args) {
-    db.update(
-        "update agent_run set status='INTERRUPTED',error_code='INTERRUPTED',finished_at=now() where"
-            + " status in ('RUNNING','CANCEL_REQUESTED')");
+    this.tasks = tasks;
   }
 
   String encode(Object x) {
@@ -134,7 +129,36 @@ public class AgentRunRepository implements ApplicationRunner {
             "select payload from agent_step where run_id=? order by sequence",
             (rs, n) -> decode(rs.getString(1)),
             id));
+    var taskRows = db.queryForList("select id from work_task where id=? and user_id=?", id, user);
+    if (!taskRows.isEmpty()) {
+      var task = tasks.get(user, id);
+      out.put("taskId", id);
+      for (String key : List.of("progress", "canRetry", "retryBlockedReason"))
+        out.put(key, task.get(key));
+      out.put("taskStatus", task.get("status"));
+    }
     return out;
+  }
+
+  public Map<String, Object> enqueue(String user, String id) {
+    return tx.execute(
+        s -> {
+          var view = get(user, id);
+          exclusive((String) view.get("kbId"));
+          db.queryForList("select id from agent_run where id=? and user_id=? for update", id, user);
+          view = get(user, id);
+          if (view.containsKey("taskId") || !"CREATED".equals(view.get("status"))) return view;
+          tasks.enqueue(
+              new TaskSpec(
+                  TaskKind.AGENT,
+                  user,
+                  (String) view.get("kbId"),
+                  id,
+                  "agent:" + id,
+                  Map.of("runId", id),
+                  2));
+          return get(user, id);
+        });
   }
 
   public List<Map<String, Object>> list(String user, String kb) {
@@ -156,6 +180,11 @@ public class AgentRunRepository implements ApplicationRunner {
   }
 
   public boolean claim(String user, String id) {
+    var context = bound(user, id);
+    return tasks.guarded(context.lease(), TaskLock.SHARED_SOURCE, sql -> claimOwned(user, id));
+  }
+
+  private boolean claimOwned(String user, String id) {
     return tx.execute(
         s -> {
           var view = get(user, id);
@@ -197,18 +226,31 @@ public class AgentRunRepository implements ApplicationRunner {
   }
 
   public Map<String, Object> cancel(String user, String id) {
-    get(user, id);
-    db.update(
-        "update agent_run set cancel_requested_at=coalesce(cancel_requested_at,now()),status=case"
-            + " when status='CREATED' then 'CANCELLED' else 'CANCEL_REQUESTED' end,finished_at=case"
-            + " when status='CREATED' then now() else finished_at end where id=? and user_id=? and"
-            + " status in ('CREATED','RUNNING','CANCEL_REQUESTED')",
-        id,
-        user);
-    return get(user, id);
+    return tx.execute(
+        s -> {
+          var before = get(user, id);
+          exclusive((String) before.get("kbId"));
+          var owned = get(user, id);
+          if (owned.containsKey("taskId")) {
+            tasks.cancel(user, id);
+            return get(user, id);
+          }
+          db.update(
+              "update agent_run set"
+                  + " cancel_requested_at=clock_timestamp(),status='CANCELLED',finished_at=clock_timestamp()"
+                  + " where id=? and user_id=? and status='CREATED'",
+              id,
+              user);
+          return get(user, id);
+        });
+  }
+
+  private void exclusive(String kb) {
+    db.queryForList("select pg_advisory_xact_lock(hashtextextended(?,0))", kb);
   }
 
   public void check(String user, String id, Object snapshot) {
+    bound(user, id).checkActive();
     var view = get(user, id);
     if (!"RUNNING".equals(view.get("status"))) throw new AgentPolicy.Stop("CANCELLED");
     if (!Objects.equals(snapshot, retrieval.dataVersions(user, (String) view.get("kbId"))))
@@ -219,62 +261,63 @@ public class AgentRunRepository implements ApplicationRunner {
     db.queryForList("select pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
   }
 
+  private TaskContext bound(String user, String id) {
+    var context = TaskContext.current();
+    if (context == null) throw new TaskSignal("LEASE_REQUIRED");
+    var lease = context.lease();
+    if (lease.kind() != TaskKind.AGENT
+        || !lease.resourceId().equals(id)
+        || !lease.userId().equals(user)) throw new TaskSignal("LEASE_IDENTITY_MISMATCH");
+    var view = get(user, id);
+    if (!lease.kbId().equals(view.get("kbId"))) throw new TaskSignal("LEASE_IDENTITY_MISMATCH");
+    return context;
+  }
+
   public void step(String user, String id, Object snapshot, Map<String, Object> step) {
-    tx.executeWithoutResult(
-        s -> {
-          var before = get(user, id);
-          lock((String) before.get("kbId"));
+    var context = bound(user, id);
+    tasks.guarded(
+        context.lease(),
+        TaskLock.SHARED_SOURCE,
+        sql -> {
           check(user, id, snapshot);
-          db.queryForList("select id from agent_run where id=? and user_id=? for update", id, user);
-          check(user, id, snapshot);
-          db.update(
+          sql.update(
               "insert into agent_step(run_id,sequence,payload) values(?,?,?::jsonb)",
               id,
               step.get("sequence"),
               encode(step));
+          return null;
         });
   }
 
   public void finish(
       String user, String id, Object snapshot, String status, String error, Object result) {
-    tx.executeWithoutResult(
-        s -> {
-          var rows =
-              db.queryForList(
-                  "select kb_id from agent_run where id=? and user_id=?", String.class, id, user);
-          if (rows.isEmpty()) return;
-          lock(rows.getFirst());
-          var current =
-              db.queryForList(
-                  "select status from agent_run where id=? and user_id=? for update",
-                  String.class,
-                  id,
-                  user);
-          if (current.isEmpty()
-              || !Set.of("RUNNING", "CANCEL_REQUESTED").contains(current.getFirst())) return;
-          String finalStatus = status, code = error;
-          Object answer = result;
-          if (current.getFirst().equals("CANCEL_REQUESTED")) {
-            finalStatus = "CANCELLED";
-            code = "CANCELLED";
-            answer = redacted(result, code);
-          } else if (!Objects.equals(snapshot, retrieval.dataVersions(user, rows.getFirst()))) {
-            finalStatus = "FAILED";
-            code = "SOURCE_CHANGED";
-            answer = redacted(result, code);
+    var lease = bound(user, id).lease();
+    var outcome = new LinkedHashMap<String, Object>();
+    outcome.put("status", status);
+    outcome.put("error", error);
+    outcome.put("result", result);
+    outcome.put("snapshot", snapshot);
+    tasks.guarded(
+        lease,
+        TaskLock.SHARED_SOURCE,
+        sql -> {
+          if (!Objects.equals(snapshot, retrieval.dataVersions(user, lease.kbId()))) {
+            outcome.put("status", "FAILED");
+            outcome.put("error", "SOURCE_CHANGED");
+            outcome.put("result", redacted(result, "SOURCE_CHANGED"));
           }
-          db.update(
-              "update agent_run set status=?,error_code=?,result=?::jsonb,finished_at=now() where"
-                  + " id=? and user_id=?",
-              finalStatus,
-              code,
-              answer == null ? null : encode(answer),
-              id,
-              user);
+          sql.update(
+              "insert into work_checkpoint(task_id,checkpoint_key,payload,fencing_token)"
+                  + " values(?,'agent-outcome',?::jsonb,?) on conflict(task_id,checkpoint_key) do"
+                  + " nothing",
+              lease.taskId(),
+              encode(outcome),
+              lease.fencingToken());
+          return null;
         });
   }
 
-  private Object redacted(Object result, String code) {
+  Object redacted(Object result, String code) {
     if (!(result instanceof Map<?, ?> original)) return null;
     var safe = new LinkedHashMap<String, Object>();
     for (String field :

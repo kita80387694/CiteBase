@@ -1,4 +1,10 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  TaskPanel,
+  ProgressView,
+  type WorkTask,
+  type TaskProgress,
+} from "./TaskPanel";
 import { AgentPanel } from "./AgentPanel";
 import {
   RetrievalControls,
@@ -47,14 +53,6 @@ type Doc = {
   error?: string;
   activeVersionId?: string;
   activeProfile?: ChunkProfile | null;
-};
-type Task = {
-  id: string;
-  documentId: string;
-  documentName: string;
-  status: string;
-  attempts: number;
-  error?: string;
 };
 export type Evidence = {
   id: string;
@@ -113,6 +111,13 @@ export type Metric = {
 export type Run = {
   id: string;
   name: string;
+  kbId?: string;
+  taskId?: string;
+  taskStatus?: string;
+  progress?: TaskProgress;
+  partial?: boolean;
+  canScore?: boolean;
+  pendingItems?: unknown[];
   status: string;
   modelMode: string;
   config: { retrievalOptions?: RetrievalOptions; [key: string]: unknown };
@@ -124,6 +129,10 @@ export type Run = {
   createdAt: string;
 };
 const labels: Record<string, string> = {
+  QUEUED: "排队",
+  RETRY_WAIT: "等待重试",
+  CANCEL_REQUESTED: "正在取消",
+  CANCELLED: "已取消",
   PENDING: "待处理",
   PROCESSING: "处理中",
   RUNNING: "运行中",
@@ -141,6 +150,10 @@ const fmt = (n: number | undefined) =>
   n == null ? "不可用" : Number(n).toFixed(2);
 
 export default function App() {
+  const [evidenceContext, setEvidenceContext] = useState("当前有效文档版本");
+  const [evalPending, setEvalPending] = useState<string | null>(null);
+  const [runTask, setRunTask] = useState<WorkTask | null>(null);
+  const [evalPollError, setEvalPollError] = useState("");
   const [answerMode, setAnswerMode] = useState("rag");
   const [retrievalOptions, setRetrievalOptions] = useState<RetrievalOptions>(
     defaultRetrievalOptions,
@@ -158,7 +171,6 @@ export default function App() {
     [kbs, setKbs] = useState<KB[]>([]),
     [kb, setKb] = useState(""),
     [docs, setDocs] = useState<Doc[]>([]),
-    [tasks, setTasks] = useState<Task[]>([]),
     [history, setHistory] = useState<QA[]>([]),
     [runs, setRuns] = useState<Run[]>([]);
   const [busy, setBusy] = useState(false),
@@ -196,7 +208,7 @@ export default function App() {
         setToken("");
         setUser(null);
       }
-      throw new Error(message);
+      throw Object.assign(new Error(message), { status: r.status });
     }
     const text = await r.text();
     return text ? JSON.parse(text) : (undefined as T);
@@ -216,13 +228,11 @@ export default function App() {
   async function refresh() {
     setLoading(true);
     try {
-      const [bases, ts, rs] = await Promise.all([
+      const [bases, rs] = await Promise.all([
         api<KB[]>("/knowledge-bases"),
-        api<Task[]>("/tasks"),
         api<Run[]>("/evaluations"),
       ]);
       setKbs(bases);
-      setTasks(ts);
       setRuns(rs);
       if (!bases.some((b) => b.id === kb)) {
         setKb(bases[0]?.id || "");
@@ -300,6 +310,7 @@ export default function App() {
     });
   }
   async function cite(ev: Evidence) {
+    setEvidenceContext("当前有效文档版本");
     await action(async () =>
       setEvidence(await api<Evidence>(`/citations/${ev.id}`)),
     );
@@ -322,39 +333,162 @@ export default function App() {
       setQuestion("");
     });
   }
+  const evalJournalKey = `citebase.eval.pending.${user?.username || ""}.${kb}`;
+  const apiRef = useRef(api);
+  apiRef.current = api;
+  useEffect(() => {
+    setEvalPending(user && kb ? sessionStorage.getItem(evalJournalKey) : null);
+  }, [evalJournalKey, user?.username, kb]);
+  useEffect(() => {
+    if (page !== "eval" || !run?.taskId) {
+      setRunTask(null);
+      return;
+    }
+    setRunTask(null);
+    let live = true,
+      fetching = false;
+    const selectedId = run.id,
+      taskId = run.taskId;
+    async function poll() {
+      if (fetching) return;
+      fetching = true;
+      try {
+        const [current, task] = await Promise.all([
+          apiRef.current<Run>(`/evaluations/${selectedId}`),
+          apiRef.current<WorkTask>(`/tasks/${taskId}`),
+        ]);
+        if (live) {
+          setRun((old) => (old?.id === selectedId ? current : old));
+          setRunTask(task);
+          setEvalPollError("");
+        }
+      } catch (e) {
+        if (live) {
+          setEvalPollError(e instanceof Error ? e.message : "进度读取失败");
+          if ((e as { status?: number }).status === 404) {
+            setRun(null);
+            setDetail(null);
+            setEvidence(null);
+          }
+        }
+      } finally {
+        fetching = false;
+      }
+    }
+    void poll();
+    const timer = setInterval(poll, 2000);
+    return () => {
+      live = false;
+      clearInterval(timer);
+    };
+  }, [page, run?.id, run?.taskId]);
+  function selectEvaluation(value: Run) {
+    setRun(value);
+    setDetail(null);
+    setEvalPollError("");
+    sessionStorage.setItem(
+      `citebase.eval.selected.${user?.username}`,
+      value.id,
+    );
+  }
+  useEffect(() => {
+    if (page !== "eval" || !user || run) return;
+    let active = true;
+    const id = sessionStorage.getItem(
+      `citebase.eval.selected.${user.username}`,
+    );
+    if (id)
+      void apiRef
+        .current<Run>(`/evaluations/${id}`)
+        .then((saved) => {
+          if (active) setRun(saved);
+        })
+        .catch((e) => {
+          if (active)
+            setEvalPollError(e instanceof Error ? e.message : "评测恢复失败");
+        });
+    return () => {
+      active = false;
+    };
+  }, [page, user?.username]);
   async function evaluate(e: FormEvent) {
     e.preventDefault();
     await action(async () => {
-      let data;
-      try {
-        data = JSON.parse(dataset);
-      } catch {
-        throw new Error("评测集不是有效 JSON，请检查文件格式。");
-      }
-      const result = await api<Run>("/evaluations", {
-        method: "POST",
-        body: JSON.stringify({
+      let body = evalPending;
+      if (!body) {
+        let data;
+        try {
+          data = JSON.parse(dataset);
+        } catch {
+          throw new Error("评测集不是有效 JSON，请检查文件格式。");
+        }
+        body = JSON.stringify({
           kbId: kb,
           name: evalName,
           dataset: data,
           topK,
           retrievalOptions,
-        }),
-      });
-      setRun(result);
-      await refresh();
+          idempotencyKey: crypto.randomUUID(),
+        });
+        sessionStorage.setItem(evalJournalKey, body);
+        setEvalPending(body);
+      }
+      try {
+        const result = await api<Run>("/evaluations", { method: "POST", body });
+        sessionStorage.removeItem(evalJournalKey);
+        setEvalPending(null);
+        selectEvaluation(result);
+        setNotice(
+          "评测已持久化并加入任务队列。关闭页面后仍会继续，可从处理任务查看、取消或恢复。",
+        );
+        await refresh().catch(() =>
+          setNotice("评测已创建；列表暂未刷新，请通过已保存任务查看状态。"),
+        );
+      } catch (e) {
+        const code = (e as { status?: number }).status;
+        if (code && [400, 403, 404, 422].includes(code)) {
+          sessionStorage.removeItem(evalJournalKey);
+          setEvalPending(null);
+        }
+        throw e;
+      }
     });
+  }
+  async function evalTaskAction(actionName: "cancel" | "retry") {
+    if (!run?.taskId) return;
+    await action(async () => {
+      await api(`/tasks/${run.taskId}/${actionName}`, { method: "POST" });
+      selectEvaluation(await api<Run>(`/evaluations/${run.id}`));
+      setRunTask(await api<WorkTask>(`/tasks/${run.taskId}`));
+    });
+  }
+  function openTask(task: WorkTask) {
+    if (task.kind === "INDEX") return;
+    if (task.kbId) setKb(task.kbId);
+    if (task.kind === "EVALUATION") {
+      setPage("eval");
+      void action(async () =>
+        selectEvaluation(await api<Run>(`/evaluations/${task.id}`)),
+      );
+    } else {
+      sessionStorage.setItem(
+        `citebase.agent.selected.${user?.username}.${task.kbId || kb}`,
+        task.id,
+      );
+      setAnswerMode("agent");
+      setPage("chat");
+    }
   }
   async function exportRun() {
     if (!run) return;
     await action(async () => {
-      const data = await api(`/evaluations/${run.id}/export`);
+      const data = await api<Run>(`/evaluations/${run.id}/export`);
       const url = URL.createObjectURL(
         new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
       );
       const a = document.createElement("a");
       a.href = url;
-      a.download = `citebase-${run.id}.json`;
+      a.download = `citebase-${run.id}-${data.partial ? "partial" : "final"}.json`;
       a.click();
       URL.revokeObjectURL(url);
     });
@@ -558,7 +692,7 @@ export default function App() {
               </button>
             )}
           </div>
-          {page !== "tasks" && (
+          {
             <div className="kb-selector">
               <Database size={17} />
               <label htmlFor="knowledge-base">当前知识库</label>
@@ -578,7 +712,7 @@ export default function App() {
               </select>
               {loading && <span className="muted">加载中…</span>}
             </div>
-          )}
+          }
           {page === "library" && (
             <>
               <div className="stats">
@@ -758,52 +892,7 @@ export default function App() {
             </>
           )}
           {page === "tasks" && (
-            <section className="panel">
-              <div className="panel-title">
-                <h2>索引任务</h2>
-                <span className="muted">每 8 秒自动刷新</span>
-              </div>
-              {!tasks.length ? (
-                <Empty
-                  text="暂无处理任务"
-                  sub="上传文档后，可以在这里追踪解析、向量化和入库。"
-                />
-              ) : (
-                <div className="task-list">
-                  {tasks.map((t) => (
-                    <div className="task" key={t.id}>
-                      <FileText size={22} />
-                      <div className="grow">
-                        <strong>{t.documentName}</strong>
-                        <p className="muted">
-                          任务 {t.id.slice(0, 8)} · 已尝试 {t.attempts} 次
-                        </p>
-                        {t.error && (
-                          <div className="inline-error">{t.error}</div>
-                        )}
-                      </div>
-                      {status(t.status)}
-                      {t.status === "FAILED" && (
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            action(async () => {
-                              await api(`/tasks/${t.id}/retry`, {
-                                method: "POST",
-                              });
-                              await refresh();
-                            })
-                          }
-                        >
-                          <RefreshCw size={15} />
-                          重试
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
+            <TaskPanel kbId={kb} api={api} onOpen={openTask} />
           )}
           {page === "chat" && (
             <div
@@ -992,93 +1081,103 @@ export default function App() {
                   <p className="muted">
                     同一评测集将分别运行 vector 与 hybrid 配置。
                   </p>
-                  <label>
-                    评测名称
-                    <input
-                      value={evalName}
-                      onChange={(e) => setEvalName(e.target.value)}
-                      required
+                  <fieldset
+                    className="eval-request-fields"
+                    disabled={busy || Boolean(evalPending)}
+                  >
+                    <label>
+                      评测名称
+                      <input
+                        value={evalName}
+                        onChange={(e) => setEvalName(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <label>
+                      导入评测集 JSON
+                      <input
+                        type="file"
+                        accept=".json"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f)
+                            f.text()
+                              .then((t) => {
+                                setDataset(t);
+                                setDatasetName(f.name);
+                              })
+                              .catch(() => setError("无法读取评测文件"));
+                        }}
+                      />
+                    </label>
+                    <div className="muted">
+                      {datasetName ||
+                        "选择 samples/evaluation.json 样例，或按文档格式制作评测集。"}
+                    </div>
+                    <details>
+                      <summary>查看导入格式</summary>
+                      <pre>
+                        {JSON.stringify(
+                          {
+                            version: "v1",
+                            questions: [
+                              {
+                                id: "q1",
+                                question: "示例问题",
+                                answerable: true,
+                                category: "fact",
+                                split: "dev",
+                                group: "example-topic",
+                                expectedAnswer: "预期答案",
+                                evidence: [
+                                  {
+                                    documentName: "example.md",
+                                    page: 1,
+                                    paragraph: 1,
+                                    quote: "原文证据",
+                                    groupId: "required-fact",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          null,
+                          2,
+                        )}
+                      </pre>
+                    </details>
+                    <label>
+                      返回证据数量 Top K
+                      <input
+                        type="number"
+                        min="1"
+                        max="20"
+                        value={topK}
+                        onChange={(e) => setTopK(Number(e.target.value))}
+                      />
+                    </label>
+                    <RetrievalControls
+                      value={retrievalOptions}
+                      onChange={setRetrievalOptions}
+                      topK={topK}
+                      disabled={busy}
+                      forEvaluation
                     />
-                  </label>
-                  <label>
-                    导入评测集 JSON
-                    <input
-                      type="file"
-                      accept=".json"
-                      onChange={(e) => {
-                        const f = e.target.files?.[0];
-                        if (f)
-                          f.text()
-                            .then((t) => {
-                              setDataset(t);
-                              setDatasetName(f.name);
-                            })
-                            .catch(() => setError("无法读取评测文件"));
-                      }}
-                    />
-                  </label>
-                  <div className="muted">
-                    {datasetName ||
-                      "选择 samples/evaluation.json 样例，或按文档格式制作评测集。"}
-                  </div>
-                  <details>
-                    <summary>查看导入格式</summary>
-                    <pre>
-                      {JSON.stringify(
-                        {
-                          version: "v1",
-                          questions: [
-                            {
-                              id: "q1",
-                              question: "示例问题",
-                              answerable: true,
-                              category: "fact",
-                              split: "dev",
-                              group: "example-topic",
-                              expectedAnswer: "预期答案",
-                              evidence: [
-                                {
-                                  documentName: "example.md",
-                                  page: 1,
-                                  paragraph: 1,
-                                  quote: "原文证据",
-                                  groupId: "required-fact",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                        null,
-                        2,
-                      )}
-                    </pre>
-                  </details>
-                  <label>
-                    返回证据数量 Top K
-                    <input
-                      type="number"
-                      min="1"
-                      max="20"
-                      value={topK}
-                      onChange={(e) => setTopK(Number(e.target.value))}
-                    />
-                  </label>
-                  <RetrievalControls
-                    value={retrievalOptions}
-                    onChange={setRetrievalOptions}
-                    topK={topK}
-                    disabled={busy}
-                    forEvaluation
-                  />
+                  </fieldset>
                   <button
                     className="primary"
-                    disabled={!kb || !dataset || busy}
+                    disabled={!kb || (!dataset && !evalPending) || busy}
                   >
                     <FlaskConical size={17} />
-                    {busy ? "正在运行，请稍候…" : "运行向量 / 混合对比"}
+                    {busy
+                      ? "正在创建任务…"
+                      : evalPending
+                        ? "核对并重试创建评测"
+                        : "运行向量 / 混合对比"}
                   </button>
                   <small className="muted">
-                    评测可能耗时较长。任务持久化后可从右侧历史列表查看状态。
+                    创建请求返回任务 ID 后即可继续使用页面；进度每 2
+                    秒读取，刷新不会重新提交整批评测。
                   </small>
                 </form>
                 <section className="panel">
@@ -1100,7 +1199,9 @@ export default function App() {
                         key={r.id}
                         onClick={() =>
                           action(async () => {
-                            setRun(await api<Run>(`/evaluations/${r.id}`));
+                            selectEvaluation(
+                              await api<Run>(`/evaluations/${r.id}`),
+                            );
                             setDetail(null);
                           })
                         }
@@ -1119,6 +1220,17 @@ export default function App() {
                   )}
                 </section>
               </div>
+              {evalPending && (
+                <div className="alert" role="alert">
+                  有待确认的评测创建请求。再次提交将使用原始配置和同一幂等标识，不创建第二批；请先核对状态，再更改配置。
+                </div>
+              )}
+              {evalPollError && (
+                <div className="alert" role="alert">
+                  进度读取失败：{evalPollError}
+                  。不会自动重新执行，可刷新页面恢复读取。
+                </div>
+              )}
               {run && (
                 <section className="panel results">
                   <div className="panel-title">
@@ -1135,6 +1247,39 @@ export default function App() {
                       <ArrowUpRight size={16} />
                     </button>
                   </div>
+                  <div className="evaluation-task-status">
+                    {status(run.taskStatus || run.status)}
+                    {run.taskId && (
+                      <span className="muted">任务 {run.taskId}</span>
+                    )}
+                    <ProgressView progress={run.progress} />
+                    {runTask?.canCancel && (
+                      <button
+                        disabled={busy}
+                        onClick={() => void evalTaskAction("cancel")}
+                      >
+                        取消评测
+                      </button>
+                    )}
+                    {runTask?.canRetry && (
+                      <button
+                        disabled={busy}
+                        onClick={() => void evalTaskAction("retry")}
+                      >
+                        恢复未完成评测
+                      </button>
+                    )}
+                    {runTask?.retryBlockedReason && (
+                      <p className="muted">{runTask.retryBlockedReason}</p>
+                    )}
+                  </div>
+                  {run.partial && (
+                    <p className="agent-notice">
+                      部分结果：指标仅覆盖已完成项，不代表完整对比。尚未完成{" "}
+                      {run.pendingItems?.length ?? "未知"}{" "}
+                      个问题/模式项；未运行项不当作正确答案或零分。
+                    </p>
+                  )}
                   {run.error && <div className="alert">{run.error}</div>}
                   {run.config?.retrievalOptions && (
                     <p className="run-retrieval-config">
@@ -1230,7 +1375,7 @@ export default function App() {
             </div>
             <div className="source-text">{evidence.text}</div>
             <small className="muted">
-              仅展示你有权限访问的当前有效文档版本。
+              仅展示你有权限访问的证据：{evidenceContext}。
             </small>
           </aside>
         </div>
@@ -1257,7 +1402,15 @@ export default function App() {
             <p className="source-text">
               {renderAnswer(detail, (source) => {
                 setDetail(null);
-                void cite(source);
+                setEvidenceContext("本次评测快照版本，文档仍须允许访问");
+                if (run)
+                  void action(async () =>
+                    setEvidence(
+                      await api<Evidence>(
+                        `/evaluations/${run.id}/citations/${source.id}`,
+                      ),
+                    ),
+                  );
               })}
             </p>
             {detail.error && <div className="alert">{detail.error}</div>}

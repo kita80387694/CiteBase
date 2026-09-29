@@ -23,7 +23,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     doThrow(AccessService.missing())
         .when(agentTools)
         .call(eq(alice), any(), eq("inspectCitation"), anyMap(), anyMap());
-    var unavailable = agent.execute(alice, create("missing-tool", ""));
+    var unavailable = runAgent(alice, create("missing-tool", ""));
     assertEquals("FAILED", unavailable.get("status"));
     assertEquals("TOOL_NOT_AVAILABLE", unavailable.get("errorCode"));
     doAnswer(
@@ -41,7 +41,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
             })
         .when(agentTools)
         .call(eq(alice), any(), eq("inspectCitation"), anyMap(), anyMap());
-    var changed = agent.execute(alice, create("missing-old-version", ""));
+    var changed = runAgent(alice, create("missing-old-version", ""));
     assertEquals("FAILED", changed.get("status"));
     assertEquals("SOURCE_CHANGED", changed.get("errorCode"));
     assertTrue(((List<?>) result(changed).get("evidence")).isEmpty());
@@ -52,7 +52,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
   void outputLimitIsFailureDespiteValidCitationAndKeepsUsage() {
     when(planner.plan(anyString(), anyList(), anyList(), anyInt(), anyInt()))
         .thenReturn(new AgentDecision(null, Map.of(), null, 12L, 256L, "OUTPUT_LIMIT"));
-    var p = agent.execute(alice, create("planner-limit", ""));
+    var p = runAgent(alice, create("planner-limit", ""));
     assertEquals("OUTPUT_LIMIT", p.get("errorCode"));
     assertTrue(questions.encode(result(p).get("usage")).contains("256"));
     verify(model, never()).generateBounded(anyString(), anyList(), anyInt(), anyInt());
@@ -66,7 +66,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
             })
         .when(model)
         .generateBounded(anyString(), anyList(), anyInt(), anyInt());
-    var g = agent.execute(alice, create("final-limit", ""));
+    var g = runAgent(alice, create("final-limit", ""));
     assertEquals("FAILED", g.get("status"));
     assertEquals("OUTPUT_LIMIT", g.get("errorCode"));
     assertFalse((Boolean) result(g).get("citationValid"));
@@ -78,7 +78,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
   void configurationDriftFailsBeforeAnyExternalCall() {
     String id = create("config-drift", "");
     when(planner.configuration()).thenReturn(Map.of("model", "changed-planner"));
-    var failed = agent.execute(alice, id);
+    var failed = runAgent(alice, id);
     assertEquals("FAILED", failed.get("status"));
     assertEquals("CONFIG_CHANGED", failed.get("errorCode"));
     assertNull(failed.get("result"));
@@ -88,13 +88,21 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     when(planner.configuration()).thenReturn(Map.of("model", "mock-planner"));
     String another = create("chat-config", "");
     doReturn(Map.of("provider", "changed-public-config")).when(model).configuration();
-    assertEquals("CONFIG_CHANGED", agent.execute(alice, another).get("errorCode"));
+    assertEquals("CONFIG_CHANGED", runAgent(alice, another).get("errorCode"));
     verify(model, never()).embedWithUsage(anyString());
   }
 
   @Autowired AgentInput agentInput;
   @Autowired AgentRunRepository runs;
   @Autowired AgentService agent;
+  @Autowired TaskRepository taskRepository;
+  @Autowired TaskWorker taskWorker;
+  Map<String,Object> runAgent(String user,String id) {
+    var queued=agent.execute(user,id);
+    if("CREATED".equals(queued.get("status")) && "QUEUED".equals(queued.get("taskStatus")))
+      taskWorker.processOne(Set.of(TaskKind.AGENT));
+    return runs.get(user,id);
+  }
 
   @org.springframework.test.context.bean.override.mockito.MockitoSpyBean
   AgentToolService agentTools;
@@ -147,13 +155,13 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
         org.springframework.web.server.ResponseStatusException.class, () -> agent.execute(bob, id));
     assertThrows(
         org.springframework.web.server.ResponseStatusException.class, () -> runs.cancel(bob, id));
-    var run = agent.execute(alice, id);
+    var run = runAgent(alice, id);
     assertEquals("COMPLETED", run.get("status"), run.toString());
     assertTrue((Boolean) result(run).get("citationValid"));
     assertNull(result(run).get("answerCorrect"));
     assertFalse(questions.encode(run).contains("BOB-ONLY"));
     assertTrue(questions.encode(run).contains("mock-planner"));
-    agent.execute(alice, id);
+    runAgent(alice, id);
     verify(planner, times(1)).plan(anyString(), anyList(), anyList(), anyInt(), anyInt());
     String doc = db.queryForObject("select id from document where kb_id=?", String.class, kb);
     documents.delete(alice, doc);
@@ -213,11 +221,11 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     when(planner.plan(anyString(), anyList(), anyList(), anyInt(), anyInt()))
         .thenReturn(
             new AgentDecision("search", Map.of("query", "alpha port"), "repeat", null, null, null));
-    var stopped = agent.execute(alice, create("repeat", ""));
+    var stopped = runAgent(alice, create("repeat", ""));
     assertEquals("NO_PROGRESS", stopped.get("errorCode"));
     assertFalse(((List<?>) result(stopped).get("evidence")).isEmpty());
     verify(model, never()).generateBounded(anyString(), anyList(), anyInt(), anyInt());
-    var limited = agent.execute(alice, create("limit", ",\"budget\":{\"maxEvidence\":1}"));
+    var limited = runAgent(alice, create("limit", ",\"budget\":{\"maxEvidence\":1}"));
     assertEquals("BUDGET_EXCEEDED", limited.get("errorCode"));
     assertFalse((Boolean) result(limited).get("citationValid"));
     assertEquals(1, ((List<?>) result(limited).get("evidence")).size());
@@ -238,9 +246,9 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
             });
     String id = create("cancel", "");
     try (var executor = Executors.newSingleThreadExecutor()) {
-      var future = executor.submit(() -> agent.execute(alice, id));
+      var future = executor.submit(() -> runAgent(alice, id));
       assertTrue(entered.await(5, TimeUnit.SECONDS));
-      assertEquals("RUNNING", agent.execute(alice, id).get("status"));
+      assertEquals("RUNNING", runAgent(alice, id).get("status"));
       assertEquals("CANCEL_REQUESTED", runs.cancel(alice, id).get("status"));
       release.countDown();
       var cancelled = future.get(5, TimeUnit.SECONDS);
@@ -254,7 +262,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     verify(model, never()).generateBounded(anyString(), anyList(), anyInt(), anyInt());
     String before = create("before", "");
     assertEquals("CANCELLED", runs.cancel(alice, before).get("status"));
-    assertEquals("CANCELLED", agent.execute(alice, before).get("status"));
+    assertEquals("CANCELLED", runAgent(alice, before).get("status"));
   }
 
   @Test
@@ -269,7 +277,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
             });
     String id = create("delete", "");
     try (var executor = Executors.newSingleThreadExecutor()) {
-      var future = executor.submit(() -> agent.execute(alice, id));
+      var future = executor.submit(() -> runAgent(alice, id));
       assertTrue(entered.await(5, TimeUnit.SECONDS));
       documents.delete(
           alice, db.queryForObject("select id from document where kb_id=?", String.class, kb));
@@ -293,10 +301,10 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
         "policy.md",
         "new port 9999".getBytes(java.nio.charset.StandardCharsets.UTF_8));
     worker.processOne();
-    assertEquals("SOURCE_CHANGED", agent.execute(alice, id).get("errorCode"));
+    assertEquals("SOURCE_CHANGED", runAgent(alice, id).get("errorCode"));
     when(planner.plan(anyString(), anyList(), anyList(), anyInt(), anyInt()))
         .thenReturn(new AgentDecision("shell", Map.of("command", "bad"), "bad", null, null, null));
-    var invalid = agent.execute(alice, create("invalid", ""));
+    var invalid = runAgent(alice, create("invalid", ""));
     assertEquals("INVALID_ACTION", invalid.get("errorCode"));
     verify(model, never()).generateBounded(anyString(), anyList(), anyInt(), anyInt());
   }
@@ -309,13 +317,20 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
               Thread.sleep(3000);
               return new AgentDecision("finish", Map.of(), "done", null, null, null);
             });
-    var timeout = agent.execute(alice, create("deadline", ",\"budget\":{\"deadlineSeconds\":1}"));
+    var timeout = runAgent(alice, create("deadline", ",\"budget\":{\"deadlineSeconds\":1}"));
     assertEquals("TIMEOUT", timeout.get("errorCode"));
     assertEquals("FAILED", timeout.get("status"));
     String id = create("restart", "");
-    assertTrue(runs.claim(alice, id));
-    runs.run(null);
-    assertEquals("INTERRUPTED", agent.execute(alice, id).get("status"));
+    agent.execute(alice,id);
+    var lease=taskRepository.claim("restart-fixture",Set.of(TaskKind.AGENT)).orElseThrow();
+    TaskContext.bind(new TaskContext(lease,taskRepository));
+    try { assertTrue(runs.claim(alice,id)); }
+    finally { TaskContext.clear(); }
+    assertEquals("RUNNING",runs.get(alice,id).get("status"));
+    assertTrue(taskRepository.claim("second-fixture",Set.of(TaskKind.AGENT)).isEmpty());
+    db.update("update work_task set lease_until=clock_timestamp()-interval '1 second' where id=?",id);
+    assertTrue(taskWorker.processOne(Set.of(TaskKind.AGENT)));
+    assertEquals("UNSAFE_TO_RESUME",runs.get(alice,id).get("errorCode"));
   }
 
   @Test
@@ -341,44 +356,38 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
         b = create("two", ",\"budget\":{\"deadlineSeconds\":1}"),
         third = create("third", "");
     try (var executor = Executors.newFixedThreadPool(2)) {
-      var fa = executor.submit(() -> agent.execute(alice, a));
-      var fb = executor.submit(() -> agent.execute(alice, b));
+      var fa = executor.submit(() -> runAgent(alice, a));
+      var fb = executor.submit(() -> runAgent(alice, b));
       assertTrue(entered.await(5, TimeUnit.SECONDS));
-      for (var f : List.of(fa, fb)) {
-        var stopped = f.get(4, TimeUnit.SECONDS);
-        assertEquals("TIMEOUT", stopped.get("errorCode"));
-        assertFalse(((List<?>) result(stopped).get("evidence")).isEmpty());
-        assertFalse(((List<?>) result(stopped).get("usage")).isEmpty());
-      }
-      var full =
-          assertThrows(
-              org.springframework.web.server.ResponseStatusException.class,
-              () -> agent.execute(alice, third));
-      assertEquals(429, full.getStatusCode().value());
-      verify(model, times(2)).embedWithUsage(anyString());
-    } finally {
-      release.countDown();
-    }
-    when(planner.plan(anyString(), anyList(), anyList(), anyInt(), anyInt()))
-        .thenReturn(new AgentDecision("finish", Map.of(), "now", null, null, null));
-    Map<String, Object> done = null;
-    for (int i = 0; i < 100; i++) {
       try {
-        done = agent.execute(alice, third);
-        break;
-      } catch (org.springframework.web.server.ResponseStatusException e) {
-        assertEquals(429, e.getStatusCode().value());
-        Thread.sleep(10);
-      }
-    }
-    assertNotNull(done);
-    assertEquals("COMPLETED", done.get("status"));
+        Thread.sleep(1400);
+        assertFalse(fa.isDone()); assertFalse(fb.isDone());
+        for(String id:List.of(a,b)) {
+          var checkpoint=taskRepository.get(alice,id);
+          assertEquals("RUNNING",checkpoint.get("status"));
+          String raw=db.queryForObject("select payload::text from work_checkpoint where task_id=? and checkpoint_key='agent-outcome'",String.class,id);
+          assertTrue(raw.contains("TIMEOUT"));
+          assertTrue(raw.contains("evidence"));
+          assertTrue(raw.contains("usage"));
+        }
+        var queued=agent.execute(alice,third);
+        assertEquals("QUEUED",queued.get("taskStatus"));
+        assertFalse(taskWorker.processOne(Set.of(TaskKind.AGENT)),"Actual blocked worker threads still hold both permits");
+        verify(model,times(2)).embedWithUsage(anyString());
+      } finally { release.countDown(); }
+      assertEquals("TIMEOUT",fa.get(5,TimeUnit.SECONDS).get("errorCode"));
+      assertEquals("TIMEOUT",fb.get(5,TimeUnit.SECONDS).get("errorCode"));
+    } finally { release.countDown(); }
+    when(planner.plan(anyString(), anyList(), anyList(), anyInt(), anyInt()))
+        .thenReturn(new AgentDecision("finish",Map.of(),"now",null,null,null));
+    var done=runAgent(alice,third);
+    assertEquals("COMPLETED",done.get("status"));
   }
 
   @Test
   void actualExternalBudgetStopsBeforeNextSupplierCall() {
     doReturn("real").when(model).mode();
-    var run = agent.execute(alice, create("external", ",\"budget\":{\"maxExternalCalls\":1}"));
+    var run = runAgent(alice, create("external", ",\"budget\":{\"maxExternalCalls\":1}"));
     assertEquals("BUDGET_EXCEEDED", run.get("errorCode"));
     assertEquals(
         1, ((Number) ((Map<?, ?>) result(run).get("budgetUsed")).get("externalCalls")).intValue());
@@ -392,7 +401,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     doReturn(new AgentToolService.ToolResult(List.of(foreign), null, null))
         .when(agentTools)
         .call(eq(alice), any(), eq("search"), anyMap(), anyMap());
-    var run = agent.execute(alice, create("forged", ""));
+    var run = runAgent(alice, create("forged", ""));
     assertEquals("INVALID_EVIDENCE", run.get("errorCode"));
     assertFalse(questions.encode(run).contains("BOB-ONLY"));
     assertTrue(((List<?>) result(run).get("evidence")).isEmpty());
@@ -411,7 +420,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
             });
     String id = create("changed-during-call", "");
     try (var executor = Executors.newSingleThreadExecutor()) {
-      var future = executor.submit(() -> agent.execute(alice, id));
+      var future = executor.submit(() -> runAgent(alice, id));
       assertTrue(entered.await(5, TimeUnit.SECONDS));
       documents.upload(
           alice,
@@ -465,7 +474,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
               })
           .when(planner)
           .plan(anyString(), anyList(), anyList(), anyInt(), anyInt());
-      var stopped = agent.execute(alice, create("inject-" + tool, ""));
+      var stopped = runAgent(alice, create("inject-" + tool, ""));
       assertEquals("INVALID_ACTION", stopped.get("errorCode"));
       assertFalse(questions.encode(stopped).contains("BOB-ONLY-SECRET"));
       verify(model, times(1)).embedWithUsage(anyString());
@@ -489,7 +498,7 @@ class AgentIntegrationTest extends Stage2RetrievalIntegrationTest {
     doReturn(new Generation("BOB-ONLY-SECRET [" + foreign + "]", 18L, 4L, null))
         .when(model)
         .generateBounded(anyString(), anyList(), anyInt(), anyInt());
-    var run = agent.execute(alice, create("foreign-citation", ""));
+    var run = runAgent(alice, create("foreign-citation", ""));
     assertEquals("INVALID_CITATION", run.get("errorCode"));
     assertFalse(questions.encode(run).contains("BOB-ONLY-SECRET"));
     assertFalse(questions.encode(run).contains(foreign));

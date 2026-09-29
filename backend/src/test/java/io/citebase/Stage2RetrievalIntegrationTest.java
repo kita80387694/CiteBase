@@ -49,6 +49,15 @@ class Stage2RetrievalIntegrationTest {
   @Autowired QuestionService questions;
   @Autowired RetrievalService retrieval;
   @Autowired EvaluationService evaluations;
+  @Autowired TaskWorker taskWorker;
+
+  @SuppressWarnings("unchecked")
+  Map<String, Object> runEvaluation(String user, EvaluationService.Request request) {
+    var created = evaluations.create(user, request);
+    org.junit.jupiter.api.Assertions.assertTrue(taskWorker.processOne(Set.of(TaskKind.EVALUATION)));
+    return (Map<String, Object>) evaluations.get(user, (String) created.get("id"));
+  }
+
   @Autowired MockMvc mvc;
   @org.springframework.test.context.bean.override.mockito.MockitoSpyBean ModelGateway model;
   String alice, bob, kb, other, aliceToken;
@@ -196,11 +205,11 @@ class Stage2RetrievalIntegrationTest {
                     List.of(
                         new EvaluationMetrics.Label("policy.md", 1, 1, "alpha port is 9081.")))));
     var run =
-        evaluations.run(
+        runEvaluation(
             alice,
             new EvaluationService.Request(
                 kb, "options", dataset, 1, new RetrievalOptions(3, 0., false, "uuid")));
-    assertEquals("COMPLETED", run.get("status"));
+    assertEquals("SUCCEEDED", run.get("status"));
     assertTrue(questions.encode(run).contains("retrievalOptions"));
     assertEquals(
         Set.of("vector", "hybrid"),

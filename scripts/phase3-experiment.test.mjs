@@ -24,3 +24,15 @@ test('actual independent planner and generation public configuration drift rejec
  verifyRun(run,frozen);
  for(const changed of [{...config,agentPlanner:{...config.agentPlanner,model:'other'}},{...config,agentPlanner:{...config.agentPlanner,endpoint:'https://other'}},{...config,temperature:1},{...config,agentPolicyVersion:'v2'},{...config,provider:{chatEndpoint:'https://other'}},{...config,topK:10}])assert.throws(()=>verifyRun({...run,config:changed},frozen),/drift/);
 });
+
+test('async queued execute polls same task and never submits again',()=>temp(async root=>{
+ const backing=fixture();let queued=false,polls=0,executeCalls=0;
+ const api={async request(path,body){
+  if(path.endsWith('/execute')){executeCalls++;const r=await backing.request(path,body);queued=true;return {...r,status:'CREATED',taskId:'r',taskStatus:'QUEUED'};}
+  const r=await backing.request(path,body);
+  if(queued&&path==='/api/agent-runs/r'&&polls++===0)return {...r,status:'CREATED',taskId:'r',taskStatus:'QUEUED'};
+  return r;
+ }};
+ const run=await collectAgent(api,{root,id:'async-case',spec,pollMs:1,maxPolls:5});
+ assert.equal(run.status,'COMPLETED');assert.equal(executeCalls,1);assert.equal(polls,2);
+}));

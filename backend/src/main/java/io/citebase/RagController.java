@@ -78,7 +78,8 @@ public class RagController {
   public Object run(@RequestBody String body, HttpServletRequest req) {
     String user = auth.require(req);
     try {
-      return evaluations.run(user, evaluationInput.request(body));
+      return ResponseEntity.accepted()
+          .body(evaluations.create(user, evaluationInput.request(body)));
     } catch (IllegalArgumentException e) {
       throw new org.springframework.web.server.ResponseStatusException(
           HttpStatus.BAD_REQUEST, e.getMessage());
@@ -104,6 +105,12 @@ public class RagController {
   @GetMapping("/evaluations/{id}")
   public Object get(@PathVariable String id, HttpServletRequest req) {
     return evaluations.get(auth.require(req), id);
+  }
+
+  @GetMapping("/evaluations/{id}/citations/{chunkId}")
+  public Evidence evaluationCitation(
+      @PathVariable String id, @PathVariable String chunkId, HttpServletRequest req) {
+    return retrieval.evaluationCitation(auth.require(req), id, chunkId);
   }
 
   @GetMapping("/evaluations/{id}/export")

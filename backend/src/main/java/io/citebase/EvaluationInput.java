@@ -35,7 +35,8 @@ public class EvaluationInput {
   }
 
   public EvaluationService.Request request(JsonNode root) {
-    object(root, Set.of("kbId", "name", "dataset", "topK", "retrievalOptions"));
+    object(root, Set.of("kbId", "name", "dataset", "topK", "retrievalOptions", "idempotencyKey"));
+    text(root, "idempotencyKey", true);
     text(root, "kbId", true);
     text(root, "name", true);
     integer(root, "topK", false);

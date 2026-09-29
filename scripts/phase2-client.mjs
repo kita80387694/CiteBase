@@ -61,10 +61,10 @@ export async function evaluation(api,{root,id,kbId,dataset,options,runtime,topK=
     const recorded=run.config.dataVersions.map(d=>[d.id,d.version_id]).sort((a,b)=>a[0].localeCompare(b[0]));
     assert.deepEqual(recorded,active,'Recovered run belongs to another KB or changed active source versions');
   }
-  else{assert.notEqual(state.status,'SUBMITTING','Uncertain submission: inspect server before explicit resolution');state.status='SUBMITTING';save(journal,state);run=await api.request('/api/evaluations',{kbId,name,dataset,topK,retrievalOptions:options});}
+  else{assert.notEqual(state.status,'SUBMITTING','Uncertain submission: inspect server before explicit resolution');state.status='SUBMITTING';save(journal,state);run=await api.request('/api/evaluations',{kbId,name,dataset,topK,retrievalOptions:options,idempotencyKey:`p2-${sha(JSON.stringify({id,spec})).slice(0,60)}`});}
   assertRunMatchesRequest(run,{dataset,options,topK});
   state.runId=run.id;state.status=run.status;save(journal,state);
-  while(['QUEUED','RUNNING','CANCEL_REQUESTED'].includes(run.status)){await pause(3000);run=await api.request(`/api/evaluations/${run.id}/export`);state.status=run.status;save(journal,state);}
+  while(['QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED'].includes(run.status)){await pause(3000);run=await api.request(`/api/evaluations/${run.id}/export`);state.status=run.status;save(journal,state);}
   assertRunMatchesRequest(run,{dataset,options,topK});
   immutable(output,run);state.status=run.status;state.completedAt=new Date().toISOString();state.rawSha256=sha(readFileSync(output));save(journal,state);
   assert(['COMPLETED','COMPLETED_WITH_ERRORS','SUCCEEDED'].includes(run.status),`Run ${id} terminated ${run.status}; partial output retained`);

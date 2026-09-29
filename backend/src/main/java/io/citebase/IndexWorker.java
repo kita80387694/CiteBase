@@ -1,196 +1,331 @@
 package io.citebase;
 
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 @Component
-public class IndexWorker {
+public class IndexWorker implements TaskHandler {
   private final JdbcTemplate db;
-  private final TransactionTemplate tx;
   private final DocumentParser parser;
   private final ModelGateway model;
-  private final boolean enabled;
+  private final TaskRepository tasks;
+  private final ObjectProvider<TaskWorker> worker;
 
   public IndexWorker(
       JdbcTemplate db,
-      TransactionTemplate tx,
       DocumentParser parser,
       ModelGateway model,
-      @Value("${citebase.worker-enabled:true}") boolean enabled) {
+      TaskRepository tasks,
+      ObjectProvider<TaskWorker> worker) {
     this.db = db;
-    this.tx = tx;
     this.parser = parser;
     this.model = model;
-    this.enabled = enabled;
+    this.tasks = tasks;
+    this.worker = worker;
   }
 
-  @EventListener(ApplicationReadyEvent.class)
-  public void recover() {
-    tx.executeWithoutResult(
-        s -> {
-          var tasks =
-              db.queryForList(
-                  "select id,document_id,version_id,attempts from index_task where"
-                      + " status='PROCESSING' for update");
-          for (var task : tasks) {
-            boolean exhausted = ((Number) task.get("attempts")).intValue() >= 3;
-            String error = exhausted ? "进程中断且已达最大重试次数" : "进程中断，已恢复任务";
-            db.update(
-                "update index_task set status=?,error=?,available_at=now() where id=?",
-                exhausted ? "FAILED" : "RETRY",
-                error,
-                task.get("id"));
-            db.update(
-                "update document_version set status=? where id=?",
-                exhausted ? "FAILED" : "PENDING",
-                task.get("version_id"));
-            db.update(
-                "update document set status=?,error=? where id=?",
-                exhausted ? "FAILED" : "PENDING",
-                error,
-                task.get("document_id"));
-          }
-        });
+  public TaskKind kind() {
+    return TaskKind.INDEX;
   }
 
-  @Scheduled(fixedDelay = 1000)
-  public void tick() {
-    if (enabled) processOne();
+  public TaskLock publicationLock() {
+    return TaskLock.EXCLUSIVE_SOURCE;
   }
 
-  public synchronized boolean processOne() {
-    var task =
-        tx.execute(
-            s -> {
-              var rows =
-                  db.queryForList(
-                      "select t.* from index_task t where status in ('PENDING','RETRY') and"
-                          + " available_at<=now() order by created_at for update skip locked limit"
-                          + " 1");
-              if (rows.isEmpty()) return null;
-              var row = rows.getFirst();
-              db.update(
-                  "update index_task set status='PROCESSING',attempts=attempts+1,started_at=now()"
+  public boolean processOne() {
+    return worker.getObject().processOne(Set.of(kind()));
+  }
+
+  /**
+   * Compatibility entry: startup never rewrites another process's lease. Expired work is claimed
+   * normally.
+   */
+  public void recover() {}
+
+  @SuppressWarnings("unchecked")
+  private Map<String, Object> payload(TaskLease l) {
+    return (Map<String, Object>) l.payload();
+  }
+
+  private Map<String, Object> source(TaskLease l) {
+    var p = payload(l);
+    var rows =
+        db.queryForList(
+            "select v.*,d.kb_id from document_version v join document d on d.id=v.document_id join"
+                + " knowledge_base k on k.id=d.kb_id where v.id=? and d.id=? and d.kb_id=? and"
+                + " k.user_id=?",
+            p.get("versionId"),
+            p.get("documentId"),
+            l.kbId(),
+            l.userId());
+    if (rows.isEmpty()) throw new TaskSignal("DELETED");
+    var v = rows.getFirst();
+    if (!Objects.equals(v.get("content_hash"), p.get("sourceHash")))
+      throw new TaskSignal("SOURCE_CHANGED");
+    if (p.containsKey("chunkProfile")
+        && !p.get("chunkProfile")
+            .equals(
+                Map.of(
+                    "strategy",
+                    v.get("chunk_strategy"),
+                    "size",
+                    v.get("chunk_size"),
+                    "overlap",
+                    v.get("chunk_overlap")))) throw new TaskSignal("SOURCE_CHANGED");
+    return v;
+  }
+
+  public Map<String, Object> modelSnapshot() {
+    return Map.of(
+        "mode",
+        model.mode(),
+        "embeddingModel",
+        model.embeddingModel(),
+        "provider",
+        model.configuration());
+  }
+
+  public TaskResult execute(TaskContext ctx) throws Exception {
+    var l = ctx.lease();
+    var p = payload(l);
+    Object expected = p.get("modelConfig");
+    if (expected == null) {
+      expected = ctx.checkpoint("modelConfig", Map.class).orElse(null);
+      if (expected == null) {
+        expected = modelSnapshot();
+        ctx.checkpoint("modelConfig", expected);
+      }
+    }
+    if (!expected.equals(modelSnapshot())) throw new TaskSignal("CONFIG_CHANGED");
+    var v =
+        tasks.guarded(
+            l,
+            publicationLock(),
+            sql -> {
+              var found = source(l);
+              sql.update(
+                  "update index_task set"
+                      + " status='PROCESSING',attempts=?,started_at=clock_timestamp(),error=null"
                       + " where id=?",
-                  row.get("id"));
-              db.update(
-                  "update document set status='PROCESSING' where id=?", row.get("document_id"));
-              db.update(
-                  "update document_version set status='PROCESSING' where id=?",
-                  row.get("version_id"));
-              return row;
+                  l.attempt(),
+                  l.taskId());
+              sql.update(
+                  "update document set status='PROCESSING',error=null where id=?",
+                  p.get("documentId"));
+              sql.update(
+                  "update document_version set status='PROCESSING' where id=?", p.get("versionId"));
+              return found;
             });
-    if (task == null) return false;
-    String id = (String) task.get("id"),
-        doc = (String) task.get("document_id"),
-        version = (String) task.get("version_id");
-    try {
-      var versions =
-          db.queryForList(
-              "select source,media_type,chunk_strategy,chunk_size,chunk_overlap from"
-                  + " document_version where id=?",
-              version);
-      if (versions.isEmpty()) return true;
-      var v = versions.getFirst();
-      var profile =
-          new ChunkProfile(
-              (String) v.get("chunk_strategy"),
-              ((Number) v.get("chunk_size")).intValue(),
-              ((Number) v.get("chunk_overlap")).intValue());
-      var parts = parser.parse((byte[]) v.get("source"), (String) v.get("media_type"), profile);
-      List<Object[]> rows = new ArrayList<>();
-      String embeddingModel = model.embeddingModel();
-      for (var part : parts) {
-        String hash = AuthService.hash(part.text().getBytes(StandardCharsets.UTF_8));
-        var previous =
+    var profile =
+        new ChunkProfile(
+            v.get("chunk_strategy").toString(),
+            ((Number) v.get("chunk_size")).intValue(),
+            ((Number) v.get("chunk_overlap")).intValue());
+    var parts = parser.parse((byte[]) v.get("source"), v.get("media_type").toString(), profile);
+    List<String> keys = new ArrayList<>();
+    int completed = 0;
+    for (var part : parts) {
+      ctx.checkActive();
+      String hash = AuthService.hash(part.text().getBytes(java.nio.charset.StandardCharsets.UTF_8));
+      String key =
+          AuthService.hash(
+              tasks
+                  .encode(
+                      List.of(
+                          profile,
+                          part.page(),
+                          part.paragraph(),
+                          part.startOffset(),
+                          part.endOffset(),
+                          part.headingPath(),
+                          hash))
+                  .getBytes(java.nio.charset.StandardCharsets.UTF_8));
+      keys.add(key);
+      if (db.queryForObject(
+              "select count(*) from index_chunk_stage where task_id=? and part_key=?",
+              Integer.class,
+              l.taskId(),
+              key)
+          == 0) {
+        String vector;
+        Object usage = null;
+        var cached =
             db.queryForList(
                 "select embedding::text from chunk where document_id=? and content_hash=? and"
                     + " embedding_model=? and content=? limit 1",
                 String.class,
-                doc,
+                p.get("documentId"),
                 hash,
-                embeddingModel,
+                model.embeddingModel(),
                 part.text());
-        String vector;
-        if (previous.isEmpty()) {
-          float[] values = model.embed(part.text());
-          if (values.length == 0) throw new IllegalArgumentException("embedding 返回空向量");
-          for (float value : values)
-            if (!Float.isFinite(value)) throw new IllegalArgumentException("embedding 含非有限数值");
-          vector = Arrays.toString(values);
-        } else vector = previous.getFirst();
-        rows.add(
-            new Object[] {
-              UUID.randomUUID().toString(),
-              version,
-              doc,
-              part.page(),
-              part.paragraph(),
-              part.startOffset(),
-              part.endOffset(),
-              part.text(),
-              hash,
-              vector,
-              Lexical.tokens(part.text()),
-              embeddingModel,
-              part.headingPath()
+        if (!cached.isEmpty()) vector = cached.getFirst();
+        else {
+          var prior = ctx.completedCall("embedding:" + key);
+          if (prior.isPresent()) {
+            Object response = prior.get().get("response");
+            vector = ((Map<?, ?>) response).get("vector").toString();
+            usage = prior.get().get("usage");
+          } else {
+            var call = ctx.beginExternalCall("embedding:" + key, "embedding", hash);
+            EmbeddingResult answer;
+            try {
+              answer = model.embedWithUsage(part.text());
+            } catch (SpringAiGateway.ModelFailure failure) {
+              String code = ProviderFailures.code(failure);
+              if (!Set.of("PROVIDER_TIMEOUT", "PROVIDER_UNAVAILABLE").contains(code))
+                ctx.completeExternalCall(call, null, null);
+              throw failure;
+            }
+            float[] values = answer.vector();
+            boolean validVector = values.length > 0;
+            for (float n : values) if (!Float.isFinite(n)) validVector = false;
+            if (!validVector) {
+              ctx.completeExternalCall(call, null, answer.usage());
+              throw new TaskSignal("PROVIDER_INVALID_RESPONSE");
+            }
+            vector = Arrays.toString(values);
+            usage = answer.usage();
+            ctx.completeExternalCall(call, Map.of("vector", vector), usage);
+          }
+        }
+        String finalVector = vector;
+        Object finalUsage = usage;
+        tasks.guarded(
+            l,
+            publicationLock(),
+            sql -> {
+              source(l);
+              sql.update(
+                  "insert into"
+                      + " index_chunk_stage(task_id,part_key,source_hash,embedding_model,content_hash,page,paragraph,start_offset,end_offset,heading_path,content,embedding,usage)"
+                      + " values(?,?,?,?,?,?,?,?,?,?,?,?::vector,?::jsonb) on"
+                      + " conflict(task_id,part_key) do nothing",
+                  l.taskId(),
+                  key,
+                  p.get("sourceHash"),
+                  model.embeddingModel(),
+                  hash,
+                  part.page(),
+                  part.paragraph(),
+                  part.startOffset(),
+                  part.endOffset(),
+                  part.headingPath(),
+                  part.text(),
+                  finalVector,
+                  finalUsage == null ? null : tasks.encode(finalUsage));
+              return null;
             });
       }
-      tx.executeWithoutResult(
-          s -> {
-            var kbs = db.queryForList("select kb_id from document where id=?", String.class, doc);
-            if (kbs.isEmpty()) return;
-            db.queryForList("select pg_advisory_xact_lock(hashtextextended(?,0))", kbs.getFirst());
-            if (db.queryForList("select id from document where id=? for update", String.class, doc)
-                .isEmpty()) return;
-            db.update("delete from chunk where version_id=?", version);
-            db.batchUpdate(
-                "insert into"
-                    + " chunk(id,version_id,document_id,page,paragraph,start_offset,end_offset,content,content_hash,embedding,lexical,embedding_model,heading_path)"
-                    + " values(?,?,?,?,?,?,?,?,?,?::vector,?,?,?)",
-                rows);
-            db.update("update document_version set status='SUCCESS' where id=?", version);
-            db.update(
-                "update document set active_version_id=?,status='SUCCESS',error=null where id=?",
-                version,
-                doc);
-            db.update("update index_task set status='SUCCESS',error=null where id=?", id);
-          });
-    } catch (Exception e) {
-      String error = safeError(e);
-      tx.executeWithoutResult(
-          s -> {
-            db.update(
-                "update index_task set status=case when attempts>=3 then 'FAILED' else 'RETRY'"
-                    + " end,error=?,available_at=now()+interval '3 seconds' where id=?",
-                error,
-                id);
-            db.update("update document_version set status='FAILED' where id=?", version);
-            db.update(
-                "update document set status=case when exists(select 1 from index_task where id=?"
-                    + " and status='FAILED') then 'FAILED' else 'PENDING' end,error=? where id=?",
-                id,
-                error,
-                doc);
-          });
+      ctx.progress(Map.of("completed", ++completed, "total", parts.size(), "unit", "chunks"));
     }
-    return true;
+    return new TaskResult(Map.of("partKeys", keys, "modelConfig", modelSnapshot()));
   }
 
-  private String safeError(Exception e) {
-    if (e instanceof IllegalArgumentException
-        || e instanceof java.nio.charset.CharacterCodingException)
-      return "文档处理失败："
-          + (e.getMessage() == null
-              ? "请检查 UTF-8 文本格式"
-              : e.getMessage().substring(0, Math.min(250, e.getMessage().length())));
-    return "索引失败（" + e.getClass().getSimpleName() + "），请检查模型连接及文档格式";
+  public void publish(JdbcTemplate sql, TaskLease l, TaskResult result) {
+    var p = payload(l);
+    source(l);
+    if (!((Map<?, ?>) result.result()).get("modelConfig").equals(modelSnapshot()))
+      throw new TaskSignal("CONFIG_CHANGED");
+    ensureLatest(sql, p);
+    var keys = (List<?>) ((Map<?, ?>) result.result()).get("partKeys");
+    var rows =
+        sql.queryForList(
+            "select * from index_chunk_stage where task_id=? order by"
+                + " page,paragraph,start_offset,part_key",
+            l.taskId());
+    if (rows.size() != keys.size()
+        || !rows.stream()
+            .map(r -> r.get("part_key"))
+            .collect(java.util.stream.Collectors.toSet())
+            .equals(new HashSet<>(keys))) throw new TaskSignal("CHECKPOINT_INCOMPLETE");
+    sql.update("delete from chunk where version_id=?", p.get("versionId"));
+    for (var r : rows)
+      sql.update(
+          "insert into"
+              + " chunk(id,version_id,document_id,page,paragraph,start_offset,end_offset,content,content_hash,embedding,lexical,embedding_model,heading_path)"
+              + " values(?,?,?,?,?,?,?,?,?,?::vector,?,?,?)",
+          UUID.randomUUID().toString(),
+          p.get("versionId"),
+          p.get("documentId"),
+          r.get("page"),
+          r.get("paragraph"),
+          r.get("start_offset"),
+          r.get("end_offset"),
+          r.get("content"),
+          r.get("content_hash"),
+          r.get("embedding").toString(),
+          Lexical.tokens(r.get("content").toString()),
+          r.get("embedding_model"),
+          r.get("heading_path"));
+    sql.update("update document_version set status='SUCCESS' where id=?", p.get("versionId"));
+    sql.update(
+        "update document set active_version_id=?,status='SUCCESS',error=null where id=?",
+        p.get("versionId"),
+        p.get("documentId"));
+    sql.update("update index_task set status='SUCCESS',error=null where id=?", l.taskId());
+  }
+
+  private void ensureLatest(JdbcTemplate sql, Map<?, ?> p) {
+    if (sql.queryForObject(
+            "select count(*) from document_version newer join document_version old on old.id=?"
+                + " where newer.document_id=old.document_id and newer.created_at>old.created_at",
+            Integer.class,
+            p.get("versionId"))
+        > 0) throw new ResponseStatusException(HttpStatus.CONFLICT, "仅可处理最新文档版本");
+  }
+
+  public void onFailure(JdbcTemplate sql, TaskLease l, TaskFailure f, TaskState next) {
+    var p = payload(l);
+    String status =
+        switch (next) {
+          case RETRY_WAIT -> "RETRY";
+          case CANCEL_REQUESTED -> "PROCESSING";
+          case CANCELLED -> "CANCELLED";
+          default -> "FAILED";
+        };
+    sql.update(
+        "update index_task set status=?,attempts=?,error=?,available_at=clock_timestamp()+interval"
+            + " '3 seconds' where id=?",
+        status,
+        l.attempt(),
+        f.safeMessage(),
+        l.taskId());
+    sql.update(
+        "update document_version set status=? where id=?",
+        next == TaskState.CANCEL_REQUESTED
+            ? "PROCESSING"
+            : next == TaskState.RETRY_WAIT ? "PENDING" : status,
+        p.get("versionId"));
+    sql.update(
+        "update document set status=?,error=? where id=?",
+        next == TaskState.RETRY_WAIT ? "PENDING" : status,
+        f.safeMessage(),
+        p.get("documentId"));
+  }
+
+  public void validateRetry(JdbcTemplate sql, Map<String, Object> owned) {
+    var p = (Map<?, ?>) owned.get("payload");
+    ensureLatest(sql, p);
+    if (sql.queryForObject(
+            "select count(*) from work_task where kind='INDEX' and payload->>'documentId'=? and"
+                + " id<>? and status in ('QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED')",
+            Integer.class,
+            p.get("documentId"),
+            owned.get("id"))
+        > 0) throw new ResponseStatusException(HttpStatus.CONFLICT, "文档已有运行任务");
+  }
+
+  public void onQueued(JdbcTemplate sql, TaskLease l) {
+    var p = payload(l);
+    sql.update(
+        "update index_task set"
+            + " status='PENDING',attempts=0,error=null,available_at=clock_timestamp() where id=?",
+        l.taskId());
+    sql.update("update document_version set status='PENDING' where id=?", p.get("versionId"));
+    sql.update("update document set status='PENDING',error=null where id=?", p.get("documentId"));
   }
 }

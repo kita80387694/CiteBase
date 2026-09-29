@@ -101,7 +101,7 @@ public class SpringAiGateway implements ModelGateway {
       }
       return new EmbeddingResult(result, actual);
     } catch (Exception e) {
-      throw new ModelFailure("Embedding 供应商调用失败（超时、限流或异常响应），请检查服务配置", e);
+      throw new ModelFailure(ProviderFailures.code(e), e);
     }
   }
 
@@ -127,7 +127,7 @@ public class SpringAiGateway implements ModelGateway {
       return AgentProviderDeadline.call(
           () -> generateWith(bounded, question, evidence, true), timeoutSeconds);
     } catch (Exception e) {
-      return new Generation(Citations.ABSTENTION, null, null, "Agent回答超时、取消或预算参数无效");
+      return new Generation(Citations.ABSTENTION, null, null, ProviderFailures.code(e));
     }
   }
 
@@ -167,7 +167,7 @@ public class SpringAiGateway implements ModelGateway {
       if (answer == null || answer.isBlank()) throw new IllegalStateException("empty generation");
       return new Generation(answer, in, out, null);
     } catch (Exception e) {
-      return new Generation(Citations.ABSTENTION, null, null, "聊天供应商调用失败（超时、限流或异常响应）");
+      return new Generation(Citations.ABSTENTION, null, null, ProviderFailures.code(e));
     }
   }
 

@@ -37,7 +37,7 @@ class Phase2EvaluationIntegrationTest {
           .when(model)
           .generate(
               org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
-      var run = evaluations.run(alice, request(unanswerable));
+      var run = runEvaluation(alice, request(unanswerable));
       for (var value : (List<?>) run.get("results")) {
         var row = (Map<?, ?>) value;
         assertEquals(true, row.get("abstained"));
@@ -49,10 +49,10 @@ class Phase2EvaluationIntegrationTest {
     org.mockito.Mockito.doReturn(new Generation(Citations.ABSTENTION, 1L, 2L, null))
         .when(model)
         .generate(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
-    var normal = evaluations.run(alice, request(unanswerable));
+    var normal = runEvaluation(alice, request(unanswerable));
     for (var value : (List<?>) normal.get("results"))
       assertEquals(true, ((Map<?, ?>) value).get("abstentionCorrect"));
-    var answerable = evaluations.run(alice, request(dataset(label())));
+    var answerable = runEvaluation(alice, request(dataset(label())));
     for (var value : (List<?>) answerable.get("results"))
       assertNull(((Map<?, ?>) value).get("abstentionCorrect"));
     String id = (String) normal.get("id");
@@ -103,6 +103,15 @@ class Phase2EvaluationIntegrationTest {
   @Autowired DocumentService documents;
   @Autowired IndexWorker worker;
   @Autowired EvaluationService evaluations;
+  @Autowired TaskWorker taskWorker;
+
+  @SuppressWarnings("unchecked")
+  Map<String, Object> runEvaluation(String user, EvaluationService.Request request) {
+    var created = evaluations.create(user, request);
+    org.junit.jupiter.api.Assertions.assertTrue(taskWorker.processOne(Set.of(TaskKind.EVALUATION)));
+    return (Map<String, Object>) evaluations.get(user, (String) created.get("id"));
+  }
+
   @Autowired EvaluationScoringService scoring;
   @Autowired EvaluationLabels labels;
   @Autowired QuestionService json;
@@ -170,8 +179,8 @@ class Phase2EvaluationIntegrationTest {
 
   @Test
   void validLabelsResolveFromSourceAndPersistMetadata() {
-    var run = evaluations.run(alice, request(dataset(label())));
-    assertEquals("COMPLETED", run.get("status"));
+    var run = runEvaluation(alice, request(dataset(label())));
+    assertEquals("SUCCEEDED", run.get("status"));
     var saved = (Map<?, ?>) evaluations.get(alice, (String) run.get("id"));
     var row = (Map<?, ?>) ((List<?>) saved.get("results")).getFirst();
     var annotation = (Map<?, ?>) ((List<?>) row.get("expectedEvidence")).getFirst();
@@ -197,8 +206,7 @@ class Phase2EvaluationIntegrationTest {
             new EvaluationMetrics.Label("secret.md", 1, 1, "Bob only secret"),
             new EvaluationMetrics.Label("guide.md", 1, 1, "invented"));
     for (var l : bad)
-      assertThrows(
-          IllegalArgumentException.class, () -> evaluations.run(alice, request(dataset(l))));
+      assertThrows(IllegalArgumentException.class, () -> runEvaluation(alice, request(dataset(l))));
     assertEquals(0, db.queryForObject("select count(*) from evaluation_run", Integer.class));
     org.mockito.Mockito.verify(model, org.mockito.Mockito.never())
         .embed(org.mockito.ArgumentMatchers.anyString());
@@ -228,7 +236,7 @@ class Phase2EvaluationIntegrationTest {
 
   @Test
   void manualScoresAppendAuditWithoutMutatingAutomaticPayloadAndEnforceAcl() throws Exception {
-    var run = evaluations.run(alice, request(dataset(label())));
+    var run = runEvaluation(alice, request(dataset(label())));
     String id = (String) run.get("id"),
         before =
             db.queryForObject(
@@ -285,7 +293,7 @@ class Phase2EvaluationIntegrationTest {
                     body.replace(
                         "\"sourceHash\":null", "\"sourceHash\":null,\"documentId\":\"foreign\"")))
         .andExpect(status().isBadRequest());
-    var run = evaluations.run(alice, request(dataset(label())));
+    var run = runEvaluation(alice, request(dataset(label())));
     String id = (String) run.get("id");
     String score =
         "{\"caseId\":\"c1\",\"mode\":\"vector\",\"answerCorrect\":true,\"source\":\"human\",\"rationale\":\"checked\",\"ruleVersion\":\"v1\",\"errorCategories\":[],\"citationSupported\":true}";
@@ -314,7 +322,7 @@ class Phase2EvaluationIntegrationTest {
 
   @Test
   void rejectsRunningUnknownRowsAndInvalidScoringTaxonomy() {
-    var run = evaluations.run(alice, request(dataset(label())));
+    var run = runEvaluation(alice, request(dataset(label())));
     String id = (String) run.get("id");
     assertThrows(
         IllegalArgumentException.class,

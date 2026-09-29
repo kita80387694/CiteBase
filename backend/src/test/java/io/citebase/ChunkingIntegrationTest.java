@@ -46,6 +46,7 @@ class ChunkingIntegrationTest extends CoreScenarios {
     assertEquals(old, docs.view(doc).get("activeVersionId"));
     org.mockito.Mockito.reset(model);
     db.update("update index_task set available_at=now() where document_id=?", doc);
+    db.update("update work_task set available_at=now() where kind='INDEX' and id in (select id from index_task where document_id=?)",doc);
     worker.processOne();
     String active = (String) docs.view(doc).get("activeVersionId");
     assertNotEquals(old, active);

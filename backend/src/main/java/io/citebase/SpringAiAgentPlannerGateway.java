@@ -150,7 +150,7 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
       var arguments = validate(call.name(), call.arguments());
       return new AgentDecision(call.name(), arguments, call.id(), in, out, null);
     } catch (Exception e) {
-      return new AgentDecision(null, Map.of(), null, in, out, "Agent规划失败（超时、限流或非法工具响应）");
+      return new AgentDecision(null, Map.of(), null, in, out, ProviderFailures.code(e));
     }
   }
 

@@ -75,9 +75,12 @@ test("Agent MOCK 实际后端：持久创建、显式执行、引用导出、取
   await expect(page.locator(".agent-run .badge").first()).toHaveText("待执行");
   expect(executions).toBe(0);
   await page.getByRole("button", { name: "执行此运行", exact: true }).click();
-  await expect(page.locator(".agent-run .badge").first()).toHaveText("完成", {
-    timeout: 60000,
-  });
+  await expect(page.locator(".agent-run .badge").first()).toHaveText(
+    "任务完成",
+    {
+      timeout: 60000,
+    },
+  );
   expect(executions).toBe(1);
   await expect(page.locator(".agent-result")).toContainText(
     "MOCK · 仅流程验证",

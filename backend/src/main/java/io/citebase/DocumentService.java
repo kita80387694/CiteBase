@@ -11,10 +11,21 @@ import org.springframework.web.server.ResponseStatusException;
 public class DocumentService {
   private final JdbcTemplate db;
   private final AccessService access;
+  private final TaskRepository tasks;
+  private final IndexWorker index;
+  private final TaskSettings settings;
 
-  public DocumentService(JdbcTemplate db, AccessService access) {
+  public DocumentService(
+      JdbcTemplate db,
+      AccessService access,
+      TaskRepository tasks,
+      IndexWorker index,
+      TaskSettings settings) {
     this.db = db;
     this.access = access;
+    this.tasks = tasks;
+    this.index = index;
+    this.settings = settings;
   }
 
   @Transactional
@@ -26,6 +37,7 @@ public class DocumentService {
   @Transactional
   public Map<String, Object> upload(
       String user, String kb, String documentId, String name, byte[] source, ChunkProfile profile) {
+    lock(kb);
     access.requireKnowledgeBase(user, kb);
     if (profile == null) throw new IllegalArgumentException("切分配置不能为空");
     if (name == null
@@ -106,11 +118,37 @@ public class DocumentService {
         profile.strategy(),
         profile.size(),
         profile.overlap());
+    String taskId = UUID.randomUUID().toString();
     db.update(
         "insert into index_task(id,document_id,version_id,status) values(?,?,?,'PENDING')",
-        UUID.randomUUID().toString(),
+        taskId,
         documentId,
         version);
+    tasks.enqueue(
+        new TaskSpec(
+            TaskKind.INDEX,
+            user,
+            kb,
+            taskId,
+            taskId,
+            Map.of(
+                "documentId",
+                documentId,
+                "versionId",
+                version,
+                "sourceHash",
+                hash,
+                "modelConfig",
+                index.modelSnapshot(),
+                "chunkProfile",
+                Map.of(
+                    "strategy",
+                    profile.strategy(),
+                    "size",
+                    profile.size(),
+                    "overlap",
+                    profile.overlap())),
+            settings.maxAttempts()));
     return view(documentId);
   }
 
@@ -136,7 +174,12 @@ public class DocumentService {
     String kb = db.queryForObject("select kb_id from document where id=?", String.class, id);
     lock(kb);
     access.requireDocument(user, id);
-    db.queryForList("select id from index_task where document_id=? for update", id);
+    db.queryForList("select id from work_task where kb_id=? order by id for update", kb);
+    db.update(
+        "delete from work_task where kb_id=? and (kind in ('EVALUATION','AGENT') or id in (select"
+            + " id from index_task where document_id=?))",
+        kb,
+        id);
     db.update("delete from question_history where kb_id=?", kb);
     db.update("delete from evaluation_run where kb_id=?", kb);
     db.update("delete from agent_run where kb_id=?", kb);
@@ -146,11 +189,9 @@ public class DocumentService {
   @Transactional
   public void deleteBase(String user, String kb) {
     lock(kb);
+    lock(kb);
     access.requireKnowledgeBase(user, kb);
-    db.queryForList(
-        "select t.id from index_task t join document d on d.id=t.document_id where d.kb_id=? for"
-            + " update of t",
-        kb);
+    db.queryForList("select id from work_task where kb_id=? order by id for update", kb);
     db.update("delete from knowledge_base where id=? and user_id=?", kb, user);
   }
 
@@ -158,33 +199,8 @@ public class DocumentService {
     db.queryForList("select pg_advisory_xact_lock(hashtextextended(?,0))", kb);
   }
 
-  @Transactional
   public void retry(String user, String task) {
-    var rows =
-        db.queryForList(
-            "select t.document_id from index_task t join document d on d.id=t.document_id join"
-                + " knowledge_base k on k.id=d.kb_id where t.id=? and k.user_id=?",
-            String.class,
-            task,
-            user);
-    if (rows.isEmpty()) throw AccessService.missing();
-    String doc = rows.getFirst();
-    db.queryForObject("select id from document where id=? for update", String.class, doc);
-    if (db.queryForObject(
-            "select count(*) from index_task where document_id=? and status in"
-                + " ('PENDING','PROCESSING','RETRY')",
-            Integer.class,
-            doc)
-        > 0) throw new ResponseStatusException(HttpStatus.CONFLICT, "文档已有运行中的任务");
-    // An old failed version must never supersede a newer successful upload.
-    int changed =
-        db.update(
-            "update index_task t set status='PENDING',attempts=0,error=null,available_at=now()"
-                + " where id=? and status='FAILED' and not exists(select 1 from document_version"
-                + " newer join document_version old on old.id=t.version_id where"
-                + " newer.document_id=t.document_id and newer.created_at>old.created_at)",
-            task);
-    if (changed != 1) throw new ResponseStatusException(HttpStatus.CONFLICT, "仅可重试最新失败版本");
-    db.update("update document set status='PENDING',error=null where id=?", doc);
+    if (!"INDEX".equals(tasks.get(user, task).get("kind"))) throw AccessService.missing();
+    tasks.retry(user, task);
   }
 }

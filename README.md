@@ -20,6 +20,8 @@ PowerShell 复制文件可用 `Copy-Item .env.example .env`（已有配置时保
 | alice | Alice-demo-123! |
 | bob | Bob-demo-123! |
 
+**已有V5环境升级前先停止所有旧backend/worker**，旧进程没有租约fencing，不能与新版共享数据库滚动混跑。保留数据库卷并先备份；新版本Flyway处理旧在途任务，不能保证未知模型调用未计费。
+
 Flyway 自动执行迁移，演示账号按用户名幂等创建，重启不会重置密码。持久数据保存在 Compose volume。`docker compose down` 停止容器且保留数据；不要加 `-v`，除非明确要删除所有本地数据。
 
 安装 Node.js 22 后，在项目根目录执行以下命令创建知识库并幂等上传5份自建文档：
@@ -31,7 +33,7 @@ node scripts/seed-demo.mjs --evaluate
 
 第二条运行58题×2种配置，并把原始 JSON 保存在 `docs/results/`。也可直接在界面上传 `samples/documents/`，在评测页导入 `samples/evaluation.json`。这是自建虚构服务规范，内容与 CiteBase 本身配置不同。
 
-本次已配置的工作区保留真实Docker演示：**http://localhost:15173**，API为18080，数据库15432；未提交的.env已设置端口、模型与项目名 `citebase-real`。直接 `docker compose up --build -d` 可恢复，无需覆盖.env或重新评测。全新下载仍按上方默认端口启动；已有真实116行结果可直接在评测页查看。
+本工作区保留MVP项目 `citebase-real` 的数据卷（历史端口15173/18080/15432），以及阶段二独立实验数据卷；不保证这些历史容器当前正在运行。现有.env无需覆盖，启动前核对项目名和端口；升级旧V5项目须先停止旧backend。全新下载仍按上方默认端口启动，原真实结果也已保存在docs/results。
 
 ## 第二阶段开发入口与当前状态
 
@@ -55,7 +57,7 @@ try {
 
 阶段一已新增12份原创文档、156题评测集（按主题冻结dev/test）和24个独立安全用例，入口在 `samples/phase2/`。已实现严格标签导入、sourceHash与原文位置校验、同组可替代/跨组必需证据指标，以及逐题人工答案、引用支持和错误分类评分。评分追加保存依据、规则版本、用户与时间，未评分保持null，不覆盖自动原始结果。
 
-**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 检索优化已完成664条真实消融/确认/独立测试，受控Agent和异步多worker治理仍未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
+**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 检索优化已完成664条真实消融/确认/独立测试，受控Agent真实对照已完成且未显示收益，异步多worker治理正在最终验收，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG安全指标与Agent工具边界测试分别记录，不能相互替代。
 
 检索优化的工程入口已接通：上传/更新可选择结构切分与长度、重叠参数；问答及评测可设置候选数、关键词权重、独立重排开关和引用格式。版本页保留实际切分配置，问答诊断展示检索阶段耗时及供应商实际用量。重排使用独立 `RERANK_BASE_URL`、`RERANK_API_KEY`、`RERANK_MODEL`、`RERANK_TIMEOUT_SECONDS`，不会更换 BGE embedding 或旧索引。协议及限制见 [检索接口](docs/API-CONTRACT-PHASE2-RETRIEVAL.md) 与 [切分说明](docs/CHUNKING.md)。开发子集消融、全开发集确认及冻结后的独立测试已完成，共664条真实结果；独立52题两模式的Recall@5/MRR均为1，但人工答案正确性未评分，且检索耗时与模型用量增加。完整结果和失败记录见[实验报告](docs/EXPERIMENTS.md)，优化配置仅显式选择，不替换通用默认。
 
@@ -153,3 +155,11 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 可选 `AGENT_CHAT_BASE_URL`、`AGENT_CHAT_API_KEY`、`AGENT_CHAT_MODEL`，留空沿用CHAT_*，不更换已有embedding。预算、权限与恢复边界见[AGENT.md](docs/AGENT.md)。当前Agent支持单实例持久运行，尚待阶段四统一异步租约治理。真实4条v2开发冒烟及界面已通过，完整固定集对照进行中，未完成结果不会算作验收通过；首轮循环失败和跨文档未补齐证据的探针均保留。
 
 新增工程测试可执行 `mvn -f backend/pom.xml test`；需要可用Docker以执行Testcontainers。11个可选External*入口需专用TEST_DB_URL，未设置时跳过并单列披露。Agent UI验证见frontend/tests/phase3-agent.spec.ts（实际MOCK后端）及phase3-agent-real.spec.ts（设置E2E_AGENT_RUN_ID，只读既有真实运行，不触发收费执行）。
+
+## 异步任务治理（第二阶段）
+
+索引、评测和Agent使用PostgreSQL持久任务。评测创建以及Agent显式执行返回202，界面轮询进度；任务页可筛选、取消、按允许的边界重试、导出部分结果。任务ID与业务运行ID一致。参数见.env.example，租约秒数必须至少为心跳的三倍。并发上限按进程生效，不是集群全局模型预算。
+
+评测逐题断点继续；已完成题不重跑，失败项有限重试。余额不足和认证错误不自动重试。Agent未知中断明确UNSAFE_TO_RESUME，已有调用史需显式新建运行，不重置旧预算。取消不能撤销供应商已经执行的请求；晚到内容不得覆盖取消终态，已知用量仍保留。详情见[TASKS](docs/TASKS.md)与[AGENT](docs/AGENT.md)。
+
+当前集成环境使用独立项目citebase-phase4（25175/28082/25434），保留原phase2冻结实验环境。不要将历史phase2复现命令直接用于覆盖仍运行的冻结环境。阶段四实际验收证据和未完成项以[PROGRESS](docs/PROGRESS.md)为准。

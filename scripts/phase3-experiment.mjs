@@ -35,14 +35,14 @@ export async function collectAgent(api,{root,id,spec,configFile,pollMs=1500,maxP
  }
  verifyRun(run,spec);
  if(configFile){assert(run.config.agentPlanner?.model&&run.config.agentPlanner?.endpoint&&run.config.agentPolicyVersion,'Actual planner configuration missing');immutable(configFile,run.config);}
- if(run.status==='CREATED'){
+ if(run.status==='CREATED'&&!run.taskId){
   // GET precedes every retry. The server compare-and-set execute claim prevents duplicate execution.
   state.status='EXECUTING';save(stateFile,state);
   try{run=await api.request(`/api/agent-runs/${run.id}/execute`,{});}
   catch(error){state.lastTransportError='Execute response unavailable; reconciled by GET, never recreated';save(stateFile,state);run=await api.request(`/api/agent-runs/${state.runId}`);}
  }
  for(let poll=0;!terminal.has(run.status)&&poll<maxPolls;poll++){
-  if(run.status==='CREATED')throw new Error('Execution not claimed (possibly capacity 429); retry this same journal later');
+  if(run.status==='CREATED'&&!run.taskId)throw new Error('Execution not claimed (possibly capacity 429); retry this same journal later');
   await pause(pollMs);run=await api.request(`/api/agent-runs/${state.runId}`);
  }
  verifyRun(run,spec);assert(terminal.has(run.status),'Run still in progress; retain journal and resume, never recreate');

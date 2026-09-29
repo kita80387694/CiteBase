@@ -26,6 +26,7 @@ public class AgentController {
   }
 
   @PostMapping("/{id}/execute")
+  @ResponseStatus(HttpStatus.ACCEPTED)
   public Object execute(@PathVariable String id, HttpServletRequest req) {
     return service.execute(auth.require(req), id);
   }

@@ -61,7 +61,7 @@ class Phase2EvaluationUnitTest {
     var input = new EvaluationInput(new ObjectMapper());
     String valid =
         """
-{"kbId":"k","name":"n","dataset":{"version":"v","questions":[{"id":"1","question":"q","answerable":false,"evidence":[]}]},"topK":5}
+{"kbId":"k","name":"n","idempotencyKey":"test","dataset":{"version":"v","questions":[{"id":"1","question":"q","answerable":false,"evidence":[]}]},"topK":5}
 """;
     assertNotNull(input.request(valid));
     for (String bad :

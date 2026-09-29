@@ -124,25 +124,21 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
     ],
   };
   const beforeRuns = await page.locator(".run-row").count();
-  await page
-    .getByLabel("导入评测集 JSON")
-    .setInputFiles({
-      name: "broken.json",
-      mimeType: "application/json",
-      buffer: Buffer.from("{broken"),
-    });
+  await page.getByLabel("导入评测集 JSON").setInputFiles({
+    name: "broken.json",
+    mimeType: "application/json",
+    buffer: Buffer.from("{broken"),
+  });
   await page.getByRole("button", { name: "运行向量 / 混合对比" }).click();
   await expect(page.getByRole("alert")).toContainText("不是有效 JSON");
   await expect(page.locator(".run-row")).toHaveCount(beforeRuns);
-  await page
-    .getByLabel("导入评测集 JSON")
-    .setInputFiles({
-      name: "unknown-field.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(
-        JSON.stringify({ ...dataset, unsupportedClientField: true }),
-      ),
-    });
+  await page.getByLabel("导入评测集 JSON").setInputFiles({
+    name: "unknown-field.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(
+      JSON.stringify({ ...dataset, unsupportedClientField: true }),
+    ),
+  });
   const rejectedImport = page.waitForResponse(
     (response) =>
       response.url().endsWith("/api/evaluations") &&
@@ -161,6 +157,10 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(page.locator(".results h2")).toHaveText(evaluationName, {
     timeout: 90_000,
   });
+  await expect(page.locator(".evaluation-task-status .badge")).toHaveText(
+    "成功",
+    { timeout: 90_000 },
+  );
   await expect(page.locator(".results")).toContainText("混合检索 · RRF");
   await expect(page.locator(".results")).toContainText("向量检索");
   await expect(
@@ -169,7 +169,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await expect(
     page.locator(".results tbody").last().getByRole("row"),
   ).toHaveCount(4);
-  await page.locator('.results').scrollIntoViewIfNeeded();
+  await page.locator(".results").scrollIntoViewIfNeeded();
   await page.screenshot({
     path: "test-results/screenshots/05-evaluation.png",
     fullPage: false,
@@ -222,13 +222,19 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await page.getByRole("button", { name: "保存人工评分", exact: true }).click();
   await expect(page.locator(".score-history article")).toHaveCount(2);
   await expect(page.locator(".score-history")).toContainText("答案与证据矛盾");
-  await page.locator('.score-form').evaluate(node=>node.scrollIntoView({block:'start'}));
+  await page
+    .locator(".score-form")
+    .evaluate((node) => node.scrollIntoView({ block: "start" }));
   await page.screenshot({
     path: "test-results/screenshots/06-evaluation-detail.png",
     fullPage: false,
   });
-  await page.locator('.score-history').evaluate(node=>node.scrollIntoView({block:'start'}));
-  await page.screenshot({path:'test-results/screenshots/07-score-audit.png'});
+  await page
+    .locator(".score-history")
+    .evaluate((node) => node.scrollIntoView({ block: "start" }));
+  await page.screenshot({
+    path: "test-results/screenshots/07-score-audit.png",
+  });
   await page.getByRole("button", { name: "关闭问题详情" }).click();
   await page.locator(".run-row").filter({ hasText: evaluationName }).click();
   await expect(page.locator(".question-results")).toContainText("人工：错误");
@@ -249,7 +255,9 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   const chunks: Buffer[] = [];
   for await (const chunk of stream!) chunks.push(Buffer.from(chunk));
   const exported = JSON.parse(Buffer.concat(chunks).toString());
-  expect(exported.status).toBe("COMPLETED");
+  expect(exported.status).toBe("SUCCEEDED");
+  expect(exported.partial).toBe(false);
+  expect(exported.taskId).toBe(exported.id);
   expect(exported.results).toHaveLength(4);
   expect(exported.config.dataset.version).toBe(dataset.version);
   expect(exported.summary.vector.count).toBe(2);

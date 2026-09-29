@@ -28,23 +28,29 @@ public class EvaluationLabels {
         || dataset.questions() == null
         || dataset.questions().isEmpty()
         || dataset.questions().size() > 200) bad();
-    List<Source> sources =
-        db.query(
-            "SELECT d.name,v.content_hash,v.source,v.media_type FROM document d JOIN"
-                + " document_version v ON v.id=d.active_version_id JOIN knowledge_base k ON"
-                + " k.id=d.kb_id WHERE k.user_id=? AND k.id=?",
-            (rs, n) -> {
-              try {
-                return new Source(
-                    rs.getString(1),
-                    rs.getString(2),
-                    reconstruct(parser.parse(rs.getBytes(3), rs.getString(4))));
-              } catch (Exception e) {
-                throw new IllegalArgumentException("无法解析活动原文标签", e);
-              }
-            },
-            user,
-            kb);
+    return resolve(dataset, capture(user, kb));
+  }
+
+  List<Source> capture(String user, String kb) {
+    return db.query(
+        "SELECT d.name,v.content_hash,v.source,v.media_type FROM document d JOIN"
+            + " document_version v ON v.id=d.active_version_id JOIN knowledge_base k ON"
+            + " k.id=d.kb_id WHERE k.user_id=? AND k.id=?",
+        (rs, n) -> {
+          try {
+            return new Source(
+                rs.getString(1),
+                rs.getString(2),
+                reconstruct(parser.parse(rs.getBytes(3), rs.getString(4))));
+          } catch (Exception e) {
+            throw new IllegalArgumentException("无法解析活动原文标签", e);
+          }
+        },
+        user,
+        kb);
+  }
+
+  EvaluationService.Dataset resolve(EvaluationService.Dataset dataset, List<Source> sources) {
     var ids = new HashSet<String>();
     var cases = new ArrayList<EvaluationService.Case>();
     for (var c : dataset.questions()) {

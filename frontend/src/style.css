@@ -1601,3 +1601,59 @@ footer {
     order: 2;
   }
 }
+
+.eval-request-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.evaluation-task-status {
+  padding: 16px 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.task-progress {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+.task-progress progress {
+  width: min(320px, 100%);
+  height: 10px;
+  accent-color: #137f75;
+}
+.task-description {
+  padding: 0 24px;
+}
+.unified-tasks .task {
+  flex-wrap: wrap;
+}
+.unified-tasks .task .actions {
+  flex-wrap: wrap;
+}
+.task-details {
+  padding: 20px 24px;
+}
+.task-details pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 360px;
+  overflow: auto;
+  background: #f3f6f5;
+  padding: 14px;
+}
+.badge.queued,
+.badge.retry_wait {
+  background: #fff3dc;
+  color: #93681f;
+}
+
+.eval-layout > section.panel {
+  max-height: 650px;
+  overflow: auto;
+}

@@ -54,7 +54,8 @@ public class SiliconFlowRerankGateway implements RerankGateway {
               .build();
       var response = client.send(request, HttpResponse.BodyHandlers.ofString());
       if (response.statusCode() != 200)
-        throw new IllegalArgumentException("http status " + response.statusCode());
+        throw new SpringAiGateway.ModelFailure(
+            ProviderFailures.fromStatus(response.statusCode()), null);
       JsonNode root = json.readTree(response.body());
       var nodes = root == null ? null : root.get("results");
       if (nodes == null || !nodes.isArray() || nodes.size() != n)
@@ -81,9 +82,9 @@ public class SiliconFlowRerankGateway implements RerankGateway {
       return new Result(results, usage(root));
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
-      throw new SpringAiGateway.ModelFailure("Rerank调用被中断", e);
+      throw new SpringAiGateway.ModelFailure("PROVIDER_ERROR", e);
     } catch (Exception e) {
-      throw new SpringAiGateway.ModelFailure("Rerank供应商调用失败（超时、限流或异常响应）", e);
+      throw new SpringAiGateway.ModelFailure(ProviderFailures.code(e), e);
     }
   }
 

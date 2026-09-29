@@ -14,6 +14,7 @@ abstract class CoreScenarios {
   @Autowired AccessService access;
   @Autowired AuthService auth;
   @Autowired IndexWorker worker;
+  @Autowired TaskRepository tasks;
   @org.springframework.test.context.bean.override.mockito.MockitoSpyBean ModelGateway model;
   String alice, bob, kb;
 
@@ -67,9 +68,17 @@ abstract class CoreScenarios {
                     "interrupt.md",
                     "some evidence".getBytes(StandardCharsets.UTF_8))
                 .get("id");
-    db.update("update index_task set status='PROCESSING',attempts=3 where document_id=?", doc);
+    db.update(
+        "update work_task set"
+            + " status='RUNNING',attempts=3,lease_owner='dead-worker',lease_until=clock_timestamp()-interval"
+            + " '1 second' where id in(select id from index_task where document_id=?)",
+        doc);
     db.update("update document set status='PROCESSING' where id=?", doc);
     worker.recover();
+    assertEquals(
+        "RUNNING",
+        db.queryForObject("select status from work_task where kb_id=?", String.class, kb));
+    assertTrue(worker.processOne());
     assertEquals(
         "FAILED",
         db.queryForObject("select status from index_task where document_id=?", String.class, doc));
@@ -97,7 +106,7 @@ abstract class CoreScenarios {
         "RETRY",
         db.queryForObject("select status from index_task where document_id=?", String.class, doc));
     assertNull(docs.view(doc).get("activeVersionId"));
-    db.update("update index_task set available_at=now()");
+    db.update("update work_task set available_at=clock_timestamp()");
     worker.processOne();
     assertEquals("SUCCESS", docs.view(doc).get("status"));
     org.mockito.Mockito.clearInvocations(model);
@@ -196,7 +205,7 @@ abstract class CoreScenarios {
     assertEquals(1, db.queryForObject("select count(*) from document_version", Integer.class));
     docs.upload(alice, kb, doc, "guide.md", new byte[] {(byte) 0xff});
     for (int i = 0; i < 3; i++) {
-      db.update("update index_task set available_at=now()");
+      db.update("update work_task set available_at=clock_timestamp()");
       worker.processOne();
     }
     assertEquals("FAILED", docs.view(doc).get("status"));
@@ -206,11 +215,14 @@ abstract class CoreScenarios {
     String task =
         db.queryForObject("select id from index_task where status='FAILED'", String.class);
     docs.retry(alice, task);
-    db.update("update index_task set status='PROCESSING',attempts=1 where id=?", task);
+    var lease = tasks.claim("previous-process", java.util.Set.of(TaskKind.INDEX)).orElseThrow();
     worker.recover();
-    assertEquals(
-        "RETRY", db.queryForObject("select status from index_task where id=?", String.class, task));
-    db.update("update index_task set status='FAILED' where id=?", task);
+    assertEquals("RUNNING", tasks.get(alice, task).get("status"));
+    assertFalse(worker.processOne());
+    db.update(
+        "update work_task set lease_until=clock_timestamp()-interval '1 second' where id=?", task);
+    assertTrue(worker.processOne());
+    tasks.cancel(alice, task);
     docs.upload(
         alice,
         kb,

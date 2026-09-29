@@ -39,6 +39,12 @@ public class AgentService {
   }
 
   public Map<String, Object> execute(String user, String id) {
+    return runs.enqueue(user, id);
+  }
+
+  Map<String, Object> executeLeased(String user, String id) {
+    var taskContext = Objects.requireNonNull(TaskContext.current());
+    var exited = new CountDownLatch(1);
     var view = runs.get(user, id);
     if (!"CREATED".equals(view.get("status"))) return view;
     if (!capacity.tryAcquire())
@@ -52,10 +58,13 @@ public class AgentService {
       Future<?> future =
           workers.submit(
               () -> {
+                TaskContext.bind(taskContext);
                 try {
                   work(user, id, request, snapshot, context);
                 } finally {
+                  TaskContext.clear();
                   capacity.release();
+                  exited.countDown();
                 }
               });
       submitted = true;
@@ -75,6 +84,17 @@ public class AgentService {
       return runs.get(user, id);
     } finally {
       if (!submitted) capacity.release();
+      else {
+        boolean interrupted = Thread.interrupted();
+        while (exited.getCount() > 0) {
+          try {
+            exited.await();
+          } catch (InterruptedException e) {
+            interrupted = true;
+          }
+        }
+        if (interrupted) Thread.currentThread().interrupt();
+      }
     }
   }
 
@@ -93,7 +113,18 @@ public class AgentService {
     var signatures = new HashSet<String>();
     int[] sequence = {0};
     context.onExternal =
-        () -> context.checkpoint.set(failure(request, context, evidence, "IN_PROGRESS"));
+        () -> {
+          var partial = failure(request, context, evidence, "IN_PROGRESS");
+          context.checkpoint.set(partial);
+          if (TaskContext.current() != null) {
+            TaskContext.current().checkpoint("agent-partial", partial);
+            var progress = new LinkedHashMap<String, Object>();
+            progress.put("completed", context.planners);
+            progress.put("total", null);
+            progress.put("unit", "steps");
+            TaskContext.current().progress(progress);
+          }
+        };
     context.onExternal.run();
     try {
       context.check();
@@ -117,6 +148,15 @@ public class AgentService {
         context.planner();
         if (model.mode().equals("real")) context.external();
         long started = System.nanoTime();
+        TaskCall plannerCall =
+            TaskContext.current() == null
+                ? null
+                : TaskContext.current()
+                    .beginExternalCall(
+                        "agent/planner/" + context.planners,
+                        "planner",
+                        AuthService.hash(
+                            request.question().getBytes(java.nio.charset.StandardCharsets.UTF_8)));
         var decision =
             planner.plan(
                 request.question(),
@@ -125,6 +165,8 @@ public class AgentService {
                 request.budget().maxPlannerOutputTokens(),
                 context.seconds());
         var usage = usage(decision.promptTokens(), decision.completionTokens());
+        if (plannerCall != null)
+          TaskContext.current().completeExternalCall(plannerCall, Map.of("received", true), usage);
         context.used("planner", usage);
         context.onExternal.run();
         context.check();
@@ -188,6 +230,15 @@ public class AgentService {
           CitationAliases.prepare(
               List.copyOf(evidence.values()), request.retrievalOptions().citationStyle());
       if (!evidence.isEmpty() && model.mode().equals("real")) context.external();
+      TaskCall generationCall =
+          evidence.isEmpty() || TaskContext.current() == null
+              ? null
+              : TaskContext.current()
+                  .beginExternalCall(
+                      "agent/generation",
+                      "chat",
+                      AuthService.hash(
+                          request.question().getBytes(java.nio.charset.StandardCharsets.UTF_8)));
       var generation =
           evidence.isEmpty()
               ? new Generation(Citations.ABSTENTION, null, null, null)
@@ -196,6 +247,12 @@ public class AgentService {
                   prepared.promptEvidence(),
                   request.budget().maxFinalOutputTokens(),
                   context.seconds());
+      if (generationCall != null)
+        TaskContext.current()
+            .completeExternalCall(
+                generationCall,
+                Map.of("received", true),
+                usage(generation.promptTokens(), generation.completionTokens()));
       context.used("generation", usage(generation.promptTokens(), generation.completionTokens()));
       context.onExternal.run();
       context.check();
@@ -241,6 +298,8 @@ public class AgentService {
       result.put("usage", context.usage);
       result.put("answerCorrect", null);
       runs.finish(user, id, snapshot, "COMPLETED", null, result);
+    } catch (TaskSignal e) {
+      throw e;
     } catch (AgentPolicy.Stop e) {
       runs.finish(
           user,
@@ -323,10 +382,10 @@ public class AgentService {
           "tool",
           action,
           sanitize(action, args),
-          Map.of("error", "PROVIDER_ERROR"),
+          Map.of("error", providerError(result.error())),
           result.usage(),
           started);
-      throw new AgentPolicy.Stop("PROVIDER_ERROR");
+      throw new AgentPolicy.Stop(providerError(result.error()));
     }
     int previous = evidence.size();
     for (var e : result.evidence()) tools.verify(user, r, e);
@@ -443,7 +502,7 @@ public class AgentService {
   }
 
   private static String providerError(String error) {
-    return "OUTPUT_LIMIT".equals(error) ? "OUTPUT_LIMIT" : "PROVIDER_ERROR";
+    return "OUTPUT_LIMIT".equals(error) ? "OUTPUT_LIMIT" : ProviderFailures.safeCode(error);
   }
 
   private static List<Evidence> alias(Map<String, Evidence> handles) {

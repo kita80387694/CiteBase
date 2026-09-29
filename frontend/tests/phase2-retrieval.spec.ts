@@ -157,6 +157,10 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
     "关键词权重 0.5",
   );
   await expect(page.locator(".question-results tbody tr")).toHaveCount(4);
+  await expect(page.locator(".evaluation-task-status .badge")).toHaveText(
+    "成功",
+    { timeout: 90_000 },
+  );
   const downloaded = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出 JSON" }).click();
   const download = await downloaded,
