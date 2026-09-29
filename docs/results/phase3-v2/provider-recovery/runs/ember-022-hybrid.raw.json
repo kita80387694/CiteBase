@@ -1,0 +1,427 @@
+{
+  "id": "07f61e3f-f387-41c6-bf79-4d81fe460809",
+  "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+  "status": "FAILED",
+  "request": {
+    "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+    "mode": "hybrid",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+    "idempotencyKey": "p3restore-adc3fddbf65b9de9283fdff026636c0971e0e7ea36cebdd2f5987e15e1da",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 40,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+      "name": "moss-handbook.md",
+      "chunk_size": 900,
+      "version_id": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+      "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+      "name": "lumen-handbook.md",
+      "chunk_size": 900,
+      "version_id": "63ac71b5-471b-4929-ad90-8990985ab0da",
+      "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+      "name": "quartz-handbook.md",
+      "chunk_size": 900,
+      "version_id": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+      "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+      "name": "ember-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "57a166d3-fb44-4a72-b364-15157bb1a501",
+      "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+      "name": "harbor-handbook.md",
+      "chunk_size": 900,
+      "version_id": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+      "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+      "name": "lumen-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+      "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+      "name": "ember-handbook.md",
+      "chunk_size": 900,
+      "version_id": "408330a9-e667-426f-a196-85338c50b009",
+      "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+      "name": "harbor-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+      "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+      "name": "tide-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+      "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+      "name": "tide-handbook.md",
+      "chunk_size": 900,
+      "version_id": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+      "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+      "name": "moss-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+      "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+      "name": "quartz-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+      "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "hybrid",
+    "error": "NO_PROGRESS",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 21,
+          "promptTokens": 21
+        }
+      },
+      {
+        "kind": "rerank",
+        "actual": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 6861,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 6861,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 6861,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2228,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2253,
+          "completionTokens": 46
+        }
+      }
+    ],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 17240,
+    "evidence": [
+      {
+        "id": "148e1038-2c63-43f7-ab0f-cf4db663ff00",
+        "page": 1,
+        "text": "Ember 陶瓷工作室每次烧制分配一个 KILN 批次号；不同釉料体系不得仅因同日入窑而合并批次记录。\n\nEmber 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。\n\nEmber 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。\n\nEmber 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。\n\nEmber 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。\n\nEmber 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。\n\nEmber 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |\n\nEmber 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |\n\nEmber 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |\n\nEmber 小型教学演示窑允许850摄氏度素烧，但工作室标准素烧仍为900摄氏度，不能混用记录模板。\n\nEmber 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。\n\nEmber 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。\n\nEmber 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。\n\nEmber 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。\n\nEmber 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。\n\nEmber 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+        "score": 0.9053436517715454,
+        "endOffset": 879,
+        "paragraph": 1,
+        "versionId": "408330a9-e667-426f-a196-85338c50b009",
+        "documentId": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+        "startOffset": 0,
+        "documentName": "ember-handbook.md"
+      },
+      {
+        "id": "b8681509-f9d6-4d1f-a95d-21cc45f99d08",
+        "page": 1,
+        "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。\n\nEmber 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。\n\nEmber 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。\n\nEmber 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。\n\nEmber 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。\n\nEmber 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+        "score": 0.38964173197746277,
+        "endOffset": 962,
+        "paragraph": 13,
+        "versionId": "408330a9-e667-426f-a196-85338c50b009",
+        "documentId": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+        "startOffset": 707,
+        "documentName": "ember-handbook.md"
+      },
+      {
+        "id": "35a64b98-4211-4f55-8b48-f54ba46438d2",
+        "page": 7,
+        "text": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+        "score": 0.038349904119968414,
+        "endOffset": 97,
+        "paragraph": 1,
+        "versionId": "57a166d3-fb44-4a72-b364-15157bb1a501",
+        "documentId": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+        "startOffset": 0,
+        "documentName": "ember-cards.pdf"
+      },
+      {
+        "id": "e392ef5e-5cb2-4064-a14a-743a8cddc525",
+        "page": 16,
+        "text": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+        "score": 0.016401801258325577,
+        "endOffset": 89,
+        "paragraph": 1,
+        "versionId": "57a166d3-fb44-4a72-b364-15157bb1a501",
+        "documentId": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+        "startOffset": 0,
+        "documentName": "ember-cards.pdf"
+      },
+      {
+        "id": "c8d1a48f-af71-4eac-814b-c18dfc357346",
+        "page": 10,
+        "text": "Ember storage card: unfired wet pieces stay on the drying rack, not inside a\nwarm kiln awaiting an unscheduled cycle.",
+        "score": 0.009388615377247334,
+        "endOffset": 117,
+        "paragraph": 1,
+        "versionId": "57a166d3-fb44-4a72-b364-15157bb1a501",
+        "documentId": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+        "startOffset": 0,
+        "documentName": "ember-cards.pdf"
+      }
+    ],
+    "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 2,
+      "searches": 1,
+      "plannerSteps": 2,
+      "evidenceChars": 1437,
+      "evidenceCount": 5,
+      "externalCalls": 4
+    },
+    "retrievalMs": 960,
+    "finishReason": "NO_PROGRESS",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": false
+  },
+  "errorCode": "NO_PROGRESS",
+  "createdAt": "2026-09-29T07:11:33.848981Z",
+  "startedAt": "2026-09-29T07:11:33.857315Z",
+  "finishedAt": "2026-09-29T07:11:51.101495Z",
+  "cancelRequestedAt": null,
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 27,
+        "description": "检索当前授权知识库",
+        "querySha256": "9d9864dc6768f39c8abc996f77ff76d18ee79758bfff5e7bf785f710b7a0d699"
+      },
+      "usage": {
+        "rerank": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 6861,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 6861,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 6861,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        },
+        "embedding": {
+          "totalTokens": 21,
+          "promptTokens": 21
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "148e1038-2c63-43f7-ab0f-cf4db663ff00",
+          "b8681509-f9d6-4d1f-a95d-21cc45f99d08",
+          "35a64b98-4211-4f55-8b48-f54ba46438d2",
+          "e392ef5e-5cb2-4064-a14a-743a8cddc525",
+          "c8d1a48f-af71-4eac-814b-c18dfc357346"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-29T07:11:34.828653439Z",
+      "elapsedMs": 963
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2228,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ec00944e93885209d7f5a951cc0c",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-29T07:11:47.616980288Z",
+      "elapsedMs": 12779
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "148e1038-2c63-43f7-ab0f-cf4db663ff00"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-29T07:11:47.633720641Z",
+      "elapsedMs": 4
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2253,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ec016a81be53eaba35ac798264ba",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-09-29T07:11:51.095827132Z",
+      "elapsedMs": 3447
+    }
+  ]
+}
