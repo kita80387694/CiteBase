@@ -1,0 +1,509 @@
+{
+  "id": "792c31ec-8b1b-47b4-92c5-96cce3201964",
+  "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+  "status": "FAILED",
+  "request": {
+    "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+    "mode": "hybrid",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Tide 第三方实验室一次检测收费多少？",
+    "idempotencyKey": "p3-f3ba6b3916a35a6b244bd4e9dc24af0719cd3463527eb19f031f63e11bcd",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 40,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+      "name": "moss-handbook.md",
+      "chunk_size": 900,
+      "version_id": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+      "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+      "name": "lumen-handbook.md",
+      "chunk_size": 900,
+      "version_id": "63ac71b5-471b-4929-ad90-8990985ab0da",
+      "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+      "name": "quartz-handbook.md",
+      "chunk_size": 900,
+      "version_id": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+      "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+      "name": "ember-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "57a166d3-fb44-4a72-b364-15157bb1a501",
+      "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+      "name": "harbor-handbook.md",
+      "chunk_size": 900,
+      "version_id": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+      "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+      "name": "lumen-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+      "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+      "name": "ember-handbook.md",
+      "chunk_size": 900,
+      "version_id": "408330a9-e667-426f-a196-85338c50b009",
+      "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+      "name": "harbor-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+      "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+      "name": "tide-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+      "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+      "name": "tide-handbook.md",
+      "chunk_size": 900,
+      "version_id": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+      "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+      "name": "moss-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+      "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+      "name": "quartz-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+      "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "hybrid",
+    "error": "BUDGET_EXCEEDED",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 12,
+          "promptTokens": 12
+        }
+      },
+      {
+        "kind": "rerank",
+        "actual": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 7362,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 7362,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 7362,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2230,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2255,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2280,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2305,
+          "completionTokens": 46
+        }
+      }
+    ],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 35411,
+    "evidence": [
+      {
+        "id": "8f1f4230-5355-4933-bf82-1e396c3a30d4",
+        "page": 1,
+        "text": "Tide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。\n\nTide 实验结果须关联采样事件和实验批次；只凭瓶子颜色或车次不能关联结果。\n\nTide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。\n\nTide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。\n\nTide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+        "score": 0.2153359353542328,
+        "endOffset": 929,
+        "paragraph": 14,
+        "versionId": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+        "documentId": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+        "startOffset": 707,
+        "documentName": "tide-handbook.md"
+      },
+      {
+        "id": "fcd3a807-0cb9-438e-a015-b726e31ba1c4",
+        "page": 1,
+        "text": "Tide 河道采样瓶采用 RIV 编号，每个站点每次采样建立一个独立事件号；上下游站点不得共用事件号。\n\nTide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。\n\nTide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。\n\nTide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。\n\nTide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。\n\nTide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。\n\nTide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |\n\nTide 采样顺序表\n| 河段 | 顺序 |\n| 上游背景点 | 1 |\n| 排口邻近点 | 2 |\n| 下游混合点 | 3 |\n\nTide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |\n\nTide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。\n\nTide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。\n\nTide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。\n\nTide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。\n\nTide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。\n\nTide 实验结果须关联采样事件和实验批次；只凭瓶子颜色或车次不能关联结果。\n\nTide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。\n\nTide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+        "score": 0.0498863086104393,
+        "endOffset": 882,
+        "paragraph": 1,
+        "versionId": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+        "documentId": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+        "startOffset": 0,
+        "documentName": "tide-handbook.md"
+      },
+      {
+        "id": "2afed3c6-cea2-4576-9084-33fd4c921b8b",
+        "page": 5,
+        "text": "Tide bottle card: the backup bottle is not opened unless the laboratory\nsupervisor requests a repeat analysis.",
+        "score": 0.0007785677444189787,
+        "endOffset": 110,
+        "paragraph": 1,
+        "versionId": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+        "documentId": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+        "startOffset": 0,
+        "documentName": "tide-cards.pdf"
+      },
+      {
+        "id": "016f36a0-4ff4-44bb-aeda-d47caf688aad",
+        "page": 12,
+        "text": "Tide instrument card: failed conductivity calibration is repeated once with\nfresh standard; a second failure removes the instrument from service.",
+        "score": 0.0007459862972609699,
+        "endOffset": 145,
+        "paragraph": 1,
+        "versionId": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+        "documentId": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+        "startOffset": 0,
+        "documentName": "tide-cards.pdf"
+      },
+      {
+        "id": "12c74bf8-e748-4d3c-84f5-36c7494df7d8",
+        "page": 1,
+        "text": "Tide courier card: the courier scans every handover in the COC and records\nboth sender and receiver identifiers.",
+        "score": 0.0007439339533448219,
+        "endOffset": 112,
+        "paragraph": 1,
+        "versionId": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+        "documentId": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+        "startOffset": 0,
+        "documentName": "tide-cards.pdf"
+      }
+    ],
+    "question": "Tide 第三方实验室一次检测收费多少？",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 4,
+      "searches": 1,
+      "plannerSteps": 4,
+      "evidenceChars": 1471,
+      "evidenceCount": 5,
+      "externalCalls": 6
+    },
+    "retrievalMs": 1026,
+    "finishReason": "BUDGET_EXCEEDED",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": false
+  },
+  "errorCode": "BUDGET_EXCEEDED",
+  "createdAt": "2026-09-29T06:46:35.541400Z",
+  "startedAt": "2026-09-29T06:46:35.551316Z",
+  "finishedAt": "2026-09-29T06:47:10.964566Z",
+  "cancelRequestedAt": null,
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 20,
+        "description": "检索当前授权知识库",
+        "querySha256": "98f2f82cc1130869596fc1259eaaf89ab9d5585ae6a6d0595c0db35be6fe5b7e"
+      },
+      "usage": {
+        "rerank": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 7362,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 7362,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 7362,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        },
+        "embedding": {
+          "totalTokens": 12,
+          "promptTokens": 12
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "8f1f4230-5355-4933-bf82-1e396c3a30d4",
+          "fcd3a807-0cb9-438e-a015-b726e31ba1c4",
+          "2afed3c6-cea2-4576-9084-33fd4c921b8b",
+          "016f36a0-4ff4-44bb-aeda-d47caf688aad",
+          "12c74bf8-e748-4d3c-84f5-36c7494df7d8"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-29T06:46:36.588166364Z",
+      "elapsedMs": 1030
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2230,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebea5bd4acb114cdb8203d61b087",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-29T06:46:39.974720006Z",
+      "elapsedMs": 3374
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "8f1f4230-5355-4933-bf82-1e396c3a30d4"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-29T06:46:39.987987057Z",
+      "elapsedMs": 3
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2255,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebe9a359a75bd191819696d7c8ab",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-09-29T06:46:50.044875331Z",
+      "elapsedMs": 10046
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E2"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "fcd3a807-0cb9-438e-a015-b726e31ba1c4"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 5,
+      "createdAt": "2026-09-29T06:46:50.054073085Z",
+      "elapsedMs": 2
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2280,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebea75fb7cfe006930c52f914a44",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 6,
+      "createdAt": "2026-09-29T06:47:07.631844485Z",
+      "elapsedMs": 17571
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E3"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "2afed3c6-cea2-4576-9084-33fd4c921b8b"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 7,
+      "createdAt": "2026-09-29T06:47:07.642036887Z",
+      "elapsedMs": 2
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2305,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebead4dc80f97573ba582517f323",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 8,
+      "createdAt": "2026-09-29T06:47:10.957157217Z",
+      "elapsedMs": 3306
+    }
+  ]
+}

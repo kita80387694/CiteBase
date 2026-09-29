@@ -36,3 +36,22 @@ AGENT_CHAT_BASE_URL、AGENT_CHAT_API_KEY、AGENT_CHAT_MODEL 为空时沿用 CHAT
 ## 评测口径
 
 保持与阶段二相同的模型、语料、检索配置和固定 52 题对比。该集合已用于阶段二，属于共同固定基准，不声称是阶段三全新未见数据。Agent 的前五条证据按取得顺序计算 Recall@5/MRR，另报全部累计证据指标；不把更多上下文的收益误称为相同 K 的排名提升。保留失败样本、工具调用数、延迟、实际用量，未发生人工评分的答案正确性与引用支持度仍为 null。只有开发集可以用于配置选择；真实冒烟通过、配置冻结后才运行固定测试比较。
+
+基础RAG沿用原供应商输出设置，Agent最终生成额外设置1024输出上限，并增加planner/工具/总时间预算。对照衡量的是整个有界模式，不能把差异全部归因于补充检索；模型、语料、初始检索和生成提示保持相同也不意味着调用预算相同。基础结果复用阶段二冻结原始运行，不为这次比较重复收费；跨运行时段的延迟只作观察统计。
+
+## 真实实验记录与复现
+
+首版源码fc8367e的4条开发冒烟均因重复inspectCitation以NO_PROGRESS结束，原始记录保留于docs/results/phase3。工具说明v2提交8eb9a43后，4条开发冒烟全部完成；TopK1跨文档探针只命中一半必需证据，未主动补齐，不计入正式测试质量。实际planner模型、端点、temperature、工具协议与预算见docs/results/phase3-v2/registration.json，冻结提交6285836。
+
+在已按EXPERIMENTS.md准备阶段二隔离知识库、启动真实模式且不改动语料后，先构建并记录新runtime，再使用**新目录**运行：
+
+```sh
+node scripts/capture-runtime.mjs <刚构建的backend镜像> .tools/new-agent-runtime.json
+node scripts/phase3-experiment.mjs smoke --root docs/results/new-agent-run --runtime .tools/new-agent-runtime.json
+node scripts/phase3-probe.mjs docs/results/new-agent-run
+node scripts/phase3-experiment.mjs freeze --root docs/results/new-agent-run --runtime .tools/new-agent-runtime.json
+node scripts/phase3-experiment.mjs test --root docs/results/new-agent-run --runtime .tools/new-agent-runtime.json
+node scripts/phase3-report.mjs docs/results/new-agent-run
+```
+
+默认CITEBASE_URL为http://localhost:28080。采集器拒绝MOCK、模型/参数/数据版本漂移，意图与幂等键先落盘，再创建执行；进程中断后原命令优先查询原run，不因HTTP超时重建收费运行。原始文件不可覆盖。阶段二suite.json中的知识库ID属于原隔离数据库，不能直接套用到别的数据库；全新复现应先完成阶段二数据准备并生成对应suite。新增目录意味着新的真实调用费用，旧结果分析只运行report，不必重跑模型。

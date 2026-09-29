@@ -70,7 +70,36 @@ export function buildReport(root){
  const suite=load('docs/results/phase2/optimization/suite.json'),base=[];
  for(const [id,variant]of Object.entries(suite.variants))if(id.startsWith('test-frozen-')){const run=load(variant.rawFile);verifyBaselineConfiguration(run.config,registration);base.push(...run.results);}
  const paired=pairRows(derived,base,dataset.questions);
- return{generatedAt:new Date().toISOString(),registration,inputs,agent:agentSummary(derived),baseline:baselineSummary(base),paired,rows:derived,
-  limitations:['Shared previously evaluated phase2 benchmark; no new test-tuned selection.','First five Agent evidence is acquisition order; accumulated recall permits up to published maxEvidence and is not equivalent-cost Recall@5.','Actual timings reflect separate run times, not controlled causal performance gains.','Citation format and reference substring are auxiliary metrics, never semantic correctness; human review remains null.','Agent retrievalMs covers cumulative search-tool time; base retrievalMs covers its single retrieval.','Failures remain in quality denominators; missing latency and usage have explicit coverage.']};
+ const externalBlocker=existsSync(`${root}/external-blocker.json`)?load(`${root}/external-blocker.json`):null;
+ return{generatedAt:new Date().toISOString(),acceptanceStatus:externalBlocker?'REAL_PROVIDER_COMPLETION_BLOCKED':'EXECUTION_DATA_COMPLETE',externalBlocker,registration,inputs,agent:agentSummary(derived),baseline:baselineSummary(base),paired,rows:derived,
+  limitations:['Shared previously evaluated phase2 benchmark; no new test-tuned selection.','First five Agent evidence is acquisition order; accumulated recall permits up to published maxEvidence and is not equivalent-cost Recall@5.','Agent final output is capped at 1024 tokens; base retains original provider settings. This compares the complete bounded treatment, not solely supplemental retrieval.','Actual timings reflect separate run times, not controlled causal performance gains.','Citation format and reference substring are auxiliary metrics, never semantic correctness; human review remains null.','Agent retrievalMs covers cumulative search-tool time; base retrievalMs covers its single retrieval.','Failures remain in quality denominators; missing latency and usage have explicit coverage.']};
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const root=process.argv[2]||'docs/results/phase3';assert(existsSync(`${root}/registration.json`));const report=buildReport(root);mkdirSync(`${root}/reports`,{recursive:true});const path=`${root}/reports/comparison-${Date.now()}.json`;writeFileSync(path,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(path);}
+export function markdown(report){
+ const n=x=>finite(x)?x.toFixed(4):'不可用';
+ const latency=x=>['mean','p50','p95'].map(k=>n(x[k])).join(' / ');
+ const out=['# 基础 RAG 与有边界 Agent：冻结对照',
+  `生成时间：${report.generatedAt}；Agent运行提交：${report.registration.runtime.commit}。`,
+  `冻结时间：${report.registration.frozenAt}；完整52题×两模式，失败不排除。人工答案正确性和引用支持度仍为null。`,
+  '\n| 路径 | 模式 | 样本 | Recall@5 | MRR@5 | 错误率 | 检索均值/P50/P95 ms | 端到端均值/P50/P95 ms |',
+  '|---|---|---:|---:|---:|---:|---|---|'];
+ if(report.externalBlocker)out.splice(3,0,'\n> **真实模型验收未完成**：运行后诊断确认供应商余额不足（HTTP402）。104条尝试及所有失败保留，不能把供应商不可用造成的缺失证据当成纯模型能力退化；详见external-blocker.json。\n');
+ for(const mode of ['vector','hybrid']){
+  const b=report.baseline[mode],a=report.agent[mode];
+  out.push(`| 基础RAG | ${mode} | ${b.count} | ${n(b.recallAtK)} | ${n(b.mrr)} | ${n(b.errorRate)} | ${latency(b.retrievalMs)} | ${latency(b.totalMs)} |`,
+   `| Agent | ${mode} | ${a.count} | ${n(a.recallAt5)} | ${n(a.mrrAt5)} | ${n(a.errorRate)} | ${latency(a.retrievalMs)} | ${latency(a.totalMs)} |`);
+ }
+ out.push('\n## 执行、累计证据及实际用量');
+ for(const mode of ['vector','hybrid']){
+  const s=report.agent[mode];
+  out.push(`\n### ${mode}`,`状态：${JSON.stringify(s.statusCounts)}；错误：${JSON.stringify(s.errorCounts)}。`,
+   `累计证据Recall=${n(s.accumulatedRecall)}，不等同相同K的检索提升。正确拒答=${s.correctRefusalCount}/${s.unanswerableCount}，引用格式有效=${s.citationFormatValidCount}/${s.count}，都不是语义答案正确率。`,
+   `调用/工具分布：${JSON.stringify(s.budget)}。`,
+   `实际用量与缺失覆盖：${JSON.stringify(s.usage)}。`,
+   `用量限制：${JSON.stringify(s.usageAccounting)}。`);
+ }
+ out.push('\n## 全部执行失败',...report.rows.filter(r=>r.error).map(r=>`- ${r.caseId} / ${r.mode}：${r.error}，运行${r.rawRunId}。`));
+ out.push('\n## 口径与限制',...report.limitations.map(s=>`- ${s}`),
+  '\n完整逐题回答、证据、用量和输入SHA见配套JSON及原始test目录；没有把自动辅助信号写成人工评审。');
+ return out.join('\n')+'\n';
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const root=process.argv[2]||'docs/results/phase3';assert(existsSync(`${root}/registration.json`));const report=buildReport(root);mkdirSync(`${root}/reports`,{recursive:true});const path=`${root}/reports/comparison-${Date.now()}`;writeFileSync(path+'.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});writeFileSync(path+'.md',markdown(report),{flag:'wx'});console.log(path);}

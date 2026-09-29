@@ -119,7 +119,7 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 - 持久任务，总尝试最多3次；重启恢复中断任务，失败可手动重试最新版本。
 - 用户在检索SQL内隔离；删除文档撤回引用，并清除所属知识库的问答/评测快照，避免历史内容泄露。
 - 单查询向量检索、关键词+向量等权RRF（常数60），中文关键词为双字bigram，非语义分词；未实现多查询RAG Fusion。
-- 引用编号必须来自本次检索，不将引用格式有效等同答案正确。无模型工具调用能力；文档作为不可信证据。
+- 引用编号必须来自本次取得的证据，不将引用格式有效等同答案正确。基础RAG不调用工具；可选Agent只可使用服务端授权检索、相邻片段和引用检查工具，文档作为不可信证据。
 - 评测保存模型、数据版本、配置和逐题结果；支持追加人工答案正确性与引用支持评分，未人工评分保持null，不用LLM分数或引用存在替代正确性。
 - 单实例模块化单体：恢复逻辑面向一个后端实例，不支持横向多实例worker。精确向量扫描适合MVP小规模语料，不宣称海量性能。
 
@@ -145,3 +145,11 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 专用重排需独立设置`RERANK_BASE_URL`（硅基流动为`https://api.siliconflow.cn`，不带`/v1`）、`RERANK_API_KEY`、`RERANK_MODEL=BAAI/bge-reranker-v2-m3`及`RERANK_TIMEOUT_SECONDS=10`。密钥放未跟踪的`.env`，不提交。关闭rerank不要求这些凭据；mock打开rerank会返回明确错误，以免误用真实服务。DeepSeek聊天和BGE-M3向量配置保持不变。
 
 实验过程见docs/EXPERIMENTS.md与预登记plan.json。`scripts/phase2-optimize.mjs`仅用于专用测试库，依次执行seed、a、b1、b2、c、d、dev、freeze、test；须先保存刚构建镜像的runtime清单到`.tools/phase2-stage2-runtime.json`。它拒绝mock、保留原始失败结果并核对已提交批次，不盲目重复提交。真实调用会产生供应商计费，当前实验上限为700条新增生成结果、最多两个并发评测请求；这不是生产服务的全局配额。尚未执行或未通过的实验不能从此启动说明推断为已完成。
+
+## 有边界的 Agent
+
+知识问答页选择“有边界 Agent”，填写问题后先创建运行，再显式执行。可查看行动轨迹、预算、实际用量、来源引用，取消并导出原始记录。刷新页面不会重复执行；创建响应丢失可使用原幂等键恢复。基础RAG仍是默认路径，Agent不保证更快或更准确。
+
+可选 `AGENT_CHAT_BASE_URL`、`AGENT_CHAT_API_KEY`、`AGENT_CHAT_MODEL`，留空沿用CHAT_*，不更换已有embedding。预算、权限与恢复边界见[AGENT.md](docs/AGENT.md)。当前Agent支持单实例持久运行，尚待阶段四统一异步租约治理。真实4条v2开发冒烟及界面已通过，完整固定集对照进行中，未完成结果不会算作验收通过；首轮循环失败和跨文档未补齐证据的探针均保留。
+
+新增工程测试可执行 `mvn -f backend/pom.xml test`；需要可用Docker以执行Testcontainers。11个可选External*入口需专用TEST_DB_URL，未设置时跳过并单列披露。Agent UI验证见frontend/tests/phase3-agent.spec.ts（实际MOCK后端）及phase3-agent-real.spec.ts（设置E2E_AGENT_RUN_ID，只读既有真实运行，不触发收费执行）。
