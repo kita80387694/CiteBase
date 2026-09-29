@@ -37,37 +37,39 @@ node scripts/seed-demo.mjs --evaluate
 
 ## 第二阶段开发入口与当前状态
 
-第二阶段在专用分支 `feat/citebase-phase2` 开发，使用独立 Compose 项目 `citebase-phase2`：前端 **http://localhost:25173**、API **http://localhost:28080**、数据库端口25432。独立项目使用独立数据卷，不影响原演示15173及其数据；不要更改或覆盖原 `.env`。在当前分支的项目根目录，通过 PowerShell 临时覆盖端口即可启动，模型配置仍读取已有 `.env`：
+第二阶段在专用分支 `feat/citebase-phase2` 开发。当前推荐演示入口为独立 Compose 项目 `citebase-phase4-real`：前端 **http://localhost:25177**、API **http://localhost:28085**、数据库端口25437。该环境已通过最终真实闭环及重新部署后的只读界面验证；真实模式需要已有有效模型配置。不要覆盖原 `.env`。在当前分支的项目根目录，通过 PowerShell 临时设置端口和模式启动：
 
 ```powershell
-$phase2Ports = @{ WEB_PORT='25173'; API_PORT='28080'; DB_PORT='25432' }
+$phase4Settings = @{ WEB_PORT='25177'; API_PORT='28085'; DB_PORT='25437'; MODEL_MODE='real' }
 $priorPorts = @{}
-foreach ($name in $phase2Ports.Keys) {
+foreach ($name in $phase4Settings.Keys) {
   $priorPorts[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
-  [Environment]::SetEnvironmentVariable($name, $phase2Ports[$name], 'Process')
+  [Environment]::SetEnvironmentVariable($name, $phase4Settings[$name], 'Process')
 }
 try {
-  docker compose -p citebase-phase2 up --build -d
+  docker compose -p citebase-phase4-real up --build -d
 } finally {
-  foreach ($name in $phase2Ports.Keys) {
+  foreach ($name in $phase4Settings.Keys) {
     [Environment]::SetEnvironmentVariable($name, $priorPorts[$name], 'Process')
   }
 }
 ```
 
+历史 `citebase-phase2` 环境（25173/28080/25432）保留冻结的 V5 实验镜像与数据，仅用于只读核验历史结果。不要在该项目直接执行当前源码的 `up --build` 覆盖升级；新实验使用独立项目与数据卷。
+
 阶段一已新增12份原创文档、156题评测集（按主题冻结dev/test）和24个独立安全用例，入口在 `samples/phase2/`。已实现严格标签导入、sourceHash与原文位置校验、同组可替代/跨组必需证据指标，以及逐题人工答案、引用支持和错误分类评分。评分追加保存依据、规则版本、用户与时间，未评分保持null，不覆盖自动原始结果。
 
-**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 检索优化已完成664条真实消融/确认/独立测试，受控Agent真实对照已完成且未显示收益，异步多worker治理正在最终验收，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG安全指标与Agent工具边界测试分别记录，不能相互替代。
+**第二阶段四项功能已完成工程与真实闭环验收。新增语料的真实双配置基线共312行。** 检索优化已完成664条真实消融/确认/独立测试，受控Agent真实对照已完成且未显示收益，异步多worker治理已通过双JVM故障验证，阶段证据按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG安全指标与Agent工具边界测试分别记录，不能相互替代。
 
 检索优化的工程入口已接通：上传/更新可选择结构切分与长度、重叠参数；问答及评测可设置候选数、关键词权重、独立重排开关和引用格式。版本页保留实际切分配置，问答诊断展示检索阶段耗时及供应商实际用量。重排使用独立 `RERANK_BASE_URL`、`RERANK_API_KEY`、`RERANK_MODEL`、`RERANK_TIMEOUT_SECONDS`，不会更换 BGE embedding 或旧索引。协议及限制见 [检索接口](docs/API-CONTRACT-PHASE2-RETRIEVAL.md) 与 [切分说明](docs/CHUNKING.md)。开发子集消融、全开发集确认及冻结后的独立测试已完成，共664条真实结果；独立52题两模式的Recall@5/MRR均为1，但人工答案正确性未评分，且检索耗时与模型用量增加。完整结果和失败记录见[实验报告](docs/EXPERIMENTS.md)，优化配置仅显式选择，不替换通用默认。
 
 真实实验需已配置有效模型密钥。以下为新实验的复现入口，会产生真实供应商调用；已有运行应恢复原label及部署清单，不重新生成运行时清单或重复创建收费评测：
 
 ```powershell
-$env:CITEBASE_URL = 'http://localhost:28080'
+$env:CITEBASE_URL = 'http://localhost:28085'
 # 仅首次：完成构建并冻结后端源码后，记录实际部署镜像与源码。
-node scripts/capture-runtime.mjs citebase-phase2-backend .tools/phase2-runtime.json
-node scripts/phase2-experiment.mjs --label stage1-reproduce --seed --run --split dev --runtime-manifest .tools/phase2-runtime.json
+node scripts/capture-runtime.mjs citebase-phase4-real-backend .tools/phase2-reproduce-runtime.json
+node scripts/phase2-experiment.mjs --label stage1-reproduce --seed --run --split dev --runtime-manifest .tools/phase2-reproduce-runtime.json
 node scripts/summarize-phase2.mjs stage1-reproduce dev
 ```
 
@@ -152,7 +154,7 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 
 知识问答页选择“有边界 Agent”，填写问题后先创建运行，再显式执行。可查看行动轨迹、预算、实际用量、来源引用，取消并导出原始记录。刷新页面不会重复执行；创建响应丢失可使用原幂等键恢复。基础RAG仍是默认路径，Agent不保证更快或更准确。
 
-可选 `AGENT_CHAT_BASE_URL`、`AGENT_CHAT_API_KEY`、`AGENT_CHAT_MODEL`，留空沿用CHAT_*，不更换已有embedding。预算、权限与恢复边界见[AGENT.md](docs/AGENT.md)。当前Agent支持单实例持久运行，尚待阶段四统一异步租约治理。真实4条v2开发冒烟及界面已通过，完整固定集对照进行中，未完成结果不会算作验收通过；首轮循环失败和跨文档未补齐证据的探针均保留。
+可选 `AGENT_CHAT_BASE_URL`、`AGENT_CHAT_API_KEY`、`AGENT_CHAT_MODEL`，留空沿用CHAT_*，不更换已有embedding。预算、权限与恢复边界见[AGENT.md](docs/AGENT.md)。当前Agent已接入统一异步租约治理。真实4条v2开发冒烟、固定集对照及异步真实闭环已完成；首轮循环失败和跨文档未补齐证据的探针均保留。
 
 新增工程测试可执行 `mvn -f backend/pom.xml test`；需要可用Docker以执行Testcontainers。11个可选External*入口需专用TEST_DB_URL，未设置时跳过并单列披露。Agent UI验证见frontend/tests/phase3-agent.spec.ts（实际MOCK后端）及phase3-agent-real.spec.ts（设置E2E_AGENT_RUN_ID，只读既有真实运行，不触发收费执行）。
 
@@ -162,4 +164,7 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 
 评测逐题断点继续；已完成题不重跑，失败项有限重试。余额不足和认证错误不自动重试。Agent未知中断明确UNSAFE_TO_RESUME，已有调用史需显式新建运行，不重置旧预算。取消不能撤销供应商已经执行的请求；晚到内容不得覆盖取消终态，已知用量仍保留。详情见[TASKS](docs/TASKS.md)与[AGENT](docs/AGENT.md)。
 
-当前集成环境使用独立项目citebase-phase4（25175/28082/25434），保留原phase2冻结实验环境。不要将历史phase2复现命令直接用于覆盖仍运行的冻结环境。阶段四实际验收证据和未完成项以[PROGRESS](docs/PROGRESS.md)为准。
+当前推荐真实演示使用独立项目citebase-phase4-real（25177/28085/25437）；citebase-phase4（25175/28082/25434）用于Mock回归，原phase2作为只读历史冻结环境保留。不要将历史phase2复现命令直接用于覆盖仍运行的冻结环境。阶段四实际验收证据和已知限制以[PROGRESS](docs/PROGRESS.md)为准。
+
+
+最终验收的真实演示环境为 **http://localhost:25177**（API28085、独立数据库25437，项目citebase-phase4-real）；Mock回归环境25175（API28082、数据库25434）。两个项目的数据卷相互独立。普通新下载按快速启动的默认端口运行，不要求使用这些本机验收端口。双worker可重复故障演示与启动命令见[TASKS](docs/TASKS.md#两个实际java进程的故障证明)。

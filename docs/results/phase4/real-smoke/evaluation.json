@@ -1,0 +1,1537 @@
+{
+  "id": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "name": "Phase4真实闭环-3ddb1d41d900",
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "phase4-real-smoke-v1",
+      "questions": [
+        {
+          "id": "q001",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+              "groupId": null,
+              "endOffset": 48,
+              "paragraph": 2,
+              "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "startOffset": 18,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 默认监听哪个端口？",
+          "answerable": true,
+          "expectedAnswer": "9081"
+        },
+        {
+          "id": "q002",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+              "groupId": null,
+              "endOffset": 91,
+              "paragraph": 3,
+              "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "startOffset": 50,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 单次请求体上限是多少？",
+          "answerable": true,
+          "expectedAnswer": "8 MiB"
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+        "name": "atlas-api.md",
+        "chunk_size": 900,
+        "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+        "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [
+    {
+      "id": "89bd1559-eff2-4a67-aa49-02417653a0ae",
+      "mrr": 1,
+      "mode": "vector",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      "answer": "Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+      "caseId": "q001",
+      "totalMs": 3633,
+      "category": null,
+      "evidence": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.722328245639801,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "question": "Atlas API 默认监听哪个端口？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.722328245639801,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.722328245639801,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.722328245639801,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 1,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 288,
+          "generationMs": 3342
+        },
+        "aliasMap": {},
+        "rawAnswer": "Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "dataVersions": [
+          {
+            "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "name": "atlas-api.md",
+            "chunk_size": 900,
+            "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 0,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 289,
+      "promptTokens": 479,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "9081",
+      "completionTokens": 39,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+          "groupId": null,
+          "endOffset": 48,
+          "paragraph": 2,
+          "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+          "startOffset": 18,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 20,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "74b9e547-bd2b-4b21-8b1b-bc1179b87560",
+      "mrr": 1,
+      "mode": "hybrid",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      "answer": "根据证据，Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+      "caseId": "q001",
+      "totalMs": 22699,
+      "category": null,
+      "evidence": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.03278688524590164,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "question": "Atlas API 默认监听哪个端口？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.03278688524590164,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.03278688524590164,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.722328245639801,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 2.6000001,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 1,
+          "rerankMs": 0,
+          "vectorMs": 1,
+          "keywordMs": 2,
+          "citationMs": 0,
+          "embeddingMs": 283,
+          "generationMs": 22410
+        },
+        "aliasMap": {},
+        "rawAnswer": "根据证据，Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "dataVersions": [
+          {
+            "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "name": "atlas-api.md",
+            "chunk_size": 900,
+            "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 1,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 288,
+      "promptTokens": 480,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "9081",
+      "completionTokens": 42,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+          "groupId": null,
+          "endOffset": 48,
+          "paragraph": 2,
+          "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+          "startOffset": 18,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 20,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "e87f0bf1-e934-4165-b95c-8dc6d670723c",
+      "mrr": 1,
+      "mode": "vector",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      "answer": "Atlas API 单次请求体上限为 8 MiB，超过限制将返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+      "caseId": "q002",
+      "totalMs": 10601,
+      "category": null,
+      "evidence": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.785367442049538,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "question": "Atlas API 单次请求体上限是多少？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.785367442049538,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.785367442049538,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.785367442049538,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 1,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 290,
+          "generationMs": 10308
+        },
+        "aliasMap": {},
+        "rawAnswer": "Atlas API 单次请求体上限为 8 MiB，超过限制将返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "dataVersions": [
+          {
+            "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "name": "atlas-api.md",
+            "chunk_size": 900,
+            "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 0,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 292,
+      "promptTokens": 481,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "8 MiB",
+      "completionTokens": 50,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+          "groupId": null,
+          "endOffset": 91,
+          "paragraph": 3,
+          "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+          "startOffset": 50,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 20,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "8ecd7c57-7197-4b6c-90a6-37952862f070",
+      "mrr": 1,
+      "mode": "hybrid",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      "answer": "Atlas API 单次请求体上限为 8 MiB，超过限制会返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+      "caseId": "q002",
+      "totalMs": 5210,
+      "category": null,
+      "evidence": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.03278688524590164,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "question": "Atlas API 单次请求体上限是多少？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+          "page": 1,
+          "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+          "score": 0.03278688524590164,
+          "endOffset": 444,
+          "paragraph": 1,
+          "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+          "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+          "startOffset": 0,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.03278688524590164,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 0.785367442049538,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+              "page": 1,
+              "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+              "score": 3.2,
+              "endOffset": 444,
+              "paragraph": 1,
+              "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "startOffset": 0,
+              "documentName": "atlas-api.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 5,
+          "keywordMs": 8,
+          "citationMs": 0,
+          "embeddingMs": 284,
+          "generationMs": 4909
+        },
+        "aliasMap": {},
+        "rawAnswer": "Atlas API 单次请求体上限为 8 MiB，超过限制会返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "dataVersions": [
+          {
+            "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "name": "atlas-api.md",
+            "chunk_size": 900,
+            "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 1,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 299,
+      "promptTokens": 482,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "8 MiB",
+      "completionTokens": 50,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+          "groupId": null,
+          "endOffset": 91,
+          "paragraph": 3,
+          "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+          "startOffset": 50,
+          "documentName": "atlas-api.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 20,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    }
+  ],
+  "createdAt": "2026-09-29T07:37:48.614591037Z",
+  "modelMode": "real",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "SUCCEEDED",
+  "taskStatus": "SUCCEEDED",
+  "taskId": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "progress": {
+    "total": 4,
+    "completed": 4,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [],
+  "partial": false,
+  "canScore": true,
+  "error": null,
+  "attempts": [
+    {
+      "id": "e1654842-e906-4873-b12e-0f405628e027",
+      "case_id": "q001",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 3,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "89bd1559-eff2-4a67-aa49-02417653a0ae",
+        "mrr": 1,
+        "mode": "vector",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        "answer": "Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "caseId": "q001",
+        "totalMs": 3633,
+        "category": null,
+        "evidence": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.722328245639801,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "question": "Atlas API 默认监听哪个端口？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.722328245639801,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.722328245639801,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.722328245639801,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "keyword": []
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 1,
+            "keywordMs": 0,
+            "citationMs": 0,
+            "embeddingMs": 288,
+            "generationMs": 3342
+          },
+          "aliasMap": {},
+          "rawAnswer": "Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+          "dataVersions": [
+            {
+              "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "name": "atlas-api.md",
+              "chunk_size": 900,
+              "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 0,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 289,
+        "promptTokens": 479,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "9081",
+        "completionTokens": 39,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+            "groupId": null,
+            "endOffset": 48,
+            "paragraph": 2,
+            "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "startOffset": 18,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 20,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T07:37:49.012522+00:00",
+      "finished_at": "2026-09-29T07:37:52.657485+00:00"
+    },
+    {
+      "id": "d306ab61-3de8-4be9-8e84-12048582532b",
+      "case_id": "q001",
+      "mode": "hybrid",
+      "attempt_number": 1,
+      "fencing_token": 3,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "74b9e547-bd2b-4b21-8b1b-bc1179b87560",
+        "mrr": 1,
+        "mode": "hybrid",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        "answer": "根据证据，Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "caseId": "q001",
+        "totalMs": 22699,
+        "category": null,
+        "evidence": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.03278688524590164,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "question": "Atlas API 默认监听哪个端口？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.03278688524590164,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.03278688524590164,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.722328245639801,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "keyword": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 2.6000001,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ]
+          },
+          "timings": {
+            "fusionMs": 1,
+            "rerankMs": 0,
+            "vectorMs": 1,
+            "keywordMs": 2,
+            "citationMs": 0,
+            "embeddingMs": 283,
+            "generationMs": 22410
+          },
+          "aliasMap": {},
+          "rawAnswer": "根据证据，Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+          "dataVersions": [
+            {
+              "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "name": "atlas-api.md",
+              "chunk_size": 900,
+              "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 1,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 288,
+        "promptTokens": 480,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "9081",
+        "completionTokens": 42,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+            "groupId": null,
+            "endOffset": 48,
+            "paragraph": 2,
+            "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "startOffset": 18,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 20,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T07:37:52.668803+00:00",
+      "finished_at": "2026-09-29T07:38:15.373467+00:00"
+    },
+    {
+      "id": "edde3123-1809-4bb3-ac59-c7e7ef41716f",
+      "case_id": "q002",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 3,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "e87f0bf1-e934-4165-b95c-8dc6d670723c",
+        "mrr": 1,
+        "mode": "vector",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        "answer": "Atlas API 单次请求体上限为 8 MiB，超过限制将返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "caseId": "q002",
+        "totalMs": 10601,
+        "category": null,
+        "evidence": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.785367442049538,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "question": "Atlas API 单次请求体上限是多少？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.785367442049538,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.785367442049538,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.785367442049538,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "keyword": []
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 1,
+            "keywordMs": 0,
+            "citationMs": 0,
+            "embeddingMs": 290,
+            "generationMs": 10308
+          },
+          "aliasMap": {},
+          "rawAnswer": "Atlas API 单次请求体上限为 8 MiB，超过限制将返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+          "dataVersions": [
+            {
+              "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "name": "atlas-api.md",
+              "chunk_size": 900,
+              "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 0,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 292,
+        "promptTokens": 481,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "8 MiB",
+        "completionTokens": 50,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+            "groupId": null,
+            "endOffset": 91,
+            "paragraph": 3,
+            "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "startOffset": 50,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 20,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T07:38:15.382559+00:00",
+      "finished_at": "2026-09-29T07:38:25.990878+00:00"
+    },
+    {
+      "id": "e5d77a1f-287e-4fe1-b897-0ef8272ec654",
+      "case_id": "q002",
+      "mode": "hybrid",
+      "attempt_number": 1,
+      "fencing_token": 3,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "8ecd7c57-7197-4b6c-90a6-37952862f070",
+        "mrr": 1,
+        "mode": "hybrid",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        "answer": "Atlas API 单次请求体上限为 8 MiB，超过限制会返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+        "caseId": "q002",
+        "totalMs": 5210,
+        "category": null,
+        "evidence": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.03278688524590164,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "question": "Atlas API 单次请求体上限是多少？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+            "page": 1,
+            "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+            "score": 0.03278688524590164,
+            "endOffset": 444,
+            "paragraph": 1,
+            "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+            "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+            "startOffset": 0,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.03278688524590164,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 0.785367442049538,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ],
+            "keyword": [
+              {
+                "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+                "page": 1,
+                "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+                "score": 3.2,
+                "endOffset": 444,
+                "paragraph": 1,
+                "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+                "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+                "startOffset": 0,
+                "documentName": "atlas-api.md"
+              }
+            ]
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 5,
+            "keywordMs": 8,
+            "citationMs": 0,
+            "embeddingMs": 284,
+            "generationMs": 4909
+          },
+          "aliasMap": {},
+          "rawAnswer": "Atlas API 单次请求体上限为 8 MiB，超过限制会返回 HTTP 413 状态码 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+          "dataVersions": [
+            {
+              "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+              "name": "atlas-api.md",
+              "chunk_size": 900,
+              "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+              "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 1,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 299,
+        "promptTokens": 482,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "8 MiB",
+        "completionTokens": 50,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+            "groupId": null,
+            "endOffset": 91,
+            "paragraph": 3,
+            "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+            "startOffset": 50,
+            "documentName": "atlas-api.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 20,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T07:38:26.004074+00:00",
+      "finished_at": "2026-09-29T07:38:31.224819+00:00"
+    }
+  ],
+  "externalCalls": [
+    {
+      "call_id": "471c1c32-9421-4252-a407-328dd09174d2",
+      "operation_key": "e1654842-e906-4873-b12e-0f405628e027:embedding:a90d117e-97b9-4165-b591-aaa9e089a01b",
+      "fencing_token": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:37:49.021386+00:00",
+      "finished_at": "2026-09-29T07:37:49.305298+00:00"
+    },
+    {
+      "call_id": "e9ee4223-782f-41b8-abf7-bc515160e6e9",
+      "operation_key": "e1654842-e906-4873-b12e-0f405628e027:generation:4d62e48e-5571-47b0-993d-cecae8700d4b",
+      "fencing_token": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 479,
+        "completionTokens": 39
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:37:49.311613+00:00",
+      "finished_at": "2026-09-29T07:37:52.649889+00:00"
+    },
+    {
+      "call_id": "3d068ea2-8a48-4fad-8389-457d969fb366",
+      "operation_key": "d306ab61-3de8-4be9-8e84-12048582532b:embedding:17cb4d2a-5a14-4600-96c8-45dcb3ef05e6",
+      "fencing_token": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:37:52.675442+00:00",
+      "finished_at": "2026-09-29T07:37:52.954841+00:00"
+    },
+    {
+      "call_id": "5802f8ad-0c9f-40df-bdc1-fa1742f9e706",
+      "operation_key": "d306ab61-3de8-4be9-8e84-12048582532b:generation:2cf699ef-d960-4be7-8ddf-6ef1f4372650",
+      "fencing_token": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 480,
+        "completionTokens": 42
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:37:52.964047+00:00",
+      "finished_at": "2026-09-29T07:38:15.36509+00:00"
+    },
+    {
+      "call_id": "ab3d07e4-d79c-43f5-901a-9da7f9dbf393",
+      "operation_key": "edde3123-1809-4bb3-ac59-c7e7ef41716f:embedding:da7165eb-a3cd-4409-8464-d122350436c1",
+      "fencing_token": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:38:15.388798+00:00",
+      "finished_at": "2026-09-29T07:38:15.676099+00:00"
+    },
+    {
+      "call_id": "5dd7c565-c37c-4456-ad2f-bd7af4833934",
+      "operation_key": "edde3123-1809-4bb3-ac59-c7e7ef41716f:generation:853eef22-fd22-4ab6-8874-903a386ff0fb",
+      "fencing_token": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 481,
+        "completionTokens": 50
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:38:15.681195+00:00",
+      "finished_at": "2026-09-29T07:38:25.982395+00:00"
+    },
+    {
+      "call_id": "c80b15e9-3f12-4756-82a7-d39a886b06ed",
+      "operation_key": "e5d77a1f-287e-4fe1-b897-0ef8272ec654:embedding:dbab9079-3463-444b-83a9-92b3d683a266",
+      "fencing_token": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:38:26.014026+00:00",
+      "finished_at": "2026-09-29T07:38:26.291144+00:00"
+    },
+    {
+      "call_id": "2952ce5b-6f9d-448a-8a8b-355d34e61c67",
+      "operation_key": "e5d77a1f-287e-4fe1-b897-0ef8272ec654:generation:58d0d1e3-d381-44cf-a3e4-322a34dc6c27",
+      "fencing_token": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 482,
+        "completionTokens": 50
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T07:38:26.317194+00:00",
+      "finished_at": "2026-09-29T07:38:31.219471+00:00"
+    }
+  ],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 2,
+      "answerableCount": 2,
+      "plannedCount": 2,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 290.5,
+      "totalMs": 7117
+    },
+    "hybrid": {
+      "count": 2,
+      "answerableCount": 2,
+      "plannedCount": 2,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 293.5,
+      "totalMs": 13954.5
+    }
+  },
+  "breakdowns": {
+    "category": {},
+    "split": {},
+    "group": {},
+    "topic": {}
+  },
+  "manualScores": []
+}

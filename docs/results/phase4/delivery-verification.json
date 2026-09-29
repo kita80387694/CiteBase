@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-09-29T07:51:14.554105+00:00",
+  "build": "delivery-build.txt",
+  "runtime": "delivery-runtime.json",
+  "configurationTests": {
+    "passed": 44,
+    "failed": 0,
+    "skipped": 0,
+    "log": "configuration-tests.txt"
+  },
+  "readOnlyRealBrowser": {
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "log": "delivery-readonly.txt"
+  },
+  "paidModelRuns": "real-smoke/state.json retains original c3087 runtime; no paid work repeated for default-preserving configuration extension",
+  "backendMatrix": {
+    "kind": "latest-per-class, not a single Maven invocation",
+    "tests": 165,
+    "failed": 0,
+    "skipped": 0
+  },
+  "secretScan": {
+    "files": 852,
+    "hits": 0,
+    "method": "API-key pattern plus exact local .env key values in memory; no values exported"
+  },
+  "corePlaceholderScan": {
+    "paths": [
+      "backend/src/main",
+      "frontend/src"
+    ],
+    "patterns": [
+      "TODO",
+      "FIXME",
+      "UnsupportedOperationException"
+    ],
+    "hits": 0
+  }
+}

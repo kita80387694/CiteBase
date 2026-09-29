@@ -69,6 +69,7 @@ public class EvaluationService implements TaskHandler {
   private final TaskRepository tasks;
   private final TransactionTemplate tx;
   private final int itemMaxAttempts;
+  private final int taskMaxAttempts;
 
   public EvaluationService(
       JdbcTemplate db,
@@ -82,8 +83,10 @@ public class EvaluationService implements TaskHandler {
       TaskRepository tasks,
       org.springframework.transaction.PlatformTransactionManager tm,
       @org.springframework.beans.factory.annotation.Value(
-              "${citebase.evaluation-item-max-attempts:2}")
-          int itemMaxAttempts) {
+              "${EVALUATION_ITEM_MAX_ATTEMPTS:${citebase.evaluation-item-max-attempts:2}}")
+          int itemMaxAttempts,
+      @org.springframework.beans.factory.annotation.Value("${EVALUATION_TASK_MAX_ATTEMPTS:5}")
+          int taskMaxAttempts) {
     this.db = db;
     this.questions = questions;
     this.access = access;
@@ -97,6 +100,9 @@ public class EvaluationService implements TaskHandler {
     if (itemMaxAttempts < 1 || itemMaxAttempts > 5)
       throw new IllegalArgumentException("evaluation item retry cap must be1..5");
     this.itemMaxAttempts = itemMaxAttempts;
+    if (taskMaxAttempts < 1 || taskMaxAttempts > 10)
+      throw new IllegalArgumentException("evaluation task retry cap must be 1..10");
+    this.taskMaxAttempts = taskMaxAttempts;
   }
 
   public TaskKind kind() {
@@ -199,7 +205,7 @@ public class EvaluationService implements TaskHandler {
                   itemMaxAttempts);
           tasks.enqueue(
               new TaskSpec(
-                  kind(), user, request.kbId(), id, request.idempotencyKey(), normalized, 5));
+                  kind(), user, request.kbId(), id, request.idempotencyKey(), normalized, taskMaxAttempts));
           db.update("UPDATE evaluation_run SET task_id=? WHERE id=?", id, id);
           return view(user, id);
         });

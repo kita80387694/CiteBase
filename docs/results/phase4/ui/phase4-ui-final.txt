@@ -1,0 +1,55 @@
+
+Running 4 tests using 1 worker
+
+(node:128708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:128708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\phase2-retrieval.spec.ts:3:1 › 阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断导出 (12.3s)
+  ok 2 tests\phase3-agent.spec.ts:25:1 › Agent MOCK 实际后端：持久创建、显式执行、引用导出、取消、预算和幂等恢复 (22.7s)
+  ok 3 tests\phase4-async.spec.ts:12:1 › 阶段四实际MOCK：异步评测、未知创建幂等恢复、快照引用、三类任务和Agent入队 (11.4s)
+  x  4 tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 (22.5s)
+
+
+  1) tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 ───────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#knowledge-base option:checked')
+    Expected: [32m"E2E-1790[7m66722393[27m8"[39m
+    Received: [31m"E2E-1790[7m57839030[27m8"[39m
+    Timeout:  20000ms
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 20000ms[22m
+    [2m  - waiting for locator('#knowledge-base option:checked')[22m
+    [2m    23 × locator resolved to <option value="9a5b0d9e-7d4b-4fc7-8ac5-94584512b39a">E2E-1790578390308</option>[22m
+    [2m       - unexpected value "E2E-1790578390308"[22m
+
+
+      38 |   page.once("dialog", (dialog) => dialog.accept(kbName));
+      39 |   await page.getByRole("button", { name: "新建知识库" }).click();
+    > 40 |   await expect(page.locator("#knowledge-base option:checked")).toHaveText(
+         |                                                                ^
+      41 |     kbName,
+      42 |   );
+      43 |   await expect(page.getByRole("heading", { name: "还没有文档" })).toBeVisible();
+        at F:\CiteBase\frontend\tests\platform.spec.ts:40:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 ────────────────────────────────────
+  3 passed (1.2m)

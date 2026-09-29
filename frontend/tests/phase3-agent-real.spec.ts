@@ -45,7 +45,7 @@ test("真实 Agent 已保存运行：轨迹、预算、引用与导出只读验�
     "data-run-id",
     runId!,
   );
-  await expect(page.locator(".agent-run .badge").first()).toHaveText("完成");
+  await expect(page.locator(".agent-run .badge").first()).toHaveText(saved.taskId ? "任务完成" : "完成");
   await expect(page.locator(".agent-result .answer-text")).not.toBeEmpty();
   const config = page
     .locator(".agent-run details")
@@ -60,19 +60,19 @@ test("真实 Agent 已保存运行：轨迹、预算、引用与导出只读验�
   );
   await config.scrollIntoViewIfNeeded();
   await page.screenshot({
-    path: "../docs/screenshots/phase2-agent-real-config.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}agent-real-config.png`,
   });
   await config.locator("summary").click();
   await page.locator(".agent-steps li").first().locator("summary").click();
   await expect(page.locator(".agent-used-budget")).toContainText("工具调用");
   await page.screenshot({
-    path: "../docs/screenshots/phase2-agent-real-trace.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}agent-real-trace.png`,
     fullPage: true,
   });
   await page.locator(".agent-result .citations button").first().click();
   await expect(page.locator(".drawer .source-text")).not.toBeEmpty();
   await page.screenshot({
-    path: "../docs/screenshots/phase2-agent-real-citation.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}agent-real-citation.png`,
   });
   await page.getByRole("button", { name: "关闭证据" }).click();
   const download = page.waitForEvent("download");

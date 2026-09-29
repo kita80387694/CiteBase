@@ -46,7 +46,7 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   await expect(page.locator(".version-card")).toHaveCount(1);
   await expect(page.locator(".version-card")).toContainText("structure-v1");
   await page.screenshot({
-    path: "../docs/screenshots/phase2-stage2-structure-version.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}stage2-structure-version.png`,
   });
   await page.getByRole("button", { name: "关闭文档版本" }).click();
   await page.getByLabel("切分策略", { exact: true }).selectOption("legacy");
@@ -102,7 +102,7 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   await expect(answerCard.locator(".stage-timings")).toContainText("回答生成");
   await answerCard.locator(".retrieval-diagnostics").scrollIntoViewIfNeeded();
   await page.screenshot({
-    path: "../docs/screenshots/phase2-stage2-retrieval-diagnostics.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}stage2-retrieval-diagnostics.png`,
   });
   await answerCard.locator(".inline-citation").first().click();
   await expect(page.locator(".drawer .source-text")).toContainText(
@@ -179,7 +179,7 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   });
   await page.locator(".results").scrollIntoViewIfNeeded();
   await page.screenshot({
-    path: "../docs/screenshots/phase2-stage2-evaluation.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}stage2-evaluation.png`,
   });
 
   await page.getByRole("button", { name: "知识问答", exact: true }).click();
@@ -211,7 +211,7 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   );
   await failedCard.scrollIntoViewIfNeeded();
   await page.screenshot({
-    path: "../docs/screenshots/phase2-stage2-rerank-error.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}stage2-rerank-error.png`,
   });
   await testInfo.attach("stage2-mock-rerank-error", {
     body: JSON.stringify(failed, null, 2),

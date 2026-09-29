@@ -103,7 +103,7 @@ test("Agent MOCK 实际后端：持久创建、显式执行、引用导出、取
   expect(exported.result.answerCorrect).toBeNull();
   expect(exported.result.citationValid).toBe(true);
   await page.screenshot({
-    path: "../docs/screenshots/phase2-agent-mock-completed.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}agent-mock-completed.png`,
     fullPage: true,
   });
   const cancelled = await create(page, "取消这次尚未执行的 Agent 运行");
@@ -132,7 +132,7 @@ test("Agent MOCK 实际后端：持久创建、显式执行、引用导出、取
     "证据不足 · 明确拒答",
   );
   await page.screenshot({
-    path: "../docs/screenshots/phase2-agent-budget-failed.png",
+    path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}agent-budget-failed.png`,
     fullPage: true,
   });
   // Real create reaches the backend; only the browser response is deliberately dropped.

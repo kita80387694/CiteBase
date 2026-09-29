@@ -19,6 +19,7 @@ public class AgentRunRepository {
   private final ObjectMapper json;
   private final AgentPlannerGateway planner;
   private final TaskRepository tasks;
+  private final int taskMaxAttempts;
 
   public AgentRunRepository(
       JdbcTemplate db,
@@ -28,7 +29,9 @@ public class AgentRunRepository {
       QuestionService questions,
       ObjectMapper json,
       AgentPlannerGateway planner,
-      TaskRepository tasks) {
+      TaskRepository tasks,
+      @org.springframework.beans.factory.annotation.Value("${AGENT_TASK_MAX_ATTEMPTS:2}")
+          int taskMaxAttempts) {
     this.db = db;
     this.tx = new TransactionTemplate(tm);
     this.access = access;
@@ -37,6 +40,9 @@ public class AgentRunRepository {
     this.json = json;
     this.planner = planner;
     this.tasks = tasks;
+    if (taskMaxAttempts < 1 || taskMaxAttempts > 10)
+      throw new IllegalArgumentException("AGENT_TASK_MAX_ATTEMPTS must be 1..10");
+    this.taskMaxAttempts = taskMaxAttempts;
   }
 
   String encode(Object x) {
@@ -156,7 +162,7 @@ public class AgentRunRepository {
                   id,
                   "agent:" + id,
                   Map.of("runId", id),
-                  2));
+                  taskMaxAttempts));
           return get(user, id);
         });
   }

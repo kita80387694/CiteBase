@@ -1,0 +1,54 @@
+{
+  "task": [
+    {
+      "id": "b26f48a7-c00c-4ec7-b767-18c262571205",
+      "kind": "EVALUATION",
+      "status": "CANCELLED",
+      "attempts": 1,
+      "fencing_token": 1,
+      "lease_owner": null,
+      "lease_until": null,
+      "error_code": "CANCELLED"
+    }
+  ],
+  "items": [
+    {
+      "case_id": "P4_GATE_CANCEL",
+      "mode": "vector",
+      "status": "CANCELLED",
+      "attempts": 1,
+      "resultHash": null
+    },
+    {
+      "case_id": "P4_GATE_CANCEL",
+      "mode": "hybrid",
+      "status": "CANCELLED",
+      "attempts": 0,
+      "resultHash": null
+    }
+  ],
+  "calls": [
+    {
+      "call_id": "4107e3f3-73ef-4c61-b551-84aaf653ad49",
+      "operation_key": "2a5ceccc-5773-46de-be1e-404281167894:embedding:0ad3b000-b2ba-49b1-ad01-ad0b49ecf266",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "574bd6d7-1883-41f6-9e2a-4da1283a2c3a",
+      "operation_key": "2a5ceccc-5773-46de-be1e-404281167894:generation:7e70a2b8-b405-40eb-84a4-e98a1550348d",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": {
+        "type": "jsonb",
+        "value": "{\"promptTokens\": null, \"completionTokens\": null}",
+        "null": false
+      },
+      "outcome": "RETURNED_AFTER_CANCEL"
+    }
+  ],
+  "stageParts": 0,
+  "chunks": []
+}

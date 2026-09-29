@@ -1,0 +1,175 @@
+{
+  "id": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "name": "Phase4真实闭环-3ddb1d41d900",
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "phase4-real-smoke-v1",
+      "questions": [
+        {
+          "id": "q001",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+              "groupId": null,
+              "endOffset": 48,
+              "paragraph": 2,
+              "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "startOffset": 18,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 默认监听哪个端口？",
+          "answerable": true,
+          "expectedAnswer": "9081"
+        },
+        {
+          "id": "q002",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+              "groupId": null,
+              "endOffset": 91,
+              "paragraph": 3,
+              "sourceHash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+              "startOffset": 50,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 单次请求体上限是多少？",
+          "answerable": true,
+          "expectedAnswer": "8 MiB"
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+        "name": "atlas-api.md",
+        "chunk_size": 900,
+        "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+        "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [],
+  "createdAt": "2026-09-29T07:37:48.614591037Z",
+  "modelMode": "real",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "CANCELLED",
+  "taskStatus": "CANCELLED",
+  "taskId": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "progress": {
+    "total": 4,
+    "completed": 0,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [
+    {
+      "caseId": "q001",
+      "status": "CANCELLED",
+      "mode": "vector"
+    },
+    {
+      "caseId": "q001",
+      "status": "CANCELLED",
+      "mode": "hybrid"
+    },
+    {
+      "caseId": "q002",
+      "status": "CANCELLED",
+      "mode": "vector"
+    },
+    {
+      "caseId": "q002",
+      "status": "CANCELLED",
+      "mode": "hybrid"
+    }
+  ],
+  "partial": true,
+  "canScore": true,
+  "error": "CANCELLED",
+  "attempts": [],
+  "externalCalls": [],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 0,
+      "answerableCount": 0,
+      "plannedCount": 2,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": null,
+      "totalMs": null
+    },
+    "hybrid": {
+      "count": 0,
+      "answerableCount": 0,
+      "plannedCount": 2,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": null,
+      "totalMs": null
+    }
+  },
+  "breakdowns": {
+    "category": {},
+    "split": {},
+    "group": {},
+    "topic": {}
+  },
+  "manualScores": []
+}

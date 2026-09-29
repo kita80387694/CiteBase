@@ -98,10 +98,10 @@ try {
         if (batch.status === 'SUBMITTING') throw Error(`Uncertain submission ${name}; inspect server before explicitly resolving state`);
         batch.status = 'SUBMITTING'; save();
         const subset = { ...dataset, questions: selected.slice(offset, offset + batchSize) };
-        run = await request('/api/evaluations', { kbId: kb.id, name, dataset: subset, topK: 5 });
+        run = await request('/api/evaluations', { kbId: kb.id, name, dataset: subset, topK: 5, idempotencyKey: 'p2-'+kb.id+'-'+name });
       }
       batch.id = run.id; batch.status = run.status; save();
-      while (['QUEUED', 'RUNNING', 'CANCEL_REQUESTED'].includes(run.status)) {
+      while (['QUEUED', 'RUNNING', 'RETRY_WAIT', 'CANCEL_REQUESTED'].includes(run.status)) {
         await new Promise(resolve => setTimeout(resolve, 3000));
         run = await request(`/api/evaluations/${run.id}/export`);
         batch.status = run.status; save();

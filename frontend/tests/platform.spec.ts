@@ -59,7 +59,7 @@ test("拒绝错误登录；从空知识库到索引、引用和评测的真实 U
   await page.getByRole("button", { name: "处理任务", exact: true }).click();
   const task = page.locator(".task").filter({ hasText: documentName });
   await expect(task).toBeVisible();
-  await expect(task.getByText("成功", { exact: true })).toBeVisible();
+  await expect(task.getByText("任务完成", { exact: true })).toBeVisible();
   await page.screenshot({
     path: "test-results/screenshots/03-tasks.png",
     fullPage: true,

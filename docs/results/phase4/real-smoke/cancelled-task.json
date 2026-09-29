@@ -1,0 +1,84 @@
+{
+  "id": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "kind": "EVALUATION",
+  "status": "CANCELLED",
+  "attempts": 0,
+  "workTaskId": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+    "name": "Phase4真实闭环-3ddb1d41d900",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "phase4-real-smoke-v1",
+      "questions": [
+        {
+          "id": "q001",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+              "groupId": null,
+              "endOffset": null,
+              "paragraph": 2,
+              "sourceHash": null,
+              "startOffset": null,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 默认监听哪个端口？",
+          "answerable": true,
+          "expectedAnswer": "9081"
+        },
+        {
+          "id": "q002",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+              "groupId": null,
+              "endOffset": null,
+              "paragraph": 3,
+              "sourceHash": null,
+              "startOffset": null,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 单次请求体上限是多少？",
+          "answerable": true,
+          "expectedAnswer": "8 MiB"
+        }
+      ]
+    },
+    "idempotencyKey": "Phase4真实闭环-3ddb1d41d900-evaluation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": null,
+  "errorCode": "CANCELLED",
+  "errorSummary": "任务已取消",
+  "createdAt": "2026-09-29T07:37:48.620078Z",
+  "startedAt": null,
+  "finishedAt": "2026-09-29T07:37:48.636386Z",
+  "availableAt": "2026-09-29T07:37:48.620078Z",
+  "canCancel": false,
+  "canRetry": true,
+  "retryBlockedReason": null,
+  "externalCalls": []
+}

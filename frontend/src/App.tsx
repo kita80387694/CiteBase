@@ -225,13 +225,22 @@ export default function App() {
       setBusy(false);
     }
   }
+  const refreshGeneration = useRef(0);
+  const viewIdentity = useRef({ token, kb });
+  viewIdentity.current = { token, kb };
   async function refresh() {
+    const generation = ++refreshGeneration.current;
+    const current = () =>
+      generation === refreshGeneration.current &&
+      viewIdentity.current.token === token &&
+      viewIdentity.current.kb === kb;
     setLoading(true);
     try {
       const [bases, rs] = await Promise.all([
         api<KB[]>("/knowledge-bases"),
         api<Run[]>("/evaluations"),
       ]);
+      if (!current()) return;
       setKbs(bases);
       setRuns(rs);
       if (!bases.some((b) => b.id === kb)) {
@@ -245,11 +254,12 @@ export default function App() {
           api<Doc[]>(`/knowledge-bases/${kb}/documents`),
           api<QA[]>(`/questions?kbId=${kb}`),
         ]);
+        if (!current()) return;
         setDocs(ds);
         setHistory(hs);
       }
     } finally {
-      setLoading(false);
+      if (generation === refreshGeneration.current) setLoading(false);
     }
   }
   useEffect(() => {
@@ -682,7 +692,11 @@ export default function App() {
                         method: "POST",
                         body: JSON.stringify({ name: name.trim() }),
                       });
-                      await refresh();
+                      ++refreshGeneration.current;
+                      setKbs((existing) => [
+                        ...existing.filter((item) => item.id !== b.id),
+                        b,
+                      ]);
                       setKb(b.id);
                     });
                 }}

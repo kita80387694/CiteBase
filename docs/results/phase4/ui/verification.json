@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-09-29T07:44:06.193Z",
+  "commit": "c3087c2984434b423dde01b34a96772e7527c356",
+  "workingTreeChanges": "App.tsx refresh race fix and E2E refinements not yet committed by parent",
+  "bundle": "index-CchsnnZQ.js",
+  "sources": {
+    "frontend/src/App.tsx": "27f1a28c83d9bbe48fd73ecf09837ad66dd19076f17f6aced2039290264fcd41",
+    "frontend/src/AgentPanel.tsx": "4c623e1a626d0879e979b905bd43bee180e20fa472e605434aa88993b98672fe",
+    "frontend/src/EvaluationAnalysis.tsx": "8031e175384ff339334719c6f74a28ec20f8144d5802ff3644bdef503b294cc0",
+    "frontend/src/TaskPanel.tsx": "edfe2a43d952ac68a7d4f68c6030be63c69be0755b120e2c9fd0d7f56ecf30c0",
+    "frontend/src/style.css": "de4843947c038132597522279d8c5b3567b3748a549d2964f980b016f368c097"
+  },
+  "mock": {
+    "base": "http://localhost:25175",
+    "tests": 5,
+    "passed": 5
+  },
+  "controlled": {
+    "base": "http://127.0.0.1:25176",
+    "backend": "actual Java JVM + PostgreSQL; test-only fixed loopback mock gateway",
+    "tests": 1,
+    "passed": 1
+  },
+  "real": {
+    "base": "http://localhost:25177",
+    "agentRun": "2fb5baa9-ca20-45bc-9849-765a42a47886",
+    "evaluation": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+    "tests": 2,
+    "passed": 2,
+    "readOnly": true,
+    "newProviderCalls": 0
+  },
+  "failuresPreserved": [
+    "Old Docker lacked kind filter (earlier phase4-async-attempt1 log)",
+    "Initial platform exposed stale refresh race, fixed with generation + selected user/KB guards",
+    "Old platform task success text updated to task completion contract",
+    "Real eval test assumed run.kbId; corrected to task.kbId then passed"
+  ],
+  "visualReview": "Personally inspected mock async evaluation, unified tasks, controlled cancellation/resume, real evaluation/tasks and Agent citation screenshots; unreviewed auto screenshots are not claimed.",
+  "screenshots": [
+    "phase4-async-evaluation.png",
+    "phase4-controlled-cancel.png",
+    "phase4-controlled-resume.png",
+    "phase4-platform-01-login.png",
+    "phase4-platform-02-documents.png",
+    "phase4-platform-03-tasks.png",
+    "phase4-platform-04-chat-evidence.png",
+    "phase4-platform-05-evaluation.png",
+    "phase4-platform-06-evaluation-detail.png",
+    "phase4-platform-07-score-audit.png",
+    "phase4-real-agent-real-citation.png",
+    "phase4-real-agent-real-config.png",
+    "phase4-real-agent-real-trace.png",
+    "phase4-real-evaluation-citation.png",
+    "phase4-real-evaluation.png",
+    "phase4-real-tasks.png",
+    "phase4-regression-agent-budget-failed.png",
+    "phase4-regression-agent-mock-completed.png",
+    "phase4-regression-stage2-evaluation.png",
+    "phase4-regression-stage2-rerank-error.png",
+    "phase4-regression-stage2-retrieval-diagnostics.png",
+    "phase4-regression-stage2-structure-version.png",
+    "phase4-snapshot-citation.png",
+    "phase4-unified-tasks.png"
+  ],
+  "logs": [
+    "phase4-ui-final.log",
+    "phase4-platform-retry.log",
+    "phase4-platform-final.log",
+    "phase4-controlled-e2e.log",
+    "phase4-docker-final.log",
+    "phase4-real-readonly.log",
+    "phase4-real-eval-retry.log",
+    "phase4-refresh-race.log"
+  ]
+}

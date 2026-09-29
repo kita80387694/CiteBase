@@ -31,6 +31,8 @@ const current=Math.max(...latest.batches.map(b=>selected.findIndex(q=>q.id===b.c
 assert(offset-current>=16,'Batch too close to active sequential runner; do not submit');
 const record={name,offset,caseIds:selected.slice(offset,offset+8).map(q=>q.id),runtime,createdAt:new Date().toISOString(),status:'SUBMITTING',schedulerSourceSha256:createHash('sha256').update(readFileSync(new URL(import.meta.url))).digest('hex'),purpose:'Use vacated holdout concurrency, no extra cases; sequential runner adopts exact-name persisted run.'};
 writeFileSync(journal,JSON.stringify(record,null,2)+'\n');
-const result=await request('/api/evaluations',{kbId:state.kbId,name,dataset:{...dataset,questions:selected.slice(offset,offset+8)},topK:5});
+let result=await request('/api/evaluations',{kbId:state.kbId,name,idempotencyKey:'p2-'+state.kbId+'-'+name,dataset:{...dataset,questions:selected.slice(offset,offset+8)},topK:5});
+record.id=result.id;record.status=result.status;writeFileSync(journal,JSON.stringify(record,null,2)+'\n');
+while(['QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED'].includes(result.status)){await new Promise(r=>setTimeout(r,3000));result=await request(`/api/evaluations/${result.id}/export`);}
 record.id=result.id;record.status=result.status;record.rows=result.results?.length;record.completedAt=new Date().toISOString();
 writeFileSync(journal,JSON.stringify(record,null,2)+'\n');console.log(`${name}: ${result.status}, ${record.rows} rows; original runner will export`);
