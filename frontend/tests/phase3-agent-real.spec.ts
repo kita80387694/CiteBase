@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 
 test("真实 Agent 已保存运行：轨迹、预算、引用与导出只读验证", async ({
   page,
@@ -46,6 +47,22 @@ test("真实 Agent 已保存运行：轨迹、预算、引用与导出只读验�
   );
   await expect(page.locator(".agent-run .badge").first()).toHaveText("完成");
   await expect(page.locator(".agent-result .answer-text")).not.toBeEmpty();
+  const config = page
+    .locator(".agent-run details")
+    .filter({ has: page.locator("summary", { hasText: "本次运行配置" }) });
+  await config.locator("summary").click();
+  await expect(config.locator("pre")).toContainText(saved.config.chatModel);
+  await expect(config.locator("pre")).toContainText(
+    saved.config.agentPlanner.protocolVersion,
+  );
+  await expect(config.locator("pre")).toContainText(
+    saved.config.embeddingModel,
+  );
+  await config.scrollIntoViewIfNeeded();
+  await page.screenshot({
+    path: "../docs/screenshots/phase2-agent-real-config.png",
+  });
+  await config.locator("summary").click();
   await page.locator(".agent-steps li").first().locator("summary").click();
   await expect(page.locator(".agent-used-budget")).toContainText("工具调用");
   await page.screenshot({
@@ -62,6 +79,13 @@ test("真实 Agent 已保存运行：轨迹、预算、引用与导出只读验�
   await page
     .getByRole("button", { name: "导出 Agent 记录", exact: true })
     .click();
-  expect((await download).suggestedFilename()).toBe(`agent-${runId}.json`);
+  const artifact = await download;
+  expect(artifact.suggestedFilename()).toBe(`agent-${runId}.json`);
+  const exported = JSON.parse(await readFile((await artifact.path())!, "utf8"));
+  expect(exported.id).toBe(runId);
+  expect(exported.config).toEqual(saved.config);
+  expect(exported.result.usage).toEqual(saved.result.usage);
+  expect(exported.result.citations).toEqual(saved.result.citations);
+  expect(exported.result.answerCorrect).toBeNull();
   expect(modelExecutionRequests).toBe(0);
 });

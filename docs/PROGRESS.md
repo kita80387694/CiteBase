@@ -176,3 +176,9 @@
 - 真实隔离环境升级V5，52份评测payload、31份问答历史的数据库摘要以及109文档/1079分块数量完全一致；证据 `docs/results/phase3/migration-v5.json`。运行镜像与完整源码摘要见该文件runtime。
 - 2道开发题×向量/混合共4次真实调用链均FAILED/NO_PROGRESS：DeepSeek连续要求inspectCitation同一句柄，循环保护按预期终止。保留完整步骤、证据、实际用量与失败原始文件于 `docs/results/phase3/smoke/`，分析见smoke-analysis.json。这批不是成功闭环，也不纳入最终测试对比。
 - 仅针对开发观察改进工具说明：初始证据已验证、足够即finish、重复检查不会新增信息。下一版采用独立目录phase3-v2，不覆盖旧运行，不改循环断言；测试集尚未开始。
+
+### 阶段三 v2 冒烟、真实界面与配置冻结
+- v2提交 `8eb9a43bc41ce3e5a4efb2ff8b2bd26fece307e4`，受影响供应商测试29/29通过。4条真实开发冒烟全部COMPLETED，引用格式有效；单条耗时21–65秒，仍有不必要的inspectCitation额外成本，不称更快或语义准确率100%。完整原始记录位于 `docs/results/phase3-v2/smoke/`。
+- 一条独立开发TopK1跨文档探针已保存：只取得一半必需证据，模型选择检查后结束，没有主动补齐另一份文档；不得宣传此案例证明补证据收益。原始回答和轨迹保留于development-probe，不计入正式测试指标。保持预算/策略，不为制造收益继续调参。
+- 真实只读UI最终1项通过（5.4秒），核对答案、引用原文、配置、轨迹、实际用量及JSON导出；没有新增模型调用。主Agent亲自检查 `phase2-agent-real-{trace,citation,config}.png`，未发现遮挡/错误状态。未人工评审的答案正确性仍null。
+- 已在读取Agent测试效果前冻结 `docs/results/phase3-v2/registration.json`，记录实际planner公开配置、模型、语料、源码、预算。随后执行相同固定52题×2模式；该集合此前用于阶段二，明确不是阶段三新未见测试集。阶段三尚待完整对照，阶段四未实施。
