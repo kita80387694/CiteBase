@@ -170,3 +170,9 @@
 - 实际HTTP协议测试发现Spring AI将finish_reason规范化为大写，原小写比较失效；改为大小写兼容匹配后28项全部通过，保持严格OUTPUT_LIMIT与实际usage断言，未改变基础RAG路径。日志 `.tools/phase3-provider-outputlimit-fixed-tests.log`。
 - 隔离citebase-phase3-mock环境Compose构建启动通过；前端build通过。实际后端Playwright场景1项通过，覆盖上传索引、持久创建/重载、显式执行、引用/导出、取消、预算失败、丢失创建响应后的同key恢复。主Agent与前端Agent均亲自查看成功/预算失败截图：`docs/screenshots/phase2-agent-mock-completed.png`、`phase2-agent-budget-failed.png`。MOCK显著标识，不用于真实效果结论。
 - 实验脚本要求从实际服务响应封存完整planner/generation/检索公开配置，冻结前核验完整冒烟与runtime。采集/报告10项脚本测试通过。真实Agent尚未调用；整套后端回归进行中，阶段三仍未验收。
+
+### 阶段三首轮真实冒烟（未通过，保留原始结果）
+- 实现本地提交 `fc8367ef3aae34af1c3955120a25feb315d099ad`。整套JUnit执行119项，其中108通过、11个可选外部数据库入口因未设TEST_DB_URL跳过，不能计作通过；对应Testcontainers真实PG测试已执行。验证清单含每个类及源码hash：`docs/results/phase3/engineering-verification.json`。采集/报告新增严格题目/时间/config校验后13项Node测试通过。
+- 真实隔离环境升级V5，52份评测payload、31份问答历史的数据库摘要以及109文档/1079分块数量完全一致；证据 `docs/results/phase3/migration-v5.json`。运行镜像与完整源码摘要见该文件runtime。
+- 2道开发题×向量/混合共4次真实调用链均FAILED/NO_PROGRESS：DeepSeek连续要求inspectCitation同一句柄，循环保护按预期终止。保留完整步骤、证据、实际用量与失败原始文件于 `docs/results/phase3/smoke/`，分析见smoke-analysis.json。这批不是成功闭环，也不纳入最终测试对比。
+- 仅针对开发观察改进工具说明：初始证据已验证、足够即finish、重复检查不会新增信息。下一版采用独立目录phase3-v2，不覆盖旧运行，不改循环断言；测试集尚未开始。
