@@ -139,6 +139,7 @@ public class DocumentService {
     db.queryForList("select id from index_task where document_id=? for update", id);
     db.update("delete from question_history where kb_id=?", kb);
     db.update("delete from evaluation_run where kb_id=?", kb);
+    db.update("delete from agent_run where kb_id=?", kb);
     db.update("delete from document where id=?", id);
   }
 

@@ -158,3 +158,15 @@
 - 优化检索mean/P50/P95 vector=1063.54/958/1635ms、hybrid=1147.27/1066/1568ms；端到端9262.23/6825/22888ms、9679.48/6646/22736ms。聊天输入85773/86319 tokens，另有reranker299675/365073输入；原基线聊天输入45456/47816，旧embedding用量未采集。额外成本与检索延迟明确增加，端到端波动不作因果提速结论。
 - 工程验证沿用冻结源码的71次JUnit/Testcontainers、前端构建及mock/真实只读UI证据；新增恢复/指标/报告25+5脚本风险测试全部通过。源码39文件与冻结commit字节一致，autocrlf=true代表文件验证通过；恢复仍非产品异步治理，原FAILED批次保留。
 - 阶段三现开始：core负责授权状态机/持久轨迹，task_audit负责Spring AI工具协议及有界生成，frontend_phase3负责真实接线UI。保持基础RAG，所有Agent能力待实现验证；阶段四仍未开始。
+
+### 阶段三实现与风险审查（进行中）
+- 阶段二最终独立测试与报告本地提交761fc4c；之后才解除后端冻结并实现Agent。新增独立planner环境变量空值复用DeepSeek聊天配置，embedding保持原模型。
+- Spring AI工具协议、禁止自动工具执行、有界生成及供应商异常测试已通过26项；实验采集脚本先支持dev冒烟，再显式冻结同一52题比较，真实Agent尚未调用。前端已实现真实接口接线并构建，尚待部署E2E，不宣称界面验收完成。
+- 审查修复在途provider线程超时后过早释放执行额度的风险：外层及时返回超时，实际调用结束前保留执行容量。还补充失败partial checkpoint、审计query哈希脱敏、工具证据再次SQL鉴权与预算前验证。
+- 核心最终17项数据库测试发现1例超时/中断竞态（EXECUTION_ERROR抢先覆盖TIMEOUT）；未弱化断言，正在修复重跑。首次独立MOCK构建可能包含修复前代码，明确不用于最终验收，修复后重建。
+
+### 阶段三风险修复与界面验证
+- 超时竞态已修复。创建/执行配置漂移、被截断输出、恶意文档诱导工具扩权、跨用户伪造引用、取消/来源变化安全用量和删除后晚到保护均加入测试。旧引用404不再令任务挂在RUNNING；同版本工具失效明确失败，版本变化优先SOURCE_CHANGED。最终核心23次执行全部通过（含继承旧RAG测试），日志 `.tools/phase3-core-tests-404.log`。
+- 实际HTTP协议测试发现Spring AI将finish_reason规范化为大写，原小写比较失效；改为大小写兼容匹配后28项全部通过，保持严格OUTPUT_LIMIT与实际usage断言，未改变基础RAG路径。日志 `.tools/phase3-provider-outputlimit-fixed-tests.log`。
+- 隔离citebase-phase3-mock环境Compose构建启动通过；前端build通过。实际后端Playwright场景1项通过，覆盖上传索引、持久创建/重载、显式执行、引用/导出、取消、预算失败、丢失创建响应后的同key恢复。主Agent与前端Agent均亲自查看成功/预算失败截图：`docs/screenshots/phase2-agent-mock-completed.png`、`phase2-agent-budget-failed.png`。MOCK显著标识，不用于真实效果结论。
+- 实验脚本要求从实际服务响应封存完整planner/generation/检索公开配置，冻结前核验完整冒烟与runtime。采集/报告10项脚本测试通过。真实Agent尚未调用；整套后端回归进行中，阶段三仍未验收。

@@ -12,6 +12,7 @@ const fileHashes = Object.fromEntries(paths.map(p => [p, sha(readFileSync(p))]))
 const imageId = execFileSync('docker', ['image', 'inspect', image, '--format', '{{.Id}}'], { encoding: 'utf8' }).trim();
 assert(imageId.startsWith('sha256:'));
 const manifest = { capturedAt: new Date().toISOString(), commit: git(['rev-parse', 'HEAD']), branch: git(['rev-parse', '--abbrev-ref', 'HEAD']), sourceSha256: sha(JSON.stringify(fileHashes)), fileHashes, image, imageId,
+  workingTreeStatus: git(['status', '--porcelain']),
   precondition: 'Captured immediately after build with backend source changes frozen; source hash represents backend runtime sources, not evaluation outcomes.' };
 const path = process.argv[3] || '.tools/phase2-runtime.json';
 writeFileSync(path, JSON.stringify(manifest, null, 2) + '\n');

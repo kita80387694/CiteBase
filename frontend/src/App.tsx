@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { AgentPanel } from "./AgentPanel";
 import {
   RetrievalControls,
   RetrievalDiagnostics,
@@ -140,6 +141,7 @@ const fmt = (n: number | undefined) =>
   n == null ? "不可用" : Number(n).toFixed(2);
 
 export default function App() {
+  const [answerMode, setAnswerMode] = useState("rag");
   const [retrievalOptions, setRetrievalOptions] = useState<RetrievalOptions>(
     defaultRetrievalOptions,
   );
@@ -804,6 +806,37 @@ export default function App() {
             </section>
           )}
           {page === "chat" && (
+            <div
+              className="answer-mode-tabs"
+              role="group"
+              aria-label="问答执行方式"
+            >
+              <button
+                className={answerMode === "rag" ? "selected" : ""}
+                aria-pressed={answerMode === "rag"}
+                onClick={() => setAnswerMode("rag")}
+              >
+                基础 RAG
+              </button>
+              <button
+                className={answerMode === "agent" ? "selected" : ""}
+                aria-pressed={answerMode === "agent"}
+                onClick={() => setAnswerMode("agent")}
+              >
+                有边界 Agent
+              </button>
+            </div>
+          )}
+          {page === "chat" && answerMode === "agent" && (
+            <AgentPanel
+              key={`${user?.username}:${kb}`}
+              kbId={kb}
+              username={user?.username || ""}
+              api={api}
+              onCite={cite}
+            />
+          )}
+          {page === "chat" && answerMode === "rag" && (
             <div className="chat-layout">
               <section className="chat-main">
                 <form className="ask-box" onSubmit={ask}>

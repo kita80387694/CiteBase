@@ -59,7 +59,9 @@ public class RetrievalService {
     long started = System.nanoTime(), stage = started;
     String current = "embeddingMs";
     try {
+      if (model.mode().equals("real")) AgentPolicy.beforeExternal();
       var embedded = model.embedWithUsage(question);
+      AgentPolicy.externalUsage("embedding", embedded.usage());
       usage.put("embedding", embedded.usage());
       String vector = Arrays.toString(embedded.vector());
       timings.put(current, elapsed(stage));
@@ -129,7 +131,11 @@ public class RetrievalService {
         current = "rerankMs";
         stage = System.nanoTime();
         counts.put("rerankInput", fused.size());
+        if (model.mode().equals("real")
+            && Boolean.TRUE.equals(reranker.configuration().get("configured")))
+          AgentPolicy.beforeExternal();
         var reranked = reranker.rerank(question, fused, topK);
+        AgentPolicy.externalUsage("rerank", reranked.usage());
         usage.put("rerank", reranked.usage());
         var ranked = new ArrayList<Evidence>();
         var ranks = new ArrayList<Map<String, Object>>();
