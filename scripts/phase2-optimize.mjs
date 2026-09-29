@@ -4,10 +4,12 @@ import {client,read,save,sha,pause,evaluation} from './phase2-client.mjs';
 import {assertCompactComparable} from './phase2-comparability.mjs';
 const stage=process.argv[2];
 assert(['seed','a','b1','b2','c','d','dev','freeze','test'].includes(stage),'Usage: phase2-optimize.mjs seed|a|b1|b2|c|d|dev|freeze|test');
-const root='docs/results/phase2/optimization';mkdirSync(root,{recursive:true});
+const root=process.env.PHASE2_EXPERIMENT_DIR||'docs/results/phase2/optimization';mkdirSync(root,{recursive:true});
+const kbPrefix=process.env.PHASE2_KB_PREFIX||'Phase2 opt';
 const plan=read('docs/results/phase2/registration/plan.json'),tuning=read('docs/results/phase2/registration/tuning.json');
-const runtime=read('.tools/phase2-stage2-runtime.json'),statePath=root+'/suite.json';
-const suite=existsSync(statePath)?read(statePath):{runtime,planSha256:sha(readFileSync('docs/results/phase2/registration/plan.json')),tuningSha256:sha(JSON.stringify(tuning)),profiles:{},variants:{},selections:{}};
+const runtime=read(process.env.PHASE2_RUNTIME_MANIFEST||'.tools/phase2-stage2-runtime.json'),statePath=root+'/suite.json';
+const suite=existsSync(statePath)?read(statePath):{runtime,kbPrefix,planSha256:sha(readFileSync('docs/results/phase2/registration/plan.json')),tuningSha256:sha(JSON.stringify(tuning)),profiles:{},variants:{},selections:{}};
+assert.equal(suite.kbPrefix||'Phase2 opt',kbPrefix,'Knowledge-base prefix changed: use a new experiment directory');
 assert.deepEqual(suite.runtime,runtime,'Deployment changed: preserve this experiment and register a new suite');
 assert.equal(suite.planSha256,sha(readFileSync('docs/results/phase2/registration/plan.json')),'Preregistration changed');
 assert.equal(suite.tuningSha256,sha(JSON.stringify(tuning)),'Tuning cases changed');
@@ -40,7 +42,7 @@ async function parallel(jobs){let next=0;await Promise.all(Array.from({length:Ma
 function choose(ids,control){let best=suite.variants[control];assert(best);const score=v=>({recall:mean(Object.values(v.summary).map(x=>x.recallAtK)),mrr:mean(Object.values(v.summary).map(x=>x.mrr))});for(const id of ids){const v=suite.variants[id];assert(v,`Missing ${id}`);const a=score(best),b=score(v);if((b.recall>a.recall+.0000001||(Math.abs(b.recall-a.recall)<.0000001&&b.mrr>a.mrr))&&b.recall>=a.recall-.005)best=v;}const a=score(suite.variants[control]),b=score(best);return b.recall-a.recall>=.02||b.recall>=a.recall-.005&&b.mrr-a.mrr>=.03?best.id:control;}
 if(stage==='seed'){
   const bases=await api.request('/api/knowledge-bases');
-  for(const profile of plan.profiles){let p=suite.profiles[profile.id];if(!p){const name=`Phase2 opt ${profile.id}`,kb=bases.find(k=>k.name===name)||await api.request('/api/knowledge-bases',{name});p=suite.profiles[profile.id]={kbId:kb.id,profile,ready:false};persist();}
+  for(const profile of plan.profiles){let p=suite.profiles[profile.id];if(!p){const name=`${kbPrefix} ${profile.id}`,kb=bases.find(k=>k.name===name)||await api.request('/api/knowledge-bases',{name});p=suite.profiles[profile.id]={kbId:kb.id,profile,ready:false};persist();}
     if(p.ready)continue;
     for(const name of readdirSync('samples/phase2/documents').sort())await api.upload(p.kbId,`samples/phase2/documents/${name}`,profile);
     let complete=false;for(let i=0;i<3600;i++){const docs=await api.request(`/api/knowledge-bases/${p.kbId}/documents`);assert(!docs.some(d=>d.status==='FAILED'),`Index failure ${profile.id}, old indexes preserved`);if(docs.length===12&&docs.every(d=>d.status==='SUCCESS')){p.documents=docs;p.ready=true;persist();complete=true;break;}await pause(1000);}assert(complete,'Index deadline');console.log(`Indexed profile ${profile.id}`);

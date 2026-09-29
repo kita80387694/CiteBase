@@ -25,7 +25,7 @@
 ## 阶段状态
 
 - 扩充语料真实基线：已完成312行，开发集结果见下文，test暂封存。
-- 检索消融：开发子集 A/B/C/D 已完成，完整开发集确认运行中；配置冻结前不读取独立测试集结果。
+- 检索消融：开发子集 A/B/C/D、完整开发集确认及冻结后的独立测试均完成；共664行，失败及中断来源保留。
 - Agent对比：未开始。
 - 异步与多worker验证：未开始。
 
@@ -63,3 +63,50 @@ C重排实验在25/32条后遇运行环境中断。封存c-rerank.interrupted.ra
 所选配置为结构900/200、候选40、关键词权重1、专用重排开启、UUID引用。开发集104题×2模式完整配对；vector/hybrid Recall均1、MRR均0.965909，错误0/104与4/104。检索均值约1.09秒，聊天输入190926/190868 tokens，另有reranker输入611385/730678 tokens；这比原基线付出更多上下文与重排成本。人工正确性未评分，端到端时延仅观察值。
 
 完整开发集报告在results/phase2/optimization/reports/final-report-2026-09-29T05-36-01-417Z.*，包含逐题配对、失败、来源与实际usage覆盖率。2026-09-29T05:36:15.129Z已保存final-configuration.json，之后才启动独立52题测试。通用默认保持legacy/vector、rerank关闭，优化配置作为显式选择；独立测试完成前不作泛化结论。
+
+复现边界：记录的是供应商模型标识、请求参数、源文件与代码摘要；兼容接口没有提供可锁定的模型权重构建版本。即使temperature=0，跨日调用也不保证逐字输出或重排浮点分数完全相同。原始结果可审查，复现命令可重跑，但不承诺外部服务的逐字确定性。
+
+## 冻结独立测试结果（2026-09-29完成）
+
+最终报告：[完整配对JSON](results/phase2/optimization/reports/final-report-2026-09-29T05-45-23-139Z.json)、[可读报告](results/phase2/optimization/reports/final-report-2026-09-29T05-45-23-139Z.md)。30个配置/批次共664条优化实验结果，全部指标重算通过；独立test为52题、44可答、8不可答，双模式104行。源代码冻结da20d51，选择冻结于本地提交3a51d0a；原基线代码90145a5来源另列，不能把两者称为相同二进制。
+
+| 独立测试配置 | Recall@5 | MRR | 执行错误/52 | 检索均值/P50/P95 ms | 端到端均值/P50/P95 ms |
+|---|---:|---:|---:|---|---|
+| 原vector | .965909 | .892803 | 5 | 369.06/303/757 | 9282.79/6908/23898 |
+| 原hybrid | .814394 | .807576 | 3 | 348.71/313/563 | 10989.37/8393/28524 |
+| 优化vector | 1 | 1 | 0 | 1063.54/958/1635 | 9262.23/6825/22888 |
+| 优化hybrid | 1 | 1 | 0 | 1147.27/1066/1568 | 9679.48/6646/22736 |
+
+两优化模式均正确拒答8/8（排除执行错误的口径），但答案语义正确性和引用支持未人工评分，不是100%答案正确率。聊天输入由原45456/47816升至85773/86319，另有专用reranker输入299675/365073；检索耗时增加。供应商未提供rerank总tokens，保持null；不把不同模型输入token简单相加当价格或完整成本。
+
+开发子集的原UUID与compact对照均无错误，按预登记规则未改变UUID；降低关键词权重未改善排名，保留权重1；结构1200虽局部MRR更高但Recall更低，未选用。所有退化记录保留。优化两模式本测试没有差距，不宣称混合必然更优，也不修改通用默认。没有加入缺乏错误分析依据的查询改写或多查询RAG Fusion。
+
+## 新环境复现实验入口
+
+需要已配置真实CHAT/EMBEDDING/RERANK接口及可用额度，先完成一个真实问答冒烟。使用新的Compose项目和空闲端口，不删除演示卷；下面会重新索引12份文档并最多执行664条生成结果，模型调用会消耗供应商额度。新源码版本必须记录为新实验，不能冒充上述冻结版本结果。若需严格复核历史实现，应在另一个干净检出中使用da20d51的后端，并记录相应构建/源码清单。
+
+```powershell
+$runTag = Get-Date -Format yyyyMMddHHmmss
+$projectName = "citebase-phase2-repro-$runTag"
+$env:API_PORT = '38080'
+$env:WEB_PORT = '35173'
+$env:DB_PORT = '35432'
+$env:MODEL_MODE = 'real'
+docker compose -p $projectName up --build -d
+if ($LASTEXITCODE -ne 0) { throw 'Compose启动失败，请先排障' }
+New-Item -ItemType Directory -Force .tools | Out-Null
+$env:CITEBASE_URL = 'http://localhost:38080'
+$env:PHASE2_EXPERIMENT_DIR = "docs/results/phase2/reproduce-$runTag"
+$env:PHASE2_RUNTIME_MANIFEST = ".tools/reproduce-$runTag-runtime.json"
+$env:PHASE2_KB_PREFIX = "Phase2 reproduce $runTag"
+node scripts/capture-runtime.mjs "$projectName-backend" $env:PHASE2_RUNTIME_MANIFEST
+foreach ($stage in @('seed','a','b1','b2','c','d','dev','freeze','test')) {
+  node scripts/phase2-optimize.mjs $stage
+  if ($LASTEXITCODE -ne 0) { throw "阶段 $stage 停止：检查持久状态，不盲目重提" }
+}
+node scripts/check-phase2-results.mjs $env:PHASE2_EXPERIMENT_DIR all
+node scripts/report-phase2-optimization.mjs $env:PHASE2_EXPERIMENT_DIR
+node scripts/report-phase2-final.mjs $env:PHASE2_EXPERIMENT_DIR
+```
+
+首次下载依赖和真实索引需要时间，等待Compose健康后再调用脚本。同轮恢复保留projectName/runTag、运行时清单、知识库和目录；重新运行同一阶段会核对并复用已持久完成的结果，不要为解决客户端超时新建整批。引用别名单变量的上下文可比性失败会主动停止，应如实记录，不能删除失败结果。历史中断的专用7条恢复脚本只适用已记录的那次事件，不是通用恢复服务。完成后可用原projectName执行docker compose stop保留数据；不要删除卷。

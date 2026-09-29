@@ -55,9 +55,9 @@ try {
 
 阶段一已新增12份原创文档、156题评测集（按主题冻结dev/test）和24个独立安全用例，入口在 `samples/phase2/`。已实现严格标签导入、sourceHash与原文位置校验、同组可替代/跨组必需证据指标，以及逐题人工答案、引用支持和错误分类评分。评分追加保存依据、规则版本、用户与时间，未评分保持null，不覆盖自动原始结果。
 
-**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 后续检索优化、受控Agent、异步任务与多worker治理三项均未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
+**新增语料的真实双配置基线已完成312行，第二阶段整体尚未验收完成。** 检索优化已完成664条真实消融/确认/独立测试，受控Agent和异步多worker治理仍未完成，须按 [阶段计划](docs/PHASE2_PLAN.md) 顺序推进。当前安全基线为 **20/24通过、4例失败**，四例均为有正确证据时过度拒答；不能改算全部通过。查看 [安全原始结果](docs/results/phase2/security-rag.json) 与 [失败分析](docs/results/phase2/security-analysis.md)。无工具RAG的安全结果不等于尚未实现的Agent工具边界已经通过。
 
-检索优化的工程入口已接通：上传/更新可选择结构切分与长度、重叠参数；问答及评测可设置候选数、关键词权重、独立重排开关和引用格式。版本页保留实际切分配置，问答诊断展示检索阶段耗时及供应商实际用量。重排使用独立 `RERANK_BASE_URL`、`RERANK_API_KEY`、`RERANK_MODEL`、`RERANK_TIMEOUT_SECONDS`，不会更换 BGE embedding 或旧索引。协议及限制见 [检索接口](docs/API-CONTRACT-PHASE2-RETRIEVAL.md) 与 [切分说明](docs/CHUNKING.md)。开发子集消融已保存384条真实结果，全开发集确认及独立测试仍在进行；不能把这些子集结果当成最终效果结论。
+检索优化的工程入口已接通：上传/更新可选择结构切分与长度、重叠参数；问答及评测可设置候选数、关键词权重、独立重排开关和引用格式。版本页保留实际切分配置，问答诊断展示检索阶段耗时及供应商实际用量。重排使用独立 `RERANK_BASE_URL`、`RERANK_API_KEY`、`RERANK_MODEL`、`RERANK_TIMEOUT_SECONDS`，不会更换 BGE embedding 或旧索引。协议及限制见 [检索接口](docs/API-CONTRACT-PHASE2-RETRIEVAL.md) 与 [切分说明](docs/CHUNKING.md)。开发子集消融、全开发集确认及冻结后的独立测试已完成，共664条真实结果；独立52题两模式的Recall@5/MRR均为1，但人工答案正确性未评分，且检索耗时与模型用量增加。完整结果和失败记录见[实验报告](docs/EXPERIMENTS.md)，优化配置仅显式选择，不替换通用默认。
 
 真实实验需已配置有效模型密钥。以下为新实验的复现入口，会产生真实供应商调用；已有运行应恢复原label及部署清单，不重新生成运行时清单或重复创建收费评测：
 
