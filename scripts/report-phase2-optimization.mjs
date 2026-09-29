@@ -43,12 +43,17 @@ export function buildReport(root){
   const raw=read(p),rows=raw.results??[];assert(Array.isArray(rows),'Invalid results');
   assert(rows.every(r=>holdout?r.split==='test':r.split!=='test'),'Variant split conflicts with read gate');
   assert(new Set(rows.map(r=>`${r.caseId}:${r.mode}`)).size===rows.length,'Duplicate case/mode rows');
+  if(raw.kind==='composite-recovered-evaluation'){
+   assert(raw.recovery?.completed===true&&Array.isArray(raw.rawSources)&&raw.rawSources.length>0,'Composite recovery provenance incomplete');
+   assert.equal(raw.recovery.originalRows+raw.recovery.recoveredRows,rows.length,'Composite recovery row counts differ');
+   warnings.push(`${id}: composite-recovered-evaluation，原始持久化 ${raw.recovery.originalRows} 行 + 单独恢复 ${raw.recovery.recoveredRows} 行；不是单次无中断实验。操作中断不计为回答错误，未知在途调用用量不包含在观测合计内。`);
+  }
   const recomputed=summarize(rows);verifySummary(v.summary,recomputed);const failures=rows.flatMap(r=>{const found=signals(r);return found.length?[{caseId:r.caseId,mode:r.mode,category:r.category??null,question:r.question,signals:found,error:r.error??null,recallAtK:r.recallAtK??null,mrr:r.mrr??null,allEvidenceHit:r.allEvidenceHit??null,abstained:r.abstained??null,citationValid:r.citationValid??null,answer:r.answer??null,expectedEvidence:r.expectedEvidence??[],retrievedEvidence:r.evidence??[],citations:r.citations??[],humanCorrectness:null}]:[];});
-  variants[id]={id,split:holdout?'test':'dev',profile:suite.profiles?.[v.profileId]?.profile??{id:v.profileId},options:v.options,status:raw.status??null,runId:raw.id??null,config:raw.config??null,runtime:suite.runtime,rawFile:p,summary:recomputed,savedSummaryVerified:v.summary!=null,failures,caseKeys:rows.map(r=>`${r.caseId}:${r.mode}`).sort()};
+  variants[id]={id,kind:raw.kind??null,rawSources:raw.rawSources??null,recovery:raw.recovery??null,split:holdout?'test':'dev',profile:suite.profiles?.[v.profileId]?.profile??{id:v.profileId},options:v.options,status:raw.status??null,runId:raw.id??null,config:raw.config??null,runtime:suite.runtime,rawFile:p,summary:recomputed,savedSummaryVerified:v.summary!=null,failures,caseKeys:rows.map(r=>`${r.caseId}:${r.mode}`).sort()};
  }
  const comparisons=[];
  for(const v of Object.values(variants)){
-  const control=v.id.startsWith('a-')?'a-legacy900':v.id.startsWith('b1-')?suite.selections?.a:v.id.startsWith('b2-')?suite.selections?.b1:v.id.startsWith('c-')?suite.selections?.b2:v.id.startsWith('d-')?suite.selections?.c:null;
+  const control=v.id==='a-structure900'?'a-legacy900':['a-structure600','a-structure1200','a-structure900-o0','a-structure900-o100'].includes(v.id)?'a-structure900':v.id.startsWith('b1-')?suite.selections?.a:v.id.startsWith('b2-')?suite.selections?.b1:v.id.startsWith('c-')?suite.selections?.b2:v.id.startsWith('d-')?suite.selections?.c:null;
   if(!control||control===v.id||!variants[control])continue;
   const base=variants[control],sameCases=JSON.stringify(v.caseKeys)===JSON.stringify(base.caseKeys);
   comparisons.push({variant:v.id,control,sameCases,causalAttribution:false,note:v.id.startsWith('d-')?'Use recorded compactComparison; no citation-alias attribution if retrieval contexts differ.':'Paired observed difference, not a causal or generalization claim.',compactComparison:v.id.startsWith('d-')?suite.compactComparison??null:undefined,delta:sameCases?Object.fromEntries(['vector','hybrid'].map(m=>[m,{recallAtK:v.summary[m].recallAtK-base.summary[m].recallAtK,mrr:v.summary[m].mrr-base.summary[m].mrr,errorCount:v.summary[m].errorCount-base.summary[m].errorCount}])):null});
@@ -57,8 +62,10 @@ export function buildReport(root){
 }
 export function markdown(r){
  const fmt=n=>finite(n)?n.toFixed(4):'不可用';
- const out=['# 阶段二消融与自动错误分析',`范围：${r.scope}；运行提交：${r.runtime?.commit??'不可用'}；源码 SHA256：${r.runtime?.sourceSha256??'不可用'}。`,'人工答案正确性：未评分（null）。失败行保留，自动信号不是人工判分。','| Variant | Mode | Rows | Recall@K | MRR | Errors | 检索 mean/p50/p95 ms | 总耗时 mean/p50/p95 ms |','|---|---|---:|---:|---:|---:|---|---|'];
- for(const v of Object.values(r.variants))for(const [mode,s] of Object.entries(v.summary))out.push(`| ${v.id} | ${mode} | ${s.count} | ${fmt(s.recallAtK)} | ${fmt(s.mrr)} | ${s.errorCount} | ${['mean','p50','p95'].map(k=>fmt(s.retrievalMs[k])).join('/')} | ${['mean','p50','p95'].map(k=>fmt(s.totalMs[k])).join('/')} |`);
+ const out=['# 阶段二消融与自动错误分析',`范围：${r.scope}；运行提交：${r.runtime?.commit??'不可用'}；源码 SHA256：${r.runtime?.sourceSha256??'不可用'}。`,'人工答案正确性：未评分（null）。失败行保留，自动信号不是人工判分。'];
+ for(const v of Object.values(r.variants).filter(v=>v.kind==='composite-recovered-evaluation'))out.push(`\n> **${v.id} 为组合恢复结果**：原 ${v.recovery.originalRows} 行 + 补 ${v.recovery.recoveredRows} 行，不是单次无中断实验。未知在途调用 ${v.recovery.operationalInterruption?.potentialUnpersistedCase??'未记录'} 的实际执行状态及用量不可用；不宣称免费重试，也不将操作中断伪装为回答错误。表中延迟和用量只统计已保存回答，不含停机/恢复等待或未知调用成本。\n`);
+ out.push('| Variant | Mode | Rows | Recall@K | MRR | Errors | 检索 mean/p50/p95 ms | 总耗时 mean/p50/p95 ms |','|---|---|---:|---:|---:|---:|---|---|');
+ for(const v of Object.values(r.variants))for(const [mode,s] of Object.entries(v.summary))out.push(`| ${v.id}${v.kind==='composite-recovered-evaluation'?'（组合恢复）':''} | ${mode} | ${s.count} | ${fmt(s.recallAtK)} | ${fmt(s.mrr)} | ${s.errorCount} | ${['mean','p50','p95'].map(k=>fmt(s.retrievalMs[k])).join('/')} | ${['mean','p50','p95'].map(k=>fmt(s.totalMs[k])).join('/')} |`);
  out.push('\n## 配置、用量覆盖和失败题');
  for(const v of Object.values(r.variants)){out.push(`\n### ${v.id}`,`配置：${JSON.stringify(v.profile)} / ${JSON.stringify(v.options)}；状态：${v.status}。`);for(const [mode,s]of Object.entries(v.summary))out.push(`${mode} usage：${Object.entries(s.usage).map(([k,x])=>`${k} ${x.availableCount}/${s.count}，观测合计 ${x.observedSum??'不可用'}`).join('；')}`);for(const f of v.failures)out.push(`- ${f.caseId} / ${f.mode}：${f.signals.join(', ')}；error=${JSON.stringify(f.error)}；Recall=${fmt(f.recallAtK)}。`);}
  out.push('\n## 对照与限制',...r.comparisons.map(c=>`- ${c.variant} vs ${c.control}：同题=${c.sameCases}；Δ=${JSON.stringify(c.delta)}。${c.note}`),'\n只读输入及 SHA256、逐题原文证据、配置快照见配套 JSON。未冻结时不读取 test-frozen 原始文件。未完成批次不作效果结论。',...r.warnings.map(x=>`- ${x}`));return out.join('\n')+'\n';

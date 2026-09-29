@@ -9,6 +9,29 @@ export const read=path=>JSON.parse(readFileSync(path));
 export const save=(path,value)=>writeFileSync(path,JSON.stringify(value,null,2)+'\n');
 export const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 export function immutable(path,value){if(existsSync(path))assert.deepEqual(read(path),value,`Refusing to replace raw result ${path}`);else save(path,value);}
+export function assertComposite(run,{dataset,runtime,kbId}){
+  assert.equal(run.kind,'composite-recovered-evaluation');
+  assert.equal(run.recovery?.completed,true,'Incomplete recovery');
+  assert.equal(run.recovery.originalRows,25);assert.equal(run.recovery.recoveredRows,7);
+  assert.equal(run.recovery.kbId,kbId);assert.deepEqual(run.recovery.runtime,runtime,'Composite runtime changed');
+  assert.equal(dataset.questions.length,16);assert.equal(run.results?.length,32,'Composite must have all 32 rows');
+  const expected=dataset.questions.flatMap(q=>['vector','hybrid'].map(mode=>q.id+':'+mode)).sort();
+  assert.deepEqual(run.results.map(r=>r.caseId+':'+r.mode).sort(),expected,'Composite missing/duplicate case/mode');
+  assert.equal(run.rawSources?.length,8,'Composite provenance incomplete');
+  for(const source of run.rawSources)assert.equal(sha(readFileSync(source.file)),source.sha256,'Composite raw source changed');
+  const original=read(run.rawSources[0].file);
+  assert.equal(run.rawSources[0].kind,'interrupted-evaluation');
+  assert.equal(run.rawSources[0].sha256,run.recovery.originalSha256);
+  assert.equal(run.rawSources[0].file,run.recovery.originalFile);
+  assert.equal(original.id,run.recovery.originalRunId);
+  assert.equal(original.results.length,25);assert.deepEqual(run.results.slice(0,25),original.results,'Original rows changed');
+  assert.deepEqual(run.config,original.config,'Composite configuration changed');
+  for(const row of run.results.slice(25)){
+    const source=run.rawSources.find(s=>s.caseId===row.caseId&&s.mode===row.mode);
+    assert(source,'Recovered row missing source');assert.deepEqual(row.recoverySource,source);
+    const answer=read(source.file);assert.equal(answer.modelMode,'real');assert.deepEqual(answer.retrievalOptions,run.config.retrievalOptions);assert.deepEqual(answer.diagnostics?.dataVersions,run.config.dataVersions);for(const [field,value] of Object.entries(answer))assert.deepEqual(row[field],value,`Recovered answer changed ${field}`);
+  }
+}
 export async function client(){
   const base=process.env.CITEBASE_URL||'http://localhost:28080';let token;
   function request(path,body){return new Promise((resolve,reject)=>{
@@ -26,7 +49,7 @@ export async function evaluation(api,{root,id,kbId,dataset,options,runtime,topK=
   const journal=`${root}/${id}.state.json`,output=`${root}/${id}.raw.json`;
   const spec={kbId,datasetSha256:sha(JSON.stringify(dataset)),options,topK,runtime};
   let state=existsSync(journal)?read(journal):{id,spec,expectedRows:dataset.questions.length*2,status:'INTENT_SAVED',createdAt:new Date().toISOString()};assert.deepEqual(state.spec,spec,'Run configuration changed: new id required');
-  if(existsSync(output)){const run=read(output);assert(['COMPLETED','COMPLETED_WITH_ERRORS','SUCCEEDED'].includes(run.status),'Saved failed/interrupted run requires investigation, not silent success');assertRunMatchesRequest(run,{dataset,options,topK});assert.equal(run.results?.length,dataset.questions.length*2,'Saved partial result must not be mistaken for a full run');return run;}
+  if(existsSync(output)){const run=read(output);assert(['COMPLETED','COMPLETED_WITH_ERRORS','SUCCEEDED'].includes(run.status),'Saved failed/interrupted run requires investigation, not silent success');assertRunMatchesRequest(run,{dataset,options,topK});assert.equal(run.results?.length,dataset.questions.length*2,'Saved partial result must not be mistaken for a full run');if(run.kind==='composite-recovered-evaluation')assertComposite(run,{dataset,runtime,kbId});else assert(!run.kind,'Unsupported local evaluation kind');return run;}
   save(journal,state);const name=`p2opt-${id}`;
   const existing=state.runId?{id:state.runId}:(await api.request('/api/evaluations')).find(r=>r.name===name);
   let run;
