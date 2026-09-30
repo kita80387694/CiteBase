@@ -45,3 +45,5 @@ seed=20260930，通过生成器中明确的 LCG/Fisher-Yates 算法冻结整主�
 执行 `node scripts/generate-phase3-quality.mjs` 重现同版本字节；执行 `node --test scripts/generate-phase3-quality.test.mjs` 校验数量、标签、哈希、划分和拒绝损坏数据。生成器不含模型调用、时间戳或评分。`manifest.json`、`manifest.sha256` 固定分发文件；`near-duplicate-audit.json` 为跨划分字三元组 Jaccard≥0.65 的词面筛查，不宣称证明语义零泄漏。
 
 预注册抽样补充：每个开发/验证划分固定4道不可回答和16道可回答，共8道不可回答；可回答题按topic/category轮转。冒烟预先选择首个可回答与不可回答各1道，之后复用其结果，不根据输出换题。
+
+并发审计补充：评分、裁决、撤销和批量导入按知识库/评审项顺序串行锁定；裁决payload的reviewedScoreIds由服务端记录当时最新的有效双人评分版本。分析只采用晚于所有最新评分的裁决，之后发生的真人修订会重新产生待复核状态。账号存在与自动测试评分均不能证明真人身份。

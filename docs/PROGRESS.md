@@ -250,3 +250,5 @@
 2026-09-30 策略UI专项和旧Agent关键回归2/2通过（33.6秒，无跳过），主线程查看组合策略截图，实验提示、预算、轨迹及MOCK标记清晰。验证记录：docs/results/quality-phase3/ui/agent-strategy-verification.json。独立真实探索环境quality-lab(API28093/UI25183/DB25444)已构建健康，尚未执行探索调用；当前未提交源码摘要与镜像保存在.tools/quality-agent-runtime.json，基线real环境未改变。
 
 2026-09-30 40/40真实配对采集完成，80任务审计保存，完整工程报告和80回答/96任务的未评分评审包准备完成。真实项目ID22befaa8-e4b3-48d8-aa69-3e014dc5733b，真人0/80，复核0/16。修复报告缺少pair时遗漏单臂结果/用量、未审计误记0、同名项目来源未核对、旧裁决覆盖新评分等脚本缺陷，20Node测试通过。Agent工程提交4cbd61b49b423fb51d4e16e6e59b5061a8452fd8；原始UI日志因*.log忽略未入前提交，现保留等字节txt副本并修正验证清单链接，随下一提交纳入。
+
+2026-09-30 基线包与采集/报告脚本提交e3540ae。评审并发修复：KB→item→assignment统一加锁，裁决记录reviewedScoreIds，撤销与批量导入使用相同有序锁。ReviewUnitTest+ReviewIntegrationTest 22/22通过（0失败/跳过，39秒），包括真实PG并发评分/裁决与撤销回归，日志engineering/review-race-tests.txt。冻结真实基线暂未部署此修复，待工程新环境集成；当前真人未评分。

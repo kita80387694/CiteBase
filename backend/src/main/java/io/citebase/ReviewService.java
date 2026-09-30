@@ -369,6 +369,16 @@ public class ReviewService {
   public Object revoke(String u, String p, Map<String, Object> b) {
     fields(b, "username");
     own(u, p);
+    // Match score/import lock order before touching assignment rows. project() below also reads
+    // sources.
+    lockProjectSources(p);
+    var affected =
+        db.queryForList(
+            "SELECT DISTINCT i.* FROM review_item i JOIN review_assignment a ON a.item_id=i.id"
+                + " JOIN app_user x ON x.id=a.reviewer_id WHERE i.project_id=? AND x.username=?",
+            p,
+            text(b, "username"));
+    lockReviewItems(affected);
     db.update(
         "UPDATE review_assignment a SET revoked=true FROM review_item i,app_user x WHERE"
             + " a.item_id=i.id AND i.project_id=? AND x.id=a.reviewer_id AND x.username=?",
@@ -394,6 +404,30 @@ public class ReviewService {
     db.queryForList(
         "SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))",
         decode(r.get("dependencies")).get("kb"));
+  }
+
+  private void lockReviewItems(List<Map<String, Object>> items) {
+    var bases = new TreeSet<String>();
+    var ids = new TreeSet<String>();
+    for (var item : items) {
+      bases.add(decode(item.get("dependencies")).get("kb").toString());
+      ids.add(item.get("id").toString());
+    }
+    for (String kb : bases)
+      db.queryForList("SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
+    // Serializes score insertion and adjudication snapshots. Batch imports use the same global
+    // order.
+    for (String item : ids)
+      db.queryForList("SELECT id FROM review_item WHERE id=? FOR UPDATE", item);
+  }
+
+  private void lockProjectSources(String project) {
+    var bases = new TreeSet<String>();
+    for (var item :
+        db.queryForList("SELECT dependencies::text FROM review_item WHERE project_id=?", project))
+      bases.add(decode(item.get("dependencies")).get("kb").toString());
+    for (String kb : bases)
+      db.queryForList("SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
   }
 
   public Object assignments(String u) {
@@ -552,7 +586,7 @@ public class ReviewService {
   public Object score(String u, String a, Map<String, Object> b) {
     var valid = validateScore(b);
     var r = assigned(u, a);
-    lockSource(r);
+    lockReviewItems(List.of(r));
     db.queryForList("SELECT id FROM review_assignment WHERE id=? FOR UPDATE", a);
     r = assigned(u, a);
     if (!available(r.get("owner_id").toString(), r))
@@ -573,6 +607,12 @@ public class ReviewService {
     fields(b, "scores");
     if (!(b.get("scores") instanceof List<?> rows) || rows.isEmpty() || rows.size() > 1000)
       throw bad("评分列表无效");
+    var lockedItems = new ArrayList<Map<String, Object>>();
+    for (Object v : rows) {
+      if (!(v instanceof Map)) throw bad("评分无效");
+      lockedItems.add(assigned(u, text((Map<String, Object>) v, "assignmentId")));
+    }
+    lockReviewItems(lockedItems);
     for (Object v : rows) {
       if (!(v instanceof Map)) throw bad("评分无效");
       var x = new LinkedHashMap<>((Map<String, Object>) v);
@@ -592,15 +632,21 @@ public class ReviewService {
     var valid = validateScore(x);
     var rows = db.queryForList("SELECT * FROM review_item WHERE id=? AND project_id=?", item, p);
     if (rows.isEmpty()) throw AccessService.missing();
-    lockSource(rows.getFirst());
+    lockProjectSources(p);
+    lockReviewItems(rows);
     if (!available(u, rows.getFirst()))
       throw new ResponseStatusException(HttpStatus.CONFLICT, "来源已撤回");
-    Integer count =
-        db.queryForObject(
-            "SELECT count(DISTINCT scored_by) FROM review_score WHERE item_id=? AND kind='HUMAN'",
-            Integer.class,
+    var reviewed =
+        db.queryForList(
+            "SELECT DISTINCT ON (s.assignment_id) s.id,s.scored_by FROM review_score s"
+                + " JOIN review_assignment a ON a.id=s.assignment_id"
+                + " WHERE s.item_id=? AND s.kind='HUMAN' AND NOT a.revoked"
+                + " ORDER BY s.assignment_id,s.sequence_id DESC",
             item);
-    if (count == null || count < 2) throw bad("须先有两位真人评分");
+    if (reviewed.stream().map(r -> r.get("scored_by")).distinct().count() < 2)
+      throw bad("须先有两位有效真人评分");
+    // Server-generated provenance: exact current score versions, never accepted from client input.
+    valid.put("reviewedScoreIds", reviewed.stream().map(r -> r.get("id")).toList());
     db.update(
         "INSERT INTO review_score(id,item_id,scored_by,kind,payload)"
             + " VALUES(?,?,?,'ADJUDICATION',?::jsonb)",

@@ -317,4 +317,129 @@ class ReviewIntegrationTest extends Stage2RetrievalIntegrationTest {
       assertFalse(exported.get("scores").toString().contains("人工依据"));
     }
   }
+
+  @Test
+  void scoreAndAdjudicationSerializeOnItemAndRecordExactScoreVersions() throws Exception {
+    var p = project();
+    String bobAssignment = assign(p), pid = p.get("id").toString();
+    String item =
+        db.queryForObject(
+            "SELECT item_id FROM review_assignment WHERE id=?", String.class, bobAssignment);
+    String aliceAssignment =
+        db.queryForObject(
+            "SELECT id FROM review_assignment WHERE item_id=? AND reviewer_id=?",
+            String.class,
+            item,
+            alice);
+    reviews.score(alice, aliceAssignment, ReviewUnitTest.valid());
+    reviews.score(bob, bobAssignment, ReviewUnitTest.valid());
+    var adjudication = ReviewUnitTest.valid();
+    adjudication.put("itemId", item);
+    var tx = new org.springframework.transaction.support.TransactionTemplate(transactionManager);
+    try (var executor = java.util.concurrent.Executors.newFixedThreadPool(2)) {
+      var started = new java.util.concurrent.CountDownLatch(2);
+      var pending = new ArrayList<java.util.concurrent.Future<Object>>();
+      tx.execute(
+          status -> {
+            db.queryForList("SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
+            db.queryForList("SELECT id FROM review_item WHERE id=? FOR UPDATE", item);
+            pending.add(
+                executor.submit(
+                    () -> {
+                      started.countDown();
+                      var revision = ReviewUnitTest.valid();
+                      revision.put("correctness", "PARTIAL");
+                      return reviews.score(bob, bobAssignment, revision);
+                    }));
+            pending.add(
+                executor.submit(
+                    () -> {
+                      started.countDown();
+                      return reviews.adjudicate(alice, pid, adjudication);
+                    }));
+            try {
+              assertTrue(started.await(5, java.util.concurrent.TimeUnit.SECONDS));
+            } catch (InterruptedException e) {
+              throw new AssertionError(e);
+            }
+            for (var call : pending)
+              assertThrows(
+                  java.util.concurrent.TimeoutException.class,
+                  () -> call.get(250, java.util.concurrent.TimeUnit.MILLISECONDS));
+            return null;
+          });
+      for (var call : pending) call.get(10, java.util.concurrent.TimeUnit.SECONDS);
+    }
+    var event =
+        db.queryForMap(
+            "SELECT sequence_id,payload::text FROM review_score WHERE item_id=? AND"
+                + " kind='ADJUDICATION'",
+            item);
+    var payload = (Map<String, Object>) questions.decode(event.get("payload").toString());
+    var expected =
+        db.queryForList(
+            "SELECT DISTINCT ON (assignment_id) id FROM review_score WHERE item_id=? AND"
+                + " kind='HUMAN' AND sequence_id<? ORDER BY assignment_id,sequence_id DESC",
+            String.class,
+            item,
+            event.get("sequence_id"));
+    assertEquals(
+        new HashSet<>(expected), new HashSet<>((List<String>) payload.get("reviewedScoreIds")));
+    assertEquals(2, expected.size());
+    assertEquals(
+        3,
+        db.queryForObject(
+            "SELECT count(*) FROM review_score WHERE item_id=? AND kind='HUMAN'",
+            Integer.class,
+            item));
+  }
+
+  @Test
+  void revokeUsesSameItemOrderAndCannotLeaveAdjudicationWithRevokedSecondReviewer()
+      throws Exception {
+    var p = project();
+    String a = assign(p), pid = p.get("id").toString();
+    String item =
+        db.queryForObject("SELECT item_id FROM review_assignment WHERE id=?", String.class, a);
+    String other =
+        db.queryForObject(
+            "SELECT id FROM review_assignment WHERE item_id=? AND reviewer_id=?",
+            String.class,
+            item,
+            alice);
+    reviews.score(alice, other, ReviewUnitTest.valid());
+    reviews.score(bob, a, ReviewUnitTest.valid());
+    var tx = new org.springframework.transaction.support.TransactionTemplate(transactionManager);
+    try (var executor = java.util.concurrent.Executors.newSingleThreadExecutor()) {
+      var pending =
+          new java.util.concurrent.atomic.AtomicReference<java.util.concurrent.Future<Object>>();
+      tx.execute(
+          status -> {
+            db.queryForList("SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
+            db.queryForList("SELECT id FROM review_item WHERE id=? FOR UPDATE", item);
+            pending.set(
+                executor.submit(() -> reviews.revoke(alice, pid, Map.of("username", "bob"))));
+            assertThrows(
+                java.util.concurrent.TimeoutException.class,
+                () -> pending.get().get(250, java.util.concurrent.TimeUnit.MILLISECONDS));
+            reviews.score(bob, a, ReviewUnitTest.valid());
+            return null;
+          });
+      pending.get().get(10, java.util.concurrent.TimeUnit.SECONDS);
+    }
+    assertThrows(RuntimeException.class, () -> reviews.score(bob, a, ReviewUnitTest.valid()));
+    var decision = ReviewUnitTest.valid();
+    decision.put("itemId", item);
+    var rejected =
+        assertThrows(
+            org.springframework.web.server.ResponseStatusException.class,
+            () -> reviews.adjudicate(alice, pid, decision));
+    assertEquals(400, rejected.getStatusCode().value());
+    assertEquals(
+        0,
+        db.queryForObject(
+            "SELECT count(*) FROM review_score WHERE item_id=? AND kind='ADJUDICATION'",
+            Integer.class,
+            item));
+  }
 }
