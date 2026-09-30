@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-09-30T06:30:43.157479+00:00",
+  "mode": "MOCK",
+  "humanQualityAssessment": false,
+  "genuineHumanReviewsProduced": 0,
+  "description": "Automated functional and fault UI checks against actual Docker frontend, backend and PostgreSQL. Test scores are clearly TEST_ONLY-AUTOMATED-REVIEW and must never count as genuine human assessment.",
+  "baseUrl": "http://localhost:25181",
+  "branch": "feat/citebase-phase3",
+  "head": "f4508e2770d2e9340d13f7a7181d82b19a8c3304",
+  "workingTree": "uncommitted phase3 implementation; exact UI source hashes below",
+  "bundle": [
+    "/assets/index-LBOxk-Q9.js",
+    "/assets/index-l7wDGPFx.css"
+  ],
+  "latestRun": {
+    "command": "E2E_BASE_URL=http://localhost:25181 npx playwright test tests/quality-phase3-review.spec.ts --reporter=line",
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 10.6,
+    "log": "quality-phase3-review-e2e-verified.log"
+  },
+  "checks": [
+    "actual upload/index/evaluation source creation",
+    "owner source project creation and 100% second-review assignment",
+    "anonymous packet excludes config/model/source identity",
+    "unrated null differs from NA",
+    "independent two-user scores and own-score JSON import",
+    "immutable score history and disagreement adjudication",
+    "owner JSON export retains MOCK attribution",
+    "reviewer owner-endpoint denial",
+    "revocation blocks reviewer reads",
+    "document deletion withdraws answer/evidence/history and scoring form",
+    "network failure then actual API retry recovery"
+  ],
+  "sourceSha256": {
+    "frontend/src/ReviewPanel.tsx": "0acea910829d6c4822d46cdd46c35e47cca37c73cbab0cb7e7b2963c33f71654",
+    "frontend/src/ReviewScoreForm.tsx": "31349b3ff11d212a7d19e5e28a665bb076709e8cfd590e3e5b094ddd1933917f",
+    "frontend/src/App.tsx": "3667b29025db807a63cc65a615389904153437e69109805e91a8b50698a2bd75",
+    "frontend/src/style.css": "e14ec46e162065a6066351114f79e683b8878164eceeb9c140b3d89a7f8622ed",
+    "frontend/tests/quality-phase3-review.spec.ts": "31354cb03621e05a202348ab7a7a67ac34058952cb2280e9b3a35bc1dab2174b"
+  },
+  "screenshots": {
+    "docs/screenshots/quality-phase3-blind-review-mock.png": "ce990dcaf899cd8b56d288733b8c4e560593c26e77deca41a4cd34d531fda9bd",
+    "docs/screenshots/quality-phase3-owner-review-mock.png": "26477982555dae024da2bc76c8198acd4501ea2f47cd832924154957596b7d62",
+    "docs/screenshots/quality-phase3-withdrawn-mock.png": "cddd5e88abe77d3cc95697d95840de1bd854bac3535cc5a69c35bda8a47dca03"
+  },
+  "visualInspection": "Viewed all three screenshots; Chinese controls/evidence/score history legible. Withdrawal screen hides content and explicitly says audit history remains retained."
+}

@@ -1,0 +1,909 @@
+{
+  "version": "citebase-phase3-quality-v1",
+  "seed": 20260930,
+  "split": "validation",
+  "questions": [
+    {
+      "id": "dahlia-001",
+      "question": "Dahlia 常设站一个人同时最多借几件？",
+      "answerable": true,
+      "expectedAnswer": "3件",
+      "category": "事实",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-002",
+      "question": "Dahlia 梯子能借多久，能续吗？",
+      "answerable": true,
+      "expectedAnswer": "2天，不能续",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-003",
+      "question": "Dahlia 手推车续一次后总借期是多少？",
+      "answerable": true,
+      "expectedAnswer": "10天，前提符合续期条件",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-004",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；已有下一预约禁止续期",
+      "category": "跨段落",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-005",
+      "question": "Dahlia 已借3件并预约今晚归还一件，现在能再借吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；现场验收才释放额度",
+      "category": "跨段落",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 44,
+          "endOffset": 90,
+          "quote": "Dahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-006",
+      "question": "Dahlia 借用人自行声明损坏工具已修好能恢复借出吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；管理员确认安全且争议由管理员复核",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 221,
+          "endOffset": 273,
+          "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 50,
+          "quote": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-007",
+      "question": "Dahlia 工具能转动但少附件，值班员可以忽略缺失吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，分别记录并验收",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 275,
+          "endOffset": 313,
+          "quote": "Dahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 50,
+          "quote": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-008",
+      "question": "Dahlia 手钻连附件借走，这算两件吗？",
+      "answerable": true,
+      "expectedAnswer": "随主工具算1件；附件独立借出才单计",
+      "category": "歧义",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-009",
+      "question": "Dahlia 预约超过取件时刻几分钟失效？",
+      "answerable": true,
+      "expectedAnswer": "45分钟",
+      "category": "证据充分",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 52,
+          "endOffset": 97,
+          "quote": "Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-010",
+      "question": "Dahlia 活动日能借5件，平常也照办吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，常设站3件",
+      "category": "近事实干扰",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 255,
+          "endOffset": 287,
+          "quote": "Dahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-011",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；手钻禁止，手推车可用但归还擦干检查",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 209,
+          "quote": "Dahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-012",
+      "question": "Dahlia 安全检查记录比借用收据多留多少天？",
+      "answerable": true,
+      "expectedAnswer": "550天",
+      "category": "计算",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 141,
+          "quote": "Dahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-013",
+      "question": "Dahlia 管理员改了还梯子的日期，是不是有一次续期权了？",
+      "answerable": true,
+      "expectedAnswer": "不是；改期不自动授予续借，梯子0次",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 211,
+          "endOffset": 253,
+          "quote": "Dahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-014",
+      "question": "Dahlia 过期预约会抹掉历史借用吗？",
+      "answerable": true,
+      "expectedAnswer": "不会，只释放预约",
+      "category": "事实",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 52,
+          "endOffset": 97,
+          "quote": "Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-015",
+      "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+      "answerable": true,
+      "expectedAnswer": "不是，管理员确认才可",
+      "category": "拒绝过度推断",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 221,
+          "endOffset": 273,
+          "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-016",
+      "question": "Dahlia 修改约定日期需要留下哪些审计信息？",
+      "answerable": true,
+      "expectedAnswer": "原时间、新时间、操作者、原因",
+      "category": "同义",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 211,
+          "endOffset": 253,
+          "quote": "Dahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-017",
+      "question": "Dahlia 丢失一把手钻罚多少钱？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-018",
+      "question": "Dahlia 当前有几台闲置手推车？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-019",
+      "question": "Dahlia 推荐哪一型号电钻？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-020",
+      "question": "Dahlia 值班员家庭地址是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-001",
+      "question": "Elm 最长申请含校准共多少分钟？",
+      "answerable": true,
+      "expectedAnswer": "90分钟",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-002",
+      "question": "Elm 90分钟申请扣除首次校准最多还剩多少分钟？",
+      "answerable": true,
+      "expectedAnswer": "75分钟",
+      "category": "计算",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-003",
+      "question": "Elm SNR代表什么，教学阈值是多少？",
+      "answerable": true,
+      "expectedAnswer": "信噪比；不少于12",
+      "category": "缩写",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-004",
+      "question": "Elm B滤镜最多连续曝光几张，每张多久？",
+      "answerable": true,
+      "expectedAnswer": "5张，每张60秒",
+      "category": "表格",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 161,
+          "quote": "Elm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-005",
+      "question": "Elm R滤镜8张的曝光累计是多少秒？",
+      "answerable": true,
+      "expectedAnswer": "320秒",
+      "category": "表格",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 161,
+          "quote": "Elm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-006",
+      "question": "Elm R达到SNR12但B未达标，能宣布两种滤镜都完成目标吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；分别保存与判断",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 212,
+          "endOffset": 251,
+          "quote": "Elm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-007",
+      "question": "Elm 云散后设备校准仍失败，可以先曝光再补校准吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；重新校准，维护员处理失败，值班员暂停",
+      "category": "跨文档",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 163,
+          "endOffset": 210,
+          "quote": "Elm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 132,
+          "quote": "Elm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-008",
+      "question": "Elm 故障前完成第3帧，交班要提供哪些信息，从哪帧恢复？",
+      "answerable": true,
+      "expectedAnswer": "申请号、滤镜、完成帧号、暂停原因；第4帧",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 45,
+          "endOffset": 90,
+          "quote": "Elm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 177,
+          "quote": "Elm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-009",
+      "question": "Elm 收到预约确认是不是可以远程解锁开机？",
+      "answerable": true,
+      "expectedAnswer": "不是；值班员确认设备状态",
+      "category": "歧义",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 253,
+          "endOffset": 298,
+          "quote": "Elm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-010",
+      "question": "Elm 原始图像留多久？",
+      "answerable": true,
+      "expectedAnswer": "365天",
+      "category": "证据充分",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 43,
+          "quote": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-011",
+      "question": "Elm 缩略图30天后删掉，原始图像也同时消失吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；原图保留365天",
+      "category": "近事实干扰",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 43,
+          "quote": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-012",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以",
+      "category": "拒绝过度推断",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-013",
+      "question": "Elm 云量七成仍在预约时段内，能继续曝光吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；大于六成暂停",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 163,
+          "endOffset": 210,
+          "quote": "Elm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 253,
+          "endOffset": 298,
+          "quote": "Elm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-014",
+      "question": "Elm 提前结束后剩余时间自动给申请人的下一目标吗？",
+      "answerable": true,
+      "expectedAnswer": "不会，回排程池",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 179,
+          "endOffset": 215,
+          "quote": "Elm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-015",
+      "question": "Elm 恢复故障时可以覆盖前三张完成图来保持连续吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；从下一帧继续且保留完成帧",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 45,
+          "endOffset": 90,
+          "quote": "Elm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-016",
+      "question": "Elm 交班只留目标名字，足够接班恢复吗？",
+      "answerable": true,
+      "expectedAnswer": "不够；还需申请号、滤镜、帧号、暂停原因",
+      "category": "同义",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 177,
+          "quote": "Elm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-017",
+      "question": "Elm 明晚具体有多少云量？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-018",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-019",
+      "question": "Elm 望远镜的购买价格是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-020",
+      "question": "Elm 下一次发现新天体会在哪天？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import {
   type TaskProgress,
 } from "./TaskPanel";
 import { AgentPanel } from "./AgentPanel";
+import { ReviewPanel } from "./ReviewPanel";
 import {
   RetrievalControls,
   RetrievalDiagnostics,
@@ -508,6 +509,7 @@ export default function App() {
     ["chat", "知识问答", MessageSquare],
     ["tasks", "处理任务", ListChecks],
     ["eval", "检索评测", FlaskConical],
+    ["review", "人工质量评审", ListChecks],
   ] as const;
   if (!token)
     return (
@@ -667,7 +669,7 @@ export default function App() {
                     ? "GROUNDED ANSWERS"
                     : page === "eval"
                       ? "MEASURE & COMPARE"
-                      : "INDEXING PIPELINE"}
+                      : page === "review" ? "BLIND QUALITY REVIEW" : "INDEXING PIPELINE"}
               </div>
               <h1>{nav.find((n) => n[0] === page)?.[1]}</h1>
               <p>
@@ -677,7 +679,7 @@ export default function App() {
                     ? "基于你选择的知识库回答，点击引用核验原始证据。"
                     : page === "eval"
                       ? "用同一组问题，对比向量检索与混合检索的真实表现。"
-                      : "查看索引进度、失败原因与重试记录。"}
+                      : page === "review" ? "独立盲评答案与引用，保留真人评分依据和审计历史。" : "查看索引进度、失败原因与重试记录。"}
               </p>
             </div>
             {page === "library" && (
@@ -905,6 +907,7 @@ export default function App() {
               )}
             </>
           )}
+          {page === "review" && <ReviewPanel api={api} kbId={kb} />}
           {page === "tasks" && (
             <TaskPanel kbId={kb} api={api} onOpen={openTask} />
           )}

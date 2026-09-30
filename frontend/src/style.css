@@ -1657,3 +1657,127 @@ footer {
   max-height: 650px;
   overflow: auto;
 }
+
+.review-workspace {
+  display: grid;
+  gap: 20px;
+}
+.review-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.review-content,
+.review-list {
+  padding: 24px;
+  min-width: 0;
+}
+.review-content h2,
+.review-list h2 {
+  margin-top: 0;
+}
+.review-list {
+  max-height: 720px;
+  overflow: auto;
+}
+.review-list-item {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  text-align: left;
+  white-space: normal;
+}
+.review-list-item span,
+.review-history small {
+  font-size: 12px;
+  color: #667c77;
+  display: block;
+}
+.review-score-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.review-score-grid label,
+.review-score-form label,
+.review-list label {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+}
+.review-score-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.review-score-form textarea {
+  min-height: 100px;
+  margin-bottom: 14px;
+}
+.review-answer {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+  padding: 14px;
+  background: #f5f8f7;
+  border-radius: 8px;
+}
+.review-content details {
+  border-top: 1px solid #e3ebe8;
+  padding: 16px 0;
+  overflow-wrap: anywhere;
+}
+.review-content summary {
+  cursor: pointer;
+  line-height: 1.7;
+}
+.review-history article {
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #dce7e3;
+  border-radius: 8px;
+}
+.review-history dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+}
+.review-history dd {
+  margin: 6px 0;
+}
+.review-history p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.review-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.review-summary {
+  padding: 14px;
+  line-height: 1.8;
+  background: #edf5f2;
+  border-radius: 8px;
+}
+.review-import {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+}
+@media (max-width: 1000px) {
+  .review-layout {
+    grid-template-columns: 1fr;
+  }
+  .review-score-grid {
+    grid-template-columns: 1fr;
+  }
+}

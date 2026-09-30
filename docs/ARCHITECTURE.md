@@ -1,6 +1,6 @@
 # 架构与工程取舍
 
-CiteBase 是 Java 21 模块化单体，React 负责界面，Spring MVC 接口与后台索引worker共进程。JDBC明确执行所有权条件；Flyway控制迁移。Spring AI提供真实聊天与embedding调用。未引入微服务、消息队列、Python核心或Agent工具执行器。
+CiteBase 是 Java 21 模块化单体，React 负责界面，Spring MVC 接口与后台索引worker共进程。JDBC明确执行所有权条件；Flyway控制迁移。Spring AI提供真实聊天与embedding调用。未引入微服务、消息队列或Python核心；Agent工具由Java白名单受控执行。
 
 ## 模块与数据流
 
@@ -35,7 +35,7 @@ flowchart LR
 
 知识库上传通过行锁序列化去重。原文件以bytea保存；版本记录SHA-256及解析类型。按空行分段，页码/页内段落从1起，偏移为规范化换行后的页内Java字符偏移，左闭右开。长段落900字符窗口、700字符步长；未变内容+相同embedding模型复用向量。旧可用版本始终保留，全部新分块完成后才在短事务内原子切换 `active_version_id`。
 
-任务领取使用 `FOR UPDATE SKIP LOCKED`，最多3次总尝试，固定3秒重试延时；启动恢复PROCESSING。第三次中断转FAILED；显式手动重试只允许最新失败版本。MVP为单后端实例，不可直接运行多个进程共享同库worker，因为启动恢复尚无跨实例租约协议。
+当前索引、评测和Agent使用统一 `work_task` 租约协议与 `FOR UPDATE SKIP LOCKED` 领取；不再启动时无条件恢复PROCESSING。重试上限和租约可配置，过期回收递增fencing token，所有发布检查当前租约。两个实际worker竞争与崩溃恢复已在上一阶段验证，详见TASKS.md。本段替换遗留MVP单实例描述；旧V5 worker仍不可与新版混跑。
 
 ## 检索与生成
 
