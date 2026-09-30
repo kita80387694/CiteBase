@@ -1,0 +1,111 @@
+{
+  "spec": {
+    "body": {
+      "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+      "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+      "mode": "vector",
+      "topK": 5,
+      "retrievalOptions": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "budget": {
+        "maxPlannerSteps": 4,
+        "maxTools": 4,
+        "maxSearch": 2,
+        "maxEvidence": 12,
+        "maxEvidenceChars": 20000,
+        "deadlineSeconds": 120,
+        "maxPlannerOutputTokens": 256,
+        "maxFinalOutputTokens": 1024,
+        "maxExternalCalls": 10
+      },
+      "idempotencyKey": "Quality3-1e40ebc94083-q026-original-agent"
+    },
+    "snapshot": [
+      {
+        "id": "1a4152d8-efc8-4c3b-abac-278ba3a803b4",
+        "name": "dahlia-a.md",
+        "chunk_size": 900,
+        "version_id": "ccb1d21a-d15f-450e-abc7-ba4778671a94",
+        "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "53e05d9f-2b79-42b2-bda0-920b201b2185",
+        "name": "cobalt-a.md",
+        "chunk_size": 900,
+        "version_id": "978a45e6-029a-4cf7-889a-26d3441f39ff",
+        "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "7bf00ef1-c711-400c-a3c8-a24a0ae07842",
+        "name": "elm-a.md",
+        "chunk_size": 900,
+        "version_id": "a267ae11-eab7-4344-862f-ffc2ccd6fb2e",
+        "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "900a6f7a-ca23-4de8-bae0-08a5b3bf6b60",
+        "name": "dahlia-b.md",
+        "chunk_size": 900,
+        "version_id": "20d2c495-9f1d-4f80-980c-d84e95b2f3e1",
+        "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "cd4e5845-3eda-4764-b696-dfbfe8cef391",
+        "name": "elm-b.md",
+        "chunk_size": 900,
+        "version_id": "3bacaa52-fdaa-47c3-b570-04a6ffe9067d",
+        "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "e6ca53fe-b4c2-4354-b755-4d1769336796",
+        "name": "brass-a.md",
+        "chunk_size": 900,
+        "version_id": "b3b83e39-667f-49aa-a20c-3a1885741a2c",
+        "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "f1847174-b52e-40ad-8f6d-f12900edc49f",
+        "name": "cobalt-b.md",
+        "chunk_size": 900,
+        "version_id": "6178dca3-cc9a-479a-a171-f6343430db44",
+        "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "f9b3c9ba-c704-4490-a76f-596877b22571",
+        "name": "brass-b.md",
+        "chunk_size": 900,
+        "version_id": "2a3d2d16-9ad4-40ac-8aaf-b9e09ad7399b",
+        "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "modelConfig": {
+      "chatModel": "deepseek-ai/DeepSeek-V3.2",
+      "embeddingModel": "BAAI/bge-m3"
+    }
+  },
+  "status": "COMPLETED",
+  "createdAt": "2026-09-30T06:51:31.446Z",
+  "runId": "86905094-0508-432d-99b2-ce14fe7274ad",
+  "rawSha256": "7e6e157e5a2072a914130a5434b9ef806787122ef68ab289149fbfe0e5ad1cb7",
+  "finishedAt": "2026-09-30T06:51:45.087Z"
+}

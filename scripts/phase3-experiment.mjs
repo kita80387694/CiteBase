@@ -12,6 +12,7 @@ export function verifySnapshot(snapshot,documents){
 }
 export function verifyRun(run,spec){
  assert.equal(run.kbId,spec.body.kbId);assert.equal(run.request.question,spec.body.question);
+ const expectedStrategy=spec.body.strategy??'original';assert(['original','inspection-free-v1','stop-aware-v1','combined-v1'].includes(expectedStrategy),'Unknown Agent strategy');assert.equal(run.request.strategy??'original',expectedStrategy,'Run request drift: strategy');assert.equal(run.config.agentStrategy??'original',expectedStrategy,'Run config drift: strategy');if(run.result?.strategy!==undefined)assert.equal(run.result.strategy,expectedStrategy,'Run result drift: strategy');
  for(const key of ['mode','topK','retrievalOptions','budget','idempotencyKey'])assert.deepEqual(run.request[key],spec.body[key],`Run request drift: ${key}`);
  assert.deepEqual(run.snapshot,spec.snapshot,'Run snapshot differs from frozen comparison corpus');
  assert.equal(run.config.modelMode,'real');

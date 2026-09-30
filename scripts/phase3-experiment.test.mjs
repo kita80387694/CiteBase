@@ -36,3 +36,9 @@ test('async queued execute polls same task and never submits again',()=>temp(asy
  const run=await collectAgent(api,{root,id:'async-case',spec,pollMs:1,maxPolls:5});
  assert.equal(run.status,'COMPLETED');assert.equal(executeCalls,1);assert.equal(polls,2);
 }));
+
+test('optional strategy defaults to original and rejects request/config/result drift',()=>{
+ const run={kbId:'kb',request:spec.body,snapshot,config:{modelMode:'real',...spec.modelConfig}};verifyRun(run,spec);verifyRun({...run,request:{...run.request,strategy:'original'}},spec);
+ const modified={...spec,body:{...spec.body,strategy:'combined-v1'}};const actual={...run,request:modified.body,config:{...run.config,agentStrategy:'combined-v1'},result:{strategy:'combined-v1'}};verifyRun(actual,modified);
+ assert.throws(()=>verifyRun(actual,spec),/strategy/);assert.throws(()=>verifyRun({...actual,config:run.config},modified),/strategy/);assert.throws(()=>verifyRun({...actual,result:{strategy:'original'}},modified),/strategy/);assert.throws(()=>verifyRun(run,{...spec,body:{...spec.body,strategy:'unknown'}}),/strategy/);
+});

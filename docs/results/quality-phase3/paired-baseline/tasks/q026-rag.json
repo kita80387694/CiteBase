@@ -1,0 +1,124 @@
+{
+  "id": "ebb25b23-4810-4e67-a3a9-9e43a93ea1db",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "ebb25b23-4810-4e67-a3a9-9e43a93ea1db",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q026",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-015",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+              "groupId": "g1",
+              "endOffset": 273,
+              "paragraph": 5,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 221,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+          "answerable": true,
+          "expectedAnswer": "不是，管理员确认才可"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-efb24d6258740c0aedd037289956fd236d31bb7254f8a311f584110af303",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:51:25.389449Z",
+  "startedAt": "2026-09-30T06:51:25.397208Z",
+  "finishedAt": "2026-09-30T06:51:29.448902Z",
+  "availableAt": "2026-09-30T06:51:25.389448Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "7d0a7e65-b114-4dfe-86f9-3672c60dd350",
+      "operationKey": "e10a5b0a-afe8-4961-a822-a86d9f83a664:embedding:f02fedb7-ca02-46e2-b051-6cae313cec2c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:51:25.409979Z",
+      "finishedAt": "2026-09-30T06:51:25.727769Z"
+    },
+    {
+      "callId": "07968c74-3099-4f6c-b8d8-49d454c5a105",
+      "operationKey": "e10a5b0a-afe8-4961-a822-a86d9f83a664:generation:ff5c3337-d708-43d2-8719-5950813aa551",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1694,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:51:25.733659Z",
+      "finishedAt": "2026-09-30T06:51:27.384335Z"
+    },
+    {
+      "callId": "a2703184-8517-4385-bf6e-9f3ab8e97458",
+      "operationKey": "8e1bc257-cc15-4814-9cfb-14cdcc583947:embedding:11a2cebc-11e3-4df5-9823-10e29becb12a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:51:27.406459Z",
+      "finishedAt": "2026-09-30T06:51:27.685590Z"
+    },
+    {
+      "callId": "0f90cdfb-5e27-4042-baed-bbce44da015f",
+      "operationKey": "8e1bc257-cc15-4814-9cfb-14cdcc583947:generation:adb8bda4-7d9f-40dd-bdf1-3d95eb3d0867",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1716,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:51:27.697900Z",
+      "finishedAt": "2026-09-30T06:51:29.433112Z"
+    }
+  ]
+}

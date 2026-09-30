@@ -1,0 +1,124 @@
+{
+  "id": "9806fc4c-9005-444f-bfcf-8dbe3fa2539a",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9806fc4c-9005-444f-bfcf-8dbe3fa2539a",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q037",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-009",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "歧义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+              "groupId": "g1",
+              "endOffset": 298,
+              "paragraph": 6,
+              "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "startOffset": 253,
+              "documentName": "elm-a.md"
+            }
+          ],
+          "question": "Elm 收到预约确认是不是可以远程解锁开机？",
+          "answerable": true,
+          "expectedAnswer": "不是；值班员确认设备状态"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-ca5278d502466f0b8e46c02f6c496d84bbfd5393bc4965d551ed83f6c4a4",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:56:29.499350Z",
+  "startedAt": "2026-09-30T06:56:29.737326Z",
+  "finishedAt": "2026-09-30T06:56:41.287569Z",
+  "availableAt": "2026-09-30T06:56:29.499350Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "da74e2e9-60e7-4c4d-8b5d-fa738ba7f9cf",
+      "operationKey": "f32a1338-39d9-4968-a0bc-651990244afd:embedding:6fc2a543-907e-42ec-81af-41c91e239003",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:56:29.752025Z",
+      "finishedAt": "2026-09-30T06:56:30.019679Z"
+    },
+    {
+      "callId": "f9bacdbc-5db1-4751-81a2-3402a0164c05",
+      "operationKey": "f32a1338-39d9-4968-a0bc-651990244afd:generation:3f916ff3-1a63-4443-9824-4dec3ae8143c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1695,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:56:30.025340Z",
+      "finishedAt": "2026-09-30T06:56:38.409231Z"
+    },
+    {
+      "callId": "9d675ba7-d7be-4ee0-ab3e-0397edde087a",
+      "operationKey": "6e44f95f-1b54-4f65-8e1e-f0e1c50ee9ee:embedding:c43b35f6-6ef5-4044-bb67-0fddbf079366",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:56:38.445356Z",
+      "finishedAt": "2026-09-30T06:56:39.028447Z"
+    },
+    {
+      "callId": "520dbd6e-509c-48d0-9bc5-9c014df7705c",
+      "operationKey": "6e44f95f-1b54-4f65-8e1e-f0e1c50ee9ee:generation:aaf28543-1913-45d2-860e-7a46947b06be",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:56:39.043312Z",
+      "finishedAt": "2026-09-30T06:56:41.266201Z"
+    }
+  ]
+}

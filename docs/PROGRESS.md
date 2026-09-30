@@ -248,3 +248,5 @@
 2026-09-30 Agent 策略工程验证：修复 lambda 捕获编译错误和外部调用预算前瞻后，AgentStrategyUnitTest、AgentStrategyIntegrationTest、AgentInputTest、AgentTaskIntegrationTest、ProviderFailuresTest 共56项通过，0失败/0跳过。首次编译失败与第二次完整日志均保留于 docs/results/quality-phase3/engineering/agent-strategy-*.txt。隔离 quality-mock 已重建并健康，正在进行策略界面E2E；quality-real 保持a0d501e冻结运行。真人评审仍为未完成，未改变默认策略。
 
 2026-09-30 策略UI专项和旧Agent关键回归2/2通过（33.6秒，无跳过），主线程查看组合策略截图，实验提示、预算、轨迹及MOCK标记清晰。验证记录：docs/results/quality-phase3/ui/agent-strategy-verification.json。独立真实探索环境quality-lab(API28093/UI25183/DB25444)已构建健康，尚未执行探索调用；当前未提交源码摘要与镜像保存在.tools/quality-agent-runtime.json，基线real环境未改变。
+
+2026-09-30 40/40真实配对采集完成，80任务审计保存，完整工程报告和80回答/96任务的未评分评审包准备完成。真实项目ID22befaa8-e4b3-48d8-aa69-3e014dc5733b，真人0/80，复核0/16。修复报告缺少pair时遗漏单臂结果/用量、未审计误记0、同名项目来源未核对、旧裁决覆盖新评分等脚本缺陷，20Node测试通过。Agent工程提交4cbd61b49b423fb51d4e16e6e59b5061a8452fd8；原始UI日志因*.log忽略未入前提交，现保留等字节txt副本并修正验证清单链接，随下一提交纳入。

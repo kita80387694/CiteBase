@@ -1,0 +1,113 @@
+{
+  "id": "8f5fdbec-1e65-4c38-a7a7-6a9b0b901b48",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "8f5fdbec-1e65-4c38-a7a7-6a9b0b901b48",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q021",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-018",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 这张图中的天体叫什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-20d42a9d7685fd40f0e182afbc84f71a55ae2d5a446753daefbab6175ddd",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:49:11.342914Z",
+  "startedAt": "2026-09-30T06:49:11.549398Z",
+  "finishedAt": "2026-09-30T06:49:20.096176Z",
+  "availableAt": "2026-09-30T06:49:11.342914Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "d433a9c5-6b60-447f-9f44-e141fbe3c8cd",
+      "operationKey": "e7b133d6-5985-44b2-8383-8f4cc68e9d6a:embedding:f7f530c6-ab24-498c-b095-b0351c593bed",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:49:11.561068Z",
+      "finishedAt": "2026-09-30T06:49:11.845719Z"
+    },
+    {
+      "callId": "3ae64863-b3af-46c7-9c95-63b69ef15e9b",
+      "operationKey": "e7b133d6-5985-44b2-8383-8f4cc68e9d6a:generation:de37dd5d-5956-4d80-8ab1-a1260df23d87",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1666,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:49:11.851167Z",
+      "finishedAt": "2026-09-30T06:49:18.019261Z"
+    },
+    {
+      "callId": "5b9a580e-a95a-48c0-a5db-e89e234e6252",
+      "operationKey": "917d5fed-2884-41a6-b331-90ff19542ff7:embedding:e4b81f11-d90b-4896-ad46-48866b144b3b",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:49:18.044631Z",
+      "finishedAt": "2026-09-30T06:49:18.353934Z"
+    },
+    {
+      "callId": "2a7629bb-df42-41f9-a3be-e828eb051f21",
+      "operationKey": "917d5fed-2884-41a6-b331-90ff19542ff7:generation:315d63bc-091a-495b-839d-7d377ac0bad7",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1682,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:49:18.367832Z",
+      "finishedAt": "2026-09-30T06:49:20.083417Z"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "b73d0ad1-626b-4d44-b514-233591c46908",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "b73d0ad1-626b-4d44-b514-233591c46908",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q038",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-003",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "缩写",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+              "groupId": "g1",
+              "endOffset": 97,
+              "paragraph": 2,
+              "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "startOffset": 53,
+              "documentName": "elm-a.md"
+            }
+          ],
+          "question": "Elm SNR代表什么，教学阈值是多少？",
+          "answerable": true,
+          "expectedAnswer": "信噪比；不少于12"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-08a7143cf3511a74dd70a0a289d6621ce4f51d600693df0b70050cd6d84a",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:57:03.334946Z",
+  "startedAt": "2026-09-30T06:57:03.826954Z",
+  "finishedAt": "2026-09-30T06:57:12.826210Z",
+  "availableAt": "2026-09-30T06:57:03.334946Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "92f469aa-1cf4-42e7-a238-e18d66da195c",
+      "operationKey": "63d93ec4-5a09-40bb-a3f4-a4e2ca67a3b1:embedding:2d969ca4-f9f9-4743-a34b-9ac26a20a987",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:57:03.844792Z",
+      "finishedAt": "2026-09-30T06:57:04.292603Z"
+    },
+    {
+      "callId": "6e6f552a-7c48-4e26-b487-b92926ca9b8c",
+      "operationKey": "63d93ec4-5a09-40bb-a3f4-a4e2ca67a3b1:generation:fe248691-43e9-499f-89a0-72c17ff52a3c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1688,
+        "completionTokens": 44
+      },
+      "startedAt": "2026-09-30T06:57:04.297956Z",
+      "finishedAt": "2026-09-30T06:57:08.820444Z"
+    },
+    {
+      "callId": "89355a16-4c4a-489b-b6a0-03896317a93e",
+      "operationKey": "62b1673c-a013-4de9-8498-3a4d96b1de37:embedding:0d21c884-015a-41aa-bba2-20765451718c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:57:08.843852Z",
+      "finishedAt": "2026-09-30T06:57:09.097292Z"
+    },
+    {
+      "callId": "e5cb1b17-7e81-475d-ab97-b80f6c7fcb9f",
+      "operationKey": "62b1673c-a013-4de9-8498-3a4d96b1de37:generation:2cd815c5-d994-4df6-bfcf-aab0db5a9157",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1684,
+        "completionTokens": 45
+      },
+      "startedAt": "2026-09-30T06:57:09.105852Z",
+      "finishedAt": "2026-09-30T06:57:12.811282Z"
+    }
+  ]
+}

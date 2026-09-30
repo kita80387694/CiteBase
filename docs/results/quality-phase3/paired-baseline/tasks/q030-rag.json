@@ -1,0 +1,124 @@
+{
+  "id": "017c974a-1395-419d-86f0-60a48eb69ebb",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "017c974a-1395-419d-86f0-60a48eb69ebb",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q030",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-009",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。",
+              "groupId": "g1",
+              "endOffset": 97,
+              "paragraph": 2,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 52,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 预约超过取件时刻几分钟失效？",
+          "answerable": true,
+          "expectedAnswer": "45分钟"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-21c489eb812b59266c3f58ac211036bdc642893b98d3b7ad288f2d34ab50",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:53:10.218561Z",
+  "startedAt": "2026-09-30T06:53:10.670039Z",
+  "finishedAt": "2026-09-30T06:53:32.106040Z",
+  "availableAt": "2026-09-30T06:53:10.218561Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c84e473f-bed7-4364-93cf-81ff4d58928c",
+      "operationKey": "12867b4e-07cc-40c6-9bc1-c27de500bcaf:embedding:b88d32ed-3c0a-4b86-93ff-a0ab42d5eeae",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:53:10.682962Z",
+      "finishedAt": "2026-09-30T06:53:10.949417Z"
+    },
+    {
+      "callId": "50911400-b330-4688-b881-844c94c75782",
+      "operationKey": "12867b4e-07cc-40c6-9bc1-c27de500bcaf:generation:0136da15-e7b6-4bd5-8875-5cf8dceff47d",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 47
+      },
+      "startedAt": "2026-09-30T06:53:10.954592Z",
+      "finishedAt": "2026-09-30T06:53:22.623985Z"
+    },
+    {
+      "callId": "322196b9-c48e-4524-984c-964d5c3b39b5",
+      "operationKey": "241288a9-262e-49ac-ad7d-05a5b43a2807:embedding:88f5c031-d8f3-4b3b-ad5d-da6a9166fa51",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:53:22.651416Z",
+      "finishedAt": "2026-09-30T06:53:22.913084Z"
+    },
+    {
+      "callId": "e804db6f-ced7-4ef0-a35d-e5bb5242f401",
+      "operationKey": "241288a9-262e-49ac-ad7d-05a5b43a2807:generation:37ade771-770b-4018-bdf4-ba4a9b6de8db",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1750,
+        "completionTokens": 47
+      },
+      "startedAt": "2026-09-30T06:53:22.925134Z",
+      "finishedAt": "2026-09-30T06:53:32.079548Z"
+    }
+  ]
+}

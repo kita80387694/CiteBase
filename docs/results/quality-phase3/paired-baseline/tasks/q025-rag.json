@@ -1,0 +1,124 @@
+{
+  "id": "52390b6d-2f5c-4e68-8251-f6da24f7c417",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "52390b6d-2f5c-4e68-8251-f6da24f7c417",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q025",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-016",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。",
+              "groupId": "g1",
+              "endOffset": 253,
+              "paragraph": 5,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 211,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 修改约定日期需要留下哪些审计信息？",
+          "answerable": true,
+          "expectedAnswer": "原时间、新时间、操作者、原因"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-df55c2702f67c05ce3c323d51dca1dfad7993f0d132636d6bd6b87b265aa",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:50:56.180236Z",
+  "startedAt": "2026-09-30T06:50:56.325823Z",
+  "finishedAt": "2026-09-30T06:51:02.809777Z",
+  "availableAt": "2026-09-30T06:50:56.180236Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "71e91fbd-227c-48d4-a7e0-e19d996aaf2c",
+      "operationKey": "7fe915c2-ae09-4d0c-8f0c-bf9aa668d617:embedding:02942ed9-b02d-4589-a5b6-e76b4a66ad28",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-09-30T06:50:56.340320Z",
+      "finishedAt": "2026-09-30T06:50:56.670715Z"
+    },
+    {
+      "callId": "4fa3e4d1-84c2-4690-9d0c-d89c347a715f",
+      "operationKey": "7fe915c2-ae09-4d0c-8f0c-bf9aa668d617:generation:e19298d5-1a42-4739-807e-cf7c81ddd2b7",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1689,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:56.675559Z",
+      "finishedAt": "2026-09-30T06:50:59.180292Z"
+    },
+    {
+      "callId": "ef4800cd-9f58-40da-8473-90293009b962",
+      "operationKey": "764cd390-c8af-4957-8623-b8bd80164192:embedding:e3d63e48-dfe8-42fe-a84b-e7ae1d07459c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-09-30T06:50:59.204670Z",
+      "finishedAt": "2026-09-30T06:50:59.527730Z"
+    },
+    {
+      "callId": "fe557b02-0ff9-46b1-a230-410f280f5e94",
+      "operationKey": "764cd390-c8af-4957-8623-b8bd80164192:generation:9b63410e-d303-4bf6-add1-73519e034c9c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1730,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:59.538653Z",
+      "finishedAt": "2026-09-30T06:51:02.790314Z"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "bbbb04a2-440d-44bc-850d-ebaa8f0d351b",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "bbbb04a2-440d-44bc-850d-ebaa8f0d351b",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q007",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-008",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "歧义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。",
+              "groupId": "g1",
+              "endOffset": 135,
+              "paragraph": 3,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 91,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 第二天又有同样症状，是不是已确认原零件再次损坏？",
+          "answerable": true,
+          "expectedAnswer": "不是；先复现并核对测试"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-0589cf4e03ff6b5f9c061d441212909ae89f99c783896fe956ef009e0602",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:39:16.813632Z",
+  "startedAt": "2026-09-30T06:39:17.157516Z",
+  "finishedAt": "2026-09-30T06:39:22.056407Z",
+  "availableAt": "2026-09-30T06:39:16.813632Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "cfec8c54-98ec-444e-8a9e-5d6f4a2d1b83",
+      "operationKey": "203e4aad-9907-4872-8374-4efc19af9481:embedding:bd04fe2d-1897-4584-928d-66e61b58b7ab",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:39:17.172355Z",
+      "finishedAt": "2026-09-30T06:39:17.438860Z"
+    },
+    {
+      "callId": "add1d62e-fde0-4f76-8434-e465933df14a",
+      "operationKey": "203e4aad-9907-4872-8374-4efc19af9481:generation:858a6846-fac0-438f-83c5-ee9b241cd772",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1746,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:39:17.445242Z",
+      "finishedAt": "2026-09-30T06:39:19.417789Z"
+    },
+    {
+      "callId": "587c9878-f028-4cb9-aa74-50eab9d7a17d",
+      "operationKey": "b41da8f0-0140-4d93-b856-551d578a893d:embedding:e52269af-fff5-4a93-8224-8e727291643a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:39:19.436149Z",
+      "finishedAt": "2026-09-30T06:39:19.942821Z"
+    },
+    {
+      "callId": "9df41386-a4f3-4200-b588-1b5e6be33069",
+      "operationKey": "b41da8f0-0140-4d93-b856-551d578a893d:generation:345a5c24-0785-4455-8a31-c32bbc07d3d9",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1747,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:39:19.951930Z",
+      "finishedAt": "2026-09-30T06:39:22.042919Z"
+    }
+  ]
+}

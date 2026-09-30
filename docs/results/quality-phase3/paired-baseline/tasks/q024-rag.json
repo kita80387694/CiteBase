@@ -1,0 +1,113 @@
+{
+  "id": "00e475aa-0e83-40b8-a5df-d200f637afaa",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "00e475aa-0e83-40b8-a5df-d200f637afaa",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q024",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-019",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 望远镜的购买价格是多少？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-2ef7028beb97d97474c1d76040760b82bc70afb74290ec8d23337d20617f",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:50:36.066782Z",
+  "startedAt": "2026-09-30T06:50:36.276866Z",
+  "finishedAt": "2026-09-30T06:50:45.061510Z",
+  "availableAt": "2026-09-30T06:50:36.066782Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "0f42a288-3203-4cc3-8342-6bd35006b023",
+      "operationKey": "6bdf6455-9d2c-4cbc-ad6a-7a783e4b9b60:embedding:b713bfa7-d879-409b-a3ff-21169ae42078",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-09-30T06:50:36.289357Z",
+      "finishedAt": "2026-09-30T06:50:36.679806Z"
+    },
+    {
+      "callId": "34d0caeb-dec1-48f3-8802-f93e3036bb7e",
+      "operationKey": "6bdf6455-9d2c-4cbc-ad6a-7a783e4b9b60:generation:c8db61c6-6c5f-450d-b6b1-bd4e30d41362",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1697,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:36.684151Z",
+      "finishedAt": "2026-09-30T06:50:40.311343Z"
+    },
+    {
+      "callId": "4728d47e-f49a-49cb-9e3e-02457dfceaba",
+      "operationKey": "d7561bdb-7043-4332-b6a0-89b9668faa1e:embedding:c90f1b92-8f71-45c4-8177-73cf4d3ed301",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-09-30T06:50:40.328966Z",
+      "finishedAt": "2026-09-30T06:50:40.606548Z"
+    },
+    {
+      "callId": "6491a2d2-5e1a-478b-8654-2aeb08008967",
+      "operationKey": "d7561bdb-7043-4332-b6a0-89b9668faa1e:generation:31e67967-a03f-46e6-8c43-3091c744f862",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1694,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:40.613163Z",
+      "finishedAt": "2026-09-30T06:50:45.049978Z"
+    }
+  ]
+}

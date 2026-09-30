@@ -1,0 +1,124 @@
+{
+  "id": "6e935bac-dcd5-4b08-bf78-5ce1f5deefc8",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "6e935bac-dcd5-4b08-bf78-5ce1f5deefc8",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q015",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-016",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。",
+              "groupId": "g1",
+              "endOffset": 41,
+              "paragraph": 1,
+              "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            }
+          ],
+          "question": "Cobalt 检查材料和最后发布可以由同一个账号完成吗？",
+          "answerable": true,
+          "expectedAnswer": "不可以"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-6f0600acfabdfd8e9e8c6776819ce78ba3076df53f21e6655541c19c9a6f",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:43:58.521864Z",
+  "startedAt": "2026-09-30T06:43:58.826631Z",
+  "finishedAt": "2026-09-30T06:44:34.568713Z",
+  "availableAt": "2026-09-30T06:43:58.521864Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "6d0725e2-701f-4026-b8bf-f2d5dcf191fd",
+      "operationKey": "af24b170-f923-4961-9b77-bc980e606dbf:embedding:30c59f26-8784-4b7a-9c65-b020a0b1f375",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:43:58.839675Z",
+      "finishedAt": "2026-09-30T06:43:59.114130Z"
+    },
+    {
+      "callId": "ac74975e-01f2-4a74-ae58-c314f505e3d0",
+      "operationKey": "af24b170-f923-4961-9b77-bc980e606dbf:generation:62de5712-9af6-4e05-979a-29babfbccbf0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 51
+      },
+      "startedAt": "2026-09-30T06:43:59.119531Z",
+      "finishedAt": "2026-09-30T06:44:03.995746Z"
+    },
+    {
+      "callId": "889fc1bb-434a-4b94-bc6e-673325670f7c",
+      "operationKey": "95c0c81c-7713-4134-907b-b42e72fdd3ec:embedding:33a0cfe3-1982-435f-a959-c10c5c5e0255",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:44:04.012149Z",
+      "finishedAt": "2026-09-30T06:44:04.324975Z"
+    },
+    {
+      "callId": "db5ebe76-5491-4449-bbb3-1f951acadf14",
+      "operationKey": "95c0c81c-7713-4134-907b-b42e72fdd3ec:generation:c6c92d99-08c7-4d97-b1a9-b794845405ac",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1667,
+        "completionTokens": 51
+      },
+      "startedAt": "2026-09-30T06:44:04.332661Z",
+      "finishedAt": "2026-09-30T06:44:34.554801Z"
+    }
+  ]
+}

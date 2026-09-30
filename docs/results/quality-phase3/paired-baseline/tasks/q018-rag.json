@@ -1,0 +1,124 @@
+{
+  "id": "02d4bc82-1dea-4e19-826b-fbc511f435ac",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "02d4bc82-1dea-4e19-826b-fbc511f435ac",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q018",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-013",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Cobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |",
+              "groupId": "g1",
+              "endOffset": 219,
+              "paragraph": 4,
+              "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "startOffset": 135,
+              "documentName": "cobalt-b.md"
+            }
+          ],
+          "question": "Cobalt 哈希不符合时应重排页序还是隔离？",
+          "answerable": true,
+          "expectedAnswer": "隔离待核验"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-5a6319a35bc19b8b4df47737c3c84a3ada578791651737a52f8f2169e7bc",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:46:43.432916Z",
+  "startedAt": "2026-09-30T06:46:43.709828Z",
+  "finishedAt": "2026-09-30T06:46:53.954221Z",
+  "availableAt": "2026-09-30T06:46:43.432916Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "9ed82ae8-8376-4194-bf1a-58adb7e91f94",
+      "operationKey": "b0f3b70a-6e09-45ae-a15d-64a440dac436:embedding:46d138f1-4e45-4771-8fda-cb542e99e004",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:46:43.722676Z",
+      "finishedAt": "2026-09-30T06:46:44.030403Z"
+    },
+    {
+      "callId": "6bc63164-e6f5-4abd-a259-5c5409826519",
+      "operationKey": "b0f3b70a-6e09-45ae-a15d-64a440dac436:generation:4c02cf4c-05b7-49d0-9377-2ba8c6d9fd0c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1664,
+        "completionTokens": 68
+      },
+      "startedAt": "2026-09-30T06:46:44.035573Z",
+      "finishedAt": "2026-09-30T06:46:49.531075Z"
+    },
+    {
+      "callId": "5e9cd525-e1dd-44a4-b521-75415f6b0b79",
+      "operationKey": "a5a110c0-4319-429d-a19f-1fcc3ea291bf:embedding:7b769954-e8c2-424e-86d9-fe714d1cb1a4",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:46:49.547344Z",
+      "finishedAt": "2026-09-30T06:46:49.933856Z"
+    },
+    {
+      "callId": "43b9c012-954a-4f6f-ba5f-202131bf8d5a",
+      "operationKey": "a5a110c0-4319-429d-a19f-1fcc3ea291bf:generation:bfe74106-6265-4f4b-988a-143ee01260ce",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 56
+      },
+      "startedAt": "2026-09-30T06:46:49.940259Z",
+      "finishedAt": "2026-09-30T06:46:53.935940Z"
+    }
+  ]
+}

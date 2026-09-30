@@ -1,0 +1,113 @@
+{
+  "id": "beb1e15d-2c04-49a8-920c-a2ee32fe25f6",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "beb1e15d-2c04-49a8-920c-a2ee32fe25f6",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q002",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-018",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Brass 使用哪个品牌的键垫最好？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-bfb1f1056ec8affa0dd2c9253a527ee15aaf5110327fa8081542dde1636d",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:37:28.560342Z",
+  "startedAt": "2026-09-30T06:37:28.870133Z",
+  "finishedAt": "2026-09-30T06:37:36.283467Z",
+  "availableAt": "2026-09-30T06:37:28.560342Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "6df6228f-6f52-4a55-9728-256b40ffe74b",
+      "operationKey": "3aade4d6-3a42-4bc7-a7e9-56adbedc3222:embedding:1ea95afa-2619-45c0-96de-9d6f5ab9bc76",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 11,
+        "promptTokens": 11
+      },
+      "startedAt": "2026-09-30T06:37:28.886077Z",
+      "finishedAt": "2026-09-30T06:37:29.943239Z"
+    },
+    {
+      "callId": "491dd4f8-4723-470c-93b3-bb60d2e889bf",
+      "operationKey": "3aade4d6-3a42-4bc7-a7e9-56adbedc3222:generation:7ae8b2f8-83fe-4fc3-8a15-24658ad3c780",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1740,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:37:29.949318Z",
+      "finishedAt": "2026-09-30T06:37:31.986207Z"
+    },
+    {
+      "callId": "76b702a4-fc1a-4dfe-83ea-cb7796b8c59c",
+      "operationKey": "c66c776f-a17f-434f-ba74-f9cf966c2b94:embedding:53984c60-2d22-42a5-ad1d-d1b310317a9a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 11,
+        "promptTokens": 11
+      },
+      "startedAt": "2026-09-30T06:37:32.004040Z",
+      "finishedAt": "2026-09-30T06:37:32.277145Z"
+    },
+    {
+      "callId": "0a5c5da8-1c0f-41f9-bcea-2f4c9c56af55",
+      "operationKey": "c66c776f-a17f-434f-ba74-f9cf966c2b94:generation:e246b61f-d50f-42cd-939e-afcf5b7adcfa",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1736,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:37:32.284363Z",
+      "finishedAt": "2026-09-30T06:37:36.231Z"
+    }
+  ]
+}

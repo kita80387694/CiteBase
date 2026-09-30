@@ -1,0 +1,134 @@
+{
+  "id": "aa7c1585-37bf-414c-b078-e9ec6793b843",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "aa7c1585-37bf-414c-b078-e9ec6793b843",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q036",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-012",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+              "groupId": "g1",
+              "endOffset": 97,
+              "paragraph": 2,
+              "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "startOffset": 53,
+              "documentName": "elm-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "groupId": "g2",
+              "endOffset": 259,
+              "paragraph": 6,
+              "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "startOffset": 217,
+              "documentName": "elm-b.md"
+            }
+          ],
+          "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+          "answerable": true,
+          "expectedAnswer": "不可以"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-65b020df8b7b6a25d2a569f8a8b065b8b7ce6b4f1305a3b0b7906de594ea",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:56:13.761342Z",
+  "startedAt": "2026-09-30T06:56:14.187831Z",
+  "finishedAt": "2026-09-30T06:56:20.373488Z",
+  "availableAt": "2026-09-30T06:56:13.761342Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c1f87bcd-4296-4488-b0d9-1bc4548352a6",
+      "operationKey": "46adde2a-35f6-4c4b-b028-7c08afbfefb2:embedding:a97a70b1-b7e5-48fe-a288-4b2f93cd6024",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-09-30T06:56:14.200976Z",
+      "finishedAt": "2026-09-30T06:56:14.462198Z"
+    },
+    {
+      "callId": "87f2ab1a-fd05-45f5-8121-85ba4e3e21b4",
+      "operationKey": "46adde2a-35f6-4c4b-b028-7c08afbfefb2:generation:26d852bb-7ab9-48f5-852a-25b4f8676301",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1695,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:56:14.469234Z",
+      "finishedAt": "2026-09-30T06:56:16.669025Z"
+    },
+    {
+      "callId": "698a20e7-f0e8-4209-82e2-253532a20a44",
+      "operationKey": "8f16d4c7-3d8d-4261-a6c9-6c885c5953a0:embedding:5ebda09c-7da0-4bae-99ff-aefcc2f23262",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-09-30T06:56:16.689026Z",
+      "finishedAt": "2026-09-30T06:56:16.941921Z"
+    },
+    {
+      "callId": "ec64469a-8bed-4552-b2b2-9c92b86e91e1",
+      "operationKey": "8f16d4c7-3d8d-4261-a6c9-6c885c5953a0:generation:7a5ac33a-3f74-45c6-9211-37567419e316",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1700,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:56:16.953782Z",
+      "finishedAt": "2026-09-30T06:56:20.349708Z"
+    }
+  ]
+}

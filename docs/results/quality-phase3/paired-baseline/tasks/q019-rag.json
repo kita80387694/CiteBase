@@ -1,0 +1,124 @@
+{
+  "id": "8d7c1407-3ba8-4e9b-9f6c-27fc56c2f0a5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "8d7c1407-3ba8-4e9b-9f6c-27fc56c2f0a5",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q019",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-009",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Cobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。",
+              "groupId": "g1",
+              "endOffset": 274,
+              "paragraph": 5,
+              "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "startOffset": 221,
+              "documentName": "cobalt-b.md"
+            }
+          ],
+          "question": "Cobalt 正式发行标记是哪一个？",
+          "answerable": true,
+          "expectedAnswer": "ISSUED"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-c0ea87d41a8ff11336ad09a8f019d1d6f96ead39c6f248d94d1c4c53ec5d",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:47:47.357048Z",
+  "startedAt": "2026-09-30T06:47:47.851607Z",
+  "finishedAt": "2026-09-30T06:48:09.927195Z",
+  "availableAt": "2026-09-30T06:47:47.357048Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c4300e6d-cd23-4840-8838-7feac357b46c",
+      "operationKey": "1168254e-eb66-4831-b9df-fec7158da117:embedding:4eff263c-3ae1-4aa0-85d0-9dcb614bfcea",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:47:47.865303Z",
+      "finishedAt": "2026-09-30T06:47:48.149722Z"
+    },
+    {
+      "callId": "bd28bc4b-3c52-41a9-a87a-9f92904e5079",
+      "operationKey": "1168254e-eb66-4831-b9df-fec7158da117:generation:9731bfbe-4d77-4838-9fda-8cc24b25e203",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1714,
+        "completionTokens": 63
+      },
+      "startedAt": "2026-09-30T06:47:48.155844Z",
+      "finishedAt": "2026-09-30T06:47:55.562311Z"
+    },
+    {
+      "callId": "cab5ab6f-7e1f-4323-aa47-0bf2c9ef2211",
+      "operationKey": "52e8ae43-7257-4d4f-bffb-8e26c6a1da46:embedding:3a19032f-a3ca-4d81-95d3-274d0a91e055",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:47:55.581924Z",
+      "finishedAt": "2026-09-30T06:47:55.859578Z"
+    },
+    {
+      "callId": "da83468c-98d5-4784-88b2-1957e2e91eb7",
+      "operationKey": "52e8ae43-7257-4d4f-bffb-8e26c6a1da46:generation:21dfef99-689a-48c2-b746-17df0b63a990",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1679,
+        "completionTokens": 36
+      },
+      "startedAt": "2026-09-30T06:47:55.869168Z",
+      "finishedAt": "2026-09-30T06:48:09.903296Z"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "4afc09cd-f326-4e1e-b518-5fef453ea95c",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "4afc09cd-f326-4e1e-b518-5fef453ea95c",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q033",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-010",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "近事实干扰",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+              "groupId": "g1",
+              "endOffset": 287,
+              "paragraph": 6,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 255,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 活动日能借5件，平常也照办吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，常设站3件"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-bb01f20d56bb65539803b6a3d1e66a7a1337df0b59c318cc1ff30eb32f7c",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:54:39.794008Z",
+  "startedAt": "2026-09-30T06:54:39.937213Z",
+  "finishedAt": "2026-09-30T06:54:52.694075Z",
+  "availableAt": "2026-09-30T06:54:39.794008Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "7ba5d310-903e-4bc5-824a-9ad4ff514644",
+      "operationKey": "93e03f37-4fe8-48ef-8f84-2a5e43d8a97b:embedding:626d9dab-a094-4200-9d6c-e9c0ee2d9a8f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:54:39.950073Z",
+      "finishedAt": "2026-09-30T06:54:40.225710Z"
+    },
+    {
+      "callId": "b6525505-b275-4850-a66c-13648a7986b0",
+      "operationKey": "93e03f37-4fe8-48ef-8f84-2a5e43d8a97b:generation:1ac623c2-735c-40e5-b24a-e957816e7bf2",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1701,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:54:40.234530Z",
+      "finishedAt": "2026-09-30T06:54:41.864557Z"
+    },
+    {
+      "callId": "53e65e8a-c33c-416c-be36-eb18acb0c45a",
+      "operationKey": "bd3f507f-ab20-424d-9289-9aae9ddc00bc:embedding:13e15676-e27d-4cd9-a3e3-6a1455eafbac",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:54:41.891095Z",
+      "finishedAt": "2026-09-30T06:54:42.153835Z"
+    },
+    {
+      "callId": "c9d74a01-0460-4792-b218-e2b4a6cd573c",
+      "operationKey": "bd3f507f-ab20-424d-9289-9aae9ddc00bc:generation:e4d5bd0a-b812-47b2-931f-c307ba6c13de",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1697,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:54:42.165760Z",
+      "finishedAt": "2026-09-30T06:54:52.673508Z"
+    }
+  ]
+}

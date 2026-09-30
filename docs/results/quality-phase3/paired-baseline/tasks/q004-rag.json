@@ -1,0 +1,113 @@
+{
+  "id": "bb65ae73-9110-4933-83b3-0492e734e758",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "bb65ae73-9110-4933-83b3-0492e734e758",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q004",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-020",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Brass 修好后乐器音色会提高多少分？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-8cd4895a29e32d1b76aaae32d8e6ebd172af4397eef9f7eeeb264ae433a3",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:37:58.197278Z",
+  "startedAt": "2026-09-30T06:37:58.457206Z",
+  "finishedAt": "2026-09-30T06:38:04.006682Z",
+  "availableAt": "2026-09-30T06:37:58.197278Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "727617fe-13ff-427b-b426-09abfeef6a6e",
+      "operationKey": "80cb0c3e-8e40-428d-af38-ce43e120f9a1:embedding:587fbfbe-0f1a-415f-8bec-b4e3814ce94c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:37:58.472638Z",
+      "finishedAt": "2026-09-30T06:37:58.729280Z"
+    },
+    {
+      "callId": "f373cbc4-1316-4521-b3cb-d33fd3761c2c",
+      "operationKey": "80cb0c3e-8e40-428d-af38-ce43e120f9a1:generation:8488c094-2ae7-424e-bbd5-24ae89349329",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1750,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:37:58.733853Z",
+      "finishedAt": "2026-09-30T06:38:01.191611Z"
+    },
+    {
+      "callId": "6737b126-cc75-45ec-8885-fa15cc7f7e6c",
+      "operationKey": "bf0c4a7f-586e-40e4-983c-c1e9b6b8ffb9:embedding:1a485381-29c5-45d6-9ab5-ade4e782bc74",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:38:01.212400Z",
+      "finishedAt": "2026-09-30T06:38:01.509709Z"
+    },
+    {
+      "callId": "232908fe-76f5-43e5-94a2-6369d3268272",
+      "operationKey": "bf0c4a7f-586e-40e4-983c-c1e9b6b8ffb9:generation:1583a538-cb9e-4176-89d9-2c13f5421ef6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1746,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:38:01.519409Z",
+      "finishedAt": "2026-09-30T06:38:03.990380Z"
+    }
+  ]
+}

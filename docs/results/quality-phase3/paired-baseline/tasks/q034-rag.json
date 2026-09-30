@@ -1,0 +1,124 @@
+{
+  "id": "fe4df7a6-fc28-43a6-b3f5-bc791aa70e9e",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "fe4df7a6-fc28-43a6-b3f5-bc791aa70e9e",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q034",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-001",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "事实",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。",
+              "groupId": "g1",
+              "endOffset": 51,
+              "paragraph": 1,
+              "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "startOffset": 0,
+              "documentName": "elm-a.md"
+            }
+          ],
+          "question": "Elm 最长申请含校准共多少分钟？",
+          "answerable": true,
+          "expectedAnswer": "90分钟"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-3450d4171fcb11acfd0fc25666a804ea418e9c0b2b4f445d76b9f5c27c2d",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:55:18.146222Z",
+  "startedAt": "2026-09-30T06:55:18.536469Z",
+  "finishedAt": "2026-09-30T06:55:34.602010Z",
+  "availableAt": "2026-09-30T06:55:18.146222Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "3c45a090-2a91-4d75-ba6e-237b13e92074",
+      "operationKey": "edfc6a45-8a47-4a88-bf11-1d005ac1dfc7:embedding:90cc711b-67bf-431b-afdc-b17a2802c732",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:55:18.550837Z",
+      "finishedAt": "2026-09-30T06:55:18.827748Z"
+    },
+    {
+      "callId": "265b7565-03df-4ecc-9693-63406a5d47e1",
+      "operationKey": "edfc6a45-8a47-4a88-bf11-1d005ac1dfc7:generation:96a4302d-1c7d-4185-9f05-a5e706b49e54",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 64
+      },
+      "startedAt": "2026-09-30T06:55:18.833430Z",
+      "finishedAt": "2026-09-30T06:55:25.786369Z"
+    },
+    {
+      "callId": "a079e9f6-2ba8-42a7-913e-5864413b360c",
+      "operationKey": "8920c1e7-8ca8-494a-b6f1-5b24ab0071b1:embedding:188e3af7-ee50-4449-b715-98f61e5f713a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:55:25.805439Z",
+      "finishedAt": "2026-09-30T06:55:26.088175Z"
+    },
+    {
+      "callId": "8a69b97c-9371-478d-ab2c-c22b1c35beed",
+      "operationKey": "8920c1e7-8ca8-494a-b6f1-5b24ab0071b1:generation:aa73a46a-7b75-4b22-adeb-dd385361f311",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1717,
+        "completionTokens": 60
+      },
+      "startedAt": "2026-09-30T06:55:26.095606Z",
+      "finishedAt": "2026-09-30T06:55:34.577349Z"
+    }
+  ]
+}

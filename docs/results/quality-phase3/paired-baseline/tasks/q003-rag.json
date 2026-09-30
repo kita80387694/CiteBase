@@ -1,0 +1,113 @@
+{
+  "id": "9f534443-78de-4acf-a3a2-5cb5544d52e1",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9f534443-78de-4acf-a3a2-5cb5544d52e1",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q003",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-020",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Cobalt 扫描仪具体采购价格是多少？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-bcbd53958e570c9c789ee06b6b5aeacace0be5a04c51ae6c05ea6bcbfc10",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:37:45.613745Z",
+  "startedAt": "2026-09-30T06:37:45.918453Z",
+  "finishedAt": "2026-09-30T06:37:50.461167Z",
+  "availableAt": "2026-09-30T06:37:45.613745Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "328cbb71-d15e-495a-a992-414e637e3a78",
+      "operationKey": "87154e50-9e4a-4820-b3c2-b1e9fa8a226e:embedding:7cdcb356-1697-4b5b-849c-d15b5cdb3dee",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:37:45.933683Z",
+      "finishedAt": "2026-09-30T06:37:46.203282Z"
+    },
+    {
+      "callId": "54233163-4136-4f3e-ad2d-11dc205aa7d3",
+      "operationKey": "87154e50-9e4a-4820-b3c2-b1e9fa8a226e:generation:00857ffe-7a98-4e60-9760-d1ef311dd130",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1716,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:37:46.207759Z",
+      "finishedAt": "2026-09-30T06:37:48.317449Z"
+    },
+    {
+      "callId": "ecadc70c-34c1-40e1-bc2c-b4c65e3093b1",
+      "operationKey": "a026f144-2fa5-4072-a19e-2473c4e3b062:embedding:7b3456ca-08d0-4b05-be00-35704639af0b",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:37:48.337007Z",
+      "finishedAt": "2026-09-30T06:37:48.619563Z"
+    },
+    {
+      "callId": "80d86bf7-06a7-4eed-a65a-bfe0731d816b",
+      "operationKey": "a026f144-2fa5-4072-a19e-2473c4e3b062:generation:176627db-6f3b-4da5-8fae-011a0e1f2f1b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1712,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:37:48.626684Z",
+      "finishedAt": "2026-09-30T06:37:50.378959Z"
+    }
+  ]
+}

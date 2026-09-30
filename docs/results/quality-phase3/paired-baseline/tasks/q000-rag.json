@@ -1,0 +1,124 @@
+{
+  "id": "fdfbb410-190f-44f6-a594-f2bf49e4a256",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "fdfbb410-190f-44f6-a594-f2bf49e4a256",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q000",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-012",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "事实",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+              "groupId": "g1",
+              "endOffset": 331,
+              "paragraph": 6,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 282,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 客户明确要领回旧件时怎么处理？",
+          "answerable": true,
+          "expectedAnswer": "随乐器返还"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-42a00b7d8631e03504481635082366f866b5a86d0842d30dd84ae74f690a",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:33:25.224284Z",
+  "startedAt": "2026-09-30T06:33:25.729578Z",
+  "finishedAt": "2026-09-30T06:33:38.331645Z",
+  "availableAt": "2026-09-30T06:33:25.224284Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "6bead526-2bd7-4d99-aa71-c998ee010c65",
+      "operationKey": "5c4f78e9-a643-4cd7-a2f9-14d208f70097:embedding:7e065998-5073-4f8f-bb9e-6e6b3ec5f8ce",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:33:25.756115Z",
+      "finishedAt": "2026-09-30T06:33:26.207910Z"
+    },
+    {
+      "callId": "e11e4acf-5b64-4078-b231-33f1cc025ebd",
+      "operationKey": "5c4f78e9-a643-4cd7-a2f9-14d208f70097:generation:121e58a4-d7fd-45ed-beac-23eae425b0a7",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1744,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-09-30T06:33:26.218291Z",
+      "finishedAt": "2026-09-30T06:33:30.130945Z"
+    },
+    {
+      "callId": "c2f926b9-a8b5-4a19-bd3c-287cf767dfb3",
+      "operationKey": "db260510-adbc-42aa-99c2-a5b5a2cb1512:embedding:3d6c80cd-6ec6-480f-9588-3a44c104c5be",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:33:30.173379Z",
+      "finishedAt": "2026-09-30T06:33:30.516693Z"
+    },
+    {
+      "callId": "c4d7d304-2b64-4335-87bd-51b8091d4c9b",
+      "operationKey": "db260510-adbc-42aa-99c2-a5b5a2cb1512:generation:c9a0b760-8a64-4d51-aeab-6d6d1f7ab3d8",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1695,
+        "completionTokens": 83
+      },
+      "startedAt": "2026-09-30T06:33:30.529483Z",
+      "finishedAt": "2026-09-30T06:33:38.309433Z"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+TAP version 13
+# Subtest: frozen 120 questions, 12 original sources, 24 unanswerable, whole-theme 40/40/40
+ok 1 - frozen 120 questions, 12 original sources, 24 unanswerable, whole-theme 40/40/40
+  ---
+  duration_ms: 63.5498
+  ...
+# Subtest: committed datasets match deterministic generator and frozen hashes
+ok 2 - committed datasets match deterministic generator and frozen hashes
+  ---
+  duration_ms: 11.2556
+  ...
+# Subtest: must reject duplicate ids, missing evidence, corrupt range/hash and cross-topic label
+ok 3 - must reject duplicate ids, missing evidence, corrupt range/hash and cross-topic label
+  ---
+  duration_ms: 3.7414
+  ...
+# Subtest: alternative evidence is one required group; multi-hop evidence has multiple groups
+ok 4 - alternative evidence is one required group; multi-hop evidence has multiple groups
+  ---
+  duration_ms: 1.0954
+  ...
+# Subtest: UTF-16 offset contract preserves astral characters
+ok 5 - UTF-16 offset contract preserves astral characters
+  ---
+  duration_ms: 0.3307
+  ...
+# Subtest: cross-split near-duplicate screen ignores names and digits, reports similar questions
+ok 6 - cross-split near-duplicate screen ignores names and digits, reports similar questions
+  ---
+  duration_ms: 48.3092
+  ...
+# Subtest: all expected answer points are explicit and unanswerable keys stay null
+ok 7 - all expected answer points are explicit and unanswerable keys stay null
+  ---
+  duration_ms: 1.6233
+  ...
+# Subtest: uncertain creation replays same idempotency key and never duplicates execution
+ok 8 - uncertain creation replays same idempotency key and never duplicates execution
+  ---
+  duration_ms: 24.9886
+  ...
+# Subtest: uncertain execute reconciles GET and does not POST execute again
+ok 9 - uncertain execute reconciles GET and does not POST execute again
+  ---
+  duration_ms: 12.9287
+  ...
+# Subtest: terminal failure kept raw and never silently retried
+ok 10 - terminal failure kept raw and never silently retried
+  ---
+  duration_ms: 14.9258
+  ...
+# Subtest: snapshot drift stops before model work
+ok 11 - snapshot drift stops before model work
+  ---
+  duration_ms: 8.674
+  ...
+# Subtest: changed request cannot reuse journal
+ok 12 - changed request cannot reuse journal
+  ---
+  duration_ms: 13.6307
+  ...
+# Subtest: top five vs accumulated metrics remain distinct
+ok 13 - top five vs accumulated metrics remain distinct
+  ---
+  duration_ms: 0.9998
+  ...
+# Subtest: actual independent planner and generation public configuration drift rejected
+ok 14 - actual independent planner and generation public configuration drift rejected
+  ---
+  duration_ms: 2.1396
+  ...
+# Subtest: async queued execute polls same task and never submits again
+ok 15 - async queued execute polls same task and never submits again
+  ---
+  duration_ms: 19.8604
+  ...
+# Subtest: optional strategy defaults to original and rejects request/config/result drift
+ok 16 - optional strategy defaults to original and rejects request/config/result drift
+  ---
+  duration_ms: 1.2205
+  ...
+# Subtest: selection is fixed4per split with1refusal and excludes independenttest
+ok 17 - selection is fixed4per split with1refusal and excludes independenttest
+  ---
+  duration_ms: 20.188
+  ...
+# Subtest: selection does not depend on answer output or score
+ok 18 - selection does not depend on answer output or score
+  ---
+  duration_ms: 3.2577
+  ...
+# Subtest: test case inserted into source cohort is rejected
+ok 19 - test case inserted into source cohort is rejected
+  ---
+  duration_ms: 1.6677
+  ...
+# Subtest: registration locks dataset image models budget and32run ablation order
+ok 20 - registration locks dataset image models budget and32run ablation order
+  ---
+  duration_ms: 2.4191
+  ...
+# Subtest: registration rejects changed data mock and mismatched image
+ok 21 - registration rejects changed data mock and mismatched image
+  ---
+  duration_ms: 1.7682
+  ...
+# Subtest: deployment guard rejects image drift remote URL and unrelated port
+ok 22 - deployment guard rejects image drift remote URL and unrelated port
+  ---
+  duration_ms: 0.5543
+  ...
+# Subtest: latency nearest-rank percentile and missing observations disclosed
+ok 23 - latency nearest-rank percentile and missing observations disclosed
+  ---
+  duration_ms: 2.0797
+  ...
+# Subtest: failures stay in denominator while human correctness is null
+ok 24 - failures stay in denominator while human correctness is null
+  ---
+  duration_ms: 0.555
+  ...
+# Subtest: unknown usage is never zero or calculated total
+ok 25 - unknown usage is never zero or calculated total
+  ---
+  duration_ms: 0.6096
+  ...
+# Subtest: paid completed RAG without Agent/pair is retained, coverage incomplete and unaudited calls unknown
+ok 26 - paid completed RAG without Agent/pair is retained, coverage incomplete and unaudited calls unknown
+  ---
+  duration_ms: 12.4379
+  ...
+# Subtest: saved Agent failure counts without pair, never upgrades to completed pair
+ok 27 - saved Agent failure counts without pair, never upgrades to completed pair
+  ---
+  duration_ms: 8.862
+  ...
+# Subtest: full pair with failure completes collection; 2 task audits required before total unknown-call count
+ok 28 - full pair with failure completes collection; 2 task audits required before total unknown-call count
+  ---
+  duration_ms: 18.8389
+  ...
+# Subtest: pair identity mismatch and absent referenced raw cannot silently count complete
+ok 29 - pair identity mismatch and absent referenced raw cannot silently count complete
+  ---
+  duration_ms: 12.5075
+  ...
+# Subtest: nonfinite or negative usage counts remain unavailable
+ok 30 - nonfinite or negative usage counts remain unavailable
+  ---
+  duration_ms: 0.2409
+  ...
+# Subtest: 80 exact real source answers and 96 assignments with 16 distinct-account double reviews accepted
+ok 31 - 80 exact real source answers and 96 assignments with 16 distinct-account double reviews accepted
+  ---
+  duration_ms: 3.0456
+  ...
+# Subtest: same name and count cannot recover a different project source
+ok 32 - same name and count cannot recover a different project source
+  ---
+  duration_ms: 2.3096
+  ...
+# Subtest: 96 assignments cannot hide missing item, triple review or duplicate account
+ok 33 - 96 assignments cannot hide missing item, triple review or duplicate account
+  ---
+  duration_ms: 1.1008
+  ...
+# Subtest: withdrawn/mock and wrong rule cannot enter formal review
+ok 34 - withdrawn/mock and wrong rule cannot enter formal review
+  ---
+  duration_ms: 0.7702
+  ...
+# Subtest: review preregistration selects 20 dev + 20 validation, unique and no test
+ok 35 - review preregistration selects 20 dev + 20 validation, unique and no test
+  ---
+  duration_ms: 2.8127
+  ...
+# Subtest: selection independent of input ordering and never mutates dataset
+ok 36 - selection independent of input ordering and never mutates dataset
+  ---
+  duration_ms: 3.1306
+  ...
+# Subtest: insufficient split fails instead of silently reducing review target
+ok 37 - insufficient split fails instead of silently reducing review target
+  ---
+  duration_ms: 1.7914
+  ...
+# Subtest: registration deterministic and preserves null human assessment with auxiliary raw budget
+ok 38 - registration deterministic and preserves null human assessment with auxiliary raw budget
+  ---
+  duration_ms: 2.7861
+  ...
+# Subtest: registration requires frozen runtime and binds exact dataset bytes
+ok 39 - registration requires frozen runtime and binds exact dataset bytes
+  ---
+  duration_ms: 1.762
+  ...
+# Subtest: unreviewed stays null and human provenance never assumed
+ok 40 - unreviewed stays null and human provenance never assumed
+  ---
+  duration_ms: 2.0443
+  ...
+# Subtest: independent disagreement unresolved until append-only adjudication
+ok 41 - independent disagreement unresolved until append-only adjudication
+  ---
+  duration_ms: 1.3344
+  ...
+# Subtest: revoked and withdrawn data cannot enter current quality estimates
+ok 42 - revoked and withdrawn data cannot enter current quality estimates
+  ---
+  duration_ms: 0.2747
+  ...
+# Subtest: later human revision invalidates old adjudication and restores disputed status
+ok 43 - later human revision invalidates old adjudication and restores disputed status
+  ---
+  duration_ms: 0.2783
+  ...
+# Subtest: discovers paid RAG raw without pair and active Agent from journal
+ok 44 - discovers paid RAG raw without pair and active Agent from journal
+  ---
+  duration_ms: 1.8088
+  ...
+# Subtest: missing identity stays pending without inventing task or model work
+ok 45 - missing identity stays pending without inventing task or model work
+  ---
+  duration_ms: 0.1842
+  ...
+# Subtest: conflicting task identities fail before audit is reused
+ok 46 - conflicting task identities fail before audit is reused
+  ---
+  duration_ms: 0.9084
+  ...
+# Subtest: task terminal identity and call ledger verified, running snapshot remains unfrozen
+ok 47 - task terminal identity and call ledger verified, running snapshot remains unfrozen
+  ---
+  duration_ms: 0.6286
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 430.914

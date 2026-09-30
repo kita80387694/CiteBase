@@ -1,0 +1,134 @@
+{
+  "id": "d659677f-9f2d-4f40-b70e-14efa2775fb6",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "d659677f-9f2d-4f40-b70e-14efa2775fb6",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q032",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-004",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+              "groupId": "g1",
+              "endOffset": 176,
+              "paragraph": 3,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 92,
+              "documentName": "dahlia-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+              "groupId": "g2",
+              "endOffset": 219,
+              "paragraph": 4,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 178,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；已有下一预约禁止续期"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-9f3af7085513e6b2b13d274c296c6bc7bf0ecb66f949995b365c5dd3e4e9",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 1,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:54:01.514776Z",
+  "startedAt": "2026-09-30T06:54:01.830600Z",
+  "finishedAt": "2026-09-30T06:54:17.082704Z",
+  "availableAt": "2026-09-30T06:54:01.514776Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "08151fcd-c5af-4943-a8c0-9a5dcbffb2f2",
+      "operationKey": "57438381-9b08-4d50-8220-88dcc7608452:embedding:96db6a40-968e-4dd3-9101-98c98cfc21f9",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-09-30T06:54:01.851187Z",
+      "finishedAt": "2026-09-30T06:54:02.131973Z"
+    },
+    {
+      "callId": "f37194fd-18e1-44c1-8930-be1af9d1435e",
+      "operationKey": "57438381-9b08-4d50-8220-88dcc7608452:generation:4ae1966a-48d0-4b2c-b3f7-8fce47d8659c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1751,
+        "completionTokens": 44
+      },
+      "startedAt": "2026-09-30T06:54:02.137312Z",
+      "finishedAt": "2026-09-30T06:54:09.154041Z"
+    },
+    {
+      "callId": "22984d21-c178-4e06-9849-2889966b3f6f",
+      "operationKey": "966b5cf8-b1fb-416b-850a-dbf51454ae96:embedding:ecd20ca6-71d5-4d38-a061-413a1c72a04c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-09-30T06:54:09.174158Z",
+      "finishedAt": "2026-09-30T06:54:09.438626Z"
+    },
+    {
+      "callId": "595bdb7c-c80b-4526-bfbc-368284758c26",
+      "operationKey": "966b5cf8-b1fb-416b-850a-dbf51454ae96:generation:954d4cac-629e-4182-9ba9-f8fe40498f8a",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1754,
+        "completionTokens": 103
+      },
+      "startedAt": "2026-09-30T06:54:09.446940Z",
+      "finishedAt": "2026-09-30T06:54:17.063056Z"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "9802451b-68bb-4867-8316-86f027be56f7",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9802451b-68bb-4867-8316-86f027be56f7",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q014",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-001",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "事实",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。",
+              "groupId": "g1",
+              "endOffset": 59,
+              "paragraph": 1,
+              "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "startOffset": 0,
+              "documentName": "cobalt-a.md"
+            }
+          ],
+          "question": "Cobalt 工作副本能用来实际航行吗？",
+          "answerable": true,
+          "expectedAnswer": "不能"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-7c56ef48d7be96a7c7b1f7f9cab6d5ee273e82ef6d6a1d416d5f06154c53",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:43:39.923019Z",
+  "startedAt": "2026-09-30T06:43:40.280770Z",
+  "finishedAt": "2026-09-30T06:43:48.963079Z",
+  "availableAt": "2026-09-30T06:43:39.923018Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "80ef1b19-e966-4f97-a836-b716e8f46ea8",
+      "operationKey": "f1dade5d-90c1-40cd-8e75-1a18cac3b558:embedding:1b95f802-9b99-40f7-9642-ab63e1192ca2",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:43:40.293864Z",
+      "finishedAt": "2026-09-30T06:43:40.600586Z"
+    },
+    {
+      "callId": "d2348279-20d8-4dd5-8916-ae9bf0e5876d",
+      "operationKey": "f1dade5d-90c1-40cd-8e75-1a18cac3b558:generation:128a95ce-b1c5-4040-804f-0a8aa3215e3f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1663,
+        "completionTokens": 50
+      },
+      "startedAt": "2026-09-30T06:43:40.606085Z",
+      "finishedAt": "2026-09-30T06:43:44.062488Z"
+    },
+    {
+      "callId": "1d317268-2e82-4a34-9e57-0ca4579c6270",
+      "operationKey": "5bd60d62-2842-4f24-b30a-58f62ddd1eef:embedding:c276c8f7-c562-4815-be0f-85b1d4d84a3d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:43:44.079259Z",
+      "finishedAt": "2026-09-30T06:43:44.362195Z"
+    },
+    {
+      "callId": "202993cf-4272-47d6-94e4-4c92044a597b",
+      "operationKey": "5bd60d62-2842-4f24-b30a-58f62ddd1eef:generation:5b1c0222-0920-4535-8f30-785432d542d0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1663,
+        "completionTokens": 49
+      },
+      "startedAt": "2026-09-30T06:43:44.370064Z",
+      "finishedAt": "2026-09-30T06:43:48.950738Z"
+    }
+  ]
+}

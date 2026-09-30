@@ -1,0 +1,124 @@
+{
+  "id": "af41e11d-5f40-4380-81c6-2edac04fdfaf",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "af41e11d-5f40-4380-81c6-2edac04fdfaf",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q039",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-004",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |",
+              "groupId": "g1",
+              "endOffset": 161,
+              "paragraph": 3,
+              "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "startOffset": 99,
+              "documentName": "elm-a.md"
+            }
+          ],
+          "question": "Elm B滤镜最多连续曝光几张，每张多久？",
+          "answerable": true,
+          "expectedAnswer": "5张，每张60秒"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-69bce3486a56f67ca979879c9399202551b477c13e3a6b32aabe07822add",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:57:25.043449Z",
+  "startedAt": "2026-09-30T06:57:25.391333Z",
+  "finishedAt": "2026-09-30T06:57:36.644683Z",
+  "availableAt": "2026-09-30T06:57:25.043449Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "f54452e6-edff-4da3-85fe-1a79a1a53337",
+      "operationKey": "00bd3d61-a94b-4824-9038-c4e7cb18be80:embedding:c2b4713f-b29c-4a13-9938-7afff5b9a641",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:57:25.404498Z",
+      "finishedAt": "2026-09-30T06:57:25.663943Z"
+    },
+    {
+      "callId": "150b0f1b-1c96-4644-9f6e-a5ce79c96a04",
+      "operationKey": "00bd3d61-a94b-4824-9038-c4e7cb18be80:generation:87ed74e0-d05b-48d1-b31c-377ae9194774",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 45
+      },
+      "startedAt": "2026-09-30T06:57:25.669175Z",
+      "finishedAt": "2026-09-30T06:57:33.184394Z"
+    },
+    {
+      "callId": "13124bae-0aba-49e4-bcef-654e7e4f641a",
+      "operationKey": "0c284261-f87d-4a0c-aabd-b028fd0e243b:embedding:7205ff8e-e2b4-487c-912f-b71f9f65a64b",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:57:33.204181Z",
+      "finishedAt": "2026-09-30T06:57:33.465465Z"
+    },
+    {
+      "callId": "4775402d-728e-4362-a60a-700e5b276e05",
+      "operationKey": "0c284261-f87d-4a0c-aabd-b028fd0e243b:generation:d72629b3-8265-42ec-9207-ce808b40705a",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 45
+      },
+      "startedAt": "2026-09-30T06:57:33.473189Z",
+      "finishedAt": "2026-09-30T06:57:36.630658Z"
+    }
+  ]
+}

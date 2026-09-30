@@ -32,3 +32,13 @@
 这里的 Node 测试验证数据结构，不替代后端导入验收、真实检索、真人评审或回答正确性验证。后续运行结果须追加到独立实验记录，并标出准确代码与配置版本。
 
 预注册抽样补充：每个开发/验证划分固定4道不可回答和16道可回答，共8道不可回答；可回答题按topic/category轮转。冒烟预先选择首个可回答与不可回答各1道，之后复用其结果，不根据输出换题。
+
+## 2026-09-30 本次真实采集（未评分）
+
+40道配对全部完成，冻结后端a0d501e及镜像/源码摘要见`docs/results/quality-phase3/paired-baseline/registration.json`。主配对80回答，额外40条hybrid行完整保留；80个任务审计共301条已返回外部调用记录，无缺失任务审计。索引调用不在问题任务统计内。
+
+`docs/results/quality-phase3/baseline-engineering-report.json`保存原始文件哈希和统计。基础vector RAG执行失败0/40，原Agent5/40；辅助hybrid1/40。32道可回答题的Recall@5均为1，MRR为0.921875/0.921875/0.953125；Agent指标为首次获取顺序的前5证据，不能解释为最终重排质量。基础RAG总耗时均值6607.45ms、P50 5813ms、P95 11946ms；原Agent均值16588.95ms、P50 13377ms、P95 37333ms。失败样本未排除，样本只有开发/验证资料，不能外推容量或质量。
+
+报告中`correctRefusals`沿用程序化拒答标志与answerable标签的一致性，仅为自动辅助指标，不是人工拒答正确性。答案正确性与引用支持保持null。
+
+真实评审项目`22befaa8-e4b3-48d8-aa69-3e014dc5733b`已准备80条来源、96份任务，恰16项双账号复核。初始包`paired-baseline/review-initial.json`无任何评分。用户已明确暂无法安排真人，真人覆盖0/80，复核0/16；账号分配不能算作真人评审。入口http://localhost:25182，本机账号凭据仅在忽略文件`.tools/quality-reviewer-credentials.json`。

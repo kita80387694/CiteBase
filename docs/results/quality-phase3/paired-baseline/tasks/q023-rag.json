@@ -1,0 +1,113 @@
+{
+  "id": "d99a660a-1876-4888-ace1-4aa4da6a2998",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "d99a660a-1876-4888-ace1-4aa4da6a2998",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q023",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-020",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 下一次发现新天体会在哪天？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-4725f1da6b2ada72301f9f96a8c1e9fc01ff0059f90dfa6d9dd9b4edbd9f",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:50:11.358121Z",
+  "startedAt": "2026-09-30T06:50:11.711453Z",
+  "finishedAt": "2026-09-30T06:50:23.440917Z",
+  "availableAt": "2026-09-30T06:50:11.358121Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "eae00bdf-7e29-4cce-8256-470379801700",
+      "operationKey": "cbecd969-fd9c-4c98-a65a-e6af29faa6f0:embedding:bb9092b2-4525-4b0f-93ea-c84e48718e12",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:50:11.725755Z",
+      "finishedAt": "2026-09-30T06:50:12.006640Z"
+    },
+    {
+      "callId": "88ec25af-28db-4992-ad6e-17fc91ff1695",
+      "operationKey": "cbecd969-fd9c-4c98-a65a-e6af29faa6f0:generation:e0a09150-3337-43a9-b0bc-030bf38214a6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1699,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:12.011186Z",
+      "finishedAt": "2026-09-30T06:50:15.206946Z"
+    },
+    {
+      "callId": "cdc1facd-4f16-4a72-a291-93a766e27a7f",
+      "operationKey": "fa2a7bde-c3b5-4684-b816-40fc529e9a48:embedding:67f29418-556c-4222-ac78-784b46d0f24f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:50:15.236531Z",
+      "finishedAt": "2026-09-30T06:50:15.537534Z"
+    },
+    {
+      "callId": "da91085a-6be8-43c8-9850-b8d6fb806274",
+      "operationKey": "fa2a7bde-c3b5-4684-b816-40fc529e9a48:generation:720804cf-6854-4653-aae4-ca6f12c34228",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1700,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:50:15.549869Z",
+      "finishedAt": "2026-09-30T06:50:23.418476Z"
+    }
+  ]
+}

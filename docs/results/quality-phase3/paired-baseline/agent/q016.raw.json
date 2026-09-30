@@ -1,0 +1,399 @@
+{
+  "id": "2675160e-2de5-4575-8112-86240a88fcbf",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "status": "COMPLETED",
+  "request": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Cobalt 原图坐标看不清，可以根据OCR直接确认吗？",
+    "idempotencyKey": "Quality3-1e40ebc94083-q016-original-agent",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "1a4152d8-efc8-4c3b-abac-278ba3a803b4",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "ccb1d21a-d15f-450e-abc7-ba4778671a94",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "53e05d9f-2b79-42b2-bda0-920b201b2185",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "978a45e6-029a-4cf7-889a-26d3441f39ff",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "7bf00ef1-c711-400c-a3c8-a24a0ae07842",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "a267ae11-eab7-4344-862f-ffc2ccd6fb2e",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "900a6f7a-ca23-4de8-bae0-08a5b3bf6b60",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "20d2c495-9f1d-4f80-980c-d84e95b2f3e1",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "cd4e5845-3eda-4764-b696-dfbfe8cef391",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "3bacaa52-fdaa-47c3-b570-04a6ffe9067d",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e6ca53fe-b4c2-4354-b755-4d1769336796",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "b3b83e39-667f-49aa-a20c-3a1885741a2c",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "f1847174-b52e-40ad-8f6d-f12900edc49f",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "6178dca3-cc9a-479a-a171-f6343430db44",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "f9b3c9ba-c704-4490-a76f-596877b22571",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "2a3d2d16-9ad4-40ac-8aaf-b9e09ad7399b",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": null,
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2358,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2384,
+          "completionTokens": 27
+        }
+      },
+      {
+        "kind": "generation",
+        "actual": {
+          "promptTokens": 1666,
+          "completionTokens": 66
+        }
+      }
+    ],
+    "answer": "根据证据，Cobalt OCR文字只能帮助搜索，不能取代原图中的坐标。当坐标模糊时，应标记为待核验，禁止自动补成推测数字 [69e84d40-f07b-4126-b12e-b326e3934937]。因此，不能根据OCR直接确认坐标。",
+    "totalMs": 29201,
+    "evidence": [
+      {
+        "id": "69e84d40-f07b-4126-b12e-b326e3934937",
+        "page": 1,
+        "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+        "score": 0.6947120635125659,
+        "endOffset": 323,
+        "paragraph": 1,
+        "versionId": "978a45e6-029a-4cf7-889a-26d3441f39ff",
+        "documentId": "53e05d9f-2b79-42b2-bda0-920b201b2185",
+        "startOffset": 0,
+        "documentName": "cobalt-a.md"
+      },
+      {
+        "id": "08b33170-6a14-415c-a156-3ddf0392c3cc",
+        "page": 1,
+        "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+        "score": 0.6125266186877131,
+        "endOffset": 311,
+        "paragraph": 1,
+        "versionId": "6178dca3-cc9a-479a-a171-f6343430db44",
+        "documentId": "f1847174-b52e-40ad-8f6d-f12900edc49f",
+        "startOffset": 0,
+        "documentName": "cobalt-b.md"
+      },
+      {
+        "id": "05c967a2-d453-4e29-a4c5-12d619b45d78",
+        "page": 1,
+        "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+        "score": 0.4441032409667969,
+        "endOffset": 259,
+        "paragraph": 1,
+        "versionId": "3bacaa52-fdaa-47c3-b570-04a6ffe9067d",
+        "documentId": "cd4e5845-3eda-4764-b696-dfbfe8cef391",
+        "startOffset": 0,
+        "documentName": "elm-b.md"
+      },
+      {
+        "id": "c4209354-4803-4dd1-8744-e392c79d4f49",
+        "page": 1,
+        "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+        "score": 0.4262200891971588,
+        "endOffset": 283,
+        "paragraph": 1,
+        "versionId": "2a3d2d16-9ad4-40ac-8aaf-b9e09ad7399b",
+        "documentId": "f9b3c9ba-c704-4490-a76f-596877b22571",
+        "startOffset": 0,
+        "documentName": "brass-b.md"
+      },
+      {
+        "id": "d8ec11f9-d7d1-4c92-9763-bd7276ad705f",
+        "page": 1,
+        "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+        "score": 0.4222776545451681,
+        "endOffset": 298,
+        "paragraph": 1,
+        "versionId": "a267ae11-eab7-4344-862f-ffc2ccd6fb2e",
+        "documentId": "7bf00ef1-c711-400c-a3c8-a24a0ae07842",
+        "startOffset": 0,
+        "documentName": "elm-a.md"
+      }
+    ],
+    "question": "Cobalt 原图坐标看不清，可以根据OCR直接确认吗？",
+    "abstained": false,
+    "citations": [
+      {
+        "id": "69e84d40-f07b-4126-b12e-b326e3934937",
+        "page": 1,
+        "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+        "score": 0.6947120635125659,
+        "endOffset": 323,
+        "paragraph": 1,
+        "versionId": "978a45e6-029a-4cf7-889a-26d3441f39ff",
+        "documentId": "53e05d9f-2b79-42b2-bda0-920b201b2185",
+        "startOffset": 0,
+        "documentName": "cobalt-a.md"
+      }
+    ],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 2,
+      "searches": 1,
+      "plannerSteps": 2,
+      "evidenceChars": 1474,
+      "evidenceCount": 5,
+      "externalCalls": 4
+    },
+    "retrievalMs": 310,
+    "finishReason": "ANSWERED",
+    "answerCorrect": null,
+    "citationValid": true,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "errorCode": null,
+  "cancelRequestedAt": null,
+  "createdAt": "2026-09-30T06:45:26.907586Z",
+  "startedAt": "2026-09-30T06:45:27.044389Z",
+  "finishedAt": "2026-09-30T06:45:56.259269Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 28,
+        "description": "检索当前授权知识库",
+        "querySha256": "12417007c130ab7d3c45f2a0b045541b85778054bd0eac4c246b1aa6e5dcb465"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "69e84d40-f07b-4126-b12e-b326e3934937",
+          "08b33170-6a14-415c-a156-3ddf0392c3cc",
+          "05c967a2-d453-4e29-a4c5-12d619b45d78",
+          "c4209354-4803-4dd1-8744-e392c79d4f49",
+          "d8ec11f9-d7d1-4c92-9763-bd7276ad705f"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-30T06:45:27.401710211Z",
+      "elapsedMs": 326
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2358,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f10fac0629f85ecaa90f0b6f56ed",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-30T06:45:44.655166499Z",
+      "elapsedMs": 17224
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "69e84d40-f07b-4126-b12e-b326e3934937"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-30T06:45:44.676376416Z",
+      "elapsedMs": 9
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2384,
+        "completionTokens": 27
+      },
+      "action": "finish",
+      "output": {
+        "callId": "01a0f10fe81f9bef0d829e67364ef62a",
+        "toolName": "finish"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-09-30T06:45:47.116329419Z",
+      "elapsedMs": 2421
+    },
+    {
+      "kind": "generation",
+      "input": {},
+      "usage": {
+        "promptTokens": 1666,
+        "completionTokens": 66
+      },
+      "action": "answer",
+      "output": {
+        "received": true
+      },
+      "status": "COMPLETED",
+      "sequence": 5,
+      "createdAt": "2026-09-30T06:45:56.248106502Z",
+      "elapsedMs": 9123
+    }
+  ],
+  "taskId": "2675160e-2de5-4575-8112-86240a88fcbf",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 2
+  },
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "taskStatus": "SUCCEEDED"
+}
