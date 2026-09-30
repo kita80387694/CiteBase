@@ -14,7 +14,23 @@ public class AgentInput {
       int topK,
       RetrievalOptions retrievalOptions,
       AgentPolicy budget,
-      String idempotencyKey) {}
+      String idempotencyKey,
+      String strategy) {
+    public Request {
+      strategy = AgentStrategy.resolve(strategy);
+    }
+
+    public Request(
+        String kbId,
+        String question,
+        String mode,
+        int topK,
+        RetrievalOptions retrievalOptions,
+        AgentPolicy budget,
+        String idempotencyKey) {
+      this(kbId, question, mode, topK, retrievalOptions, budget, idempotencyKey, "original");
+    }
+  }
 
   private final ObjectMapper json =
       new ObjectMapper()
@@ -28,7 +44,14 @@ public class AgentInput {
       fields(
           n,
           Set.of(
-              "kbId", "question", "mode", "topK", "retrievalOptions", "budget", "idempotencyKey"));
+              "kbId",
+              "question",
+              "mode",
+              "topK",
+              "retrievalOptions",
+              "budget",
+              "idempotencyKey",
+              "strategy"));
       String kb = text(n, "kbId", 100, true),
           q = text(n, "question", 4000, true),
           key = text(n, "idempotencyKey", 100, true),
@@ -82,7 +105,15 @@ public class AgentInput {
                 integer(b, "maxFinalOutputTokens", 1024, 1024),
                 integer(b, "maxExternalCalls", 10, 10));
       }
-      return new Request(kb, q, mode, k, RetrievalOptions.resolve(options, k), p, key);
+      return new Request(
+          kb,
+          q,
+          mode,
+          k,
+          RetrievalOptions.resolve(options, k),
+          p,
+          key,
+          n.has("strategy") ? text(n, "strategy", 40, true) : "original");
     } catch (IllegalArgumentException e) {
       throw e;
     } catch (Exception e) {

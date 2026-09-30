@@ -26,6 +26,24 @@ import {
 } from "./RetrievalControls";
 
 type Api = <T>(path: string, options?: RequestInit) => Promise<T>;
+const agentStrategies = {
+  original: "原策略（默认）",
+  "inspection-free-v1": "减少引用检查工具调用 · 实验",
+  "stop-aware-v1": "停止与预算约束 · 实验",
+  "combined-v1": "组合策略 · 实验",
+} as const;
+type AgentStrategy = keyof typeof agentStrategies;
+function runStrategy(run: AgentRun): string {
+  return (
+    run.request.strategy ??
+    (typeof run.config?.agentStrategy === "string"
+      ? run.config.agentStrategy
+      : "original")
+  );
+}
+function strategyLabel(value: string) {
+  return agentStrategies[value as AgentStrategy] || value;
+}
 type Budget = {
   maxPlannerSteps: number;
   maxTools: number;
@@ -95,6 +113,7 @@ export type AgentRun = {
   errorCode?: string | null;
   request: {
     question: string;
+    strategy?: AgentStrategy;
     mode: string;
     topK: number;
     retrievalOptions: RetrievalOptions;
@@ -121,6 +140,7 @@ export type AgentRun = {
     abstained: boolean;
     error: string | null;
     finishReason: string;
+    strategy?: string;
     modelMode: string;
     totalMs: number;
     budgetUsed: Record<string, number>;
@@ -157,6 +177,7 @@ export function AgentPanel({
   const mounted = useRef(true);
   const [question, setQuestion] = useState("");
   const [mode, setMode] = useState("vector");
+  const [strategy, setStrategy] = useState<AgentStrategy>("original");
   const [topK, setTopK] = useState(5);
   const [options, setOptions] = useState<RetrievalOptions>(
     defaultRetrievalOptions,
@@ -215,6 +236,7 @@ export function AgentPanel({
         setTopK(request.topK);
         setOptions(request.retrievalOptions);
         setBudget(request.budget);
+        setStrategy(request.strategy ?? "original");
         setNotice(
           "发现尚未确认的创建请求。核对并重试创建使用原标识，不自动执行模型。",
         );
@@ -320,6 +342,7 @@ export function AgentPanel({
           body: JSON.stringify({
             kbId,
             question: question.trim(),
+            ...(strategy === "original" ? {} : { strategy }),
             mode,
             topK,
             retrievalOptions: options,
@@ -437,6 +460,27 @@ export function AgentPanel({
             required
             placeholder="例如：两份操作规范如何共同决定上线条件？"
           />
+          <label htmlFor="agent-strategy">Agent 执行策略</label>
+          <select
+            id="agent-strategy"
+            value={strategy}
+            disabled={busy}
+            onChange={(event) =>
+              setStrategy(event.target.value as AgentStrategy)
+            }
+          >
+            {Object.entries(agentStrategies).map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+          {strategy !== "original" && (
+            <p className="notice" role="note">
+              探索性策略，尚无真人质量结论。执行预算、权限边界与服务端引用校验保持不变；基础
+              RAG 和原策略仍为对照。
+            </p>
+          )}
           <RetrievalControls
             value={options}
             onChange={setOptions}
@@ -588,6 +632,7 @@ export function AgentPanel({
                     setTopK(run.request.topK);
                     setOptions(run.request.retrievalOptions);
                     setBudget(run.request.budget);
+                    setStrategy(runStrategy(run) as AgentStrategy);
                     pending.current = null;
                     sessionStorage.removeItem(pendingKey);
                     setNotice(
@@ -599,6 +644,14 @@ export function AgentPanel({
                 </button>
               )}
             </div>
+            <p data-testid="agent-run-strategy">
+              本次策略：{strategyLabel(runStrategy(run))} · {runStrategy(run)}
+            </p>
+            {runStrategy(run) !== "original" && (
+              <p className="muted">
+                探索性运行，尚无真人质量结论；请结合失败样本与对照评测判断。
+              </p>
+            )}
             <div className="agent-runtime">
               <span>累计耗时 {(elapsed / 1000).toFixed(1)} 秒</span>
               <span>时限 {run.request.budget.deadlineSeconds} 秒</span>
@@ -661,6 +714,7 @@ export function AgentPanel({
               <summary>本次运行配置</summary>
               <pre>
                 {json({
+                  strategy: runStrategy(run),
                   mode: run.request.mode,
                   topK: run.request.topK,
                   retrievalOptions: run.request.retrievalOptions,

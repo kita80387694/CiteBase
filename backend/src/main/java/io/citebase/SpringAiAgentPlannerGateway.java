@@ -57,6 +57,27 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
       List<Map<String, Object>> actions,
       int maxOutputTokens,
       int timeoutSeconds) {
+    return planInternal(question, evidence, actions, maxOutputTokens, timeoutSeconds, null);
+  }
+
+  @Override
+  public AgentDecision plan(
+      String question,
+      List<Evidence> evidence,
+      List<Map<String, Object>> actions,
+      int maxOutputTokens,
+      int timeoutSeconds,
+      AgentStrategy.Constraints constraints) {
+    return planInternal(question, evidence, actions, maxOutputTokens, timeoutSeconds, constraints);
+  }
+
+  private AgentDecision planInternal(
+      String question,
+      List<Evidence> evidence,
+      List<Map<String, Object>> actions,
+      int maxOutputTokens,
+      int timeoutSeconds,
+      AgentStrategy.Constraints constraints) {
     Long in = null, out = null;
     try {
       if (maxOutputTokens < 1 || maxOutputTokens > 4096) throw new IllegalArgumentException();
@@ -85,7 +106,7 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
               .model(model)
               .temperature(0.0)
               .maxTokens(maxOutputTokens)
-              .tools(tools())
+              .tools(constraints == null ? tools() : tools(constraints))
               .toolChoice("required")
               .parallelToolCalls(false)
               .internalToolExecutionEnabled(false)
@@ -107,6 +128,9 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
               + "仅当回答所需的具体事实仍缺失时，才search新的相关查询或neighbors读取相邻段落。"
               + "不能获得更多相关事实或证据不足且无有效新动作时也调用finish，由回答阶段明确拒答。"
               + "evidenceHandle必须取现有证据id，不能指定用户、知识库、SQL、Shell、URL或文件。";
+      if (constraints != null)
+        system +=
+            " 本次只允许声明的工具。remainingBudget为服务端剩余额度，不能改变；工具检查不是答案正确性判断。只有finish可用时须结束收集，由最终回答阶段根据证据回答或明确拒答。不得请求已执行的相同动作。";
       String context =
           json.writeValueAsString(
               Map.of(
@@ -116,11 +140,27 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
                   evidence,
                   "validatedActions",
                   actions));
+      if (constraints != null)
+        context =
+            json.writeValueAsString(
+                Map.of(
+                    "question",
+                    question,
+                    "untrustedEvidence",
+                    evidence,
+                    "validatedActions",
+                    actions,
+                    "policy",
+                    constraints.metadata()));
+      final String systemSnapshot = system, contextSnapshot = context;
       var response =
           AgentProviderDeadline.call(
               () ->
                   chat.call(
-                      new Prompt(List.of(new SystemMessage(system), new UserMessage(context)))),
+                      new Prompt(
+                          List.of(
+                              new SystemMessage(systemSnapshot),
+                              new UserMessage(contextSnapshot)))),
               timeoutSeconds);
       var usage =
           response == null || response.getMetadata() == null
@@ -148,7 +188,10 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
           || call.arguments() == null
           || call.arguments().length() > 5000) throw new IllegalArgumentException();
       var arguments = validate(call.name(), call.arguments());
+      if (constraints != null) constraints.validate(call.name(), arguments);
       return new AgentDecision(call.name(), arguments, call.id(), in, out, null);
+    } catch (AgentPolicy.Stop e) {
+      return new AgentDecision(null, Map.of(), null, in, out, e.code);
     } catch (Exception e) {
       return new AgentDecision(null, Map.of(), null, in, out, ProviderFailures.code(e));
     }
@@ -211,6 +254,31 @@ public class SpringAiAgentPlannerGateway implements AgentPlannerGateway {
                 "additionalProperties",
                 false),
             true));
+  }
+
+  static List<OpenAiApi.FunctionTool> tools(AgentStrategy.Constraints constraints) {
+    var result = new ArrayList<OpenAiApi.FunctionTool>();
+    var text = Map.<String, Object>of("type", "string");
+    if (constraints.allowedTools().contains("search"))
+      result.add(tool("search", Map.of("query", text)));
+    if (constraints.allowedTools().contains("neighbors"))
+      result.add(
+          tool(
+              "neighbors",
+              Map.of(
+                  "evidenceHandle",
+                  Map.of("type", "string", "enum", constraints.neighborHandles()),
+                  "direction",
+                  Map.of("type", "string", "enum", List.of("previous", "next")))));
+    if (constraints.allowedTools().contains("inspectCitation"))
+      result.add(
+          tool(
+              "inspectCitation",
+              Map.of(
+                  "evidenceHandle",
+                  Map.of("type", "string", "enum", constraints.inspectHandles()))));
+    if (constraints.allowedTools().contains("finish")) result.add(tool("finish", Map.of()));
+    return List.copyOf(result);
   }
 
   private static List<OpenAiApi.FunctionTool> tools() {

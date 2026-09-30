@@ -53,6 +53,15 @@ public class AgentRunRepository {
     }
   }
 
+  private String encodeRequest(AgentInput.Request request) {
+    var value =
+        json.convertValue(
+            request,
+            new com.fasterxml.jackson.core.type.TypeReference<LinkedHashMap<String, Object>>() {});
+    if ("original".equals(request.strategy())) value.remove("strategy");
+    return encode(value);
+  }
+
   Object decode(Object x) {
     try {
       return x == null ? null : json.readValue(x.toString(), Object.class);
@@ -66,7 +75,7 @@ public class AgentRunRepository {
         s -> {
           lock(request.kbId());
           access.requireKnowledgeBase(user, request.kbId());
-          String body = encode(request),
+          String body = encodeRequest(request),
               hash = AuthService.hash(body.getBytes(StandardCharsets.UTF_8)),
               id = UUID.randomUUID().toString();
           var config = configuration(request);
@@ -226,6 +235,10 @@ public class AgentRunRepository {
   private Map<String, Object> configuration(AgentInput.Request request) {
     var config = questions.config(request.topK(), request.retrievalOptions());
     config.put("agentPolicyVersion", "bounded-agent-v1");
+    if (!"original".equals(request.strategy())) {
+      config.put("agentStrategy", request.strategy());
+      config.put("agentStrategyProtocol", "bounded-actions-v1");
+    }
     config.put("concurrency", 2);
     config.put("agentPlanner", planner.configuration());
     return config;

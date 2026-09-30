@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-30T06:56:11.672717+00:00",
+  "mode": "MOCK",
+  "qualityConclusion": null,
+  "genuineHumanReviewsProduced": 0,
+  "baseUrl": "http://localhost:25181",
+  "branch": "feat/citebase-phase3",
+  "head": "a0d501ebcd1291c2c7f5466fd9f5d08c9ae42274",
+  "workingTree": "uncommitted experimental Agent strategy implementation; exact UI source hashes below",
+  "bundle": [
+    "/assets/index-oO8BzugR.js",
+    "/assets/index-l7wDGPFx.css"
+  ],
+  "images": {
+    "backend": "sha256:305bb0a1a9f1cc24cc6691d80841a943a99e09dc11912475be0c9004bee72087",
+    "frontend": "sha256:60059abbfe3b09207816912c9ddf4ac798819a668b710bbdf1466c89c06bacb0"
+  },
+  "run": {
+    "command": "E2E_BASE_URL=http://localhost:25181 E2E_SCREENSHOT_PREFIX=quality-phase3-regression- npx playwright test tests/quality-phase3-agent-strategy.spec.ts tests/phase3-agent.spec.ts --reporter=line",
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 33.6,
+    "log": "quality-phase3-agent-ui.log"
+  },
+  "checks": [
+    "original strategy remains default",
+    "four strategies persisted and actual request values verified",
+    "budgets identical across strategies",
+    "creation does not execute model",
+    "combined strategy actual MOCK execution succeeds",
+    "planner output policy records allowedTools excluding inspectCitation and remainingBudget",
+    "result.strategy persists and answerCorrect remains null",
+    "reload and reuse previous config preserve strategy",
+    "old Agent citation/export/cancel/budget failure/idempotent recovery regression passes"
+  ],
+  "sourceSha256": {
+    "frontend/src/AgentPanel.tsx": "915a0fb2d847e03fe92007c6e366d45d68442a1ee230fc126c8b296e128739db",
+    "frontend/tests/quality-phase3-agent-strategy.spec.ts": "d5047f5e2535df11f2084bd6271a5cc9e02445adf0cdf9e1612cfe4aa7d6feb4",
+    "frontend/tests/phase3-agent.spec.ts": "4c6e73078ce7b77350de6076f914eae8ebe682bf4c5546b2bbaa7a4c0fba838e"
+  },
+  "screenshots": {
+    "docs/screenshots/quality-phase3-agent-strategy-mock.png": "0a883740135cb614213cfa6bcf5c87e0dfb0b0f1e89bf69591498763baea5351",
+    "docs/screenshots/quality-phase3-regression-agent-mock-completed.png": "b877acce39ed11301216a0207fefa1a31a4e5622b2396185ccdcc9da990c5785",
+    "docs/screenshots/quality-phase3-regression-agent-budget-failed.png": "87ea7ae465975ecffd3959b24cc1939b3a00d1219062b0a4d41f4fcde00ea59f"
+  },
+  "visualInspection": "Viewed strategy completed screenshot and original-strategy budget failure screenshot. Experimental warning, selected/run strategy, unchanged budgets, audit trajectory and clear failed terminal state are legible. No real frozen runtime was changed."
+}

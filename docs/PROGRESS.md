@@ -238,3 +238,13 @@
 - 盲评工程首轮：17项JUnit/Testcontainers通过0跳过，12项数据/注册Node测试通过；MOCK双账号E2E2项通过，自动评分明确TEST_ONLY，真人计数仍0。发现并修复测试夹具历史任务选择问题；原失败日志保留。进一步静态审查正在补Agent来源去重、参考证据来源撤回和导出锁一致性。隔离服务quality-mock端口25181/28091/25442；真实新环境准备中，尚未付费采集或解封test。
 
 - 盲评工程最终专项20项通过0跳过；后端补齐来源唯一、关联参考撤回、事务导出及按题主键复验。前端最终2/2通过10.6秒，构建bundle index-LBOxk-Q9.js；此处HUMAN接口由自动E2E填写的mock测试事件不计真人覆盖。正式quality-real库已建立两位独立reviewer账户，仅本机ignored凭据文件保存密码，尚未分配真实材料或提交评分。
+
+### 真人依赖确认（2026-09-30）
+用户明确回复“暂时无法安排，保留真人验收未完成”。正式真人覆盖仍0，不得将任何自动评分替代。继续完成真实配对材料以及不依赖真人结论的策略开关/风险测试/探索性实验和运维工程；不解封独立测试用于参数选择，不修改默认，不标记目标完成。工程提交a0d501e已本地保存，真实a0d501e镜像冻结采集，后续源码修改不能误标为基线运行版本。
+
+- 真实基线注册已冻结 docs/results/quality-phase3/registration.json，运行a0d501e，独立quality-real25182/28092/25443。开发/验证8份文档索引成功；只选20+20题，其中8不可回答，40题×vectorRAG/原Agent为主配对；API产生的hybrid辅助行保留。两题冒烟完成（Agent一成功一BUDGET失败），引用实际GET校验通过，失败保留后继续同日志40题采集。任务调用审计另存tasks/，不重复收费。独立test未上传、未运行。
+- Agent历史只读分析定位37次失败均发生于inspectCitation循环，0追加search/neighbors；详见AGENT_PHASE3_ANALYSIS。新显式策略工程实施中，原默认和冻结镜像不变，首次Java编译lambda捕获错误保留待修。当前未作真人质量选择。
+
+2026-09-30 Agent 策略工程验证：修复 lambda 捕获编译错误和外部调用预算前瞻后，AgentStrategyUnitTest、AgentStrategyIntegrationTest、AgentInputTest、AgentTaskIntegrationTest、ProviderFailuresTest 共56项通过，0失败/0跳过。首次编译失败与第二次完整日志均保留于 docs/results/quality-phase3/engineering/agent-strategy-*.txt。隔离 quality-mock 已重建并健康，正在进行策略界面E2E；quality-real 保持a0d501e冻结运行。真人评审仍为未完成，未改变默认策略。
+
+2026-09-30 策略UI专项和旧Agent关键回归2/2通过（33.6秒，无跳过），主线程查看组合策略截图，实验提示、预算、轨迹及MOCK标记清晰。验证记录：docs/results/quality-phase3/ui/agent-strategy-verification.json。独立真实探索环境quality-lab(API28093/UI25183/DB25444)已构建健康，尚未执行探索调用；当前未提交源码摘要与镜像保存在.tools/quality-agent-runtime.json，基线real环境未改变。

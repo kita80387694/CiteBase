@@ -146,6 +146,11 @@ public class AgentService {
         context.check();
         runs.check(user, id, snapshot);
         context.planner();
+        AgentStrategy.Constraints constraints =
+            "original".equals(request.strategy())
+                ? null
+                : AgentStrategy.constrain(
+                    request, context, handles, signatures, model.mode().equals("real"));
         if (model.mode().equals("real")) context.external();
         long started = System.nanoTime();
         TaskCall plannerCall =
@@ -158,12 +163,20 @@ public class AgentService {
                         AuthService.hash(
                             request.question().getBytes(java.nio.charset.StandardCharsets.UTF_8)));
         var decision =
-            planner.plan(
-                request.question(),
-                alias(handles),
-                List.copyOf(actions),
-                request.budget().maxPlannerOutputTokens(),
-                context.seconds());
+            constraints == null
+                ? planner.plan(
+                    request.question(),
+                    alias(handles),
+                    List.copyOf(actions),
+                    request.budget().maxPlannerOutputTokens(),
+                    context.seconds())
+                : planner.plan(
+                    request.question(),
+                    alias(handles),
+                    List.copyOf(actions),
+                    request.budget().maxPlannerOutputTokens(),
+                    context.seconds(),
+                    constraints);
         var usage = usage(decision.promptTokens(), decision.completionTokens());
         if (plannerCall != null)
           TaskContext.current().completeExternalCall(plannerCall, Map.of("received", true), usage);
@@ -172,7 +185,11 @@ public class AgentService {
         context.check();
         runs.check(user, id, snapshot);
         if (decision.error() != null) {
-          String error = providerError(decision.error());
+          String error =
+              constraints != null
+                      && Set.of("INVALID_ACTION", "NO_PROGRESS").contains(decision.error())
+                  ? decision.error()
+                  : providerError(decision.error());
           step(
               user,
               id,
@@ -194,6 +211,7 @@ public class AgentService {
             || decision.callId().length() > 200
             || !calls.add(decision.callId())
             || decision.arguments() == null) throw new AgentPolicy.Stop("INVALID_ACTION");
+        if (constraints != null) constraints.validate(decision.toolName(), decision.arguments());
         step(
             user,
             id,
@@ -202,7 +220,15 @@ public class AgentService {
             "planner",
             decision.toolName(),
             Map.of(),
-            Map.of("toolName", decision.toolName(), "callId", decision.callId()),
+            constraints == null
+                ? Map.of("toolName", decision.toolName(), "callId", decision.callId())
+                : Map.of(
+                    "toolName",
+                    decision.toolName(),
+                    "callId",
+                    decision.callId(),
+                    "policy",
+                    constraints.metadata()),
             usage,
             started);
         if ("finish".equals(decision.toolName())) {
@@ -281,6 +307,7 @@ public class AgentService {
       if (!checked.valid()) throw new AgentPolicy.Stop("INVALID_CITATION");
       var result = new LinkedHashMap<String, Object>();
       result.put("kind", "bounded-agent");
+      result.put("strategy", request.strategy());
       result.put("question", request.question());
       result.put("mode", request.mode());
       result.put("retrievalMs", context.retrievalMs);
@@ -330,6 +357,7 @@ public class AgentService {
       AgentInput.Request r, AgentPolicy.Context c, Map<String, Evidence> evidence, String code) {
     var result = new LinkedHashMap<String, Object>();
     result.put("kind", "bounded-agent");
+    result.put("strategy", r.strategy());
     result.put("question", r.question());
     result.put("mode", r.mode());
     result.put("retrievalMs", c.retrievalMs);
