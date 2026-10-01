@@ -1,0 +1,57 @@
+{
+  "id": "e4247e58-45ed-4362-b328-18f4d093292d",
+  "kind": "AGENT",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "e4247e58-45ed-4362-b328-18f4d093292d",
+  "kbId": "08feedc5-e366-4e35-b3bd-10afd1c0e527",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "e4247e58-45ed-4362-b328-18f4d093292d"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "errorCode": "NO_PROGRESS",
+  "errorSummary": "任务停止：NO_PROGRESS",
+  "createdAt": "2026-10-01T07:10:56.116937Z",
+  "startedAt": "2026-10-01T07:10:56.546779Z",
+  "finishedAt": "2026-10-01T07:11:11.270352Z",
+  "availableAt": "2026-10-01T07:10:56.116937Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "externalCalls": [
+    {
+      "callId": "1b0cc3f8-1e8b-453d-aaff-cd0d135d1c49",
+      "operationKey": "embedding:ad768085-37aa-47bf-a4bb-9f6f75940035",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-10-01T07:10:56.579137Z",
+      "finishedAt": "2026-10-01T07:10:56.914146Z"
+    },
+    {
+      "callId": "7a9f1fe9-b6ff-465a-9dc9-0930a1add109",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2483,
+        "completionTokens": 61
+      },
+      "startedAt": "2026-10-01T07:10:56.952259Z",
+      "finishedAt": "2026-10-01T07:11:11.211266Z"
+    }
+  ]
+}

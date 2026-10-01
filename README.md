@@ -1,5 +1,7 @@
 # CiteBase · 知据
 
+> 第三阶段续开发：2026-10-01 用户已授权依据明确标识的 `ASSISTED` 辅助评审继续。真人评分仍为 0，不再作为继续开发的前置条件；辅助评分不能宣称为真人质量结论。当前正在执行生成提示与工具策略的独立消融，详见 [续开发范围](docs/ASSISTED_CONTINUATION.md) 和 [实验登记](docs/ASSISTED_EXPERIMENTS.md)。
+
 面向个人与小团队技术资料的知识库问答与检索评测平台。Java 21 / Spring Boot 3.5.16 / Spring AI 1.1.8 / PostgreSQL 17 + pgvector / React + TypeScript。
 
 默认 **MOCK 流程演示**：可验证登录、权限、上传、索引任务、引用与评测页面，不代表真实语义检索或模型回答能力。真实模式通过 Spring AI 调用兼容接口；已完成硅基流动 DeepSeek-V3.2 + BGE 的58题双配置真实评测，原始结果及局限见 [评测报告](docs/EVALUATION.md)。

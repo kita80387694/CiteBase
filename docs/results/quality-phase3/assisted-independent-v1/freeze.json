@@ -1,0 +1,54 @@
+{
+  "schema": "citebase-assisted-independent-freeze-v1",
+  "frozenAt": "2026-10-01T07:23:39.363Z",
+  "selectedStrategy": "grounded-answer-v1",
+  "devReport": {
+    "file": "docs/results/quality-phase3/assisted-agent-review-v1/comparison-v2-final.json",
+    "sha256": "d1b41286fc8c74409a6198e819ad24f68bd15788247b4c1f002b9d561ceb4ceb"
+  },
+  "dataset": {
+    "file": "samples/phase3-quality/test.json",
+    "sha256": "094997f485c8e61658a4e2b541a3a81d3de516bdcb4d696c96ba7a1e4fe30b17"
+  },
+  "manifest": {
+    "file": "samples/phase3-quality/manifest.json",
+    "sha256": "f900ea15bbe8d3ab16c86e09e83a1e7573c7775822ad09c9e9481d182e578fd6"
+  },
+  "runtime": {
+    "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+    "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+    "containerName": "citebase-quality-assisted-backend-1",
+    "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+    "apiUrl": "http://localhost:28096",
+    "modelConfig": {
+      "chatModel": "deepseek-ai/DeepSeek-V3.2",
+      "embeddingModel": "BAAI/bge-m3"
+    }
+  },
+  "retrieval": {
+    "topK": 5,
+    "mode": "vector",
+    "options": {
+      "candidateK": 20,
+      "keywordWeight": 1,
+      "rerank": false,
+      "citationStyle": "uuid"
+    }
+  },
+  "chunkProfile": {
+    "strategy": "structure-v1",
+    "size": 900,
+    "overlap": 200
+  },
+  "budget": {
+    "maxPlannerSteps": 4,
+    "maxTools": 4,
+    "maxSearch": 2,
+    "maxEvidence": 12,
+    "maxEvidenceChars": 20000,
+    "deadlineSeconds": 120,
+    "maxPlannerOutputTokens": 256,
+    "maxFinalOutputTokens": 1024,
+    "maxExternalCalls": 10
+  }
+}

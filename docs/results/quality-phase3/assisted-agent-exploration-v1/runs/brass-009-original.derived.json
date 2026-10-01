@@ -1,0 +1,141 @@
+{
+  "caseId": "brass-009",
+  "mode": "vector",
+  "category": "证据充分",
+  "split": "dev",
+  "answerable": true,
+  "status": "COMPLETED",
+  "error": null,
+  "answer": "根据证据，Brass 测试录音保留30天 [6faa6c65-0513-4a32-9a49-b6ebb26f45c4]。",
+  "evidence": [
+    {
+      "id": "6faa6c65-0513-4a32-9a49-b6ebb26f45c4",
+      "page": 1,
+      "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+      "score": 0.6822742427073196,
+      "endOffset": 283,
+      "paragraph": 1,
+      "versionId": "b986e7fa-65df-4a8c-b46e-7c865b94de58",
+      "documentId": "1fcdd681-2928-4064-b87b-b481e98cb296",
+      "startOffset": 0,
+      "documentName": "brass-b.md"
+    },
+    {
+      "id": "88e03147-ddde-40bb-918d-bf849215ce4c",
+      "page": 1,
+      "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+      "score": 0.6569962697326028,
+      "endOffset": 331,
+      "paragraph": 1,
+      "versionId": "46b0caf9-d33e-48bb-967f-1edfdbf6243b",
+      "documentId": "f91d0044-e9d2-48d1-b69b-cfef5c6dd211",
+      "startOffset": 0,
+      "documentName": "brass-a.md"
+    },
+    {
+      "id": "2f6cb573-41c2-4897-9035-45353f0b2e9d",
+      "page": 1,
+      "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+      "score": 0.48262689852359,
+      "endOffset": 298,
+      "paragraph": 1,
+      "versionId": "63c99603-497b-4fcd-a39e-50c00e5257b2",
+      "documentId": "485219f5-7a1d-45c4-a393-5dcbe7e55603",
+      "startOffset": 0,
+      "documentName": "elm-a.md"
+    },
+    {
+      "id": "29a607ec-3681-4a22-9956-c9d6f82847e6",
+      "page": 1,
+      "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+      "score": 0.47066940454634,
+      "endOffset": 259,
+      "paragraph": 1,
+      "versionId": "0acf7b01-731f-4550-93f0-20f4a9ffbe74",
+      "documentId": "5235b746-fc31-4ab2-8854-a1a98e479e97",
+      "startOffset": 0,
+      "documentName": "elm-b.md"
+    },
+    {
+      "id": "f3c5d200-5e16-4dfd-9f60-76555865687f",
+      "page": 1,
+      "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+      "score": 0.4306447762635217,
+      "endOffset": 287,
+      "paragraph": 1,
+      "versionId": "4565db4b-2cf5-45c5-97a9-3d8cfd14b988",
+      "documentId": "ff626ee3-fb57-4b29-8a72-52fc81584403",
+      "startOffset": 0,
+      "documentName": "dahlia-b.md"
+    }
+  ],
+  "citations": [
+    {
+      "id": "6faa6c65-0513-4a32-9a49-b6ebb26f45c4",
+      "page": 1,
+      "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+      "score": 0.6822742427073196,
+      "endOffset": 283,
+      "paragraph": 1,
+      "versionId": "b986e7fa-65df-4a8c-b46e-7c865b94de58",
+      "documentId": "1fcdd681-2928-4064-b87b-b481e98cb296",
+      "startOffset": 0,
+      "documentName": "brass-b.md"
+    }
+  ],
+  "citationValid": true,
+  "recallAt5": 1,
+  "mrrAt5": 1,
+  "accumulatedRecall": 1,
+  "accumulatedMrr": 1,
+  "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+  "abstentionCorrect": null,
+  "referenceAnswerMatch": true,
+  "answerCorrect": null,
+  "citationSupported": null,
+  "gradingSource": null,
+  "retrievalMs": 290,
+  "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+  "totalMs": 28247,
+  "budgetUsed": {
+    "tools": 2,
+    "searches": 1,
+    "plannerSteps": 2,
+    "evidenceChars": 1458,
+    "evidenceCount": 5,
+    "externalCalls": 4
+  },
+  "usage": [
+    {
+      "kind": "embedding",
+      "actual": {
+        "totalTokens": 11,
+        "promptTokens": 11
+      }
+    },
+    {
+      "kind": "planner",
+      "actual": {
+        "promptTokens": 2374,
+        "completionTokens": 46
+      }
+    },
+    {
+      "kind": "planner",
+      "actual": {
+        "promptTokens": 2399,
+        "completionTokens": 27
+      }
+    },
+    {
+      "kind": "generation",
+      "actual": {
+        "promptTokens": 1688,
+        "completionTokens": 38
+      }
+    }
+  ],
+  "inFlightUsageUnavailable": null,
+  "rawRunId": "161aee71-32be-41ee-b2a3-42cb2740054a",
+  "strategy": "original"
+}
