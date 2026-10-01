@@ -24,6 +24,9 @@ import org.testcontainers.junit.jupiter.*;
       "RERANK_API_KEY=must-never-be-used"
     })
 @AutoConfigureMockMvc
+// The inherited container restarts per test class; discard the datasource bound to its old port.
+@org.springframework.test.annotation.DirtiesContext(
+    classMode = org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_CLASS)
 @Testcontainers(disabledWithoutDocker = true)
 class Stage2RetrievalIntegrationTest {
   @Container

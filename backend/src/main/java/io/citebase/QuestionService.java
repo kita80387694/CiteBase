@@ -87,7 +87,9 @@ public class QuestionService {
       throw new org.springframework.web.server.ResponseStatusException(
           org.springframework.http.HttpStatus.CONFLICT, "SOURCE_CHANGED");
     TaskCall call =
-        task != null && retrievalError == null && !evidence.isEmpty()
+        task != null
+                && retrievalError == null
+                && !evidence.isEmpty()
                 && (model.mode().equals("real")
                     || Boolean.TRUE.equals(model.configuration().get("externalNetwork")))
             ? task.beginExternalCall(
@@ -187,6 +189,8 @@ public class QuestionService {
     config.put("rrfConstant", 60);
     config.put("candidateK", options.candidateK());
     config.put("retrievalOptions", options);
+    if (options.cacheEnabled() || options.deduplicateEnabled() || options.conditionalRerank())
+      config.put("retrievalCost", retrieval.costConfiguration(options));
     config.put("reranker", retrieval.rerankerConfiguration());
     config.put("keywordAnalyzer", "Latin words + Han bigrams v1");
     config.put("temperature", 0);

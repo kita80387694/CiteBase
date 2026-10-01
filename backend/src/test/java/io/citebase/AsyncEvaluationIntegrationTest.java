@@ -102,6 +102,75 @@ class AsyncEvaluationIntegrationTest {
   }
 
   @Test
+  void retrievalCostConfigurationSurvivesJsonbNumericRoundTripForAllOptIns() {
+    var options =
+        List.of(
+            new RetrievalOptions(5, 1.0, false, "uuid", "candidate-pressure-v1", null, null),
+            new RetrievalOptions(5, 1.0, false, "uuid", null, true, null),
+            new RetrievalOptions(5, 1.0, false, "uuid", null, null, true));
+    for (int n = 0; n < options.size(); n++) {
+      var base = request("cost-roundtrip-" + n);
+      var request =
+          new EvaluationService.Request(
+              kb, base.name(), base.dataset(), 5, options.get(n), base.idempotencyKey());
+      String id = evaluations.create(user, request).get("id").toString();
+      var persisted = (Map<?, ?>) ((Map<?, ?>) view(id).get("config")).get("retrievalCost");
+      var live = retrieval.costConfiguration(options.get(n));
+      var liveTtl = ((Map<?, ?>) live.get("cache")).get("ttlSeconds");
+      var storedTtl = ((Map<?, ?>) persisted.get("cache")).get("ttlSeconds");
+      assertInstanceOf(Long.class, liveTtl);
+      assertInstanceOf(Integer.class, storedTtl);
+      assertEquals(((Number) liveTtl).longValue(), ((Number) storedTtl).longValue());
+      assertTrue(worker.processOne(Set.of(TaskKind.EVALUATION)));
+      assertEquals("SUCCEEDED", view(id).get("status"));
+      var rows = (List<?>) view(id).get("results");
+      assertEquals(2, rows.size());
+      assertEquals(
+          Set.of("vector", "hybrid"),
+          rows.stream()
+              .map(row -> ((Map<?, ?>) row).get("mode"))
+              .collect(java.util.stream.Collectors.toSet()));
+      assertEquals(
+          2,
+          db.queryForObject(
+              "select count(*) from evaluation_item where evaluation_id=? and status='SUCCEEDED'",
+              Integer.class,
+              id));
+    }
+  }
+
+  @Test
+  void changedRetrievalCostConfigurationStillFailsBeforeProviderCalls() {
+    var base = request("cost-real-drift");
+    var options = new RetrievalOptions(5, 1.0, false, "uuid", null, null, true);
+    String id =
+        evaluations
+            .create(
+                user,
+                new EvaluationService.Request(
+                    kb, base.name(), base.dataset(), 5, options, base.idempotencyKey()))
+            .get("id")
+            .toString();
+    db.update(
+        "update evaluation_run set payload=jsonb_set(payload,"
+            + "'{config,retrievalCost,cache,ttlSeconds}',to_jsonb((payload #>>"
+            + " '{config,retrievalCost,cache,ttlSeconds}')::bigint + 1)) where id=?",
+        id);
+    assertTrue(worker.processOne(Set.of(TaskKind.EVALUATION)));
+    assertEquals("FAILED", view(id).get("status"));
+    assertEquals("CONFIG_CHANGED", view(id).get("error"));
+    // Terminal rejection retains each planned item as an explicit failure, not a missing sample.
+    assertEquals(2, ((List<?>) view(id).get("results")).size());
+    assertEquals(2, db.queryForObject(
+        "select count(*) from evaluation_item where evaluation_id=? and status='FAILED'"
+            + " and error_code='CONFIG_CHANGED' and attempts=0", Integer.class, id));
+    assertEquals(0, db.queryForObject(
+        "select count(*) from evaluation_attempt where evaluation_id=?", Integer.class, id));
+    verify(model, never()).embedWithUsage(anyString());
+    verify(model, never()).generate(anyString(), anyList());
+  }
+
+  @Test
   void networkFaultAdapterRemainsMockButRecordsExternalIntent() {
     var config = new LinkedHashMap<String, Object>(model.configuration());
     config.put("externalNetwork", true);
@@ -111,9 +180,13 @@ class AsyncEvaluationIntegrationTest {
     assertEquals("SUCCEEDED", view(id).get("status"));
     assertEquals("mock", model.mode());
     for (String provider : List.of("embedding", "generation")) {
-      assertEquals(2, db.queryForObject(
-          "select count(*) from work_call where task_id=? and provider=? and status='RETURNED'",
-          Integer.class, id, provider));
+      assertEquals(
+          2,
+          db.queryForObject(
+              "select count(*) from work_call where task_id=? and provider=? and status='RETURNED'",
+              Integer.class,
+              id,
+              provider));
     }
   }
 

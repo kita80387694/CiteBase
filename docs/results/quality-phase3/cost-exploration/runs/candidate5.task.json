@@ -1,0 +1,562 @@
+{
+  "id": "9314e208-95cb-47ff-8d96-c2b552516bf8",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9314e208-95cb-47ff-8d96-c2b552516bf8",
+  "kbId": "a856434d-fb11-4b8f-abb7-f30924bd1ca9",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "a856434d-fb11-4b8f-abb7-f30924bd1ca9",
+    "name": "p2opt-CostExplore-b62a7510fd6e-candidate5",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1-candidate5",
+      "questions": [
+        {
+          "id": "brass-002",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "缩写",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+              "groupId": "g1",
+              "endOffset": 105,
+              "paragraph": 2,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 61,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+          "answerable": true,
+          "expectedAnswer": "未复现故障；不能"
+        },
+        {
+          "id": "cobalt-019",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Cobalt 下一版海图何时上市？",
+          "answerable": false,
+          "expectedAnswer": null
+        },
+        {
+          "id": "dahlia-004",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+              "groupId": "g1",
+              "endOffset": 176,
+              "paragraph": 3,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 92,
+              "documentName": "dahlia-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+              "groupId": "g2",
+              "endOffset": 219,
+              "paragraph": 4,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 178,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；已有下一预约禁止续期"
+        },
+        {
+          "id": "elm-018",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 这张图中的天体叫什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-9fcab8be38a7e73b218d4398629dd1cb626dc25f0b5a93cba74fd4aba66f",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 8,
+    "failed": 0,
+    "completed": 8
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T07:57:27.920963Z",
+  "startedAt": "2026-09-30T07:57:27.982370Z",
+  "finishedAt": "2026-09-30T07:58:08.940939Z",
+  "availableAt": "2026-09-30T07:57:27.920963Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "94255b08-5c7a-4e4d-9256-383faa596d0e",
+      "operationKey": "4ac9dab3-e115-4bb0-a315-ce638e7f5a38:embedding:986b314d-6f31-427a-859f-bfecf88a21bd",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T07:57:28.013901Z",
+      "finishedAt": "2026-09-30T07:57:29.006570Z"
+    },
+    {
+      "callId": "ee1a5db5-baa1-4db1-adad-0e2d948f3aa6",
+      "operationKey": "4ac9dab3-e115-4bb0-a315-ce638e7f5a38:rerank:b8e872ae-5782-4e7f-9be0-e202e9e8650c",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1144,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1144,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1144,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:29.016352Z",
+      "finishedAt": "2026-09-30T07:57:29.365817Z"
+    },
+    {
+      "callId": "67dac1c7-88dc-4942-8aba-d60ace275966",
+      "operationKey": "4ac9dab3-e115-4bb0-a315-ce638e7f5a38:generation:fbb036e8-1ff6-4eea-a4ac-e8c29e0ef891",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1757,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-09-30T07:57:29.371581Z",
+      "finishedAt": "2026-09-30T07:57:34.612597Z"
+    },
+    {
+      "callId": "18e75aae-e9d1-4766-9be7-70800e8a3e52",
+      "operationKey": "8a8b5d49-247d-4686-a3c2-5362c303b064:embedding:af368e0f-736b-4e0c-8bb4-7d1b8a7ba07d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T07:57:34.646274Z",
+      "finishedAt": "2026-09-30T07:57:34.942125Z"
+    },
+    {
+      "callId": "a28023e3-a65c-41b2-b284-2c5e60239d8b",
+      "operationKey": "8a8b5d49-247d-4686-a3c2-5362c303b064:rerank:4ef3d9c6-b37d-4545-a9b8-09f6923afc40",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1144,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1144,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1144,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:34.955454Z",
+      "finishedAt": "2026-09-30T07:57:35.227036Z"
+    },
+    {
+      "callId": "a984be3d-87d3-4dfd-9a36-a82ae0607094",
+      "operationKey": "8a8b5d49-247d-4686-a3c2-5362c303b064:generation:897ce395-e9c9-4a17-a134-4d5f1b414a6a",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1757,
+        "completionTokens": 68
+      },
+      "startedAt": "2026-09-30T07:57:35.232182Z",
+      "finishedAt": "2026-09-30T07:57:41.136884Z"
+    },
+    {
+      "callId": "50372e9d-c631-4ec5-8b6a-99d81f2389ed",
+      "operationKey": "644724b3-57d4-4349-af94-31f1937a39e9:embedding:55d8acc0-8a6a-47e8-a8bf-adef42c98e2f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T07:57:41.162231Z",
+      "finishedAt": "2026-09-30T07:57:41.450437Z"
+    },
+    {
+      "callId": "95c1aa10-3b64-4f44-bc3a-e47497a5c1fe",
+      "operationKey": "644724b3-57d4-4349-af94-31f1937a39e9:rerank:2902097b-d9d1-4454-96cb-d79a5140b1cc",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1084,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1084,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1084,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:41.458064Z",
+      "finishedAt": "2026-09-30T07:57:41.717689Z"
+    },
+    {
+      "callId": "7e7bba98-92f2-4016-bef8-951fe3e60828",
+      "operationKey": "644724b3-57d4-4349-af94-31f1937a39e9:generation:3cb07a5a-03dc-4754-8ccc-8ccc08f6ead6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1716,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:57:41.721672Z",
+      "finishedAt": "2026-09-30T07:57:43.431289Z"
+    },
+    {
+      "callId": "c83405eb-5a26-4bca-8eb7-a9d8b1e7cbf7",
+      "operationKey": "8c9d0ea6-f94e-4830-98a7-8f2cafabad7d:embedding:e23069d4-c989-4b42-8e99-c43a3e9534af",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T07:57:43.453035Z",
+      "finishedAt": "2026-09-30T07:57:43.753114Z"
+    },
+    {
+      "callId": "5fddecf2-7b26-46f3-91b0-3827578f3691",
+      "operationKey": "8c9d0ea6-f94e-4830-98a7-8f2cafabad7d:rerank:3b0d3f3b-dfd4-48fc-ae48-612eb64dc752",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1085,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1085,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1085,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:43.761981Z",
+      "finishedAt": "2026-09-30T07:57:44.057457Z"
+    },
+    {
+      "callId": "7e6d3dee-0ad0-4996-85c1-59025a978b9c",
+      "operationKey": "8c9d0ea6-f94e-4830-98a7-8f2cafabad7d:generation:4d96d8ce-ba94-42c8-92c1-6246a00f405c",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1708,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:57:44.061510Z",
+      "finishedAt": "2026-09-30T07:57:50.645268Z"
+    },
+    {
+      "callId": "8fa94f5d-98ec-4a0c-a866-9b9a455d6036",
+      "operationKey": "73093d5a-2520-4c15-a365-36535b60ea68:embedding:537518fd-c30b-4b1d-a4bd-57eed76ddb43",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-09-30T07:57:50.674584Z",
+      "finishedAt": "2026-09-30T07:57:50.937306Z"
+    },
+    {
+      "callId": "8d31e815-6acb-4ea1-afe8-e60c5ae8a5fd",
+      "operationKey": "73093d5a-2520-4c15-a365-36535b60ea68:rerank:1b68734a-98dc-49a3-9c59-a65bb81c6495",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1153,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1153,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1153,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:50.946868Z",
+      "finishedAt": "2026-09-30T07:57:51.215865Z"
+    },
+    {
+      "callId": "83b06c8c-d4a0-4ba1-ac58-c75e77a697ce",
+      "operationKey": "73093d5a-2520-4c15-a365-36535b60ea68:generation:544967ee-7eff-4a2a-8f1d-2264d5bf555f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:57:51.220486Z",
+      "finishedAt": "2026-09-30T07:57:52.853431Z"
+    },
+    {
+      "callId": "33c98a2a-7c27-44f4-8b8a-38da41f2a22e",
+      "operationKey": "093659ff-c98e-4739-be90-d85b85674a5f:embedding:97ae8e64-ff66-46e9-a691-3b1e5446970d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-09-30T07:57:52.877645Z",
+      "finishedAt": "2026-09-30T07:57:53.194433Z"
+    },
+    {
+      "callId": "66f66c46-eedb-453e-b923-06175e42a91a",
+      "operationKey": "093659ff-c98e-4739-be90-d85b85674a5f:rerank:63f64f87-5153-4f6f-bc8c-c389c24a67d4",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1149,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1149,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1149,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:57:53.205872Z",
+      "finishedAt": "2026-09-30T07:57:53.507718Z"
+    },
+    {
+      "callId": "d2969134-7ed4-40a5-b468-d0535b86ae3b",
+      "operationKey": "093659ff-c98e-4739-be90-d85b85674a5f:generation:af59f4bc-da66-44cf-915e-87837633a84b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1767,
+        "completionTokens": 70
+      },
+      "startedAt": "2026-09-30T07:57:53.512102Z",
+      "finishedAt": "2026-09-30T07:58:02.917196Z"
+    },
+    {
+      "callId": "fb0434ce-4165-4e6a-a43c-3c84ecde2afa",
+      "operationKey": "551b083d-5390-4a31-b08f-8d31875ad892:embedding:12be9a4d-27a6-42f6-9334-5f5b0a0a087a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T07:58:02.957725Z",
+      "finishedAt": "2026-09-30T07:58:03.264619Z"
+    },
+    {
+      "callId": "97b804c3-5c08-400a-a0ea-d11e5708c677",
+      "operationKey": "551b083d-5390-4a31-b08f-8d31875ad892:rerank:69955fe8-820d-4459-ae02-b746e159df0a",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1075,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1075,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1075,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:58:03.272804Z",
+      "finishedAt": "2026-09-30T07:58:03.776411Z"
+    },
+    {
+      "callId": "e84e3f48-9ad7-4812-89c8-7878e43df92c",
+      "operationKey": "551b083d-5390-4a31-b08f-8d31875ad892:generation:4b6356a0-2a6d-4d63-8d72-0738dc6f42c9",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1692,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:58:03.781497Z",
+      "finishedAt": "2026-09-30T07:58:05.486847Z"
+    },
+    {
+      "callId": "5a6c9247-2eae-4719-9926-4863d646d1c1",
+      "operationKey": "54c29ed7-7348-4d37-a3f8-c3eb3462f97e:embedding:28018ef6-feb7-42d0-a51a-0b9bd491823c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T07:58:05.515491Z",
+      "finishedAt": "2026-09-30T07:58:05.783732Z"
+    },
+    {
+      "callId": "da8fac06-43f9-41ea-8260-3220bcf808a2",
+      "operationKey": "54c29ed7-7348-4d37-a3f8-c3eb3462f97e:rerank:3bcf8593-910b-4888-aa4d-ccd21414ff55",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 1103,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 1103,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 1103,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-09-30T07:58:05.794438Z",
+      "finishedAt": "2026-09-30T07:58:06.071448Z"
+    },
+    {
+      "callId": "c937752a-0d5c-4ec7-8a85-f37256c096da",
+      "operationKey": "54c29ed7-7348-4d37-a3f8-c3eb3462f97e:generation:5bfac7e4-cfa9-46d5-9b93-b24d4bf09dcd",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1724,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:58:06.076307Z",
+      "finishedAt": "2026-09-30T07:58:08.923799Z"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "chatModel": "deepseek-ai/DeepSeek-V3.2",
+  "embeddingModel": "BAAI/bge-m3",
+  "provider": {
+    "provider": "OpenAI-compatible via Spring AI",
+    "chatEndpoint": "https://api.siliconflow.cn",
+    "timeoutSeconds": 60,
+    "springAiVersion": "1.1.8",
+    "embeddingEndpoint": "https://api.siliconflow.cn"
+  },
+  "reranker": {
+    "model": "BAAI/bge-reranker-v2-m3",
+    "endpoint": "https://api.siliconflow.cn",
+    "provider": "SiliconFlow-compatible /v1/rerank",
+    "configured": true,
+    "timeoutSeconds": 10
+  },
+  "temperature": 0,
+  "dataVersions": [
+    {
+      "id": "1f2d019a-c910-4a05-b022-50bccf894bf1",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "520082bf-746f-4d7d-a5b4-64332949fe9a",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "30a5b4dc-89c0-4453-8c9a-ae82da2c238c",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "a3fe8bfb-e803-4eff-a991-eecf8cb93fa6",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a3e3c104-21d5-4e60-8df7-5cf6c0dd2ebe",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "5ed5b5f7-2492-4ab1-a5d7-b56710214d18",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "aee6f5a6-6d33-485d-8867-eeb818975ab2",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "0be9f735-d867-458c-9c4d-ae920cacd88b",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ccdb3eb8-3cbd-4456-b7a0-421d1871c16d",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "24faf0dc-f8f2-49ed-bed7-ccfab15dd568",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e06e74d3-9d2f-4634-94fb-afe8cbfe6686",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "5ef4e620-64db-4a4c-94f3-66c4931988c2",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eb7f5adb-3f94-4bb3-92e9-d37cd60ef976",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "d40557bf-76ee-4ba8-ad8c-08fc3d79cd6e",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "f46a1f12-8eb4-4fe9-9b51-787a9e1710bd",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "72c61106-a2f0-48fd-8ad5-b5ff65ac9be6",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ]
+}

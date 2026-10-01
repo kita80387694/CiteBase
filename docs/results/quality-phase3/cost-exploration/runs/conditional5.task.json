@@ -1,0 +1,117 @@
+{
+  "id": "bc4b8e8f-e153-417d-9747-97d07475cfda",
+  "kind": "EVALUATION",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "bc4b8e8f-e153-417d-9747-97d07475cfda",
+  "kbId": "a856434d-fb11-4b8f-abb7-f30924bd1ca9",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "a856434d-fb11-4b8f-abb7-f30924bd1ca9",
+    "name": "p2opt-CostExplore-b62a7510fd6e-conditional5",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1-conditional5",
+      "questions": [
+        {
+          "id": "brass-002",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "缩写",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+              "groupId": "g1",
+              "endOffset": 105,
+              "paragraph": 2,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 61,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+          "answerable": true,
+          "expectedAnswer": "未复现故障；不能"
+        },
+        {
+          "id": "cobalt-019",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Cobalt 下一版海图何时上市？",
+          "answerable": false,
+          "expectedAnswer": null
+        },
+        {
+          "id": "dahlia-004",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+              "groupId": "g1",
+              "endOffset": 176,
+              "paragraph": 3,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 92,
+              "documentName": "dahlia-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+              "groupId": "g2",
+              "endOffset": 219,
+              "paragraph": 4,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 178,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；已有下一预约禁止续期"
+        },
+        {
+          "id": "elm-018",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 这张图中的天体叫什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-970ccdcc09443482e80243f4a930aba9a1243d247eab7095139d54817bbc",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": null,
+  "errorCode": "CONFIG_CHANGED",
+  "errorSummary": "任务停止：CONFIG_CHANGED",
+  "createdAt": "2026-09-30T07:58:10.601311Z",
+  "startedAt": "2026-09-30T07:58:11.091071Z",
+  "finishedAt": "2026-09-30T07:58:11.112026Z",
+  "availableAt": "2026-09-30T07:58:10.601311Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "评测已完成所有题目；重新评测请新建任务",
+  "externalCalls": []
+}

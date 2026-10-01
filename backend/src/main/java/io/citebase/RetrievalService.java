@@ -10,13 +10,24 @@ public class RetrievalService {
   private final ModelGateway model;
   private final AccessService access;
   private final RerankGateway reranker;
+  private final RetrievalCache cache;
+  private final org.springframework.transaction.support.TransactionTemplate tx;
+  private final com.fasterxml.jackson.databind.ObjectMapper json =
+      new com.fasterxml.jackson.databind.ObjectMapper();
 
   public RetrievalService(
-      JdbcTemplate db, ModelGateway model, AccessService access, RerankGateway reranker) {
+      JdbcTemplate db,
+      ModelGateway model,
+      AccessService access,
+      RerankGateway reranker,
+      RetrievalCache cache,
+      org.springframework.transaction.PlatformTransactionManager tm) {
     this.db = db;
     this.model = model;
     this.access = access;
     this.reranker = reranker;
+    this.cache = cache;
+    this.tx = new org.springframework.transaction.support.TransactionTemplate(tm);
   }
 
   private static final String FROM =
@@ -37,6 +48,110 @@ public class RetrievalService {
   }
 
   RetrievalOutcome retrieveDetailed(
+      String user,
+      String kb,
+      String question,
+      String mode,
+      int topK,
+      RetrievalOptions supplied,
+      String evaluationId) {
+    var options = RetrievalOptions.resolve(supplied, topK);
+    if (!options.cacheEnabled())
+      return compute(user, kb, question, mode, topK, supplied, evaluationId);
+    if (question == null
+        || question.isBlank()
+        || question.length() > 4000
+        || question.indexOf('\u0000') >= 0
+        || !Set.of("vector", "hybrid").contains(mode)) throw new IllegalArgumentException("检索参数无效");
+    long started = System.nanoTime();
+    var scope =
+        tx.execute(
+            status -> {
+              lock(kb);
+              return scope(user, kb, evaluationId);
+            });
+    String key =
+        cache.key(
+            Map.of(
+                "user",
+                user,
+                "kb",
+                kb,
+                "scope",
+                evaluationId == null ? "ACTIVE" : evaluationId,
+                "versions",
+                scope,
+                "query",
+                question,
+                "mode",
+                mode,
+                "topK",
+                topK,
+                "effectiveCandidates",
+                candidateLimit(mode, topK, supplied, options),
+                "options",
+                options,
+                "models",
+                Map.of(
+                    "embedding",
+                    model.embeddingModel(),
+                    "mode",
+                    model.mode(),
+                    "provider",
+                    model.configuration(),
+                    "reranker",
+                    reranker.configuration())));
+    var hit =
+        tx.execute(
+            status -> {
+              lock(kb);
+              if (!scope.equals(scope(user, kb, evaluationId))) throw changed();
+              var value = cache.get(key);
+              if (value != null) {
+                try {
+                  validateCached(user, kb, evaluationId, value);
+                } catch (RuntimeException e) {
+                  cache.remove(key);
+                  throw e;
+                }
+              }
+              return value;
+            });
+    if (hit != null) {
+      var timings = (Map<String, Object>) hit.diagnostics().get("timings");
+      timings.replaceAll((name, value) -> 0L);
+      timings.put("cacheLookupMs", elapsed(started));
+      var cost = (Map<String, Object>) hit.diagnostics().get("cost");
+      cost.put("currentProviderCalls", Map.of("embedding", 0, "rerank", 0));
+      cost.put("usageReason", "not_called_cache_hit");
+      cost.put(
+          "cache",
+          Map.of(
+              "status",
+              "HIT",
+              "scope",
+              evaluationId == null ? "ACTIVE" : "EVALUATION_SNAPSHOT",
+              "config",
+              cache.configuration()));
+      var usage = new LinkedHashMap<String, Object>();
+      usage.put("embedding", null);
+      usage.put("rerank", null);
+      return new RetrievalOutcome(
+          hit.evidence(), hit.options(), hit.diagnostics(), usage, null, elapsed(started));
+    }
+    var computed = compute(user, kb, question, mode, topK, supplied, evaluationId);
+    if (computed.error() == null)
+      tx.executeWithoutResult(
+          status -> {
+            lock(kb);
+            if (!scope.equals(scope(user, kb, evaluationId))) throw changed();
+            validateCached(user, kb, evaluationId, computed);
+            cache.put(key, computed);
+          });
+    return computed;
+  }
+
+  private RetrievalOutcome compute(
       String user,
       String kb,
       String question,
@@ -72,6 +187,22 @@ public class RetrievalService {
     diagnostics.put("timings", timings);
     diagnostics.put("candidateCounts", counts);
     diagnostics.put("trace", trace);
+    var cost = new LinkedHashMap<String, Object>();
+    var calls = new LinkedHashMap<String, Object>();
+    calls.put("embedding", 0);
+    calls.put("rerank", 0);
+    cost.put("currentProviderCalls", calls);
+    cost.put(
+        "cache",
+        Map.of(
+            "status",
+            options.cacheEnabled() ? "MISS" : "OFF",
+            "scope",
+            evaluationId == null ? "ACTIVE" : "EVALUATION_SNAPSHOT",
+            "config",
+            cache.configuration()));
+    cost.put("rerankDecision", "DISABLED");
+    diagnostics.put("cost", cost);
     var usage = new LinkedHashMap<String, Object>();
     usage.put("embedding", null);
     usage.put("rerank", null);
@@ -82,6 +213,9 @@ public class RetrievalService {
     try {
       if (model.mode().equals("real")) AgentPolicy.beforeExternal();
       activeCall = begin(task, "embedding", question);
+      if (model.mode().equals("real")
+          || Boolean.TRUE.equals(model.configuration().get("externalNetwork")))
+        calls.put("embedding", 1);
       var embedded = model.embedWithUsage(question);
       complete(task, activeCall, embedded.usage());
       activeCall = null;
@@ -89,12 +223,7 @@ public class RetrievalService {
       usage.put("embedding", embedded.usage());
       String vector = Arrays.toString(embedded.vector());
       timings.put(current, elapsed(stage));
-      int candidates =
-          mode.equals("hybrid")
-                  || options.rerank()
-                  || supplied != null && supplied.candidateK() != null
-              ? options.candidateK()
-              : topK;
+      int candidates = candidateLimit(mode, topK, supplied, options);
       current = "vectorMs";
       stage = System.nanoTime();
       List<Evidence> semantic =
@@ -151,10 +280,29 @@ public class RetrievalService {
       trace.put("fused", fused);
       counts.put("fused", fused.size());
       List<Evidence> selected;
-      if (options.rerank() && !fused.isEmpty()) {
+      var batch = RetrievalCandidates.group(fused, options.deduplicateEnabled());
+      cost.put("rawCandidateCount", fused.size());
+      cost.put("uniqueRerankInputs", batch.representatives().size());
+      cost.put("dedupMapping", batch.mapping());
+      cost.put(
+          "savedInputCharacters",
+          fused.stream().mapToInt(e -> e.text().length()).sum()
+              - batch.representatives().stream().mapToInt(e -> e.text().length()).sum());
+      boolean shouldRerank =
+          options.rerank()
+              && !fused.isEmpty()
+              && (!options.conditionalRerank() || batch.representatives().size() > topK);
+      cost.put(
+          "rerankDecision",
+          !options.rerank()
+              ? "DISABLED"
+              : fused.isEmpty()
+                  ? "EMPTY"
+                  : shouldRerank ? "APPLIED" : "SKIPPED_CANDIDATE_PRESSURE");
+      if (shouldRerank) {
         current = "rerankMs";
         stage = System.nanoTime();
-        counts.put("rerankInput", fused.size());
+        counts.put("rerankInput", batch.representatives().size());
         if (model.mode().equals("real")
             && Boolean.TRUE.equals(reranker.configuration().get("configured")))
           AgentPolicy.beforeExternal();
@@ -163,20 +311,28 @@ public class RetrievalService {
             Boolean.TRUE.equals(reranker.configuration().get("configured"))
                 ? begin(task, "rerank", question)
                 : null;
-        var reranked = reranker.rerank(question, fused, topK);
+        if (Boolean.TRUE.equals(reranker.configuration().get("configured"))) calls.put("rerank", 1);
+        var reranked =
+            reranker.rerank(
+                question, batch.representatives(), Math.min(topK, batch.representatives().size()));
         complete(task, activeCall, reranked.usage());
         activeCall = null;
         AgentPolicy.externalUsage("rerank", reranked.usage());
         usage.put("rerank", reranked.usage());
-        var ranked = new ArrayList<Evidence>();
+        selected = batch.expand(reranked, topK);
         var ranks = new ArrayList<Map<String, Object>>();
-        for (var row : reranked.results()) {
-          var e = fused.get(row.index());
-          ranked.add(withScore(e, row.score()));
-          ranks.add(Map.of("index", row.index(), "score", row.score(), "chunkId", e.id()));
-        }
+        for (var row : reranked.results())
+          ranks.add(
+              Map.of(
+                  "index",
+                  row.index(),
+                  "score",
+                  row.score(),
+                  "chunkIds",
+                  batch.groups().get(row.index()).stream().map(Evidence::id).toList(),
+                  "chunkId",
+                  batch.representatives().get(row.index()).id()));
         trace.put("rerank", ranks);
-        selected = ranked;
         timings.put(current, elapsed(stage));
       } else selected = fused.stream().limit(topK).toList();
       counts.put("selected", selected.size());
@@ -187,6 +343,80 @@ public class RetrievalService {
       timings.put(current, elapsed(stage));
       return new RetrievalOutcome(
           List.of(), options, diagnostics, usage, e.getMessage(), elapsed(started));
+    }
+  }
+
+  private int candidateLimit(
+      String mode, int topK, RetrievalOptions supplied, RetrievalOptions options) {
+    return mode.equals("hybrid")
+            || options.rerank()
+            || supplied != null && supplied.candidateK() != null
+        ? options.candidateK()
+        : topK;
+  }
+
+  private void lock(String kb) {
+    db.queryForList("SELECT pg_advisory_xact_lock_shared(hashtextextended(?,0))", kb);
+  }
+
+  private List<Map<String, Object>> scope(String user, String kb, String evaluationId) {
+    access.requireKnowledgeBase(user, kb);
+    if (TaskContext.current() != null) TaskContext.current().checkActive();
+    return evaluationId == null ? dataVersions(user, kb) : snapshot(user, kb, evaluationId);
+  }
+
+  private static org.springframework.web.server.ResponseStatusException changed() {
+    return new org.springframework.web.server.ResponseStatusException(
+        org.springframework.http.HttpStatus.CONFLICT, "SOURCE_CHANGED");
+  }
+
+  private void validateCached(
+      String user, String kb, String evaluationId, RetrievalOutcome outcome) {
+    access.requireKnowledgeBase(user, kb);
+    if (evaluationId != null) requireEvaluation(user, kb, evaluationId);
+    if (TaskContext.current() != null) TaskContext.current().checkActive();
+    var all = new LinkedHashMap<String, Evidence>();
+    for (var e : outcome.evidence()) all.put(e.id(), e);
+    var trace = (Map<?, ?>) outcome.diagnostics().get("trace");
+    for (String name : List.of("vector", "keyword", "fused"))
+      for (Object value : (List<?>) trace.get(name)) {
+        var e =
+            value instanceof Evidence evidence
+                ? evidence
+                : json.convertValue(value, Evidence.class);
+        all.put(e.id(), e);
+      }
+    for (var e : all.values()) {
+      String condition =
+          evaluationId == null
+              ? " AND d.active_version_id=c.version_id"
+              : " AND EXISTS(SELECT 1 FROM evaluation_snapshot es WHERE es.evaluation_id=? AND"
+                  + " es.document_id=d.id AND es.version_id=c.version_id)";
+      var args =
+          new ArrayList<Object>(
+              List.of(
+                  user,
+                  kb,
+                  e.id(),
+                  e.documentId(),
+                  e.versionId(),
+                  e.documentName(),
+                  e.page(),
+                  e.paragraph(),
+                  e.startOffset(),
+                  e.endOffset(),
+                  e.text()));
+      if (evaluationId != null) args.add(evaluationId);
+      Integer count =
+          db.queryForObject(
+              "SELECT count(*) FROM chunk c JOIN document d ON d.id=c.document_id JOIN"
+                  + " knowledge_base k ON k.id=d.kb_id WHERE k.user_id=? AND k.id=? AND c.id=? AND"
+                  + " c.document_id=? AND c.version_id=? AND d.name=? AND c.page=? AND"
+                  + " c.paragraph=? AND c.start_offset=? AND c.end_offset=? AND c.content=?"
+                  + condition,
+              Integer.class,
+              args.toArray());
+      if (count == null || count != 1) throw changed();
     }
   }
 
@@ -280,6 +510,22 @@ public class RetrievalService {
 
   private static long elapsed(long start) {
     return (System.nanoTime() - start) / 1_000_000;
+  }
+
+  public Map<String, Object> costConfiguration(RetrievalOptions options) {
+    return Map.of(
+        "version",
+        "retrieval-cost-v1",
+        "rerankPolicy",
+        options.conditionalRerank() ? "candidate-pressure-v1" : "always",
+        "deduplicate",
+        options.deduplicateEnabled(),
+        "dedupAlgorithm",
+        "exact-provider-input-expand-v1",
+        "cacheEnabled",
+        options.cacheEnabled(),
+        "cache",
+        cache.configuration());
   }
 
   public Map<String, Object> rerankerConfiguration() {

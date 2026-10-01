@@ -1,0 +1,895 @@
+{
+  "id": "bc4b8e8f-e153-417d-9747-97d07475cfda",
+  "name": "p2opt-CostExplore-b62a7510fd6e-conditional5",
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1-conditional5",
+      "questions": [
+        {
+          "id": "brass-002",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "缩写",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+              "groupId": "g1",
+              "endOffset": 105,
+              "paragraph": 2,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 61,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+          "answerable": true,
+          "expectedAnswer": "未复现故障；不能"
+        },
+        {
+          "id": "cobalt-019",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Cobalt 下一版海图何时上市？",
+          "answerable": false,
+          "expectedAnswer": null
+        },
+        {
+          "id": "dahlia-004",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+              "groupId": "g1",
+              "endOffset": 176,
+              "paragraph": 3,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 92,
+              "documentName": "dahlia-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+              "groupId": "g2",
+              "endOffset": 219,
+              "paragraph": 4,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 178,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；已有下一预约禁止续期"
+        },
+        {
+          "id": "elm-018",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Elm 这张图中的天体叫什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 5,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "4040787f-11ad-4f83-b55b-0a269df84271",
+        "name": "brass-b.md",
+        "chunk_size": 900,
+        "version_id": "be3552fb-db16-407f-b0e9-c6a63f571e29",
+        "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "44686720-35b0-409e-83ba-673d578bb6d6",
+        "name": "dahlia-a.md",
+        "chunk_size": 900,
+        "version_id": "f8936188-6d46-4e27-a135-a891989a5c8d",
+        "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "5c04f16f-e75c-488b-a995-2f9d6131bc6e",
+        "name": "brass-a.md",
+        "chunk_size": 900,
+        "version_id": "a164b0d8-cd5d-4ceb-badf-3c352f3aee1d",
+        "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "aac0b97b-0c43-4d79-9b85-97a5c7db7f9e",
+        "name": "cobalt-a.md",
+        "chunk_size": 900,
+        "version_id": "8a34194d-cc9f-43c2-8c0f-774985a1f1f2",
+        "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "af14d5fb-3bd3-4705-b7ec-28e0f76f1bc3",
+        "name": "elm-a.md",
+        "chunk_size": 900,
+        "version_id": "a2f0e596-8254-44f9-bbfe-8a977a7c62ab",
+        "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "b5528f36-faac-4c4c-89ff-73d00ee83a80",
+        "name": "dahlia-b.md",
+        "chunk_size": 900,
+        "version_id": "ba5c2f6b-6739-4c13-bd40-1ca1a464e584",
+        "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "ba8dcac3-680f-45ab-997b-2a97e3326ace",
+        "name": "cobalt-b.md",
+        "chunk_size": 900,
+        "version_id": "256cb1c4-72fa-4e7b-a0e9-f66b319a755d",
+        "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "f2acea78-8c50-48b5-803d-4d503bb22cb6",
+        "name": "elm-b.md",
+        "chunk_size": 900,
+        "version_id": "61b6e9ee-3858-42ca-8ba2-e76c80a54013",
+        "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "retrievalCost": {
+      "cache": {
+        "scope": "process-local",
+        "version": "authorized-retrieval-v1",
+        "maxBytes": 8000000,
+        "maxEntries": 128,
+        "ttlSeconds": 300
+      },
+      "version": "retrieval-cost-v1",
+      "deduplicate": false,
+      "cacheEnabled": false,
+      "rerankPolicy": "candidate-pressure-v1",
+      "dedupAlgorithm": "exact-provider-input-expand-v1"
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [
+    {
+      "mrr": 0,
+      "mode": "vector",
+      "error": "CONFIG_CHANGED",
+      "group": "brass",
+      "split": "dev",
+      "topic": "brass",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "brass-002",
+      "totalMs": null,
+      "category": "缩写",
+      "evidence": [],
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": 0,
+      "answerable": true,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": "未复现故障；不能",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1",
+          "endOffset": 105,
+          "paragraph": 2,
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "startOffset": 61,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": 0,
+      "mode": "hybrid",
+      "error": "CONFIG_CHANGED",
+      "group": "brass",
+      "split": "dev",
+      "topic": "brass",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "brass-002",
+      "totalMs": null,
+      "category": "缩写",
+      "evidence": [],
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": 0,
+      "answerable": true,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": "未复现故障；不能",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1",
+          "endOffset": 105,
+          "paragraph": 2,
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "startOffset": 61,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": null,
+      "mode": "vector",
+      "error": "CONFIG_CHANGED",
+      "group": "cobalt",
+      "split": "dev",
+      "topic": "cobalt",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "cobalt-019",
+      "totalMs": null,
+      "category": "不可回答",
+      "evidence": [],
+      "question": "Cobalt 下一版海图何时上市？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": false,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": null,
+      "mode": "hybrid",
+      "error": "CONFIG_CHANGED",
+      "group": "cobalt",
+      "split": "dev",
+      "topic": "cobalt",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "cobalt-019",
+      "totalMs": null,
+      "category": "不可回答",
+      "evidence": [],
+      "question": "Cobalt 下一版海图何时上市？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": false,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": 0,
+      "mode": "vector",
+      "error": "CONFIG_CHANGED",
+      "group": "dahlia",
+      "split": "validation",
+      "topic": "dahlia",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "dahlia-004",
+      "totalMs": null,
+      "category": "跨段落",
+      "evidence": [],
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": 0,
+      "answerable": true,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能；已有下一预约禁止续期",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1",
+          "endOffset": 176,
+          "paragraph": 3,
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "startOffset": 92,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "page": 1,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2",
+          "endOffset": 219,
+          "paragraph": 4,
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "startOffset": 178,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 2,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": 0,
+      "mode": "hybrid",
+      "error": "CONFIG_CHANGED",
+      "group": "dahlia",
+      "split": "validation",
+      "topic": "dahlia",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "dahlia-004",
+      "totalMs": null,
+      "category": "跨段落",
+      "evidence": [],
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": 0,
+      "answerable": true,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能；已有下一预约禁止续期",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1",
+          "endOffset": 176,
+          "paragraph": 3,
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "startOffset": 92,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "page": 1,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2",
+          "endOffset": 219,
+          "paragraph": 4,
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "startOffset": 178,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 2,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": null,
+      "mode": "vector",
+      "error": "CONFIG_CHANGED",
+      "group": "elm",
+      "split": "validation",
+      "topic": "elm",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "elm-018",
+      "totalMs": null,
+      "category": "不可回答",
+      "evidence": [],
+      "question": "Elm 这张图中的天体叫什么？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": false,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "mrr": null,
+      "mode": "hybrid",
+      "error": "CONFIG_CHANGED",
+      "group": "elm",
+      "split": "validation",
+      "topic": "elm",
+      "usage": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "elm-018",
+      "totalMs": null,
+      "category": "不可回答",
+      "evidence": [],
+      "question": "Elm 这张图中的天体叫什么？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "evidenceHit": false,
+      "retrievalMs": null,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": false,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": null,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": false,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    }
+  ],
+  "createdAt": "2026-09-30T07:58:10.587059253Z",
+  "modelMode": "real",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "FAILED",
+  "taskStatus": "FAILED",
+  "taskId": "bc4b8e8f-e153-417d-9747-97d07475cfda",
+  "progress": {
+    "total": 8,
+    "completed": 8,
+    "failed": 8,
+    "unit": "question_modes"
+  },
+  "pendingItems": [],
+  "partial": false,
+  "canScore": true,
+  "error": "CONFIG_CHANGED",
+  "attempts": [],
+  "externalCalls": [],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 4,
+      "answerableCount": 2,
+      "plannedCount": 4,
+      "errorCount": 4,
+      "recallAtK": 0,
+      "mrr": 0,
+      "retrievalMs": null,
+      "totalMs": null
+    },
+    "hybrid": {
+      "count": 4,
+      "answerableCount": 2,
+      "plannedCount": 4,
+      "errorCount": 4,
+      "recallAtK": 0,
+      "mrr": 0,
+      "retrievalMs": null,
+      "totalMs": null
+    }
+  },
+  "breakdowns": {
+    "category": {
+      "缩写": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "不可回答": {
+        "vector": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "跨段落": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "validation": {
+        "vector": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 2,
+          "errorCount": 2,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      }
+    },
+    "group": {
+      "brass": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "cobalt": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "dahlia": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "elm": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      }
+    },
+    "topic": {
+      "brass": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "cobalt": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "dahlia": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      },
+      "elm": {
+        "vector": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": null,
+          "totalMs": null
+        }
+      }
+    }
+  },
+  "manualScores": []
+}

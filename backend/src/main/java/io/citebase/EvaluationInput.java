@@ -135,9 +135,23 @@ public class EvaluationInput {
       RetrievalOptions.resolve(null, topK);
       return;
     }
-    object(node, Set.of("candidateK", "keywordWeight", "rerank", "citationStyle"));
+    object(
+        node,
+        Set.of(
+            "candidateK",
+            "keywordWeight",
+            "rerank",
+            "citationStyle",
+            "rerankPolicy",
+            "deduplicate",
+            "cache"));
     integer(node, "candidateK", false);
     text(node, "citationStyle", false);
+    text(node, "rerankPolicy", false);
+    for (String flag : java.util.List.of("deduplicate", "cache")) {
+      var v = node.get(flag);
+      if (v != null && !v.isBoolean()) throw new IllegalArgumentException(flag + "必须boolean");
+    }
     var weight = node.get("keywordWeight");
     if (weight != null
         && !weight.isNull()

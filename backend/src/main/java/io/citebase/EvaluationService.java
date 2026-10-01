@@ -205,7 +205,13 @@ public class EvaluationService implements TaskHandler {
                   itemMaxAttempts);
           tasks.enqueue(
               new TaskSpec(
-                  kind(), user, request.kbId(), id, request.idempotencyKey(), normalized, taskMaxAttempts));
+                  kind(),
+                  user,
+                  request.kbId(),
+                  id,
+                  request.idempotencyKey(),
+                  normalized,
+                  taskMaxAttempts));
           db.update("UPDATE evaluation_run SET task_id=? WHERE id=?", id, id);
           return view(user, id);
         });
@@ -242,14 +248,18 @@ public class EvaluationService implements TaskHandler {
                     String.class,
                     id)),
             Request.class);
-    var current = questions.config(request.topK(), request.retrievalOptions());
-    for (String key : current.keySet())
-      if (!Objects.equals(current.get(key), config.get(key))) {
-        // JSON numeric/maps are compared through canonical serialization below, not Java record
-        // identity.
-        if (!mapper.valueToTree(current.get(key)).equals(mapper.valueToTree(config.get(key))))
-          throw new TaskSignal("CONFIG_CHANGED");
+    // Normalize both records and numeric wrapper types through the same JSON round trip as
+    // persisted configuration. valueToTree alone retains LongNode versus IntNode identity:
+    // e.g. an unchanged TTL of 300L becomes Integer 300 when loaded from JSONB.
+    var current =
+        cast(
+            questions.decode(
+                questions.encode(questions.config(request.topK(), request.retrievalOptions()))));
+    for (String key : current.keySet()) {
+      if (!config.containsKey(key) || !Objects.equals(current.get(key), config.get(key))) {
+        throw new TaskSignal("CONFIG_CHANGED");
       }
+    }
     while (true) {
       context.checkActive();
       var pending =

@@ -61,7 +61,16 @@ public class AgentInput {
       RetrievalOptions options = null;
       if (n.has("retrievalOptions")) {
         var o = n.get("retrievalOptions");
-        fields(o, Set.of("candidateK", "keywordWeight", "rerank", "citationStyle"));
+        fields(
+            o,
+            Set.of(
+                "candidateK",
+                "keywordWeight",
+                "rerank",
+                "citationStyle",
+                "rerankPolicy",
+                "deduplicate",
+                "cache"));
         Integer ck = o.has("candidateK") ? integer(o, "candidateK", 20, 100) : null;
         Double w = null;
         Boolean rerank = null;
@@ -76,7 +85,14 @@ public class AgentInput {
           rerank = o.get("rerank").booleanValue();
         }
         if (o.has("citationStyle")) style = text(o, "citationStyle", 20, true);
-        options = new RetrievalOptions(ck, w, rerank, style);
+        String policy = o.has("rerankPolicy") ? text(o, "rerankPolicy", 40, true) : null;
+        Boolean dedup = null, cache = null;
+        for (String flag : List.of("deduplicate", "cache"))
+          if (o.has(flag) && !o.get(flag).isBoolean())
+            throw new IllegalArgumentException(flag + "必须boolean");
+        if (o.has("deduplicate")) dedup = o.get("deduplicate").booleanValue();
+        if (o.has("cache")) cache = o.get("cache").booleanValue();
+        options = new RetrievalOptions(ck, w, rerank, style, policy, dedup, cache);
       }
       var p = AgentPolicy.DEFAULT;
       if (n.has("budget")) {
