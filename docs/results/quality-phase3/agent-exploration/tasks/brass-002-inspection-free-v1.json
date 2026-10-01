@@ -1,0 +1,71 @@
+{
+  "id": "b1ff912c-170d-477c-aa8e-3c2e0eb7490c",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "b1ff912c-170d-477c-aa8e-3c2e0eb7490c",
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "maxAttempts": 2,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "b1ff912c-170d-477c-aa8e-3c2e0eb7490c"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:59:27.288329Z",
+  "startedAt": "2026-09-30T06:59:27.771656Z",
+  "finishedAt": "2026-09-30T06:59:35.145554Z",
+  "availableAt": "2026-09-30T06:59:27.288329Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "0ecd8cf0-eb14-4c97-81e1-c44e5b6bc0f0",
+      "operationKey": "embedding:c1bb70ad-c8ec-472e-a2ac-0b65757649ca",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:59:27.811159Z",
+      "finishedAt": "2026-09-30T06:59:28.084679Z"
+    },
+    {
+      "callId": "df615a8d-f5da-4830-a64b-b43b14c6318b",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2460,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-09-30T06:59:28.135389Z",
+      "finishedAt": "2026-09-30T06:59:30.826695Z"
+    },
+    {
+      "callId": "6b9da053-c16a-4627-be59-ba8a12e364e2",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1732,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-09-30T06:59:30.865700Z",
+      "finishedAt": "2026-09-30T06:59:35.107355Z"
+    }
+  ]
+}

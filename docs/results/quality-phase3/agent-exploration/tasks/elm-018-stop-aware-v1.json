@@ -1,0 +1,71 @@
+{
+  "id": "e2f4c284-750f-428c-b31b-a069121a0540",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "e2f4c284-750f-428c-b31b-a069121a0540",
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "maxAttempts": 2,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "e2f4c284-750f-428c-b31b-a069121a0540"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T07:07:28.621939Z",
+  "startedAt": "2026-09-30T07:07:28.910816Z",
+  "finishedAt": "2026-09-30T07:07:39.227064Z",
+  "availableAt": "2026-09-30T07:07:28.621939Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c83c9170-5c95-4eff-a54b-6e69efa76fb5",
+      "operationKey": "embedding:43b852fd-d53a-4e74-b980-136a0c1ce324",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T07:07:28.943767Z",
+      "finishedAt": "2026-09-30T07:07:29.191707Z"
+    },
+    {
+      "callId": "0a3a4291-a4ea-47ac-94be-1a597c942434",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2530,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-09-30T07:07:29.228651Z",
+      "finishedAt": "2026-09-30T07:07:36.321664Z"
+    },
+    {
+      "callId": "c0b4ef24-291a-4076-b33c-80d107b291e1",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1679,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:07:36.356074Z",
+      "finishedAt": "2026-09-30T07:07:39.198218Z"
+    }
+  ]
+}

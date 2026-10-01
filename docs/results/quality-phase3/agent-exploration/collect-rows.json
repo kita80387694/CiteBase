@@ -1,0 +1,4119 @@
+{
+  "registrationSha256": "d40342d962fc089f5b71e539b1f95b4bbccf66ed6c9d9a7369598bef74de53d4",
+  "rows": [
+    {
+      "caseId": "brass-002",
+      "mode": "vector",
+      "category": "缩写",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 将 NFF 定义为“未复现故障”。证据明确指出“NFF 不代表客户描述虚假”[a3c0a79b-7003-4956-9bdc-1d7d14627c15]。因此，不能仅根据 NFF 就断定客户撒谎。",
+      "evidence": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5467453002929688,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.36638122000582407,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.35123732686042786,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.33427785839306523,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 403,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 8440,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1546,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 18,
+            "promptTokens": 18
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2419,
+            "completionTokens": 28
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1732,
+            "completionTokens": 68
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "149d226f-8de1-4fab-9002-bd66130630e1",
+      "strategy": "original"
+    },
+    {
+      "caseId": "brass-002",
+      "mode": "vector",
+      "category": "缩写",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 将 NFF 定义为“未复现故障”，并且明确指出“NFF 不代表客户描述虚假” [a3c0a79b-7003-4956-9bdc-1d7d14627c15]。因此，不能仅根据 NFF 就断定客户撒谎。",
+      "evidence": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5467453002929688,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.36638122000582407,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.35123732686042786,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.33427785839306523,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 290,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 7349,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1546,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 18,
+            "promptTokens": 18
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2460,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1732,
+            "completionTokens": 69
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "b1ff912c-170d-477c-aa8e-3c2e0eb7490c",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "brass-002",
+      "mode": "vector",
+      "category": "缩写",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 将 NFF 定义为“未复现故障”，并且明确指出“NFF 不代表客户描述虚假” [a3c0a79b-7003-4956-9bdc-1d7d14627c15]。因此，不能仅根据 NFF 就断定客户撒谎。",
+      "evidence": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5467453002929688,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.36638122000582407,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.35123732686042786,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.33427785839306523,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6435152292251587,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 291,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 26213,
+      "budgetUsed": {
+        "tools": 3,
+        "searches": 1,
+        "plannerSteps": 3,
+        "evidenceChars": 1546,
+        "evidenceCount": 5,
+        "externalCalls": 5
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 18,
+            "promptTokens": 18
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2583,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2605,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2627,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1732,
+            "completionTokens": 69
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "6dbdbc03-3124-4217-8756-49457a338e0a",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "brass-002",
+      "mode": "vector",
+      "category": "缩写",
+      "split": "dev",
+      "answerable": true,
+      "status": "FAILED",
+      "error": "NO_PROGRESS",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.643687167387437,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5469297496634582,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.3660490055142648,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3503453940358999,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3333543936436645,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 393,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 13012,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1546,
+        "evidenceCount": 5,
+        "externalCalls": 2
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 18,
+            "promptTokens": 18
+          },
+          "callId": "21b50dee-93fd-4ef9-9e11-f1ccddc48bb7",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2457,
+            "completionTokens": 61
+          },
+          "callId": "c9d6a8c2-19b7-4382-87b4-92cbfdeab5ed",
+          "status": "RETURNED"
+        }
+      ],
+      "inFlightUsageUnavailable": false,
+      "rawRunId": "3c7d83c5-d362-44d5-8c58-8f66b9260340",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "cobalt-019",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "dev",
+      "answerable": false,
+      "status": "FAILED",
+      "error": "BUDGET_EXCEEDED",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.6428379203580582,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.5523729920387268,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3255101546341095,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.3031000314295278,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.2976767420768738,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.37065649032592773,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": false,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 669,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 18378,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 2,
+        "plannerSteps": 2,
+        "evidenceChars": 1824,
+        "evidenceCount": 6,
+        "externalCalls": 4
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          },
+          "callId": "48ea0719-56db-48ea-9483-2d8f46b767cf",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2427,
+            "completionTokens": 54
+          },
+          "callId": "9091e54b-fd0b-46be-97bc-2dc164a82dc8",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 15,
+            "promptTokens": 15
+          },
+          "callId": "5242044a-6e9d-4064-b85e-92bcb94e37a2",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2797,
+            "completionTokens": 54
+          },
+          "callId": "dbcf6aec-f39d-420f-968b-fdbf922cf516",
+          "status": "RETURNED"
+        }
+      ],
+      "inFlightUsageUnavailable": false,
+      "rawRunId": "313e8fcf-26e9-4085-b0eb-f4fe327d2569",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "cobalt-019",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "dev",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.6428379203580582,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.5523729920387268,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3255101546341095,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.3031000314295278,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.2976767420768738,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 318,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 38676,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1511,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2550,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1698,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "d53e46b9-5188-4175-a021-b256b53451c2",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "cobalt-019",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "dev",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.6428379203580582,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.5523729920387268,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3255101546341095,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.3031000314295278,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.2976767420768738,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.35241474821655505,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 550,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 57764,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 2,
+        "plannerSteps": 2,
+        "evidenceChars": 1824,
+        "evidenceCount": 6,
+        "externalCalls": 5
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2425,
+            "completionTokens": 54
+          }
+        },
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 15,
+            "promptTokens": 15
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2715,
+            "completionTokens": 28
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 2043,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "3a9a7492-383f-4104-bc16-cd988b55fcd8",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "cobalt-019",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "dev",
+      "answerable": false,
+      "status": "FAILED",
+      "error": "NO_PROGRESS",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.6428379203580582,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.5523729920387268,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3255101546341095,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.3031000314295278,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.2976767420768738,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": false,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 605,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 7344,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 2,
+        "plannerSteps": 1,
+        "evidenceChars": 1511,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          },
+          "callId": "0cd7382f-c9cd-401b-b032-93d49efd52e5",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2386,
+            "completionTokens": 51
+          },
+          "callId": "5c9c3be8-6988-406a-827e-c151efa356fb",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 12,
+            "promptTokens": 12
+          },
+          "callId": "2e90499e-1281-4b7b-b6fb-fc7ad9d9011e",
+          "status": "RETURNED"
+        }
+      ],
+      "inFlightUsageUnavailable": false,
+      "rawRunId": "276576ea-9a20-4dc8-a153-345f96355f31",
+      "strategy": "original"
+    },
+    {
+      "caseId": "brass-014",
+      "mode": "vector",
+      "category": "表格",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6508761256411012,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.644637963495377,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.4616519533603227,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.448313778839853,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.41878286004066767,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 909,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 14352,
+      "budgetUsed": {
+        "tools": 3,
+        "searches": 1,
+        "plannerSteps": 3,
+        "evidenceChars": 1512,
+        "evidenceCount": 5,
+        "externalCalls": 5
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2600,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2622,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2644,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1754,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "d2877e52-7616-45d3-955d-a95711be6cc8",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "brass-014",
+      "mode": "vector",
+      "category": "表格",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6508761256411012,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.644637963495377,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.4616519533603227,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.448313778839853,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.41878286004066767,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 508,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 6959,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1512,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2475,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1754,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "b03b78de-6401-4948-810a-4b62d7bd65a1",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "brass-014",
+      "mode": "vector",
+      "category": "表格",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6508761256411012,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.644637963495377,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.4616519533603227,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.448313778839853,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.41878286004066767,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 280,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 7313,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1512,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2436,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1754,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "97cf189d-09f1-439a-a7b5-1ae0a5d32101",
+      "strategy": "original"
+    },
+    {
+      "caseId": "brass-014",
+      "mode": "vector",
+      "category": "表格",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6508761256411012,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.644637963495377,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.4616519533603227,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.448313778839853,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.41878286004066767,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 276,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 36040,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1512,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2477,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1754,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "e72fa101-09da-4526-b6ff-96145de28990",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "brass-009",
+      "mode": "vector",
+      "category": "证据充分",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 保存测试录音30天 [7c24d893-7578-4217-8060-2e70917638f2]。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6569962697326028,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.48262689852359,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.47066940454634,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.43082557824774026,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": true,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 271,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 13346,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1458,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 11,
+            "promptTokens": 11
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2419,
+            "completionTokens": 28
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1696,
+            "completionTokens": 35
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "c8a611ab-7d4b-4286-b5c4-a5075dcf726a",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "brass-009",
+      "mode": "vector",
+      "category": "证据充分",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 测试录音保留30天 [7c24d893-7578-4217-8060-2e70917638f2]。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6569962697326028,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.48262689852359,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.47066940454634,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.43082557824774026,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": true,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 254,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 51958,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 2,
+        "evidenceChars": 1458,
+        "evidenceCount": 5,
+        "externalCalls": 4
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 11,
+            "promptTokens": 11
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2380,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2406,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1696,
+            "completionTokens": 35
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "58c1bdb4-fab8-4a81-83ad-cbad72acc78a",
+      "strategy": "original"
+    },
+    {
+      "caseId": "brass-009",
+      "mode": "vector",
+      "category": "证据充分",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 测试录音保留30天 [7c24d893-7578-4217-8060-2e70917638f2]。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6569962697326028,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.48262689852359,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.47066940454634,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.43082557824774026,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": true,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 301,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 16627,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1458,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 11,
+            "promptTokens": 11
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2421,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1696,
+            "completionTokens": 35
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "59c141b1-503b-44bf-9f69-1394a61373d5",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "brass-009",
+      "mode": "vector",
+      "category": "证据充分",
+      "split": "dev",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Brass 测试录音保留30天 [7c24d893-7578-4217-8060-2e70917638f2]。",
+      "evidence": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.6569962697326028,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.48262689852359,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.47066940454634,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.43082557824774026,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.6822742427073196,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": true,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 276,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 14874,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1458,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 11,
+            "promptTokens": 11
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2544,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1696,
+            "completionTokens": 35
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "7f9b8c3a-d0dd-408f-a551-e8129f4fbc70",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "dahlia-004",
+      "mode": "vector",
+      "category": "跨段落",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.7310799360275269,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.7162052562114456,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5127320885658264,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.46507585048675537,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.46338191628456116,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 265,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 10698,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1525,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 22,
+            "promptTokens": 22
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2443,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1752,
+            "completionTokens": 72
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "bcd1c42b-4dcf-45d0-b440-2d8b96bb8bcf",
+      "strategy": "original"
+    },
+    {
+      "caseId": "dahlia-004",
+      "mode": "vector",
+      "category": "跨段落",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.7310799360275269,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.7162052562114456,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5127320885658264,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.46507585048675537,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.46338191628456116,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 391,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 11199,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1525,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 22,
+            "promptTokens": 22
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2484,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1752,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "9db81764-e881-4a24-8655-9a5bbfef3aca",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "dahlia-004",
+      "mode": "vector",
+      "category": "跨段落",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.7310799360275269,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.7162052562114456,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5127320885658264,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.46507585048675537,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.46338191628456116,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 411,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 51032,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 2,
+        "evidenceChars": 1525,
+        "evidenceCount": 5,
+        "externalCalls": 4
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 22,
+            "promptTokens": 22
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2607,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2629,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1752,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "19a73ff3-d8b0-4dda-a1cd-76c18fe0534b",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "dahlia-004",
+      "mode": "vector",
+      "category": "跨段落",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.7310799360275269,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.7162052562114456,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "7c24d893-7578-4217-8060-2e70917638f2",
+          "page": 1,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "score": 0.5127320885658264,
+          "endOffset": 283,
+          "paragraph": 1,
+          "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+          "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+          "startOffset": 0,
+          "documentName": "brass-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.46507585048675537,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.46338191628456116,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 331,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 5190,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1525,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 22,
+            "promptTokens": 22
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2482,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1752,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "2e24c72f-1e13-4b74-a0df-15042085a030",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "elm-018",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "validation",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.5315254805855885,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5307723721631675,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3209855247425013,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.2825942719755852,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.2742823876654401,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 283,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 12630,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1478,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2407,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1679,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "0d4f55c9-d83c-4a24-b175-e00cb490f232",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "elm-018",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "validation",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.5312590915715163,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5304401200747427,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3212449146059111,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.28294333815574646,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.27404267942651084,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 264,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 10297,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1478,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2530,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1679,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "e2f4c284-750f-428c-b31b-a069121a0540",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "elm-018",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "validation",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.5312590915715163,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5304401200747427,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3212449146059111,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.28294333815574646,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.27404267942651084,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 278,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 12635,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1478,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2405,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1679,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "fbc9c5aa-02c6-4e09-8552-43d61421b641",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "elm-018",
+      "mode": "vector",
+      "category": "不可回答",
+      "split": "validation",
+      "answerable": false,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.5312590915715163,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5304401200747427,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3212449146059111,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.28294333815574646,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.27404267942651084,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": null,
+      "mrrAt5": null,
+      "accumulatedRecall": null,
+      "accumulatedMrr": null,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": true,
+      "referenceAnswerMatch": null,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 270,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 19512,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1478,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 13,
+            "promptTokens": 13
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2366,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1679,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "2ad4ec1c-7720-42a0-8ce0-df14a56fdd67",
+      "strategy": "original"
+    },
+    {
+      "caseId": "dahlia-011",
+      "mode": "vector",
+      "category": "表格",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Dahlia 雨天操作要求如下：\n- 电动手钻室外作业：禁止 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n- 手推车室外作业：归还后擦干检查 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n\n因此，下雨时，电动手钻禁止在室外使用，而手推车在室外使用后需要擦干检查，并未被禁止。",
+      "evidence": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.5930876731872559,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3894870347090349,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.38402578234672546,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3825811743736267,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 274,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 26670,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 2,
+        "evidenceChars": 1501,
+        "evidenceCount": 5,
+        "externalCalls": 4
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 19,
+            "promptTokens": 19
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2585,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2607,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1729,
+            "completionTokens": 113
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "73552ba8-f3dc-4a7e-9692-01ea20bc3545",
+      "strategy": "stop-aware-v1"
+    },
+    {
+      "caseId": "dahlia-011",
+      "mode": "vector",
+      "category": "表格",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Dahlia 雨天操作要求表中规定：\n- 电动手钻室外作业：禁止 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n- 手推车室外作业：归还后擦干检查 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n\n因此，下雨时，电动手钻禁止在室外使用，而手推车在室外使用后需要进行归还后擦干检查，并未被禁止使用。",
+      "evidence": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.5930876731872559,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3894870347090349,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.38402578234672546,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3825811743736267,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 270,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 23888,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1501,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 19,
+            "promptTokens": 19
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2460,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1729,
+            "completionTokens": 117
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "bca29859-4314-4ae4-968c-3fa2b42114fd",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "dahlia-011",
+      "mode": "vector",
+      "category": "表格",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "根据证据，Dahlia 雨天操作要求表中规定：\n- 电动手钻室外作业：禁止 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n- 手推车室外作业：归还后擦干检查 [44a4ba82-d395-42e6-8a80-d180a0ab557d]。\n\n因此，下雨时，电动手钻禁止在室外使用，而手推车在室外作业后需要进行擦干检查，并未被禁止使用。",
+      "evidence": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.5930876731872559,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3894870347090349,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.38402578234672546,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3825811743736267,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 304,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 20796,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1501,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 19,
+            "promptTokens": 19
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2421,
+            "completionTokens": 28
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1729,
+            "completionTokens": 115
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "022cec4a-ee72-408e-b0ea-ac8fb6b3f0bc",
+      "strategy": "original"
+    },
+    {
+      "caseId": "dahlia-011",
+      "mode": "vector",
+      "category": "表格",
+      "split": "validation",
+      "answerable": true,
+      "status": "FAILED",
+      "error": "NO_PROGRESS",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.6991575539614241,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+          "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.5930876731872559,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.3894870347090349,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.38402578234672546,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+          "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3825811743736267,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 269,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 11906,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1501,
+        "evidenceCount": 5,
+        "externalCalls": 2
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 19,
+            "promptTokens": 19
+          },
+          "callId": "8520e774-b3b7-46d5-b520-41c2a6485bc9",
+          "status": "RETURNED"
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2462,
+            "completionTokens": 61
+          },
+          "callId": "da5955c7-21a8-4121-97f2-0af732b749b2",
+          "status": "RETURNED"
+        }
+      ],
+      "inFlightUsageUnavailable": false,
+      "rawRunId": "ad7b10af-d473-4b5f-ab4b-83f746e60668",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "elm-012",
+      "mode": "vector",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.6994138180860185,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5853199013876984,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3855401277542114,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3747045621099814,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.33490681648254395,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 274,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 6346,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1504,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2446,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1717,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "6123b678-b40c-4ed6-9873-dcb026735b22",
+      "strategy": "combined-v1"
+    },
+    {
+      "caseId": "elm-012",
+      "mode": "vector",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.6994138180860185,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5853199013876984,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3855401277542114,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3747045621099814,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.33490681648254395,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 294,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 9654,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1504,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2407,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1717,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "66de21df-60a8-48d3-981b-dea78ad179d3",
+      "strategy": "original"
+    },
+    {
+      "caseId": "elm-012",
+      "mode": "vector",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.6994138180860185,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5853199013876984,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3855401277542114,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3747045621099814,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.33490681648254395,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 306,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 30145,
+      "budgetUsed": {
+        "tools": 1,
+        "searches": 1,
+        "plannerSteps": 1,
+        "evidenceChars": 1504,
+        "evidenceCount": 5,
+        "externalCalls": 3
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2448,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1717,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "3d2b3e5b-32ad-45fc-b7df-9b6a72c9a614",
+      "strategy": "inspection-free-v1"
+    },
+    {
+      "caseId": "elm-012",
+      "mode": "vector",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "answerable": true,
+      "status": "COMPLETED",
+      "error": null,
+      "answer": "无法根据当前资料回答：证据不足。",
+      "evidence": [
+        {
+          "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.6994138180860185,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+          "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.5853199013876984,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+          "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.3855401277542114,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+          "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "19b09e96-6a43-41f1-a662-16524ca8a35f",
+          "page": 1,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "score": 0.3747045621099814,
+          "endOffset": 323,
+          "paragraph": 1,
+          "versionId": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+          "documentId": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+          "startOffset": 0,
+          "documentName": "cobalt-a.md"
+        },
+        {
+          "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.33490681648254395,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+          "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "accumulatedRecall": 1,
+      "accumulatedMrr": 1,
+      "metricNote": "First five retained evidence items in acquisition order, not a newly reranked final top-5; accumulated evidence may contain up to the published budget.",
+      "abstentionCorrect": null,
+      "referenceAnswerMatch": false,
+      "answerCorrect": null,
+      "citationSupported": null,
+      "gradingSource": null,
+      "retrievalMs": 300,
+      "retrievalLatencyDefinition": "Sum of search-tool elapsed time, including query embedding/rerank; excludes planner, neighbors, final generation.",
+      "totalMs": 24270,
+      "budgetUsed": {
+        "tools": 2,
+        "searches": 1,
+        "plannerSteps": 2,
+        "evidenceChars": 1504,
+        "evidenceCount": 5,
+        "externalCalls": 4
+      },
+      "usage": [
+        {
+          "kind": "embedding",
+          "actual": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2571,
+            "completionTokens": 46
+          }
+        },
+        {
+          "kind": "planner",
+          "actual": {
+            "promptTokens": 2593,
+            "completionTokens": 27
+          }
+        },
+        {
+          "kind": "generation",
+          "actual": {
+            "promptTokens": 1717,
+            "completionTokens": 9
+          }
+        }
+      ],
+      "inFlightUsageUnavailable": null,
+      "rawRunId": "afc2a66c-c992-45ee-84e1-5c09ad927745",
+      "strategy": "stop-aware-v1"
+    }
+  ],
+  "humanScores": null,
+  "qualityConclusion": null,
+  "defaultChange": false
+}

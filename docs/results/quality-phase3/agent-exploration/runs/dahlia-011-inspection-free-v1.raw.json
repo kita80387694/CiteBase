@@ -1,0 +1,362 @@
+{
+  "id": "ad7b10af-d473-4b5f-ab4b-83f746e60668",
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "status": "FAILED",
+  "request": {
+    "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+    "strategy": "inspection-free-v1",
+    "idempotencyKey": "AgentExplore-d40342d962fc-dahlia-011-inspection-free-v1",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "agentStrategy": "inspection-free-v1",
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1",
+    "agentStrategyProtocol": "bounded-actions-v1"
+  },
+  "snapshot": [
+    {
+      "id": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1e95b900-5341-4890-b679-7604fdd36c60",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": "NO_PROGRESS",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 19,
+          "promptTokens": 19
+        },
+        "callId": "8520e774-b3b7-46d5-b520-41c2a6485bc9",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2462,
+          "completionTokens": 61
+        },
+        "callId": "da5955c7-21a8-4121-97f2-0af732b749b2",
+        "status": "RETURNED"
+      }
+    ],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 11906,
+    "evidence": [
+      {
+        "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+        "page": 1,
+        "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+        "score": 0.6991575539614241,
+        "endOffset": 287,
+        "paragraph": 1,
+        "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+        "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+        "startOffset": 0,
+        "documentName": "dahlia-b.md"
+      },
+      {
+        "id": "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+        "page": 1,
+        "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+        "score": 0.5930876731872559,
+        "endOffset": 313,
+        "paragraph": 1,
+        "versionId": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+        "documentId": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+        "startOffset": 0,
+        "documentName": "dahlia-a.md"
+      },
+      {
+        "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+        "page": 1,
+        "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+        "score": 0.3894870347090349,
+        "endOffset": 259,
+        "paragraph": 1,
+        "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+        "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+        "startOffset": 0,
+        "documentName": "elm-b.md"
+      },
+      {
+        "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+        "page": 1,
+        "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+        "score": 0.38402578234672546,
+        "endOffset": 331,
+        "paragraph": 1,
+        "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+        "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+        "startOffset": 0,
+        "documentName": "brass-a.md"
+      },
+      {
+        "id": "303d7e61-f3c0-48fe-97ac-ef1015287455",
+        "page": 1,
+        "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+        "score": 0.3825811743736267,
+        "endOffset": 311,
+        "paragraph": 1,
+        "versionId": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+        "documentId": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+        "startOffset": 0,
+        "documentName": "cobalt-b.md"
+      }
+    ],
+    "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+    "strategy": "inspection-free-v1",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 2,
+      "searches": 1,
+      "plannerSteps": 1,
+      "evidenceChars": 1501,
+      "evidenceCount": 5,
+      "externalCalls": 2
+    },
+    "retrievalMs": 269,
+    "finishReason": "NO_PROGRESS",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": false
+  },
+  "errorCode": "NO_PROGRESS",
+  "finishedAt": "2026-09-30T07:09:42.633668Z",
+  "cancelRequestedAt": null,
+  "createdAt": "2026-09-30T07:09:30.610161Z",
+  "startedAt": "2026-09-30T07:09:30.709939Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 24,
+        "description": "检索当前授权知识库",
+        "querySha256": "57ea4aeaad9d9bbddbd95cb9a11c860d4ccfb575418772a7830f6ef30d20e389"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 19,
+          "promptTokens": 19
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+          "a64c5fbf-5c0b-4f61-9815-11e7b89ac5fd",
+          "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "303d7e61-f3c0-48fe-97ac-ef1015287455"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-30T07:09:31.009888709Z",
+      "elapsedMs": 279
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2462,
+        "completionTokens": 61
+      },
+      "action": "neighbors",
+      "output": {
+        "callId": "01a0f124e9f8941acaf906955a7e2be0",
+        "policy": {
+          "strategy": "inspection-free-v1",
+          "allowedTools": [
+            "finish",
+            "neighbors",
+            "search"
+          ],
+          "remainingBudget": {
+            "tools": 3,
+            "searches": 1,
+            "plannerSteps": 3,
+            "reservedGenerationCalls": 0,
+            "externalCallsAfterPlanner": 8
+          }
+        },
+        "toolName": "neighbors"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-30T07:09:42.596761587Z",
+      "elapsedMs": 11569
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "direction": "next",
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "neighbors",
+      "output": {
+        "evidenceIds": []
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-30T07:09:42.616438914Z",
+      "elapsedMs": 9
+    }
+  ],
+  "taskId": "ad7b10af-d473-4b5f-ab4b-83f746e60668",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "taskStatus": "FAILED"
+}
