@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
 import {sha,read,save,immutable,client,evaluation,pause} from './phase2-client.mjs';
 import {deploymentGuard} from './quality-assisted-independent.mjs';
 import {verifySnapshot} from './quality-assisted-agent-collector.mjs';
@@ -17,7 +18,8 @@ export function guardFreeze(f,current,bytes=fs.readFileSync){
  exact(f,['schema','frozenAt','devReport','selectedOptions','baselineOptions','runtime','dataset','manifest','chunkProfile']);assert.equal(f.schema,'citebase-assisted-cost-independent-freeze-v1');assert(Number.isFinite(Date.parse(f.frozenAt)));
  assert.deepEqual(f.baselineOptions,BASELINE);options(f.selectedOptions);assert.deepEqual(f.chunkProfile,{strategy:'structure-v1',size:900,overlap:200});
  for(const k of ['devReport','dataset','manifest']){exact(f[k],['file','sha256']);assert(typeof f[k].file==='string'&&f[k].file);assert(digest(f[k].sha256));}
- exact(f.runtime,['commit','sourceSha256','containerName','containerImageId','apiUrl','modelConfig']);assert(/^[a-f0-9]{40}$/.test(f.runtime.commit));assert(digest(f.runtime.sourceSha256));assert(/^sha256:[a-f0-9]{64}$/.test(f.runtime.containerImageId));assert(/^[a-z0-9_-]+$/i.test(f.runtime.containerName));
+ exact(f.runtime,['commit','sourceSha256','containerName','containerImageId','containerId','startedAt','apiUrl','modelConfig']);assert(/^[a-f0-9]{40}$/.test(f.runtime.commit));assert(digest(f.runtime.sourceSha256));assert(/^sha256:[a-f0-9]{64}$/.test(f.runtime.containerImageId));assert(/^[a-z0-9_-]+$/i.test(f.runtime.containerName));
+ assert(digest(f.runtime.containerId));assert(Number.isFinite(Date.parse(f.runtime.startedAt)));
  const url=new URL(f.runtime.apiUrl);assert(['localhost','127.0.0.1'].includes(url.hostname)&&url.protocol==='http:'&&url.port&&!url.username&&!url.password);assert(f.runtime.modelConfig?.chatModel&&f.runtime.modelConfig?.embeddingModel&&f.runtime.modelConfig?.reranker,'Model/reranker configuration required');assert.deepEqual(f.runtime,current,'Runtime drift');
  const raw=bytes(f.devReport.file);assert.equal(sha(raw),f.devReport.sha256);const report=JSON.parse(raw);assert.equal(report.source,'ASSISTED');assert.equal(report.complete,true);assert.equal(report.qualitySelectable,true);assert(typeof report.eligibleByAssistedGates==='boolean','Eligibility must be explicit');
  if(report.eligibleByAssistedGates)assert.equal(report.decision,'QUALITY_ELIGIBLE');
@@ -36,7 +38,13 @@ export function register(f,current,bytes=fs.readFileSync){
  const m=bytes(f.manifest.file);assert.equal(sha(m),f.manifest.sha256);const manifest=JSON.parse(m);assert.equal(manifest.documents?.length,12);assert.equal(new Set(manifest.documents.map(d=>d.documentName)).size,12);assert(manifest.documents.every(d=>/^[a-zA-Z0-9_-]+\.(md|txt|pdf)$/.test(d.documentName)&&digest(d.sourceHash)));
  return {schema:'citebase-assisted-cost-independent-registration-v1',freeze:f,freezeSha256,developmentDecision,...order,documents:manifest.documents,limits:{uniqueQuestions:40,pairedItems:60,arms:2,modes:2,ragRows:240,pairedModeRows:120,evaluationTasks:80,theoreticalProviderCalls:720,providerAttemptsPerCall:1,indexing:'separate ledger',concurrency:1},cacheInterpretation:'cold/warm/mixed are scheduled request labels only. Actual HIT/MISS is read from raw metadata. Each warm/mixed arm keeps repeated questions in the same evaluation and mode; cache hits still require actual metadata.',source:'ASSISTED',humanReviewed:0};
 }
-export async function execute(stage,root,plan,api,{guard=()=>deploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation}={}){
+export function costDeploymentGuard(runtime,inspect=execFileSync){
+ deploymentGuard(runtime,inspect);
+ const state=JSON.parse(inspect('docker',['inspect',runtime.containerName,'--format','{"id":{{json .Id}},"startedAt":{{json .State.StartedAt}}}'],{encoding:'utf8'}));
+ assert.equal(state.id,runtime.containerId,'Cost container replaced; cache continuity lost');
+ assert.equal(state.startedAt,runtime.startedAt,'Cost container restarted; cache continuity lost');
+}
+export async function execute(stage,root,plan,api,{guard=()=>costDeploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation}={}){
  assert(['seed','smoke','collect'].includes(stage));guard();assert.deepEqual(register(plan.freeze,plan.freeze.runtime,bytes),plan);const dataset=JSON.parse(bytes(plan.freeze.dataset.file));fs.mkdirSync(root,{recursive:true});immutable(`${root}/registration.json`,plan);
  const dependencies=['quality-assisted-cost-independent.mjs','quality-assisted-independent.mjs','quality-assisted-agent-collector.mjs','phase2-client.mjs','phase2-comparability.mjs','phase2-metrics.mjs'];immutable(`${root}/collector-provenance.json`,{scope:'collector-not-backend',files:Object.fromEntries(dependencies.map(n=>[n,sha(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)),n)))]))});
  const journal=`${root}/state.json`,id=sha(JSON.stringify(plan)),prefix=`CostIndependent-${id.slice(0,20)}`;const state=fs.existsSync(journal)?read(journal):{registrationSha256:id};assert.equal(state.registrationSha256,id);const persist=()=>save(journal,state);persist();
@@ -55,5 +63,5 @@ export async function execute(stage,root,plan,api,{guard=()=>deploymentGuard(pla
  if(stage==='smoke')state.smokeCompleted=true;else state.collectionCompleted=true;persist();return state;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- const [stage,root,freezeFile,runtimeFile]=process.argv.slice(2);assert(['seed','smoke','collect'].includes(stage)&&root&&freezeFile&&runtimeFile);const f=read(freezeFile),runtime=read(runtimeFile);guardFreeze(f,runtime);deploymentGuard(runtime);const plan=register(f,runtime);process.env.CITEBASE_URL=runtime.apiUrl;await execute(stage,root,plan,await client());
+ const [stage,root,freezeFile,runtimeFile]=process.argv.slice(2);assert(['seed','smoke','collect'].includes(stage)&&root&&freezeFile&&runtimeFile);const f=read(freezeFile),runtime=read(runtimeFile);guardFreeze(f,runtime);costDeploymentGuard(runtime);const plan=register(f,runtime);process.env.CITEBASE_URL=runtime.apiUrl;await execute(stage,root,plan,await client());
 }
