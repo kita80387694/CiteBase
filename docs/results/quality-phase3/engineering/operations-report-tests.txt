@@ -1,0 +1,30 @@
+TAP version 13
+# Subtest: failed samples retained; warmup excluded; completion order cannot shorten window
+ok 1 - failed samples retained; warmup excluded; completion order cannot shorten window
+  ---
+  duration_ms: 3.9742
+  ...
+# Subtest: resource max accepts actual zero and preserves unknown; multiple JVMs distinct
+ok 2 - resource max accepts actual zero and preserves unknown; multiple JVMs distinct
+  ---
+  duration_ms: 0.4328
+  ...
+# Subtest: partial runs do not pass and unobserved recovery is not fabricated
+ok 3 - partial runs do not pass and unobserved recovery is not fabricated
+  ---
+  duration_ms: 0.9972
+  ...
+# Subtest: writer hashes inputs, refuses overwrite and malformed JSONL rather than dropping it
+ok 4 - writer hashes inputs, refuses overwrite and malformed JSONL rather than dropping it
+  ---
+  duration_ms: 16.5526
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 170.1832

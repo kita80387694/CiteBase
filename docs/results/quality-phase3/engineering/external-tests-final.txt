@@ -1,0 +1,159 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< io.citebase:citebase >------------------------
+[INFO] Building citebase 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ citebase ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 10 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ citebase ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ citebase ---
+[INFO] skip non existing resourceDirectory F:\CiteBase\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ citebase ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ citebase ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.citebase.ExternalCoreIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+13:56:48.822 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.citebase.ExternalCoreIntegrationTest]: ExternalCoreIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:56:49.082 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.citebase.Application for test class io.citebase.ExternalCoreIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:56:49.720+08:00  INFO 34180 --- [           main] i.citebase.ExternalCoreIntegrationTest   : Starting ExternalCoreIntegrationTest using Java 21.0.12.1 with PID 34180 (started by pxj in F:\CiteBase\backend)
+2026-10-01T13:56:49.722+08:00  INFO 34180 --- [           main] i.citebase.ExternalCoreIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:56:52.232+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-01T13:56:52.555+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@349312d5
+2026-10-01T13:56:52.557+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-01T13:56:52.593+08:00  INFO 34180 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:25441/citebase_quality_baseline (PostgreSQL 17.10)
+2026-10-01T13:56:52.712+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.073s)
+2026-10-01T13:56:52.744+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 8
+2026-10-01T13:56:52.793+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-10-01T13:56:52.907+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - operations events"
+2026-10-01T13:56:52.948+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v10 (execution time 00:00.085s)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\pxj\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-01T13:56:59.093+08:00  INFO 34180 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:56:59.394+08:00  INFO 34180 --- [           main] i.citebase.ExternalCoreIntegrationTest   : Started ExternalCoreIntegrationTest in 10.095 seconds (process running for 13.685)
+2026-10-01T13:57:00.506+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=2dfcb9d3-f381-477f-80f0-710d9bdc86f9 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:00.527+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=LEASE_RECOVERED kind=INDEX state=RUNNING taskId=2dfcb9d3-f381-477f-80f0-710d9bdc86f9 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=3
+2026-10-01T13:57:00.527+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=2dfcb9d3-f381-477f-80f0-710d9bdc86f9 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=3
+2026-10-01T13:57:00.546+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=FAILED taskId=2dfcb9d3-f381-477f-80f0-710d9bdc86f9 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=3
+2026-10-01T13:57:00.734+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=ae4631e5-6759-47c6-96ef-72a2446c2d4e workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:00.748+08:00  INFO 34180 --- [pool-4-thread-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=ae4631e5-6759-47c6-96ef-72a2446c2d4e workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.029+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:01.041+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.087+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=EXTERNAL_OUTCOME_UNKNOWN kind=INDEX state=RETRY_WAIT taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.087+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=RETRY_SCHEDULED kind=INDEX state=RETRY_WAIT taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.104+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=2 attempt=2
+2026-10-01T13:57:01.229+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=1269987b-01e1-450f-aeb2-8f4f57055442 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=2 attempt=2
+2026-10-01T13:57:01.257+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=ae30a5da-4fbb-4402-83bd-f6dc22fe7620 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:01.269+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=ae30a5da-4fbb-4402-83bd-f6dc22fe7620 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.366+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=ae30a5da-4fbb-4402-83bd-f6dc22fe7620 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.552+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=7e6ee69f-8eb2-473a-98dd-229719b4d6c6 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:01.578+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=7e6ee69f-8eb2-473a-98dd-229719b4d6c6 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.698+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=7e6ee69f-8eb2-473a-98dd-229719b4d6c6 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.739+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:01.750+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.778+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=RETRY_SCHEDULED kind=INDEX state=RETRY_WAIT taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:01.791+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=2 attempt=2
+2026-10-01T13:57:01.813+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=RETRY_SCHEDULED kind=INDEX state=RETRY_WAIT taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=2 attempt=2
+2026-10-01T13:57:01.822+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=3 attempt=3
+2026-10-01T13:57:01.843+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=FAILED taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=3 attempt=3
+2026-10-01T13:57:01.884+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=null fencingToken=4 attempt=0
+2026-10-01T13:57:01.893+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=previous-process fencingToken=5 attempt=1
+2026-10-01T13:57:01.911+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=LEASE_RECOVERED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=6 attempt=2
+2026-10-01T13:57:01.912+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=6 attempt=2
+2026-10-01T13:57:01.936+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=RETRY_SCHEDULED kind=INDEX state=RETRY_WAIT taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=6 attempt=2
+2026-10-01T13:57:01.956+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=c4665f47-1e59-447e-989e-ff6371d96733 workerId=null fencingToken=7 attempt=2
+2026-10-01T13:57:01.981+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=1aece775-f6e9-4741-9b36-badb78992428 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:01.989+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=1aece775-f6e9-4741-9b36-badb78992428 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:02.080+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=1aece775-f6e9-4741-9b36-badb78992428 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:02.311+08:00  INFO 34180 --- [pool-5-thread-1] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f770a84a-059b-4392-ad31-7a4af8201024 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:02.333+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=f770a84a-059b-4392-ad31-7a4af8201024 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+2026-10-01T13:57:02.396+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=f770a84a-059b-4392-ad31-7a4af8201024 workerId=22f4c0ec-ed73-4588-8168-fbe06b426839 fencingToken=1 attempt=1
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.83 s -- in io.citebase.ExternalCoreIntegrationTest
+[INFO] Running io.citebase.ExternalRagIntegrationTest
+2026-10-01T13:57:02.428+08:00  INFO 34180 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.citebase.ExternalRagIntegrationTest]: ExternalRagIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-01T13:57:02.432+08:00  INFO 34180 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.citebase.Application for test class io.citebase.ExternalRagIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:57:02.504+08:00  INFO 34180 --- [           main] io.citebase.ExternalRagIntegrationTest   : Starting ExternalRagIntegrationTest using Java 21.0.12.1 with PID 34180 (started by pxj in F:\CiteBase\backend)
+2026-10-01T13:57:02.504+08:00  INFO 34180 --- [           main] io.citebase.ExternalRagIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:57:03.324+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-01T13:57:03.345+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@cf82c58
+2026-10-01T13:57:03.346+08:00  INFO 34180 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-01T13:57:03.349+08:00  INFO 34180 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:25441/citebase_quality_baseline (PostgreSQL 17.10)
+2026-10-01T13:57:03.385+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.021s)
+2026-10-01T13:57:03.423+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 10
+2026-10-01T13:57:03.425+08:00  INFO 34180 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-01T13:57:03.737+08:00  INFO 34180 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:57:03.761+08:00  INFO 34180 --- [           main] io.citebase.ExternalRagIntegrationTest   : Started ExternalRagIntegrationTest in 1.325 seconds (process running for 18.053)
+2026-10-01T13:57:04.113+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=d350812a-37b8-4e4e-b9f2-c8c937208b8c workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:04.128+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=d350812a-37b8-4e4e-b9f2-c8c937208b8c workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:04.256+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=d350812a-37b8-4e4e-b9f2-c8c937208b8c workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:04.440+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=edf75957-0f03-4252-b0d5-4f94266d92bc workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:04.447+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=edf75957-0f03-4252-b0d5-4f94266d92bc workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:04.552+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=edf75957-0f03-4252-b0d5-4f94266d92bc workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:04.630+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=4ee8031e-b5cd-4e6f-8bf8-dde18a56f05f workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:04.640+08:00  INFO 34180 --- [pool-7-thread-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=4ee8031e-b5cd-4e6f-8bf8-dde18a56f05f workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:04.917+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=6df2daab-fc3e-4a4c-8c8c-56e06845d265 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:04.925+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=6df2daab-fc3e-4a4c-8c8c-56e06845d265 workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.023+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=6df2daab-fc3e-4a4c-8c8c-56e06845d265 workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.075+08:00  INFO 34180 --- [pool-8-thread-1] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=63688c5d-ea0a-4b51-a6cb-1d530e256f97 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:05.082+08:00  INFO 34180 --- [pool-8-thread-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=63688c5d-ea0a-4b51-a6cb-1d530e256f97 workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.414+08:00  INFO 34180 --- [pool-8-thread-1] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=63688c5d-ea0a-4b51-a6cb-1d530e256f97 workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.605+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=77094ba1-d618-4a89-a552-74017a0255ec workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:05.612+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=77094ba1-d618-4a89-a552-74017a0255ec workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.708+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=77094ba1-d618-4a89-a552-74017a0255ec workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:05.771+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=7b3df9b4-98d4-4480-8e02-2911af21cdaf workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:05.779+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=7b3df9b4-98d4-4480-8e02-2911af21cdaf workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:06.018+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=7b3df9b4-98d4-4480-8e02-2911af21cdaf workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:06.249+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=2a2a7966-c092-4b37-b50d-4ea14dd29b2a workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:06.256+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=2a2a7966-c092-4b37-b50d-4ea14dd29b2a workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:06.344+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=2a2a7966-c092-4b37-b50d-4ea14dd29b2a workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:06.425+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=e6e5aed3-f1a0-498b-a701-b006fe71a78a workerId=null fencingToken=0 attempt=0
+2026-10-01T13:57:06.432+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=e6e5aed3-f1a0-498b-a701-b006fe71a78a workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+2026-10-01T13:57:06.635+08:00  INFO 34180 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=e6e5aed3-f1a0-498b-a701-b006fe71a78a workerId=04a8e629-1d19-420f-8f15-b3d5059ea25d fencingToken=1 attempt=1
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.230 s -- in io.citebase.ExternalRagIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.769 s
+[INFO] Finished at: 2026-10-01T13:57:06+08:00
+[INFO] ------------------------------------------------------------------------

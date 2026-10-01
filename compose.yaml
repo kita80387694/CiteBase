@@ -31,6 +31,10 @@ services:
       AGENT_TASK_MAX_ATTEMPTS: ${AGENT_TASK_MAX_ATTEMPTS:-2}
       TASK_POLL_MILLIS: ${TASK_POLL_MILLIS:-500}
       TASK_RETRY_DELAY_SECONDS: ${TASK_RETRY_DELAY_SECONDS:-3}
+      RETRIEVAL_CACHE_MAX_ENTRIES: ${RETRIEVAL_CACHE_MAX_ENTRIES:-128}
+      RETRIEVAL_CACHE_TTL_SECONDS: ${RETRIEVAL_CACHE_TTL_SECONDS:-300}
+      RETRIEVAL_CACHE_MAX_BYTES: ${RETRIEVAL_CACHE_MAX_BYTES:-8000000}
+      OPERATIONS_TOKEN: ${OPERATIONS_TOKEN:-}
       CHAT_BASE_URL: ${CHAT_BASE_URL:-https://api.siliconflow.cn}
       CHAT_API_KEY: ${CHAT_API_KEY:-}
       CHAT_MODEL: ${CHAT_MODEL:-deepseek-ai/DeepSeek-V3.2}
@@ -51,7 +55,7 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health || exit 1"]
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health/readiness || exit 1"]
       interval: 5s
       timeout: 4s
       retries: 30

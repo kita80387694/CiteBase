@@ -1,0 +1,63 @@
+{
+  "capturedAt": "2026-10-01T05:43:47.911427+00:00",
+  "mode": "MOCK",
+  "baseUrl": "http://localhost:25181",
+  "testResults": [
+    {
+      "log": "operations-ui.txt",
+      "passed": 2,
+      "seconds": 22.4,
+      "scope": "operations plus retrieval cost regression"
+    },
+    {
+      "log": "operations-ui-populated.txt",
+      "passed": 1,
+      "seconds": 6.5,
+      "scope": "operations after actual indexing task"
+    }
+  ],
+  "deployedBundleObservedFromHttp": "index-BngckODh.js",
+  "frontendContainerImage": "sha256:f84d417a2c8f768d77373f34f4cd6c29dab9b8fba883d97f5b8c2582a5f4c505",
+  "backendContainerImage": "sha256:203dc6558243af414cff1d60bfcbb7f3259a56fbd75f43d7cfab1d56ac3136da",
+  "sourceHashesCapturedAfterRun": {
+    "frontend/src/OperationsPanel.tsx": "eb272f78dce0ca9561839387bf0f1a2fd8ef04149435db4577fbc1850b35d0be",
+    "frontend/src/App.tsx": "d96168b5ba8cefd355ed21188a75bfd7bffd7ab133b9c8910c4c7e43a7618cbb",
+    "frontend/src/style.css": "fe0ebcc8b77a9cce45b325d447bd1cd720e4d72a12fbdfe9687cc9b320e76132",
+    "frontend/tests/quality-phase3-operations.spec.ts": "f0f96cdc2a37c0a74c3365f9b56a7d352f4012fbb1155253e649cf5be27504ee"
+  },
+  "sourceDifference": "OperationsPanel label changed after screenshot from 已开始 to 等待返回（STARTED） after confirming SQL counts current STARTED status; new label not yet deployed/tested. Other hashes captured after run, not claimed as historical build reproduction.",
+  "visualInspection": {
+    "performed": true,
+    "observations": [
+      "Empty and populated screenshots personally opened; labels, three cards and null values readable, no clipping observed at 1440px.",
+      "MOCK and SELF scope visible. Populated card reports one indexing completion and actual persisted events.",
+      "Identified STARTED label ambiguity and corrected source; deployment verification pending."
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/screenshots/quality-phase3-operations-empty-mock.png",
+      "sha256": "a8170ea9098dcac59d342f382650c32bf0bd951406bd06748e9f603a9278788a"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-operations-mock.png",
+      "sha256": "ce52f6e2bd34a0be9e581a42a34e59fb59e02dc84579b28a2456e03e4b09959a"
+    }
+  ],
+  "realModelConclusion": false,
+  "humanQualityReview": false,
+  "pendingLabelFix": {
+    "file": "frontend/src/OperationsPanel.tsx",
+    "sha256": "eb272f78dce0ca9561839387bf0f1a2fd8ef04149435db4577fbc1850b35d0be",
+    "localBuildBundle": "index-BpexbSbX.js",
+    "deployed": false,
+    "e2eVerified": false,
+    "buildLog": "operations-label-build.txt"
+  },
+  "screenshotRegenerationNotice": {
+    "path": "docs/screenshots/quality-phase3-operations-mock.png",
+    "reason": "Final E2E reused fixed screenshot path; original historical bytes unavailable. Original SHA retained as historical record, current SHA below.",
+    "currentSha256": "9aaa16d61d36e60d8b13e836c4757dd97fc4ec7d41eb79e08eba9ce2995dbe32",
+    "currentEvidence": "final-verification.json"
+  }
+}

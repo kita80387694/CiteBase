@@ -22,6 +22,7 @@ import {
 import {
   RetrievalControls,
   defaultRetrievalOptions,
+  retrievalOptionsForRequest,
   type RetrievalOptions,
 } from "./RetrievalControls";
 
@@ -345,7 +346,7 @@ export function AgentPanel({
             ...(strategy === "original" ? {} : { strategy }),
             mode,
             topK,
-            retrievalOptions: options,
+            retrievalOptions: retrievalOptionsForRequest(options),
             budget,
             idempotencyKey: key,
           }),

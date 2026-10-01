@@ -17,6 +17,7 @@ public class TaskWorker {
   private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
   private final ScheduledExecutorService hearts = Executors.newScheduledThreadPool(1);
   private volatile boolean closing;
+  private volatile long retryAfterNanos;
 
   public TaskWorker(
       TaskRepository tasks, TaskRegistry registry, TaskSettings settings, TaskTelemetry telemetry) {
@@ -33,14 +34,16 @@ public class TaskWorker {
 
   @Scheduled(fixedDelayString = "${TASK_POLL_MILLIS:500}")
   public void tick() {
-    if (!settings.enabled() || closing) return;
+    if (!settings.enabled() || closing || System.nanoTime() < retryAfterNanos) return;
     while (permits.tryAcquire()) {
       Optional<TaskLease> next;
       try {
         next = tasks.claim(workerId, registry.kinds());
       } catch (RuntimeException e) {
         permits.release();
-        throw e;
+        telemetry.databaseFailure("claim");
+        retryAfterNanos = System.nanoTime() + TimeUnit.SECONDS.toNanos(5);
+        return;
       }
       if (next.isEmpty()) {
         permits.release();
@@ -84,6 +87,7 @@ public class TaskWorker {
                   thread.interrupt();
                 }
               } catch (RuntimeException e) {
+                telemetry.databaseFailure("heartbeat");
                 thread.interrupt();
               }
             },
@@ -91,19 +95,23 @@ public class TaskWorker {
             settings.heartbeatSeconds(),
             TimeUnit.SECONDS);
     TaskContext.bind(new TaskContext(lease, tasks));
-    TaskState state = TaskState.FAILED;
+    String outcome = "EXECUTION_ERROR";
     try {
       if (!lease.executionAllowed())
         throw new TaskSignal(
             tasks.cancellationRequested(lease) ? "CANCELLED" : "ATTEMPTS_EXHAUSTED");
       TaskResult result = registry.require(lease.kind()).execute(TaskContext.current());
       tasks.succeed(lease, result);
-      state = TaskState.SUCCEEDED;
+      outcome = "SUCCEEDED";
     } catch (TaskDeferred deferred) {
       try {
         tasks.defer(lease, deferred.delay());
-        state = TaskState.QUEUED;
-      } catch (TaskSignal ignored) {
+        outcome = "DEFERRED";
+      } catch (TaskSignal signal) {
+        outcome = signal.code();
+      } catch (RuntimeException database) {
+        telemetry.databaseFailure("defer");
+        outcome = "PERSISTENCE_UNAVAILABLE";
       }
     } catch (Exception e) {
       String code =
@@ -112,20 +120,29 @@ public class TaskWorker {
               : e instanceof SpringAiGateway.ModelFailure
                   ? ProviderFailures.code(e)
                   : "EXECUTION_ERROR";
+      outcome = code;
       if (!Set.of("LEASE_LOST", "DELETED").contains(code)) {
         boolean retry =
             !(e instanceof TaskSignal)
                 && (!code.startsWith("PROVIDER_") || ProviderFailures.retryable(code));
         try {
-          tasks.fail(
-              lease, new TaskFailure(code, retry ? "执行失败，可在有限预算内重试" : "任务停止：" + code, retry, true));
-        } catch (TaskSignal ignored) {
+          outcome =
+              tasks
+                  .fail(
+                      lease,
+                      new TaskFailure(code, retry ? "执行失败，可在有限预算内重试" : "任务停止：" + code, retry, true))
+                  .name();
+        } catch (TaskSignal signal) {
+          outcome = signal.code();
+        } catch (RuntimeException database) {
+          telemetry.databaseFailure("fail");
+          outcome = "PERSISTENCE_UNAVAILABLE";
         }
       }
     } finally {
       heartbeat.cancel(false);
       TaskContext.clear();
-      telemetry.elapsed(lease.kind(), state, System.nanoTime() - started);
+      telemetry.elapsed(lease.kind(), outcome, System.nanoTime() - started);
       telemetry.active(-1);
       permits.release();
       Thread.interrupted();

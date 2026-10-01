@@ -1,0 +1,18 @@
+CostExplore-b62a7510fd6e-candidate5: SUCCEEDED, 8 rows
+node:internal/modules/run_main:122
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Run CostExplore-b62a7510fd6e-conditional5 terminated FAILED; partial output retained
+    at evaluation (file:///F:/CiteBase/scripts/phase2-client.mjs:70:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async main (file:///F:/CiteBase/scripts/quality-cost-experiment.mjs:89:15)
+    at async file:///F:/CiteBase/scripts/quality-cost-experiment.mjs:103:75 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '=='
+}
+
+Node.js v22.14.0

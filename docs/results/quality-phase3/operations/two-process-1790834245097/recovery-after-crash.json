@@ -1,0 +1,90 @@
+{
+  "task": [
+    {
+      "id": "829908c2-de19-4f1c-97bf-bb38ee6f5a9e",
+      "kind": "EVALUATION",
+      "status": "SUCCEEDED",
+      "attempts": 2,
+      "fencing_token": 2,
+      "lease_owner": null,
+      "lease_until": null,
+      "error_code": null
+    }
+  ],
+  "items": [
+    {
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "vector",
+      "status": "SUCCEEDED",
+      "attempts": 1,
+      "resultHash": "32128a548e466922c97735d814e6db32bc12ddb2828b212c167af67f2c05f27f"
+    },
+    {
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "hybrid",
+      "status": "SUCCEEDED",
+      "attempts": 2,
+      "resultHash": "65f1b1943bda32156e01ecb8ca394c84504dfb08796c770b31651e17391d9302"
+    }
+  ],
+  "calls": [
+    {
+      "call_id": "30a9814b-164a-43ce-9183-04b410349f4c",
+      "operation_key": "613a46e0-49af-4f46-874f-2af81547422d:embedding:14b99a33-7d64-4bfd-a57d-7d968cc38ab4",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "6c625d2c-83d3-4bdd-b928-7674026f0290",
+      "operation_key": "613a46e0-49af-4f46-874f-2af81547422d:generation:b0257ca9-a0e1-4308-b43b-5452d624a3ff",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": {
+        "type": "jsonb",
+        "value": "{\"promptTokens\": null, \"completionTokens\": null}",
+        "null": false
+      },
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "76692c56-bcb2-4f30-b77b-82eae0097312",
+      "operation_key": "9344e496-a236-4853-9e65-289a3e9f8e8f:embedding:af4f7a99-e2b2-4d71-b676-69353a5da0c6",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "622d6c41-f9d2-44ed-9d6f-ad396e3b8b48",
+      "operation_key": "9344e496-a236-4853-9e65-289a3e9f8e8f:generation:1b72b83f-cb6c-4eb8-a6bd-4492cacd19f0",
+      "fencing_token": 1,
+      "status": "UNKNOWN",
+      "usage": null,
+      "outcome": "PROCESS_INTERRUPTED"
+    },
+    {
+      "call_id": "8fb6c3ce-2838-43d1-9f54-be2488e7f1f3",
+      "operation_key": "daa31430-2f17-4754-a59d-4d2d28a1318a:embedding:6e30b697-99f8-4b10-8cde-0b94516409ec",
+      "fencing_token": 2,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "80808014-cd8f-4620-a312-e44777aecf52",
+      "operation_key": "daa31430-2f17-4754-a59d-4d2d28a1318a:generation:8ce8d861-dbf6-4514-ad38-76a161569cc7",
+      "fencing_token": 2,
+      "status": "RETURNED",
+      "usage": {
+        "type": "jsonb",
+        "value": "{\"promptTokens\": null, \"completionTokens\": null}",
+        "null": false
+      },
+      "outcome": "RETURNED"
+    }
+  ],
+  "stageParts": 0,
+  "chunks": []
+}

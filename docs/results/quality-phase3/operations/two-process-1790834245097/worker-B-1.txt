@@ -1,0 +1,39 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:57:37.245+08:00  INFO 40796 --- [           main] c.p.ProcessWorkerApplication             : Starting ProcessWorkerApplication using Java 21.0.12.1 with PID 40796 (F:\CiteBase\backend\target\test-classes started by pxj in F:\CiteBase)
+2026-10-01T13:57:37.247+08:00  INFO 40796 --- [           main] c.p.ProcessWorkerApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:57:39.167+08:00  INFO 40796 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 28084 (http)
+2026-10-01T13:57:39.183+08:00  INFO 40796 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-01T13:57:39.184+08:00  INFO 40796 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-01T13:57:39.312+08:00  INFO 40796 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-01T13:57:39.314+08:00  INFO 40796 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1994 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-10-01T13:57:39.720+08:00  INFO 40796 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-01T13:57:39.921+08:00  INFO 40796 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1669931a
+2026-10-01T13:57:39.924+08:00  INFO 40796 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-01T13:57:39.957+08:00  INFO 40796 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:25435/phase4_process_1790834245097 (PostgreSQL 17.10)
+2026-10-01T13:57:40.029+08:00  INFO 40796 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.044s)
+2026-10-01T13:57:40.068+08:00  INFO 40796 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 10
+2026-10-01T13:57:40.072+08:00  INFO 40796 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-01T13:57:40.898+08:00  INFO 40796 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:57:40.971+08:00  INFO 40796 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 28084 (http) with context path '/'
+2026-10-01T13:57:40.986+08:00  INFO 40796 --- [           main] c.p.ProcessWorkerApplication             : Started ProcessWorkerApplication in 4.385 seconds (process running for 5.104)
+2026-10-01T13:57:41.053+08:00  INFO 40796 --- [.1-28084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01T13:57:41.053+08:00  INFO 40796 --- [.1-28084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-01T13:57:41.054+08:00  INFO 40796 --- [.1-28084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+PROCESS_HARNESS_READY label=B pid=40796 workerId=380338cf-157d-4b02-ac64-da28c9a549ea mode=mock/fault
+2026-10-01T13:57:43.120+08:00  INFO 40796 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=866ac7e7-5711-4d6a-93ad-f52e2640a559 workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=1 attempt=1
+2026-10-01T13:57:43.285+08:00  INFO 40796 --- [     virtual-46] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=866ac7e7-5711-4d6a-93ad-f52e2640a559 workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=1 attempt=1
+2026-10-01T13:57:48.568+08:00  INFO 40796 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=LEASE_RECOVERED kind=EVALUATION state=RUNNING taskId=829908c2-de19-4f1c-97bf-bb38ee6f5a9e workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=2 attempt=2
+2026-10-01T13:57:48.568+08:00  INFO 40796 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=EXTERNAL_OUTCOME_UNKNOWN kind=EVALUATION state=RUNNING taskId=829908c2-de19-4f1c-97bf-bb38ee6f5a9e workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=2 attempt=2
+2026-10-01T13:57:48.568+08:00  INFO 40796 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=829908c2-de19-4f1c-97bf-bb38ee6f5a9e workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=2 attempt=2
+2026-10-01T13:57:48.768+08:00  INFO 40796 --- [     virtual-58] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=829908c2-de19-4f1c-97bf-bb38ee6f5a9e workerId=380338cf-157d-4b02-ac64-da28c9a549ea fencingToken=2 attempt=2

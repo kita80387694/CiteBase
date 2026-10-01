@@ -37,6 +37,12 @@ public class TaskRepository {
     this.telemetry = telemetry;
   }
 
+  private void event(TaskTelemetry.Event event, TaskLease lease, TaskState state) {
+    db.update(
+        "insert into work_task_event(task_id,event) values(?,?)", lease.taskId(), event.name());
+    telemetry.event(event, lease, state);
+  }
+
   String encode(Object value) {
     try {
       return json.writeValueAsString(value);
@@ -110,7 +116,7 @@ public class TaskRepository {
               spec.maxAttempts());
           var lease = metadata(row(spec.resourceId()), false);
           registry.require(spec.kind()).onQueued(db, lease);
-          telemetry.event(TaskTelemetry.Event.ENQUEUED, lease, TaskState.QUEUED);
+          event(TaskTelemetry.Event.ENQUEUED, lease, TaskState.QUEUED);
           return spec.resourceId();
         });
   }
@@ -162,11 +168,12 @@ public class TaskRepository {
                       || ((Number) r.get("attempts")).intValue()
                           < ((Number) r.get("max_attempts")).intValue());
           String id = r.get("id").toString();
-          db.update(
-              "update work_call set"
-                  + " status='UNKNOWN',outcome='PROCESS_INTERRUPTED',finished_at=clock_timestamp(),response=null"
-                  + " where task_id=? and status='STARTED'",
-              id);
+          int unknownCalls =
+              db.update(
+                  "update work_call set"
+                      + " status='UNKNOWN',outcome='PROCESS_INTERRUPTED',finished_at=clock_timestamp(),response=null"
+                      + " where task_id=? and status='STARTED'",
+                  id);
           db.update(
               "update work_task set"
                   + " status=?,lease_owner=?,lease_until=clock_timestamp()+make_interval(secs=>?),last_heartbeat_at=clock_timestamp(),fencing_token=fencing_token+1,attempts=attempts+?,resume_without_attempt=false,started_at=coalesce(started_at,clock_timestamp())"
@@ -177,7 +184,11 @@ public class TaskRepository {
               allowed && !resume ? 1 : 0,
               id);
           var lease = metadata(row(id), allowed);
-          telemetry.event(
+          if (Set.of("RUNNING", "CANCEL_REQUESTED").contains(r.get("status")))
+            event(TaskTelemetry.Event.LEASE_RECOVERED, lease, TaskState.RUNNING);
+          if (unknownCalls > 0)
+            event(TaskTelemetry.Event.EXTERNAL_OUTCOME_UNKNOWN, lease, TaskState.RUNNING);
+          event(
               TaskTelemetry.Event.CLAIMED,
               lease,
               cancelled ? TaskState.CANCEL_REQUESTED : TaskState.RUNNING);
@@ -205,11 +216,17 @@ public class TaskRepository {
         || l.workerId() == null
         || !Objects.equals(l.workerId(), r.get("lease_owner"))
         || l.fencingToken() != ((Number) r.get("fencing_token")).longValue()
-        || !Boolean.TRUE.equals(r.get("lease_valid"))) throw new TaskSignal("LEASE_LOST");
+        || !Boolean.TRUE.equals(r.get("lease_valid"))) {
+      telemetry.rejected(l);
+      throw new TaskSignal("LEASE_LOST");
+    }
     String status = r.get("status").toString();
     if (status.equals("CANCEL_REQUESTED")) {
       if (!allowCancel) throw new TaskSignal("CANCELLED");
-    } else if (!status.equals("RUNNING")) throw new TaskSignal("LEASE_LOST");
+    } else if (!status.equals("RUNNING")) {
+      telemetry.rejected(l);
+      throw new TaskSignal("LEASE_LOST");
+    }
   }
 
   public void assertActive(TaskLease l) {
@@ -387,12 +404,12 @@ public class TaskRepository {
         failure == null ? null : failure.safeMessage(),
         l.taskId(),
         l.fencingToken());
-    telemetry.event(TaskTelemetry.Event.TERMINATED, l, state);
+    event(TaskTelemetry.Event.TERMINATED, l, state);
   }
 
-  public void fail(TaskLease l, TaskFailure failure) {
+  public TaskState fail(TaskLease l, TaskFailure failure) {
     TaskHandler h = registry.require(l.kind());
-    tx.executeWithoutResult(
+    return tx.execute(
         s -> {
           kb(l.kbId(), h.publicationLock());
           db.queryForList("select id from work_task where id=? for update", l.taskId());
@@ -411,11 +428,13 @@ public class TaskRepository {
                   : failure;
           h.onFailure(db, l, actual, next);
           valid(l, row(l.taskId()), true);
-          db.update(
-              "update work_call set"
-                  + " status='UNKNOWN',outcome='EXECUTION_INTERRUPTED',response=null,finished_at=clock_timestamp()"
-                  + " where task_id=? and status='STARTED'",
-              l.taskId());
+          int unknownCalls =
+              db.update(
+                  "update work_call set"
+                      + " status='UNKNOWN',outcome='EXECUTION_INTERRUPTED',response=null,finished_at=clock_timestamp()"
+                      + " where task_id=? and status='STARTED'",
+                  l.taskId());
+          if (unknownCalls > 0) event(TaskTelemetry.Event.EXTERNAL_OUTCOME_UNKNOWN, l, next);
           if (next == TaskState.RETRY_WAIT) {
             db.update(
                 "update work_task set"
@@ -425,8 +444,9 @@ public class TaskRepository {
                 actual.safeMessage(),
                 settings.retryDelaySeconds(),
                 l.taskId());
-            telemetry.event(TaskTelemetry.Event.RETRY_SCHEDULED, l, next);
+            event(TaskTelemetry.Event.RETRY_SCHEDULED, l, next);
           } else terminal(l, next, actual);
+          return next;
         });
   }
 
@@ -442,7 +462,7 @@ public class TaskRepository {
                   + " where id=?",
               delay.toMillis() / 1000.0,
               l.taskId());
-          telemetry.event(TaskTelemetry.Event.DEFERRED, l, TaskState.QUEUED);
+          event(TaskTelemetry.Event.DEFERRED, l, TaskState.QUEUED);
         });
   }
 
@@ -579,7 +599,7 @@ public class TaskRepository {
                 l,
                 new TaskFailure("CANCELLED", "正在取消", false, false),
                 TaskState.CANCEL_REQUESTED);
-            telemetry.event(TaskTelemetry.Event.CANCEL_REQUESTED, l, TaskState.CANCEL_REQUESTED);
+            event(TaskTelemetry.Event.CANCEL_REQUESTED, l, TaskState.CANCEL_REQUESTED);
           }
           return get(user, id);
         });
@@ -600,7 +620,7 @@ public class TaskRepository {
               id);
           var l = metadata(row(id), false);
           h.onQueued(db, l);
-          telemetry.event(TaskTelemetry.Event.ENQUEUED, l, TaskState.QUEUED);
+          event(TaskTelemetry.Event.ENQUEUED, l, TaskState.QUEUED);
           return get(user, id);
         });
   }

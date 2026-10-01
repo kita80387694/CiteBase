@@ -61,3 +61,9 @@ node scripts/phase3-report.mjs docs/results/new-agent-run
 ## 冻结真实结论
 
 供应商恢复后的组合对照见 `results/phase3-v2/provider-recovery/report.json`：原104次尝试加46次补测全部保留。有效104行中向量34成功/18失败、混合33成功/19失败，均为预算或无进展问题；Recall@5/MRR均1不代表答案正确。平均耗时约28秒，高于基础RAG约9–10秒，未显示收益，不默认替换基础RAG。人工答案正确性与引用支持度仍null。
+
+## 第三阶段实验策略与当前边界
+
+保留original默认，新增inspection-free-v1、stop-aware-v1及combined-v1实验开关。服务端限制允许工具与剩余预算，为最终生成预留调用资源；重复或无进展仍失败，不能把预算耗尽包装为正常答案。实现和消融详见AGENT_PHASE3_STRATEGIES.md。
+
+32次真实开发/验证集探索原始数据和账本见results/quality-phase3/agent-exploration，报告QUALITY_AGENT_REPORT.md。四策略失败分别1/8、2/8、0/8、1/8；停止感知组延迟增加，无真人正确性或引用支持评审，因此未选择赢家、未替换默认。新独立测试未启用。80份真实配对回答的真人评审和16份复核均未发生，不能用自动信号补齐。

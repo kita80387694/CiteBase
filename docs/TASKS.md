@@ -29,7 +29,7 @@ INDEX 保存原始内容哈希、切分 profile 与公开模型配置快照。�
 - `GET /api/tasks?kbId=...&kind=INDEX`、`GET /api/tasks/{id}` 返回当前用户任务；跨用户返回 404。
 - `POST /api/tasks/{id}/cancel` 与 `/retry` 执行服务端状态检查和原子投影。
 - 任务详情额外提供 externalCalls 安全审计（状态、实际 usage 或 null、时间、调用 ID），不提供 response 正文。DTO 包含 id/workTaskId、kind、status、kbId、attempts/maxAttempts、retryGeneration、progress、errorCode/errorSummary、ISO 时间和 canCancel/canRetry/retryBlockedReason。INDEX 额外保留 documentId/documentName/versionId/legacyStatus。尚无进度时为 null；total 未知不能制造百分比。
-- 结构日志使用固定事件及 kind/state、服务端 task/worker ID、token、attempt，不记录正文、查询、文件名、API Key 或原始异常。Micrometer 提供活动任务 gauge、kind/state 转移计数及执行耗时，标签不使用 taskId 或用户输入。
+- 结构日志使用固定事件及 kind/state、服务端 task/worker ID、token、attempt，不记录正文、查询、文件名、API Key 或原始异常。Micrometer 提供活动任务 gauge、kind/state/event 转移计数及按执行尝试 outcome 分类的耗时，标签不使用 taskId 或用户输入。
 
 ## 升级与验证
 
@@ -70,3 +70,23 @@ node scripts/phase4-process-harness.mjs --run
 
 
 任务级重试上限范围1–10，评测逐题上限1–5；均在创建时保存快照，调整环境不修改旧任务。Agent允许的尝试次数不改变安全恢复边界：有未知执行仍失败，有调用史仍禁止手动重放。旧 `citebase.evaluation-item-max-attempts` 属性继续兼容，明确的 `EVALUATION_ITEM_MAX_ATTEMPTS` 优先。
+
+## 第三阶段运维补充（当前代码，实际故障与负载已验证）
+
+V10 新增 `work_task_event`，与成功提交的任务变更处于同一事务。租约接管产生 LEASE_RECOVERED；旧 STARTED 调用被改为 UNKNOWN 时记录 EXTERNAL_OUTCOME_UNKNOWN。后者是一次批量状态变更事件数，不是未知调用条数；实际条数从 work_call 查询。迁移之前没有事件的历史不补造。事件关联任务外键级联删除，不能当作不可删除的长期审计存储。
+
+Fencing 校验失败必须回滚业务事务，因此拒绝尝试使用独立本进程 `citebase.tasks.fence.rejections` counter；它不是 SELF 持久事件。任务执行计时使用 outcome 而非预设FAILED：TaskRepository.fail 返回实际写入的 CANCELLED、RETRY_WAIT 或 FAILED，DEFERRED和LEASE_LOST等另记。该计时是一次worker执行尝试，不能与任务从创建到最终结束的时延混用。
+
+调度领取出现数据库异常时释放本地许可，至少5秒后再领取；心跳数据库失败中断当前执行，由原租约/恢复协议决定后续。错误计数仍累计，但安全警告以全实例每30秒至多一次限频，不打印数据库异常正文。它不保证所有框架/连接池日志均被限频，也不代表外部调用恰好一次。
+
+`GET /api/operations/summary?windowMinutes=60` 只聚合当前认证用户，窗口限制5–1440分钟。队列与租约是当前快照；终态与端到端时延按完成时间窗口，排队时延按首次开始时间窗口。排队是原始 created_at→started_at，端到端是原始 created_at→finished_at；人工重试沿用原始时间，不能解释为最后一轮重试时延。无样本均值/P50/P95为null，分位数为连续分位数。详细字段见 [API契约](API-CONTRACT-OPERATIONS.md)。
+
+调用统计只含持久任务账本，不含同步基础问答。started 是当前仍为 STARTED 的记录数，returned/unknown 为另外两种互斥状态，三者均按调用开始时间窗口筛选；started不是累计发起总量。usageAvailable表示至少一个供应商实际token字段有值，不保证所有字段完整，不可用用量不能解释为零token或免费调用。
+
+`/api/operations/local` 使用独立 `X-Operations-Token`，环境 `OPERATIONS_TOKEN` 未设置、少于32字符或不匹配时统一404。只返回本JVM资源、Hikari连接池与任务低基数指标；普通用户Bearer令牌无权读取。该token应仅交本机受限运维采集器，不保存到报告、日志或浏览器配置。局部指标进程重启会重置，不等于数据库跨worker汇总。
+
+`/actuator/health/liveness` 检查进程状态；`/actuator/health/readiness` 含有界 SELECT 1，Hikari获取连接2.5秒、查询2秒，不探测模型余额或发起收费请求。独立多worker故障/混合负载正在验证；本节不以历史第二阶段5项实验替代本轮证明。真人质量评审仍未完成，受控故障适配器的吞吐也不能当作DeepSeek实际吞吐。
+
+检索缓存不改变上述持久恢复边界。进程重启丢失LRU缓存属于预期；缓存命中没有新的embedding/rerank外部调用，也不伪造work_call或当前实际usage。评测命中仍绑定同一快照、用户及任务有效性，删除撤回与取消检查照常执行；不会把缓存当作已完成逐题checkpoint。
+
+第三阶段最终工程验证：运维13项实际双进程/PG检查及794测量操作通过，完整统计与采样限制见LOAD_TESTING.md及operations-engineering-report.json；真人质量与冻结独立测试不在该结论内。

@@ -1,0 +1,51 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:40:41.290+08:00  INFO 14928 --- [           main] c.p.ProcessWorkerApplication             : Starting ProcessWorkerApplication using Java 21.0.12.1 with PID 14928 (F:\CiteBase\backend\target\test-classes started by pxj in F:\CiteBase)
+2026-10-01T13:40:41.293+08:00  INFO 14928 --- [           main] c.p.ProcessWorkerApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:40:44.556+08:00  INFO 14928 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 28083 (http)
+2026-10-01T13:40:44.581+08:00  INFO 14928 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-01T13:40:44.581+08:00  INFO 14928 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-01T13:40:44.778+08:00  INFO 14928 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-01T13:40:44.780+08:00  INFO 14928 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3395 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-10-01T13:40:45.305+08:00  INFO 14928 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-01T13:40:45.611+08:00  INFO 14928 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15ac02d5
+2026-10-01T13:40:45.612+08:00  INFO 14928 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-01T13:40:45.651+08:00  INFO 14928 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:25435/phase4_process_1790833236286 (PostgreSQL 17.10)
+2026-10-01T13:40:45.726+08:00  INFO 14928 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-01T13:40:45.732+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.041s)
+2026-10-01T13:40:45.757+08:00  INFO 14928 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-01T13:40:45.818+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-01T13:40:45.840+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - core"
+2026-10-01T13:40:45.979+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - questions evaluations"
+2026-10-01T13:40:46.095+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - manual evaluation scores"
+2026-10-01T13:40:46.193+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - chunk profiles"
+2026-10-01T13:40:46.255+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - agent runs"
+2026-10-01T13:40:46.327+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - unified work tasks"
+2026-10-01T13:40:46.425+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - evaluation tasks"
+2026-10-01T13:40:46.516+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - legacy agent recovery boundary"
+2026-10-01T13:40:46.557+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-10-01T13:40:46.627+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - operations events"
+2026-10-01T13:40:46.676+08:00  INFO 14928 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "public", now at version v10 (execution time 00:00.367s)
+2026-10-01T13:40:48.103+08:00  INFO 14928 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:40:48.195+08:00  INFO 14928 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 28083 (http) with context path '/'
+2026-10-01T13:40:48.210+08:00  INFO 14928 --- [           main] c.p.ProcessWorkerApplication             : Started ProcessWorkerApplication in 7.999 seconds (process running for 8.876)
+2026-10-01T13:40:48.388+08:00  INFO 14928 --- [.1-28083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01T13:40:48.388+08:00  INFO 14928 --- [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-01T13:40:48.389+08:00  INFO 14928 --- [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+PROCESS_HARNESS_READY label=A pid=14928 workerId=90484598-59a1-4e0c-98f9-3f16a61fb352 mode=mock/fault
+2026-10-01T13:40:48.730+08:00  INFO 14928 --- [.1-28083-exec-4] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=50eb9591-da4e-4739-9937-ac5212723aaa workerId=null fencingToken=0 attempt=0
+2026-10-01T13:40:48.787+08:00  INFO 14928 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=50eb9591-da4e-4739-9937-ac5212723aaa workerId=90484598-59a1-4e0c-98f9-3f16a61fb352 fencingToken=1 attempt=1
+2026-10-01T13:40:49.018+08:00  INFO 14928 --- [     virtual-46] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=50eb9591-da4e-4739-9937-ac5212723aaa workerId=90484598-59a1-4e0c-98f9-3f16a61fb352 fencingToken=1 attempt=1
+2026-10-01T13:40:49.327+08:00  INFO 14928 --- [.1-28083-exec-9] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=b3ae356b-1aa5-42fe-8f3f-a4669c45e873 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:40:49.447+08:00  INFO 14928 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=b3ae356b-1aa5-42fe-8f3f-a4669c45e873 workerId=90484598-59a1-4e0c-98f9-3f16a61fb352 fencingToken=1 attempt=1
+2026-10-01T13:40:59.672+08:00  INFO 14928 --- [.1-28083-exec-2] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=371426ca-0088-4307-8d64-8fbd841b3a29 workerId=null fencingToken=0 attempt=0

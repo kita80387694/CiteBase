@@ -96,8 +96,12 @@ public final class ProcessWorkerApplication {
       receipt.put("taskId", lease == null ? null : lease.taskId());
       receipt.put("workerId", lease == null ? null : lease.workerId());
       receipt.put("generation", lease == null ? null : lease.fencingToken());
+      long startedNanos = System.nanoTime();
+      // Only this explicit test marker enables a short real client-side deadline.
+      // All existing hold/late-return scenarios retain their 180-second behavior.
+      boolean socketTimeoutProbe = "P4_GATE_SOCKET_TIMEOUT".equals(receipt.get("marker"));
       try {
-        var request = HttpRequest.newBuilder(GATE).timeout(Duration.ofSeconds(180))
+        var request = HttpRequest.newBuilder(GATE).timeout(Duration.ofSeconds(socketTimeoutProbe ? 2 : 180))
             .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(receipt))).build();
         // join deliberately does not complete on Thread.interrupt(): exercises late provider returns.
@@ -106,6 +110,15 @@ public final class ProcessWorkerApplication {
       } catch (TaskSignal | SpringAiGateway.ModelFailure e) { throw e; }
       catch (Exception e) {
         Throwable cause = e instanceof CompletionException && e.getCause() != null ? e.getCause() : e;
+        if (cause instanceof HttpTimeoutException) {
+          if (socketTimeoutProbe) {
+            System.out.println("PROCESS_HARNESS_TIMEOUT taskId=" + receipt.get("taskId")
+                + " operation=" + operation + " process=" + label
+                + " elapsedMs=" + (System.nanoTime() - startedNanos) / 1_000_000L
+                + " exception=" + cause.getClass().getSimpleName());
+          }
+          throw new SpringAiGateway.ModelFailure("PROVIDER_TIMEOUT", cause);
+        }
         throw new SpringAiGateway.ModelFailure("PROVIDER_UNAVAILABLE", cause);
       }
     }

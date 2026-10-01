@@ -1,0 +1,57 @@
+{
+  "client": [
+    "PROCESS_HARNESS_TIMEOUT taskId=d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8 operation=embedding process=A elapsedMs=2002 exception=HttpTimeoutException",
+    "PROCESS_HARNESS_TIMEOUT taskId=d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8 operation=embedding process=B elapsedMs=2002 exception=HttpTimeoutException",
+    "PROCESS_HARNESS_TIMEOUT taskId=d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8 operation=embedding process=B elapsedMs=2001 exception=HttpTimeoutException"
+  ],
+  "lateProvider": [
+    {
+      "id": "gate-25",
+      "operation": "embedding",
+      "process": "B",
+      "pid": 11620,
+      "marker": "P4_GATE_SOCKET_TIMEOUT",
+      "inputHash": "21aa58661d7f46a4cda2fc1efc63aee697b8a0db8550bd8ca59a2738827ec70b",
+      "taskId": "d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8",
+      "workerId": "9e774899-bb21-4e05-857e-be3608248616",
+      "generation": 1,
+      "receivedAt": "2026-10-01T05:44:02.825Z",
+      "state": "RETURNED",
+      "status": 200,
+      "finishedAt": "2026-10-01T05:44:07.825Z",
+      "ruleId": "rule-0"
+    },
+    {
+      "id": "gate-26",
+      "operation": "embedding",
+      "process": "B",
+      "pid": 11620,
+      "marker": "P4_GATE_SOCKET_TIMEOUT",
+      "inputHash": "21aa58661d7f46a4cda2fc1efc63aee697b8a0db8550bd8ca59a2738827ec70b",
+      "taskId": "d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8",
+      "workerId": "9e774899-bb21-4e05-857e-be3608248616",
+      "generation": 2,
+      "receivedAt": "2026-10-01T05:44:05.939Z",
+      "state": "RETURNED",
+      "status": 200,
+      "finishedAt": "2026-10-01T05:44:10.940Z",
+      "ruleId": "rule-0"
+    },
+    {
+      "id": "gate-27",
+      "operation": "embedding",
+      "process": "A",
+      "pid": 23152,
+      "marker": "P4_GATE_SOCKET_TIMEOUT",
+      "inputHash": "21aa58661d7f46a4cda2fc1efc63aee697b8a0db8550bd8ca59a2738827ec70b",
+      "taskId": "d091f7ba-6584-4bb8-a6f3-69e19f8aa4b8",
+      "workerId": "978fbc12-fe57-4315-bef1-c807d71ae9f5",
+      "generation": 3,
+      "receivedAt": "2026-10-01T05:44:09.083Z",
+      "state": "RETURNED",
+      "status": 200,
+      "finishedAt": "2026-10-01T05:44:14.084Z",
+      "ruleId": "rule-0"
+    }
+  ]
+}

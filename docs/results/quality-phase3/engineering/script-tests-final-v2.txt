@@ -1,0 +1,265 @@
+TAP version 13
+# Subtest: selection is fixed4per split with1refusal and excludes independenttest
+ok 1 - selection is fixed4per split with1refusal and excludes independenttest
+  ---
+  duration_ms: 38.4873
+  ...
+# Subtest: selection does not depend on answer output or score
+ok 2 - selection does not depend on answer output or score
+  ---
+  duration_ms: 3.0122
+  ...
+# Subtest: test case inserted into source cohort is rejected
+ok 3 - test case inserted into source cohort is rejected
+  ---
+  duration_ms: 1.6709
+  ...
+# Subtest: registration locks dataset image models budget and32run ablation order
+ok 4 - registration locks dataset image models budget and32run ablation order
+  ---
+  duration_ms: 2.3315
+  ...
+# Subtest: registration rejects changed data mock and mismatched image
+ok 5 - registration rejects changed data mock and mismatched image
+  ---
+  duration_ms: 1.981
+  ...
+# Subtest: deployment guard rejects image drift remote URL and unrelated port
+ok 6 - deployment guard rejects image drift remote URL and unrelated port
+  ---
+  duration_ms: 0.7427
+  ...
+# Subtest: all 32 intents retained, empty report has 8 pending per strategy and unknown failure rate
+ok 7 - all 32 intents retained, empty report has 8 pending per strategy and unknown failure rate
+  ---
+  duration_ms: 3.9873
+  ...
+# Subtest: failed run retained, pending not mistaken for successful denominator and missing usage null
+ok 8 - failed run retained, pending not mistaken for successful denominator and missing usage null
+  ---
+  duration_ms: 1.7449
+  ...
+# Subtest: full four strategy sample counts all failures and audit unknowns without double counting
+ok 9 - full four strategy sample counts all failures and audit unknowns without double counting
+  ---
+  duration_ms: 4.6173
+  ...
+# Subtest: strategy, question, mock, test-split and audit mismatch rejected
+ok 10 - strategy, question, mock, test-split and audit mismatch rejected
+  ---
+  duration_ms: 3.4266
+  ...
+# Subtest: audit only GETs known runs, defers active tasks and reuses terminal snapshots
+ok 11 - audit only GETs known runs, defers active tasks and reuses terminal snapshots
+  ---
+  duration_ms: 49.3391
+  ...
+# Subtest: legacy original strategy omission accepted, non-original omission rejected
+ok 12 - legacy original strategy omission accepted, non-original omission rejected
+  ---
+  duration_ms: 1.2685
+  ...
+# Subtest: latency nearest-rank percentile and missing observations disclosed
+ok 13 - latency nearest-rank percentile and missing observations disclosed
+  ---
+  duration_ms: 2.3885
+  ...
+# Subtest: failures stay in denominator while human correctness is null
+ok 14 - failures stay in denominator while human correctness is null
+  ---
+  duration_ms: 0.4064
+  ...
+# Subtest: unknown usage is never zero or calculated total
+ok 15 - unknown usage is never zero or calculated total
+  ---
+  duration_ms: 0.5646
+  ...
+# Subtest: paid completed RAG without Agent/pair is retained, coverage incomplete and unaudited calls unknown
+ok 16 - paid completed RAG without Agent/pair is retained, coverage incomplete and unaudited calls unknown
+  ---
+  duration_ms: 9.7686
+  ...
+# Subtest: saved Agent failure counts without pair, never upgrades to completed pair
+ok 17 - saved Agent failure counts without pair, never upgrades to completed pair
+  ---
+  duration_ms: 10.9713
+  ...
+# Subtest: full pair with failure completes collection; 2 task audits required before total unknown-call count
+ok 18 - full pair with failure completes collection; 2 task audits required before total unknown-call count
+  ---
+  duration_ms: 26.7558
+  ...
+# Subtest: pair identity mismatch and absent referenced raw cannot silently count complete
+ok 19 - pair identity mismatch and absent referenced raw cannot silently count complete
+  ---
+  duration_ms: 15.0823
+  ...
+# Subtest: nonfinite or negative usage counts remain unavailable
+ok 20 - nonfinite or negative usage counts remain unavailable
+  ---
+  duration_ms: 0.5818
+  ...
+# Subtest: cost exploration selection is deterministic, balanced and never accesses test
+ok 21 - cost exploration selection is deterministic, balanced and never accesses test
+  ---
+  duration_ms: 19.1822
+  ...
+# Subtest: cost controls differ only by registered intervention; cold hot mixed use identical question order
+ok 22 - cost controls differ only by registered intervention; cold hot mixed use identical question order
+  ---
+  duration_ms: 2.0456
+  ...
+# Subtest: pending full denominator null; terminal failures retained and unknown token not zero
+ok 23 - pending full denominator null; terminal failures retained and unknown token not zero
+  ---
+  duration_ms: 2.4688
+  ...
+# Subtest: actual cache MISS on hot traffic stays MISS; HIT current calls zero but usage stays unavailable
+ok 24 - actual cache MISS on hot traffic stays MISS; HIT current calls zero but usage stays unavailable
+  ---
+  duration_ms: 1.5759
+  ...
+# Subtest: registered mapping pairs different case ids across cache arms and retains absent audit unknown
+ok 25 - registered mapping pairs different case ids across cache arms and retains absent audit unknown
+  ---
+  duration_ms: 3.7156
+  ...
+# Subtest: ledger captures unknown retry calls separately and malformed duplicate rows rejected
+ok 26 - ledger captures unknown retry calls separately and malformed duplicate rows rejected
+  ---
+  duration_ms: 2.9147
+  ...
+# Subtest: failed samples retained; warmup excluded; completion order cannot shorten window
+ok 27 - failed samples retained; warmup excluded; completion order cannot shorten window
+  ---
+  duration_ms: 6.9407
+  ...
+# Subtest: resource max accepts actual zero and preserves unknown; multiple JVMs distinct
+ok 28 - resource max accepts actual zero and preserves unknown; multiple JVMs distinct
+  ---
+  duration_ms: 0.8266
+  ...
+# Subtest: partial runs do not pass and unobserved recovery is not fabricated
+ok 29 - partial runs do not pass and unobserved recovery is not fabricated
+  ---
+  duration_ms: 1.8459
+  ...
+# Subtest: writer hashes inputs, refuses overwrite and malformed JSONL rather than dropping it
+ok 30 - writer hashes inputs, refuses overwrite and malformed JSONL rather than dropping it
+  ---
+  duration_ms: 30.0115
+  ...
+# Subtest: SELF backlog maxima preserve missing null and actual zero without accepting other scopes
+ok 31 - SELF backlog maxima preserve missing null and actual zero without accepting other scopes
+  ---
+  duration_ms: 0.4168
+  ...
+# Subtest: concurrent completion order preserves earliest submission and latest finish
+ok 32 - concurrent completion order preserves earliest submission and latest finish
+  ---
+  duration_ms: 1.8516
+  ...
+# Subtest: no samples and malformed timing cannot become successful NaN summaries
+ok 33 - no samples and malformed timing cannot become successful NaN summaries
+  ---
+  duration_ms: 1.5654
+  ...
+# Subtest: withdrawal proof rejects residual tasks and saved content
+ok 34 - withdrawal proof rejects residual tasks and saved content
+  ---
+  duration_ms: 4.5772
+  ...
+# Subtest: 80 exact real source answers and 96 assignments with 16 distinct-account double reviews accepted
+ok 35 - 80 exact real source answers and 96 assignments with 16 distinct-account double reviews accepted
+  ---
+  duration_ms: 2.5179
+  ...
+# Subtest: same name and count cannot recover a different project source
+ok 36 - same name and count cannot recover a different project source
+  ---
+  duration_ms: 2.5392
+  ...
+# Subtest: 96 assignments cannot hide missing item, triple review or duplicate account
+ok 37 - 96 assignments cannot hide missing item, triple review or duplicate account
+  ---
+  duration_ms: 1.827
+  ...
+# Subtest: withdrawn/mock and wrong rule cannot enter formal review
+ok 38 - withdrawn/mock and wrong rule cannot enter formal review
+  ---
+  duration_ms: 1.3193
+  ...
+# Subtest: review preregistration selects 20 dev + 20 validation, unique and no test
+ok 39 - review preregistration selects 20 dev + 20 validation, unique and no test
+  ---
+  duration_ms: 3.1765
+  ...
+# Subtest: selection independent of input ordering and never mutates dataset
+ok 40 - selection independent of input ordering and never mutates dataset
+  ---
+  duration_ms: 4.7215
+  ...
+# Subtest: insufficient split fails instead of silently reducing review target
+ok 41 - insufficient split fails instead of silently reducing review target
+  ---
+  duration_ms: 2.5098
+  ...
+# Subtest: registration deterministic and preserves null human assessment with auxiliary raw budget
+ok 42 - registration deterministic and preserves null human assessment with auxiliary raw budget
+  ---
+  duration_ms: 3.2121
+  ...
+# Subtest: registration requires frozen runtime and binds exact dataset bytes
+ok 43 - registration requires frozen runtime and binds exact dataset bytes
+  ---
+  duration_ms: 1.9611
+  ...
+# Subtest: unreviewed stays null and human provenance never assumed
+ok 44 - unreviewed stays null and human provenance never assumed
+  ---
+  duration_ms: 1.6484
+  ...
+# Subtest: independent disagreement unresolved until append-only adjudication
+ok 45 - independent disagreement unresolved until append-only adjudication
+  ---
+  duration_ms: 1.5401
+  ...
+# Subtest: revoked and withdrawn data cannot enter current quality estimates
+ok 46 - revoked and withdrawn data cannot enter current quality estimates
+  ---
+  duration_ms: 0.2886
+  ...
+# Subtest: later human revision invalidates old adjudication and restores disputed status
+ok 47 - later human revision invalidates old adjudication and restores disputed status
+  ---
+  duration_ms: 0.29
+  ...
+# Subtest: discovers paid RAG raw without pair and active Agent from journal
+ok 48 - discovers paid RAG raw without pair and active Agent from journal
+  ---
+  duration_ms: 1.9945
+  ...
+# Subtest: missing identity stays pending without inventing task or model work
+ok 49 - missing identity stays pending without inventing task or model work
+  ---
+  duration_ms: 0.2854
+  ...
+# Subtest: conflicting task identities fail before audit is reused
+ok 50 - conflicting task identities fail before audit is reused
+  ---
+  duration_ms: 0.9761
+  ...
+# Subtest: task terminal identity and call ledger verified, running snapshot remains unfrozen
+ok 51 - task terminal identity and call ledger verified, running snapshot remains unfrozen
+  ---
+  duration_ms: 0.6676
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 675.0632

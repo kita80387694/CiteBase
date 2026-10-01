@@ -252,3 +252,19 @@
 2026-09-30 40/40真实配对采集完成，80任务审计保存，完整工程报告和80回答/96任务的未评分评审包准备完成。真实项目ID22befaa8-e4b3-48d8-aa69-3e014dc5733b，真人0/80，复核0/16。修复报告缺少pair时遗漏单臂结果/用量、未审计误记0、同名项目来源未核对、旧裁决覆盖新评分等脚本缺陷，20Node测试通过。Agent工程提交4cbd61b49b423fb51d4e16e6e59b5061a8452fd8；原始UI日志因*.log忽略未入前提交，现保留等字节txt副本并修正验证清单链接，随下一提交纳入。
 
 2026-09-30 基线包与采集/报告脚本提交e3540ae。评审并发修复：KB→item→assignment统一加锁，裁决记录reviewedScoreIds，撤销与批量导入使用相同有序锁。ReviewUnitTest+ReviewIntegrationTest 22/22通过（0失败/跳过，39秒），包括真实PG并发评分/裁决与撤销回归，日志engineering/review-race-tests.txt。冻结真实基线暂未部署此修复，待工程新环境集成；当前真人未评分。
+
+2026-09-30 Agent32运行真实探索全部完成及32任务审计保存；四策略每8题失败1/2/0/1，stop-aware延迟增加，未选择默认。报告/脚本8项测试通过。成本实现专项实际执行AgentStrategyIntegration29+Unit9、AsyncEvaluation8、RetrievalCostIntegration15+Unit5=66，0失败/跳过。quality-mock构建健康，成本/Review UI回归进行中。独立quality-cost正在构建(API28094/UI25184/DB25445)，评测task/item重试均设1，以限制探索重复调用；原baseline/lab未重建。真人质量门槛和独立测试继续待办。
+
+2026-10-01 恢复核验：昨日模型采集进程已终止（exec93516不存在），所有CiteBase容器停止。原cost实验fixed20/candidate5各8行成功，conditional5全部8行CONFIG_CHANGED，任务账本外部调用0；原始失败与部分报告保留。定位为retrievalCost.cache.ttlSeconds Long/Integer JSONB等价比较缺陷，修复并新增真漂移拒绝回归。当前50项集成验证49通过1失败（新增测试的调用计数断言0/2，定位中），不计整组通过。cost+Review UI历史3/3通过、26.8秒，证据由前端agent保存并披露源码摘要采集时间。下一步修复测试、建立新运行注册（旧容器重启导致缓存连续性已失效，不冒充续跑），执行真实成本对照和双worker负载。
+
+2026-10-01 配置漂移回归修正：失败断言并非调用计数，而是误以为拒绝后应无结果；实际应保留两模式失败行。现严格验证2条CONFIG_CHANGED/attempts0、evaluation_attempt0及零模型调用，专项重跑1/1通过。运维首组其余49项通过。旧成本conditional任务账本0调用，已只读补齐。新cost-v2运行注册精确绑定新镜像/容器/StartedAt，fixed20/candidate5/conditional5/dedup各8行已成功，重复缓存对照继续。双worker首跑前9项通过，Agent崩溃处脚本预期错误；实际FAILED/UNSAFE_TO_RESUME、空答案与UNKNOWN generation符合既定恢复契约。修正为更完整的既定契约断言，第二次运行继续，原失败保留。运维UI2/2+有样本1/1通过，主线程已查看运行状态与缓存HIT截图；STARTED文案修正待最终部署复验。
+
+2026-10-01 cost-v2全部64条真实探索结果完成，0执行失败；完整报告cost-v2-engineering-report.json，6份任务账本调用数24/24/16/24/48/32。重复缓存组8MISS+8HIT，每种embedding/rerank调用16→8，答案生成仍逐次执行。未进行真人质量判断，不更改默认。第二次双进程运行通过前11项，在删除文档后任务API404处停止；保留原始证据，正在核对撤回契约。启动全量后端回归，不能把进行中测试计作通过。
+
+2026-10-01 最终回归：完整Maven267项中256通过/11环境条件跳过；专用旧PG补跑ExternalCore+ExternalRag 11/11通过、0跳过，合计267项实际通过。首次全量发现继承Testcontainers按类重启而Spring缓存旧连接；Stage2RetrievalIntegrationTest与TaskIntegrationTest加入AFTER_CLASS上下文关闭后全量通过，原失败日志保留。Node质量脚本46/46通过。前端构建及关键E2E6/6通过59.7秒，最终截图主线程检查运维/盲评/成本，明确MOCK流程测试不计真人评分。第三次双JVM实际故障矩阵前12项通过（含双worker删除后task/eval/export/citation404、缓存为空和DB无残留）；混合负载正在执行，尚不计运维全验收。密钥扫描1506文件零命中。
+
+2026-10-01 本地提交：deea84e1909715a2202dcf586edff32851126440保存32次真实Agent探索；f93f2b90f30bad8238cfe1a479f61c950084cf76提交检索成本服务、配置兼容修复、风险测试及64条真实对照（含旧失败）。实验仍以注册中的源码摘要/镜像为准，提交只负责归档，不追溯修改原注册。尚有运维、前端、最终文档与证据未提交，未推送或合并。
+
+2026-10-01 运维最终证据：two-process-1790834245097通过13项检查，4档闭环混合负载794测量操作、0失败；源码清单a9eb0ae89b552faf4b784af6c2f52e73de170a6e9a298e96fed386448f6ddc62。报告operations-engineering-report.json。并发1/2/4/8吞吐约1.67/3.51/4.97/5.07次每秒，P95 1053/993/1545/2904ms，4/8触及240操作上限，非满60秒。两JVM采样active max各1、PG连接max13，采样不等于严格峰值证明。完整raw日志/失败首两次保留。新增报告测试后Node全组51/51通过。
+
+2026-10-01 完成实验后的真实评审环境升级：原V9库先保存本机忽略备份，无待执行任务（83SUCCEEDED/5FAILED）。docker compose up --build --wait完成V10，后台任务计数未改变；升级前后整个评审导出deepEqual，80答案/96分配/0评分完全一致。final-review-runtime.json记录新镜像/未提交源码摘要；原baseline注册/输出不改，不把新部署追溯作为原模型调用版本。入口http://localhost:25182可用，实际评分审计修复已部署。真人0/80、独立复核0/16，正式独立测试与非劣判断仍未完成。

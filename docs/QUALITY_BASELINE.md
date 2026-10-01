@@ -42,3 +42,5 @@
 报告中`correctRefusals`沿用程序化拒答标志与answerable标签的一致性，仅为自动辅助指标，不是人工拒答正确性。答案正确性与引用支持保持null。
 
 真实评审项目`22befaa8-e4b3-48d8-aa69-3e014dc5733b`已准备80条来源、96份任务，恰16项双账号复核。初始包`paired-baseline/review-initial.json`无任何评分。用户已明确暂无法安排真人，真人覆盖0/80，复核0/16；账号分配不能算作真人评审。入口http://localhost:25182，本机账号凭据仅在忽略文件`.tools/quality-reviewer-credentials.json`。
+
+2026-10-01 补充：已在保留原库并备份后升级真实评审入口到当前工程版本，V9→V10成功，80答案/96分配/0评分整个导出与原包完全一致。新部署信息见results/quality-phase3/final-review-runtime.json；模型实验仍对应原registration，不修改其运行时归属。

@@ -19,6 +19,9 @@ import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest(properties = {"citebase.worker-enabled=false", "MODEL_MODE=mock"})
 @org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
+// The inherited container restarts per test class; discard the datasource bound to its old port.
+@org.springframework.test.annotation.DirtiesContext(
+    classMode = org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_CLASS)
 @Testcontainers(disabledWithoutDocker = true)
 class TaskIntegrationTest {
   @Container

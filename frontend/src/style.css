@@ -1781,3 +1781,28 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.retrieval-cost-controls {
+  border: 1px solid #dce7e3;
+  border-radius: 7px;
+  padding: 14px;
+  margin: 16px 0;
+  min-width: 0;
+}
+.retrieval-cost-controls > label:first-of-type {
+  display: grid;
+  gap: 8px;
+}
+.retrieval-cost-diagnostics {
+  border: 1px solid #dce7e3;
+  border-radius: 7px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  line-height: 1.8;
+}
+
+.operations-toolbar { display:flex; gap:16px; align-items:center; margin:20px 0; }
+.operations-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+.operations-card { border:1px solid #dce3e8; border-radius:12px; padding:18px; background:white; overflow-wrap:anywhere; }
+.operations-card h2 { font-size:18px; }
+.operations-panel p { line-height:1.7; }

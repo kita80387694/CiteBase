@@ -1,0 +1,39 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:43:17.256+08:00  INFO 28620 --- [           main] c.p.ProcessWorkerApplication             : Starting ProcessWorkerApplication using Java 21.0.12.1 with PID 28620 (F:\CiteBase\backend\target\test-classes started by pxj in F:\CiteBase)
+2026-10-01T13:43:17.261+08:00  INFO 28620 --- [           main] c.p.ProcessWorkerApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:43:20.420+08:00  INFO 28620 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 28084 (http)
+2026-10-01T13:43:20.455+08:00  INFO 28620 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-01T13:43:20.455+08:00  INFO 28620 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-01T13:43:20.720+08:00  INFO 28620 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-01T13:43:20.722+08:00  INFO 28620 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3353 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-10-01T13:43:21.368+08:00  INFO 28620 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-01T13:43:21.647+08:00  INFO 28620 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15ac02d5
+2026-10-01T13:43:21.650+08:00  INFO 28620 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-01T13:43:21.697+08:00  INFO 28620 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:25435/phase4_process_1790833380669 (PostgreSQL 17.10)
+2026-10-01T13:43:21.802+08:00  INFO 28620 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.065s)
+2026-10-01T13:43:21.832+08:00  INFO 28620 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 10
+2026-10-01T13:43:21.838+08:00  INFO 28620 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-01T13:43:23.285+08:00  INFO 28620 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:43:23.422+08:00  INFO 28620 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 28084 (http) with context path '/'
+2026-10-01T13:43:23.480+08:00  INFO 28620 --- [           main] c.p.ProcessWorkerApplication             : Started ProcessWorkerApplication in 7.172 seconds (process running for 8.278)
+2026-10-01T13:43:23.688+08:00  INFO 28620 --- [.1-28084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01T13:43:23.688+08:00  INFO 28620 --- [.1-28084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-01T13:43:23.692+08:00  INFO 28620 --- [.1-28084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+PROCESS_HARNESS_READY label=B pid=28620 workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 mode=mock/fault
+2026-10-01T13:43:25.790+08:00  INFO 28620 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=142fca35-ca57-44a8-b406-69a3b3e7001f workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=1 attempt=1
+2026-10-01T13:43:26.024+08:00  INFO 28620 --- [     virtual-46] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=142fca35-ca57-44a8-b406-69a3b3e7001f workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=1 attempt=1
+2026-10-01T13:43:31.474+08:00  INFO 28620 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=LEASE_RECOVERED kind=EVALUATION state=RUNNING taskId=805d614b-4a2b-438b-a6b7-3f55f86016c2 workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=2 attempt=2
+2026-10-01T13:43:31.475+08:00  INFO 28620 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=EXTERNAL_OUTCOME_UNKNOWN kind=EVALUATION state=RUNNING taskId=805d614b-4a2b-438b-a6b7-3f55f86016c2 workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=2 attempt=2
+2026-10-01T13:43:31.475+08:00  INFO 28620 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=805d614b-4a2b-438b-a6b7-3f55f86016c2 workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=2 attempt=2
+2026-10-01T13:43:31.851+08:00  INFO 28620 --- [     virtual-58] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=805d614b-4a2b-438b-a6b7-3f55f86016c2 workerId=726c5430-ee8e-4700-a8ad-48e9e6ee2b16 fencingToken=2 attempt=2

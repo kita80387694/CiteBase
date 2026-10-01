@@ -5,12 +5,14 @@ import {
   type WorkTask,
   type TaskProgress,
 } from "./TaskPanel";
+import { OperationsPanel } from "./OperationsPanel";
 import { AgentPanel } from "./AgentPanel";
 import { ReviewPanel } from "./ReviewPanel";
 import {
   RetrievalControls,
   RetrievalDiagnostics,
   defaultRetrievalOptions,
+  retrievalOptionsForRequest,
   type RetrievalOptions,
   type RetrievalDetails,
 } from "./RetrievalControls";
@@ -337,7 +339,7 @@ export default function App() {
           question,
           mode,
           topK,
-          retrievalOptions,
+          retrievalOptions: retrievalOptionsForRequest(retrievalOptions),
         }),
       });
       setHistory((h) => [result, ...h]);
@@ -438,7 +440,7 @@ export default function App() {
           name: evalName,
           dataset: data,
           topK,
-          retrievalOptions,
+          retrievalOptions: retrievalOptionsForRequest(retrievalOptions),
           idempotencyKey: crypto.randomUUID(),
         });
         sessionStorage.setItem(evalJournalKey, body);
@@ -510,6 +512,7 @@ export default function App() {
     ["tasks", "处理任务", ListChecks],
     ["eval", "检索评测", FlaskConical],
     ["review", "人工质量评审", ListChecks],
+    ["operations", "运行状态", Database],
   ] as const;
   if (!token)
     return (
@@ -669,7 +672,7 @@ export default function App() {
                     ? "GROUNDED ANSWERS"
                     : page === "eval"
                       ? "MEASURE & COMPARE"
-                      : page === "review" ? "BLIND QUALITY REVIEW" : "INDEXING PIPELINE"}
+                      : page === "operations" ? "OPERATIONS" : page === "review" ? "BLIND QUALITY REVIEW" : "INDEXING PIPELINE"}
               </div>
               <h1>{nav.find((n) => n[0] === page)?.[1]}</h1>
               <p>
@@ -679,7 +682,7 @@ export default function App() {
                     ? "基于你选择的知识库回答，点击引用核验原始证据。"
                     : page === "eval"
                       ? "用同一组问题，对比向量检索与混合检索的真实表现。"
-                      : page === "review" ? "独立盲评答案与引用，保留真人评分依据和审计历史。" : "查看索引进度、失败原因与重试记录。"}
+                      : page === "operations" ? "查看个人任务队列、租约、延迟与失败原因。" : page === "review" ? "独立盲评答案与引用，保留真人评分依据和审计历史。" : "查看索引进度、失败原因与重试记录。"}
               </p>
             </div>
             {page === "library" && (
@@ -907,6 +910,7 @@ export default function App() {
               )}
             </>
           )}
+          {page === "operations" && <OperationsPanel api={api} />}
           {page === "review" && <ReviewPanel api={api} kbId={kb} />}
           {page === "tasks" && (
             <TaskPanel kbId={kb} api={api} onOpen={openTask} />

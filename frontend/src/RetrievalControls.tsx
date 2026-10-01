@@ -3,6 +3,9 @@ export type RetrievalOptions = {
   keywordWeight: number;
   rerank: boolean;
   citationStyle: "uuid" | "compact";
+  rerankPolicy?: "always" | "candidate-pressure-v1";
+  deduplicate?: boolean;
+  cache?: boolean;
 };
 export const defaultRetrievalOptions: RetrievalOptions = {
   candidateK: 20,
@@ -10,6 +13,18 @@ export const defaultRetrievalOptions: RetrievalOptions = {
   rerank: false,
   citationStyle: "uuid",
 };
+// Omit default experimental fields so legacy requests keep their original wire shape.
+export function retrievalOptionsForRequest(
+  value: RetrievalOptions,
+): RetrievalOptions {
+  const { rerankPolicy, deduplicate, cache, ...baseline } = value;
+  return {
+    ...baseline,
+    ...(rerankPolicy && rerankPolicy !== "always" ? { rerankPolicy } : {}),
+    ...(deduplicate ? { deduplicate: true } : {}),
+    ...(cache ? { cache: true } : {}),
+  };
+}
 export type ProviderUsage = {
   promptTokens: number | null;
   totalTokens: number | null;
@@ -26,6 +41,24 @@ export type RetrievalDetails = {
     trace?: Record<string, unknown[]>;
     rawAnswer?: string | null;
     aliasMap?: Record<string, string>;
+    cost?: {
+      rerankDecision:
+        | "DISABLED"
+        | "EMPTY"
+        | "APPLIED"
+        | "SKIPPED_CANDIDATE_PRESSURE";
+      rawCandidateCount: number;
+      uniqueRerankInputs: number;
+      savedInputCharacters: number;
+      dedupMapping?: { index: number; chunkIds: string[] }[];
+      currentProviderCalls: { embedding: number; rerank: number };
+      cache: {
+        status: "OFF" | "MISS" | "HIT";
+        scope: "ACTIVE" | "EVALUATION_SNAPSHOT";
+        config?: unknown;
+      };
+      usageReason?: string;
+    };
   };
   usage?: { embedding: ProviderUsage; rerank: ProviderUsage };
   error?: string | null;
@@ -126,6 +159,68 @@ export function RetrievalControls({
         />
         启用独立 Reranker
       </label>
+      <fieldset className="retrieval-cost-controls" disabled={disabled}>
+        <legend>成本实验选项（默认关闭）</legend>
+        <label>
+          重排调用策略
+          <select
+            aria-label="重排调用策略"
+            disabled={disabled || !value.rerank}
+            value={value.rerankPolicy ?? "always"}
+            onChange={(event) =>
+              onChange(
+                retrievalOptionsForRequest({
+                  ...value,
+                  rerankPolicy: event.target
+                    .value as RetrievalOptions["rerankPolicy"],
+                }),
+              )
+            }
+          >
+            <option value="always">固定重排（默认）</option>
+            <option value="candidate-pressure-v1">
+              候选压力条件重排 · 实验
+            </option>
+          </select>
+        </label>
+        <label className="check-option">
+          <input
+            type="checkbox"
+            checked={value.deduplicate ?? false}
+            onChange={(event) =>
+              onChange(
+                retrievalOptionsForRequest({
+                  ...value,
+                  deduplicate: event.target.checked,
+                }),
+              )
+            }
+          />
+          重排输入精确去重 · 实验
+        </label>
+        <label className="check-option">
+          <input
+            type="checkbox"
+            checked={value.cache ?? false}
+            onChange={(event) =>
+              onChange(
+                retrievalOptionsForRequest({
+                  ...value,
+                  cache: event.target.checked,
+                }),
+              )
+            }
+          />
+          启用检索结果缓存 · 实验
+        </label>
+        <p className="muted">
+          条件重排仅在独立 Reranker 开启时生效；候选文本组不超过 Top K
+          时跳过重排。去重只合并重排输入，保留原始来源。缓存仅复用当前授权范围和数据版本内的检索结果，不缓存答案。
+        </p>
+        <p className="muted">
+          探索性成本优化，尚无真人质量非劣化结论。缓存命中不代表本次问答没有模型调用，回答生成仍会执行。
+        </p>
+      </fieldset>
       <p>
         候选数须在 Top K 与 100 之间；向量权重固定为
         1，关键词权重仅用于混合检索。
@@ -142,6 +237,8 @@ export function RetrievalDiagnostics({ result }: { result: RetrievalDetails }) {
   const options = result.retrievalOptions;
   const timings = result.diagnostics?.timings;
   const counts = result.diagnostics?.candidateCounts;
+  const cost = result.diagnostics?.cost;
+  const cacheHit = cost?.cache.status === "HIT";
   const usage = (value: ProviderUsage | undefined) =>
     value
       ? `输入 ${value.promptTokens ?? "不可用"}${"completionTokens" in value ? ` / 输出 ${value.completionTokens ?? "不可用"}` : ""} / 总量 ${value.totalTokens ?? "不可用"}`
@@ -168,6 +265,49 @@ export function RetrievalDiagnostics({ result }: { result: RetrievalDetails }) {
           。下方保留已完成阶段的数据，不代表整次请求成功。
         </p>
       )}
+      {cost ? (
+        <section
+          className="retrieval-cost-diagnostics"
+          aria-label="检索成本诊断"
+        >
+          <p>
+            重排决策：
+            {{
+              DISABLED: "未启用",
+              EMPTY: "无候选",
+              APPLIED: "已执行",
+              SKIPPED_CANDIDATE_PRESSURE: "按候选压力跳过",
+            }[cost.rerankDecision] || cost.rerankDecision}
+          </p>
+          <p>
+            原始候选 {cost.rawCandidateCount} · 唯一重排输入{" "}
+            {cost.uniqueRerankInputs} · 减少输入字符 {cost.savedInputCharacters}
+          </p>
+          <p>
+            缓存：{cost.cache.status} · 范围：
+            {cost.cache.scope === "EVALUATION_SNAPSHOT"
+              ? "评测快照"
+              : "当前可用版本"}
+          </p>
+          <p>
+            本次供应商调用：Embedding {cost.currentProviderCalls.embedding} 次 ·
+            Reranker {cost.currentProviderCalls.rerank} 次
+          </p>
+          <p className="muted">
+            {cacheHit
+              ? "缓存命中：本次未调用检索供应商，embedding/rerank 用量为 null；不继承历史 token，也不把 null 记作零。回答生成用量另行记录。"
+              : "调用次数与 token 用量分开记录。MOCK本地调用不计入供应商调用；这些诊断不证明答案质量。"}
+          </p>
+          <details>
+            <summary>成本诊断原始数据</summary>
+            <pre>{JSON.stringify(cost, null, 2)}</pre>
+          </details>
+        </section>
+      ) : (
+        <p className="legacy-diagnostics">
+          此记录未保存成本诊断；不能推断缓存命中或供应商调用次数。
+        </p>
+      )}
       <div className="stage-timings">
         {Object.entries(timingLabels).map(([key, label]) => (
           <div key={key}>
@@ -190,11 +330,18 @@ export function RetrievalDiagnostics({ result }: { result: RetrievalDetails }) {
         ))}
       </p>
       <div className="provider-usage">
-        <p>Embedding 用量：{usage(result.usage?.embedding)}</p>
+        <p>
+          Embedding 用量：
+          {cacheHit || cost?.currentProviderCalls.embedding === 0
+            ? "本次未调用供应商（null）"
+            : usage(result.usage?.embedding)}
+        </p>
         <p>
           Reranker 用量：
-          {options?.rerank === false
-            ? "未调用（null）"
+          {cacheHit ||
+          cost?.currentProviderCalls.rerank === 0 ||
+          options?.rerank === false
+            ? "本次未调用供应商（null）"
             : usage(result.usage?.rerank)}
         </p>
         <small>仅展示实际供应商返回值；没有返回的 token 不估算。</small>

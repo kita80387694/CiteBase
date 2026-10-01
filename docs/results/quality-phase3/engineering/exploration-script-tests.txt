@@ -1,0 +1,50 @@
+TAP version 13
+# Subtest: all 32 intents retained, empty report has 8 pending per strategy and unknown failure rate
+ok 1 - all 32 intents retained, empty report has 8 pending per strategy and unknown failure rate
+  ---
+  duration_ms: 3.8747
+  ...
+# Subtest: failed run retained, pending not mistaken for successful denominator and missing usage null
+ok 2 - failed run retained, pending not mistaken for successful denominator and missing usage null
+  ---
+  duration_ms: 1.5088
+  ...
+# Subtest: full four strategy sample counts all failures and audit unknowns without double counting
+ok 3 - full four strategy sample counts all failures and audit unknowns without double counting
+  ---
+  duration_ms: 2.7882
+  ...
+# Subtest: strategy, question, mock, test-split and audit mismatch rejected
+ok 4 - strategy, question, mock, test-split and audit mismatch rejected
+  ---
+  duration_ms: 2.5804
+  ...
+# Subtest: audit only GETs known runs, defers active tasks and reuses terminal snapshots
+ok 5 - audit only GETs known runs, defers active tasks and reuses terminal snapshots
+  ---
+  duration_ms: 48.9022
+  ...
+# Subtest: legacy original strategy omission accepted, non-original omission rejected
+ok 6 - legacy original strategy omission accepted, non-original omission rejected
+  ---
+  duration_ms: 1.6162
+  ...
+# Subtest: cost exploration selection is deterministic, balanced and never accesses test
+ok 7 - cost exploration selection is deterministic, balanced and never accesses test
+  ---
+  duration_ms: 28.3563
+  ...
+# Subtest: cost controls differ only by registered intervention; cold hot mixed use identical question order
+ok 8 - cost controls differ only by registered intervention; cold hot mixed use identical question order
+  ---
+  duration_ms: 3.2777
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 334.6623

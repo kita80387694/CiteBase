@@ -11,6 +11,7 @@ public final class TaskTelemetry {
   public enum Event {
     ENQUEUED,
     CLAIMED,
+    LEASE_RECOVERED,
     HEARTBEAT_LOST,
     DEFERRED,
     RETRY_SCHEDULED,
@@ -47,7 +48,13 @@ public final class TaskTelemetry {
                   lease.attempt());
           meters
               .counter(
-                  "citebase.tasks.transitions", "kind", lease.kind().name(), "state", state.name())
+                  "citebase.tasks.transitions",
+                  "kind",
+                  lease.kind().name(),
+                  "state",
+                  state.name(),
+                  "event",
+                  event.name())
               .increment();
           if (event == Event.FENCE_REJECTED)
             meters
@@ -64,9 +71,27 @@ public final class TaskTelemetry {
     else emit.run();
   }
 
-  public void elapsed(TaskKind kind, TaskState state, long nanos) {
+  // Rejection is an attempted write, so it must survive transaction rollback.
+  public void rejected(TaskLease lease) {
+    meters.counter("citebase.tasks.fence.rejections", "kind", lease.kind().name()).increment();
+  }
+
+  private final java.util.concurrent.atomic.AtomicLong nextErrorLog =
+      new java.util.concurrent.atomic.AtomicLong();
+
+  public void databaseFailure(String operation) {
+    meters.counter("citebase.tasks.database.errors", "operation", operation).increment();
+    long now = System.nanoTime(), previous = nextErrorLog.get();
+    if (now >= previous
+        && nextErrorLog.compareAndSet(
+            previous, now + java.util.concurrent.TimeUnit.SECONDS.toNanos(30)))
+      LoggerFactory.getLogger(TaskTelemetry.class)
+          .warn("task_database_unavailable operation={} retry=bounded_poll", operation);
+  }
+
+  public void elapsed(TaskKind kind, String outcome, long nanos) {
     meters
-        .timer("citebase.tasks.execution", "kind", kind.name(), "state", state.name())
+        .timer("citebase.tasks.execution", "kind", kind.name(), "outcome", outcome)
         .record(nanos, java.util.concurrent.TimeUnit.NANOSECONDS);
   }
 }
