@@ -1,0 +1,493 @@
+{
+  "id": "287d17c3-8f7e-4ea1-b8b0-9bf6b53864c0",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "status": "FAILED",
+  "request": {
+    "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Aster 缺地点记录应找谁提交、谁审核，检测员能代批吗？",
+    "idempotencyKey": "Independent-19ad7e5a86fcb91026dc-q006-original",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "056b53a9-ab47-49e9-a3bb-8bde0e37060e",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "32d11142-ded0-4ea2-b0f4-1a95f3b5c432",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1b900831-40be-4d84-96c2-689205c98c53",
+      "name": "flint-b.md",
+      "chunk_size": 900,
+      "version_id": "c9178c8c-213e-44e6-a3ba-d6fb5a234260",
+      "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "26130290-b8cb-4899-b30a-82b142317b09",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "838afc0d-c78f-4e08-9caa-8c18a171109f",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "532d5de8-0922-4b93-80f2-58a0c3e2ef45",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "dea07a1c-2572-4e33-9ad0-d907c476e1c2",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5a7ed791-a002-4724-9cbd-10446de5a8d0",
+      "name": "aster-a.md",
+      "chunk_size": 900,
+      "version_id": "1bf070ea-2c65-4fd1-9798-ea38067f3031",
+      "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "69d401cd-0ff1-480b-8381-872eccfe5c97",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "4c42025c-d479-41bc-8bc2-c6f4a810ffd3",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "148907dd-17bf-4fd4-863b-fad828374966",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "79cdbde1-5c1d-4fa4-be4c-665c90cd827e",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "77abbbf9-75c6-495f-b650-13d5cfa3bc78",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "7c45e726-be5f-439e-86ea-cca0b5d5117c",
+      "name": "flint-a.md",
+      "chunk_size": 900,
+      "version_id": "65cdf73c-75d9-40d2-baa1-4400ccf7f50c",
+      "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "8298f4de-fe8d-4afa-8e0f-be248bf98f55",
+      "name": "aster-b.md",
+      "chunk_size": 900,
+      "version_id": "6b339276-6644-4bf3-aa29-74a1cb4b825c",
+      "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "8cb87887-e061-4d80-af19-1274db2021c4",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "c4413833-c7e5-4efb-ad03-78f538bf247d",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ab45d6f8-dd84-4d7c-8039-cfe7417d2580",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "86132a25-127a-416d-bd0d-1992095991a9",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": "BUDGET_EXCEEDED",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 23,
+          "promptTokens": 23
+        },
+        "callId": "78e24fc6-eca1-423a-b240-a6468c3a16ac",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2415,
+          "completionTokens": 46
+        },
+        "callId": "ec4b4079-ea9c-4dbd-a2af-0aa0d4a5735a",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2440,
+          "completionTokens": 46
+        },
+        "callId": "316fb460-9b27-4340-aea3-7b7610183500",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2465,
+          "completionTokens": 46
+        },
+        "callId": "792fb45b-a109-4e3e-ad8f-16d89dda288f",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2490,
+          "completionTokens": 46
+        },
+        "callId": "544798de-0523-46dd-bd39-605c71184e1c",
+        "status": "RETURNED"
+      }
+    ],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 22527,
+    "evidence": [
+      {
+        "id": "555f2ae3-6087-44a4-91b3-15c539e24817",
+        "page": 1,
+        "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+        "score": 0.6766659810146116,
+        "endOffset": 257,
+        "paragraph": 1,
+        "versionId": "6b339276-6644-4bf3-aa29-74a1cb4b825c",
+        "documentId": "8298f4de-fe8d-4afa-8e0f-be248bf98f55",
+        "startOffset": 0,
+        "documentName": "aster-b.md"
+      },
+      {
+        "id": "91aa63d8-9dcc-423f-a428-b4fed5f01f13",
+        "page": 1,
+        "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+        "score": 0.609560406777884,
+        "endOffset": 377,
+        "paragraph": 1,
+        "versionId": "1bf070ea-2c65-4fd1-9798-ea38067f3031",
+        "documentId": "5a7ed791-a002-4724-9cbd-10446de5a8d0",
+        "startOffset": 0,
+        "documentName": "aster-a.md"
+      },
+      {
+        "id": "e47acd4f-e63c-49e2-bfd5-e618694e6c7b",
+        "page": 1,
+        "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+        "score": 0.5432030558586121,
+        "endOffset": 283,
+        "paragraph": 1,
+        "versionId": "dea07a1c-2572-4e33-9ad0-d907c476e1c2",
+        "documentId": "532d5de8-0922-4b93-80f2-58a0c3e2ef45",
+        "startOffset": 0,
+        "documentName": "brass-b.md"
+      },
+      {
+        "id": "dd6e1a28-7e0e-4e2d-8183-1bd56d7706e0",
+        "page": 1,
+        "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+        "score": 0.5063510235338802,
+        "endOffset": 259,
+        "paragraph": 1,
+        "versionId": "148907dd-17bf-4fd4-863b-fad828374966",
+        "documentId": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+        "startOffset": 0,
+        "documentName": "elm-b.md"
+      },
+      {
+        "id": "c9ebdfd3-14f4-4f4d-9680-68315cc4bf51",
+        "page": 1,
+        "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+        "score": 0.48426562547683716,
+        "endOffset": 312,
+        "paragraph": 1,
+        "versionId": "65cdf73c-75d9-40d2-baa1-4400ccf7f50c",
+        "documentId": "7c45e726-be5f-439e-86ea-cca0b5d5117c",
+        "startOffset": 0,
+        "documentName": "flint-a.md"
+      }
+    ],
+    "question": "Aster 缺地点记录应找谁提交、谁审核，检测员能代批吗？",
+    "strategy": "original",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 4,
+      "searches": 1,
+      "plannerSteps": 4,
+      "evidenceChars": 1488,
+      "evidenceCount": 5,
+      "externalCalls": 5
+    },
+    "retrievalMs": 346,
+    "finishReason": "BUDGET_EXCEEDED",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": false
+  },
+  "errorCode": "BUDGET_EXCEEDED",
+  "createdAt": "2026-10-01T07:37:36.867395Z",
+  "startedAt": "2026-10-01T07:37:36.945506Z",
+  "finishedAt": "2026-10-01T07:37:59.484083Z",
+  "cancelRequestedAt": null,
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 29,
+        "description": "检索当前授权知识库",
+        "querySha256": "7a4740a1e29f77bb978363dd2fa7f21144d8cff0d172fe270fdcaef7a7174e47"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 23,
+          "promptTokens": 23
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "555f2ae3-6087-44a4-91b3-15c539e24817",
+          "91aa63d8-9dcc-423f-a428-b4fed5f01f13",
+          "e47acd4f-e63c-49e2-bfd5-e618694e6c7b",
+          "dd6e1a28-7e0e-4e2d-8183-1bd56d7706e0",
+          "c9ebdfd3-14f4-4f4d-9680-68315cc4bf51"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-10-01T07:37:37.323592717Z",
+      "elapsedMs": 357
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2415,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f6650bba9ac4bbdfc0dd7590a245",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-10-01T07:37:44.488120317Z",
+      "elapsedMs": 7144
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "555f2ae3-6087-44a4-91b3-15c539e24817"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-10-01T07:37:44.508785720Z",
+      "elapsedMs": 9
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2440,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f664fb0f0ff3ab89b7767a81a508",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-10-01T07:37:48.650010070Z",
+      "elapsedMs": 4123
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E2"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "91aa63d8-9dcc-423f-a428-b4fed5f01f13"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 5,
+      "createdAt": "2026-10-01T07:37:48.670909607Z",
+      "elapsedMs": 9
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2465,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f665154f14d5e48ad64ff4cd8cac",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 6,
+      "createdAt": "2026-10-01T07:37:55.366036952Z",
+      "elapsedMs": 6676
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E3"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "e47acd4f-e63c-49e2-bfd5-e618694e6c7b"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 7,
+      "createdAt": "2026-10-01T07:37:55.385484102Z",
+      "elapsedMs": 8
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2490,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f665ee9bd9d8211053a70eaa0187",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 8,
+      "createdAt": "2026-10-01T07:37:59.465574741Z",
+      "elapsedMs": 4061
+    }
+  ],
+  "taskId": "287d17c3-8f7e-4ea1-b8b0-9bf6b53864c0",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 4
+  },
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "taskStatus": "FAILED"
+}

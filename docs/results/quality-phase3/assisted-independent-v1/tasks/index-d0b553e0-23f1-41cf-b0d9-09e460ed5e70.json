@@ -1,0 +1,65 @@
+{
+  "id": "d0b553e0-23f1-41cf-b0d9-09e460ed5e70",
+  "kind": "INDEX",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "d0b553e0-23f1-41cf-b0d9-09e460ed5e70",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "maxAttempts": 3,
+  "retryGeneration": 0,
+  "payload": {
+    "versionId": "148907dd-17bf-4fd4-863b-fad828374966",
+    "documentId": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+    "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+    "modelConfig": {
+      "mode": "real",
+      "provider": {
+        "provider": "OpenAI-compatible via Spring AI",
+        "chatEndpoint": "https://api.siliconflow.cn",
+        "timeoutSeconds": 60,
+        "springAiVersion": "1.1.8",
+        "embeddingEndpoint": "https://api.siliconflow.cn"
+      },
+      "embeddingModel": "BAAI/bge-m3"
+    },
+    "chunkProfile": {
+      "size": 900,
+      "overlap": 200,
+      "strategy": "structure-v1"
+    }
+  },
+  "progress": {
+    "unit": "chunks",
+    "total": 1,
+    "completed": 1
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T07:23:45.178143Z",
+  "startedAt": "2026-10-01T07:23:45.662365Z",
+  "finishedAt": "2026-10-01T07:23:45.936923Z",
+  "availableAt": "2026-10-01T07:23:45.178143Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "documentId": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+  "versionId": "148907dd-17bf-4fd4-863b-fad828374966",
+  "documentName": "elm-b.md",
+  "legacyStatus": "SUCCESS",
+  "externalCalls": [
+    {
+      "callId": "ef7b2e35-0057-4a3d-8e05-adcd61296947",
+      "operationKey": "embedding:c5f2f761245f52bba6d1d27df446160e3a8e805173a7d3a54ee266b0cf4630aa",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 175,
+        "promptTokens": 175
+      },
+      "startedAt": "2026-10-01T07:23:45.673613Z",
+      "finishedAt": "2026-10-01T07:23:45.924894Z"
+    }
+  ]
+}

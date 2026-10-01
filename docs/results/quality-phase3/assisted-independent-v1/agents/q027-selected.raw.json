@@ -1,0 +1,440 @@
+{
+  "id": "429c8ed2-605e-4c75-9c58-5c57d6f7f568",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "status": "COMPLETED",
+  "request": {
+    "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+    "strategy": "grounded-answer-v1",
+    "idempotencyKey": "Independent-19ad7e5a86fcb91026dc-q027-selected",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "agentStrategy": "grounded-answer-v1",
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "generationPolicy": "grounded-answer-v1",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1",
+    "agentStrategyProtocol": "bounded-actions-v1"
+  },
+  "snapshot": [
+    {
+      "id": "056b53a9-ab47-49e9-a3bb-8bde0e37060e",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "32d11142-ded0-4ea2-b0f4-1a95f3b5c432",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1b900831-40be-4d84-96c2-689205c98c53",
+      "name": "flint-b.md",
+      "chunk_size": 900,
+      "version_id": "c9178c8c-213e-44e6-a3ba-d6fb5a234260",
+      "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "26130290-b8cb-4899-b30a-82b142317b09",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "838afc0d-c78f-4e08-9caa-8c18a171109f",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "532d5de8-0922-4b93-80f2-58a0c3e2ef45",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "dea07a1c-2572-4e33-9ad0-d907c476e1c2",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5a7ed791-a002-4724-9cbd-10446de5a8d0",
+      "name": "aster-a.md",
+      "chunk_size": 900,
+      "version_id": "1bf070ea-2c65-4fd1-9798-ea38067f3031",
+      "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "69d401cd-0ff1-480b-8381-872eccfe5c97",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "4c42025c-d479-41bc-8bc2-c6f4a810ffd3",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "148907dd-17bf-4fd4-863b-fad828374966",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "79cdbde1-5c1d-4fa4-be4c-665c90cd827e",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "77abbbf9-75c6-495f-b650-13d5cfa3bc78",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "7c45e726-be5f-439e-86ea-cca0b5d5117c",
+      "name": "flint-a.md",
+      "chunk_size": 900,
+      "version_id": "65cdf73c-75d9-40d2-baa1-4400ccf7f50c",
+      "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "8298f4de-fe8d-4afa-8e0f-be248bf98f55",
+      "name": "aster-b.md",
+      "chunk_size": 900,
+      "version_id": "6b339276-6644-4bf3-aa29-74a1cb4b825c",
+      "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "8cb87887-e061-4d80-af19-1274db2021c4",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "c4413833-c7e5-4efb-ad03-78f538bf247d",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ab45d6f8-dd84-4d7c-8039-cfe7417d2580",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "86132a25-127a-416d-bd0d-1992095991a9",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": null,
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2377,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2402,
+          "completionTokens": 27
+        }
+      },
+      {
+        "kind": "generation",
+        "actual": {
+          "promptTokens": 1865,
+          "completionTokens": 65
+        }
+      }
+    ],
+    "answer": "根据证据，Flint 撤回公开授权后，内部档案不是必须全部销毁。依据是：撤回公开授权后，内部资料是否保留依原授权范围处理，不自动全部删除 [a3ec10fb-1a7e-430b-885a-724ec3154b40]。",
+    "totalMs": 14485,
+    "evidence": [
+      {
+        "id": "a3ec10fb-1a7e-430b-885a-724ec3154b40",
+        "page": 1,
+        "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+        "score": 0.7281492352485657,
+        "endOffset": 313,
+        "paragraph": 1,
+        "versionId": "c9178c8c-213e-44e6-a3ba-d6fb5a234260",
+        "documentId": "1b900831-40be-4d84-96c2-689205c98c53",
+        "startOffset": 0,
+        "documentName": "flint-b.md"
+      },
+      {
+        "id": "c9ebdfd3-14f4-4f4d-9680-68315cc4bf51",
+        "page": 1,
+        "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+        "score": 0.6896002292633057,
+        "endOffset": 312,
+        "paragraph": 1,
+        "versionId": "65cdf73c-75d9-40d2-baa1-4400ccf7f50c",
+        "documentId": "7c45e726-be5f-439e-86ea-cca0b5d5117c",
+        "startOffset": 0,
+        "documentName": "flint-a.md"
+      },
+      {
+        "id": "b6b530ce-f736-41a3-bec6-078c370b33c5",
+        "page": 1,
+        "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+        "score": 0.5639588496709566,
+        "endOffset": 311,
+        "paragraph": 1,
+        "versionId": "77abbbf9-75c6-495f-b650-13d5cfa3bc78",
+        "documentId": "79cdbde1-5c1d-4fa4-be4c-665c90cd827e",
+        "startOffset": 0,
+        "documentName": "cobalt-b.md"
+      },
+      {
+        "id": "dd6e1a28-7e0e-4e2d-8183-1bd56d7706e0",
+        "page": 1,
+        "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+        "score": 0.502517908661491,
+        "endOffset": 259,
+        "paragraph": 1,
+        "versionId": "148907dd-17bf-4fd4-863b-fad828374966",
+        "documentId": "743ab857-7ff3-4c7e-b6c3-0fa3ebd56ad7",
+        "startOffset": 0,
+        "documentName": "elm-b.md"
+      },
+      {
+        "id": "126ac15b-016c-4e3b-95ee-240cce339c58",
+        "page": 1,
+        "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+        "score": 0.460824579000473,
+        "endOffset": 287,
+        "paragraph": 1,
+        "versionId": "32d11142-ded0-4ea2-b0f4-1a95f3b5c432",
+        "documentId": "056b53a9-ab47-49e9-a3bb-8bde0e37060e",
+        "startOffset": 0,
+        "documentName": "dahlia-b.md"
+      }
+    ],
+    "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+    "strategy": "grounded-answer-v1",
+    "abstained": false,
+    "citations": [
+      {
+        "id": "a3ec10fb-1a7e-430b-885a-724ec3154b40",
+        "page": 1,
+        "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+        "score": 0.7281492352485657,
+        "endOffset": 313,
+        "paragraph": 1,
+        "versionId": "c9178c8c-213e-44e6-a3ba-d6fb5a234260",
+        "documentId": "1b900831-40be-4d84-96c2-689205c98c53",
+        "startOffset": 0,
+        "documentName": "flint-b.md"
+      }
+    ],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 2,
+      "searches": 1,
+      "plannerSteps": 2,
+      "evidenceChars": 1482,
+      "evidenceCount": 5,
+      "externalCalls": 4
+    },
+    "retrievalMs": 291,
+    "finishReason": "ANSWERED",
+    "answerCorrect": null,
+    "citationValid": true,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "errorCode": null,
+  "createdAt": "2026-10-01T07:52:33.842083Z",
+  "startedAt": "2026-10-01T07:52:34.116444Z",
+  "finishedAt": "2026-10-01T07:52:48.615127Z",
+  "cancelRequestedAt": null,
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 27,
+        "description": "检索当前授权知识库",
+        "querySha256": "c6bad5f311bfa6ef19cdbb773293d08becdcbe7c347b0d37e28adcab8824be95"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "a3ec10fb-1a7e-430b-885a-724ec3154b40",
+          "c9ebdfd3-14f4-4f4d-9680-68315cc4bf51",
+          "b6b530ce-f736-41a3-bec6-078c370b33c5",
+          "dd6e1a28-7e0e-4e2d-8183-1bd56d7706e0",
+          "126ac15b-016c-4e3b-95ee-240cce339c58"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-10-01T07:52:34.456493676Z",
+      "elapsedMs": 308
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2377,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0f6737fca0fe0373b9e00ff2e15ea",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-10-01T07:52:37.544534638Z",
+      "elapsedMs": 3057
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "a3ec10fb-1a7e-430b-885a-724ec3154b40"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-10-01T07:52:37.584754573Z",
+      "elapsedMs": 18
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2402,
+        "completionTokens": 27
+      },
+      "action": "finish",
+      "output": {
+        "callId": "01a0f673628630c9d5cd159dd4afafd4",
+        "toolName": "finish"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-10-01T07:52:42.986414549Z",
+      "elapsedMs": 5363
+    },
+    {
+      "kind": "generation",
+      "input": {},
+      "usage": {
+        "promptTokens": 1865,
+        "completionTokens": 65
+      },
+      "action": "answer",
+      "output": {
+        "received": true
+      },
+      "status": "COMPLETED",
+      "sequence": 5,
+      "createdAt": "2026-10-01T07:52:48.602187391Z",
+      "elapsedMs": 5595
+    }
+  ],
+  "taskId": "429c8ed2-605e-4c75-9c58-5c57d6f7f568",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 2
+  },
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "taskStatus": "SUCCEEDED"
+}

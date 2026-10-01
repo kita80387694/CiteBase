@@ -1,0 +1,113 @@
+{
+  "id": "3e5c8ed1-b7f6-442c-bcf7-2456eee7e775",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "3e5c8ed1-b7f6-442c-bcf7-2456eee7e775",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "3e5c8ed1-b7f6-442c-bcf7-2456eee7e775"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T07:54:11.195297Z",
+  "startedAt": "2026-10-01T07:54:11.359301Z",
+  "finishedAt": "2026-10-01T07:54:43.369223Z",
+  "availableAt": "2026-10-01T07:54:11.195297Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c63eca51-24a4-410c-9242-f18647ab379d",
+      "operationKey": "embedding:ce1afe5e-d95f-4f0d-9e2d-065fb3409b52",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-01T07:54:11.409885Z",
+      "finishedAt": "2026-10-01T07:54:11.746157Z"
+    },
+    {
+      "callId": "bb75a573-d18a-4c58-8920-531fd3e294de",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2388,
+        "completionTokens": 46
+      },
+      "startedAt": "2026-10-01T07:54:11.793389Z",
+      "finishedAt": "2026-10-01T07:54:18.053174Z"
+    },
+    {
+      "callId": "4c4f35df-b6a3-483c-bb2a-f4810fc9c9d6",
+      "operationKey": "agent/planner/2",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2413,
+        "completionTokens": 46
+      },
+      "startedAt": "2026-10-01T07:54:18.127747Z",
+      "finishedAt": "2026-10-01T07:54:22.187700Z"
+    },
+    {
+      "callId": "3d6f4373-ab10-4bf4-b06f-716f5ef427c4",
+      "operationKey": "agent/planner/3",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2438,
+        "completionTokens": 46
+      },
+      "startedAt": "2026-10-01T07:54:22.249196Z",
+      "finishedAt": "2026-10-01T07:54:25.625056Z"
+    },
+    {
+      "callId": "8df979ef-824f-4344-99e0-dba392adbfd8",
+      "operationKey": "agent/planner/4",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2463,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-10-01T07:54:25.736582Z",
+      "finishedAt": "2026-10-01T07:54:34.382143Z"
+    },
+    {
+      "callId": "1ff5f54f-5866-4bc1-a809-72a2989c214f",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1874,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T07:54:34.421084Z",
+      "finishedAt": "2026-10-01T07:54:43.334188Z"
+    }
+  ]
+}

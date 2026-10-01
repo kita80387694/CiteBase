@@ -1,0 +1,354 @@
+{
+  "source": "ENGINEERING_OBSERVATIONS",
+  "qualityConclusion": null,
+  "baseline": "rag-vector",
+  "auxiliary": "rag-hybrid",
+  "agentBaseline": "agent-original",
+  "selected": "agent-selected",
+  "expectedAnswers": 160,
+  "completedAnswers": 160,
+  "complete": true,
+  "byArm": {
+    "rag-vector": {
+      "answers": 40,
+      "failures": 0,
+      "latencyAvailable": 40,
+      "latencyUnavailable": 0,
+      "meanMs": 6001.8,
+      "p50Ms": 4512,
+      "p95Ms": 17717,
+      "retrievalLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 374.025,
+        "p50": 300,
+        "p95": 756
+      },
+      "endToEndLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 6001.8,
+        "p50": 4512,
+        "p95": 17717
+      },
+      "searches": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "tools": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "budgetExternalCalls": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "retrievalQuality": {
+        "answerableSamples": 32,
+        "recallAt5": 1,
+        "mrr": 0.921875,
+        "definition": "macro over all answerable cases including execution failures; required group hit by any alternative stable quote whose offsets are covered; first five evidence positions; MRR first relevant position; final Agent evidence order, not individual search ranking"
+      }
+    },
+    "rag-hybrid": {
+      "answers": 40,
+      "failures": 0,
+      "latencyAvailable": 40,
+      "latencyUnavailable": 0,
+      "meanMs": 7333.15,
+      "p50Ms": 5074,
+      "p95Ms": 27622,
+      "retrievalLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 334,
+        "p50": 290,
+        "p95": 469
+      },
+      "endToEndLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 7333.15,
+        "p50": 5074,
+        "p95": 27622
+      },
+      "searches": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "tools": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "budgetExternalCalls": {
+        "samples": 40,
+        "available": 0,
+        "unavailable": 40,
+        "mean": null,
+        "p50": null,
+        "p95": null
+      },
+      "retrievalQuality": {
+        "answerableSamples": 32,
+        "recallAt5": 1,
+        "mrr": 0.9375,
+        "definition": "macro over all answerable cases including execution failures; required group hit by any alternative stable quote whose offsets are covered; first five evidence positions; MRR first relevant position; final Agent evidence order, not individual search ranking"
+      }
+    },
+    "agent-original": {
+      "answers": 40,
+      "failures": 6,
+      "latencyAvailable": 40,
+      "latencyUnavailable": 0,
+      "meanMs": 16702.125,
+      "p50Ms": 14743,
+      "p95Ms": 30406,
+      "retrievalLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 452.9,
+        "p50": 308,
+        "p95": 1008
+      },
+      "endToEndLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 16702.125,
+        "p50": 14743,
+        "p95": 30406
+      },
+      "searches": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 1.025,
+        "p50": 1,
+        "p95": 1
+      },
+      "tools": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 1.95,
+        "p50": 2,
+        "p95": 4
+      },
+      "budgetExternalCalls": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 3.8,
+        "p50": 4,
+        "p95": 5
+      },
+      "retrievalQuality": {
+        "answerableSamples": 32,
+        "recallAt5": 1,
+        "mrr": 0.921875,
+        "definition": "macro over all answerable cases including execution failures; required group hit by any alternative stable quote whose offsets are covered; first five evidence positions; MRR first relevant position; final Agent evidence order, not individual search ranking"
+      }
+    },
+    "agent-selected": {
+      "answers": 40,
+      "failures": 10,
+      "latencyAvailable": 40,
+      "latencyUnavailable": 0,
+      "meanMs": 19114.975,
+      "p50Ms": 17208,
+      "p95Ms": 35558,
+      "retrievalLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 331.325,
+        "p50": 290,
+        "p95": 543
+      },
+      "endToEndLatencyMs": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 19114.975,
+        "p50": 17208,
+        "p95": 35558
+      },
+      "searches": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 1,
+        "p50": 1,
+        "p95": 1
+      },
+      "tools": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 2.025,
+        "p50": 2,
+        "p95": 4
+      },
+      "budgetExternalCalls": {
+        "samples": 40,
+        "available": 40,
+        "unavailable": 0,
+        "mean": 3.775,
+        "p50": 3,
+        "p95": 6
+      },
+      "retrievalQuality": {
+        "answerableSamples": 32,
+        "recallAt5": 1,
+        "mrr": 0.921875,
+        "definition": "macro over all answerable cases including execution failures; required group hit by any alternative stable quote whose offsets are covered; first five evidence positions; MRR first relevant position; final Agent evidence order, not individual search ranking"
+      }
+    }
+  },
+  "actualUsage": {
+    "tasks": 94,
+    "calls": 475,
+    "byProviderModel": [
+      {
+        "provider": "embedding",
+        "model": "BAAI/bge-m3",
+        "modelSource": "frozen configuration, not supplier response",
+        "calls": 173,
+        "statuses": {
+          "RETURNED": 173
+        },
+        "usageAvailable": 173,
+        "usageUnavailable": 0,
+        "tokens": {
+          "promptTokens": {
+            "observedSum": 5460,
+            "available": 173,
+            "unavailable": 0
+          },
+          "completionTokens": {
+            "observedSum": null,
+            "available": 0,
+            "unavailable": 173
+          },
+          "totalTokens": {
+            "observedSum": 5460,
+            "available": 173,
+            "unavailable": 0
+          }
+        }
+      },
+      {
+        "provider": "planner",
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "modelSource": "frozen configuration, not supplier response",
+        "calls": 158,
+        "statuses": {
+          "RETURNED": 158
+        },
+        "usageAvailable": 158,
+        "usageUnavailable": 0,
+        "tokens": {
+          "promptTokens": {
+            "observedSum": 383854,
+            "available": 158,
+            "unavailable": 0
+          },
+          "completionTokens": {
+            "observedSum": 6089,
+            "available": 158,
+            "unavailable": 0
+          },
+          "totalTokens": {
+            "observedSum": null,
+            "available": 0,
+            "unavailable": 158
+          }
+        }
+      },
+      {
+        "provider": "chat",
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "modelSource": "frozen configuration, not supplier response",
+        "calls": 64,
+        "statuses": {
+          "RETURNED": 64
+        },
+        "usageAvailable": 64,
+        "usageUnavailable": 0,
+        "tokens": {
+          "promptTokens": {
+            "observedSum": 115326,
+            "available": 64,
+            "unavailable": 0
+          },
+          "completionTokens": {
+            "observedSum": 2693,
+            "available": 64,
+            "unavailable": 0
+          },
+          "totalTokens": {
+            "observedSum": null,
+            "available": 0,
+            "unavailable": 64
+          }
+        }
+      },
+      {
+        "provider": "generation",
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "modelSource": "frozen configuration, not supplier response",
+        "calls": 80,
+        "statuses": {
+          "RETURNED": 80
+        },
+        "usageAvailable": 80,
+        "usageUnavailable": 0,
+        "tokens": {
+          "promptTokens": {
+            "observedSum": 137548,
+            "available": 80,
+            "unavailable": 0
+          },
+          "completionTokens": {
+            "observedSum": 2426,
+            "available": 80,
+            "unavailable": 0
+          },
+          "totalTokens": {
+            "observedSum": null,
+            "available": 0,
+            "unavailable": 80
+          }
+        }
+      }
+    ],
+    "definition": "unique task+callId; includes retry/unknown calls and indexing; actual reported numeric token fields only, no total inferred and missing never zero",
+    "expectedQuestionTasks": 82,
+    "questionTasksObserved": 82
+  }
+}

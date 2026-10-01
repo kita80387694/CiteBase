@@ -1,0 +1,71 @@
+{
+  "id": "48943d30-505b-4d9d-83ee-ac1227dc8fc8",
+  "kind": "AGENT",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "48943d30-505b-4d9d-83ee-ac1227dc8fc8",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "48943d30-505b-4d9d-83ee-ac1227dc8fc8"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 2
+  },
+  "errorCode": "NO_PROGRESS",
+  "errorSummary": "任务停止：NO_PROGRESS",
+  "createdAt": "2026-10-01T07:53:56.983715Z",
+  "startedAt": "2026-10-01T07:53:57.321900Z",
+  "finishedAt": "2026-10-01T07:54:10.283906Z",
+  "availableAt": "2026-10-01T07:53:56.983715Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "externalCalls": [
+    {
+      "callId": "ca841b71-772a-4d40-9ded-4b560876005c",
+      "operationKey": "embedding:fe1339aa-c0e3-4a64-808d-fbef21ef2260",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-01T07:53:57.373265Z",
+      "finishedAt": "2026-10-01T07:53:58.351625Z"
+    },
+    {
+      "callId": "297b5d53-55ee-459c-ae29-2f180931a7ef",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2388,
+        "completionTokens": 46
+      },
+      "startedAt": "2026-10-01T07:53:58.403286Z",
+      "finishedAt": "2026-10-01T07:54:02.110826Z"
+    },
+    {
+      "callId": "f16d50a8-163c-4f71-a255-825cbb9b5e9c",
+      "operationKey": "agent/planner/2",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2413,
+        "completionTokens": 61
+      },
+      "startedAt": "2026-10-01T07:54:02.233939Z",
+      "finishedAt": "2026-10-01T07:54:10.189321Z"
+    }
+  ]
+}

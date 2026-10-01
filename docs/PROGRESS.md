@@ -286,3 +286,9 @@
 2026-10-01 辅助消融与冻结配置本地提交3751e2868c597f1fd9a791de9115a0b7f50a745e，原用户assisted-review-20261001保持未跟踪且未改。候选grounded-answer-v1：辅助5/8对原4/8，失败1对2；小样本不能证实稳定提升，默认不变。独立新KB12文档已真实索引，2题冒烟4RAG+4Agent完成，剩余38题session91200采集中。独立采集脚本/依赖hash单独冻结，不再修改。完整Maven回归session98215并行执行隔离容器。主线程在25186亲自验证新策略说明、真实Brass回答和引用原文，截图grounded-real与grounded-real-citation已保存。辅助评分协议补充端到端正确拒答口径，未来独立评分使用同一规则。
 
 2026-10-01 当前生产代码完整回归：Maven271项，260通过/11条件跳过；同一代码在专用PG25441补跑11/11通过、0跳过，271项均实际执行成功。辅助/独立Node脚本44/44通过。证据assisted-engineering/continuation-verification.json及完整输出，不用旧测试冒充。独立剩余RAG批次进度57/76、0失败（读取检查点，不重新提交）；完成后继续两Agent共80次。截图验证真实旧运行不增加模型调用。
+
+2026-10-01 独立真实评测UI补验：IAB下载事件未返回，改用项目Playwright只读流程定位，不重提模型任务。首轮复用阶段四“恢复代次1”夹具失败；本次任务未恢复，服务端retryGeneration=0，新增场景改为同时断言API=0和UI=0。保留初次日志，修正后1/1通过（10.6秒）：真实JSON下载内容与API逐行deepEqual、无pending、快照引用原文可见、除登录外无写请求。截图quality-assisted-real-*保存。Agent独立对照43/80采集中，当前冻结参数不改。
+
+2026-10-01 会话续执行时原工具session91200丢失；通过CIM确认node collector不在运行，服务器q030-selected/3e5c8ed1-b7f6-442c-bcf7-2456eee7e775已SUCCEEDED。未直接重提：使用原collect参数和冻结journal恢复（session39005，.tools/assisted-independent-resume.txt），既有raw/citations/audits验证后取回已完成项并继续。已保存66/80 Agent运行，collector-provenance与当前脚本逐字哈希一致。成本独立collector仅工程准备，5fixture测试通过，80任务/240行/40题聚类；未开始真实成本调用。冷热重复保留同evaluationId以遵守缓存授权边界，不改生产隔离键。
+
+2026-10-01 Agent独立阶段完成：160/160真实回答、94任务审计、475返回调用/0UNKNOWN。两名隔离AI完成192辅助评分（160初评+32复核），五维无分歧；HUMAN仍0。向量/混合/原Agent/生成候选辅助正确23/21/19/21（各40），失败0/0/6/10。候选对原正确差+5个百分点、配对区间[-5,+15]，失败门槛不通过，默认不改；16失败均发生最终生成前，不归因生成提示。完整报告comparison-initial.json与ASSISTED_EXPERIMENTS保留负面结果及负载混杂。按顺序转成本阶段：复用原64开发行，匿名77次辅助评分开始；独立成本240行仅工程准备，尚未调用。
