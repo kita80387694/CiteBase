@@ -21,6 +21,20 @@ class AgentStrategyIntegrationTest extends AgentIntegrationTest {
   }
 
   @Test
+  void groundedPoliciesPersistSeparateGenerationVersionAndKeepCitations() {
+    for (String strategy : List.of("grounded-answer-v1", "combined-grounded-v1")) {
+      String id = create(strategy, ",\"strategy\":\"" + strategy + "\"");
+      var run = runAgent(alice, id);
+      assertEquals("COMPLETED", run.get("status"));
+      assertTrue((Boolean) result(run).get("citationValid"));
+      assertEquals("grounded-answer-v1", ((Map<?, ?>) run.get("config")).get("generationPolicy"));
+      assertEquals(strategy, result(run).get("strategy"));
+    }
+    verify(model, times(2))
+        .generateBounded(anyString(), anyList(), anyInt(), anyInt(), eq("grounded-answer-v1"));
+  }
+
+  @Test
   void preservesOriginalStoredRequestHashAndExplicitDefaultIdempotency() {
     String id = create("legacy-compatible", "");
     var stored = db.queryForMap("SELECT request::text,request_hash FROM agent_run WHERE id=?", id);

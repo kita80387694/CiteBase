@@ -39,6 +39,9 @@ class ProviderFailuresTest {
       var generated = gateway.generate("q", evidence);
       assertEquals(code, generated.error());
       assertNull(generated.promptTokens());
+      var grounded = gateway.generateBounded("q", evidence, 128, 1, "grounded-answer-v1");
+      assertEquals(code, grounded.error());
+      assertNull(grounded.promptTokens());
       var embedded = assertThrows(SpringAiGateway.ModelFailure.class, () -> gateway.embed("q"));
       assertEquals(code, embedded.getMessage());
       var planned =

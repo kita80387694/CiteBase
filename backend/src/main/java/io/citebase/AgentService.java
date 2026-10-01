@@ -147,7 +147,7 @@ public class AgentService {
         runs.check(user, id, snapshot);
         context.planner();
         AgentStrategy.Constraints constraints =
-            "original".equals(request.strategy())
+            AgentStrategy.originalTools(request.strategy())
                 ? null
                 : AgentStrategy.constrain(
                     request, context, handles, signatures, model.mode().equals("real"));
@@ -268,11 +268,18 @@ public class AgentService {
       var generation =
           evidence.isEmpty()
               ? new Generation(Citations.ABSTENTION, null, null, null)
-              : model.generateBounded(
-                  request.question(),
-                  prepared.promptEvidence(),
-                  request.budget().maxFinalOutputTokens(),
-                  context.seconds());
+              : AgentStrategy.grounded(request.strategy())
+                  ? model.generateBounded(
+                      request.question(),
+                      prepared.promptEvidence(),
+                      request.budget().maxFinalOutputTokens(),
+                      context.seconds(),
+                      "grounded-answer-v1")
+                  : model.generateBounded(
+                      request.question(),
+                      prepared.promptEvidence(),
+                      request.budget().maxFinalOutputTokens(),
+                      context.seconds());
       if (generationCall != null)
         TaskContext.current()
             .completeExternalCall(

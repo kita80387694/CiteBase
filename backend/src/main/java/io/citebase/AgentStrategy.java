@@ -5,12 +5,26 @@ import java.util.*;
 /** Experimental action policies. No semantic sufficiency or quality claim is made here. */
 public final class AgentStrategy {
   public static final Set<String> NAMES =
-      Set.of("original", "inspection-free-v1", "stop-aware-v1", "combined-v1");
+      Set.of(
+          "original",
+          "inspection-free-v1",
+          "stop-aware-v1",
+          "combined-v1",
+          "grounded-answer-v1",
+          "combined-grounded-v1");
 
   public static String resolve(String strategy) {
     String s = strategy == null ? "original" : strategy;
     if (!NAMES.contains(s)) throw new IllegalArgumentException("Agent strategy无效");
     return s;
+  }
+
+  public static boolean grounded(String strategy) {
+    return Set.of("grounded-answer-v1", "combined-grounded-v1").contains(resolve(strategy));
+  }
+
+  public static boolean originalTools(String strategy) {
+    return Set.of("original", "grounded-answer-v1").contains(resolve(strategy));
   }
 
   public static String signature(String action, Map<String, Object> args) {
@@ -50,11 +64,13 @@ public final class AgentStrategy {
   }
 
   static boolean stopAware(String s) {
-    return s.equals("stop-aware-v1") || s.equals("combined-v1");
+    return s.equals("stop-aware-v1")
+        || (s.equals("combined-v1") || s.equals("combined-grounded-v1"));
   }
 
   static boolean inspectionFree(String s) {
-    return s.equals("inspection-free-v1") || s.equals("combined-v1");
+    return s.equals("inspection-free-v1")
+        || (s.equals("combined-v1") || s.equals("combined-grounded-v1"));
   }
 
   static Constraints constrain(

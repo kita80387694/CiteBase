@@ -32,6 +32,8 @@ const agentStrategies = {
   "inspection-free-v1": "减少引用检查工具调用 · 实验",
   "stop-aware-v1": "停止与预算约束 · 实验",
   "combined-v1": "组合策略 · 实验",
+  "grounded-answer-v1": "证据结论生成 · 原工具 · 实验",
+  "combined-grounded-v1": "组合工具与证据结论生成 · 实验",
 } as const;
 type AgentStrategy = keyof typeof agentStrategies;
 function runStrategy(run: AgentRun): string {
@@ -479,7 +481,10 @@ export function AgentPanel({
           {strategy !== "original" && (
             <p className="notice" role="note">
               探索性策略，尚无真人质量结论。执行预算、权限边界与服务端引用校验保持不变；基础
-              RAG 和原策略仍为对照。
+              RAG 和原策略仍为对照。辅助评审不是真人评审，不保证答案质量。
+              {(strategy === "grounded-answer-v1" || strategy === "combined-grounded-v1") && (
+                <span>生成提示区分有证据支持的否定或条件结论与缺少证据；前者应依证据解释，后者应拒答。{strategy === "grounded-answer-v1" ? "保留原工具策略。" : "使用组合工具策略。"}</span>
+              )}
             </p>
           )}
           <RetrievalControls

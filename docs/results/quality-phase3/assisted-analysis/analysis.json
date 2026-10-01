@@ -1,0 +1,4181 @@
+{
+  "source": "ASSISTED",
+  "humanReviewed": false,
+  "qualityConclusion": "AI辅助分析，非真人评审或人类正确性结论",
+  "unit": "unique answer, repeated reviews collapsed; disagreements remain null; failed executions included",
+  "scores": 96,
+  "uniqueAnswers": 80,
+  "doubleReviewed": 16,
+  "byMode": {
+    "RAG": {
+      "answers": 40,
+      "executionFailed": 0,
+      "types": {
+        "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 14,
+        "NO_ASSISTED_ERROR": 26
+      },
+      "dimensions": {
+        "correctness": {
+          "INCORRECT": 14,
+          "CORRECT": 26
+        },
+        "completeness": {
+          "INCORRECT": 14,
+          "CORRECT": 26
+        },
+        "citationSupport": {
+          "NA": 22,
+          "SUPPORTED": 18
+        },
+        "unsupportedContent": {
+          "NONE": 40
+        },
+        "refusal": {
+          "INCORRECT_REFUSAL": 14,
+          "CORRECT_REFUSAL": 8,
+          "NOT_REFUSED": 18
+        }
+      }
+    },
+    "Agent": {
+      "answers": 40,
+      "executionFailed": 5,
+      "types": {
+        "EXECUTION_FAILED": 5,
+        "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 13,
+        "NO_ASSISTED_ERROR": 22
+      },
+      "dimensions": {
+        "correctness": {
+          "INCORRECT": 18,
+          "CORRECT": 22
+        },
+        "completeness": {
+          "INCORRECT": 18,
+          "CORRECT": 22
+        },
+        "citationSupport": {
+          "NA": 22,
+          "SUPPORTED": 18
+        },
+        "unsupportedContent": {
+          "NA": 5,
+          "NONE": 35
+        },
+        "refusal": {
+          "NA": 5,
+          "INCORRECT_REFUSAL": 13,
+          "NOT_REFUSED": 18,
+          "CORRECT_REFUSAL": 4
+        }
+      }
+    }
+  },
+  "byCategory": {
+    "证据充分": {
+      "RAG": {
+        "answers": 3,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 3
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 3
+          },
+          "completeness": {
+            "CORRECT": 3
+          },
+          "citationSupport": {
+            "SUPPORTED": 3
+          },
+          "unsupportedContent": {
+            "NONE": 3
+          },
+          "refusal": {
+            "NOT_REFUSED": 3
+          }
+        }
+      },
+      "Agent": {
+        "answers": 3,
+        "executionFailed": 1,
+        "types": {
+          "EXECUTION_FAILED": 1,
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 1,
+            "CORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 1,
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 1,
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NA": 1,
+            "NONE": 2
+          },
+          "refusal": {
+            "NA": 1,
+            "NOT_REFUSED": 2
+          }
+        }
+      }
+    },
+    "拒绝过度推断": {
+      "RAG": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 3,
+          "NO_ASSISTED_ERROR": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "completeness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "citationSupport": {
+            "NA": 3,
+            "SUPPORTED": 1
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 3,
+            "NOT_REFUSED": 1
+          }
+        }
+      },
+      "Agent": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 3,
+          "NO_ASSISTED_ERROR": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "completeness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "citationSupport": {
+            "NA": 3,
+            "SUPPORTED": 1
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 3,
+            "NOT_REFUSED": 1
+          }
+        }
+      }
+    },
+    "同义": {
+      "RAG": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2,
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2,
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2,
+            "NOT_REFUSED": 2
+          }
+        }
+      },
+      "Agent": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2,
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2,
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2,
+            "NOT_REFUSED": 2
+          }
+        }
+      }
+    },
+    "不可回答": {
+      "RAG": {
+        "answers": 8,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 8
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 8
+          },
+          "completeness": {
+            "CORRECT": 8
+          },
+          "citationSupport": {
+            "NA": 8
+          },
+          "unsupportedContent": {
+            "NONE": 8
+          },
+          "refusal": {
+            "CORRECT_REFUSAL": 8
+          }
+        }
+      },
+      "Agent": {
+        "answers": 8,
+        "executionFailed": 4,
+        "types": {
+          "EXECUTION_FAILED": 4,
+          "NO_ASSISTED_ERROR": 4
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 4,
+            "CORRECT": 4
+          },
+          "completeness": {
+            "INCORRECT": 4,
+            "CORRECT": 4
+          },
+          "citationSupport": {
+            "NA": 8
+          },
+          "unsupportedContent": {
+            "NA": 4,
+            "NONE": 4
+          },
+          "refusal": {
+            "NA": 4,
+            "CORRECT_REFUSAL": 4
+          }
+        }
+      }
+    },
+    "事实": {
+      "RAG": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 4
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 4
+          },
+          "completeness": {
+            "CORRECT": 4
+          },
+          "citationSupport": {
+            "SUPPORTED": 4
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "NOT_REFUSED": 4
+          }
+        }
+      },
+      "Agent": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 4
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 4
+          },
+          "completeness": {
+            "CORRECT": 4
+          },
+          "citationSupport": {
+            "SUPPORTED": 4
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "NOT_REFUSED": 4
+          }
+        }
+      }
+    },
+    "歧义": {
+      "RAG": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 3,
+          "NO_ASSISTED_ERROR": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "completeness": {
+            "INCORRECT": 3,
+            "CORRECT": 1
+          },
+          "citationSupport": {
+            "NA": 3,
+            "SUPPORTED": 1
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 3,
+            "NOT_REFUSED": 1
+          }
+        }
+      },
+      "Agent": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2,
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2,
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2,
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2,
+            "NOT_REFUSED": 2
+          }
+        }
+      }
+    },
+    "缩写": {
+      "RAG": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 2
+          },
+          "completeness": {
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "NOT_REFUSED": 2
+          }
+        }
+      },
+      "Agent": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 2
+          },
+          "completeness": {
+            "CORRECT": 2
+          },
+          "citationSupport": {
+            "SUPPORTED": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "NOT_REFUSED": 2
+          }
+        }
+      }
+    },
+    "计算": {
+      "RAG": {
+        "answers": 1,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 1
+          },
+          "unsupportedContent": {
+            "NONE": 1
+          },
+          "refusal": {
+            "NOT_REFUSED": 1
+          }
+        }
+      },
+      "Agent": {
+        "answers": 1,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 1
+          },
+          "unsupportedContent": {
+            "NONE": 1
+          },
+          "refusal": {
+            "NOT_REFUSED": 1
+          }
+        }
+      }
+    },
+    "近事实干扰": {
+      "RAG": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2
+          }
+        }
+      },
+      "Agent": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2
+          }
+        }
+      }
+    },
+    "跨段落": {
+      "RAG": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 1,
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 1,
+            "INCORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 1,
+            "INCORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 1,
+            "NA": 1
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "NOT_REFUSED": 1,
+            "INCORRECT_REFUSAL": 1
+          }
+        }
+      },
+      "Agent": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 1,
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 1,
+            "INCORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 1,
+            "INCORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 1,
+            "NA": 1
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "NOT_REFUSED": 1,
+            "INCORRECT_REFUSAL": 1
+          }
+        }
+      }
+    },
+    "表格": {
+      "RAG": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 3,
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 3,
+            "INCORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 3,
+            "INCORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 3,
+            "NA": 1
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "NOT_REFUSED": 3,
+            "INCORRECT_REFUSAL": 1
+          }
+        }
+      },
+      "Agent": {
+        "answers": 4,
+        "executionFailed": 0,
+        "types": {
+          "NO_ASSISTED_ERROR": 3,
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 1
+        },
+        "dimensions": {
+          "correctness": {
+            "CORRECT": 3,
+            "INCORRECT": 1
+          },
+          "completeness": {
+            "CORRECT": 3,
+            "INCORRECT": 1
+          },
+          "citationSupport": {
+            "SUPPORTED": 3,
+            "NA": 1
+          },
+          "unsupportedContent": {
+            "NONE": 4
+          },
+          "refusal": {
+            "NOT_REFUSED": 3,
+            "INCORRECT_REFUSAL": 1
+          }
+        }
+      }
+    },
+    "跨文档": {
+      "RAG": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2
+          }
+        }
+      },
+      "Agent": {
+        "answers": 2,
+        "executionFailed": 0,
+        "types": {
+          "REFUSAL_WITH_ALL_LABELLED_EVIDENCE": 2
+        },
+        "dimensions": {
+          "correctness": {
+            "INCORRECT": 2
+          },
+          "completeness": {
+            "INCORRECT": 2
+          },
+          "citationSupport": {
+            "NA": 2
+          },
+          "unsupportedContent": {
+            "NONE": 2
+          },
+          "refusal": {
+            "INCORRECT_REFUSAL": 2
+          }
+        }
+      }
+    }
+  },
+  "answers": [
+    {
+      "itemId": "c00fdc9b-2be2-435d-9650-b20ff8db2e3a",
+      "caseId": "dahlia-009",
+      "mode": "Agent",
+      "runId": "5a5efa89-d7ed-4935-af06-7177bde007e0",
+      "category": "证据充分",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": true,
+      "errorCode": "INVALID_CITATION",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "EXECUTION_FAILED",
+      "question": "Dahlia 预约超过取件时刻几分钟失效？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-b第2段直接给出取件后45分钟；本项执行失败，只显示证据不足占位，未提供这个数值，不能计为有效答案。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-b第2段给出取件时刻后45分钟。终态为执行失败，仅返回证据不足占位，未提供45分钟，不能算有效回答或把系统失败当作主动拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "d31f9ba3-3716-4d1b-98ca-ce8f6c606979",
+      "caseId": "elm-012",
+      "mode": "Agent",
+      "runId": "f8ea2673-d303-4e3c-9dd2-59b0c83d446b",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "elm-a第2段明确阈值达标不表示发现新天体，elm-b第6段又禁止教学台发布发现结论。回答仅拒答，遗漏可以明确回答的“不可以”。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第2段说SNR达标不表示发现新天体，elm-b第6段又明确教学台不发布发现结论；回答却称证据不足，漏掉可明确回答的不可以。"
+        }
+      ]
+    },
+    {
+      "itemId": "651e8add-e521-412d-b48a-c2221a055923",
+      "caseId": "elm-016",
+      "mode": "RAG",
+      "runId": "112f0b0a-7e2b-4945-a6bd-8acd2736858c",
+      "category": "同义",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 交班只留目标名字，足够接班恢复吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "elm-b第4段要求申请号、滤镜、完成帧号、暂停原因，并直言目标名不足。回答拒答，未说明不足或列出必需交接信息。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-b第4段明确只有目标名字不足，并要求申请号、滤镜、完成帧号、暂停原因。回答没有给出否定或交接要求而拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "8bac73b6-8ae9-44b0-8318-c0716c96ab16",
+      "caseId": "cobalt-020",
+      "mode": "RAG",
+      "runId": "9f534443-78de-4acf-a3a2-5cb5544d52e1",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 扫描仪具体采购价格是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Cobalt两份资料只含扫描参数、档案和发行规则，没有扫描仪采购金额。回答明确资料不足，没有杜撰价格，符合可获取证据的边界。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "核对cobalt-a扫描参数表及两份Cobalt全文，仅有分辨率、色彩、档案流程，无采购价格。回答说明证据不足，没有猜价格，适当拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "459ad4f4-5bbe-47f4-a184-6f1068dd1323",
+      "caseId": "elm-001",
+      "mode": "Agent",
+      "runId": "805f2a01-c412-4ad1-b775-cfa19c1c92c2",
+      "category": "事实",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "9937907e419bd96bd8d45361593a6e2d9432ad024f96d81f46bebcfd451f0a36",
+      "rawAnswerSha256": "f2b6783b865132778b16cf9e7b23bacf48fca6ac8decab4614ebb04db65c1708",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 最长申请含校准共多少分钟？",
+      "answer": "根据证据，Elm 观测台每个申请最长90分钟，其中前15分钟用于设备校准 [1]。因此，含校准在内的最长申请总时长为90分钟。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]对应elm-a，首段总时长90分钟且前15分钟属于校准。回答正确说明包含校准共90分钟，没有误加成105分钟。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第1段的90分钟包含前15分钟校准。答案准确给出含校准总长90分钟，引用[1]直接覆盖总时长及校准时长，无额外断言。"
+        }
+      ]
+    },
+    {
+      "itemId": "516fa793-63a9-4dd2-81f4-fdc68d12b67b",
+      "caseId": "cobalt-002",
+      "mode": "RAG",
+      "runId": "9d15d410-2ba6-4424-95ce-b00012bf046d",
+      "category": "歧义",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Cobalt 修订日期更新，是否说明又测了一遍海底？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "cobalt-a第2段区分修订日期与测绘日期，明确更新不表示重测海底。回答称证据不足，没有给出原文明示的否定结论。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "cobalt-a第2段明确修订日期与测绘日期不同，较新修订不表示重测海底。答案证据不足的拒答漏掉这项明文否定。"
+        }
+      ]
+    },
+    {
+      "itemId": "de666604-4b13-41c8-856a-eaaf635fd025",
+      "caseId": "dahlia-001",
+      "mode": "RAG",
+      "runId": "e7e5e021-09f6-451f-a9bd-cb3add322101",
+      "category": "事实",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "f06c3cc56be70e8871843590bb6f98c3be36273bac88d3ffd44f5d8201780fc7",
+      "rawAnswerSha256": "f4fc7b6642962fec1a16244ca686298d155fdb4e5eb7f0bb806eb33b9249f8b5",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 常设站一个人同时最多借几件？",
+      "answer": "根据证据，Dahlia 常设站一个人同时最多可借3件工具 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的dahlia-a首段规定同时最多3件；回答给出常设站3件，直接覆盖数量问题，没有采用旧活动的5件。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第1段写每人同时3件，dahlia-b第6段确认常设站仍为3件。答案3件与实际[1]一致，本题只问上限，无必要遗漏。"
+        }
+      ]
+    },
+    {
+      "itemId": "facf0dbb-0f20-43f9-a81b-c56c974fa674",
+      "caseId": "dahlia-015",
+      "mode": "RAG",
+      "runId": "ebb25b23-4810-4e67-a3a9-9e43a93ea1db",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-a第5段明确擦掉STOP标签不能恢复状态，且须管理员确认安全。回答拒答，未覆盖不能以擦标签代替安全复核这一核心点。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第5段明确擦掉STOP不能恢复状态，须管理员确认安全。回答未提供这一明确规则，错误拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "a5097ee4-3527-4b5b-8c41-80a637132835",
+      "caseId": "brass-002",
+      "mode": "RAG",
+      "runId": "3dd27772-c822-4837-a8a3-c4ec44198738",
+      "category": "缩写",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "8987eb735c6fe5e3fdbeda22e811af37b647239825db3b44b7e258a2a11b488c",
+      "rawAnswerSha256": "a3821e8f178b04f6fc2ac2f842bf45ce4ea6eb7c11e5fd9014994f4008cd9f80",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "answer": "根据证据，Brass 将 NFF 定义为未复现故障，并且明确指出 NFF 不代表客户描述虚假 [1]。因此，不能仅根据 NFF 就断定客户撒谎。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]中brass-a第2段同时支持NFF为未复现故障及不代表描述虚假。答案解释术语并否定据此断言撒谎，两个问点均覆盖。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第2段将NFF定义为未复现故障且不代表客户描述虚假。答案逐一覆盖缩写含义及不能据此认定撒谎，两项均获[1]支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "83b880b7-2deb-46a4-92c0-415fa7427d05",
+      "caseId": "dahlia-012",
+      "mode": "Agent",
+      "runId": "d75bcffd-d548-42e7-871b-dd19cf62b183",
+      "category": "计算",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "483422fce4aa2db869d463d8fb8f5b8d30978cb7ac502c50771ce411f91127ab",
+      "rawAnswerSha256": "8b138ff3f931a8544c7b71281972f4deb6ef5c3c57cd68f885c6fb040daf1f3f",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 安全检查记录比借用收据多留多少天？",
+      "answer": "根据证据，Dahlia 借用收据保留180天，工具安全检查记录保留730天 [1]。  \n因此，安全检查记录比借用收据多留 730 - 180 = 550 天。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]对应dahlia-b第3段，收据180天、检查记录730天；回答730减180得550天，数值、比较方向和运算都正确。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-b第3段给出收据180天和安全检查730天。答案引用[1]后计算730减180等于550天，数值和比较方向均正确。"
+        }
+      ]
+    },
+    {
+      "itemId": "d722dbe6-5485-40bd-be00-76f5c7902b02",
+      "caseId": "brass-013",
+      "mode": "Agent",
+      "runId": "ce212826-4813-4662-b439-7a6ead75a72b",
+      "category": "拒绝过度推断",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 标记NFF之后是否自动允许换件？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "brass-a第2段明文规定NFF不授权更换零件。此项只有证据不足拒答，未给出不自动允许换件的结论。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第2段明言NFF不授权更换零件，足以否定自动允许换件。答案仅称证据不足，没有回答已被原文解决的问题。"
+        }
+      ]
+    },
+    {
+      "itemId": "1f3fbec6-8a40-4714-a089-fbb55b763ae4",
+      "caseId": "cobalt-019",
+      "mode": "Agent",
+      "runId": "c285d2c3-90c5-4771-933d-1911660c906d",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": false,
+      "executionFailed": true,
+      "errorCode": "BUDGET_EXCEEDED",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "EXECUTION_FAILED",
+      "question": "Cobalt 下一版海图何时上市？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Cobalt材料未列下一版上市日，本来需要说明无法确定日期；但此项终态执行失败，只有统一不足占位，不能据此认定完成了有效证据判断。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Cobalt两文仅有版次保留及正式发行登记规则，没有下一版上市日期；但本项终态执行失败，证据不足是失败输出，不能据其表面措辞认定完成了正确拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "94e6cdbf-31ac-4aaf-bedd-66b356a233d4",
+      "caseId": "dahlia-010",
+      "mode": "RAG",
+      "runId": "4afc09cd-f326-4e1e-b518-5fef453ea95c",
+      "category": "近事实干扰",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 活动日能借5件，平常也照办吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-b第6段直接对比旧活动5件与常设站3件。回答拒答，完全漏掉平常不照活动日规则、仍限3件。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-b第6段区分旧活动日5件与常设3件，问题可答平常不能照办。答案只拒答，遗漏3件及活动规则不延续的结论。"
+        }
+      ]
+    },
+    {
+      "itemId": "c8659a8d-6802-4838-983e-dc8514ce2367",
+      "caseId": "brass-005",
+      "mode": "RAG",
+      "runId": "46f9de94-d521-4623-a3f2-6fb24770ec20",
+      "category": "跨段落",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "b2de5ebf192fbed8ea05ae6f06e2ae195e584a8ad0eac684f6a3cc27bd3f3dd1",
+      "rawAnswerSha256": "144ad5bd6b8d8119f2b7781a07cf10869c9acbfa41b0f82913450810979efe18",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 已给估价且客户说尽快修，可以直接拆卸并增加费用吗？",
+      "answer": "根据证据，不可以直接拆卸并增加费用。\n\n1.  关于拆卸授权：证据指出“工单中的估价不是客户授权；必须取得书面授权才可拆卸” [1]。\n2.  关于增加费用：证据指出“维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算” [1]。另一份证据也指出“客户”可批准“增加费用与拆卸授权” [2]。\n\n因此，客户口头表示“尽快修”不能替代对拆卸和增加费用的书面授权。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的brass-a第1、5段分别要求拆卸书面授权和增费重新书面确认，[2]的岗位表支持批准主体为客户。回答覆盖估价、尽快修均不足以授权的两个限制，引用支持全部重要断言。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第1、5段分别要求拆卸书面授权、加费重新书面确认；[2]排班表也把两项授权归客户。答案分别论证不可拆卸、不可加费，引用[1][2]均支持，无实质遗漏。"
+        }
+      ]
+    },
+    {
+      "itemId": "e2012b41-7c0f-4ac3-828e-5e09c547d3de",
+      "caseId": "elm-018",
+      "mode": "Agent",
+      "runId": "5480cce7-c048-481c-b45a-40f3949e3ab9",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Elm两份材料为教学观测流程，没有题目所说图像或对应天体身份。明确资料不足且未猜测名称是恰当拒答。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Elm全文给出教学观测流程及图像留存规则，没有待识别图片或目标身份。回答明确证据不足，不编造天体名称，拒答合适。"
+        }
+      ]
+    },
+    {
+      "itemId": "ed08fea4-0ef6-43e9-99b5-e3603db2cb8e",
+      "caseId": "cobalt-013",
+      "mode": "Agent",
+      "runId": "bf0cfd2f-efb3-4e65-9079-1b1593c53d29",
+      "category": "表格",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "3e2f91ac6f6f94b8514db183d28fce9f3186ae35772541a4e4b770a53b1a1cfb",
+      "rawAnswerSha256": "afdc82a0075afd38935dc897dd86eec1e055ff3dccdf324b14ccb0aef4820c09",
+      "scoreCount": 2,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 哈希不符合时应重排页序还是隔离？",
+      "answer": "根据证据，Cobalt 哈希不符合时应隔离待核验，而不是重排页序。证据中明确指出：“文件哈希不符 | 隔离待核验” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的cobalt-b修复表把文件哈希不符对应隔离待核验，而页序颠倒才重排复核。回答选择隔离并正确区分两种异常。"
+        },
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "cobalt-b第4段表格区分页序颠倒的重排与哈希不符的隔离待核验。答案选择后者，引用[1]支持，并未混用两种修复动作。"
+        }
+      ]
+    },
+    {
+      "itemId": "67c0e9f4-9c85-4cb3-9e49-2ea680409b08",
+      "caseId": "dahlia-011",
+      "mode": "RAG",
+      "runId": "da7b454d-205f-4504-a1c3-a5c09770cc51",
+      "category": "表格",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "8dec757d518d836726567ab945e58473b19952ad6fe51e5ce43e0807631a14ce",
+      "rawAnswerSha256": "ee91204fff7078d238d1f385956db09c12d0e51244a4372b4e714b7251892448",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answer": "根据证据，Dahlia 雨天操作要求如下：\n- 电动手钻室外作业：禁止 [1]。\n- 手推车室外作业：归还后擦干检查 [1]。\n\n因此，下雨时，电动手钻禁止在室外使用，而手推车在室外使用后需要执行归还后擦干检查的操作，并未被禁止。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的dahlia-b雨天表分别列电动手钻禁止和手推车归还后擦干检查。回答保留这一区别及手推车后续要求，未把两者都说成禁止。"
+        }
+      ]
+    },
+    {
+      "itemId": "5622e189-45b8-4775-8424-5bd1f2f88857",
+      "caseId": "elm-019",
+      "mode": "Agent",
+      "runId": "28cde5b3-e86b-43dc-9f69-c258eae433d4",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": true,
+      "errorCode": "BUDGET_EXCEEDED",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "EXECUTION_FAILED",
+      "question": "Elm 望远镜的购买价格是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Elm资料包含时段、曝光、维护规则，没有望远镜采购价。该项却是执行失败后的不足占位，不能当作成功作出的资料不足判断；没有任何实际价格答案。"
+        }
+      ]
+    },
+    {
+      "itemId": "ce35d30d-06b9-40bf-860c-12b929a257fb",
+      "caseId": "brass-013",
+      "mode": "RAG",
+      "runId": "f344431f-f7ac-4f46-a801-7d30c547c026",
+      "category": "拒绝过度推断",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 标记NFF之后是否自动允许换件？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "brass-a第2段已有NFF不授权换件的明确限制，回答仍称证据不足，未回答本可确定的“不允许自动换件”。"
+        }
+      ]
+    },
+    {
+      "itemId": "03466869-3900-4e30-825e-ed81d18ae26d",
+      "caseId": "cobalt-013",
+      "mode": "RAG",
+      "runId": "02d4bc82-1dea-4e19-826b-fbc511f435ac",
+      "category": "表格",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "8da659ef3a8b474e7df74c3f9504e0ae8050c601e5aabd54817a1a5f98423646",
+      "rawAnswerSha256": "2872c4f31be87670eba8f237650684ffe24dae70ff1ac7044fa0a71a5c7d6820",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 哈希不符合时应重排页序还是隔离？",
+      "answer": "根据证据，Cobalt 哈希不符合时应隔离待核验，而不是重排页序。\n\n证据中明确指出：\n*   对于“文件哈希不符”的异常，应采取的动作是“隔离待核验” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]确为cobalt-b修复表，文件哈希不符应隔离待核验。回答引用对应表项，结论正确完整，没有混淆重排页序。"
+        }
+      ]
+    },
+    {
+      "itemId": "a3962ce0-6625-463e-925a-14bce59dc6a6",
+      "caseId": "elm-020",
+      "mode": "RAG",
+      "runId": "d99a660a-1876-4888-ace1-4aa4da6a2998",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 下一次发现新天体会在哪天？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "elm-b第6段表示教学台不发布发现结论，elm-a的SNR目标也非发现证明；两份文档没有未来发现日期。拒绝提供具体日期符合原文范围。"
+        }
+      ]
+    },
+    {
+      "itemId": "9aa2d754-48c7-4d10-b2a8-69c218093240",
+      "caseId": "dahlia-004",
+      "mode": "RAG",
+      "runId": "d659677f-9f2d-4f40-b70e-14efa2775fb6",
+      "category": "跨段落",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-a第3段虽列手钻可续1次，第4段又规定被下一位预约即不允许续期。回答拒答，遗漏本情境应由预约限制排除续借的结论。"
+        }
+      ]
+    },
+    {
+      "itemId": "6089c768-3f6a-4520-a012-57bc2af6cc75",
+      "caseId": "cobalt-008",
+      "mode": "RAG",
+      "runId": "ebb7b47f-ffab-44fe-a0c3-01e25f264b4e",
+      "category": "拒绝过度推断",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "8176dc149d1e2803e2ba939e68b073ce656ae72ca0075adf1e6a9e283240767f",
+      "rawAnswerSha256": "577dafc6e0538322cbeee0422212e50a0464c54a858061895f31507f020036c0",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 原图坐标看不清，可以根据OCR直接确认吗？",
+      "answer": "根据证据，Cobalt OCR文字只能帮助搜索，不能取代原图中的坐标。当坐标模糊时，应标记为待核验，禁止自动补成推测数字 [1]。因此，不能根据OCR直接确认原图坐标。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的cobalt-a第5段仅允许OCR帮助搜索，坐标模糊需待核验并禁止推测补数。回答给出不能直接确认及正确处理方式，全部有据。"
+        }
+      ]
+    },
+    {
+      "itemId": "6739dc8f-40f2-4fd9-9580-779a49ba1703",
+      "caseId": "brass-014",
+      "mode": "Agent",
+      "runId": "ec14eeba-bbe6-4b43-9979-a15b5eb3ff41",
+      "category": "表格",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 主管批准排期能代替客户批准额外费用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "brass-b第4段将主管权限限于内部排期，将增加费用交客户批准，brass-a第5段另要求书面确认。回答未作出不能替代的判断，只拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "8d64eccc-4104-4223-9fdf-49626fd035e2",
+      "caseId": "cobalt-001",
+      "mode": "RAG",
+      "runId": "9802451b-68bb-4867-8316-86f027be56f7",
+      "category": "事实",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "375d648b00f1aa1462d14696fb6bf586fa4f5fd28f5607bba5a0c5ff239cba43",
+      "rawAnswerSha256": "07d70866c05a12292e8b271da02163ad044114d48431bffaa9109f00af67f2d8",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 工作副本能用来实际航行吗？",
+      "answer": "根据证据，Cobalt 工作副本不能用于实际航行。证据明确指出：“工作副本可作研究标注，不得用于实际航行” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的cobalt-a首段明确工作副本只能研究标注、不得实际航行。回答直接否定航行用途，完整支持所问结论。"
+        }
+      ]
+    },
+    {
+      "itemId": "f694398f-5de2-46c6-a952-3048fdf3156d",
+      "caseId": "elm-001",
+      "mode": "RAG",
+      "runId": "fe4df7a6-fc28-43a6-b3f5-bc791aa70e9e",
+      "category": "事实",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "97403df7e6282c4ed2f099b4c05654c5ac99b4e5b5e6d5ff29a112e45ec88227",
+      "rawAnswerSha256": "7b805f0fb5046db56b6e6aa7411285e6c3920c4bb3aef360e0e181366ad123b6",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 最长申请含校准共多少分钟？",
+      "answer": "根据证据，Elm 观测台每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光 [1]。因此，含校准的最长申请时间为90分钟。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的elm-a首段把15分钟校准置于90分钟总申请内。答案给出90分钟并正确说明校准不计曝光，没有额外加时。"
+        }
+      ]
+    },
+    {
+      "itemId": "097ca8ce-36e0-46c1-9e59-266c41f5dfbd",
+      "caseId": "brass-005",
+      "mode": "Agent",
+      "runId": "d10314ac-0aae-47d1-ac36-b3e36042f427",
+      "category": "跨段落",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "0bdc361a76e6c01134eb2ba2b3258c72c1e843edf3f294c99680fd0ab5b2db3f",
+      "rawAnswerSha256": "2d11d3c8d8971c02d326ffee8e087cab60e9d93809d012fadbed0f051b70cd72",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 已给估价且客户说尽快修，可以直接拆卸并增加费用吗？",
+      "answer": "根据证据，不可以直接拆卸并增加费用。\n\n1.  关于拆卸授权：证据指出“工单中的估价不是客户授权；必须取得书面授权才可拆卸” [1]。因此，仅凭估价不能授权拆卸。\n2.  关于增加费用：证据指出“维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算” [1]。因此，客户口头说“尽快修”不能作为增加预算或费用的授权。\n3.  关于授权主体：证据指出“客户”是“增加费用与拆卸授权”的批准方 [2]。这进一步确认了相关授权必须来自客户。\n\n综上，不能仅凭客户说“尽快修”就直接拆卸并增加费用，必须取得客户对拆卸和增加费用的书面授权。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的brass-a第1、5段支持拆卸和增费的书面授权要求，[2]的brass-b岗位表支持客户批准。答案分别处理估价、口头尽快修和授权主体，结论及重要事实均有引用。"
+        }
+      ]
+    },
+    {
+      "itemId": "e88bfb52-c84b-4d9e-9e78-da64c1efa845",
+      "caseId": "brass-018",
+      "mode": "Agent",
+      "runId": "4a4c60b4-faff-4802-8982-c69f9cb00865",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 使用哪个品牌的键垫最好？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Brass资料记载键垫更换90分钟及维修测试要求，没有键垫品牌比较或最佳品牌。回答未推荐臆造品牌，明确资料不足合理。"
+        }
+      ]
+    },
+    {
+      "itemId": "8d81dd60-4c23-403c-8096-586135bfb9a0",
+      "caseId": "brass-016",
+      "mode": "RAG",
+      "runId": "023e62a3-f562-467b-986b-9435a8f6273b",
+      "category": "同义",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "fa78be6528b9ee905a7ab51b103a29caacfaf2a65a06f9208ab40f0cddd61cf7",
+      "rawAnswerSha256": "378841e51b8b5fc80847a4a9ab813eb27c0345a8a58cc81516d38272330732f7",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 再次送修要建全新独立记录还是关联老单？",
+      "answer": "根据证据，Brass再次送修时，应在原工单下创建子单，而不是建立全新的独立记录。证据明确指出：“Brass 返修在原工单下创建子单，保留原验收结果” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的brass-b首段规定返修在原工单建子单并保留原验收。答案正确要求关联老单且保留结果，覆盖问题的记录关系。"
+        }
+      ]
+    },
+    {
+      "itemId": "de3bf9f3-3e71-4330-aa7a-1ac2b6df41c3",
+      "caseId": "cobalt-009",
+      "mode": "Agent",
+      "runId": "b62114d4-c1e0-4794-a5df-922539cf0944",
+      "category": "证据充分",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "6a7750adb10449d88f41c7eab62aff1a8dcfcb950aafbce21624974feece9c83",
+      "rawAnswerSha256": "d39c4bf525b4ce418d8f925f8f4705b1700170007d85a9b22a3107c49f5ed733",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 正式发行标记是哪一个？",
+      "answer": "Cobalt 的正式发行标记是 ISSUED。根据证据，Cobalt 出版目录的发行标记是 ISSUED；只有管理员登记 ISSUED 的版本才能作为正式发行副本展示 [2]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[2]为cobalt-b，其第5段明确ISSUED及管理员登记条件。答案给出正确发行标记，附加条件也有原文支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "5fa99139-b95a-45a2-b76e-8aceb9cd2be5",
+      "caseId": "cobalt-019",
+      "mode": "RAG",
+      "runId": "1d8b15e2-53ba-4926-8d43-1c14ad0225d2",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 下一版海图何时上市？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Cobalt文档讲当前发行标记和版本保存，没有下一版上市时间或发布计划。明确无法根据资料回答日期，没有补造未来事实。"
+        }
+      ]
+    },
+    {
+      "itemId": "1212934c-7a42-470d-832f-8b8b48a59351",
+      "caseId": "elm-016",
+      "mode": "Agent",
+      "runId": "fe109217-2d54-479e-b172-2b123e70f407",
+      "category": "同义",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 交班只留目标名字，足够接班恢复吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "elm-b第4段直接说目标名不足，并列申请号、滤镜、完成帧号与暂停原因。答案拒答，没有提供否定结论及恢复所需信息。"
+        }
+      ]
+    },
+    {
+      "itemId": "acbc43f7-1185-4131-b0e1-654e0029dbc0",
+      "caseId": "dahlia-016",
+      "mode": "Agent",
+      "runId": "b973bcda-214d-4cd6-86e0-e5e1737a665e",
+      "category": "同义",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 修改约定日期需要留下哪些审计信息？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-b第5段明确人工改期应留原时间、新时间、操作者和原因。四项审计信息均可回答，答案却只称证据不足，全部遗漏。"
+        }
+      ]
+    },
+    {
+      "itemId": "309f981d-c1b0-4fe5-ac96-32f398495eea",
+      "caseId": "dahlia-009",
+      "mode": "RAG",
+      "runId": "017c974a-1395-419d-86f0-60a48eb69ebb",
+      "category": "证据充分",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "d37a84b6e04f5daf50cd6649f1e9e69401e82f635cfbec4b7685d019682b3939",
+      "rawAnswerSha256": "10b753238be0ba11390112d77b3400ab72f33fc9b5a4c97c22d88491880c5a49",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 预约超过取件时刻几分钟失效？",
+      "answer": "根据证据，Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]对应dahlia-b第2段，规定取件时刻后45分钟及过期释放预约。答案正确提供45分钟和释放预约，没有提出删除历史等错误后果。"
+        }
+      ]
+    },
+    {
+      "itemId": "12c5476e-0c9c-4460-a666-9424a3d44b00",
+      "caseId": "brass-020",
+      "mode": "Agent",
+      "runId": "61a6d1c1-4820-4655-ab34-e8109a4ea8db",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 修好后乐器音色会提高多少分？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Brass原文有工时、测试和授权流程，没有音色评分量表或改善分数。回答明确不足，未将维修测试通过虚构成数值提升。"
+        }
+      ]
+    },
+    {
+      "itemId": "72db573a-96cb-42d4-a637-e722130b8c05",
+      "caseId": "elm-012",
+      "mode": "RAG",
+      "runId": "aa7c1585-37bf-414c-b078-e9ec6793b843",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "elm-a第2段否定SNR达标等于发现，elm-b第6段也说教学台不发布发现结论。回答未利用这些直接证据回答“不可以”，而作无必要拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "4f1480e1-8b39-4c62-a4ed-3464eadd6837",
+      "caseId": "cobalt-009",
+      "mode": "RAG",
+      "runId": "8d7c1407-3ba8-4e9b-9f6c-27fc56c2f0a5",
+      "category": "证据充分",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e7567d8afa2888c47827b0d55c6a296371603dcff7ddf40db48a490e92627a19",
+      "rawAnswerSha256": "474aa4ee1dd7e19eacfdd162babcb0ffa0bc3b93e5f07d701af43e95a327423f",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 正式发行标记是哪一个？",
+      "answer": "Cobalt 正式发行标记是 ISSUED。根据证据，Cobalt 出版目录的发行标记是 ISSUED；只有管理员登记 ISSUED 的版本才能作为正式发行副本展示 [2]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[2]的cobalt-b第5段完整支持ISSUED标记和必须管理员登记才能展示正式发行副本。回答核心与补充均正确。"
+        }
+      ]
+    },
+    {
+      "itemId": "8ce4bc84-62d8-4998-9ad2-5fea5a0d4ea5",
+      "caseId": "brass-020",
+      "mode": "RAG",
+      "runId": "bb65ae73-9110-4933-83b3-0492e734e758",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 修好后乐器音色会提高多少分？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Brass两份资料没有维修前后音色评分或增分保证，只记载测试要求。回答不编造提高几分，资料不足的拒答恰当。"
+        }
+      ]
+    },
+    {
+      "itemId": "6d87279e-b7da-4f87-90b0-897c5fc70616",
+      "caseId": "cobalt-016",
+      "mode": "Agent",
+      "runId": "cd45f6b5-4a18-4882-a895-40ea53860688",
+      "category": "同义",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "0fd63015a2acb69a66842e423d2b64f3792f9f099c6c89154f79ef5d6be5d486",
+      "rawAnswerSha256": "662594bd8bc23829d52429716be113899275e48417ab03266bef8b7bbd7ac161",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 检查材料和最后发布可以由同一个账号完成吗？",
+      "answer": "根据当前资料，Cobalt 检查材料和最后发布不能由同一个账号完成。证据明确指出：“校验人和发布人必须是不同账号”[1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的cobalt-b首段要求校验人与发布人为不同账号。答案明确不能同账号完成两步，直接覆盖所问身份分离规则。"
+        }
+      ]
+    },
+    {
+      "itemId": "5cd32e1b-a62d-40a4-a3d2-3d1bc626a49d",
+      "caseId": "elm-020",
+      "mode": "Agent",
+      "runId": "fc48bec1-1e00-4c3a-aaf8-4027b3e11f56",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 下一次发现新天体会在哪天？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Elm文档不提供未来发现日，且elm-b第6段明确教学台不发布天体发现结论。答案明确证据不足，没有捏造日期。"
+        }
+      ]
+    },
+    {
+      "itemId": "ad9098ff-6b92-4dda-9580-e508435e09ad",
+      "caseId": "dahlia-016",
+      "mode": "RAG",
+      "runId": "52390b6d-2f5c-4e68-8251-f6da24f7c417",
+      "category": "同义",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 修改约定日期需要留下哪些审计信息？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-b第5段已经列明原时间、新时间、操作者、原因四项。回答拒答，未给出任何所需审计字段，不能视为完整或正确。"
+        }
+      ]
+    },
+    {
+      "itemId": "28746251-7a32-4a1c-a507-366db2bdbf20",
+      "caseId": "elm-003",
+      "mode": "RAG",
+      "runId": "b73d0ad1-626b-4d44-b514-233591c46908",
+      "category": "缩写",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "a84943288bc0f8aadf3e974ae2cdf5f8b445b4cb9500bbeba217432aa427224d",
+      "rawAnswerSha256": "dcf40f32f7d9313cb72ff77641fca964bd8239cce8f1302fe84f225f272a0e1a",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm SNR代表什么，教学阈值是多少？",
+      "answer": "根据证据，Elm SNR代表信噪比，教学阈值为SNR不少于12 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的elm-a第2段定义SNR为信噪比，目标为不少于12。回答既解释缩写又保留阈值的包含等号含义，内容完整。"
+        }
+      ]
+    },
+    {
+      "itemId": "8bd7bd7f-a503-4569-bda6-73973716e46a",
+      "caseId": "dahlia-015",
+      "mode": "Agent",
+      "runId": "86905094-0508-432d-99b2-ce14fe7274ad",
+      "category": "拒绝过度推断",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "dahlia-a第5段规定管理员确认安全前不可借出，擦标签不能恢复状态。回答只有不足拒答，未提供“擦掉不等于复核通过”的确定规则。"
+        }
+      ]
+    },
+    {
+      "itemId": "cffebd67-5f3b-4369-aea0-2a34d2f3e581",
+      "caseId": "cobalt-016",
+      "mode": "RAG",
+      "runId": "6e935bac-dcd5-4b08-bf78-5ce1f5deefc8",
+      "category": "同义",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "7f370ab8cfb4d3bbaf25b8f2a28dfbd7caa7f27d0997bdab72554a66abe2182c",
+      "rawAnswerSha256": "bd8f38f4ee7b77b4a3995e2a7fc58c93fe15dfa851384e8f125acdc4c2be70ae",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 检查材料和最后发布可以由同一个账号完成吗？",
+      "answer": "根据证据，Cobalt 检查材料和最后发布不能由同一个账号完成。证据明确指出：“校验人和发布人必须是不同账号” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的cobalt-b首段明确不同账号要求。回答否定同账号检查与发布并准确引用该句，没有额外无据条件。"
+        }
+      ]
+    },
+    {
+      "itemId": "643c04e9-641c-4a4f-878e-b6856f63ce52",
+      "caseId": "brass-012",
+      "mode": "Agent",
+      "runId": "3a549156-b108-4018-8a8f-68cc7fe8feed",
+      "category": "事实",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "6a57559ff8cdc3759ae88ed696968529bb1c9a6504fa49967115518cc167b718",
+      "rawAnswerSha256": "985aaaca8dfbd34ddb35f4615337451a85c8df02abf4c9ac907578eec710607c",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 客户明确要领回旧件时怎么处理？",
+      "answer": "根据当前资料，当Brass客户明确要领回旧件时，处理方式是：将旧件随维修好的乐器一起返还给客户 [2]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[2]为brass-a，第6段规定客户选择领回时旧件随乐器返还。答案给出该处理方式，满足当前问点；“维修好的”是维修取件语境表述，未改变返还规则。"
+        }
+      ]
+    },
+    {
+      "itemId": "1f4b7c68-4578-4889-8e41-7c9ae06613e1",
+      "caseId": "brass-002",
+      "mode": "Agent",
+      "runId": "97635579-ba4a-4b11-8ce9-5ef012a2ff9c",
+      "category": "缩写",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "fbd4ebd17fc5fb919e1d5455dd747fee457a894a8e3bdb45fe4d4fb47e5ae67f",
+      "rawAnswerSha256": "c027344e6d06cf291bb69fda330046b7037b11c9dce7f76bdc54639957d2739c",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "answer": "根据证据，Brass 将 NFF 定义为“未复现故障”，并且明确指出“NFF 不代表客户描述虚假” [1]。因此，不能仅根据 NFF 就断定客户撒谎。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "[1]的brass-a第2段支持未复现故障的释义及NFF不代表描述虚假。答案两个部分都正确，不能据此说客户撒谎的推论直接成立。"
+        }
+      ]
+    },
+    {
+      "itemId": "ce7416c7-fb01-4685-8eb7-b6d2c8aedcc7",
+      "caseId": "brass-006",
+      "mode": "RAG",
+      "runId": "80f74fa0-74fc-4cd6-b454-6fb551b7141a",
+      "category": "跨文档",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 技师完成两项测试后能自行通知取件吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "brass-a第4段只将两项测试通过设为待取件条件；brass-b第2段明确接待员通知、技师仅交测试记录。回答拒答，未区分完成测试和通知权限。"
+        }
+      ]
+    },
+    {
+      "itemId": "78d0804d-dd0c-4a2a-bfac-f749086a5a06",
+      "caseId": "dahlia-018",
+      "mode": "Agent",
+      "runId": "075dfd24-fb0f-4714-b481-00457e862383",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": false,
+      "executionFailed": true,
+      "errorCode": "NO_PROGRESS",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "EXECUTION_FAILED",
+      "question": "Dahlia 当前有几台闲置手推车？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer1",
+          "rationale": "Dahlia资料列每人上限及手推车5天借期，没有当前库存与借出清单，不能推出闲置台数。此项终态执行失败，仅显示不足占位，未形成有效答复。"
+        }
+      ]
+    },
+    {
+      "itemId": "66a6be9e-59d6-44b9-b095-464c047254d6",
+      "caseId": "dahlia-011",
+      "mode": "Agent",
+      "runId": "13793b8c-2c2b-43ea-9baf-35c63e7ab7dc",
+      "category": "表格",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "5b017ad0d2f9cfea34e082c1a9306c593520479ac541ac064aee6ccd9c10241d",
+      "rawAnswerSha256": "17055b6724e4bb094a5a26613d9d432530241c87c9f8f7451815367898c5e9f0",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answer": "根据证据，Dahlia 雨天操作要求如下：\n- 电动手钻室外作业：禁止 [1]。\n- 手推车室外作业：归还后擦干检查 [1]。\n\n因此，下雨时，电动手钻禁止在室外使用，而手推车在室外使用后需要进行归还后擦干检查，并未被禁止。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-b第4段对电动手钻室外作业规定禁止，对手推车规定归还后擦干检查。答案保留两种不同处理，未把手推车扩大为禁用，[1]完整支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "3c77b02a-820e-402c-ad53-3cdcc42a91eb",
+      "caseId": "elm-004",
+      "mode": "RAG",
+      "runId": "af41e11d-5f40-4380-81c6-2edac04fdfaf",
+      "category": "表格",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "b339c43511c2d3a7f739c2050ccb103827e9f3bb22dd81698b2096889a6bd638",
+      "rawAnswerSha256": "14dce19483972f2094c61ef6e45906f1d909e257bb678f162c68b5c65a03fdb9",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm B滤镜最多连续曝光几张，每张多久？",
+      "answer": "根据证据，Elm B滤镜最多连续曝光5张，每张曝光时间为60秒 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第3段B滤镜一行是60秒、最大连续5张。答案同时给出两项且未混淆R滤镜，实际引用[1]支持完整结论。"
+        }
+      ]
+    },
+    {
+      "itemId": "38b653d8-4b4f-4be6-9bd7-3934896e46a5",
+      "caseId": "elm-019",
+      "mode": "RAG",
+      "runId": "00e475aa-0e83-40b8-a5df-d200f637afaa",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 望远镜的购买价格是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Elm两份材料仅介绍时段、曝光、校准和保存规则，没有望远镜购买金额。答案拒绝给出价格，未新增无依据数字。"
+        }
+      ]
+    },
+    {
+      "itemId": "c9fb9038-b8e3-4e41-b6d9-2e8ac91490fa",
+      "caseId": "brass-009",
+      "mode": "RAG",
+      "runId": "c9824c25-5316-4cc1-aded-bc8bc27111c7",
+      "category": "证据充分",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+      "rawAnswerSha256": "6c43d4733fdbb2c34d3c43598d6d009febeb600a67477d23b6cdf8c6b05ded3e",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 测试录音保留多少天？",
+      "answer": "根据证据，Brass 测试录音保留30天 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第5段明确测试录音保存30天。答案简短给出30天且引用[1]，完整回应时长问题。"
+        }
+      ]
+    },
+    {
+      "itemId": "e7a99c56-432d-45df-a974-b9b479f01a4d",
+      "caseId": "dahlia-012",
+      "mode": "RAG",
+      "runId": "0d58e7e0-beaa-493c-932c-b3521f37bb2b",
+      "category": "计算",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "483422fce4aa2db869d463d8fb8f5b8d30978cb7ac502c50771ce411f91127ab",
+      "rawAnswerSha256": "8b138ff3f931a8544c7b71281972f4deb6ef5c3c57cd68f885c6fb040daf1f3f",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 安全检查记录比借用收据多留多少天？",
+      "answer": "根据证据，Dahlia 借用收据保留180天，工具安全检查记录保留730天 [1]。  \n因此，安全检查记录比借用收据多留 730 - 180 = 550 天。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "本项答案用[1]引用dahlia-b第3段的180天、730天，并算出550天差值。原数值、减法及安全检查保存更久的方向均吻合原文。"
+        }
+      ]
+    },
+    {
+      "itemId": "9036a7fc-30d9-445d-b742-aa9265a594b0",
+      "caseId": "elm-018",
+      "mode": "RAG",
+      "runId": "8f5fdbec-1e65-4c38-a7a7-6a9b0b901b48",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "本项提供的是Elm教学台规则，不含题目所称图片或具体天体身份。证据不足的回答没有臆造名称，适当说明无法回答。"
+        }
+      ]
+    },
+    {
+      "itemId": "227dc5c7-1c51-43aa-8a0f-037f0dc3a16a",
+      "caseId": "elm-004",
+      "mode": "Agent",
+      "runId": "e0890441-1eb7-4aa7-9b4c-7fae19d36ae8",
+      "category": "表格",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "b339c43511c2d3a7f739c2050ccb103827e9f3bb22dd81698b2096889a6bd638",
+      "rawAnswerSha256": "14dce19483972f2094c61ef6e45906f1d909e257bb678f162c68b5c65a03fdb9",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm B滤镜最多连续曝光几张，每张多久？",
+      "answer": "根据证据，Elm B滤镜最多连续曝光5张，每张曝光时间为60秒 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "对照elm-a滤镜表，B行最大5张、每张60秒。该项答案两个数值和单位均正确，实际[1]指向含该行的原文。"
+        }
+      ]
+    },
+    {
+      "itemId": "6c6a338e-bccc-4a86-bccc-6b75a97762ef",
+      "caseId": "brass-008",
+      "mode": "RAG",
+      "runId": "bbbb04a2-440d-44bc-850d-ebaa8f0d351b",
+      "category": "歧义",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 第二天又有同样症状，是不是已确认原零件再次损坏？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第3段要求先复现故障、核对原测试，不能直接认定同一零件损坏。答案未给出这一可回答的否定和处理程序，错误拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "3507dbd1-9180-44ca-9dce-f64dc500de03",
+      "caseId": "elm-009",
+      "mode": "Agent",
+      "runId": "17a5e656-b288-49b0-af7a-85bdd88930a6",
+      "category": "歧义",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 收到预约确认是不是可以远程解锁开机？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第6段说明预约只代表时段，实际开机须值班员确认状态且研究者不能绕过设备锁。答案称证据不足，未覆盖不能远程解锁的关键限制。"
+        }
+      ]
+    },
+    {
+      "itemId": "6967b62e-c24e-4af4-b4dc-090565ccd32e",
+      "caseId": "elm-003",
+      "mode": "Agent",
+      "runId": "b72a0e74-4057-459d-8180-6fb99b3cadfb",
+      "category": "缩写",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "a84943288bc0f8aadf3e974ae2cdf5f8b445b4cb9500bbeba217432aa427224d",
+      "rawAnswerSha256": "dcf40f32f7d9313cb72ff77641fca964bd8239cce8f1302fe84f225f272a0e1a",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Elm SNR代表什么，教学阈值是多少？",
+      "answer": "根据证据，Elm SNR代表信噪比，教学阈值为SNR不少于12 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第2段明确SNR是信噪比、教学目标不少于12。答案保留不少于的边界并同时解释缩写，引用[1]足够。"
+        }
+      ]
+    },
+    {
+      "itemId": "9178e0c4-9138-49a1-a613-3923a0ea6c95",
+      "caseId": "dahlia-004",
+      "mode": "Agent",
+      "runId": "32359450-282f-4880-8b82-acbd73153a8e",
+      "category": "跨段落",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第3段手钻通常可续1次，但第4段明确被下一位预约就不允许续期。答案未应用该例外条件，拒答遗漏本题应为不可以的结论。"
+        }
+      ]
+    },
+    {
+      "itemId": "53204c52-16fa-4282-a3b8-1435376526bd",
+      "caseId": "cobalt-008",
+      "mode": "Agent",
+      "runId": "2675160e-2de5-4575-8112-86240a88fcbf",
+      "category": "拒绝过度推断",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "176a1487512a3af024aa5da09807fa7e4c64ad359778ab2387048399deaef720",
+      "rawAnswerSha256": "ca71c09ac3974e44c96db5619843bcf5247126174d2cefb9f1e2c0b12029b3d6",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 原图坐标看不清，可以根据OCR直接确认吗？",
+      "answer": "根据证据，Cobalt OCR文字只能帮助搜索，不能取代原图中的坐标。当坐标模糊时，应标记为待核验，禁止自动补成推测数字 [1]。因此，不能根据OCR直接确认坐标。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "cobalt-a第5段限制OCR仅用于搜索，坐标模糊须待核验且不得推测补数。答案准确否定直接确认并交代处理办法，全部由[1]支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "f9544f59-b8ea-463a-abd3-0703f55b42f6",
+      "caseId": "dahlia-008",
+      "mode": "RAG",
+      "runId": "be31200e-f9a7-446c-b486-50ed57025a67",
+      "category": "歧义",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "da6db0b76c91a43a1443d79b10078cb14840e3f02df3bbe113f1acb74e5d1a3c",
+      "rawAnswerSha256": "7713d359651757604d6e27521853b7d75a643152ef4313336b0f13268625e522",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 手钻连附件借走，这算两件吗？",
+      "answer": "根据证据，Dahlia 手钻连附件借走，算作一件。因为证据规定“附件随主工具计为1件”[1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第1段规定附件随主工具计1件。答案将手钻与随附附件合计为一件，引用[1]支持该场景，独立附件规则并非本题必要内容。"
+        }
+      ]
+    },
+    {
+      "itemId": "75b87a4b-81c9-4a7d-a294-5d5518bdad5d",
+      "caseId": "cobalt-001",
+      "mode": "Agent",
+      "runId": "97d0ea02-fc98-442a-9041-08167cf6aa90",
+      "category": "事实",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "375d648b00f1aa1462d14696fb6bf586fa4f5fd28f5607bba5a0c5ff239cba43",
+      "rawAnswerSha256": "07d70866c05a12292e8b271da02163ad044114d48431bffaa9109f00af67f2d8",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 工作副本能用来实际航行吗？",
+      "answer": "根据证据，Cobalt 工作副本不能用于实际航行。证据明确指出：“工作副本可作研究标注，不得用于实际航行” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "cobalt-a第1段明令工作副本不得实际航行。答案准确引用[1]并明确不能，已完整回答用途许可问题。"
+        }
+      ]
+    },
+    {
+      "itemId": "0cffda3e-5bed-4f13-a2d4-c940145d96cf",
+      "caseId": "dahlia-006",
+      "mode": "Agent",
+      "runId": "079e355c-215b-4515-98c2-d3f18ba3bd23",
+      "category": "跨文档",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 借用人自行声明损坏工具已修好能恢复借出吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第5段要求管理员确认安全，dahlia-b第1段规定借用人不能自行批准正常归还。答案拒答，漏掉自行声明不能恢复借出的结论和权限限制。"
+        }
+      ]
+    },
+    {
+      "itemId": "10ee9932-6505-4aef-b185-ec6d87e75606",
+      "caseId": "cobalt-002",
+      "mode": "Agent",
+      "runId": "17768eb7-723f-4249-a768-0611e6e11fa8",
+      "category": "歧义",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "42b578683bb3f6cf5f89ea7f32504684c1116b8296cf515be5e0f3458a756967",
+      "rawAnswerSha256": "375b203e1ae2f8e0f0e0351a8c56095bc1e6e47114f67b58382288d6a5301fb2",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Cobalt 修订日期更新，是否说明又测了一遍海底？",
+      "answer": "根据证据，Cobalt 修订日期更新并不表示海底重新测量过。证据明确指出：“Cobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。” [1]",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "cobalt-a第2段区分修订和测绘日期，否定较新修订意味着重测。答案完整转述该区分与结论，实际[1]支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "24319f5f-c0f2-4fce-b060-e7ce851a7de4",
+      "caseId": "brass-009",
+      "mode": "Agent",
+      "runId": "0e28987d-ec4a-4040-8fac-3dae9fae9723",
+      "category": "证据充分",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+      "rawAnswerSha256": "6c43d4733fdbb2c34d3c43598d6d009febeb600a67477d23b6cdf8c6b05ded3e",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 测试录音保留多少天？",
+      "answer": "根据证据，Brass 测试录音保留30天 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "该答案30天对应brass-b第5段测试录音保存期限，引用[1]正确；题目只问天数，无必要信息缺失。"
+        }
+      ]
+    },
+    {
+      "itemId": "6cc7adc3-ec1c-4f97-bf15-c688081011cf",
+      "caseId": "brass-012",
+      "mode": "RAG",
+      "runId": "fdfbb410-190f-44f6-a594-f2bf49e4a256",
+      "category": "事实",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "74a44072cafd2fb08d223cfeed4407f06fd22f94075fb9b1ab459311b52080b0",
+      "rawAnswerSha256": "02d95a423b432d3e62bcd4edd5648c2161c941610bfe85757d1788342acf9177",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 客户明确要领回旧件时怎么处理？",
+      "answer": "当Brass客户明确要领回旧件时，处理方式是随维修好的乐器一并返还给客户 [2]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第6段明确客户要求领回旧件时随乐器返还。答案给出一并返还并引用正确的[2]；维修好的表述属于维修取件语境，未改变返还规则。"
+        }
+      ]
+    },
+    {
+      "itemId": "f6c60491-703c-42ab-a49e-5538599834aa",
+      "caseId": "dahlia-008",
+      "mode": "Agent",
+      "runId": "5bd5213c-2e9d-4cb5-94dd-33ed4fa60741",
+      "category": "歧义",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e1f5ef57f5a8320d285ee7b258933d8189a39c21f5a9d610ebf209e489a0dc3a",
+      "rawAnswerSha256": "3ccef9e6b821df229b67c8308113a4410f3cddde2ef0f3626a73504867199a70",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 手钻连附件借走，这算两件吗？",
+      "answer": "根据证据，Dahlia 手钻连附件借走，算作一件。证据指出“附件随主工具计为1件”[1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "该项[1]指向dahlia-a，首段附件随主工具计1件直接支持答案。答案明确不是两件，完整回应手钻连附件的计数。"
+        }
+      ]
+    },
+    {
+      "itemId": "68a695f0-e5b6-4244-aa60-9192f25d4311",
+      "caseId": "dahlia-018",
+      "mode": "RAG",
+      "runId": "6667b48c-ad35-45fb-81e9-34be42e883f1",
+      "category": "不可回答",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 当前有几台闲置手推车？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Dahlia全文有手推车5天借期、预约及归还规范，没有当前库存或闲置数量。答案证据不足的拒答没有把限额或借期当成库存。"
+        }
+      ]
+    },
+    {
+      "itemId": "071cdf02-fbc8-4849-aaf4-fa786c695ef8",
+      "caseId": "dahlia-010",
+      "mode": "Agent",
+      "runId": "14a12961-e671-4f19-bc5a-277e2587f2cf",
+      "category": "近事实干扰",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 活动日能借5件，平常也照办吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-b第6段明确旧活动日5件而常设站3件。该项答案没有给出平日3件与不能照办的判断，虽资料足够仍拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "d387bf96-b209-4777-b7b5-bd1366aaaa11",
+      "caseId": "cobalt-020",
+      "mode": "Agent",
+      "runId": "ffb66747-5c97-4157-bdbb-66081c74dbec",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "cobalt",
+      "answerable": false,
+      "executionFailed": true,
+      "errorCode": "NO_PROGRESS",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "EXECUTION_FAILED",
+      "question": "Cobalt 扫描仪具体采购价格是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Cobalt扫描参数和发行流程不包含扫描仪采购价格；该项标记执行失败，不能把失败占位的证据不足当作经过判断的正确拒答，未形成有效答案。"
+        }
+      ]
+    },
+    {
+      "itemId": "abf3c54d-218b-463e-9a8e-2003522f55c8",
+      "caseId": "brass-010",
+      "mode": "Agent",
+      "runId": "82dc1e38-38c9-4028-825a-756b9e11b8c1",
+      "category": "近事实干扰",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 录音留30天，所以旧件也留30天吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第6段规定旧件到取件后14天或按客户要求随乐器返还，brass-b第5段说录音期限独立。答案未解释旧件不是30天而拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "3b324af5-1ca5-4b2c-80bb-7b63542c8f4b",
+      "caseId": "dahlia-001",
+      "mode": "Agent",
+      "runId": "8ff5342d-062f-4c47-bf15-aecf1fd1eea4",
+      "category": "事实",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "228f7f1da2392ecdb0634cf632d374249921723a43e0c3b8149985fa84fe3ec4",
+      "rawAnswerSha256": "2127f43734a5857736ebcd97d85f842cd3740520893222691ac58c9d7529bd52",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Dahlia 常设站一个人同时最多借几件？",
+      "answer": "根据证据，Dahlia 常设站一个人同时最多可借3件 [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第1段每人同时3件与答案一致，[1]确为该文；dahlia-b另确认常设站限制，问题所需上限已完整提供。"
+        }
+      ]
+    },
+    {
+      "itemId": "5a1cba0d-6582-4b58-8201-1bc34c99d566",
+      "caseId": "brass-006",
+      "mode": "Agent",
+      "runId": "31f40069-bdce-4ad8-b6e4-340c0c0f04c1",
+      "category": "跨文档",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 技师完成两项测试后能自行通知取件吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-a第4段两测试通过仅进入待取件，brass-b第2段指定接待员通知、技师提交记录。答案拒答漏掉技师不能自行通知及正确通知角色。"
+        }
+      ]
+    },
+    {
+      "itemId": "e6171a91-791a-47b2-8f57-4acdf9553adc",
+      "caseId": "dahlia-006",
+      "mode": "RAG",
+      "runId": "359e8625-86ac-4954-9eeb-02169b6688b7",
+      "category": "跨文档",
+      "split": "validation",
+      "topic": "dahlia",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Dahlia 借用人自行声明损坏工具已修好能恢复借出吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "dahlia-a第5段禁止管理员确认安全前借出，dahlia-b第1段不许借用人自行批准归还。答案没有依据这些规则给出不能恢复的判断，而是不当拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "f6841ace-0449-4c90-921d-63c61e33fad9",
+      "caseId": "brass-018",
+      "mode": "RAG",
+      "runId": "beb1e15d-2c04-49a8-920c-a2ee32fe25f6",
+      "category": "不可回答",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": false,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 0,
+        "hitGroups": 0,
+        "allHit": null
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 使用哪个品牌的键垫最好？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "Brass材料列键垫更换90分钟等维修流程，但没有品牌或品质比较。答案明确资料不足，没有擅自推荐最好品牌，拒答适当。"
+        }
+      ]
+    },
+    {
+      "itemId": "c3b1522c-b28a-479f-8bf3-a5d8561857e6",
+      "caseId": "brass-008",
+      "mode": "Agent",
+      "runId": "f835b12f-504c-402a-a673-35494f6fce35",
+      "category": "歧义",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 第二天又有同样症状，是不是已确认原零件再次损坏？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第3段明确相同症状要先复现并核对原测试，不能直接确定同一零件损坏。回答缺少该否定结论与必要步骤，仅称证据不足。"
+        }
+      ]
+    },
+    {
+      "itemId": "4dd16609-f748-45c8-915e-0fb49b7856dd",
+      "caseId": "brass-016",
+      "mode": "Agent",
+      "runId": "f7b9d7c8-e624-464a-9373-05903010f4a5",
+      "category": "同义",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "5ae06c88d3f7edfdd2bbeb73f786814086dd4a5f6cc2a9eeb14699df4c1d90a2",
+      "rawAnswerSha256": "89f33fca086bdd71d55abc7ab500575f46b8eb7e0cffa5112e3bb9ce3c88af06",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "NO_ASSISTED_ERROR",
+      "question": "Brass 再次送修要建全新独立记录还是关联老单？",
+      "answer": "根据证据，Brass再次送修时，应在原工单下创建子单，而不是建立全新的独立记录。证据指出：“Brass 返修在原工单下创建子单，保留原验收结果” [1]。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第1段要求原工单下建子单并保留原验收。答案说明关联原单而非新独立记录，并包含保留验收结果，[1]完全支持。"
+        }
+      ]
+    },
+    {
+      "itemId": "3512eb70-8110-49bd-99dd-27bae93b056a",
+      "caseId": "brass-010",
+      "mode": "RAG",
+      "runId": "29e831d9-b592-4955-b75f-e6ef9c85e5ed",
+      "category": "近事实干扰",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 2,
+        "hitGroups": 2,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 录音留30天，所以旧件也留30天吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第5段录音30天不支配旧件期限，brass-a第6段明确旧件取件后14天或客户取回。答案拒答而未给出这些可确定的区别。"
+        }
+      ]
+    },
+    {
+      "itemId": "c6cd7296-fb8e-4e1c-8361-c84bcf0fa5e3",
+      "caseId": "brass-014",
+      "mode": "RAG",
+      "runId": "c405a380-7d7b-48ee-8a73-d7c4a2e69504",
+      "category": "表格",
+      "split": "dev",
+      "topic": "brass",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Brass 主管批准排期能代替客户批准额外费用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "brass-b第4段把主管权限限于内部排期，把加费授权交客户，brass-a第5段另要求加费书面确认。答案未给出不能替代客户授权的结论，错误拒答。"
+        }
+      ]
+    },
+    {
+      "itemId": "7537efd0-6bfc-4d0e-bef8-b78072e58974",
+      "caseId": "elm-009",
+      "mode": "RAG",
+      "runId": "9806fc4c-9005-444f-bfcf-8dbe3fa2539a",
+      "category": "歧义",
+      "split": "validation",
+      "topic": "elm",
+      "answerable": true,
+      "executionFailed": false,
+      "errorCode": null,
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "rawAnswerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "scoreCount": 1,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "evidence": {
+        "requiredGroups": 1,
+        "hitGroups": 1,
+        "allHit": true
+      },
+      "errorType": "REFUSAL_WITH_ALL_LABELLED_EVIDENCE",
+      "question": "Elm 收到预约确认是不是可以远程解锁开机？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "rationales": [
+        {
+          "reviewer": "AI-reviewer2",
+          "rationale": "elm-a第6段明示预约确认不等于开机许可，须值班员确认设备且研究者不能绕锁。该答案没有说明这些明文限制，资料充分却拒答。"
+        }
+      ]
+    }
+  ],
+  "provenance": [
+    {
+      "file": "docs/results/quality-phase3/assisted-review-20261001/assisted-review-export.json",
+      "sha256": "a9fe23ab443c3c9b863dc61bb92885b478ce1901c0a05a74316470cabc91940a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/review-initial.json",
+      "sha256": "fd2d92a0c361debb098115038fabe52f9795da72ff3c9b8a853b8dc6c9d6b270"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-review-20261001/quality_reviewer1-packets.json",
+      "sha256": "d1d0f34217fa7758035c165529376029f693d92a70b10ae071c03e82e7b928b7"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-review-20261001/quality_reviewer2-packets.json",
+      "sha256": "87cba7988bcad2635c2ab04743e823e424307e848aa0053719a3f49bd36e2584"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q000-pair.json",
+      "sha256": "654cfa5a54414b4e5f02042500aa22cd7f0595602d5f5aea56e915bcb2c18bb2"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q000.raw.json",
+      "sha256": "86f7cfe4606a77fb3cf13e924b59449547ebf41e865a256776dc547c5d668e60"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q000.raw.json",
+      "sha256": "7674d1c9fa9f369965fdaa31f7392a966deb19e15e6ff6bdad94a8e872ae7ff7"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q001-pair.json",
+      "sha256": "b99b541586b959915ae1511e6f84012cc480fe3e9917e393c7c01a8c652e869d"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q001.raw.json",
+      "sha256": "df4ee39999ca678c10cf183f965a3fb4fa0b40ffa5b8e1223bbffb58eabc7726"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q001.raw.json",
+      "sha256": "9da9f97c788381fe00e660be3959315241525c9b9c56a1edd3ec98b891012777"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q002-pair.json",
+      "sha256": "5be3fa06f50b6b0a93fbece292a3a242d0045fc5bdad800a78c91aae7617583b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q002.raw.json",
+      "sha256": "392a0895b55077be8e7d24b54d5defb40859fc0dab22585957d28e17de7068ad"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q002.raw.json",
+      "sha256": "3af85f4a6b15f01d5e55f425268933183276727e4ccfadb79008da88b5beb38a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q003-pair.json",
+      "sha256": "f6f489259a69796bba9dd29271227a040705d8e80504bcfa9994d0e53fb62ed4"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q003.raw.json",
+      "sha256": "a64ecf73edf8c2f2ea5f2fe4770e826add07a5bc17d27fa1353bfffa25a879fc"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q003.raw.json",
+      "sha256": "5320958b09aec42972690dfd6bcf444c70b9e9be0f4c4206087c9e38755cf862"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q004-pair.json",
+      "sha256": "e1cb51c4b6d32a01fd355baa11db4da83c37f4a7adddd0a920a9bccfb978b96f"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q004.raw.json",
+      "sha256": "31af1d7879d01ba723834ac878d61683dca0ea6da1787b77826f76f6c594f492"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q004.raw.json",
+      "sha256": "3240b0ae5e70ca0d685d90c7eb7776a9560b62d9d9a1502a32d9e6aec6cde256"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q005-pair.json",
+      "sha256": "85d92f8aceacf9476391a6707b233b1e50597372d619dfec33d78f560d792853"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q005.raw.json",
+      "sha256": "48fde3331922e737b4a8692c80df9f5b596b84e16465d7e87dd4edb7682adcab"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q005.raw.json",
+      "sha256": "45b4f2c799162510fde5b291ee7e55b223d97c2268df1fb1641a26b1da94ca29"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q006-pair.json",
+      "sha256": "792e85c2f013868a7b2e429b333d806625ccf307ccfe3db83a4e1bfb66b7baff"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q006.raw.json",
+      "sha256": "8f1997c7db90b85dc9af87a2af99a4ef9895d43bf5f5e4f22b9342aa6d32969b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q006.raw.json",
+      "sha256": "ebe6d4521a22946d5877ada328a56cff2bd10c50f47353c30ad3c24b697643d9"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q007-pair.json",
+      "sha256": "a41975d376d424d85756e9f12447ea6f217672c5c7b8376683edad4e9b17febf"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q007.raw.json",
+      "sha256": "25b212830047887aa7ca18e906f8c753fb45d249496639185ef71cb421a78dce"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q007.raw.json",
+      "sha256": "6e5d78da64133ed058c4120d3d12b567b12da02f81271556c2f45e6f5578f4c3"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q008-pair.json",
+      "sha256": "c21013a2127a137de6d9c1a8efe2da1829954fedc55c1e76e1aa437f68f03b33"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q008.raw.json",
+      "sha256": "03609a6afe4daeb2c7c6a2598b4aeb8b0f23785a7b79aa2e8882344f09bc4358"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q008.raw.json",
+      "sha256": "0f57b99079f458936c6844d783bd4a9dd02fd8eaa6e864bd435f94a4afb2a464"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q009-pair.json",
+      "sha256": "1546448c8affc9f00860f561958bb3e57f0510a4d6d55971ef1abb688ebcbac9"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q009.raw.json",
+      "sha256": "e6fe53c4390dfe2e12752eaad87c51c780203d11d74f668b1fc0333772965bce"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q009.raw.json",
+      "sha256": "5af39cf0df9aaaffcb740473d24f7e272456088ecc9a1ac938a1167c124e7003"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q010-pair.json",
+      "sha256": "6bb40c4938121b3a88b1d52053615276f3aadb886311cd2545cd300ce67fb729"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q010.raw.json",
+      "sha256": "c8b9ece4ea44e24db75a3816a61dfe0282bccbe0cf0fbd076564ff8d36d1ab9e"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q010.raw.json",
+      "sha256": "1af65425a7ac4022b0bf3ea0c275a3946510fe3426e64bd8cd06ea3f1097f769"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q011-pair.json",
+      "sha256": "d2816a64945c9d45ae815d0fcfb759c62767fc92e020766a2e92643ce9530c8c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q011.raw.json",
+      "sha256": "f5ed7177be2bdaf37358d7059041e952392e17d4f41315825fbc83715b82f50b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q011.raw.json",
+      "sha256": "0ea7f9d67fceaabeb4013d880e7b2ff57bcc06842f05894687b8ecc7ffad42ad"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q012-pair.json",
+      "sha256": "43e4f7115a403ccdbae315b4752202e82147b394eed39b721c6e1db25d9d0e12"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q012.raw.json",
+      "sha256": "abaa6a78c24d6e60dc90a9d35c1dae53e8003b85721f41de3589889a49f1dd08"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q012.raw.json",
+      "sha256": "e7aab68a9adb20cc9834aa2dc085093ad079bfc39b31b29ffeae132d3403f467"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q013-pair.json",
+      "sha256": "b6850360c2e6b5b7adfb633aa535a40677e662249a0dfbf6f4da32437f283181"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q013.raw.json",
+      "sha256": "2007311f76253afa3890b1a803c860a3be402df59548657cd7f607b01e728df8"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q013.raw.json",
+      "sha256": "bc3bb2c274e03df44a14a158dae9b03e95c6a08901a8a0b38de3f05e8c66d58c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q014-pair.json",
+      "sha256": "671709ecd151794848e4e21e453508750795c70232567f72c745ae9dda933766"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q014.raw.json",
+      "sha256": "a17f5abe811558580e9efb03e604425e644ba5d2c9a194a1d13b6dae11d9dc1b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q014.raw.json",
+      "sha256": "c2ce5597d976f793da04d4f6ea2a7c394cf34e853af176942b0bd291ccaea59c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q015-pair.json",
+      "sha256": "f9b50894778540524276b095a6b5c8e38967d0e7e8c68754a7a158aa33080609"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q015.raw.json",
+      "sha256": "fcae56078e9dbf45bc84fe4defce9eec4421c7f26bfa068159891302ee3fa124"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q015.raw.json",
+      "sha256": "3a9907f5ec561252aff48052f20d4fdc6fc30b4020368af4614c7e593cdaacad"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q016-pair.json",
+      "sha256": "6b63979222aef0c4da7a20b8e0cbb7f2ee82dbd90832eb69a90763cd0272c963"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q016.raw.json",
+      "sha256": "db8a3d55aa4906bb9d80446cd9e10a58a9f0a4e4e9ed346a5f7561849d854e34"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q016.raw.json",
+      "sha256": "fdddba7dceb46637e3a78dd1e4d31446c31ba98a6da420938c7021dfd11a1cd4"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q017-pair.json",
+      "sha256": "34a8e85267704241f95eae038339fbf5fa6731bc37638c423c16def5d9696146"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q017.raw.json",
+      "sha256": "c3ae2b5ffc3391cf2a1834bd86a34bf0019f9d861f9de2e1c5aacfd235f0a044"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q017.raw.json",
+      "sha256": "a22bb355c07b398f2102f6b1e1c5f25168f6b50604a2b31ae66c94bb341bdf42"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q018-pair.json",
+      "sha256": "64b4259cdb3bb01bbbdc372b1da3fa561b8c3348c9748da8a26e9117f60d2008"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q018.raw.json",
+      "sha256": "31ad0aaa6fe59e200cc52c38af283bf8096258edb6380a37d99b02ae990e09b1"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q018.raw.json",
+      "sha256": "fe67283817b28e18ef967cd3354d11315df088685ee95eebb820d78692e7591b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q019-pair.json",
+      "sha256": "88bd56e599947e33ecb2bec227bd4e1c277c3f1bbf0c3dc59fe460cf6b52591a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q019.raw.json",
+      "sha256": "32c526c2672b0f8b21eba625850f23873d6e61a591a23598972e7bb32cd8ddb5"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q019.raw.json",
+      "sha256": "fd89222c0a2d7ce5336f1756534de47d070513403b9eaad1d079007c1b3ae9a7"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q020-pair.json",
+      "sha256": "64d3f819ef8222212af7666c9148d84fa110782568e5d50d9a8a4d41e81efb60"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q020.raw.json",
+      "sha256": "3b433198b25110a2411813ff4c7b55e1f266dda98045382e5620a7d7a9283df4"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q020.raw.json",
+      "sha256": "4a211d7b550fee55e1131c67e2e00f28516c1174424fc9fc9915511eafb4cacb"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q021-pair.json",
+      "sha256": "0707d6c9d340a35e1920290ccb1764b28a89a3a270c538494581f0a44a48bdab"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q021.raw.json",
+      "sha256": "0eed58dcd559cf3e34427be83c1171d755aeeea836cc5c3449ed8530dce8cdfa"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q021.raw.json",
+      "sha256": "63be0bc779864ba3e564bec2f777abaa544976a8a03bb6b381e1936fa8e1f896"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q022-pair.json",
+      "sha256": "88f96027613fe2b405f3f8ddcb9f7c6a5f7e18fd661f65b8422e4dbd711d9b7b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q022.raw.json",
+      "sha256": "b545a911aea9ef4f2b09c7419e43562cb057461e3e8c5b48133f1bc74f60e4d4"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q022.raw.json",
+      "sha256": "6f9f1aac8914e5db318adfacb71205082802541e6df3621aa56764b2c5ed3115"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q023-pair.json",
+      "sha256": "c53e9974c1fd1f26332691038ae4add75f9a7d73e02174d3982ab91f950fd0ef"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q023.raw.json",
+      "sha256": "f2f12d43bb3e1973fabb4ac708c33d7b9ce1b3fecdedf9f967aabe814aea416e"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q023.raw.json",
+      "sha256": "c1575039a855909c364f108bf929f955434f97a52a6bd18ed65110537b99f07a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q024-pair.json",
+      "sha256": "c0040928a4fef04eb98afee099f47a69524a57550c869262ccfba871c3f81630"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q024.raw.json",
+      "sha256": "c3737f5eb679974d71845b5ab5524d37b3baa2f7caef2312964a130d64a52423"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q024.raw.json",
+      "sha256": "003eaf1c6bdb9b705eb56926c11f931a81fc6a457b8da555843a5af24da55509"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q025-pair.json",
+      "sha256": "f176ce2a76399369c9666597c2bd1a9e9f4f0ada2c57f2e7542223fc58d3a537"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q025.raw.json",
+      "sha256": "ad797adb8f865d4bdae98f87c74706c06fcf5221bf8cbe95a61f459e2f5efc4b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q025.raw.json",
+      "sha256": "540ca370bab8c164dee16f26604dc9801cd28f78f6f0f33df4c5b893e37970b3"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q026-pair.json",
+      "sha256": "51ddc9622b38fa840912dac3bca10988134c58d71ea67b6628ec646e924c49c0"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q026.raw.json",
+      "sha256": "65c4e5c7d69560a19159947f8edaec1fca0816f32b92da797bd35ba8f0f861fb"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q026.raw.json",
+      "sha256": "7e6e157e5a2072a914130a5434b9ef806787122ef68ab289149fbfe0e5ad1cb7"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q027-pair.json",
+      "sha256": "87c6be2613513249e7f14cfe94ccd9377929b67e1e1b5bebae33d2e2c86274fc"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q027.raw.json",
+      "sha256": "2d7be1e59863c1994d91f58639ab0cf289618d106230f30ad4eba00d89b5f6fc"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q027.raw.json",
+      "sha256": "42e8d72b6c106375fd340c7fc29562be2d3934334f86c08e413d70055634e26c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q028-pair.json",
+      "sha256": "d654a11367124a958b4def6b2dcaf8f9becbaeefff9d76f9a5be5c406a4cd9c6"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q028.raw.json",
+      "sha256": "bd048faa2bd4e2312765631ead0b5d4e8fc16ed0f7ecee9420a99644b2dbc202"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q028.raw.json",
+      "sha256": "b5296a95d88cad2a96db9fd5fd5ec5d61bca39db202063f54ee2906ceca06bb6"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q029-pair.json",
+      "sha256": "82ca3138a70a5b3e5e84cd96733715217571c62e251812556d596b22fd628096"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q029.raw.json",
+      "sha256": "33446b842bf12285a1aed44596b04c0174a4d2ecfd5d2de82ccccb1089a6ae81"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q029.raw.json",
+      "sha256": "0d6be3dcbf2f499d6cb6f5faed2c1c5c8214dadb95a1ec1db7632d6b45e7c349"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q030-pair.json",
+      "sha256": "738c6713f9bc77ba5adba8046ed6dc37b29c1adb72fee8638df122c5d7b1cb0a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q030.raw.json",
+      "sha256": "c5b9a458bc5336ea70219d4c3d08a907a0ccd5e6496e596b7fc7e68b453f2376"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q030.raw.json",
+      "sha256": "b00461fd548361686c0840a979ae5ef4add56f0882c99216194070378ee26343"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q031-pair.json",
+      "sha256": "78cd57f45df9d74860f0df39dd0934bb5b11d5bc49583ca12a86671a2e706bdf"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q031.raw.json",
+      "sha256": "068c54575b91b59763db6e2429549bbd8d7ea1db3137b1309ea7dea1337fd543"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q031.raw.json",
+      "sha256": "fe51080a5d7721b7b6edd7a1822498a1c532068938339b1d180b806afc2ff278"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q032-pair.json",
+      "sha256": "221e080b5847c2d3ad045cb5bbe16d041c116182db4c5fa7c54fa37c35aa06dd"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q032.raw.json",
+      "sha256": "1c82edd7232b29fd85f18c5a88dc9898074822e646ee00008feb90a80588df60"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q032.raw.json",
+      "sha256": "9905992e25b922ecd7f6c83e9481f621752944bf6d0f3aa20d8df9ac3ee8e32b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q033-pair.json",
+      "sha256": "2ad7398e3c36f85991090abc57635d3596eb72dac5929930c3f90dd1e20bf1dc"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q033.raw.json",
+      "sha256": "5a44c2eb6f6e4b1ead141ecad79dae3b4b6f0228ef1485fe143612a6ee3f4226"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q033.raw.json",
+      "sha256": "b0f273055923004e0aaea1cce189930daaf941034f957dd398588b0dce3f0940"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q034-pair.json",
+      "sha256": "9df962d7e3bcb162055a32fe83a5635d5747bd415a0966886fecde563794b33c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q034.raw.json",
+      "sha256": "f8c2d3fafaca663cb704968e7237c579eb740ebd2be373c7ddf11a98c722090f"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q034.raw.json",
+      "sha256": "2f480351cb18f51b9a5e39758dfbb5e5171bf6f9de45d4da16086ab63dcb806a"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q035-pair.json",
+      "sha256": "85f93b523fc820ae3a2efa6c95b35f30d6dbf8aa40c90b53b52cdf95e91517b8"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q035.raw.json",
+      "sha256": "9ff5535604b8f9b0073ffd310b22abd426f8dc0f7ecb358096d0989a0b502745"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q035.raw.json",
+      "sha256": "6d39debb6c838931ee1421a92681097ba6e41e086281606bf3717808f6a80932"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q036-pair.json",
+      "sha256": "42ce3f87a824afa7e9c61c8956bc1edce238f23915ef05f7397db64f869824a8"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q036.raw.json",
+      "sha256": "9c7d2f0322b28d386acc3d38dfcaeac5ba02d99d271e91633515ec9933e29322"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q036.raw.json",
+      "sha256": "a4826aa930d78a7e23d1ab834044ca59de6387ab97f2883dfa5403a4286f0a7c"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q037-pair.json",
+      "sha256": "2834fae6807dfe7c912f565d1e998f133913ec46fc38e03545d5dcc23d535a70"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q037.raw.json",
+      "sha256": "2df662bbfb352d5c2b3a45e200e74d5bfd3078632191dc50a8a63a4941b4e41b"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q037.raw.json",
+      "sha256": "28c84f7b4be694a6c0463c9d975a4ff167b8e206c83426d62535b859d2155fa8"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q038-pair.json",
+      "sha256": "e7df10b2449eb1a566f3bd41f20c7f461501ae85e5f0bf2354949a0325477564"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q038.raw.json",
+      "sha256": "c449ea40bfaee708f3bc5083c51331ae95ff45509b3d758b696120b3b6fbb27e"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q038.raw.json",
+      "sha256": "7652a5f03fbd8404cd03d5088e7bc8e04af9c15b1b6cc05f4b0f8fd51e179df9"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/q039-pair.json",
+      "sha256": "e7e3b019cb23bd759ab6ff1d4c0c75b99ca25b88a55889627bc5c8dc284e40da"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/rag/Quality3-1e40ebc94083-q039.raw.json",
+      "sha256": "0086768a6e86e4cec3f2d42b573752c431f574bcd8ba208daa5fae6db7af98e5"
+    },
+    {
+      "file": "docs/results/quality-phase3/paired-baseline/agent/q039.raw.json",
+      "sha256": "180bc689e3119d6d2833735cd83f814493da189d637d61f124bb6a797299d75b"
+    }
+  ]
+}

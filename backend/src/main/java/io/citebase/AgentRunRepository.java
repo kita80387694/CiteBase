@@ -237,6 +237,8 @@ public class AgentRunRepository {
     config.put("agentPolicyVersion", "bounded-agent-v1");
     if (!"original".equals(request.strategy())) {
       config.put("agentStrategy", request.strategy());
+      if (AgentStrategy.grounded(request.strategy()))
+        config.put("generationPolicy", "grounded-answer-v1");
       config.put("agentStrategyProtocol", "bounded-actions-v1");
     }
     config.put("concurrency", 2);

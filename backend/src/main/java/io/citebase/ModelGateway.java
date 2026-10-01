@@ -16,6 +16,16 @@ public interface ModelGateway {
     return generate(question, evidence);
   }
 
+  default Generation generateBounded(
+      String question,
+      List<Evidence> evidence,
+      int maxOutputTokens,
+      int timeoutSeconds,
+      String policy) {
+    GenerationPolicy.validate(policy);
+    return generateBounded(question, evidence, maxOutputTokens, timeoutSeconds);
+  }
+
   String mode();
 
   String chatModel();
