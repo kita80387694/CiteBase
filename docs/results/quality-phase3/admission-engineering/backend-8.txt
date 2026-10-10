@@ -1,0 +1,137 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< io.citebase:citebase >------------------------
+[INFO] Building citebase 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ citebase ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 10 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ citebase ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ citebase ---
+[INFO] skip non existing resourceDirectory F:\CiteBase\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ citebase ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ citebase ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+20:53:36.859 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.21.4
+20:53:37.161 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:53:37.583 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+20:53:37.585 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:53:37.609 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 7873 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+20:53:37.628 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:53:37.628 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:53:37.790 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Creating container for image: testcontainers/ryuk:0.12.0
+20:53:39.332 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 is starting: 47c954439747163eed58be1731b8a7737e2ce6e766b4648a880de40718ffe6c9
+20:53:39.795 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 started in PT2.0050355S
+20:53:39.809 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:53:39.809 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:53:39.810 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+[INFO] Running io.citebase.AdmissionIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+20:53:39.966 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.citebase.AdmissionIntegrationTest]: AdmissionIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:53:40.320 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.citebase.Application for test class io.citebase.AdmissionIntegrationTest
+20:53:40.528 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Creating container for image: pgvector/pgvector:0.8.2-pg17
+20:53:40.649 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 is starting: 1133d731cce18c2273b7d3634e4173733c0a72d025c809ee1a1d4c01d461c882
+20:53:42.189 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 started in PT1.6611712S
+20:53:42.191 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container is started (JDBC URL: jdbc:postgresql://localhost:53696/test?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-10T20:53:42.751+08:00  INFO 51024 --- [           main] io.citebase.AdmissionIntegrationTest     : Starting AdmissionIntegrationTest using Java 21.0.12.1 with PID 51024 (started by pxj in F:\CiteBase\backend)
+2026-10-10T20:53:42.753+08:00  INFO 51024 --- [           main] io.citebase.AdmissionIntegrationTest     : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T20:53:44.935+08:00  INFO 51024 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-10T20:53:45.245+08:00  INFO 51024 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2006fdaa
+2026-10-10T20:53:45.247+08:00  INFO 51024 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-10T20:53:45.303+08:00  INFO 51024 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:53696/test?loggerLevel=OFF (PostgreSQL 17.10)
+2026-10-10T20:53:45.411+08:00  INFO 51024 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-10T20:53:45.421+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.064s)
+2026-10-10T20:53:45.465+08:00  INFO 51024 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-10T20:53:45.565+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-10T20:53:45.595+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - core"
+2026-10-10T20:53:45.717+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - questions evaluations"
+2026-10-10T20:53:45.765+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - manual evaluation scores"
+2026-10-10T20:53:45.809+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - chunk profiles"
+2026-10-10T20:53:45.853+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - agent runs"
+2026-10-10T20:53:45.921+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - unified work tasks"
+2026-10-10T20:53:45.994+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - evaluation tasks"
+2026-10-10T20:53:46.061+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - legacy agent recovery boundary"
+2026-10-10T20:53:46.094+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-10-10T20:53:46.138+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - operations events"
+2026-10-10T20:53:46.168+08:00  INFO 51024 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "public", now at version v10 (execution time 00:00.291s)
+2026-10-10T20:53:47.813+08:00  INFO 51024 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-10T20:53:47.814+08:00  INFO 51024 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-10T20:53:47.825+08:00  INFO 51024 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-10T20:53:47.846+08:00  INFO 51024 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 32 ms
+2026-10-10T20:53:48.108+08:00  INFO 51024 --- [           main] io.citebase.AdmissionIntegrationTest     : Started AdmissionIntegrationTest in 5.859 seconds (process running for 14.146)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\pxj\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-10T20:53:51.702+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f05f5fe9-5c6c-460d-877e-011d7e696d0c workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.724+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=f05f5fe9-5c6c-460d-877e-011d7e696d0c workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:51.746+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=88e9b214-4cef-4b62-99cb-db111d2a0898 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.763+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=88e9b214-4cef-4b62-99cb-db111d2a0898 workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:51.786+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=eca59d92-e712-4867-9897-80bc5b328fe5 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.805+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=eca59d92-e712-4867-9897-80bc5b328fe5 workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:51.825+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=4f4cb757-98b1-43a7-b546-8774bab875fe workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.842+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=4f4cb757-98b1-43a7-b546-8774bab875fe workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:51.869+08:00  INFO 51024 --- [pool-4-thread-5] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=2bf3f802-9619-417d-96d1-d940fb490489 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.881+08:00  INFO 51024 --- [pool-4-thread-6] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=2ab9e011-6ad3-4039-b00a-88d1fd45c500 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:51.892+08:00  INFO 51024 --- [pool-4-thread-2] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=88e9b214-4cef-4b62-99cb-db111d2a0898 workerId=null fencingToken=2 attempt=0
+2026-10-10T20:53:52.406+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=559af2e5-87b0-4894-acec-0748b0113141 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.425+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=559af2e5-87b0-4894-acec-0748b0113141 workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:52.446+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=a580c60e-52a7-4bf7-a4a8-5fc11023fb57 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.461+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=a580c60e-52a7-4bf7-a4a8-5fc11023fb57 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.480+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=57a59b86-05c6-4b44-8731-3cd928dcd664 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.522+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=279fe158-46c4-4a64-b632-1d2bea33d9fe workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.548+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=CANCELLED taskId=a580c60e-52a7-4bf7-a4a8-5fc11023fb57 workerId=null fencingToken=1 attempt=0
+2026-10-10T20:53:52.567+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=559af2e5-87b0-4894-acec-0748b0113141 workerId=null fencingToken=2 attempt=0
+2026-10-10T20:53:52.718+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=9bd20b09-a2a5-47e0-84b6-236d77ea8b0b workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.736+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=e76d1445-68a1-43d3-a06e-5ae15a873571 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.743+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=9bd20b09-a2a5-47e0-84b6-236d77ea8b0b workerId=admission-test fencingToken=1 attempt=1
+2026-10-10T20:53:52.765+08:00  INFO 51024 --- [           main] io.citebase.TaskTelemetry                : task_event=CANCEL_REQUESTED kind=INDEX state=CANCEL_REQUESTED taskId=9bd20b09-a2a5-47e0-84b6-236d77ea8b0b workerId=admission-test fencingToken=1 attempt=1
+2026-10-10T20:53:52.949+08:00  INFO 51024 --- [pool-6-thread-2] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=50baa459-0ea0-47b4-9c36-913943086d45 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.958+08:00  INFO 51024 --- [pool-6-thread-3] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f680a987-091b-4a70-bdf4-f6dc16aec262 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.967+08:00  INFO 51024 --- [pool-6-thread-6] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=b86f1a4b-8f27-49c8-89c3-73ffc76221d1 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:53:52.989+08:00  INFO 51024 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-10T20:53:52.993+08:00  INFO 51024 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.60 s -- in io.citebase.AdmissionIntegrationTest
+[INFO] Running io.citebase.AdmissionUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.515 s -- in io.citebase.AdmissionUnitTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.799 s
+[INFO] Finished at: 2026-10-10T20:53:54+08:00
+[INFO] ------------------------------------------------------------------------

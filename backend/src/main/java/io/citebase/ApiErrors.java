@@ -8,6 +8,13 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestControllerAdvice
 public class ApiErrors {
+  @ExceptionHandler(AdmissionRejected.class)
+  ResponseEntity<?> admission(AdmissionRejected e) {
+    return ResponseEntity.status(429)
+        .header("Retry-After", Integer.toString(e.retryAfter()))
+        .body(Map.of("message", e.getReason(), "code", "ADMISSION_REJECTED"));
+  }
+
   @ExceptionHandler(ResponseStatusException.class)
   ResponseEntity<?> status(ResponseStatusException e) {
     return ResponseEntity.status(e.getStatusCode())

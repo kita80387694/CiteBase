@@ -44,3 +44,12 @@
 当前没有全局API admission限流、全局入队上限或集群供应商配额控制。每worker的semaphore约束异步任务执行，同步基础RAG不经过该semaphore。队列在开放环长期过载时仍可能增长；不能把本次闭环、固定mock延迟下的零失败解释为生产背压和过载保护已经完备。部署前应依据实际到达率与供应商约束设置外部入口限流及容量策略，并重新验证，不以本次测试替代。
 
 所有模型步骤为明确mock/fault适配器，结果只证明该环境中的工程行为。真实模型质量、成本非劣及真人评审门槛仍独立存在；目前真人评审未完成，不宣称第三阶段全部验收通过。
+
+
+## 任务准入与同步背压（2026-10-10）
+
+ADMISSION_GLOBAL_TASKS=256、ADMISSION_USER_TASKS=64限制共享PostgreSQL中的非终态任务总量/每用户量；所有API实例必须配置相同值。QUEUED、RUNNING、RETRY_WAIT、CANCEL_REQUESTED均占位，终态才释放。新入队和手动重试在同一事务内以数据库级advisory lock竞争名额；满时领域写入回滚。已接受请求的幂等重放不额外占位，满载仍可取回原任务。不会为了容量拒绝而取消已接受任务。
+
+ADMISSION_SYNC_CONCURRENCY=4是每JVM对/questions和/retrieval-diagnostics的并发上限，认证授权后快速拒绝，不阻塞等待；两实例总同步容量是各自之和，不宣称分布式供应商配额。异常也释放名额。429携带Retry-After（ADMISSION_RETRY_AFTER_SECONDS默认3），不返回其他用户任务计数；界面保留输入、说明等待后手动重试，不自动重新提交。其他廉价读取接口不在该同步并发限额内，也不是按时间窗口的全局API速率限制。
+
+具体双进程开放环与限流恢复证据见LOAD_TESTING.md的新节，原旧吞吐数据不用于宣称新增限流后的最大吞吐。

@@ -19,6 +19,7 @@ public class TaskRepository {
   private final TaskRegistry registry;
   private final TaskSettings settings;
   private final TaskTelemetry telemetry;
+  private final AdmissionService admission;
 
   public TaskRepository(
       JdbcTemplate db,
@@ -27,7 +28,8 @@ public class TaskRepository {
       AccessService access,
       TaskRegistry registry,
       TaskSettings settings,
-      TaskTelemetry telemetry) {
+      TaskTelemetry telemetry,
+      AdmissionService admission) {
     this.db = db;
     this.tx = tx;
     this.json = json;
@@ -35,6 +37,7 @@ public class TaskRepository {
     this.registry = registry;
     this.settings = settings;
     this.telemetry = telemetry;
+    this.admission = admission;
   }
 
   private void event(TaskTelemetry.Event event, TaskLease lease, TaskState state) {
@@ -102,6 +105,7 @@ public class TaskRepository {
                   spec.idempotencyKey(),
                   AuthService.hash(payload.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
           if (existing.isPresent()) return existing.get().get("id").toString();
+          admission.admitTask(spec.userId());
           db.update(
               "insert into"
                   + " work_task(id,kind,user_id,kb_id,idempotency_key,request_hash,payload,status,max_attempts)"
@@ -613,6 +617,7 @@ public class TaskRepository {
             throw conflict("仅失败或已取消任务可重试");
           var h = registry.require(TaskKind.valueOf(r.get("kind").toString()));
           h.validateRetry(db, view(r));
+          admission.admitTask(user);
           db.update(
               "update work_task set"
                   + " status='QUEUED',attempts=0,retry_generation=retry_generation+1,fencing_token=fencing_token+1,resume_without_attempt=false,available_at=clock_timestamp(),finished_at=null,cancel_requested_at=null,error_code=null,error_summary=null,lease_owner=null,lease_until=null"

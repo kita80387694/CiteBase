@@ -211,7 +211,18 @@ export default function App() {
         setToken("");
         setUser(null);
       }
-      throw Object.assign(new Error(message), { status: r.status });
+      const retryHeader = r.headers.get("Retry-After");
+      const retryAfterSeconds =
+        r.status === 429 && retryHeader && /^\d+$/.test(retryHeader)
+          ? Number(retryHeader)
+          : null;
+      if (retryAfterSeconds !== null && Number.isSafeInteger(retryAfterSeconds)) {
+        message += `（建议等待 ${retryAfterSeconds} 秒后手动重试，不会自动重提。）`;
+      }
+      throw Object.assign(new Error(message), {
+        status: r.status,
+        retryAfterSeconds,
+      });
     }
     const text = await r.text();
     return text ? JSON.parse(text) : (undefined as T);

@@ -14,6 +14,7 @@ public class RagController {
   private final EvaluationService evaluations;
   private final EvaluationInput evaluationInput;
   private final EvaluationScoringService scoring;
+  private final AdmissionService admission;
 
   public RagController(
       AuthService auth,
@@ -21,13 +22,15 @@ public class RagController {
       RetrievalService retrieval,
       EvaluationService evaluations,
       EvaluationInput evaluationInput,
-      EvaluationScoringService scoring) {
+      EvaluationScoringService scoring,
+      AdmissionService admission) {
     this.auth = auth;
     this.questions = questions;
     this.retrieval = retrieval;
     this.evaluations = evaluations;
     this.evaluationInput = evaluationInput;
     this.scoring = scoring;
+    this.admission = admission;
   }
 
   public record Ask(
@@ -41,27 +44,27 @@ public class RagController {
   public QuestionResult ask(@RequestBody String source, HttpServletRequest req) {
     String user = auth.require(req);
     var body = evaluationInput.ask(source);
-    return questions.ask(
+    return admission.synchronous(user, body.kbId(), () -> questions.ask(
         user,
         body.kbId(),
         body.question(),
         body.mode() == null ? "vector" : body.mode(),
         body.topK() == null ? 5 : body.topK(),
         true,
-        body.retrievalOptions());
+        body.retrievalOptions()));
   }
 
   @PostMapping("/retrieval-diagnostics")
   public Object diagnose(@RequestBody String source, HttpServletRequest req) {
     String user = auth.require(req);
     var body = evaluationInput.ask(source);
-    return questions.diagnose(
+    return admission.synchronous(user, body.kbId(), () -> questions.diagnose(
         user,
         body.kbId(),
         body.question(),
         body.mode() == null ? "vector" : body.mode(),
         body.topK() == null ? 5 : body.topK(),
-        body.retrievalOptions());
+        body.retrievalOptions()));
   }
 
   @GetMapping("/questions")

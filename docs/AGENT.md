@@ -66,4 +66,4 @@ node scripts/phase3-report.mjs docs/results/new-agent-run
 
 保留original默认，新增inspection-free-v1、stop-aware-v1及combined-v1实验开关。服务端限制允许工具与剩余预算，为最终生成预留调用资源；重复或无进展仍失败，不能把预算耗尽包装为正常答案。实现和消融详见AGENT_PHASE3_STRATEGIES.md。
 
-32次真实开发/验证集探索原始数据和账本见results/quality-phase3/agent-exploration，报告QUALITY_AGENT_REPORT.md。四策略失败分别1/8、2/8、0/8、1/8；停止感知组延迟增加，无真人正确性或引用支持评审，因此未选择赢家、未替换默认。新独立测试未启用。80份真实配对回答的真人评审和16份复核均未发生，不能用自动信号补齐。
+32次真实开发/验证集探索原始数据和账本见results/quality-phase3/agent-exploration，报告QUALITY_AGENT_REPORT.md。四策略失败分别1/8、2/8、0/8、1/8；停止感知组延迟增加，无真人正确性或引用支持评审，因此未选择赢家、未替换默认。上述为早期历史。用户后续授权ASSISTED，新增grounded-answer-v1及combined-grounded-v1，只改变明确的生成政策，不扩大工具权限。新32运行消融冻结grounded-answer-v1，独立40题四路径160回答、192辅助评分已完成；候选辅助21/40正确对原19/40，但失败10/40对6/40，不满足失败门槛，原默认不变。完整负面结果与随机性/负载限制见ASSISTED_EXPERIMENTS.md；未将辅助评分写入HUMAN记录。

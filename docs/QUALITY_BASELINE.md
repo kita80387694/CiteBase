@@ -44,3 +44,9 @@
 真实评审项目`22befaa8-e4b3-48d8-aa69-3e014dc5733b`已准备80条来源、96份任务，恰16项双账号复核。初始包`paired-baseline/review-initial.json`无任何评分。用户已明确暂无法安排真人，真人覆盖0/80，复核0/16；账号分配不能算作真人评审。入口http://localhost:25182，本机账号凭据仅在忽略文件`.tools/quality-reviewer-credentials.json`。
 
 2026-10-01 补充：已在保留原库并备份后升级真实评审入口到当前工程版本，V9→V10成功，80答案/96分配/0评分整个导出与原包完全一致。新部署信息见results/quality-phase3/final-review-runtime.json；模型实验仍对应原registration，不修改其运行时归属。
+
+## 2026-10-01 当前辅助评审口径
+
+用户明确授权“改为依据辅助评审继续开发”，撤销真人前置依赖；上述未评分/真人待办为历史记录，HUMAN覆盖继续为0。原用户提供的80回答96评分辅助包保持原样，由assisted-analysis/analysis.json追溯唯一回答，绝不自动写入HUMAN评分接口。新开发32回答39评分及独立160回答192评分均使用匿名AI辅助流程，原始评分、规则、时间和答案哈希保存，结果见ASSISTED_EXPERIMENTS.md。
+
+独立数据包含两种基础RAG和两种Agent共四路径，实际160份而非早期计划三臂120份。冻结后不根据test再选参数；候选失败增多而保持原默认。成本候选只看开发集64行的辅助评分选择，重复case按基础问题聚类；共享独立集用于一次冻结成本验证，其复用和主线程已观察Agent测试结果的限制在ASSISTED_COST_PROTOCOL.md披露。

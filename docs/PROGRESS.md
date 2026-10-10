@@ -292,3 +292,13 @@
 2026-10-01 会话续执行时原工具session91200丢失；通过CIM确认node collector不在运行，服务器q030-selected/3e5c8ed1-b7f6-442c-bcf7-2456eee7e775已SUCCEEDED。未直接重提：使用原collect参数和冻结journal恢复（session39005，.tools/assisted-independent-resume.txt），既有raw/citations/audits验证后取回已完成项并继续。已保存66/80 Agent运行，collector-provenance与当前脚本逐字哈希一致。成本独立collector仅工程准备，5fixture测试通过，80任务/240行/40题聚类；未开始真实成本调用。冷热重复保留同evaluationId以遵守缓存授权边界，不改生产隔离键。
 
 2026-10-01 Agent独立阶段完成：160/160真实回答、94任务审计、475返回调用/0UNKNOWN。两名隔离AI完成192辅助评分（160初评+32复核），五维无分歧；HUMAN仍0。向量/混合/原Agent/生成候选辅助正确23/21/19/21（各40），失败0/0/6/10。候选对原正确差+5个百分点、配对区间[-5,+15]，失败门槛不通过，默认不改；16失败均发生最终生成前，不归因生成提示。完整报告comparison-initial.json与ASSISTED_EXPERIMENTS保留负面结果及负载混杂。按顺序转成本阶段：复用原64开发行，匿名77次辅助评分开始；独立成本240行仅工程准备，尚未调用。
+
+2026-10-01 成本阶段冻结：开发64回答77次AI评分完成且无双评分歧；独立选择者仅看开发材料，选conditional5（辅助6/8与固定及candidate5相同，外部调用3→2；与缓存归一化节约打平按检索延迟选）。没有启用缓存，独立重复流量不冒充HIT。冻结08:14:19Z、selection SHA c864edce…，独立KB12文档真实索引完成。collector新增容器身份/StartedAt连续性保护6测试通过。后台PowerShell PID35764运行smoke→collect，日志.tools/assisted-cost-*.txt与process.json；80任务/240行/40聚类有限预算，未完成不计通过。阶段本地提交6709b23归档Agent独立负面结论，用户assisted-review-20261001仍不改/不提交。
+
+2026-10-10 恢复执行：上轮有实际进展（6709b23 Agent独立归档、6eb684d成本冻结与48条已采集），非仅等待。原采集PID35764不存在；Docker停机，现恢复原隔离库与同镜像后端。保留24任务48行，另ci-12-candidate任务5189ed55…恢复为FAILED，2行中vector成功/hybrid ATTEMPTS_EXHAUSTED，调用3RETURNED+1UNKNOWN。不把UNKNOWN当零成本、不重跑旧题；新增严格分段恢复脚本6fixture通过，尚未实际续采，跨9天耗时不当连续实验。原用户辅助目录仍不改。
+
+背压验收补齐：非终态任务全局/用户PG事务准入、enqueue与手动retry共用容量；幂等重放不被满额阻止；同步问答/诊断每JVM semaphore快速429带Retry-After，前端手动重试提示不自动重提。真实PG专项8/8无跳过通过；两个实际Java进程开放环24到达、8请求/秒的5组检查通过，证据admission/two-process-1791637121457。首跑B文档与A内容相同触发正确哈希去重导致夹具未改变源、409断言失败，修复唯一内容及实际snapshot变化断言后通过；另保留专用端口占用失败，不删除容器/数据掩盖。前端build通过（初次沙箱EPERM保留）；完整JUnit和Compose旧mock库升级正在进行，不提前计通过。
+
+2026-10-10 回归结果：完整JUnit279项268通过/11环境条件跳过，专用PG补跑11/11通过0跳过，279项均实际执行。前端构建通过，新429 UI E2E1/1通过8.7s（mock API场景验证交互，不替代真实PG限流测试），主线程亲自查看quality-admission-429-20261010.png。恢复/分段报告/过载fixture共20通过。新Compose up --build两次均因Docker Hub auth.docker.io IPv6连接超时失败；未改依赖、网络设置或伪称新镜像验证完成。已有真实/旧mock容器可启动，最新前端临时25187连旧mock后端验证，区别新Compose未通过。
+
+独立成本分段续采已启动PID77068，日志.tools/assisted-cost-recover-20261010.txt及exit.json；原始48行与中断2行保留，当前runtime只允许StartedAt变动，源/镜像/模型/端口及非缓存配置冻结。旧state原字节保留，恢复状态另存manifest/recovery-state。采集仍未完成，不计质量或成本验收通过。
