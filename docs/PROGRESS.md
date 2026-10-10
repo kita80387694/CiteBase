@@ -302,3 +302,5 @@
 2026-10-10 回归结果：完整JUnit279项268通过/11环境条件跳过，专用PG补跑11/11通过0跳过，279项均实际执行。前端构建通过，新429 UI E2E1/1通过8.7s（mock API场景验证交互，不替代真实PG限流测试），主线程亲自查看quality-admission-429-20261010.png。恢复/分段报告/过载fixture共20通过。新Compose up --build两次均因Docker Hub auth.docker.io IPv6连接超时失败；未改依赖、网络设置或伪称新镜像验证完成。已有真实/旧mock容器可启动，最新前端临时25187连旧mock后端验证，区别新Compose未通过。
 
 独立成本分段续采已启动PID77068，日志.tools/assisted-cost-recover-20261010.txt及exit.json；原始48行与中断2行保留，当前runtime只允许StartedAt变动，源/镜像/模型/端口及非缓存配置冻结。旧state原字节保留，恢复状态另存manifest/recovery-state。采集仍未完成，不计质量或成本验收通过。
+
+2026-10-10 后续审计：分段成本报告增加run.taskId到账本的控制/候选归属、索引单列、mode/phase计划与缺失分母、rerank模型冻结来源；10合成测试通过。阶段审计矩阵PHASE3_ACCEPTANCE.md新增，PHASE3_PLAN统一为当前授权口径，未将历史真人阻塞或旧测试冒充当前完成。官方ECR同版本node镜像拉取也匿名token超时；原日志保留且已请求恢复镜像网络，无系统DNS/代理修改。成本PID77068已核实活跃并推进至ci-20-candidate（至少84/240行），尚未形成最终质量/成本结论。

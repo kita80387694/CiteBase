@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+ok 1 - 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+  ---
+  duration_ms: 65.32
+  ...
+# Subtest: partial rows and absent ledger stay pending and unknown; failures retained
+ok 2 - partial rows and absent ledger stay pending and unknown; failures retained
+  ---
+  duration_ms: 50.9177
+  ...
+# Subtest: missing tokens are null and partial ledger calls are observed only
+ok 3 - missing tokens are null and partial ledger calls are observed only
+  ---
+  duration_ms: 13.4741
+  ...
+# Subtest: comparison clusters forty questions; failures zero and missing/NA null
+ok 4 - comparison clusters forty questions; failures zero and missing/NA null
+  ---
+  duration_ms: 129.702
+  ...
+# Subtest: duplicate rows, modified gold, forged pairing and unsigned answer rejected
+ok 5 - duplicate rows, modified gold, forged pairing and unsigned answer rejected
+  ---
+  duration_ms: 84.9177
+  ...
+# Subtest: pending and malformed synthetic raw files produce partial hashed report
+ok 6 - pending and malformed synthetic raw files produce partial hashed report
+  ---
+  duration_ms: 269.9074
+  ...
+# Subtest: comparison CLI writes hashed synthetic inputs without changing defaults
+ok 7 - comparison CLI writes hashed synthetic inputs without changing defaults
+  ---
+  duration_ms: 239.3716
+  ...
+# Subtest: failed task preserves successful checkpoint rows and unknown calls stay counted
+ok 8 - failed task preserves successful checkpoint rows and unknown calls stay counted
+  ---
+  duration_ms: 26.8723
+  ...
+# Subtest: nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+ok 9 - nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+  ---
+  duration_ms: 363.9577
+  ...
+# Subtest: arm ledgers attribute actual rerank model, isolate indexing, preserve missing tokens and phase denominators
+ok 10 - arm ledgers attribute actual rerank model, isolate indexing, preserve missing tokens and phase denominators
+  ---
+  duration_ms: 22.6165
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1521.6854

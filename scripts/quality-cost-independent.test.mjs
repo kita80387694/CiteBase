@@ -29,7 +29,7 @@ test('240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 
 });
 test('partial rows and absent ledger stay pending and unknown; failures retained',()=>{
  const f=fixture(),r=engineeringReport(f.plan,f.rows.slice(1));assert.equal(r.complete,false);assert.equal(r.pending.length,1);assert.equal(r.byArm.control.expected,120);assert.equal(r.actualUsage.calls,null);assert.equal(r.byArm.control.errorRate,null);assert.equal(r.byArm.candidate.failures,2);assert.equal(r.byArm.candidate.retrievalMs.p95,10);assert.equal(r.byArm.candidate.cache.MISS,120);
- const tasks=Array.from({length:80},(_,i)=>({id:`t${i}`,kind:'EVALUATION',status:'SUCCEEDED',externalCalls:[]}));assert.equal(engineeringReport(f.plan,f.rows,tasks).actualUsage.calls,0);tasks[1].id=tasks[0].id;assert.equal(engineeringReport(f.plan,f.rows,tasks).actualUsage.calls,null);
+ const tasks=Array.from({length:80},(_,i)=>({id:`t${i}`,kind:'EVALUATION',status:'SUCCEEDED',externalCalls:[]}));assert.equal(engineeringReport(f.plan,f.rows,tasks).actualUsage.calls,0);tasks[1].id=tasks[0].id;assert.throws(()=>engineeringReport(f.plan,f.rows,tasks),/Duplicate task ledger/);
 });
 test('missing tokens are null and partial ledger calls are observed only',()=>{
  const f=fixture(),r=engineeringReport(f.plan,f.rows,[{id:'t',kind:'EVALUATION',externalCalls:[{callId:'c',provider:'generation',status:'FAILED'}]}]);assert.equal(r.actualUsage.calls,null);assert.equal(r.actualUsage.observedCalls,1);assert.equal(r.actualUsage.byProviderModel[0].tokens.totalTokens.observedSum,null);
@@ -55,9 +55,9 @@ test('failed task preserves successful checkpoint rows and unknown calls stay co
   fs.mkdirSync(path.join(root,'runs'));fs.mkdirSync(path.join(root,'tasks'));fs.writeFileSync(path.join(root,'registration.json'),JSON.stringify(f.plan));
   const item=f.plan.items[0],prefix=`CostIndependent-${hash(JSON.stringify(f.plan)).slice(0,20)}`;
   const results=['vector','hybrid'].map(mode=>({...f.rows.find(r=>r.arm===item.arm&&r.baseCaseId===item.baseCaseId&&r.mode===mode).result,caseId:item.questions[0].caseId,mode,error:mode==='vector'?null:'ATTEMPTS_EXHAUSTED'}));
-  fs.writeFileSync(path.join(root,'runs',`${prefix}-${item.batchId}-${item.arm}.raw.json`),JSON.stringify({id:'synthetic-interrupted',status:'FAILED',results}));
+  fs.writeFileSync(path.join(root,'runs',`${prefix}-${item.batchId}-${item.arm}.raw.json`),JSON.stringify({id:'synthetic-interrupted',taskId:'synthetic-interrupted',status:'FAILED',results}));
   fs.writeFileSync(path.join(root,'tasks','fixture.json'),JSON.stringify({id:'synthetic-interrupted',kind:'EVALUATION',status:'FAILED',externalCalls:[{callId:'unknown-call',provider:'generation',status:'UNKNOWN'}]}));
-  const report=loadCostIndependent(root);assert.equal(report.terminalRows,2);assert.equal(report.byArm[item.arm].failures,1);assert.equal(report.byArm[item.arm].observedTerminalErrorRate,0.5);assert.equal(report.byArm[item.arm].taskStatusRows.FAILED,2);assert.equal(report.actualUsage.calls,null);assert.equal(report.actualUsage.observedCalls,1);assert.equal(report.actualUsage.byProviderModel[0].statuses.UNKNOWN,1);assert.equal(report.actualUsage.byProviderModel[0].tokens.totalTokens.observedSum,null);
+  const report=loadCostIndependent(root);assert.equal(report.terminalRows,2);assert.equal(report.byArm[item.arm].failures,1);assert.equal(report.byArm[item.arm].observedTerminalErrorRate,0.5);assert.equal(report.byArm[item.arm].taskStatusRows.FAILED,2);assert.equal(report.actualUsage.calls,null);assert.equal(report.actualUsage.observedCalls,1);assert.equal(report.byArm[item.arm].actualUsage.observedCalls,1);assert.equal(report.byArm[item.arm].actualUsage.calls,null);assert.equal(report.actualUsage.byProviderModel[0].statuses.UNKNOWN,1);assert.equal(report.actualUsage.byProviderModel[0].tokens.totalTokens.observedSum,null);
  }finally{assert(root.startsWith(path.join(os.tmpdir(),'cost-independent-fixture-')));fs.rmSync(root,{recursive:true});}
 });
 test('nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim',()=>{
@@ -75,4 +75,17 @@ test('nine-day recovery keeps 48 old rows and segment provenance without continu
   const report=loadCostIndependent(root,false,recoveryDir),p=report.runtimeProvenance;assert.equal(report.terminalRows,240);assert.equal(p.continuousLatencyComparable,false);assert.deepEqual(p.segments.map(s=>s.rows),[48,192]);assert.equal(p.rowSources.length,240);assert.equal(p.segments[0].collectionStartedAt,'2026-10-01T01:00:00Z');assert.equal(p.segments[1].collectionStartedAt,'2026-10-10T01:00:00Z');assert(p.rowSources.every(r=>r.runtime&&r.inputs.length===2&&r.requestOptions.cache===false));assert(report.inputs.some(i=>i.file===path.join(recoveryDir,'manifest.json')));assert.deepEqual(p.initialRuntime,old);
   manifest.originalFiles[0].sha256='0'.repeat(64);fs.writeFileSync(path.join(recoveryDir,'manifest.json'),JSON.stringify(manifest));assert.throws(()=>loadCostIndependent(root,false,recoveryDir),/Recovery source changed/);
  }finally{assert(root.startsWith(path.join(os.tmpdir(),'cost-independent-fixture-')));fs.rmSync(root,{recursive:true});}
+});
+test('arm ledgers attribute actual rerank model, isolate indexing, preserve missing tokens and phase denominators',()=>{
+ const f=fixture();f.plan.freeze.runtime.modelConfig.reranker={model:'synthetic-reranker',provider:'synthetic'};
+ const tasks=f.plan.items.map((item,i)=>({id:`task-${i}`,kind:'EVALUATION',status:'SUCCEEDED',externalCalls:[{callId:`call-${i}`,provider:'rerank',status:'SUCCEEDED',usage:{totalTokens:3}}]}));
+ for(const [i,item]of f.plan.items.entries()){
+  const baseIndex=Number(item.baseCaseId.split('-')[1]);for(const q of item.questions){q.phase=baseIndex<20?'cold':baseIndex<30?(q.caseId.endsWith('-0')?'cold':'warm'):(q.caseId.endsWith('-0')?'mixed-new':'mixed-repeat');for(const row of f.rows.filter(r=>r.arm===item.arm&&r.caseId===q.caseId)){row.phase=q.phase;row.taskId=tasks[i].id;}}
+ }
+ tasks.push({id:'index-task',kind:'INDEX',status:'SUCCEEDED',externalCalls:[{callId:'index-call',provider:'embedding',status:'SUCCEEDED'}]});
+ let r=engineeringReport(f.plan,f.rows,tasks);for(const arm of ['control','candidate']){
+  const a=r.byArm[arm];assert.equal(a.actualUsage.calls,40);assert.equal(a.actualUsage.tokens.totalTokens.total,120);assert.equal(a.actualUsage.tokens.promptTokens.total,null);assert.equal(a.actualUsage.byProviderModel[0].model,'synthetic-reranker');assert.equal(a.actualUsage.byProviderModel[0].modelSource,'frozen configuration, not supplier response');assert.deepEqual(Object.values(a.byPhase).map(x=>x.expected),[60,20,20,20]);assert.equal(Object.values(a.byPhase).reduce((n,x)=>n+x.terminal,0),120);assert.deepEqual(Object.values(a.byMode).map(x=>x.expected),[60,60]);
+ }assert.equal(r.indexingUsage.calls,1);assert.equal(r.actualUsage.byProviderModel.find(g=>g.provider==='rerank').model,'synthetic-reranker');
+ tasks.splice(0,1);r=engineeringReport(f.plan,f.rows,tasks);assert.equal(r.byArm.control.actualUsage.calls,null);assert.equal(r.byArm.control.actualUsage.tokens.totalTokens.total,null);assert.equal(r.byArm.control.actualUsage.observedCalls,39);assert.equal(r.byArm.candidate.actualUsage.calls,40);
+ r=engineeringReport(f.plan,[],[]);assert.equal(r.byArm.control.byPhase.warm.terminal,0);assert.equal(r.byArm.control.byPhase.warm.pending,20);assert.equal(r.byArm.control.byPhase.warm.errorRate,null);assert.equal(r.byArm.control.byMode.hybrid.retrievalMs.mean,null);assert.equal(r.byArm.control.byMode.hybrid.mrr.mean,null);
 });
