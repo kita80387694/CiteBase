@@ -1,0 +1,85 @@
+{
+  "id": "99214de5-1a23-4432-9cad-251e63ef71ee",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "99214de5-1a23-4432-9cad-251e63ef71ee",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "99214de5-1a23-4432-9cad-251e63ef71ee"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T07:53:22.408149Z",
+  "startedAt": "2026-10-01T07:53:22.732615Z",
+  "finishedAt": "2026-10-01T07:53:35.440568Z",
+  "availableAt": "2026-10-01T07:53:22.408149Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "6d3199a5-f8c0-4d03-85b9-b98d9eee7683",
+      "operationKey": "embedding:32de85c1-8224-4a2f-ba7c-99248884a680",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T07:53:22.765788Z",
+      "finishedAt": "2026-10-01T07:53:23.025226Z"
+    },
+    {
+      "callId": "83e6917b-a78c-4fef-be6d-5020aead4b8c",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2412,
+        "completionTokens": 46
+      },
+      "startedAt": "2026-10-01T07:53:23.066538Z",
+      "finishedAt": "2026-10-01T07:53:27.152354Z"
+    },
+    {
+      "callId": "d87a9f36-4966-4f8e-98a1-006568eb940a",
+      "operationKey": "agent/planner/2",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2437,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-10-01T07:53:27.248040Z",
+      "finishedAt": "2026-10-01T07:53:33.570550Z"
+    },
+    {
+      "callId": "6be246cd-902c-4f4b-a295-89c227f26c44",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T07:53:33.608885Z",
+      "finishedAt": "2026-10-01T07:53:35.406643Z"
+    }
+  ]
+}

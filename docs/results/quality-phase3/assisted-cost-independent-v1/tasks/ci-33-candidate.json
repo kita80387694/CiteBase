@@ -1,0 +1,223 @@
+{
+  "id": "33ae3b96-0df0-46f2-9973-c51f5c5018c5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "33ae3b96-0df0-46f2-9973-c51f5c5018c5",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-33-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-33-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "groupId": "g1",
+              "endOffset": 377,
+              "paragraph": 6,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 321,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+              "groupId": "g2",
+              "endOffset": 175,
+              "paragraph": 4,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 133,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 补发后只剩49粒，沿用原单号就可以放行吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；补发也须保留至少50粒"
+        },
+        {
+          "id": "ci-33-1",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "groupId": "g1",
+              "endOffset": 377,
+              "paragraph": 6,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 321,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+              "groupId": "g2",
+              "endOffset": 175,
+              "paragraph": 4,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 133,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 补发后只剩49粒，沿用原单号就可以放行吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；补发也须保留至少50粒"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-59c9f558611989970c0918b9a6e13dccc43a51d46fc6336a7a4b86c45d30",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-19T07:37:13.335272Z",
+  "startedAt": "2026-10-19T07:37:13.837307Z",
+  "finishedAt": "2026-10-19T07:37:22.694068Z",
+  "availableAt": "2026-10-19T07:37:13.335272Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "54a50e09-5776-4423-a4a1-b483ee1e7457",
+      "operationKey": "963be551-7aec-4c4c-ba73-967922709265:embedding:f680ca27-33bc-4d17-9aa7-5dab3ebf489a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-19T07:37:13.854514Z",
+      "finishedAt": "2026-10-19T07:37:13.957136Z"
+    },
+    {
+      "callId": "d0e67190-578b-4a3f-bf02-8b03acce79ac",
+      "operationKey": "963be551-7aec-4c4c-ba73-967922709265:generation:e6a062b2-f533-445b-a517-355036045fca",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1714,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:37:13.963717Z",
+      "finishedAt": "2026-10-19T07:37:15.342815Z"
+    },
+    {
+      "callId": "fc233156-d8ba-41df-832b-0ae28e8863a4",
+      "operationKey": "5038674c-4e95-462c-8891-b8e61d3b4d45:embedding:35bdcad6-387a-45a1-9b20-367c771ae4ce",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-19T07:37:15.360919Z",
+      "finishedAt": "2026-10-19T07:37:15.534387Z"
+    },
+    {
+      "callId": "b1fd391d-9fdf-449b-b3fa-974ce2b814f7",
+      "operationKey": "5038674c-4e95-462c-8891-b8e61d3b4d45:generation:d1322840-a1bc-4c18-b071-c0dd4c5045a0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1759,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:37:15.543625Z",
+      "finishedAt": "2026-10-19T07:37:17.926237Z"
+    },
+    {
+      "callId": "4d778e3b-77ec-4a84-88b2-7a6fc7b125e9",
+      "operationKey": "198e921b-918a-49e9-abdc-74df491a651c:embedding:b886ff9d-fe82-4a6a-8b3e-f60457435a01",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-19T07:37:17.945866Z",
+      "finishedAt": "2026-10-19T07:37:18.056618Z"
+    },
+    {
+      "callId": "22525824-9218-4037-9029-0860db2c0eb8",
+      "operationKey": "198e921b-918a-49e9-abdc-74df491a651c:generation:e323d8ba-e8bc-4e0b-b49b-edaf4f1adf45",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1714,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:37:18.063344Z",
+      "finishedAt": "2026-10-19T07:37:19.621976Z"
+    },
+    {
+      "callId": "97731f1e-0066-4e5c-84bc-610dd049c8b3",
+      "operationKey": "5bf96f20-c01f-479f-83c2-35248765d235:embedding:3a871e99-e887-40ac-b53c-34c20ef701e0",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-19T07:37:19.639855Z",
+      "finishedAt": "2026-10-19T07:37:19.733960Z"
+    },
+    {
+      "callId": "0b692047-c784-4d79-853c-c3578598005a",
+      "operationKey": "5bf96f20-c01f-479f-83c2-35248765d235:generation:d4665ba5-2c03-4fab-bd46-861e7640e960",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1759,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:37:19.743230Z",
+      "finishedAt": "2026-10-19T07:37:22.679891Z"
+    }
+  ]
+}

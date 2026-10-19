@@ -1,0 +1,41 @@
+
+Running 2 tests using 1 worker
+
+(node:155580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:155580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\phase3-agent-real.spec.ts:4:1 › 真实 Agent 已保存运行：轨迹、预算、引用与导出只读验证 (2.5s)
+  x  2 tests\phase4-real-readonly.spec.ts:3:1 › 真实异步评测已保存结果：只读任务、快照引用与导出 (1.4s)
+
+
+  1) tests\phase4-real-readonly.spec.ts:3:1 › 真实异步评测已保存结果：只读任务、快照引用与导出 ─────────────────────────────
+
+    Error: locator.selectOption: options[0]: expected object, got undefined
+
+      12 |   const response = await page.request.get(`/api/evaluations/${id}`, { headers }); expect(response.ok()).toBe(true);
+      13 |   const run = await response.json(); expect(run.taskStatus).toBe('SUCCEEDED'); expect(run.partial).toBe(false); expect(run.config.modelMode).toBe('real');
+    > 14 |   await page.locator('#knowledge-base').selectOption(run.kbId);
+         |                                         ^
+      15 |   await page.getByRole('button', { name: '处理任务', exact: true }).click();
+      16 |   const task = page.locator(`[data-task-id="${id}"]`); await expect(task.locator('.badge')).toHaveText('任务完成');
+      17 |   await expect(task).toContainText('恢复代次 1'); await task.getByRole('button', { name: '任务详情', exact: true }).click();
+        at F:\CiteBase\frontend\tests\phase4-real-readonly.spec.ts:14:41
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-real-phase4\phase4-real-readonly-真实异步评测已保存结果：只读任务、快照引用与导出\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-real-phase4\phase4-real-readonly-真实异步评测已保存结果：只读任务、快照引用与导出\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results-real-phase4\phase4-real-readonly-真实异步评测已保存结果：只读任务、快照引用与导出\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results-real-phase4\phase4-real-readonly-真实异步评测已保存结果：只读任务、快照引用与导出\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\phase4-real-readonly.spec.ts:3:1 › 真实异步评测已保存结果：只读任务、快照引用与导出 ──────────────────────────────
+  1 passed (6.9s)

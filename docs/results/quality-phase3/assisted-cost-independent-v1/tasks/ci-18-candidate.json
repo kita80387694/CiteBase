@@ -1,0 +1,135 @@
+{
+  "id": "fa9b1d93-03d4-4986-8c5f-963b9b62b309",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "fa9b1d93-03d4-4986-8c5f-963b9b62b309",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-18-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-18-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+              "groupId": "g1",
+              "endOffset": 55,
+              "paragraph": 1,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+              "groupId": "g2",
+              "endOffset": 94,
+              "paragraph": 2,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 44,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+          "answerable": true,
+          "expectedAnswer": "不一定；停止公开，内部按原授权处理"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-9eff2e01c9852a5b8191f648427de51f88e09bafc59f04acaa029290b042",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:10:33.141802Z",
+  "startedAt": "2026-10-10T13:10:33.151916Z",
+  "finishedAt": "2026-10-10T13:11:09.105080Z",
+  "availableAt": "2026-10-10T13:10:33.141802Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "4b84dce8-676c-4440-8340-d05241ed5b98",
+      "operationKey": "822bcadf-0dde-438b-a483-c1cd93a0bc80:embedding:80d93dd8-841e-4fe9-ab05-02024377fc9a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:10:33.173972Z",
+      "finishedAt": "2026-10-10T13:10:33.266696Z"
+    },
+    {
+      "callId": "a3cc3593-8a45-44b4-9358-ddec60a52955",
+      "operationKey": "822bcadf-0dde-438b-a483-c1cd93a0bc80:generation:33581e2b-179c-4a5a-a161-dfd96af74a1f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1683,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-10-10T13:10:33.273901Z",
+      "finishedAt": "2026-10-10T13:11:04.240918Z"
+    },
+    {
+      "callId": "134470f9-5952-476a-8b7f-24815a9e0982",
+      "operationKey": "82d14c15-8901-4d62-9213-69de59d4c008:embedding:53310f47-146b-417a-b7e9-78475369a4b4",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:11:04.261663Z",
+      "finishedAt": "2026-10-10T13:11:04.660894Z"
+    },
+    {
+      "callId": "5d4dfa08-d57f-4cb6-b336-73a62aa09b66",
+      "operationKey": "82d14c15-8901-4d62-9213-69de59d4c008:generation:a9b144f1-9b1e-4036-bdee-eb96ce94a386",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1704,
+        "completionTokens": 49
+      },
+      "startedAt": "2026-10-10T13:11:04.676014Z",
+      "finishedAt": "2026-10-10T13:11:09.089711Z"
+    }
+  ]
+}

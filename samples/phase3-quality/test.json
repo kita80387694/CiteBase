@@ -1,0 +1,909 @@
+{
+  "version": "citebase-phase3-quality-v1",
+  "seed": 20260930,
+  "split": "test",
+  "questions": [
+    {
+      "id": "aster-001",
+      "question": "接收一份 Aster 样本至少要登记哪两项采集信息？",
+      "answerable": true,
+      "expectedAnswer": "地点、日期",
+      "category": "事实",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-002",
+      "question": "Aster 干燥种子多久复检一次，保存温度是多少？",
+      "answerable": true,
+      "expectedAnswer": "180天；4摄氏度",
+      "category": "表格",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 135,
+          "endOffset": 212,
+          "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-003",
+      "question": "Aster 湿样和干样的复检间隔差多少天？",
+      "answerable": true,
+      "expectedAnswer": "173天",
+      "category": "表格",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 135,
+          "endOffset": 212,
+          "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-004",
+      "question": "Aster 30粒中萌发24粒但缺采集日期，能分发吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；检测达标但资料不完整",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "aster-005",
+      "question": "Aster 库存79粒、资料完整且检测通过，可以先发1粒吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；库存不足80粒",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-006",
+      "question": "Aster 缺地点记录应找谁提交、谁审核，检测员能代批吗？",
+      "answerable": true,
+      "expectedAnswer": "采集人提交、库管审核；检测员不能代批",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 50,
+          "endOffset": 93,
+          "quote": "Aster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-007",
+      "question": "Aster 补发后只剩49粒，沿用原单号就可以放行吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；补发也须保留至少50粒",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 133,
+          "endOffset": 175,
+          "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-008",
+      "question": "两个 Aster 容器的品种名一样，是否表示同一批？",
+      "answerable": true,
+      "expectedAnswer": "不表示；还须地点、日期、批次匹配",
+      "category": "歧义",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 269,
+          "endOffset": 319,
+          "quote": "Aster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-009",
+      "question": "Aster 正式库每批至少留下几粒？只需要这个数。",
+      "answerable": true,
+      "expectedAnswer": "50粒",
+      "category": "证据充分",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 219,
+          "endOffset": 257,
+          "quote": "Aster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-010",
+      "question": "Aster 老演练规则写40粒，本次AST分发能用它吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；正式库50粒",
+      "category": "近事实干扰",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 177,
+          "endOffset": 217,
+          "quote": "Aster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-011",
+      "question": "Aster 30粒中萌发23粒可以标记V-PASS吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以；至少24粒",
+      "category": "计算",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-012",
+      "question": "Aster 无标签容器放在已知样本旁，能按邻居编号补登记并分发吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；进入隔离架，不凭相邻恢复编号",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 95,
+          "endOffset": 131,
+          "quote": "Aster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-013",
+      "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；仅说明检测条件下萌发表现",
+      "category": "拒绝过度推断",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-014",
+      "question": "Aster 复检失败后，由谁通知已经领过样本的人？",
+      "answerable": true,
+      "expectedAnswer": "库管",
+      "category": "事实",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 48,
+          "quote": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-015",
+      "question": "Aster 80粒库存且其他条件都合格，一次最多分发多少粒？",
+      "answerable": true,
+      "expectedAnswer": "30粒，保留50粒",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-016",
+      "question": "Aster 同一张领用单再次补寄时，编号如何处理？",
+      "answerable": true,
+      "expectedAnswer": "原单号加新的补发序号",
+      "category": "同义",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 133,
+          "endOffset": 175,
+          "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-017",
+      "question": "Aster 种子在南方每亩能增产多少公斤？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-018",
+      "question": "Aster 库管的个人手机号码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-019",
+      "question": "Aster 保存柜应买哪家公司的产品？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-020",
+      "question": "Aster 当前真实库存总共多少粒？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-001",
+      "question": "Flint 录音开始前必须取得什么？",
+      "answerable": true,
+      "expectedAnswer": "受访者授权",
+      "category": "事实",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-002",
+      "question": "Flint 允许内部整理是否包含公开发布？",
+      "answerable": true,
+      "expectedAnswer": "不包含，分别授权",
+      "category": "歧义",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-003",
+      "question": "Flint 临时转写草稿保存多久？",
+      "answerable": true,
+      "expectedAnswer": "14天",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 108,
+          "endOffset": 178,
+          "quote": "Flint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-004",
+      "question": "Flint 授权记录比确认文字稿多保存几年？",
+      "answerable": true,
+      "expectedAnswer": "2年",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 108,
+          "endOffset": 178,
+          "quote": "Flint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-005",
+      "question": "Flint 为匿名发布替换姓名后，原授权能一起公开吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；原授权由档案员保管",
+      "category": "跨段落",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 57,
+          "endOffset": 106,
+          "quote": "Flint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-006",
+      "question": "Flint 受访者确认稿件就能上新的公开平台吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；确认不扩大授权，新增渠道需同意",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 230,
+          "endOffset": 272,
+          "quote": "Flint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-007",
+      "question": "Flint 一段话听不清但已有时间码，可以编顺句子通过审核吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；标听辨不清，不补写未说内容",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 223,
+          "quote": "Flint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-008",
+      "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+      "answerable": true,
+      "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 44,
+          "endOffset": 94,
+          "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-009",
+      "question": "Flint 引用访谈需哪三个定位字段？",
+      "answerable": true,
+      "expectedAnswer": "访谈编号、时间码、文字稿版本",
+      "category": "证据充分",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 141,
+          "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-010",
+      "question": "Flint 两次录音重复同一细节，是否足以称为已证实事实？",
+      "answerable": true,
+      "expectedAnswer": "不足；仍属于个人回忆",
+      "category": "近事实干扰",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 268,
+          "endOffset": 312,
+          "quote": "Flint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-011",
+      "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录",
+      "category": "跨段落",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 225,
+          "endOffset": 266,
+          "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-012",
+      "question": "Flint 两版句子冲突时直接删旧版是否符合审核表？",
+      "answerable": true,
+      "expectedAnswer": "不符合；保留版本并核验",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-013",
+      "question": "Flint 谁检查授权范围，谁核对匿名化？",
+      "answerable": true,
+      "expectedAnswer": "编辑检查授权；档案员核对匿名化",
+      "category": "事实",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-014",
+      "question": "Flint 公开稿暴露第三人姓名，已有发布授权可直接上网吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；遮蔽重新审核，授权和匿名化均需通过",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-015",
+      "question": "Flint 可以从受访者声线推断疾病并写进档案吗？",
+      "answerable": true,
+      "expectedAnswer": "不允许",
+      "category": "拒绝过度推断",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 274,
+          "endOffset": 313,
+          "quote": "Flint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-016",
+      "question": "Flint 查找一句话只提供受访者名字够吗？",
+      "answerable": true,
+      "expectedAnswer": "不够；需访谈编号、时间码、版本",
+      "category": "同义",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 141,
+          "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-017",
+      "question": "Flint 这位受访者患有什么疾病？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-018",
+      "question": "Flint 受访者未公开的真实身份证号是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-019",
+      "question": "Flint 某场历史事件究竟发生在哪个日期？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-020",
+      "question": "Flint 下一次访谈受访者的具体姓名是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    }
+  ]
+}

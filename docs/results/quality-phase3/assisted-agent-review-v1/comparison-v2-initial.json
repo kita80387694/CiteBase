@@ -1,0 +1,2099 @@
+{
+  "source": "ASSISTED",
+  "humanReviewed": false,
+  "unit": "unique answer; failures remain denominators; missing/disputed are unresolved, never removed",
+  "expectedScores": 39,
+  "receivedScores": 39,
+  "uniqueAnswers": 32,
+  "complete": false,
+  "qualitySelectable": false,
+  "byStrategy": {
+    "original": {
+      "answers": 8,
+      "failures": 2,
+      "missing": 0,
+      "disputed": 0,
+      "dimensions": {
+        "correctness": {
+          "CORRECT": 4,
+          "PARTIAL": 0,
+          "INCORRECT": 3,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "completeness": {
+          "CORRECT": 4,
+          "PARTIAL": 0,
+          "INCORRECT": 3,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "citationSupport": {
+          "SUPPORTED": 3,
+          "PARTIAL": 0,
+          "UNSUPPORTED": 0,
+          "NA": 5,
+          "UNRESOLVED": 0
+        },
+        "unsupportedContent": {
+          "NONE": 7,
+          "PRESENT": 0,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "refusal": {
+          "CORRECT_REFUSAL": 1,
+          "INCORRECT_REFUSAL": 3,
+          "NOT_REFUSED": 3,
+          "NA": 1,
+          "UNRESOLVED": 0
+        }
+      }
+    },
+    "combined-v1": {
+      "answers": 8,
+      "failures": 3,
+      "missing": 0,
+      "disputed": 2,
+      "dimensions": {
+        "correctness": {
+          "CORRECT": 3,
+          "PARTIAL": 0,
+          "INCORRECT": 2,
+          "NA": 1,
+          "UNRESOLVED": 2
+        },
+        "completeness": {
+          "CORRECT": 3,
+          "PARTIAL": 0,
+          "INCORRECT": 2,
+          "NA": 1,
+          "UNRESOLVED": 2
+        },
+        "citationSupport": {
+          "SUPPORTED": 1,
+          "PARTIAL": 0,
+          "UNSUPPORTED": 0,
+          "NA": 7,
+          "UNRESOLVED": 0
+        },
+        "unsupportedContent": {
+          "NONE": 5,
+          "PRESENT": 0,
+          "NA": 1,
+          "UNRESOLVED": 2
+        },
+        "refusal": {
+          "CORRECT_REFUSAL": 2,
+          "INCORRECT_REFUSAL": 2,
+          "NOT_REFUSED": 1,
+          "NA": 1,
+          "UNRESOLVED": 2
+        }
+      }
+    },
+    "grounded-answer-v1": {
+      "answers": 8,
+      "failures": 1,
+      "missing": 0,
+      "disputed": 0,
+      "dimensions": {
+        "correctness": {
+          "CORRECT": 5,
+          "PARTIAL": 0,
+          "INCORRECT": 2,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "completeness": {
+          "CORRECT": 5,
+          "PARTIAL": 0,
+          "INCORRECT": 2,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "citationSupport": {
+          "SUPPORTED": 3,
+          "PARTIAL": 0,
+          "UNSUPPORTED": 0,
+          "NA": 5,
+          "UNRESOLVED": 0
+        },
+        "unsupportedContent": {
+          "NONE": 7,
+          "PRESENT": 0,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "refusal": {
+          "CORRECT_REFUSAL": 2,
+          "INCORRECT_REFUSAL": 2,
+          "NOT_REFUSED": 3,
+          "NA": 1,
+          "UNRESOLVED": 0
+        }
+      }
+    },
+    "combined-grounded-v1": {
+      "answers": 8,
+      "failures": 5,
+      "missing": 0,
+      "disputed": 0,
+      "dimensions": {
+        "correctness": {
+          "CORRECT": 2,
+          "PARTIAL": 0,
+          "INCORRECT": 5,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "completeness": {
+          "CORRECT": 2,
+          "PARTIAL": 0,
+          "INCORRECT": 5,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "citationSupport": {
+          "SUPPORTED": 1,
+          "PARTIAL": 0,
+          "UNSUPPORTED": 0,
+          "NA": 7,
+          "UNRESOLVED": 0
+        },
+        "unsupportedContent": {
+          "NONE": 7,
+          "PRESENT": 0,
+          "NA": 1,
+          "UNRESOLVED": 0
+        },
+        "refusal": {
+          "CORRECT_REFUSAL": 1,
+          "INCORRECT_REFUSAL": 5,
+          "NOT_REFUSED": 1,
+          "NA": 1,
+          "UNRESOLVED": 0
+        }
+      }
+    }
+  },
+  "paired": {
+    "combined-v1": {
+      "cases": [
+        {
+          "caseId": "cobalt-019",
+          "original": 0,
+          "candidate": 1,
+          "difference": 1
+        },
+        {
+          "caseId": "brass-009",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-018",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "brass-014",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-004",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-012",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-011",
+          "original": 1,
+          "candidate": 0,
+          "difference": -1
+        },
+        {
+          "caseId": "brass-002",
+          "original": 1,
+          "candidate": 0,
+          "difference": -1
+        }
+      ],
+      "interval": {
+        "mean": -0.125,
+        "lower": -0.5,
+        "upper": 0.25,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    },
+    "grounded-answer-v1": {
+      "cases": [
+        {
+          "caseId": "cobalt-019",
+          "original": 0,
+          "candidate": 1,
+          "difference": 1
+        },
+        {
+          "caseId": "brass-009",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-018",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "brass-014",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-004",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-012",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-011",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "brass-002",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        }
+      ],
+      "interval": {
+        "mean": 0.125,
+        "lower": 0,
+        "upper": 0.375,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    },
+    "combined-grounded-v1": {
+      "cases": [
+        {
+          "caseId": "cobalt-019",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "brass-009",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-018",
+          "original": 1,
+          "candidate": 1,
+          "difference": 0
+        },
+        {
+          "caseId": "brass-014",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-004",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "elm-012",
+          "original": 0,
+          "candidate": 0,
+          "difference": 0
+        },
+        {
+          "caseId": "dahlia-011",
+          "original": 1,
+          "candidate": 0,
+          "difference": -1
+        },
+        {
+          "caseId": "brass-002",
+          "original": 1,
+          "candidate": 0,
+          "difference": -1
+        }
+      ],
+      "interval": {
+        "mean": -0.25,
+        "lower": -0.5,
+        "upper": 0,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    }
+  },
+  "rows": [
+    {
+      "packetId": "A001",
+      "caseId": "cobalt-019",
+      "strategy": "original",
+      "answerable": false,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A001",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "此包执行失败，仅有证据不足的兜底文本，不能据此认定完成了拒答判断。Cobalt资料只谈版本管理和发行状态，没有下一版上市时间；保留失败，五维均不计正确。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.5834644Z",
+            "naReasons": {
+              "citationSupport": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "unsupportedContent": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "completeness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "correctness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "refusal": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。"
+            }
+          },
+          "canonicalSha256": "6388c4a51afd161529019c9556bd93a555749cbfea522733ab491bc2cc209103"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      }
+    },
+    {
+      "packetId": "A002",
+      "caseId": "brass-009",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A002",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "回答30天，与参考答案一致且完整；实际引用[1] brass-b明确写测试录音保留30天，未混用旧件期限。没有无依据扩展，也未拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8612702Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "ce3a2aba9150897db91d5e50eb0255a2e62dfb5b69d6f3f274e6e17ae4698331"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A003",
+      "caseId": "brass-014",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A003",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "实际证据[1]把主管权限限定为内部排期、增加费用交客户批准，[2]还要求增加费用重新书面确认，足以回答不能替代。答复仅称证据不足，遗漏结论与批准主体，属于错误拒答；未编造业务事实，无实际引用可核验。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8615388Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "7f2213ae73c37ac8278c25818cc0b6cc1d57257d531f28d7a4aecbee77bc8ad7"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A004",
+      "caseId": "brass-009",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A004",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "回答30天，完整覆盖期限问题且符合参考答案。实际引用[1] brass-b.md明确写保存测试录音30天，支持唯一事实；无额外无依据内容，也未拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6051016Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "ca4c063b0f01b7f2d2c1f71c25f66f958fc3cfee96115c081dc857072b8c1868"
+        },
+        {
+          "score": {
+            "packetId": "A004",
+            "reviewer": "A",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "30天完整回答所问，与gold一致；核对实际[1]内容确为Brass测试录音保存30天，而非仅依据引用编号判断。无额外无依据内容，属于直接作答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8586805Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "b1b3cf9c3956c3831ea2122c84ae1135f099c93240fec43e6ce03a905cff36f1"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A005",
+      "caseId": "brass-009",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A005",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "回答测试录音保留30天，与gold一致；[1]实际正文明确规定30天，并区分旧件保留期限，因此引用充分。问题所需信息完整，无编造或拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.605354Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "20fc61595526cf576f63bd9efe93050de54a6841f77ba4fb7bdc9d922f0648e7"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A006",
+      "caseId": "elm-018",
+      "strategy": "original",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A006",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "Elm实际资料只有观测流程、SNR与保存规则，没有所指图片或天体身份；gold也无可答内容。执行正常，回答明确说明证据不足，充分完成不可回答题的处理，没有猜测天体名称，正确性及完整性均为CORRECT；无引用，citationSupport仍NA。口径澄清：端到端正确处理包括正常正确拒答",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:21:25.0360482Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "7c275b811546552f1faeab189fcacd02c79509393a656827263a8fe178f3d6f9"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A007",
+      "caseId": "cobalt-019",
+      "strategy": "grounded-answer-v1",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A007",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "Cobalt实际资料介绍发行登记、校验及版次管理，未提供下一版上市时间；gold亦为不可回答。明确说明证据不足恰当完成本题，未猜测日期，无业务断言和引用需检查。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8602121Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "9a446ea8744fd3f20a24782c9162ebdf244b9587a499b42e0b5aa224e38785f5"
+        },
+        {
+          "score": {
+            "packetId": "A007",
+            "reviewer": "B",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "Cobalt实际两份资料只说明版本管理、发行校验与ISSUED标记，没有下一版上市日期，其余材料也不能补足。执行正常，回答明确拒绝推测上市日期，完整且正确处理问题，无捏造，正确性及完整性改为CORRECT；无引用，citationSupport仍NA。口径澄清：端到端正确处理包括正常正确拒答",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:21:25.0489666Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "437c2c39f2560698c07b7e167a3ccb3faf8140d42e492158ccb6cff6894a2a27"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A008",
+      "caseId": "dahlia-004",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": true,
+      "disputed": true,
+      "originalValues": {
+        "correctness": null,
+        "completeness": null,
+        "citationSupport": "NA",
+        "unsupportedContent": null,
+        "refusal": null
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A008",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "保留executionFailed=true背景，但实际呈现的是拒答。[1]同时含手钻可续一次及下一位已预约则禁止续期，足以判定本情境不能续借。拒答没有给出该结论与限制原因，正确性和完整性均不合格；未编造业务事实，未提供引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8591085Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "e3ef2d81c4de4304ca7c1aeb79f1c5fbf3a63ff734c5ab6057506ebc82378699"
+        },
+        {
+          "score": {
+            "packetId": "A008",
+            "reviewer": "B",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "执行失败导致仅留兜底文本，不能当作正确拒答或成功回答。[1]实际同时提供手钻可续一次及已被下一位预约不许续期规则，gold应为不能；此次无可评价的成功生成答案，五维标NA保留失败。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.606038Z",
+            "naReasons": {
+              "citationSupport": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "unsupportedContent": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "completeness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "correctness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "refusal": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。"
+            }
+          },
+          "canonicalSha256": "0715bd5452cd70a96bdf5ef6d2f91e1cc8c06e96484119578e6ea4d6afb66398"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": null,
+        "completeness": null,
+        "citationSupport": "NA",
+        "unsupportedContent": null,
+        "refusal": null
+      }
+    },
+    {
+      "packetId": "A009",
+      "caseId": "elm-012",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A009",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "[1]明示SNR达到12不表示发现新天体，[2]明确教学台不发布发现结论，可答不可以。实际只说证据不足，遗漏全部所需结论，因此正确性和完整性均错误且属错误拒答；未新增领域事实，无引用可评。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.606226Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "760b976169f08a366490aa8cb5f0b8ebc78ceb1778598f6010663ad3470401c1"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A010",
+      "caseId": "brass-014",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A010",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "此包executionFailed为真，只有兜底拒答，不能评价为正确。实际[1]排班表区分主管内部排期与客户增加费用授权，[2]要求加费重新书面确认，足以支持gold不能；执行失败使五维生成质量不可评。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6064012Z",
+            "naReasons": {
+              "citationSupport": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "unsupportedContent": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "completeness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "correctness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "refusal": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。"
+            }
+          },
+          "canonicalSha256": "2c0eed44be82457f837ab1c2c02b3cc0c8ac93ac28e4dc54ee9f83c7d99f399d"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      }
+    },
+    {
+      "packetId": "A011",
+      "caseId": "brass-014",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A011",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "该项执行失败，但存在实际拒答文本，不能计为正确。[1]明确主管批准排期、客户批准加费，[2]要求加费重新书面确认，支持gold的不能替代。答复完全漏答可确定结论，构成错误拒答；无业务内容编造，也无引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8610376Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "abf0d4b441b76d714bd52f614ca67483f31ae31d53bc5e8723b8822bb7b2fd76"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A012",
+      "caseId": "brass-002",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A012",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "61a148b12372592aa90e10f56a776fd795d4b80d5f7f2daa9fe2f54b3c920828",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "完整给出NFF为未复现故障及不能据此认定客户撒谎，两点与gold一致。实际[1]逐句支持定义与不代表客户描述虚假；推论没有越出证据。“不能”是在回答判断问题，不是拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8610072Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "de64cc4420a84125dff9b74902b0629ee402fd042cc57c916f0859530eae04f8"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A013",
+      "caseId": "brass-002",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": true,
+      "disputed": true,
+      "originalValues": {
+        "correctness": null,
+        "completeness": null,
+        "citationSupport": "NA",
+        "unsupportedContent": null,
+        "refusal": null
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A013",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "虽然标记执行失败，仍按实际输出的证据不足拒答评价，不算正确。实际[1]已明确NFF定义及不代表客户描述虚假，可回答两个子问题；现答均未覆盖。没有虚构业务事实，未含引用，故引用维度不适用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8371277Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "2cce860205253c63be996263ffa16989126fa41e630581296204518a9b4aa7dc"
+        },
+        {
+          "score": {
+            "packetId": "A013",
+            "reviewer": "B",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "此包执行失败，兜底文本不是成功生成的答案。[1]实际明确NFF是未复现故障且不代表客户描述虚假，gold两个要点都有证据；没有有效答案，五维NA，不能把失败算作正确拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6065859Z",
+            "naReasons": {
+              "citationSupport": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "unsupportedContent": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "completeness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "correctness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "refusal": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。"
+            }
+          },
+          "canonicalSha256": "063ecfc42805263bdcd198b4d07de2b754c2dd8a778ca980d8f5f411c9bea9d3"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": null,
+        "completeness": null,
+        "citationSupport": "NA",
+        "unsupportedContent": null,
+        "refusal": null
+      }
+    },
+    {
+      "packetId": "A014",
+      "caseId": "dahlia-011",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A014",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "实际[1]雨天表明确手钻禁止室外使用、手推车归还擦干检查，与gold一致。但执行失败只留下证据不足兜底，未形成实质答案；五维NA保留该失败，不计正确。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6067786Z",
+            "naReasons": {
+              "citationSupport": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "unsupportedContent": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "completeness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "correctness": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。",
+              "refusal": "执行失败，仅有兜底文本，缺少可评的成功生成答案；该维度不计为正确。"
+            }
+          },
+          "canonicalSha256": "f695af6606030085c5d011bb21b0e16a8c887771b9f7e9761428db758838672a"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      }
+    },
+    {
+      "packetId": "A015",
+      "caseId": "elm-012",
+      "strategy": "combined-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A015",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "实际[1]说明教学SNR达标不表示发现新天体，[2]进一步禁止教学台发布发现结论，完全足以回答不可以。证据不足的拒答错误且没有完成问题；无实质新增事实，无引用故引用支持NA。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6069652Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "7dadb18da72f6d561c3494688e88ecb8d97de243ca456b25ee37e8d6daa86bd4"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A016",
+      "caseId": "elm-018",
+      "strategy": "combined-v1",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A016",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "所给Elm文本没有具体图片或天体名称，只含教学观测管理，其他资料不能识别图中目标。执行正常，回答证据不足与gold不可回答相符，已完整交代无法识别，正确性及完整性均为CORRECT；未编造，无引用，citationSupport仍NA。口径澄清：端到端正确处理包括正常正确拒答",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:21:25.0492208Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "6db6a06b6706fd66093279f9601485fca35dbc79bea2b7d685f3e8ee0d5af54f"
+        },
+        {
+          "score": {
+            "packetId": "A016",
+            "reviewer": "A",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "实际Elm材料只有观测、信噪比、保存和交接制度，未给出所指图像或其中天体身份，gold不可回答。称证据不足合理，未擅自命名天体，拒答满足本题；没有引用可判定支持度。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8600646Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "4e26fde35a4f6d19f00a522fee0fa1380d35e3b0949d8d6b14d1e0050f65f31d"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A017",
+      "caseId": "elm-012",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A017",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "gold为不可以，实际[1]SNR定义段与[2]教学台不发布发现结论均直接支持。回答却称证据不足，没有给出否定结论，故错误且不完整，属于错误拒答；无领域编造，无引用可核。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.607319Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "50ae617a130b1dfe4ab945ce97d3133811d7ade17ca288545c4ebb87f4a32d7d"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A018",
+      "caseId": "dahlia-004",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A018",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "[1]实际借期表虽给手钻一次续期额度，紧接规则明确有下一位预约即不得续期。因此首个借期也不能续，gold可直接得到；回答拒绝作答而缺失结论，正确性完整性错误。没有实质无据断言，也没有引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6074977Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "dffeaf50cb392f57821c73a73729d58eb940fdca9d59d2575212daabb1b1d39d"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A019",
+      "caseId": "dahlia-004",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A019",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "实际[1]既有手钻3天一次续期表，也有下一预约优先的禁止续期条件。题设已满足禁止条件，应答不能；仅称证据不足是错误拒答，未覆盖答案要点。没有捏造规则，未给引用，引用维度NA。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6076736Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "b15cb30838b7cdbdd9d36e92d25e93a05adb572bc944918898002289dfd06679"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A020",
+      "caseId": "dahlia-004",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A020",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "执行失败记录保留，实际拒答不计正确。[1]的续期表允许手钻通常续一次，但其后明确已有下一预约不允许续期；本题应回答不能并说明预约限制。答复未覆盖任何要点，属于错误拒答；没有编造工具规则且无引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8617553Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "fb9949fbb8e7a4512ef5e4551d597dea8f1ceae6a2e283e13a7494060936e943"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A021",
+      "caseId": "elm-012",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A021",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "实际[1]明确达到教学SNR阈值不表示发现新天体，[2]明确教学台不发布发现结论；与gold不可以一致，完全可回答。现答仅称证据不足，结论与依据均缺失，属错误拒答；没有生成额外业务事实或引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8598970Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "1faf3876485e8ba45486bf684c78a70e906fee8d901606e22dd42f1d9736e398"
+        },
+        {
+          "score": {
+            "packetId": "A021",
+            "reviewer": "B",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "实际Elm证据[1]直接说达SNR阈值不表示发现新天体，[2]说不发布发现结论，足够回答gold不可以。拒答并非这个否定事实答案，故正确性完整性均错误且拒答不当；无新增事实，无引用可评。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6078453Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "ddd91b39b1c34faff4e33a04a48848cc6c179115e1e92f9f0f7b42ee283545c7"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A022",
+      "caseId": "cobalt-019",
+      "strategy": "combined-v1",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A022",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "gold未给上市时间，实际Cobalt证据也仅说明出版登记及发布前校验，不含下一版计划。证据不足的拒答符合材料边界并完整处理不可回答问题，没有臆造日期；未含可评估引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8623329Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "1923b162b27f7468aea1399244c2765624a65090506483da5ffadf7abd5933cf"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A023",
+      "caseId": "brass-002",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A023",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "本项标记执行失败，不能当作成功正确回答。就实际拒答文本而言，[1]已提供未复现故障定义及不能据此说描述虚假，两点均有gold对应，而回答完全缺失；因此是错误拒答。没有无依据业务扩展，无引用可审。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8620636Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "be7fe7667ae408f9e4083521ecbc1c28ca540729921835ba44d97d8ce08136c1"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A024",
+      "caseId": "elm-018",
+      "strategy": "combined-grounded-v1",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A024",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "实际Elm材料只有教学规则，没有所指图像或可识别天体信息，gold也无参考答案。执行正常，证据不足的拒答完整且正确处理不可回答问题，正确性及完整性均为CORRECT；无猜测，无引用，citationSupport仍NA。口径澄清：端到端正确处理包括正常正确拒答",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:21:25.0494355Z",
+            "naReasons": {
+              "citationSupport": "回答没有引用或需要核验的实质答案断言，无法评估引用支持。"
+            }
+          },
+          "canonicalSha256": "5b50ef7b23b76ee21a14293de6f1d78f52002523780210a0ddee7e38f2ed88e9"
+        },
+        {
+          "score": {
+            "packetId": "A024",
+            "reviewer": "A",
+            "role": "SECONDARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "没有图像识别材料或特定天体名称；实际Elm证据为教学观测制度，不能从SNR或滤镜规定推出图中身份，与不可回答gold一致。拒答合理完整且未猜测；未使用引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8596450Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "17f88646c4d2025a83779c110f53b4c104684c34ec7289b9d125304793391bb6"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A025",
+      "caseId": "dahlia-011",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A025",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "5b017ad0d2f9cfea34e082c1a9306c593520479ac541ac064aee6ccd9c10241d",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "准确区分雨天电动手钻室外禁止、手推车使用后归还擦干检查，完整回答并非两者都禁止。实际[1]雨天表支持两种处理，与gold一致；手推车未被禁止是合理概括，无无依据内容，否定式结论不是拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8622996Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "74bf19cf6d0297e155d7228d0f1433d21d17a60629fb80eb7cd4f5fe7df36732"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A026",
+      "caseId": "brass-002",
+      "strategy": "original",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A026",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "61a148b12372592aa90e10f56a776fd795d4b80d5f7f2daa9fe2f54b3c920828",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "准确给出NFF为未复现故障，并说明不能据此断言客户撒谎，两个gold要点均完整。[1] brass-a.md实际原文明示定义及不代表客户描述虚假，充分支持引用和推论；无无据内容。不能说撒谎是事实回答，不是拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6082153Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "71b9ac00cc9d79e78223b6a82cbc9cef77b760104dcb5727b387af46c19b663a"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A027",
+      "caseId": "cobalt-019",
+      "strategy": "combined-grounded-v1",
+      "answerable": false,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A027",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "NA",
+            "completeness": "NA",
+            "citationSupport": "NA",
+            "unsupportedContent": "NA",
+            "refusal": "NA",
+            "rationale": "虽gold为不可回答，且Cobalt实际证据未提供下一版上市时间，但本项executionFailed=true，只呈现通用证据不足兜底文本；无法确认有效生成的拒答判断。按执行失败且无有效答案处理，各维度NA，尤其不将失败兜底计为正确拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8625818Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。",
+              "correctness": "执行失败，仅有通用兜底，无法评估有效生成答案的正确性，不计为正确。",
+              "completeness": "执行失败，没有有效实质答案可衡量覆盖程度。",
+              "unsupportedContent": "执行失败，没有有效生成内容可评价是否存在无依据扩展。",
+              "refusal": "执行失败的兜底拒答不能证明系统作出正确拒答决定。"
+            }
+          },
+          "canonicalSha256": "ff2fbd54d2e7e30437e1b940746564ce90d3ca5de343d80753bd3416886bdba5"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "NA",
+        "completeness": "NA",
+        "citationSupport": "NA",
+        "unsupportedContent": "NA",
+        "refusal": "NA"
+      }
+    },
+    {
+      "packetId": "A028",
+      "caseId": "dahlia-011",
+      "strategy": "grounded-answer-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A028",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "70e242626c12798846ec2acec9180cb7a8dc14dd13499648994cbda395335a3d",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "正确区分雨天电动手钻禁用与手推车可用但归还擦干检查，覆盖gold全部要点。[1]实际雨天表分别列明这两项，支持答案及不是都禁止的结论；无扩展编造，否定都禁用不是拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6083897Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "57943a0e19ad380b4386f915b2f04ea6d965a33ab735ab84a4bd0147849bb92e"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    },
+    {
+      "packetId": "A029",
+      "caseId": "elm-018",
+      "strategy": "grounded-answer-v1",
+      "answerable": false,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A029",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "CORRECT_REFUSAL",
+            "rationale": "实际材料仅列Elm观测流程、图像保存和发现结论限制，没有所问图像的天体识别信息，gold亦不可回答。说明证据不足合理并足以回应，未虚构名称；没有引文需判定。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8607609Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "97c0f4a656558ce45fd94eb391d68d5cc9cd2dd1c427c25d2c40631d15ca5d7e"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "CORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A030",
+      "caseId": "dahlia-011",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A030",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "保留执行失败状态，实际拒答仍未完成可回答题。[1]雨天表明确电动手钻室外禁止、手推车归还后擦干检查，可直接回答不是两者都禁止。答复未给出差异或结论，属错误拒答；没有编造业务事实，未给引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8613020Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "e7f16f22ef95d7ad18f77bd66d6a7ae2167fdf3f4555450872fb8134bb7df8d7"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A031",
+      "caseId": "brass-014",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": true,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A031",
+            "reviewer": "A",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+            "correctness": "INCORRECT",
+            "completeness": "INCORRECT",
+            "citationSupport": "NA",
+            "unsupportedContent": "NONE",
+            "refusal": "INCORRECT_REFUSAL",
+            "rationale": "executionFailed=true不等于回答正确；实际[1]岗位表区分主管排期与客户加费权限，[2]进一步要求加费书面确认，足以回答主管批准不能替代客户批准。通用拒答未回答任一要点，属于错误拒答；无业务事实编造和引用。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:12.8604353Z",
+            "naReasons": {
+              "citationSupport": "实际输出为无引用的拒答或失败兜底，没有可核验的答案引文。"
+            }
+          },
+          "canonicalSha256": "826e62f22f3515bf7c51735f6a5870e596fe0259a01ed37637a32d10e5ee8782"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "INCORRECT",
+        "completeness": "INCORRECT",
+        "citationSupport": "NA",
+        "unsupportedContent": "NONE",
+        "refusal": "INCORRECT_REFUSAL"
+      }
+    },
+    {
+      "packetId": "A032",
+      "caseId": "brass-009",
+      "strategy": "combined-grounded-v1",
+      "answerable": true,
+      "executionFailed": false,
+      "missing": false,
+      "originalDisputed": false,
+      "disputed": false,
+      "originalValues": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      },
+      "originalScores": [
+        {
+          "score": {
+            "packetId": "A032",
+            "reviewer": "B",
+            "role": "PRIMARY",
+            "source": "ASSISTED",
+            "answerSha256": "7c440bc929834846498332afaff54eee968c820fa08871fccd9d6c7054a8e4bb",
+            "correctness": "CORRECT",
+            "completeness": "CORRECT",
+            "citationSupport": "SUPPORTED",
+            "unsupportedContent": "NONE",
+            "refusal": "NOT_REFUSED",
+            "rationale": "回答30天，直接且完整回答保留期限，与gold一致。实际引用[1] brass-b.md明确保存测试录音30天，支持该事实，未混淆旧件14天规则；无无据新增内容或拒答。",
+            "ruleVersion": "citebase-assisted-quality-v1",
+            "reviewedAt": "2026-10-01T07:18:25.6085652Z",
+            "naReasons": {}
+          },
+          "canonicalSha256": "809427faba9f4015b8385ad4f6e1093675af90d7c26ba611cceba6922ef36b10"
+        }
+      ],
+      "resolvedBy": null,
+      "dimensions": {
+        "correctness": "CORRECT",
+        "completeness": "CORRECT",
+        "citationSupport": "SUPPORTED",
+        "unsupportedContent": "NONE",
+        "refusal": "NOT_REFUSED"
+      }
+    }
+  ],
+  "assistedEligibility": {
+    "original": {
+      "eligibleByAssistedGates": null,
+      "correctUniqueAnswers": 4,
+      "qualityGainVsOriginal": null
+    },
+    "combined-v1": {
+      "eligibleByAssistedGates": null,
+      "correctUniqueAnswers": 3,
+      "qualityGainVsOriginal": null
+    },
+    "grounded-answer-v1": {
+      "eligibleByAssistedGates": null,
+      "correctUniqueAnswers": 5,
+      "qualityGainVsOriginal": null
+    },
+    "combined-grounded-v1": {
+      "eligibleByAssistedGates": null,
+      "correctUniqueAnswers": 2,
+      "qualityGainVsOriginal": null
+    }
+  },
+  "selection": {
+    "status": "BLOCKED_INCOMPLETE_OR_DISPUTED",
+    "selected": null,
+    "defaultChanged": false,
+    "reason": "Report only. Eligibility also requires citation/permission regression, no fabricated unanswerable responses, failures<=original, correctness>=original; tie requires observed external calls and P95. No quality gain retains original."
+  },
+  "inputs": [
+    {
+      "file": "docs/results/quality-phase3/assisted-agent-review-v1/packets.json",
+      "sha256": "5a712aeeb5306144b32cf8e28f272acbf9c626098d7f84c600852b645546d6c9"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-agent-review-v1/private-mapping.json",
+      "sha256": "46a4c2f8d4ad4bec7a0c3b8da5f1a617ff598370846b0c95cb63d3bef85005eb"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-agent-review-v1/scores-A.json",
+      "sha256": "e567aa8c7f9e4ab8b8112365b609b21d6d9044336fddd904058d262076cc732d"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-agent-review-v1/scores-B-v2.json",
+      "sha256": "4763999c3ebc8365df686d09ff801c0143cc612ce18ed67bc67e1d162ac2b649"
+    }
+  ]
+}

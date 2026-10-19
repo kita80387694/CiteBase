@@ -1,0 +1,160 @@
+{
+  "configuration": {
+    "frozenAt": "2026-09-29T05:36:15.129Z",
+    "candidate": "c-rerank",
+    "profileId": "structure900",
+    "options": {
+      "candidateK": 40,
+      "keywordWeight": 1,
+      "rerank": true,
+      "citationStyle": "uuid"
+    },
+    "eligibleForRecommendation": true,
+    "adoptAsDefault": false,
+    "defaultDecision": "Keep universal legacy defaults; experimental pipeline remains explicit opt-in because this is a small self-authored corpus and reranker requires optional credentials.",
+    "baselineScore": {
+      "recall": 0.8210227272727273,
+      "mrr": 0.8041666666666667,
+      "errors": 20
+    },
+    "devScore": {
+      "recall": 1,
+      "mrr": 0.9659090909090909,
+      "errors": 4
+    },
+    "rule": "Full dev evidence only; test not yet read. Experimental candidate evaluated even if defaults retained."
+  },
+  "sourceIds": [
+    "test-frozen-0",
+    "test-frozen-1",
+    "test-frozen-2",
+    "test-frozen-3",
+    "test-frozen-4",
+    "test-frozen-5",
+    "test-frozen-6"
+  ],
+  "summary": {
+    "vector": {
+      "count": 52,
+      "answerable": 44,
+      "recallAtK": 1,
+      "mrr": 1,
+      "errorCount": 0,
+      "errorRate": 0,
+      "citationValidCount": 52,
+      "correctAbstentionCount": 8,
+      "unanswerable": 8,
+      "humanCorrectness": null,
+      "retrievalMs": {
+        "count": 52,
+        "mean": 1063.5384615384614,
+        "p50": 958,
+        "p95": 1635
+      },
+      "totalMs": {
+        "count": 52,
+        "mean": 9262.23076923077,
+        "p50": 6825,
+        "p95": 22888
+      },
+      "usage": {
+        "chatPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 85773
+        },
+        "chatCompletion": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 3539
+        },
+        "embeddingPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 1061
+        },
+        "embeddingTotal": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 1061
+        },
+        "rerankPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 299675
+        },
+        "rerankCompletion": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 0
+        },
+        "rerankTotal": {
+          "availableCount": 0,
+          "unavailableCount": 52,
+          "observedSum": null
+        }
+      }
+    },
+    "hybrid": {
+      "count": 52,
+      "answerable": 44,
+      "recallAtK": 1,
+      "mrr": 1,
+      "errorCount": 0,
+      "errorRate": 0,
+      "citationValidCount": 52,
+      "correctAbstentionCount": 8,
+      "unanswerable": 8,
+      "humanCorrectness": null,
+      "retrievalMs": {
+        "count": 52,
+        "mean": 1147.2692307692307,
+        "p50": 1066,
+        "p95": 1568
+      },
+      "totalMs": {
+        "count": 52,
+        "mean": 9679.48076923077,
+        "p50": 6646,
+        "p95": 22736
+      },
+      "usage": {
+        "chatPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 86319
+        },
+        "chatCompletion": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 4036
+        },
+        "embeddingPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 1061
+        },
+        "embeddingTotal": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 1061
+        },
+        "rerankPrompt": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 365073
+        },
+        "rerankCompletion": {
+          "availableCount": 52,
+          "unavailableCount": 0,
+          "observedSum": 0
+        },
+        "rerankTotal": {
+          "availableCount": 0,
+          "unavailableCount": 52,
+          "observedSum": null
+        }
+      }
+    }
+  }
+}

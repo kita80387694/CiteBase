@@ -1,0 +1,9 @@
+{
+  "verifiedAt": "2026-09-28T07:59:39.485Z",
+  "method": "Read PostgreSQL stored payloads; compare results/config with immutable raw files after removing export-only manualScore=null where present from comparison copies. Raw files not modified. No test quality inspected.",
+  "runs": 20,
+  "rows": 312,
+  "appendedNulls": 32,
+  "result": "passed",
+  "initialAttempts": "Direct comparison detected export-only manualScore fields absent from storage; GET export appends null but direct POST result does not. Both representations normalized only for that verified nullable field."
+}

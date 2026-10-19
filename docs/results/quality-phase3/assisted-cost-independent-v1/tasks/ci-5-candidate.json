@@ -1,0 +1,125 @@
+{
+  "id": "c1d8a9d0-e3d4-450a-8395-624f81519d6f",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "c1d8a9d0-e3d4-450a-8395-624f81519d6f",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-5-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-5-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+              "groupId": "g1",
+              "endOffset": 228,
+              "paragraph": 4,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 143,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 两版句子冲突时直接删旧版是否符合审核表？",
+          "answerable": true,
+          "expectedAnswer": "不符合；保留版本并核验"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-6035c51d676ee9c2f6b3b7c9ffa916767a264a3fc4a66d1ccc1a30f0c552",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:18:05.546405Z",
+  "startedAt": "2026-10-01T08:18:05.858580Z",
+  "finishedAt": "2026-10-01T08:18:28.320672Z",
+  "availableAt": "2026-10-01T08:18:05.546405Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "b4016268-bd71-4889-b894-f77768f6db62",
+      "operationKey": "7ad48c7b-fa32-4590-8cda-6cec26bda34e:embedding:0a61f2f8-9dc5-4b2d-a5a6-9df3e355d2a3",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-01T08:18:05.882661Z",
+      "finishedAt": "2026-10-01T08:18:06.141060Z"
+    },
+    {
+      "callId": "69855e0c-8097-40ee-8402-b319cb421b32",
+      "operationKey": "7ad48c7b-fa32-4590-8cda-6cec26bda34e:generation:28926151-ffaf-4bff-8157-604efa1dee27",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1709,
+        "completionTokens": 73
+      },
+      "startedAt": "2026-10-01T08:18:06.149037Z",
+      "finishedAt": "2026-10-01T08:18:25.558225Z"
+    },
+    {
+      "callId": "cc63c2ab-f9eb-40a0-b3a3-304b47805366",
+      "operationKey": "70114f32-79ae-4363-b1ab-460b63a611c6:embedding:ab9b00c2-1349-4b3f-acff-600cd847a632",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-01T08:18:25.584935Z",
+      "finishedAt": "2026-10-01T08:18:25.842678Z"
+    },
+    {
+      "callId": "e58289ad-a047-4ab6-9d89-3a13916fcbf0",
+      "operationKey": "70114f32-79ae-4363-b1ab-460b63a611c6:generation:6c75bf58-a092-442e-b8b5-9bfb11f88ba5",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1709,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:18:25.852569Z",
+      "finishedAt": "2026-10-01T08:18:28.299875Z"
+    }
+  ]
+}

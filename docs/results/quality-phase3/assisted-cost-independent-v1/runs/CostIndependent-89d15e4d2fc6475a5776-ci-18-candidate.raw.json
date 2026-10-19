@@ -1,0 +1,2349 @@
+{
+  "id": "fa9b1d93-03d4-4986-8c5f-963b9b62b309",
+  "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-18-candidate",
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-18-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+              "groupId": "g1",
+              "endOffset": 55,
+              "paragraph": 1,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+              "groupId": "g2",
+              "endOffset": 94,
+              "paragraph": 2,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 44,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+          "answerable": true,
+          "expectedAnswer": "不一定；停止公开，内部按原授权处理"
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 5,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+        "name": "elm-a.md",
+        "chunk_size": 900,
+        "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+        "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+        "name": "cobalt-a.md",
+        "chunk_size": 900,
+        "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+        "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+        "name": "cobalt-b.md",
+        "chunk_size": 900,
+        "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+        "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+        "name": "dahlia-a.md",
+        "chunk_size": 900,
+        "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+        "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+        "name": "dahlia-b.md",
+        "chunk_size": 900,
+        "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+        "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+        "name": "brass-a.md",
+        "chunk_size": 900,
+        "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+        "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+        "name": "flint-b.md",
+        "chunk_size": 900,
+        "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+        "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+        "name": "aster-b.md",
+        "chunk_size": 900,
+        "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+        "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+        "name": "flint-a.md",
+        "chunk_size": 900,
+        "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+        "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "d140608e-691c-499b-aff9-f05da99336dd",
+        "name": "elm-b.md",
+        "chunk_size": 900,
+        "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+        "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+        "name": "aster-a.md",
+        "chunk_size": 900,
+        "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+        "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+        "name": "brass-b.md",
+        "chunk_size": 900,
+        "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+        "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "retrievalCost": {
+      "cache": {
+        "scope": "process-local",
+        "version": "authorized-retrieval-v1",
+        "maxBytes": 8000000,
+        "maxEntries": 128,
+        "ttlSeconds": 300
+      },
+      "version": "retrieval-cost-v1",
+      "deduplicate": false,
+      "cacheEnabled": false,
+      "rerankPolicy": "candidate-pressure-v1",
+      "dedupAlgorithm": "exact-provider-input-expand-v1"
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [
+    {
+      "id": "62171fd1-66a6-42ce-99a6-cd807143e679",
+      "mrr": 1,
+      "mode": "vector",
+      "error": null,
+      "group": "flint",
+      "split": "test",
+      "topic": "flint",
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      "answer": "根据证据，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依据原授权范围决定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+      "caseId": "ci-18-0",
+      "totalMs": 31072,
+      "category": "跨文档",
+      "evidence": [
+        {
+          "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+          "page": 1,
+          "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "score": 0.7281492352485657,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+          "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+          "startOffset": 0,
+          "documentName": "flint-b.md"
+        },
+        {
+          "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+          "page": 1,
+          "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+          "score": 0.6896002292633057,
+          "endOffset": 312,
+          "paragraph": 1,
+          "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+          "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+          "startOffset": 0,
+          "documentName": "flint-a.md"
+        },
+        {
+          "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.5639588496709566,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+          "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.502517908661491,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+          "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+          "page": 1,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "score": 0.46134813014710363,
+          "endOffset": 287,
+          "paragraph": 1,
+          "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+          "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+          "startOffset": 0,
+          "documentName": "dahlia-b.md"
+        }
+      ],
+      "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+          "page": 1,
+          "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "score": 0.7281492352485657,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+          "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+          "startOffset": 0,
+          "documentName": "flint-b.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "cost": {
+          "cache": {
+            "scope": "EVALUATION_SNAPSHOT",
+            "config": {
+              "scope": "process-local",
+              "version": "authorized-retrieval-v1",
+              "maxBytes": 8000000,
+              "maxEntries": 128,
+              "ttlSeconds": 300
+            },
+            "status": "OFF"
+          },
+          "dedupMapping": [
+            {
+              "index": 0,
+              "chunkIds": [
+                "10d8c425-b615-4766-ac9d-59b5c896cf89"
+              ]
+            },
+            {
+              "index": 1,
+              "chunkIds": [
+                "5b83d8af-97e1-4c16-866b-850d3e653f32"
+              ]
+            },
+            {
+              "index": 2,
+              "chunkIds": [
+                "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b"
+              ]
+            },
+            {
+              "index": 3,
+              "chunkIds": [
+                "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+              ]
+            },
+            {
+              "index": 4,
+              "chunkIds": [
+                "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03"
+              ]
+            }
+          ],
+          "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+          "rawCandidateCount": 5,
+          "uniqueRerankInputs": 5,
+          "currentProviderCalls": {
+            "rerank": 0,
+            "embedding": 1
+          },
+          "savedInputCharacters": 0
+        },
+        "trace": {
+          "fused": [
+            {
+              "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+              "page": 1,
+              "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "score": 0.7281492352485657,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            },
+            {
+              "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+              "page": 1,
+              "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "score": 0.6896002292633057,
+              "endOffset": 312,
+              "paragraph": 1,
+              "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+              "page": 1,
+              "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+              "score": 0.5639588496709566,
+              "endOffset": 311,
+              "paragraph": 1,
+              "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.502517908661491,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+              "page": 1,
+              "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+              "score": 0.46134813014710363,
+              "endOffset": 287,
+              "paragraph": 1,
+              "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "startOffset": 0,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+              "page": 1,
+              "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "score": 0.7281492352485657,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            },
+            {
+              "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+              "page": 1,
+              "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "score": 0.6896002292633057,
+              "endOffset": 312,
+              "paragraph": 1,
+              "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+              "page": 1,
+              "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+              "score": 0.5639588496709566,
+              "endOffset": 311,
+              "paragraph": 1,
+              "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.502517908661491,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+              "page": 1,
+              "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+              "score": 0.46134813014710363,
+              "endOffset": 287,
+              "paragraph": 1,
+              "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "startOffset": 0,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 2,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 96,
+          "generationMs": 30971
+        },
+        "aliasMap": {},
+        "rawAnswer": "根据证据，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依据原授权范围决定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+        "dataVersions": [
+          {
+            "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "name": "elm-a.md",
+            "chunk_size": 900,
+            "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+            "name": "cobalt-a.md",
+            "chunk_size": 900,
+            "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+            "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "name": "cobalt-b.md",
+            "chunk_size": 900,
+            "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "name": "dahlia-a.md",
+            "chunk_size": 900,
+            "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+            "name": "dahlia-b.md",
+            "chunk_size": 900,
+            "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+            "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+            "name": "brass-a.md",
+            "chunk_size": 900,
+            "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+            "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "name": "flint-b.md",
+            "chunk_size": 900,
+            "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "name": "aster-b.md",
+            "chunk_size": 900,
+            "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "name": "flint-a.md",
+            "chunk_size": 900,
+            "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d140608e-691c-499b-aff9-f05da99336dd",
+            "name": "elm-b.md",
+            "chunk_size": 900,
+            "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "name": "aster-a.md",
+            "chunk_size": 900,
+            "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+            "name": "brass-b.md",
+            "chunk_size": 900,
+            "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+            "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 5,
+          "vector": 5,
+          "keyword": 0,
+          "selected": 5,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 99,
+      "promptTokens": 1683,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+      "completionTokens": 48,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1",
+          "endOffset": 55,
+          "paragraph": 1,
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "startOffset": 0,
+          "documentName": "flint-a.md"
+        },
+        {
+          "page": 1,
+          "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+          "groupId": "g2",
+          "endOffset": 94,
+          "paragraph": 2,
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "startOffset": 44,
+          "documentName": "flint-b.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 2,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 2,
+      "manualScore": null
+    },
+    {
+      "id": "83784939-e8f6-40ae-a6c4-86e1ab9d784d",
+      "mrr": 1,
+      "mode": "hybrid",
+      "error": null,
+      "group": "flint",
+      "split": "test",
+      "topic": "flint",
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 20,
+          "promptTokens": 20
+        }
+      },
+      "answer": "根据当前资料，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依原授权范围而定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+      "caseId": "ci-18-0",
+      "totalMs": 4831,
+      "category": "跨文档",
+      "evidence": [
+        {
+          "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+          "page": 1,
+          "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "score": 0.03278688524590164,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+          "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+          "startOffset": 0,
+          "documentName": "flint-b.md"
+        },
+        {
+          "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+          "page": 1,
+          "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+          "score": 0.03225806451612903,
+          "endOffset": 312,
+          "paragraph": 1,
+          "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+          "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+          "startOffset": 0,
+          "documentName": "flint-a.md"
+        },
+        {
+          "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+          "page": 1,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "score": 0.03149801587301587,
+          "endOffset": 311,
+          "paragraph": 1,
+          "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+          "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+          "startOffset": 0,
+          "documentName": "cobalt-b.md"
+        },
+        {
+          "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+          "page": 1,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "score": 0.015873015873015872,
+          "endOffset": 331,
+          "paragraph": 1,
+          "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+          "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+          "startOffset": 0,
+          "documentName": "brass-a.md"
+        },
+        {
+          "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.015625,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+          "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        }
+      ],
+      "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+          "page": 1,
+          "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "score": 0.03278688524590164,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+          "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+          "startOffset": 0,
+          "documentName": "flint-b.md"
+        }
+      ],
+      "modelMode": "real",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "cost": {
+          "cache": {
+            "scope": "EVALUATION_SNAPSHOT",
+            "config": {
+              "scope": "process-local",
+              "version": "authorized-retrieval-v1",
+              "maxBytes": 8000000,
+              "maxEntries": 128,
+              "ttlSeconds": 300
+            },
+            "status": "OFF"
+          },
+          "dedupMapping": [
+            {
+              "index": 0,
+              "chunkIds": [
+                "10d8c425-b615-4766-ac9d-59b5c896cf89"
+              ]
+            },
+            {
+              "index": 1,
+              "chunkIds": [
+                "5b83d8af-97e1-4c16-866b-850d3e653f32"
+              ]
+            },
+            {
+              "index": 2,
+              "chunkIds": [
+                "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b"
+              ]
+            },
+            {
+              "index": 3,
+              "chunkIds": [
+                "49ff513b-d6ee-470e-999c-6bac41f162f6"
+              ]
+            },
+            {
+              "index": 4,
+              "chunkIds": [
+                "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+              ]
+            }
+          ],
+          "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+          "rawCandidateCount": 5,
+          "uniqueRerankInputs": 5,
+          "currentProviderCalls": {
+            "rerank": 0,
+            "embedding": 1
+          },
+          "savedInputCharacters": 0
+        },
+        "trace": {
+          "fused": [
+            {
+              "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+              "page": 1,
+              "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "score": 0.03278688524590164,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            },
+            {
+              "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+              "page": 1,
+              "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "score": 0.03225806451612903,
+              "endOffset": 312,
+              "paragraph": 1,
+              "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+              "page": 1,
+              "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+              "score": 0.03149801587301587,
+              "endOffset": 311,
+              "paragraph": 1,
+              "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            },
+            {
+              "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+              "page": 1,
+              "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+              "score": 0.015873015873015872,
+              "endOffset": 331,
+              "paragraph": 1,
+              "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "startOffset": 0,
+              "documentName": "brass-a.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.015625,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+              "page": 1,
+              "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "score": 0.7274792356801502,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            },
+            {
+              "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+              "page": 1,
+              "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "score": 0.6886671371062328,
+              "endOffset": 312,
+              "paragraph": 1,
+              "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+              "page": 1,
+              "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+              "score": 0.5644291562522463,
+              "endOffset": 311,
+              "paragraph": 1,
+              "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.5027994510174452,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+              "page": 1,
+              "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+              "score": 0.4617658119867518,
+              "endOffset": 287,
+              "paragraph": 1,
+              "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "startOffset": 0,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+              "page": 1,
+              "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "score": 2.200000047683716,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            },
+            {
+              "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+              "page": 1,
+              "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "score": 1.7000000476837158,
+              "endOffset": 312,
+              "paragraph": 1,
+              "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+              "page": 1,
+              "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+              "score": 0.6000000238418579,
+              "endOffset": 331,
+              "paragraph": 1,
+              "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "startOffset": 0,
+              "documentName": "brass-a.md"
+            },
+            {
+              "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+              "page": 1,
+              "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+              "score": 0.4000000059604645,
+              "endOffset": 311,
+              "paragraph": 1,
+              "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "startOffset": 0,
+              "documentName": "cobalt-b.md"
+            },
+            {
+              "id": "309a916f-3a56-4df1-bdeb-f58aac1a51c3",
+              "page": 1,
+              "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+              "score": 0.30000001192092896,
+              "endOffset": 283,
+              "paragraph": 1,
+              "versionId": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+              "documentId": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+              "startOffset": 0,
+              "documentName": "brass-b.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 3,
+          "keywordMs": 5,
+          "citationMs": 0,
+          "embeddingMs": 403,
+          "generationMs": 4417
+        },
+        "aliasMap": {},
+        "rawAnswer": "根据当前资料，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依原授权范围而定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+        "dataVersions": [
+          {
+            "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "name": "elm-a.md",
+            "chunk_size": 900,
+            "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+            "name": "cobalt-a.md",
+            "chunk_size": 900,
+            "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+            "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "name": "cobalt-b.md",
+            "chunk_size": 900,
+            "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "name": "dahlia-a.md",
+            "chunk_size": 900,
+            "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+            "name": "dahlia-b.md",
+            "chunk_size": 900,
+            "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+            "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+            "name": "brass-a.md",
+            "chunk_size": 900,
+            "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+            "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "name": "flint-b.md",
+            "chunk_size": 900,
+            "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "name": "aster-b.md",
+            "chunk_size": 900,
+            "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "name": "flint-a.md",
+            "chunk_size": 900,
+            "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d140608e-691c-499b-aff9-f05da99336dd",
+            "name": "elm-b.md",
+            "chunk_size": 900,
+            "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "name": "aster-a.md",
+            "chunk_size": 900,
+            "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+            "name": "brass-b.md",
+            "chunk_size": 900,
+            "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+            "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 5,
+          "vector": 5,
+          "keyword": 5,
+          "selected": 5,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 413,
+      "promptTokens": 1704,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+      "completionTokens": 49,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1",
+          "endOffset": 55,
+          "paragraph": 1,
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "startOffset": 0,
+          "documentName": "flint-a.md"
+        },
+        {
+          "page": 1,
+          "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+          "groupId": "g2",
+          "endOffset": 94,
+          "paragraph": 2,
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "startOffset": 44,
+          "documentName": "flint-b.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 2,
+      "referenceAnswerMatch": false,
+      "hitEvidenceGroupCount": 2,
+      "manualScore": null
+    }
+  ],
+  "createdAt": "2026-10-10T13:10:33.136215718Z",
+  "modelMode": "real",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "SUCCEEDED",
+  "taskStatus": "SUCCEEDED",
+  "taskId": "fa9b1d93-03d4-4986-8c5f-963b9b62b309",
+  "progress": {
+    "total": 2,
+    "completed": 2,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [],
+  "partial": false,
+  "canScore": true,
+  "error": null,
+  "attempts": [
+    {
+      "id": "822bcadf-0dde-438b-a483-c1cd93a0bc80",
+      "case_id": "ci-18-0",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "62171fd1-66a6-42ce-99a6-cd807143e679",
+        "mrr": 1,
+        "mode": "vector",
+        "error": null,
+        "group": "flint",
+        "split": "test",
+        "topic": "flint",
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        "answer": "根据证据，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依据原授权范围决定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+        "caseId": "ci-18-0",
+        "totalMs": 31072,
+        "category": "跨文档",
+        "evidence": [
+          {
+            "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+            "page": 1,
+            "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+            "score": 0.7281492352485657,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "startOffset": 0,
+            "documentName": "flint-b.md"
+          },
+          {
+            "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+            "page": 1,
+            "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+            "score": 0.6896002292633057,
+            "endOffset": 312,
+            "paragraph": 1,
+            "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "startOffset": 0,
+            "documentName": "flint-a.md"
+          },
+          {
+            "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+            "page": 1,
+            "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+            "score": 0.5639588496709566,
+            "endOffset": 311,
+            "paragraph": 1,
+            "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "startOffset": 0,
+            "documentName": "cobalt-b.md"
+          },
+          {
+            "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+            "page": 1,
+            "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+            "score": 0.502517908661491,
+            "endOffset": 259,
+            "paragraph": 1,
+            "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+            "startOffset": 0,
+            "documentName": "elm-b.md"
+          },
+          {
+            "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+            "page": 1,
+            "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+            "score": 0.46134813014710363,
+            "endOffset": 287,
+            "paragraph": 1,
+            "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+            "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+            "startOffset": 0,
+            "documentName": "dahlia-b.md"
+          }
+        ],
+        "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+            "page": 1,
+            "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+            "score": 0.7281492352485657,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "startOffset": 0,
+            "documentName": "flint-b.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "cost": {
+            "cache": {
+              "scope": "EVALUATION_SNAPSHOT",
+              "config": {
+                "scope": "process-local",
+                "version": "authorized-retrieval-v1",
+                "maxBytes": 8000000,
+                "maxEntries": 128,
+                "ttlSeconds": 300
+              },
+              "status": "OFF"
+            },
+            "dedupMapping": [
+              {
+                "index": 0,
+                "chunkIds": [
+                  "10d8c425-b615-4766-ac9d-59b5c896cf89"
+                ]
+              },
+              {
+                "index": 1,
+                "chunkIds": [
+                  "5b83d8af-97e1-4c16-866b-850d3e653f32"
+                ]
+              },
+              {
+                "index": 2,
+                "chunkIds": [
+                  "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b"
+                ]
+              },
+              {
+                "index": 3,
+                "chunkIds": [
+                  "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+                ]
+              },
+              {
+                "index": 4,
+                "chunkIds": [
+                  "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03"
+                ]
+              }
+            ],
+            "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+            "rawCandidateCount": 5,
+            "uniqueRerankInputs": 5,
+            "currentProviderCalls": {
+              "rerank": 0,
+              "embedding": 1
+            },
+            "savedInputCharacters": 0
+          },
+          "trace": {
+            "fused": [
+              {
+                "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+                "page": 1,
+                "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+                "score": 0.7281492352485657,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+                "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+                "startOffset": 0,
+                "documentName": "flint-b.md"
+              },
+              {
+                "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+                "page": 1,
+                "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+                "score": 0.6896002292633057,
+                "endOffset": 312,
+                "paragraph": 1,
+                "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+                "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+                "startOffset": 0,
+                "documentName": "flint-a.md"
+              },
+              {
+                "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+                "page": 1,
+                "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+                "score": 0.5639588496709566,
+                "endOffset": 311,
+                "paragraph": 1,
+                "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+                "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+                "startOffset": 0,
+                "documentName": "cobalt-b.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.502517908661491,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+                "page": 1,
+                "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+                "score": 0.46134813014710363,
+                "endOffset": 287,
+                "paragraph": 1,
+                "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+                "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+                "startOffset": 0,
+                "documentName": "dahlia-b.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+                "page": 1,
+                "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+                "score": 0.7281492352485657,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+                "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+                "startOffset": 0,
+                "documentName": "flint-b.md"
+              },
+              {
+                "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+                "page": 1,
+                "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+                "score": 0.6896002292633057,
+                "endOffset": 312,
+                "paragraph": 1,
+                "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+                "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+                "startOffset": 0,
+                "documentName": "flint-a.md"
+              },
+              {
+                "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+                "page": 1,
+                "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+                "score": 0.5639588496709566,
+                "endOffset": 311,
+                "paragraph": 1,
+                "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+                "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+                "startOffset": 0,
+                "documentName": "cobalt-b.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.502517908661491,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+                "page": 1,
+                "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+                "score": 0.46134813014710363,
+                "endOffset": 287,
+                "paragraph": 1,
+                "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+                "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+                "startOffset": 0,
+                "documentName": "dahlia-b.md"
+              }
+            ],
+            "keyword": []
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 2,
+            "keywordMs": 0,
+            "citationMs": 0,
+            "embeddingMs": 96,
+            "generationMs": 30971
+          },
+          "aliasMap": {},
+          "rawAnswer": "根据证据，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依据原授权范围决定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+          "dataVersions": [
+            {
+              "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "name": "elm-a.md",
+              "chunk_size": 900,
+              "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+              "name": "cobalt-a.md",
+              "chunk_size": 900,
+              "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+              "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "name": "cobalt-b.md",
+              "chunk_size": 900,
+              "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "name": "dahlia-a.md",
+              "chunk_size": 900,
+              "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "name": "dahlia-b.md",
+              "chunk_size": 900,
+              "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "name": "brass-a.md",
+              "chunk_size": 900,
+              "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "name": "flint-b.md",
+              "chunk_size": 900,
+              "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "name": "aster-b.md",
+              "chunk_size": 900,
+              "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "name": "flint-a.md",
+              "chunk_size": 900,
+              "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d140608e-691c-499b-aff9-f05da99336dd",
+              "name": "elm-b.md",
+              "chunk_size": 900,
+              "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "name": "aster-a.md",
+              "chunk_size": 900,
+              "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+              "name": "brass-b.md",
+              "chunk_size": 900,
+              "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+              "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 5,
+            "vector": 5,
+            "keyword": 0,
+            "selected": 5,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 99,
+        "promptTokens": 1683,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+        "completionTokens": 48,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+            "groupId": "g1",
+            "endOffset": 55,
+            "paragraph": 1,
+            "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "startOffset": 0,
+            "documentName": "flint-a.md"
+          },
+          {
+            "page": 1,
+            "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+            "groupId": "g2",
+            "endOffset": 94,
+            "paragraph": 2,
+            "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "startOffset": 44,
+            "documentName": "flint-b.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": true,
+          "candidateK": 5,
+          "rerankPolicy": "candidate-pressure-v1",
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 2,
+        "referenceAnswerMatch": false,
+        "hitEvidenceGroupCount": 2
+      },
+      "started_at": "2026-10-10T13:10:33.165692+00:00",
+      "finished_at": "2026-10-10T13:11:04.245593+00:00"
+    },
+    {
+      "id": "82d14c15-8901-4d62-9213-69de59d4c008",
+      "case_id": "ci-18-0",
+      "mode": "hybrid",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "83784939-e8f6-40ae-a6c4-86e1ab9d784d",
+        "mrr": 1,
+        "mode": "hybrid",
+        "error": null,
+        "group": "flint",
+        "split": "test",
+        "topic": "flint",
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 20,
+            "promptTokens": 20
+          }
+        },
+        "answer": "根据当前资料，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依原授权范围而定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+        "caseId": "ci-18-0",
+        "totalMs": 4831,
+        "category": "跨文档",
+        "evidence": [
+          {
+            "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+            "page": 1,
+            "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+            "score": 0.03278688524590164,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "startOffset": 0,
+            "documentName": "flint-b.md"
+          },
+          {
+            "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+            "page": 1,
+            "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+            "score": 0.03225806451612903,
+            "endOffset": 312,
+            "paragraph": 1,
+            "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "startOffset": 0,
+            "documentName": "flint-a.md"
+          },
+          {
+            "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+            "page": 1,
+            "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+            "score": 0.03149801587301587,
+            "endOffset": 311,
+            "paragraph": 1,
+            "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "startOffset": 0,
+            "documentName": "cobalt-b.md"
+          },
+          {
+            "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+            "page": 1,
+            "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+            "score": 0.015873015873015872,
+            "endOffset": 331,
+            "paragraph": 1,
+            "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+            "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+            "startOffset": 0,
+            "documentName": "brass-a.md"
+          },
+          {
+            "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+            "page": 1,
+            "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+            "score": 0.015625,
+            "endOffset": 259,
+            "paragraph": 1,
+            "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+            "startOffset": 0,
+            "documentName": "elm-b.md"
+          }
+        ],
+        "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+            "page": 1,
+            "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+            "score": 0.03278688524590164,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "startOffset": 0,
+            "documentName": "flint-b.md"
+          }
+        ],
+        "modelMode": "real",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "cost": {
+            "cache": {
+              "scope": "EVALUATION_SNAPSHOT",
+              "config": {
+                "scope": "process-local",
+                "version": "authorized-retrieval-v1",
+                "maxBytes": 8000000,
+                "maxEntries": 128,
+                "ttlSeconds": 300
+              },
+              "status": "OFF"
+            },
+            "dedupMapping": [
+              {
+                "index": 0,
+                "chunkIds": [
+                  "10d8c425-b615-4766-ac9d-59b5c896cf89"
+                ]
+              },
+              {
+                "index": 1,
+                "chunkIds": [
+                  "5b83d8af-97e1-4c16-866b-850d3e653f32"
+                ]
+              },
+              {
+                "index": 2,
+                "chunkIds": [
+                  "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b"
+                ]
+              },
+              {
+                "index": 3,
+                "chunkIds": [
+                  "49ff513b-d6ee-470e-999c-6bac41f162f6"
+                ]
+              },
+              {
+                "index": 4,
+                "chunkIds": [
+                  "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+                ]
+              }
+            ],
+            "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+            "rawCandidateCount": 5,
+            "uniqueRerankInputs": 5,
+            "currentProviderCalls": {
+              "rerank": 0,
+              "embedding": 1
+            },
+            "savedInputCharacters": 0
+          },
+          "trace": {
+            "fused": [
+              {
+                "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+                "page": 1,
+                "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+                "score": 0.03278688524590164,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+                "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+                "startOffset": 0,
+                "documentName": "flint-b.md"
+              },
+              {
+                "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+                "page": 1,
+                "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+                "score": 0.03225806451612903,
+                "endOffset": 312,
+                "paragraph": 1,
+                "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+                "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+                "startOffset": 0,
+                "documentName": "flint-a.md"
+              },
+              {
+                "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+                "page": 1,
+                "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+                "score": 0.03149801587301587,
+                "endOffset": 311,
+                "paragraph": 1,
+                "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+                "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+                "startOffset": 0,
+                "documentName": "cobalt-b.md"
+              },
+              {
+                "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+                "page": 1,
+                "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+                "score": 0.015873015873015872,
+                "endOffset": 331,
+                "paragraph": 1,
+                "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+                "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+                "startOffset": 0,
+                "documentName": "brass-a.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.015625,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+                "page": 1,
+                "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+                "score": 0.7274792356801502,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+                "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+                "startOffset": 0,
+                "documentName": "flint-b.md"
+              },
+              {
+                "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+                "page": 1,
+                "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+                "score": 0.6886671371062328,
+                "endOffset": 312,
+                "paragraph": 1,
+                "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+                "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+                "startOffset": 0,
+                "documentName": "flint-a.md"
+              },
+              {
+                "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+                "page": 1,
+                "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+                "score": 0.5644291562522463,
+                "endOffset": 311,
+                "paragraph": 1,
+                "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+                "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+                "startOffset": 0,
+                "documentName": "cobalt-b.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.5027994510174452,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "4e2cbf3b-c1c9-4b1b-b465-4f6427092e03",
+                "page": 1,
+                "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+                "score": 0.4617658119867518,
+                "endOffset": 287,
+                "paragraph": 1,
+                "versionId": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+                "documentId": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+                "startOffset": 0,
+                "documentName": "dahlia-b.md"
+              }
+            ],
+            "keyword": [
+              {
+                "id": "10d8c425-b615-4766-ac9d-59b5c896cf89",
+                "page": 1,
+                "text": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。\n\nFlint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。\n\nFlint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。\n\nFlint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |\n\nFlint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。\n\nFlint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+                "score": 2.200000047683716,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+                "documentId": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+                "startOffset": 0,
+                "documentName": "flint-b.md"
+              },
+              {
+                "id": "5b83d8af-97e1-4c16-866b-850d3e653f32",
+                "page": 1,
+                "text": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。\n\nFlint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。\n\nFlint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |\n\nFlint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。\n\nFlint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。\n\nFlint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+                "score": 1.7000000476837158,
+                "endOffset": 312,
+                "paragraph": 1,
+                "versionId": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+                "documentId": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+                "startOffset": 0,
+                "documentName": "flint-a.md"
+              },
+              {
+                "id": "49ff513b-d6ee-470e-999c-6bac41f162f6",
+                "page": 1,
+                "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+                "score": 0.6000000238418579,
+                "endOffset": 331,
+                "paragraph": 1,
+                "versionId": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+                "documentId": "7dfb1947-e476-4cce-8a71-47913be68504",
+                "startOffset": 0,
+                "documentName": "brass-a.md"
+              },
+              {
+                "id": "c6e82dad-c51c-431e-9d91-b6a0de7c3f4b",
+                "page": 1,
+                "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+                "score": 0.4000000059604645,
+                "endOffset": 311,
+                "paragraph": 1,
+                "versionId": "948c764f-a309-425a-8aff-3ec0a15654db",
+                "documentId": "104515a7-aa18-4662-97b2-412cda7305e5",
+                "startOffset": 0,
+                "documentName": "cobalt-b.md"
+              },
+              {
+                "id": "309a916f-3a56-4df1-bdeb-f58aac1a51c3",
+                "page": 1,
+                "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+                "score": 0.30000001192092896,
+                "endOffset": 283,
+                "paragraph": 1,
+                "versionId": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+                "documentId": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+                "startOffset": 0,
+                "documentName": "brass-b.md"
+              }
+            ]
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 3,
+            "keywordMs": 5,
+            "citationMs": 0,
+            "embeddingMs": 403,
+            "generationMs": 4417
+          },
+          "aliasMap": {},
+          "rawAnswer": "根据当前资料，Flint撤回公开授权后，内部资料不自动全部删除。具体处理方式依原授权范围而定 [10d8c425-b615-4766-ac9d-59b5c896cf89]。",
+          "dataVersions": [
+            {
+              "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "name": "elm-a.md",
+              "chunk_size": 900,
+              "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+              "name": "cobalt-a.md",
+              "chunk_size": 900,
+              "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+              "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "name": "cobalt-b.md",
+              "chunk_size": 900,
+              "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "name": "dahlia-a.md",
+              "chunk_size": 900,
+              "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "name": "dahlia-b.md",
+              "chunk_size": 900,
+              "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "name": "brass-a.md",
+              "chunk_size": 900,
+              "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "name": "flint-b.md",
+              "chunk_size": 900,
+              "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "name": "aster-b.md",
+              "chunk_size": 900,
+              "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "name": "flint-a.md",
+              "chunk_size": 900,
+              "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d140608e-691c-499b-aff9-f05da99336dd",
+              "name": "elm-b.md",
+              "chunk_size": 900,
+              "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "name": "aster-a.md",
+              "chunk_size": 900,
+              "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+              "name": "brass-b.md",
+              "chunk_size": 900,
+              "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+              "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 5,
+            "vector": 5,
+            "keyword": 5,
+            "selected": 5,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 413,
+        "promptTokens": 1704,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+        "completionTokens": 49,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+            "groupId": "g1",
+            "endOffset": 55,
+            "paragraph": 1,
+            "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "startOffset": 0,
+            "documentName": "flint-a.md"
+          },
+          {
+            "page": 1,
+            "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+            "groupId": "g2",
+            "endOffset": 94,
+            "paragraph": 2,
+            "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "startOffset": 44,
+            "documentName": "flint-b.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": true,
+          "candidateK": 5,
+          "rerankPolicy": "candidate-pressure-v1",
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 2,
+        "referenceAnswerMatch": false,
+        "hitEvidenceGroupCount": 2
+      },
+      "started_at": "2026-10-10T13:11:04.254908+00:00",
+      "finished_at": "2026-10-10T13:11:09.093623+00:00"
+    }
+  ],
+  "externalCalls": [
+    {
+      "call_id": "4b84dce8-676c-4440-8340-d05241ed5b98",
+      "operation_key": "822bcadf-0dde-438b-a483-c1cd93a0bc80:embedding:80d93dd8-841e-4fe9-ab05-02024377fc9a",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:10:33.173972+00:00",
+      "finished_at": "2026-10-10T13:10:33.266696+00:00"
+    },
+    {
+      "call_id": "a3cc3593-8a45-44b4-9358-ddec60a52955",
+      "operation_key": "822bcadf-0dde-438b-a483-c1cd93a0bc80:generation:33581e2b-179c-4a5a-a161-dfd96af74a1f",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 1683,
+        "completionTokens": 48
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:10:33.273901+00:00",
+      "finished_at": "2026-10-10T13:11:04.240918+00:00"
+    },
+    {
+      "call_id": "134470f9-5952-476a-8b7f-24815a9e0982",
+      "operation_key": "82d14c15-8901-4d62-9213-69de59d4c008:embedding:53310f47-146b-417a-b7e9-78475369a4b4",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:11:04.261663+00:00",
+      "finished_at": "2026-10-10T13:11:04.660894+00:00"
+    },
+    {
+      "call_id": "5d4dfa08-d57f-4cb6-b336-73a62aa09b66",
+      "operation_key": "82d14c15-8901-4d62-9213-69de59d4c008:generation:a9b144f1-9b1e-4036-bdee-eb96ce94a386",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 1704,
+        "completionTokens": 49
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:11:04.676014+00:00",
+      "finished_at": "2026-10-10T13:11:09.089711+00:00"
+    }
+  ],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 1,
+      "answerableCount": 1,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 99,
+      "totalMs": 31072
+    },
+    "hybrid": {
+      "count": 1,
+      "answerableCount": 1,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 413,
+      "totalMs": 4831
+    }
+  },
+  "breakdowns": {
+    "category": {
+      "跨文档": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 99,
+          "totalMs": 31072
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 413,
+          "totalMs": 4831
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 99,
+          "totalMs": 31072
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 413,
+          "totalMs": 4831
+        }
+      }
+    },
+    "group": {
+      "flint": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 99,
+          "totalMs": 31072
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 413,
+          "totalMs": 4831
+        }
+      }
+    },
+    "topic": {
+      "flint": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 99,
+          "totalMs": 31072
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 413,
+          "totalMs": 4831
+        }
+      }
+    }
+  },
+  "manualScores": []
+}

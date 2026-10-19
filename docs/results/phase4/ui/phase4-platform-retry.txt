@@ -1,0 +1,49 @@
+
+Running 1 test using 1 worker
+
+(node:146008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:146008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 (31.0s)
+
+
+  1) tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 ───────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.task').filter({ hasText: 'e2e-guide-1790667443494.txt' }).getByText('成功', { exact: true })
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.task').filter({ hasText: 'e2e-guide-1790667443494.txt' }).getByText('成功', { exact: true })[22m
+
+
+      60 |   const task = page.locator(".task").filter({ hasText: documentName });
+      61 |   await expect(task).toBeVisible();
+    > 62 |   await expect(task.getByText("成功", { exact: true })).toBeVisible();
+         |                                                       ^
+      63 |   await page.screenshot({
+      64 |     path: "test-results/screenshots/03-tasks.png",
+      65 |     fullPage: true,
+        at F:\CiteBase\frontend\tests\platform.spec.ts:62:55
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\platform-拒绝错误登录；从空知识库到索引、引用和评测的真实-UI-闭环\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\platform.spec.ts:3:1 › 拒绝错误登录；从空知识库到索引、引用和评测的真实 UI 闭环 ────────────────────────────────────

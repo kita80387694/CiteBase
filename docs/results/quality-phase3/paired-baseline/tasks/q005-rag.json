@@ -1,0 +1,124 @@
+{
+  "id": "023e62a3-f562-467b-986b-9435a8f6273b",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "023e62a3-f562-467b-986b-9435a8f6273b",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q005",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-016",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。",
+              "groupId": "g1",
+              "endOffset": 40,
+              "paragraph": 1,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 0,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 再次送修要建全新独立记录还是关联老单？",
+          "answerable": true,
+          "expectedAnswer": "原工单下建子单"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-0c89d9cdc0d79072e671073ad113e867d06f98a34f5cee3aba5e21d60854",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:38:18.471912Z",
+  "startedAt": "2026-09-30T06:38:18.511664Z",
+  "finishedAt": "2026-09-30T06:38:30.883349Z",
+  "availableAt": "2026-09-30T06:38:18.471912Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "d1f7a71c-5bc3-4ebe-88ae-ca134a4917a0",
+      "operationKey": "62b5a24d-6fa8-41fa-855a-67adb9ae8fba:embedding:f9abb00c-bd97-4e64-8083-be8b5c70407d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:38:18.531512Z",
+      "finishedAt": "2026-09-30T06:38:18.789973Z"
+    },
+    {
+      "callId": "131894c2-a537-4efa-bdbe-ba522c320ef0",
+      "operationKey": "62b5a24d-6fa8-41fa-855a-67adb9ae8fba:generation:5edcc7cf-641a-4ad1-aaec-c520389715f6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1745,
+        "completionTokens": 70
+      },
+      "startedAt": "2026-09-30T06:38:18.801776Z",
+      "finishedAt": "2026-09-30T06:38:24.392862Z"
+    },
+    {
+      "callId": "3c74b655-9d5a-47bb-9840-3e3c7ded39a1",
+      "operationKey": "23cdd537-f50c-4280-b9f3-ec2bc201d0aa:embedding:58ac3fea-0697-4cb3-90e7-9c2836b0dfe7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-09-30T06:38:24.412182Z",
+      "finishedAt": "2026-09-30T06:38:24.867787Z"
+    },
+    {
+      "callId": "d440a1d5-e2fc-4927-8766-22fb6b589ceb",
+      "operationKey": "23cdd537-f50c-4280-b9f3-ec2bc201d0aa:generation:df445785-74d9-46e6-823c-a5582b35f79f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 89
+      },
+      "startedAt": "2026-09-30T06:38:24.877143Z",
+      "finishedAt": "2026-09-30T06:38:30.869398Z"
+    }
+  ]
+}

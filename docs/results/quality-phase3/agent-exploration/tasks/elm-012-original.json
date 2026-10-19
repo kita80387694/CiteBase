@@ -1,0 +1,71 @@
+{
+  "id": "66de21df-60a8-48d3-981b-dea78ad179d3",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "66de21df-60a8-48d3-981b-dea78ad179d3",
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "maxAttempts": 2,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "66de21df-60a8-48d3-981b-dea78ad179d3"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T07:09:51.050052Z",
+  "startedAt": "2026-09-30T07:09:51.252966Z",
+  "finishedAt": "2026-09-30T07:10:00.924918Z",
+  "availableAt": "2026-09-30T07:09:51.050052Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "a9ecf44a-60b9-417d-ab23-08be4dcdf372",
+      "operationKey": "embedding:1d428e83-e8ba-44e8-b530-18ef9725e250",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-09-30T07:09:51.285087Z",
+      "finishedAt": "2026-09-30T07:09:51.563797Z"
+    },
+    {
+      "callId": "f2857526-fca1-40c4-ba74-bdec4c957601",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2407,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-09-30T07:09:51.607445Z",
+      "finishedAt": "2026-09-30T07:09:54.007488Z"
+    },
+    {
+      "callId": "2c80805d-9285-41de-863c-6efa730503ad",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1717,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T07:09:54.047630Z",
+      "finishedAt": "2026-09-30T07:10:00.899190Z"
+    }
+  ]
+}

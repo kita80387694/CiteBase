@@ -1,0 +1,124 @@
+{
+  "id": "c9824c25-5316-4cc1-aded-bc8bc27111c7",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "c9824c25-5316-4cc1-aded-bc8bc27111c7",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q010",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-009",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+              "groupId": "g1",
+              "endOffset": 247,
+              "paragraph": 5,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 215,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 测试录音保留多少天？",
+          "answerable": true,
+          "expectedAnswer": "30天"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-bcba78998866eb59e3da61ff1bd6a1c8be5387adf4ef031a1147bb814675",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:40:54.872708Z",
+  "startedAt": "2026-09-30T06:40:54.895020Z",
+  "finishedAt": "2026-09-30T06:41:09.358091Z",
+  "availableAt": "2026-09-30T06:40:54.872708Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "ec86e11a-342c-45fb-b392-99e839a64555",
+      "operationKey": "140bbb79-d0c3-42e9-ac1e-7e88531775fe:embedding:0149560e-65a6-4263-b8cc-a7b4b759caa1",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 11,
+        "promptTokens": 11
+      },
+      "startedAt": "2026-09-30T06:40:54.912574Z",
+      "finishedAt": "2026-09-30T06:40:55.190878Z"
+    },
+    {
+      "callId": "c6371641-3dbc-4bf8-9148-2da0382ffe5a",
+      "operationKey": "140bbb79-d0c3-42e9-ac1e-7e88531775fe:generation:50405af5-cc82-41fc-89d6-e520919d29e1",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1689,
+        "completionTokens": 35
+      },
+      "startedAt": "2026-09-30T06:40:55.195960Z",
+      "finishedAt": "2026-09-30T06:41:06.374459Z"
+    },
+    {
+      "callId": "2f936421-9ec1-4106-969d-a19bf3e6e5ec",
+      "operationKey": "8426fe0d-f5c3-4e49-9d93-089d14d5d711:embedding:16a88044-f646-4212-9f4d-4c707ed1e59c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 11,
+        "promptTokens": 11
+      },
+      "startedAt": "2026-09-30T06:41:06.400343Z",
+      "finishedAt": "2026-09-30T06:41:06.664287Z"
+    },
+    {
+      "callId": "e910a0b1-2128-41bc-8e62-629c983ebc83",
+      "operationKey": "8426fe0d-f5c3-4e49-9d93-089d14d5d711:generation:53164637-4e39-4356-ac39-a2549f0c1350",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1680,
+        "completionTokens": 35
+      },
+      "startedAt": "2026-09-30T06:41:06.671954Z",
+      "finishedAt": "2026-09-30T06:41:09.342678Z"
+    }
+  ]
+}

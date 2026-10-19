@@ -1,0 +1,125 @@
+{
+  "id": "1aa96827-43f4-443a-99dc-9dbf2accaae5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "1aa96827-43f4-443a-99dc-9dbf2accaae5",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-6-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-6-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "近事实干扰",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。",
+              "groupId": "g1",
+              "endOffset": 217,
+              "paragraph": 5,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 177,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 老演练规则写40粒，本次AST分发能用它吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；正式库50粒"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-5561197a0a6b22bf2bdbf96fd34c8837b1dfccfe9ac2ccd971a3de6144a1",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:18:37.707717Z",
+  "startedAt": "2026-10-01T08:18:37.945597Z",
+  "finishedAt": "2026-10-01T08:18:51.979044Z",
+  "availableAt": "2026-10-01T08:18:37.707717Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "c60df027-ca60-4d16-ae28-032f8b1dd1d8",
+      "operationKey": "e51c8854-16fc-43c7-b169-ff3c1babe14a:embedding:72a2da07-2e71-424d-a91c-804453be74c6",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-10-01T08:18:37.976715Z",
+      "finishedAt": "2026-10-01T08:18:38.284441Z"
+    },
+    {
+      "callId": "052c873f-e15b-4227-9fb6-808c1b7b5cf2",
+      "operationKey": "e51c8854-16fc-43c7-b169-ff3c1babe14a:generation:e76d971e-65bd-4185-93df-23551fcb5121",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1729,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:18:38.294899Z",
+      "finishedAt": "2026-10-01T08:18:45.279604Z"
+    },
+    {
+      "callId": "328609ac-972d-447e-bfbb-9a7bda8c02f2",
+      "operationKey": "8f1281c9-27c0-4a1c-9e70-3b3a1bb7134e:embedding:50e633a9-bc85-478f-8983-e52b84309234",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-10-01T08:18:45.303140Z",
+      "finishedAt": "2026-10-01T08:18:45.576318Z"
+    },
+    {
+      "callId": "c29dd4ea-b512-4821-868e-8f68fbf3cf40",
+      "operationKey": "8f1281c9-27c0-4a1c-9e70-3b3a1bb7134e:generation:df576926-c09e-420d-9f9a-c6c7c4dd7fca",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1774,
+        "completionTokens": 92
+      },
+      "startedAt": "2026-10-01T08:18:45.585858Z",
+      "finishedAt": "2026-10-01T08:18:51.963641Z"
+    }
+  ]
+}

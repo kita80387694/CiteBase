@@ -1,0 +1,134 @@
+{
+  "id": "80f74fa0-74fc-4cd6-b454-6fb551b7141a",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "80f74fa0-74fc-4cd6-b454-6fb551b7141a",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q011",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-006",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。",
+              "groupId": "g1",
+              "endOffset": 230,
+              "paragraph": 4,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 182,
+              "documentName": "brass-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Brass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。",
+              "groupId": "g2",
+              "endOffset": 89,
+              "paragraph": 2,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 42,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 技师完成两项测试后能自行通知取件吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；技师提交记录，接待员通知"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-3c011dd587f02714d857a609335ee22a513fe154bd3c2deccef387483ccb",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:41:25.571083Z",
+  "startedAt": "2026-09-30T06:41:25.973778Z",
+  "finishedAt": "2026-09-30T06:41:39.151562Z",
+  "availableAt": "2026-09-30T06:41:25.571083Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "56873038-406e-43a4-957f-07d246c25558",
+      "operationKey": "1716a715-93c0-4595-8f1a-3cc8135f128a:embedding:30656cd4-3fb1-4beb-8cd9-21897806198e",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:41:25.987089Z",
+      "finishedAt": "2026-09-30T06:41:26.252594Z"
+    },
+    {
+      "callId": "2852616c-7545-4c8c-879f-ec6b7d16014f",
+      "operationKey": "1716a715-93c0-4595-8f1a-3cc8135f128a:generation:901da1f7-575e-4069-adaa-bec4e3b21172",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1753,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:41:26.258418Z",
+      "finishedAt": "2026-09-30T06:41:36.344371Z"
+    },
+    {
+      "callId": "634b3872-dda7-4b32-874a-0eb94b00b405",
+      "operationKey": "f23fc5ee-0b0f-4672-8ebc-6e52739e6208:embedding:1f96866b-3bf7-4a87-8715-730555ac96c4",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:41:36.360591Z",
+      "finishedAt": "2026-09-30T06:41:36.617581Z"
+    },
+    {
+      "callId": "18d58941-c92c-498b-b01a-30ba7426e91d",
+      "operationKey": "f23fc5ee-0b0f-4672-8ebc-6e52739e6208:generation:524d3bf8-08f0-4dbe-af98-89ac3bb52cf0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1697,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:41:36.625218Z",
+      "finishedAt": "2026-09-30T06:41:39.138708Z"
+    }
+  ]
+}

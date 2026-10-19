@@ -1,0 +1,196 @@
+{
+  "id": "b26f48a7-c00c-4ec7-b767-18c262571205",
+  "name": "P4_GATE_CANCEL",
+  "config": {
+    "topK": 3,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "process-harness-v1",
+      "questions": [
+        {
+          "id": "P4_GATE_CANCEL",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "groupId": "recovery",
+              "endOffset": 32,
+              "paragraph": 1,
+              "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "question": "CiteBase 恢复规则是什么？ P4_GATE_CANCEL",
+          "answerable": true,
+          "expectedAnswer": "保留已完成检查点"
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "test-only-fixed-loopback-gate",
+      "modelMode": "mock",
+      "externalNetwork": true,
+      "qualityEvidence": false
+    },
+    "reranker": {
+      "provider": "disabled-in-mock",
+      "configured": false
+    },
+    "chatModel": "mock-process-gated-extract-v1",
+    "modelMode": "mock",
+    "candidateK": 10,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "6fa5a687-4e53-4dc9-bed0-0a4a046113d1",
+        "name": "competition.md",
+        "chunk_size": 900,
+        "version_id": "87789cba-f34b-4c70-a15f-55f1a179b455",
+        "content_hash": "ce66950162aadbd06da22d07636209ce2a38fff836dd165aee545950e806632b",
+        "chunk_overlap": 200,
+        "chunk_strategy": "legacy"
+      },
+      {
+        "id": "f5aa64ac-db49-4b35-8686-8d18f6ed721a",
+        "name": "stale-index.md",
+        "chunk_size": 900,
+        "version_id": "51ebf26b-f176-4f6e-ba27-dc639af1bf88",
+        "content_hash": "876268d786604c4cad183ce3dc783677b7c27d688ab7e30708b1e0e203e89e35",
+        "chunk_overlap": 200,
+        "chunk_strategy": "legacy"
+      },
+      {
+        "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+        "name": "process-harness.md",
+        "chunk_size": 900,
+        "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+        "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+        "chunk_overlap": 200,
+        "chunk_strategy": "legacy"
+      }
+    ],
+    "embeddingModel": "mock-hash-256-v1",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 10,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [],
+  "createdAt": "2026-09-29T07:33:58.142951200Z",
+  "modelMode": "mock",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "CANCELLED",
+  "taskStatus": "CANCELLED",
+  "taskId": "b26f48a7-c00c-4ec7-b767-18c262571205",
+  "progress": {
+    "total": 2,
+    "completed": 0,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [
+    {
+      "mode": "vector",
+      "status": "CANCELLED",
+      "caseId": "P4_GATE_CANCEL"
+    },
+    {
+      "mode": "hybrid",
+      "status": "CANCELLED",
+      "caseId": "P4_GATE_CANCEL"
+    }
+  ],
+  "partial": true,
+  "canScore": true,
+  "error": "CANCELLED",
+  "attempts": [
+    {
+      "id": "2a5ceccc-5773-46de-be1e-404281167894",
+      "case_id": "P4_GATE_CANCEL",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "STARTED",
+      "error_code": null,
+      "result": null,
+      "started_at": "2026-09-29T15:33:58.24244+08:00",
+      "finished_at": null
+    }
+  ],
+  "externalCalls": [
+    {
+      "call_id": "4107e3f3-73ef-4c61-b551-84aaf653ad49",
+      "operation_key": "2a5ceccc-5773-46de-be1e-404281167894:embedding:0ad3b000-b2ba-49b1-ad01-ad0b49ecf266",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:58.265752+08:00",
+      "finished_at": "2026-09-29T15:33:58.280008+08:00"
+    },
+    {
+      "call_id": "574bd6d7-1883-41f6-9e2a-4da1283a2c3a",
+      "operation_key": "2a5ceccc-5773-46de-be1e-404281167894:generation:7e70a2b8-b405-40eb-84a4-e98a1550348d",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": null,
+        "completionTokens": null
+      },
+      "outcome": "RETURNED_AFTER_CANCEL",
+      "started_at": "2026-09-29T15:33:58.29906+08:00",
+      "finished_at": "2026-09-29T15:33:58.378131+08:00"
+    }
+  ],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 0,
+      "answerableCount": 0,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": null,
+      "totalMs": null
+    },
+    "hybrid": {
+      "count": 0,
+      "answerableCount": 0,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": null,
+      "totalMs": null
+    }
+  },
+  "breakdowns": {
+    "category": {},
+    "split": {},
+    "group": {},
+    "topic": {}
+  },
+  "manualScores": []
+}

@@ -1,0 +1,142 @@
+{
+  "candidate": "c-rerank",
+  "sourceIds": [
+    "c-rerank",
+    "dev-confirm-0",
+    "dev-confirm-1",
+    "dev-confirm-2",
+    "dev-confirm-3",
+    "dev-confirm-4",
+    "dev-confirm-5",
+    "dev-confirm-6",
+    "dev-confirm-7",
+    "dev-confirm-8",
+    "dev-confirm-9",
+    "dev-confirm-10"
+  ],
+  "summary": {
+    "vector": {
+      "count": 104,
+      "answerable": 88,
+      "recallAtK": 1,
+      "mrr": 0.9659090909090909,
+      "errorCount": 0,
+      "errorRate": 0,
+      "citationValidCount": 104,
+      "correctAbstentionCount": 16,
+      "unanswerable": 16,
+      "humanCorrectness": null,
+      "retrievalMs": {
+        "count": 104,
+        "mean": 1088.6153846153845,
+        "p50": 988,
+        "p95": 1557
+      },
+      "totalMs": {
+        "count": 104,
+        "mean": 9421.798076923076,
+        "p50": 7613,
+        "p95": 22682
+      },
+      "usage": {
+        "chatPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 190926
+        },
+        "chatCompletion": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 8142
+        },
+        "embeddingPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 2134
+        },
+        "embeddingTotal": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 2134
+        },
+        "rerankPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 611385
+        },
+        "rerankCompletion": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 0
+        },
+        "rerankTotal": {
+          "availableCount": 0,
+          "unavailableCount": 104,
+          "observedSum": null
+        }
+      }
+    },
+    "hybrid": {
+      "count": 104,
+      "answerable": 88,
+      "recallAtK": 1,
+      "mrr": 0.9659090909090909,
+      "errorCount": 4,
+      "errorRate": 0.038461538461538464,
+      "citationValidCount": 100,
+      "correctAbstentionCount": 16,
+      "unanswerable": 16,
+      "humanCorrectness": null,
+      "retrievalMs": {
+        "count": 104,
+        "mean": 1094.298076923077,
+        "p50": 1010,
+        "p95": 1513
+      },
+      "totalMs": {
+        "count": 104,
+        "mean": 9421.259615384615,
+        "p50": 7441,
+        "p95": 22653
+      },
+      "usage": {
+        "chatPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 190868
+        },
+        "chatCompletion": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 8203
+        },
+        "embeddingPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 2134
+        },
+        "embeddingTotal": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 2134
+        },
+        "rerankPrompt": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 730678
+        },
+        "rerankCompletion": {
+          "availableCount": 104,
+          "unavailableCount": 0,
+          "observedSum": 0
+        },
+        "rerankTotal": {
+          "availableCount": 0,
+          "unavailableCount": 104,
+          "observedSum": null
+        }
+      }
+    }
+  },
+  "note": "Selected 16-case run reused, remaining 88 cases run once; all failures retained."
+}

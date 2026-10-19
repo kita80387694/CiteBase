@@ -1,0 +1,2489 @@
+{
+  "id": "fff066de-0120-44bd-990e-6c1a6785f335",
+  "name": "baseline-holdout-test-40-f48514ed",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:19:54.148966809Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "ember-015",
+          "question": "Ember 贯穿裂纹作品能完整交付吗；能用釉浆标签当食品安全认证来放行吗？",
+          "answerable": true,
+          "expectedAnswer": "不能完整交付，釉浆标签也不代表食品接触认证",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 8,
+              "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 400,
+              "endOffset": 481,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 16,
+              "quote": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 842,
+              "endOffset": 879,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-016",
+          "question": "Ember 前段从100度升到600度按标准斜率需要多久，不计保温？",
+          "answerable": true,
+          "expectedAnswer": "5小时",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 7,
+              "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 284,
+              "endOffset": 398,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 11,
+              "paragraph": 1,
+              "quote": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 91,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-017",
+          "question": "Ember 热电偶故障时有人说温度低于80度，开窑前还要什么确认？",
+          "answerable": true,
+          "expectedAnswer": "独立校准探头确认温度",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 6,
+              "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 243,
+              "endOffset": 282,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 2,
+              "paragraph": 1,
+              "quote": "Ember cooling card: a thermocouple fault blocks unloading until an independent\ncalibrated probe confirms the temperature.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 121,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-018",
+          "question": "Ember 卸件包装前应依据哪份图清点，这张图是否属于烧成记录？",
+          "answerable": true,
+          "expectedAnswer": "窑位图，属于烧成记录",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 12,
+              "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 664,
+              "endOffset": 705,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 16,
+              "paragraph": 1,
+              "quote": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 89,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-019",
+          "question": "Ember 断电后谁批准复烧，批准前对装载物还要做什么？",
+          "answerable": true,
+          "expectedAnswer": "窑务负责人，先检查装载物",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 14,
+              "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 758,
+              "endOffset": 795,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 1,
+              "paragraph": 1,
+              "quote": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 105,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-020",
+          "question": "Ember 标准釉烧后段比前段每小时多升温多少？",
+          "answerable": true,
+          "expectedAnswer": "45摄氏度",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 7,
+              "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 284,
+              "endOffset": 398,
+              "groupId": "g1"
+            }
+          ],
+          "category": "表格",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-021",
+          "question": "Ember 流釉粘板和轻微色差分别怎样处置？",
+          "answerable": true,
+          "expectedAnswer": "前者隔离检查窑板，后者记录分级",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 8,
+              "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 400,
+              "endOffset": 481,
+              "groupId": "g1"
+            }
+          ],
+          "category": "表格",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-022",
+          "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+          "answerable": true,
+          "expectedAnswer": "卸件护目镜，上釉围裙",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 9,
+              "quote": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 483,
+              "endOffset": 559,
+              "groupId": "g1"
+            }
+          ],
+          "category": "表格",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.9375,
+      "mrr": 0.875,
+      "retrievalMs": 330,
+      "totalMs": 7272.75,
+      "errorCount": 1
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.875,
+      "mrr": 1,
+      "retrievalMs": 353.75,
+      "totalMs": 11261.375,
+      "errorCount": 1
+    }
+  },
+  "results": [
+    {
+      "id": "5ebbeb29-2834-492b-aed1-71ec9ca25a91",
+      "question": "Ember 贯穿裂纹作品能完整交付吗；能用釉浆标签当食品安全认证来放行吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.7389755533904497
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6850695422333218
+        },
+        {
+          "id": "3f32cbba-1ff8-4892-b880-4fc788f83270",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 127,
+          "text": "Ember packaging card: a visible through-crack must be disclosed; packaging\ncannot turn a cracked piece into an intact delivery.",
+          "score": 0.6705499887466478
+        },
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.6597572362278257
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.6365353248438445
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 296,
+      "totalMs": 8673,
+      "promptTokens": 895,
+      "completionTokens": 165,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "ember-015",
+      "category": "跨段落",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能完整交付，釉浆标签也不代表食品接触认证",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 400,
+          "endOffset": 481,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 842,
+          "endOffset": 879,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2ed50e01-4372-42e5-8db1-ce95d86cdbb6",
+      "question": "Ember 贯穿裂纹作品能完整交付吗；能用釉浆标签当食品安全认证来放行吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.030834914611005692
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.03007688828584351
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 311,
+      "totalMs": 31265,
+      "promptTokens": 896,
+      "completionTokens": 200,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "ember-015",
+      "category": "跨段落",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能完整交付，釉浆标签也不代表食品接触认证",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 400,
+          "endOffset": 481,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 842,
+          "endOffset": 879,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "1094fd1a-fcc7-41f5-ab12-40200d29b54e",
+      "question": "Ember 前段从100度升到600度按标准斜率需要多久，不计保温？",
+      "answer": "根据证据，Ember 标准釉烧前段从 100 摄氏度升温到 600 摄氏度的标准斜率为每小时 100 摄氏度 [9a727959-0dfb-41b4-9ada-522183540d6e][0f7ea3d2-3608-4c3d-a464-65599b9268ba]。升温区间为 500 摄氏度（600 - 100）。因此，所需时间为 500 摄氏度 ÷ 100 摄氏度/小时 = 5 小时。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.6828927397727966
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.6687628230083833
+        },
+        {
+          "id": "c30fe10f-0724-403c-85b9-d03620070fca",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "text": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "score": 0.6573958992958069
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.648565946391163
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.6000986099243164
+        }
+      ],
+      "citations": [
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.6828927397727966
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.6687628230083833
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 378,
+      "totalMs": 9167,
+      "promptTokens": 899,
+      "completionTokens": 114,
+      "error": null,
+      "caseId": "ember-016",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "5小时",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 284,
+          "endOffset": 398,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 11,
+          "paragraph": 1,
+          "quote": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 91,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "7382c73a-c693-4ede-8601-e9d7eac783c6",
+      "question": "Ember 前段从100度升到600度按标准斜率需要多久，不计保温？",
+      "answer": "根据证据，Ember 标准釉烧前段从100摄氏度开始升温，终点温度为600摄氏度，升温斜率为每小时100摄氏度 [0f7ea3d2-3608-4c3d-a464-65599b9268ba]。升温所需时间计算如下：温度差为600 - 100 = 500摄氏度。以每小时100摄氏度的速率升温，所需时间为500 / 100 = 5小时。\n\n因此，从100度升到600度按标准斜率需要5小时 [0f7ea3d2-3608-4c3d-a464-65599b9268ba][c30fe10f-0724-403c-85b9-d03620070fca]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.03149801587301587
+        },
+        {
+          "id": "c30fe10f-0724-403c-85b9-d03620070fca",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "text": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.03076923076923077
+        }
+      ],
+      "citations": [
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "c30fe10f-0724-403c-85b9-d03620070fca",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "text": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "score": 0.031024531024531024
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 295,
+      "totalMs": 15048,
+      "promptTokens": 900,
+      "completionTokens": 154,
+      "error": null,
+      "caseId": "ember-016",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "5小时",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 284,
+          "endOffset": 398,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 11,
+          "paragraph": 1,
+          "quote": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 91,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "addf19fd-ae69-4eee-b224-dd465b569ec9",
+      "question": "Ember 热电偶故障时有人说温度低于80度，开窑前还要什么确认？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "eef23b31-7ece-492c-9905-dd1eda3588c2",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "text": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "score": 0.7751174666092518
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.6880017313956726
+        },
+        {
+          "id": "f1c450c7-ff8c-473f-b2bf-52b5a4f8de6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "text": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "score": 0.6825813461888639
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6814534867243021
+        },
+        {
+          "id": "abe7fe75-e652-41a6-9d0f-ef26bb92315e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 561,
+          "endOffset": 611,
+          "text": "Ember 小型教学演示窑允许850摄氏度素烧，但工作室标准素烧仍为900摄氏度，不能混用记录模板。",
+          "score": 0.6784641157207596
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 431,
+      "totalMs": 4599,
+      "promptTokens": 859,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "ember-017",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "独立校准探头确认温度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 243,
+          "endOffset": 282,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 2,
+          "paragraph": 1,
+          "quote": "Ember cooling card: a thermocouple fault blocks unloading until an independent\ncalibrated probe confirms the temperature.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 121,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "325ce11d-932e-4418-9954-895ef684f13a",
+      "question": "Ember 热电偶故障时有人说温度低于80度，开窑前还要什么确认？",
+      "answer": "根据当前资料，无法回答“开窑前还要什么确认”的问题。证据中仅提到开窑时窑内温度必须低于80摄氏度 [eef23b31-7ece-492c-9905-dd1eda3588c2]，但没有提供关于热电偶故障时，除温度确认外还需进行哪些具体确认步骤的信息。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "eef23b31-7ece-492c-9905-dd1eda3588c2",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "text": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "f1c450c7-ff8c-473f-b2bf-52b5a4f8de6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "text": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "score": 0.029957522915269395
+        }
+      ],
+      "citations": [
+        {
+          "id": "eef23b31-7ece-492c-9905-dd1eda3588c2",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "text": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 323,
+      "totalMs": 4715,
+      "promptTokens": 857,
+      "completionTokens": 73,
+      "error": null,
+      "caseId": "ember-017",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "独立校准探头确认温度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 243,
+          "endOffset": 282,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 2,
+          "paragraph": 1,
+          "quote": "Ember cooling card: a thermocouple fault blocks unloading until an independent\ncalibrated probe confirms the temperature.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 121,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "b74c3bf3-098f-4f73-8bd1-bfae2eaf8dba",
+      "question": "Ember 卸件包装前应依据哪份图清点，这张图是否属于烧成记录？",
+      "answer": "根据当前资料，Ember 卸件包装前应依据装载图（loading map）进行清点 [4bdf9bcb-b164-44af-96e1-6c0d82e55f06]。  \n证据未提及这张图是否属于烧成记录。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.6959171891212513
+        },
+        {
+          "id": "4bdf9bcb-b164-44af-96e1-6c0d82e55f06",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 89,
+          "text": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "score": 0.626648381548927
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6074326996465157
+        },
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.6033639435009889
+        },
+        {
+          "id": "3f32cbba-1ff8-4892-b880-4fc788f83270",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 127,
+          "text": "Ember packaging card: a visible through-crack must be disclosed; packaging\ncannot turn a cracked piece into an intact delivery.",
+          "score": 0.5983062982559246
+        }
+      ],
+      "citations": [
+        {
+          "id": "4bdf9bcb-b164-44af-96e1-6c0d82e55f06",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 89,
+          "text": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "score": 0.626648381548927
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 310,
+      "totalMs": 3907,
+      "promptTokens": 856,
+      "completionTokens": 61,
+      "error": null,
+      "caseId": "ember-018",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "窑位图，属于烧成记录",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 664,
+          "endOffset": 705,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 16,
+          "paragraph": 1,
+          "quote": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 89,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "4102a4ff-3f9b-4907-866f-1f4cad8cdac7",
+      "question": "Ember 卸件包装前应依据哪份图清点，这张图是否属于烧成记录？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.02976190476190476
+        },
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.027984344422700584
+        },
+        {
+          "id": "045e7d82-c9e1-4a03-8950-cf7e1fad7a82",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "score": 0.025833333333333333
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 439,
+      "totalMs": 3086,
+      "promptTokens": 904,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "ember-018",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "窑位图，属于烧成记录",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 664,
+          "endOffset": 705,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 16,
+          "paragraph": 1,
+          "quote": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 89,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "cf5518d1-2c7f-495d-a419-a1c7080ae49c",
+      "question": "Ember 断电后谁批准复烧，批准前对装载物还要做什么？",
+      "answer": "根据当前资料：\n1.  Ember 断电后，由 **窑务负责人** 批准复烧方案 [bb42dde4-0856-44a7-ab6e-779518eb3e05]。\n2.  批准前，**窑务负责人** 需要对装载物进行 **检查** [59bb0b48-3030-4f4c-9130-006bd6b989b2]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "bb42dde4-0856-44a7-ab6e-779518eb3e05",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "text": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "score": 0.7350204429042616
+        },
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.7127604738188354
+        },
+        {
+          "id": "59bb0b48-3030-4f4c-9130-006bd6b989b2",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "score": 0.6379910085789273
+        },
+        {
+          "id": "597007f9-36cd-46f6-b2a8-eff24579ced4",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Ember repair card: only the maintenance technician disconnects and opens the\ncontroller enclosure.",
+          "score": 0.6305051601535273
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.5981870889663738
+        }
+      ],
+      "citations": [
+        {
+          "id": "bb42dde4-0856-44a7-ab6e-779518eb3e05",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "text": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "score": 0.7350204429042616
+        },
+        {
+          "id": "59bb0b48-3030-4f4c-9130-006bd6b989b2",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "score": 0.6379910085789273
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 300,
+      "totalMs": 5673,
+      "promptTokens": 846,
+      "completionTokens": 94,
+      "error": null,
+      "caseId": "ember-019",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "窑务负责人，先检查装载物",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 758,
+          "endOffset": 795,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 105,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "5ff0fd51-f8b9-4ff1-9eb9-64536d42483f",
+      "question": "Ember 断电后谁批准复烧，批准前对装载物还要做什么？",
+      "answer": "根据证据，Ember 断电后，由窑务负责人批准复烧方案 [bb42dde4-0856-44a7-ab6e-779518eb3e05]。批准前，窑务负责人需要检查装载物 [59bb0b48-3030-4f4c-9130-006bd6b989b2]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "bb42dde4-0856-44a7-ab6e-779518eb3e05",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "text": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "59bb0b48-3030-4f4c-9130-006bd6b989b2",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "score": 0.029030910609857977
+        },
+        {
+          "id": "597007f9-36cd-46f6-b2a8-eff24579ced4",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Ember repair card: only the maintenance technician disconnects and opens the\ncontroller enclosure.",
+          "score": 0.028958333333333336
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.02819138376017471
+        }
+      ],
+      "citations": [
+        {
+          "id": "bb42dde4-0856-44a7-ab6e-779518eb3e05",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "text": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "59bb0b48-3030-4f4c-9130-006bd6b989b2",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "score": 0.029030910609857977
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 403,
+      "totalMs": 19368,
+      "promptTokens": 849,
+      "completionTokens": 77,
+      "error": null,
+      "caseId": "ember-019",
+      "category": "跨文档",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "窑务负责人，先检查装载物",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 758,
+          "endOffset": 795,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 105,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "015a2434-6cd6-4cab-bf9d-55e2dbc13b42",
+      "question": "Ember 标准釉烧后段比前段每小时多升温多少？",
+      "answer": "根据证据，Ember 标准釉烧前段升温斜率为每小时100摄氏度 [9a727959-0dfb-41b4-9ada-522183540d6e]，后段升温斜率为每小时145摄氏度 [0f7ea3d2-3608-4c3d-a464-65599b9268ba]。因此，后段比前段每小时多升温45摄氏度。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.7593152523040771
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.7569166647469007
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.7425132461649131
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.7287103533744812
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.6581646407744515
+        }
+      ],
+      "citations": [
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.7593152523040771
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.7569166647469007
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 298,
+      "totalMs": 8140,
+      "promptTokens": 900,
+      "completionTokens": 88,
+      "error": null,
+      "caseId": "ember-020",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "45摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 284,
+          "endOffset": 398,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "79233431-18cc-4afa-9277-31984685adef",
+      "question": "Ember 标准釉烧后段比前段每小时多升温多少？",
+      "answer": "根据证据，Ember 标准釉烧前段升温斜率为每小时100摄氏度 [0f7ea3d2-3608-4c3d-a464-65599b9268ba]，后段升温斜率为每小时145摄氏度 [0f7ea3d2-3608-4c3d-a464-65599b9268ba]。因此，后段比前段每小时多升温45摄氏度。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.03125
+        },
+        {
+          "id": "abe7fe75-e652-41a6-9d0f-ef26bb92315e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 561,
+          "endOffset": 611,
+          "text": "Ember 小型教学演示窑允许850摄氏度素烧，但工作室标准素烧仍为900摄氏度，不能混用记录模板。",
+          "score": 0.029631255487269532
+        }
+      ],
+      "citations": [
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 348,
+      "totalMs": 5904,
+      "promptTokens": 902,
+      "completionTokens": 90,
+      "error": null,
+      "caseId": "ember-020",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "45摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 284,
+          "endOffset": 398,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2b5df3fd-d53e-4303-a264-dad376f734a8",
+      "question": "Ember 流釉粘板和轻微色差分别怎样处置？",
+      "answer": "根据证据，处置方式如下：\n- **轻微色差**：应记录并分级 [6a6d7372-12d1-40b6-9ca2-4410c2e3108e]。\n- **流釉粘板**：应隔离并检查窑板 [6a6d7372-12d1-40b6-9ca2-4410c2e3108e]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.7116081714630127
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.6861343383789062
+        },
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.664871315054377
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6261060833930969
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.612113356590271
+        }
+      ],
+      "citations": [
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.7116081714630127
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 327,
+      "totalMs": 5077,
+      "promptTokens": 888,
+      "completionTokens": 91,
+      "error": null,
+      "caseId": "ember-021",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "前者隔离检查窑板，后者记录分级",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 400,
+          "endOffset": 481,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "00555238-ae06-48f1-a405-9418fb4c4cce",
+      "question": "Ember 流釉粘板和轻微色差分别怎样处置？",
+      "answer": "根据证据，处置方式如下：\n- **轻微色差**：应记录并分级 [6a6d7372-12d1-40b6-9ca2-4410c2e3108e]。\n- **流釉粘板**：应隔离并检查窑板 [6a6d7372-12d1-40b6-9ca2-4410c2e3108e]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.029857397504456328
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.02967032967032967
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.028484848484848488
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.028006267136701922
+        }
+      ],
+      "citations": [
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 313,
+      "totalMs": 5402,
+      "promptTokens": 936,
+      "completionTokens": 91,
+      "error": null,
+      "caseId": "ember-021",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "前者隔离检查窑板，后者记录分级",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 400,
+          "endOffset": 481,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "cdffdc05-e482-4897-afe3-488c777ec1ce",
+      "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+      "answer": "根据证据，Ember 冷窑卸件和上釉除了都需要戴手套外，分别还需要：\n*   冷窑卸件：还需要护目镜 [0830dcfd-f60f-4e70-8db7-9fd222bd749d]。\n*   上釉：还需要围裙 [0830dcfd-f60f-4e70-8db7-9fd222bd749d]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.7097514867782593
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.7010675072669983
+        },
+        {
+          "id": "eef23b31-7ece-492c-9905-dd1eda3588c2",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "text": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "score": 0.690573793087829
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.6849183440208435
+        },
+        {
+          "id": "f1c450c7-ff8c-473f-b2bf-52b5a4f8de6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "text": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "score": 0.6672884424712793
+        }
+      ],
+      "citations": [
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.7097514867782593
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 300,
+      "totalMs": 12946,
+      "promptTokens": 892,
+      "completionTokens": 90,
+      "error": null,
+      "caseId": "ember-022",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "卸件护目镜，上釉围裙",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 483,
+          "endOffset": 559,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "c4131671-a8ee-4eef-920c-693d6fd4208d",
+      "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+      "answer": "根据证据，Ember 冷窑卸件和上釉除了都需要戴手套外，分别还需要：\n*   冷窑卸件：还需要护目镜 [0830dcfd-f60f-4e70-8db7-9fd222bd749d]。\n*   上釉：还需要围裙 [0830dcfd-f60f-4e70-8db7-9fd222bd749d]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.029513888888888888
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.029411764705882353
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.028083267871170464
+        }
+      ],
+      "citations": [
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 398,
+      "totalMs": 5303,
+      "promptTokens": 940,
+      "completionTokens": 90,
+      "error": null,
+      "caseId": "ember-022",
+      "category": "表格",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "卸件护目镜，上釉围裙",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 483,
+          "endOffset": 559,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "跨段落": {
+        "vector": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 296,
+          "totalMs": 8673
+        },
+        "hybrid": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 311,
+          "totalMs": 31265
+        }
+      },
+      "跨文档": {
+        "vector": {
+          "count": 4,
+          "answerableCount": 4,
+          "errorCount": 0,
+          "recallAtK": 0.875,
+          "mrr": 0.875,
+          "retrievalMs": 354.75,
+          "totalMs": 5836.5
+        },
+        "hybrid": {
+          "count": 4,
+          "answerableCount": 4,
+          "errorCount": 0,
+          "recallAtK": 0.75,
+          "mrr": 1,
+          "retrievalMs": 365,
+          "totalMs": 10554.25
+        }
+      },
+      "表格": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.8333333333333334,
+          "retrievalMs": 308.3333333333333,
+          "totalMs": 8721
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 353,
+          "totalMs": 5536.333333333333
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.9375,
+          "mrr": 0.875,
+          "retrievalMs": 330,
+          "totalMs": 7272.75
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 1,
+          "retrievalMs": 353.75,
+          "totalMs": 11261.375
+        }
+      }
+    },
+    "group": {
+      "ember": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.9375,
+          "mrr": 0.875,
+          "retrievalMs": 330,
+          "totalMs": 7272.75
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 1,
+          "retrievalMs": 353.75,
+          "totalMs": 11261.375
+        }
+      }
+    },
+    "topic": {
+      "ember": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.9375,
+          "mrr": 0.875,
+          "retrievalMs": 330,
+          "totalMs": 7272.75
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 1,
+          "retrievalMs": 353.75,
+          "totalMs": 11261.375
+        }
+      }
+    }
+  }
+}

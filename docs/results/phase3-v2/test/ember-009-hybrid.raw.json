@@ -1,0 +1,248 @@
+{
+  "id": "5368b1b1-a1e7-47bf-a4e2-58d2949cec0c",
+  "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+  "status": "FAILED",
+  "request": {
+    "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+    "mode": "hybrid",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Ember 工作室标准素烧可以照教学小窑850度模板记录吗？",
+    "idempotencyKey": "p3-cb91ca7a66845a35bcf9c4ec06b8fba11f3bc818f85cd9f206d7a747f430",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 40,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+      "name": "moss-handbook.md",
+      "chunk_size": 900,
+      "version_id": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+      "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+      "name": "lumen-handbook.md",
+      "chunk_size": 900,
+      "version_id": "63ac71b5-471b-4929-ad90-8990985ab0da",
+      "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+      "name": "quartz-handbook.md",
+      "chunk_size": 900,
+      "version_id": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+      "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+      "name": "ember-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "57a166d3-fb44-4a72-b364-15157bb1a501",
+      "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+      "name": "harbor-handbook.md",
+      "chunk_size": 900,
+      "version_id": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+      "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+      "name": "lumen-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+      "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+      "name": "ember-handbook.md",
+      "chunk_size": 900,
+      "version_id": "408330a9-e667-426f-a196-85338c50b009",
+      "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+      "name": "harbor-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+      "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+      "name": "tide-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+      "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+      "name": "tide-handbook.md",
+      "chunk_size": 900,
+      "version_id": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+      "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+      "name": "moss-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+      "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+      "name": "quartz-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+      "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "hybrid",
+    "error": "PROVIDER_ERROR",
+    "usage": [],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 177,
+    "evidence": [],
+    "question": "Ember 工作室标准素烧可以照教学小窑850度模板记录吗？",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 1,
+      "searches": 1,
+      "plannerSteps": 0,
+      "evidenceChars": 0,
+      "evidenceCount": 0,
+      "externalCalls": 1
+    },
+    "retrievalMs": 166,
+    "finishReason": "PROVIDER_ERROR",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": true
+  },
+  "errorCode": "PROVIDER_ERROR",
+  "createdAt": "2026-09-29T06:48:15.282789Z",
+  "startedAt": "2026-09-29T06:48:15.291696Z",
+  "finishedAt": "2026-09-29T06:48:15.472036Z",
+  "cancelRequestedAt": null,
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 30,
+        "description": "检索当前授权知识库",
+        "querySha256": "d2598c4fabefdf153788b9b7afa4c1a2bf3912947b4304832733b307e8e2d05c"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "action": "search",
+      "output": {
+        "error": "PROVIDER_ERROR"
+      },
+      "status": "FAILED",
+      "sequence": 1,
+      "createdAt": "2026-09-29T06:48:15.467470384Z",
+      "elapsedMs": 168
+    }
+  ]
+}

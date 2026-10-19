@@ -1,0 +1,39 @@
+{
+  "baseCaseId": "flint-005",
+  "batchId": "ci-12",
+  "group": "cold",
+  "arm": "candidate",
+  "questions": [
+    {
+      "caseId": "ci-12-0",
+      "phase": "cold",
+      "repeat": 0
+    }
+  ],
+  "runId": "5189ed55-3f31-4727-962d-a5360265671d",
+  "cache": [
+    {
+      "caseId": "ci-12-0",
+      "phase": "cold",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-12-0",
+      "phase": "cold",
+      "mode": "hybrid",
+      "observed": null
+    }
+  ],
+  "source": "ASSISTED"
+}

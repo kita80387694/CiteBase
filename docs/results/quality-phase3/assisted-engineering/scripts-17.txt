@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: new strategy cannot silently run old generation policy
+ok 1 - new strategy cannot silently run old generation policy
+  ---
+  duration_ms: 4.4448
+  ...
+# Subtest: original control rejects an accidentally enabled new generation prompt
+ok 2 - original control rejects an accidentally enabled new generation prompt
+  ---
+  duration_ms: 0.5914
+  ...
+# Subtest: model and immutable evidence version drift are rejected
+ok 3 - model and immutable evidence version drift are rejected
+  ---
+  duration_ms: 1.9059
+  ...
+# Subtest: selection is fixed4per split with1refusal and excludes independenttest
+ok 4 - selection is fixed4per split with1refusal and excludes independenttest
+  ---
+  duration_ms: 16.5249
+  ...
+# Subtest: selection does not depend on answer output or score
+ok 5 - selection does not depend on answer output or score
+  ---
+  duration_ms: 1.9312
+  ...
+# Subtest: test case inserted into source cohort is rejected
+ok 6 - test case inserted into source cohort is rejected
+  ---
+  duration_ms: 1.0189
+  ...
+# Subtest: registration locks dataset image models budget and32run ablation order
+ok 7 - registration locks dataset image models budget and32run ablation order
+  ---
+  duration_ms: 1.4853
+  ...
+# Subtest: registration rejects changed data mock and mismatched image
+ok 8 - registration rejects changed data mock and mismatched image
+  ---
+  duration_ms: 1.459
+  ...
+# Subtest: deployment guard rejects image drift remote URL and unrelated port
+ok 9 - deployment guard rejects image drift remote URL and unrelated port
+  ---
+  duration_ms: 0.4538
+  ...
+# Subtest: blind citation transform preserves original answer except assigned handles
+ok 10 - blind citation transform preserves original answer except assigned handles
+  ---
+  duration_ms: 0.9309
+  ...
+# Subtest: double reviews count once and conflict remains unresolved
+ok 11 - double reviews count once and conflict remains unresolved
+  ---
+  duration_ms: 1.2131
+  ...
+# Subtest: alternative quotes share a requirement but missing required group fails
+ok 12 - alternative quotes share a requirement but missing required group fails
+  ---
+  duration_ms: 0.8515
+  ...
+# Subtest: frozen assisted baseline reconciles all source hashes and failures without test-set reads
+ok 13 - frozen assisted baseline reconciles all source hashes and failures without test-set reads
+  ---
+  duration_ms: 102.4944
+  ...
+# Subtest: anonymous packet retains failed output citations and null score; mapping separated
+ok 14 - anonymous packet retains failed output citations and null score; mapping separated
+  ---
+  duration_ms: 2.975
+  ...
+# Subtest: missing run and incomplete terminal payload cannot fabricate packets
+ok 15 - missing run and incomplete terminal payload cannot fabricate packets
+  ---
+  duration_ms: 1.3364
+  ...
+# Subtest: source tampering offsets and independent test cases rejected
+ok 16 - source tampering offsets and independent test cases rejected
+  ---
+  duration_ms: 0.8333
+  ...
+# Subtest: writes exclusive outputs and never overwrites existing packet directory
+ok 17 - writes exclusive outputs and never overwrites existing packet directory
+  ---
+  duration_ms: 7.8631
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 354.6142

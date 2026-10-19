@@ -1,0 +1,7 @@
+PASS per-user capacity is shared across JVMs and rejection rolls back
+PASS fixed-rate overload rejects with 429 Retry-After; replay and failed retry preserve capacity and all domain rows
+PASS running cancellation retains admission capacity until terminal
+PASS releasing work restores new admission and manual retry
+PASS each JVM rejects both synchronous routes when full and releases slots after success and exception
+Evidence: F:\CiteBase\docs\results\quality-phase3\admission\two-process-1791637121457
+Dedicated database retained: citebase-phase4-process-1791637121457

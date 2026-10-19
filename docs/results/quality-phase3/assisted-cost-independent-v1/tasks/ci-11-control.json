@@ -1,0 +1,178 @@
+{
+  "id": "e32c73db-98a3-465e-8cd2-ca92d832c59c",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "e32c73db-98a3-465e-8cd2-ca92d832c59c",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-11-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-11-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "groupId": "g1",
+              "endOffset": 313,
+              "paragraph": 6,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 274,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 可以从受访者声线推断疾病并写进档案吗？",
+          "answerable": true,
+          "expectedAnswer": "不允许"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-3e10a3b0500c7003fd253ca6483205ed4f27f49283c5ecad6d6910774f11",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:21:17.035654Z",
+  "startedAt": "2026-10-01T08:21:17.364427Z",
+  "finishedAt": "2026-10-01T08:21:31.242154Z",
+  "availableAt": "2026-10-01T08:21:17.035654Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "fee5ab62-1dbe-42c5-ac6e-d60785db30af",
+      "operationKey": "f18bf579-a1e3-4983-930f-29110baca479:embedding:a5088840-ab89-4730-a851-e5b5ba99a0d8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:21:17.393503Z",
+      "finishedAt": "2026-10-01T08:21:17.666486Z"
+    },
+    {
+      "callId": "45becee3-0b61-43e5-a779-5b56b644ff9f",
+      "operationKey": "f18bf579-a1e3-4983-930f-29110baca479:rerank:8fbdf11f-5831-41d6-b3b0-5cf8dfb2b9c6",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2746,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:21:17.677980Z",
+      "finishedAt": "2026-10-01T08:21:18.019428Z"
+    },
+    {
+      "callId": "0c1e5974-9052-437b-969a-a3559ca19883",
+      "operationKey": "f18bf579-a1e3-4983-930f-29110baca479:generation:ec5d130a-a85c-47d5-98d9-9ff67ceb6c33",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1720,
+        "completionTokens": 63
+      },
+      "startedAt": "2026-10-01T08:21:18.023312Z",
+      "finishedAt": "2026-10-01T08:21:28.050987Z"
+    },
+    {
+      "callId": "11b46c4d-43c5-4dc0-89cf-a503f91f6ce3",
+      "operationKey": "3d5db2f1-ec1f-4493-9892-8d8793003c1d:embedding:a8ae7fd1-8c55-47e1-94b7-f021f49cc66a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:21:28.077750Z",
+      "finishedAt": "2026-10-01T08:21:28.355513Z"
+    },
+    {
+      "callId": "c9d3294d-f88d-4f99-af2a-78ee728883f8",
+      "operationKey": "3d5db2f1-ec1f-4493-9892-8d8793003c1d:rerank:0e2b50d8-d767-4491-b799-1632aa0b1fcd",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2746,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:21:28.366569Z",
+      "finishedAt": "2026-10-01T08:21:28.730327Z"
+    },
+    {
+      "callId": "52f48858-33fa-4104-82d5-f39f9be8fcf5",
+      "operationKey": "3d5db2f1-ec1f-4493-9892-8d8793003c1d:generation:30990de0-27e6-46ff-bebe-371ad80d980b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:28.734751Z",
+      "finishedAt": "2026-10-01T08:21:31.223266Z"
+    }
+  ]
+}

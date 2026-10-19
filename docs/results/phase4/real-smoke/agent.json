@@ -1,0 +1,243 @@
+{
+  "id": "2fb5baa9-ca20-45bc-9849-765a42a47886",
+  "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+  "status": "COMPLETED",
+  "request": {
+    "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Atlas API 默认监听哪个端口？",
+    "idempotencyKey": "Phase4真实闭环-3ddb1d41d900-agent",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+      "name": "atlas-api.md",
+      "chunk_size": 900,
+      "version_id": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+      "content_hash": "04f7b4616d20333f7760f7ce9effe1c748bc451a7e07e4efbb584c9a06665005",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": null,
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 1234,
+          "completionTokens": 27
+        }
+      },
+      {
+        "kind": "generation",
+        "actual": {
+          "promptTokens": 479,
+          "completionTokens": 39
+        }
+      }
+    ],
+    "answer": "Atlas API 的默认 HTTP 监听端口是 9081 [c4178c80-d588-4bf9-a6ee-1c33ecc2be80]。",
+    "totalMs": 5726,
+    "evidence": [
+      {
+        "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+        "page": 1,
+        "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+        "score": 0.722328245639801,
+        "endOffset": 444,
+        "paragraph": 1,
+        "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+        "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+        "startOffset": 0,
+        "documentName": "atlas-api.md"
+      }
+    ],
+    "question": "Atlas API 默认监听哪个端口？",
+    "abstained": false,
+    "citations": [
+      {
+        "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+        "page": 1,
+        "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+        "score": 0.722328245639801,
+        "endOffset": 444,
+        "paragraph": 1,
+        "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+        "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+        "startOffset": 0,
+        "documentName": "atlas-api.md"
+      }
+    ],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 1,
+      "searches": 1,
+      "plannerSteps": 1,
+      "evidenceChars": 444,
+      "evidenceCount": 1,
+      "externalCalls": 3
+    },
+    "retrievalMs": 384,
+    "finishReason": "ANSWERED",
+    "answerCorrect": null,
+    "citationValid": true,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "errorCode": null,
+  "finishedAt": "2026-09-29T07:37:47.734022Z",
+  "cancelRequestedAt": null,
+  "createdAt": "2026-09-29T07:37:41.434300Z",
+  "startedAt": "2026-09-29T07:37:41.982178Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 19,
+        "description": "检索当前授权知识库",
+        "querySha256": "87a61a4d6ff122ceb401cc66036c3dfa83f4a0c1fe17791b220d735023a68707"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 13,
+          "promptTokens": 13
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "c4178c80-d588-4bf9-a6ee-1c33ecc2be80"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-29T07:37:42.427964744Z",
+      "elapsedMs": 402
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 1234,
+        "completionTokens": 27
+      },
+      "action": "finish",
+      "output": {
+        "callId": "01a0ec191fe5324e477507dbaf28d9e3",
+        "toolName": "finish"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-29T07:37:44.890209482Z",
+      "elapsedMs": 2429
+    },
+    {
+      "kind": "generation",
+      "input": {},
+      "usage": {
+        "promptTokens": 479,
+        "completionTokens": 39
+      },
+      "action": "answer",
+      "output": {
+        "received": true
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-29T07:37:47.715290010Z",
+      "elapsedMs": 2810
+    }
+  ],
+  "taskId": "2fb5baa9-ca20-45bc-9849-765a42a47886",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "taskStatus": "SUCCEEDED"
+}

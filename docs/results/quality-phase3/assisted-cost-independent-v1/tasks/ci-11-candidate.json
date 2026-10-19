@@ -1,0 +1,125 @@
+{
+  "id": "e78c936c-4c2f-411b-881b-7ebcad2717e5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "e78c936c-4c2f-411b-881b-7ebcad2717e5",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-11-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-11-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+              "groupId": "g1",
+              "endOffset": 313,
+              "paragraph": 6,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 274,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 可以从受访者声线推断疾病并写进档案吗？",
+          "answerable": true,
+          "expectedAnswer": "不允许"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-7bc96f13a2eecfe35991230b69a21f95143dfe11a68705d00a2a1ff59113",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:21:32.931345Z",
+  "startedAt": "2026-10-01T08:21:33.410193Z",
+  "finishedAt": "2026-10-01T08:21:36.885462Z",
+  "availableAt": "2026-10-01T08:21:32.931345Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "746840d6-3912-419c-9540-c02264c88555",
+      "operationKey": "c3852bcd-8f5e-40a6-bdda-c01eb6e27a86:embedding:fbe5a42c-d60a-4865-8e09-aa38e78bbf82",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:21:33.426352Z",
+      "finishedAt": "2026-10-01T08:21:33.688708Z"
+    },
+    {
+      "callId": "5190fe4b-e9b5-4fa6-8e28-2080c6e7478d",
+      "operationKey": "c3852bcd-8f5e-40a6-bdda-c01eb6e27a86:generation:b8d58b44-9448-4c54-b22d-7344f385daf5",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1730,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:33.693993Z",
+      "finishedAt": "2026-10-01T08:21:35.234256Z"
+    },
+    {
+      "callId": "0cbdd6c9-6e6b-4516-99d3-28be38d642bd",
+      "operationKey": "ce75776b-3511-4ae0-8a1b-68079ab008ac:embedding:570f5ed9-1436-46be-ab7c-ba52926b630d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:21:35.254573Z",
+      "finishedAt": "2026-10-01T08:21:35.504791Z"
+    },
+    {
+      "callId": "5632a22d-dbec-428c-9774-c657e5524f9e",
+      "operationKey": "ce75776b-3511-4ae0-8a1b-68079ab008ac:generation:aeda01c7-51bc-401e-9a60-e501563c7f99",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1728,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:35.513108Z",
+      "finishedAt": "2026-10-01T08:21:36.866789Z"
+    }
+  ]
+}

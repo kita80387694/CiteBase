@@ -1,0 +1,113 @@
+{
+  "id": "1d8b15e2-53ba-4926-8d43-1c14ad0225d2",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "1d8b15e2-53ba-4926-8d43-1c14ad0225d2",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q001",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-019",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Cobalt 下一版海图何时上市？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-ada2bd25f04085b133e481ba13e3da740bb28a262a7bc0800fcf1421d5bf",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:34:03.526Z",
+  "startedAt": "2026-09-30T06:34:03.855374Z",
+  "finishedAt": "2026-09-30T06:34:24.827065Z",
+  "availableAt": "2026-09-30T06:34:03.526Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "e9d286a8-0a8e-4345-8825-369010ecbf4e",
+      "operationKey": "6c8022e1-96e1-4ec7-9675-64ca668115cc:embedding:49b8e07b-9218-4761-a981-50602272a172",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:34:03.871997Z",
+      "finishedAt": "2026-09-30T06:34:04.379523Z"
+    },
+    {
+      "callId": "a6d4ef12-4230-413f-8d6f-c8db719c07d2",
+      "operationKey": "6c8022e1-96e1-4ec7-9675-64ca668115cc:generation:fff07de8-89f0-4adc-9aac-62f324dc3668",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1690,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:34:04.384577Z",
+      "finishedAt": "2026-09-30T06:34:21.994258Z"
+    },
+    {
+      "callId": "055eb8cb-9d54-4083-959f-d669393438c9",
+      "operationKey": "96dc2a5c-3772-4007-8c6a-fedc4263a862:embedding:bbf67dc9-babb-4fe2-95a5-c0d4604e9c41",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:34:22.015143Z",
+      "finishedAt": "2026-09-30T06:34:22.286617Z"
+    },
+    {
+      "callId": "33073fd6-9c40-4a1a-a977-ac42d615314a",
+      "operationKey": "96dc2a5c-3772-4007-8c6a-fedc4263a862:generation:ac156ca1-3f3b-4769-9033-0d3450e27ebf",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1688,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:34:22.294605Z",
+      "finishedAt": "2026-09-30T06:34:24.812825Z"
+    }
+  ]
+}

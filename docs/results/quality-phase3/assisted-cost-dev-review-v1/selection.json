@@ -1,0 +1,319 @@
+{
+  "source": "ASSISTED",
+  "humanReviewed": false,
+  "complete": true,
+  "qualitySelectable": true,
+  "eligibleByAssistedGates": true,
+  "decision": "QUALITY_ELIGIBLE",
+  "defaultChanged": false,
+  "selectedArm": "conditional5",
+  "selectedOptions": {
+    "candidateK": 5,
+    "keywordWeight": 1,
+    "rerank": true,
+    "citationStyle": "uuid",
+    "rerankPolicy": "candidate-pressure-v1"
+  },
+  "reason": "conditional5 passes the registered development point-estimate gates against candidate5; candidate5 also passes against fixed20. conditional5 and repeated-cache both reduce actual external calls from 3 to 2 per request (33.333%), and retrieval calls by 50%. Unequal arm sizes (8 versus 16 requests) are normalized per request rather than rewarding repeated traffic for a larger raw count. With call savings tied, conditional5 has lower measured mean retrieval latency (331.875ms versus 368.75ms) and the larger paired mean latency reduction (60.978% versus 55.789%). Select only the existing conditional5 arm; do not add cache or deduplication. This is development candidate eligibility on four independent questions, not formal noninferiority or evidence to change production defaults.",
+  "rankingRule": "Quality gates first; actual external call reduction per request first, then measured mean retrieval latency; no failures counted as acceleration. Report raw call counts alongside normalized comparisons.",
+  "pairComparisons": [
+    {
+      "control": "fixed20",
+      "variant": "candidate5",
+      "independentQuestionClusters": 4,
+      "pairedObservations": 8,
+      "correctCounts": {
+        "control": 6,
+        "variant": 6
+      },
+      "failures": {
+        "control": 0,
+        "variant": 0
+      },
+      "gates": {
+        "correctCountNondecreasing": true,
+        "executionFailuresNonincreasing": true,
+        "noNewSevereUnsupportedOrCitationError": true
+      },
+      "eligibleByAssistedGates": true,
+      "newUnsupportedOrCitationFlags": [],
+      "severityHandling": "No separate severity score is present. Any newly flagged unsupported content or citation error conservatively blocks this gate; no existing score is changed. Absence of any new flag implies absence of a newly flagged severe error.",
+      "cost": {
+        "actualExternalCallsIncludingRetries": {
+          "control": 24,
+          "variant": 24
+        },
+        "unknownCalls": {
+          "control": 0,
+          "variant": 0
+        },
+        "callsPerRequest": {
+          "control": 3.0,
+          "variant": 3.0
+        },
+        "callReductionFraction": 0.0,
+        "retrievalCalls": {
+          "control": 16,
+          "variant": 16
+        },
+        "retrievalMs": {
+          "control": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 1182.625,
+            "p50": 1146,
+            "p95": 1643
+          },
+          "variant": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 850.5,
+            "p50": 591,
+            "p95": 1716
+          }
+        }
+      },
+      "pairedCorrectnessIntervalDescriptiveOnly": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    },
+    {
+      "control": "candidate5",
+      "variant": "conditional5",
+      "independentQuestionClusters": 4,
+      "pairedObservations": 8,
+      "correctCounts": {
+        "control": 6,
+        "variant": 6
+      },
+      "failures": {
+        "control": 0,
+        "variant": 0
+      },
+      "gates": {
+        "correctCountNondecreasing": true,
+        "executionFailuresNonincreasing": true,
+        "noNewSevereUnsupportedOrCitationError": true
+      },
+      "eligibleByAssistedGates": true,
+      "newUnsupportedOrCitationFlags": [],
+      "severityHandling": "No separate severity score is present. Any newly flagged unsupported content or citation error conservatively blocks this gate; no existing score is changed. Absence of any new flag implies absence of a newly flagged severe error.",
+      "cost": {
+        "actualExternalCallsIncludingRetries": {
+          "control": 24,
+          "variant": 16
+        },
+        "unknownCalls": {
+          "control": 0,
+          "variant": 0
+        },
+        "callsPerRequest": {
+          "control": 3.0,
+          "variant": 2.0
+        },
+        "callReductionFraction": 0.33333333333333337,
+        "retrievalCalls": {
+          "control": 16,
+          "variant": 8
+        },
+        "retrievalMs": {
+          "control": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 850.5,
+            "p50": 591,
+            "p95": 1716
+          },
+          "variant": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 331.875,
+            "p50": 303,
+            "p95": 471
+          }
+        }
+      },
+      "pairedCorrectnessIntervalDescriptiveOnly": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    },
+    {
+      "control": "fixed20",
+      "variant": "deduplicate20",
+      "independentQuestionClusters": 4,
+      "pairedObservations": 8,
+      "correctCounts": {
+        "control": 6,
+        "variant": 6
+      },
+      "failures": {
+        "control": 0,
+        "variant": 0
+      },
+      "gates": {
+        "correctCountNondecreasing": true,
+        "executionFailuresNonincreasing": true,
+        "noNewSevereUnsupportedOrCitationError": false
+      },
+      "eligibleByAssistedGates": false,
+      "newUnsupportedOrCitationFlags": [
+        {
+          "before": "C042",
+          "after": "C028",
+          "dimensions": {
+            "correctness": "INCORRECT",
+            "completeness": "PARTIAL",
+            "citationSupport": "PARTIAL",
+            "unsupportedContent": "PRESENT",
+            "refusal": "INCORRECT_REFUSAL"
+          },
+          "rationale": "[1]确实支持已被下一位预约不允许续期，答案转述了相关规则；但随后以首个借期可能影响规则为由拒绝判断，擅自引入证据未给的例外可能性。已有预约限制足以决定不能续期，故拒答错误；仅规则部分得到引用支持，结论缺失。"
+        }
+      ],
+      "severityHandling": "No separate severity score is present. Any newly flagged unsupported content or citation error conservatively blocks this gate; no existing score is changed. Absence of any new flag implies absence of a newly flagged severe error.",
+      "cost": {
+        "actualExternalCallsIncludingRetries": {
+          "control": 24,
+          "variant": 24
+        },
+        "unknownCalls": {
+          "control": 0,
+          "variant": 0
+        },
+        "callsPerRequest": {
+          "control": 3.0,
+          "variant": 3.0
+        },
+        "callReductionFraction": 0.0,
+        "retrievalCalls": {
+          "control": 16,
+          "variant": 16
+        },
+        "retrievalMs": {
+          "control": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 1182.625,
+            "p50": 1146,
+            "p95": 1643
+          },
+          "variant": {
+            "samples": 8,
+            "unavailable": 0,
+            "mean": 764.25,
+            "p50": 607,
+            "p95": 1258
+          }
+        }
+      },
+      "pairedCorrectnessIntervalDescriptiveOnly": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    },
+    {
+      "control": "repeated-no-cache",
+      "variant": "repeated-cache",
+      "independentQuestionClusters": 4,
+      "pairedObservations": 16,
+      "correctCounts": {
+        "control": 14,
+        "variant": 15
+      },
+      "failures": {
+        "control": 0,
+        "variant": 0
+      },
+      "gates": {
+        "correctCountNondecreasing": true,
+        "executionFailuresNonincreasing": true,
+        "noNewSevereUnsupportedOrCitationError": true
+      },
+      "eligibleByAssistedGates": true,
+      "newUnsupportedOrCitationFlags": [],
+      "severityHandling": "No separate severity score is present. Any newly flagged unsupported content or citation error conservatively blocks this gate; no existing score is changed. Absence of any new flag implies absence of a newly flagged severe error.",
+      "cost": {
+        "actualExternalCallsIncludingRetries": {
+          "control": 48,
+          "variant": 32
+        },
+        "unknownCalls": {
+          "control": 0,
+          "variant": 0
+        },
+        "callsPerRequest": {
+          "control": 3.0,
+          "variant": 2.0
+        },
+        "callReductionFraction": 0.33333333333333337,
+        "retrievalCalls": {
+          "control": 32,
+          "variant": 16
+        },
+        "retrievalMs": {
+          "control": {
+            "samples": 16,
+            "unavailable": 0,
+            "mean": 834.0625,
+            "p50": 686,
+            "p95": 1432
+          },
+          "variant": {
+            "samples": 16,
+            "unavailable": 0,
+            "mean": 368.75,
+            "p50": 20,
+            "p95": 1458
+          }
+        }
+      },
+      "pairedCorrectnessIntervalDescriptiveOnly": {
+        "mean": 0.125,
+        "lower": 0,
+        "upper": 0.375,
+        "replicates": 2000,
+        "seed": 20261001,
+        "method": "paired question bootstrap, percentile 95%; small sample and correlated AI reviewers, not human noninferiority"
+      }
+    }
+  ],
+  "limitations": [
+    "Only four independent development/validation questions; modes and repeated traffic are correlated observations.",
+    "ASSISTED scores are not human review; descriptive bootstrap cannot establish noninferiority.",
+    "Comparison-initial scores are used unchanged; no independent test or new Agent result read.",
+    "Different registered traffic mixes limit cross-candidate latency comparisons; selection is provisional for frozen independent validation.",
+    "Provider call counts include retries per taskAudit; no monetary or provider billing claim."
+  ],
+  "inputs": [
+    {
+      "path": "docs/ASSISTED_COST_PROTOCOL.md",
+      "sha256": "923df9acf406edbc0a322364cf433d87db2152dde54302627fe3fe9e54f7734c"
+    },
+    {
+      "path": "docs/results/quality-phase3/assisted-cost-dev-review-v1/comparison-initial.json",
+      "sha256": "52558f4c67bbb6d19434d6e34acdd4b6f7a62d8979261de90c66a28701848bf7"
+    },
+    {
+      "path": "docs/results/quality-phase3/cost-v2-engineering-report.json",
+      "sha256": "a6de35075b9c4c0128c4959a52201bf86b2755ddbc18b55ddf23f531b7126df0"
+    },
+    {
+      "path": "docs/results/quality-phase3/cost-exploration-v2/registration.json",
+      "sha256": "969054b1895d67f1914e73f16fa4d0c2b325726d81cdfe388eca2c661392f16a"
+    }
+  ]
+}

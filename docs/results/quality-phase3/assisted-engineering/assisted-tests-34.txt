@@ -1,0 +1,180 @@
+TAP version 13
+# Subtest: new strategy cannot silently run old generation policy
+ok 1 - new strategy cannot silently run old generation policy
+  ---
+  duration_ms: 2.4306
+  ...
+# Subtest: original control rejects an accidentally enabled new generation prompt
+ok 2 - original control rejects an accidentally enabled new generation prompt
+  ---
+  duration_ms: 0.3128
+  ...
+# Subtest: model and immutable evidence version drift are rejected
+ok 3 - model and immutable evidence version drift are rejected
+  ---
+  duration_ms: 1.1939
+  ...
+# Subtest: selection is fixed4per split with1refusal and excludes independenttest
+ok 4 - selection is fixed4per split with1refusal and excludes independenttest
+  ---
+  duration_ms: 18.0622
+  ...
+# Subtest: selection does not depend on answer output or score
+ok 5 - selection does not depend on answer output or score
+  ---
+  duration_ms: 2.2213
+  ...
+# Subtest: test case inserted into source cohort is rejected
+ok 6 - test case inserted into source cohort is rejected
+  ---
+  duration_ms: 1.3394
+  ...
+# Subtest: registration locks dataset image models budget and32run ablation order
+ok 7 - registration locks dataset image models budget and32run ablation order
+  ---
+  duration_ms: 1.2876
+  ...
+# Subtest: registration rejects changed data mock and mismatched image
+ok 8 - registration rejects changed data mock and mismatched image
+  ---
+  duration_ms: 1.1658
+  ...
+# Subtest: deployment guard rejects image drift remote URL and unrelated port
+ok 9 - deployment guard rejects image drift remote URL and unrelated port
+  ---
+  duration_ms: 0.6703
+  ...
+# Subtest: blind citation transform preserves original answer except assigned handles
+ok 10 - blind citation transform preserves original answer except assigned handles
+  ---
+  duration_ms: 0.919
+  ...
+# Subtest: double reviews count once and conflict remains unresolved
+ok 11 - double reviews count once and conflict remains unresolved
+  ---
+  duration_ms: 1.2849
+  ...
+# Subtest: alternative quotes share a requirement but missing required group fails
+ok 12 - alternative quotes share a requirement but missing required group fails
+  ---
+  duration_ms: 1.2182
+  ...
+# Subtest: frozen assisted baseline reconciles all source hashes and failures without test-set reads
+ok 13 - frozen assisted baseline reconciles all source hashes and failures without test-set reads
+  ---
+  duration_ms: 168.4192
+  ...
+# Subtest: 32 answers require 39 scores with deterministic 20% rounded-up independent review
+ok 14 - 32 answers require 39 scores with deterministic 20% rounded-up independent review
+  ---
+  duration_ms: 28.3277
+  ...
+# Subtest: missing and disagreements remain denominator and block selection and interval
+ok 15 - missing and disagreements remain denominator and block selection and interval
+  ---
+  duration_ms: 6.2103
+  ...
+# Subtest: duplicate, human source, changed answer and invalid score rejected
+ok 16 - duplicate, human source, changed answer and invalid score rejected
+  ---
+  duration_ms: 9.1957
+  ...
+# Subtest: bootstrap is paired deterministic and refuses unresolved cases
+ok 17 - bootstrap is paired deterministic and refuses unresolved cases
+  ---
+  duration_ms: 3.9279
+  ...
+# Subtest: NA correctness remains unresolved for successful runs but failure contributes zero
+ok 18 - NA correctness remains unresolved for successful runs but failure contributes zero
+  ---
+  duration_ms: 2.543
+  ...
+# Subtest: NA explanations, fixed rule and actual timestamp are mandatory
+ok 19 - NA explanations, fixed rule and actual timestamp are mandatory
+  ---
+  duration_ms: 6.5522
+  ...
+# Subtest: independent assisted adjudication binds both original scores and preserves audit
+ok 20 - independent assisted adjudication binds both original scores and preserves audit
+  ---
+  duration_ms: 3.4505
+  ...
+# Subtest: stale hashes, unknown answers and non-independent adjudication rejected
+ok 21 - stale hashes, unknown answers and non-independent adjudication rejected
+  ---
+  duration_ms: 14.7965
+  ...
+# Subtest: no dispute cannot be adjudicated and canonical hashes ignore object key order
+ok 22 - no dispute cannot be adjudicated and canonical hashes ignore object key order
+  ---
+  duration_ms: 2.3908
+  ...
+# Subtest: registration fixes forty cases, two smoke types and complete model cap using synthetic fixtures only
+ok 23 - registration fixes forty cases, two smoke types and complete model cap using synthetic fixtures only
+  ---
+  duration_ms: 4.0792
+  ...
+# Subtest: invalid selection runtime budget or unknown field never reads dataset
+ok 24 - invalid selection runtime budget or unknown field never reads dataset
+  ---
+  duration_ms: 3.682
+  ...
+# Subtest: changed or missing development report stops before independent data
+ok 25 - changed or missing development report stops before independent data
+  ---
+  duration_ms: 15.9484
+  ...
+# Subtest: wrong split count duplicates or hash reject without substituting cases
+ok 26 - wrong split count duplicates or hash reject without substituting cases
+  ---
+  duration_ms: 2.3596
+  ...
+# Subtest: guard alone cannot read any independent contents
+ok 27 - guard alone cannot read any independent contents
+  ---
+  duration_ms: 0.3419
+  ...
+# Subtest: fake API seed smoke full collection resumes journals and preserves policy failures
+ok 28 - fake API seed smoke full collection resumes journals and preserves policy failures
+  ---
+  duration_ms: 290.0238
+  ...
+# Subtest: actual deployment guard rejects image and published-port drift
+ok 29 - actual deployment guard rejects image and published-port drift
+  ---
+  duration_ms: 0.7241
+  ...
+# Subtest: collector provenance hashes all imported helpers separately from backend runtime
+ok 30 - collector provenance hashes all imported helpers separately from backend runtime
+  ---
+  duration_ms: 0.5889
+  ...
+# Subtest: anonymous packet retains failed output citations and null score; mapping separated
+ok 31 - anonymous packet retains failed output citations and null score; mapping separated
+  ---
+  duration_ms: 3.9435
+  ...
+# Subtest: missing run and incomplete terminal payload cannot fabricate packets
+ok 32 - missing run and incomplete terminal payload cannot fabricate packets
+  ---
+  duration_ms: 1.903
+  ...
+# Subtest: source tampering offsets and independent test cases rejected
+ok 33 - source tampering offsets and independent test cases rejected
+  ---
+  duration_ms: 0.9352
+  ...
+# Subtest: writes exclusive outputs and never overwrites existing packet directory
+ok 34 - writes exclusive outputs and never overwrites existing packet directory
+  ---
+  duration_ms: 10.8074
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 635.6154

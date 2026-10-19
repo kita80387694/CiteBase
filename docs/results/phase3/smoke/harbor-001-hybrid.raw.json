@@ -1,0 +1,427 @@
+{
+  "id": "bc727289-929c-470d-bdd6-1f5bdbaeeec8",
+  "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+  "status": "FAILED",
+  "request": {
+    "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+    "mode": "hybrid",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+    "idempotencyKey": "p3-7fa38bb2a9295641ca349d8406d33709dac5dd7094c17007cc617e80971a",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 40,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v1",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+      "name": "moss-handbook.md",
+      "chunk_size": 900,
+      "version_id": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+      "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+      "name": "lumen-handbook.md",
+      "chunk_size": 900,
+      "version_id": "63ac71b5-471b-4929-ad90-8990985ab0da",
+      "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+      "name": "quartz-handbook.md",
+      "chunk_size": 900,
+      "version_id": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+      "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+      "name": "ember-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "57a166d3-fb44-4a72-b364-15157bb1a501",
+      "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+      "name": "harbor-handbook.md",
+      "chunk_size": 900,
+      "version_id": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+      "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+      "name": "lumen-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+      "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+      "name": "ember-handbook.md",
+      "chunk_size": 900,
+      "version_id": "408330a9-e667-426f-a196-85338c50b009",
+      "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+      "name": "harbor-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+      "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+      "name": "tide-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+      "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+      "name": "tide-handbook.md",
+      "chunk_size": 900,
+      "version_id": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+      "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+      "name": "moss-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+      "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+      "name": "quartz-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+      "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "hybrid",
+    "error": "NO_PROGRESS",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 16,
+          "promptTokens": 16
+        }
+      },
+      {
+        "kind": "rerank",
+        "actual": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 8003,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 8003,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 8003,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 3792,
+          "completionTokens": 46
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 3818,
+          "completionTokens": 46
+        }
+      }
+    ],
+    "answer": "无法根据当前资料回答：证据不足。",
+    "totalMs": 19549,
+    "evidence": [
+      {
+        "id": "c1b73929-9cda-43bc-8650-144645074772",
+        "page": 1,
+        "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。\n\nHarbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。\n\nHarbor 将 ETA 定义为预计到站时刻，ATA 定义为实际到站时刻。窗口从 ATA 开始计时，ETA 只用于安排卸货位。\n\nHarbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。\n\nHarbor 只对密封完好且探头校准在有效期内的箱子执行自动签收；密封损坏不允许使用补拍照片绕过复核。\n\nHarbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。\n\nHarbor 风险等级表\n| 等级 | 温度超带持续时间 | 动作 |\n| H1 | 不超过 80 秒 | 记录偏差 |\n| H2 | 超过 80 秒且不超过 240 秒 | 暂停签收 |\n| H3 | 超过 240 秒 | 隔离并复核 |\n\nHarbor 校准证明表\n| 探头 | 有效期 | 签发方 |\n| 主探头 | 45 天 | 计量岗 |\n| 备用探头 | 30 天 | 计量岗 |\n\nHarbor 交接照片保留表\n| 场景 | 保存时长 |\n| 正常签收 | 21 天 |\n| 人工复核 | 120 天 |\n| 无效重复照片 | 3 天 |\n\nHarbor 旧站试行窗口为 25 分钟，但 HBR-24 正式站不沿用该值；旧站温度带为 1–7 摄氏度，同样不得套用。\n\nHarbor 同一箱号同一到站批次只能有一张有效签收单。重传同一交接序号应返回原签收单，不生成第二单。\n\nHarbor 发生网络中断时可以采集本地草稿，但草稿不得显示为已签收；联网后补传仍需核验主探头序列。\n\nHarbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。\n\nHarbor 被隔离的箱子不得与正常箱同架存放，库位编码前缀为 Q-；待签收箱的库位前缀为 W-。",
+        "score": 0.9933680891990662,
+        "endOffset": 897,
+        "paragraph": 1,
+        "versionId": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+        "documentId": "943892db-09e1-482b-93b2-135eac4d5e08",
+        "startOffset": 0,
+        "documentName": "harbor-handbook.md"
+      },
+      {
+        "id": "57a0b072-cbee-4202-9276-57f7293ad335",
+        "page": 1,
+        "text": "Harbor 长文复盘附录：以下是虚构的跨班次事件复盘，不更改前文的正式阈值。清晨，值班员接到一辆提前到达的车辆。预约屏显示的预计时间还未到，但车头已经进入卸货区；值班员先登记实际到站时刻，再分配暂存位。他没有为了让统计更好看而把实际时间改成预约时间。第一箱的封条完好，探头证明可读，第二箱封口处有可疑折痕。两箱虽然同车到站，仍分别检查、分别记录，不能借第一箱的结论直接签收第二箱。记录员在交接单上注明看到的事实，而不将“可能运输碰撞”写成已查明的责任归属。\n复盘继续：货台的屏幕一度失去网络连接，记录员转用本地草稿。他向司机解释，屏幕里已经出现箱号不代表后台已签收；司机要求先给正式收据以便离场，记录员仍保留待核验状态。联网后，他核对原交接序号、采样序列和到站批次，发现司机手机与货台终端各传了一次同一事件。两份上传的图片文件名不同，但交接身份相同，因此系统关联已有签收单，而非再建立一个新的签收承诺。临时网络故障没有改变质检授权人，也不改变现场事实的采集时间。\n第三步，质量岗对第二箱开展人工复核。值班员先把箱子放到隔离库位，拍摄能看清封口位置和箱号的照片，避免背景里混入其他客户的运单。质量岗读取原始探头记录并查阅校准证明；司机提供运输说明，但不能自行填写质量结论。即便司机与值班员达成了口头赔偿安排，这也与质量放行是两个不同问题。复核单分别记录证据、待解释现象和最终判断，不能把未核实的说法抄成检测结论。对暂时无法解释的缺点，应保留疑点而不是删除相应采样行。\n第四步，交班人员发现温控告警已被确认，于是询问是否可以同时取消数据质量告警。上一班说明，告警确认只是有人已看到提示，既不代表偏差消失，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没",
+        "score": 0.20745079219341278,
+        "endOffset": 2013,
+        "paragraph": 19,
+        "versionId": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+        "documentId": "943892db-09e1-482b-93b2-135eac4d5e08",
+        "startOffset": 1113,
+        "documentName": "harbor-handbook.md"
+      },
+      {
+        "id": "b2d5ab7f-2842-4698-8fcb-90bc4224cdc8",
+        "page": 1,
+        "text": "Harbor 发生网络中断时可以采集本地草稿，但草稿不得显示为已签收；联网后补传仍需核验主探头序列。\n\nHarbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。\n\nHarbor 被隔离的箱子不得与正常箱同架存放，库位编码前缀为 Q-；待签收箱的库位前缀为 W-。\n\nHarbor 在 2027 年虚构演练中把主探头丢点和温度超带作为两条独立告警；一个告警解除并不解除另一告警。\n\nHarbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。\n\nHarbor 现场使用本地时区显示到站时间，系统交换时间统一为带 Z 后缀的 UTC；人工复核同时保存原始时区。\n\nHarbor 手册刻意不规定货品的药理效力、承运人赔偿金额或设备采购品牌；温控偏差不等于效力结论。",
+        "score": 0.05863495171070099,
+        "endOffset": 1111,
+        "paragraph": 12,
+        "versionId": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+        "documentId": "943892db-09e1-482b-93b2-135eac4d5e08",
+        "startOffset": 749,
+        "documentName": "harbor-handbook.md"
+      },
+      {
+        "id": "86ae2fe1-a269-4956-90ef-327f2254617e",
+        "page": 1,
+        "text": "，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没有延误。信息岗拒绝直接覆盖，而是要求说明原记录是否确有录入错误，并由授权岗位提交修订单。照片时间、实际到站时刻、上传时刻和质量复核时刻都描述不同事件，不能互相替代。经过核对，如果确为录入错误，应留下原值、修正值、操作身份与理由，而非只保留一个无法解释来源的新数字。报表修正也应能追溯到这条修订记录。\n第六步，运输方想借用测试箱演练一次到站流程，现场给测试箱贴上独立的模拟编号。演练使用的照片和轨迹仅用于检查交接界面与岗位操作，不能混入生产签收统计。演练期间工作人员故意模拟缺失采样和封条异常，以观察失败状态是否可见；演练不是要证明箱内货品具有某种实际效力。完成后，复盘记录应说明哪些行为被验证、哪些仅由测试数据模拟，避免把顺利走完界面当成真实运输质量已达标。生产数据与演练资料在记录身份上保持可区分。\n第七步，下游收货台只收到了一张签收单截图。截图中的箱号可读，但缺少质量放行码；下游不能因为图片上有一个“成功”字样就认为交接条件完整。工作人员请求补充对应的结构化凭据并核对批次，不转发包含其他箱子内容的整屏照片。若原件资料丢失，应按已有事件号恢复关联而不是重新签一张不存在的单。运输承诺、系统签收和质量放行在业务上互相关联，但不应简化为一个无法说明责任边界的布尔标记。\n第八步，库位盘点人员看见一只待复核箱摆在正常货架旁。即使尚未发生混放，仍应纠正库位并记录此次移动的原因。移动记录需关联箱号、原库位和新库位，不能仅写“清理现场”。另一名人员同时核对系统中的库位状态，确认移动动作与记录一致。现场管理没有把不合格推定扩展到附近所有箱子，也没有因为暂未看到损坏就撤销原复核要求。逐箱确认比凭相邻位置猜",
+        "score": 0.028741145506501198,
+        "endOffset": 2713,
+        "paragraph": 19,
+        "versionId": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+        "documentId": "943892db-09e1-482b-93b2-135eac4d5e08",
+        "startOffset": 1813,
+        "documentName": "harbor-handbook.md"
+      },
+      {
+        "id": "a33c95dc-fece-4865-8ac2-432346809a3a",
+        "page": 1,
+        "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。\n\nMoss 常温预处理柜维持 18 摄氏度，长期低温库维持负18摄氏度；预处理柜不是长期保存库。\n\nMoss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。\n\nMoss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。\n\nMoss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。\n\nMoss 长期库每12小时记录一次环境读数，预处理柜每2小时记录一次；两套记录分开归档。\n\nMoss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |\n\nMoss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |\n\nMoss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |\n\nMoss 早期实验批次曾采用75%的GR门槛；这仅用于历史研究，不替代常规82%的入库标准。\n\nMoss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。\n\nMoss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。\n\nMoss 标签打印错误时生成新标签并记录旧标签号；不能把不同采集地批次重新贴成同一LOT。\n\nMoss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。\n\nMoss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。\n\nMoss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。\n\nMoss 年度盘点需核对袋数、封口状态和标签关联；温度日志齐全不代表袋数盘点可以省略。",
+        "score": 0.0037975390441715717,
+        "endOffset": 873,
+        "paragraph": 1,
+        "versionId": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+        "documentId": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+        "startOffset": 0,
+        "documentName": "moss-handbook.md"
+      }
+    ],
+    "question": "Harbor 正式站运输箱的正常温度范围是多少？",
+    "abstained": true,
+    "citations": [],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 2,
+      "searches": 1,
+      "plannerSteps": 2,
+      "evidenceChars": 3932,
+      "evidenceCount": 5,
+      "externalCalls": 4
+    },
+    "retrievalMs": 2352,
+    "finishReason": "NO_PROGRESS",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": false
+  },
+  "errorCode": "NO_PROGRESS",
+  "finishedAt": "2026-09-29T06:25:25.637488Z",
+  "cancelRequestedAt": null,
+  "createdAt": "2026-09-29T06:25:06.022755Z",
+  "startedAt": "2026-09-29T06:25:06.069638Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 24,
+        "description": "检索当前授权知识库",
+        "querySha256": "293ec6f6eb812f0a3dfc401a12d4243b989a1a9a39222e4dbe1414abe3d4a76c"
+      },
+      "usage": {
+        "rerank": {
+          "billedUnits": {
+            "image_tokens": 0,
+            "input_tokens": 8003,
+            "search_units": 0,
+            "output_tokens": 0,
+            "classifications": 0
+          },
+          "totalTokens": null,
+          "promptTokens": 8003,
+          "providerTokens": {
+            "image_tokens": 0,
+            "input_tokens": 8003,
+            "output_tokens": 0
+          },
+          "completionTokens": 0
+        },
+        "embedding": {
+          "totalTokens": 16,
+          "promptTokens": 16
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "c1b73929-9cda-43bc-8650-144645074772",
+          "57a0b072-cbee-4202-9276-57f7293ad335",
+          "b2d5ab7f-2842-4698-8fcb-90bc4224cdc8",
+          "86ae2fe1-a269-4956-90ef-327f2254617e",
+          "a33c95dc-fece-4865-8ac2-432346809a3a"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-29T06:25:08.472161644Z",
+      "elapsedMs": 2362
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 3792,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebd67cf4fa030bdd77a5765d392c",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-29T06:25:18.673125368Z",
+      "elapsedMs": 10181
+    },
+    {
+      "kind": "tool",
+      "input": {
+        "evidenceHandle": "E1"
+      },
+      "usage": null,
+      "action": "inspectCitation",
+      "output": {
+        "evidenceIds": [
+          "c1b73929-9cda-43bc-8650-144645074772"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-29T06:25:18.689340852Z",
+      "elapsedMs": 4
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 3818,
+        "completionTokens": 46
+      },
+      "action": "inspectCitation",
+      "output": {
+        "callId": "01a0ebd6e9e5150ae314a72ba0da1f23",
+        "toolName": "inspectCitation"
+      },
+      "status": "COMPLETED",
+      "sequence": 4,
+      "createdAt": "2026-09-29T06:25:25.629388137Z",
+      "elapsedMs": 6928
+    }
+  ]
+}

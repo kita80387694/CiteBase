@@ -33,8 +33,9 @@ await req(`/api/questions?kbId=${bk.id}`,{token:alice,status:404});
 const answer=await req('/api/questions',{token:alice,method:'POST',body:{kbId:ak.id,question:'测试验收服务的 HTTP 监听端口是多少？',mode:'hybrid',topK:5}});
 assert(answer.evidence.length>0);assert(answer.citationValid);assert(answer.citations.length>0);assert(!JSON.stringify(answer).includes('BOB-ONLY-7391'));checks+=4;
 for(const c of answer.citations){await req(`/api/citations/${c.id}`,{token:alice});await req(`/api/citations/${c.id}`,{token:bob,status:404});}
-const evaluation=await req('/api/evaluations',{token:alice,method:'POST',body:{kbId:ak.id,name:'API双模式验收',topK:5,dataset:{version:'api-v1',questions:[{id:'port',question:'测试验收服务的 HTTP 监听端口是多少？',answerable:true,expectedAnswer:'9081',evidence:[{documentName:'验收.md',page:1,paragraph:1,quote:body}]}]}}});
-assert.equal(evaluation.status,'COMPLETED');assert.equal(evaluation.results.length,2);checks+=2;
+let evaluation=await req('/api/evaluations',{token:alice,method:'POST',status:202,body:{idempotencyKey:`verify-${ak.id}`,kbId:ak.id,name:'API双模式验收',topK:5,dataset:{version:'api-v1',questions:[{id:'port',question:'测试验收服务的 HTTP 监听端口是多少？',answerable:true,expectedAnswer:'9081',evidence:[{documentName:'验收.md',page:1,paragraph:1,quote:body}]}]}}});
+while(['QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED'].includes(evaluation.status)){await new Promise(r=>setTimeout(r,500));evaluation=await req(`/api/evaluations/${evaluation.id}`,{token:alice});}
+assert.equal(evaluation.status,'SUCCEEDED');assert.equal(evaluation.results.length,2);checks+=2;
 await req(`/api/evaluations/${evaluation.id}`,{token:bob,status:404});await req(`/api/evaluations/${evaluation.id}/export`,{token:bob,status:404});
 const exported=await req(`/api/evaluations/${evaluation.id}/export`,{token:alice});assert.equal(exported.results.length,2);checks++;
 await req(`/api/documents/${ad.id}`,{token:alice,method:'DELETE'});
@@ -44,4 +45,4 @@ await req(`/api/evaluations/${evaluation.id}`,{token:alice,status:404});
 const empty=await req('/api/questions',{token:alice,method:'POST',body:{kbId:ak.id,question:'监听端口？',mode:'hybrid',topK:5}});assert(empty.abstained);assert.equal(empty.evidence.length,0);checks+=2;
 await req(`/api/knowledge-bases/${ak.id}`,{token:alice,method:'DELETE'});await req(`/api/knowledge-bases/${bk.id}`,{token:bob,method:'DELETE'});
 const result={verifiedAt:new Date().toISOString(),modelMode:me.mode,checks,status:'PASSED',scope:'Actual HTTP endpoints: login, upload, duplicate, index, vector/hybrid ACL, documents/tasks/history/citations/evaluation/export isolation, deletion revocation, no-evidence abstention',answer,evaluation};
-mkdirSync('docs/results',{recursive:true});writeFileSync(`docs/results/api-${me.mode}.json`,JSON.stringify(result,null,2)+'\n');console.log(`${checks} API assertions passed (${me.mode}); raw record docs/results/api-${me.mode}.json`);
+const output=`${process.env.VERIFY_OUTPUT_DIR||'docs/results'}/api-${me.mode}-${Date.now()}.json`;mkdirSync(process.env.VERIFY_OUTPUT_DIR||'docs/results',{recursive:true});writeFileSync(output,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(`${checks} API assertions passed (${me.mode}); raw record ${output}`);

@@ -1,0 +1,57 @@
+{
+  "scope": "phase2-stage2 Mock UI regression",
+  "mode": "mock",
+  "result": "1 passed",
+  "reportedElapsedSeconds": 25.0,
+  "reportDurationMilliseconds": 25042.827,
+  "testDurationMilliseconds": 22123,
+  "frontendBundle": "index-BQjr6v6y.js",
+  "deployment": "http://localhost:25173",
+  "composeProject": "citebase-phase2",
+  "workingDirectory": "frontend",
+  "command": "$env:E2E_BASE_URL='http://localhost:25173'; node node_modules/@playwright/test/cli.js test tests/phase2-retrieval.spec.ts 2>&1 | Tee-Object -FilePath ../.tools/phase2-stage2-ui-mock-final.log; if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}",
+  "testPath": "frontend/tests/phase2-retrieval.spec.ts",
+  "stdoutLogPath": ".tools/phase2-stage2-ui-mock-final.log",
+  "reportPath": ".tools/phase2-stage2-ui-mock-final-report.html",
+  "machineReadableReportPath": ".tools/phase2-stage2-ui-mock-final-report.json",
+  "rawEvaluationAttachment": "docs/results/phase2/stage2-ui-mock-evaluation.json",
+  "rawRerankFailureAttachment": "docs/results/phase2/stage2-ui-mock-rerank-error.json",
+  "verified": [
+    "Reject invalid chunk overlap in UI without uploading a document",
+    "Upload structure-v1 with size 300 and overlap 50; view actual active version profile",
+    "Update identical file with legacy 900/200; retain both versions and identify current active version",
+    "Send candidateK 12, keywordWeight 0.5, rerank false and compact citations through actual API",
+    "Display actual stage timings, candidate counts, null supplier usage and disabled reranker status",
+    "Click compact answer's normalized source citation",
+    "Run two-case Mock evaluation across vector/hybrid and export identical retrieval options on both modes",
+    "Enable rerank in Mock mode and display explicit supplier-call prohibition error with null rerank usage",
+    "Execution failures show the failure badge rather than the normal insufficient-evidence badge",
+    "Delete only the test-created knowledge base on success"
+  ],
+  "screenshots": [
+    "docs/screenshots/phase2-stage2-structure-version.png",
+    "docs/screenshots/phase2-stage2-retrieval-diagnostics.png",
+    "docs/screenshots/phase2-stage2-evaluation.png",
+    "docs/screenshots/phase2-stage2-rerank-error.png"
+  ],
+  "priorAttempts": [
+    {
+      "result": "failed",
+      "reason": "Initial-page loading changed the new-knowledge-base button state during interaction; no knowledge-base POST was issued. Added an explicit readiness wait in the test and a loading guard on the real UI button.",
+      "logPath": ".tools/phase2-stage2-ui-mock-attempt1.log",
+      "reportPath": ".tools/phase2-stage2-ui-mock-attempt1-report.html"
+    },
+    {
+      "result": "1 passed",
+      "reportedElapsedSeconds": 25.6,
+      "note": "Complete flow on the pre-final bundle. Visual review then required an explicit execution-failure badge before the final deployment and verification.",
+      "logPath": ".tools/phase2-stage2-ui-mock-pre-final.log",
+      "reportPath": ".tools/phase2-stage2-ui-mock-pre-final-report.html"
+    }
+  ],
+  "limitations": [
+    "Uses actual local APIs and PostgreSQL with explicitly marked Mock model behavior; no network responses are mocked by Playwright.",
+    "Does not establish real model quality, reranker performance improvement, or independent-test-set effectiveness.",
+    "No genuine human review is performed by this UI test."
+  ]
+}

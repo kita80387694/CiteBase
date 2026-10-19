@@ -1,0 +1,254 @@
+ Image citebase-phase4-real-backend Building 
+ Image citebase-phase4-real-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 969B 0.1s done
+#1 DONE 0.1s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 480B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 333B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.28.0-alpine
+#4 ...
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [auth] library/nginx:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [frontend internal] load metadata for docker.io/library/node:22.14.0-alpine
+#7 ...
+
+#8 [auth] library/maven:pull token for registry-1.docker.io
+#8 DONE 0.0s
+
+#9 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#9 DONE 0.0s
+
+#10 [backend internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-21
+#10 DONE 1.4s
+
+#11 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre-jammy
+#11 DONE 1.4s
+
+#12 [backend internal] load .dockerignore
+#12 transferring context: 52B done
+#12 DONE 0.0s
+
+#13 [backend internal] load build context
+#13 DONE 0.0s
+
+#14 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-jammy@sha256:e9aaf73145bbd1f9f6ec7f6867dd75a44f34b1a6c32a813504bf4129be2d09d7
+#14 resolve docker.io/library/eclipse-temurin:21-jre-jammy@sha256:e9aaf73145bbd1f9f6ec7f6867dd75a44f34b1a6c32a813504bf4129be2d09d7 0.0s done
+#14 DONE 0.0s
+
+#15 [backend build 1/6] FROM docker.io/library/maven:3.9.9-eclipse-temurin-21@sha256:3a4ab3276a087bf276f79cae96b1af04f53731bec53fb2e651aca79e4b10211e
+#15 resolve docker.io/library/maven:3.9.9-eclipse-temurin-21@sha256:3a4ab3276a087bf276f79cae96b1af04f53731bec53fb2e651aca79e4b10211e
+#15 resolve docker.io/library/maven:3.9.9-eclipse-temurin-21@sha256:3a4ab3276a087bf276f79cae96b1af04f53731bec53fb2e651aca79e4b10211e 0.0s done
+#15 DONE 0.0s
+
+#13 [backend internal] load build context
+#13 transferring context: 63.61kB 0.0s done
+#13 DONE 0.0s
+
+#16 [backend build 3/6] COPY pom.xml ./
+#16 CACHED
+
+#17 [backend build 2/6] WORKDIR /app
+#17 CACHED
+
+#18 [backend build 4/6] RUN mvn -B dependency:go-offline
+#18 CACHED
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.28.0-alpine
+#4 DONE 1.5s
+
+#7 [frontend internal] load metadata for docker.io/library/node:22.14.0-alpine
+#7 DONE 1.5s
+
+#19 [frontend internal] load .dockerignore
+#19 transferring context: 72B done
+#19 DONE 0.0s
+
+#20 [backend build 5/6] COPY src ./src
+#20 DONE 0.1s
+
+#21 [frontend build 1/6] FROM docker.io/library/node:22.14.0-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944
+#21 resolve docker.io/library/node:22.14.0-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944 0.1s done
+#21 DONE 0.1s
+
+#22 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+#22 resolve docker.io/library/nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284 0.1s done
+#22 DONE 0.1s
+
+#23 [frontend internal] load build context
+#23 transferring context: 5.58MB 0.2s done
+#23 DONE 0.2s
+
+#24 [frontend build 2/6] WORKDIR /app
+#24 CACHED
+
+#25 [frontend build 3/6] COPY package.json package-lock.json ./
+#25 CACHED
+
+#26 [frontend build 4/6] RUN npm ci --registry=https://registry.npmjs.org
+#26 CACHED
+
+#27 [frontend build 5/6] COPY . .
+#27 DONE 0.1s
+
+#28 [backend build 6/6] RUN mvn -B package -DskipTests
+#28 1.692 [INFO] Scanning for projects...
+#28 2.033 [INFO] 
+#28 2.033 [INFO] ------------------------< io.citebase:citebase >------------------------
+#28 2.033 [INFO] Building citebase 0.1.0
+#28 2.033 [INFO]   from pom.xml
+#28 2.033 [INFO] --------------------------------[ jar ]---------------------------------
+#28 2.743 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.3/classmate-1.7.3.pom
+#28 3.237 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.3/classmate-1.7.3.pom (6.5 kB at 13 kB/s)
+#28 3.252 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/74/oss-parent-74.pom
+#28 3.304 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/74/oss-parent-74.pom (24 kB at 463 kB/s)
+#28 3.343 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.21.4/jackson-dataformat-toml-2.21.4.pom
+#28 3.445 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.21.4/jackson-dataformat-toml-2.21.4.pom (3.8 kB at 38 kB/s)
+#28 3.448 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.21.4/jackson-dataformats-text-2.21.4.pom
+#28 3.498 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.21.4/jackson-dataformats-text-2.21.4.pom (3.5 kB at 70 kB/s)
+#28 3.562 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.pom
+#28 3.604 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.pom (19 kB at 462 kB/s)
+#28 3.607 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-parent/1.17.8/byte-buddy-parent-1.17.8.pom
+#28 3.644 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-parent/1.17.8/byte-buddy-parent-1.17.8.pom (66 kB at 1.8 MB/s)
+#28 3.677 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.pom
+#28 3.707 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.pom (14 kB at 479 kB/s)
+#28 3.741 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.pom
+#28 3.773 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.pom (1.8 kB at 58 kB/s)
+#28 3.864 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.3/classmate-1.7.3.jar
+#28 3.905 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.3/classmate-1.7.3.jar (68 kB at 1.7 MB/s)
+#28 3.907 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.21.4/jackson-dataformat-toml-2.21.4.jar
+#28 3.908 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar
+#28 3.908 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar
+#28 3.909 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.jar
+#28 3.948 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.21.4/jackson-dataformat-toml-2.21.4.jar (58 kB at 1.3 MB/s)
+#28 3.981 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.jar (2.4 kB at 33 kB/s)
+#28 4.042 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar (367 kB at 2.7 MB/s)
+#28 4.641 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar (9.0 MB at 12 MB/s)
+#28 4.651 [INFO] 
+#28 4.651 [INFO] --- resources:3.3.1:resources (default-resources) @ citebase ---
+#28 4.805 [INFO] Copying 1 resource from src/main/resources to target/classes
+#28 4.820 [INFO] Copying 8 resources from src/main/resources to target/classes
+#28 4.826 [INFO] 
+#28 4.826 [INFO] --- compiler:3.14.1:compile (default-compile) @ citebase ---
+#28 4.942 [INFO] Recompiling the module because of changed source code.
+#28 4.950 [INFO] Compiling 65 source files with javac [debug parameters release 21] to target/classes
+#28 7.904 [INFO] /app/src/main/java/io/citebase/EvaluationService.java: /app/src/main/java/io/citebase/EvaluationService.java uses unchecked or unsafe operations.
+#28 7.904 [INFO] /app/src/main/java/io/citebase/EvaluationService.java: Recompile with -Xlint:unchecked for details.
+#28 7.905 [INFO] 
+#28 7.905 [INFO] --- resources:3.3.1:testResources (default-testResources) @ citebase ---
+#28 7.916 [INFO] skip non existing resourceDirectory /app/src/test/resources
+#28 7.916 [INFO] 
+#28 7.916 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ citebase ---
+#28 7.935 [INFO] Recompiling the module because of changed dependency.
+#28 7.940 [INFO] Compiling 27 source files with javac [debug parameters release 21] to target/test-classes
+#28 ...
+
+#29 [frontend build 6/6] RUN npm run build
+#29 0.469 
+#29 0.469 > citebase-web@1.0.0 build
+#29 0.469 > tsc -b && vite build
+#29 0.469 
+#29 5.136 vite v6.4.3 building for production...
+#29 5.241 transforming...
+#29 8.454 ✓ 1584 modules transformed.
+#29 8.754 rendering chunks...
+#29 8.776 computing gzip size...
+#29 8.794 dist/index.html                   0.47 kB │ gzip:  0.33 kB
+#29 8.794 dist/assets/index-DPaCB0tM.css   21.30 kB │ gzip:  5.52 kB
+#29 8.794 dist/assets/index-CchsnnZQ.js   265.18 kB │ gzip: 82.86 kB
+#29 8.795 ✓ built in 3.62s
+#29 DONE 9.0s
+
+#28 [backend build 6/6] RUN mvn -B package -DskipTests
+#28 ...
+
+#30 [frontend stage-1 2/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#30 CACHED
+
+#31 [frontend stage-1 3/3] COPY --from=build /app/dist /usr/share/nginx/html
+#31 CACHED
+
+#32 [frontend] exporting to image
+#32 exporting layers done
+#32 exporting manifest sha256:879b23b72345924fc9cd2ea93caa01f797311ab9fde6f31c5b03fc4f1e21792b done
+#32 exporting config sha256:2201772d72edce37bc0f9b96fa7e54a1090ad4bc988427fd5e4d6defed8f8195 done
+#32 exporting attestation manifest sha256:892c9e9ae79e575b7d858b00b7dfd5e7e432d40e397cbcb83c99a0d376e7842c 0.0s done
+#32 exporting manifest list sha256:c074f97b4065dbac294c7b2ae31841cc0dbe94cba392d5f4ef636ea978386de9 0.0s done
+#32 naming to docker.io/library/citebase-phase4-real-frontend:latest
+#32 naming to docker.io/library/citebase-phase4-real-frontend:latest done
+#32 unpacking to docker.io/library/citebase-phase4-real-frontend:latest 0.0s done
+#32 DONE 0.2s
+
+#28 [backend build 6/6] RUN mvn -B package -DskipTests
+#28 ...
+
+#33 [frontend] resolving provenance for metadata file
+#33 DONE 0.0s
+
+#28 [backend build 6/6] RUN mvn -B package -DskipTests
+#28 10.05 [INFO] /app/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: /app/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java uses unchecked or unsafe operations.
+#28 10.05 [INFO] /app/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+#28 10.05 [INFO] 
+#28 10.05 [INFO] --- surefire:3.5.6:test (default-test) @ citebase ---
+#28 10.22 [INFO] Tests are skipped.
+#28 10.22 [INFO] 
+#28 10.22 [INFO] --- jar:3.4.2:jar (default-jar) @ citebase ---
+#28 10.59 [INFO] Building jar: /app/target/citebase-0.1.0.jar
+#28 10.64 [INFO] 
+#28 10.64 [INFO] --- spring-boot:3.5.16:repackage (repackage) @ citebase ---
+#28 11.03 [INFO] Replacing main artifact /app/target/citebase-0.1.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+#28 11.03 [INFO] The original artifact has been renamed to /app/target/citebase-0.1.0.jar.original
+#28 11.03 [INFO] ------------------------------------------------------------------------
+#28 11.03 [INFO] BUILD SUCCESS
+#28 11.03 [INFO] ------------------------------------------------------------------------
+#28 11.03 [INFO] Total time:  9.363 s
+#28 11.03 [INFO] Finished at: 2026-09-29T07:49:32Z
+#28 11.03 [INFO] ------------------------------------------------------------------------
+#28 DONE 11.1s
+
+#34 [backend stage-1 2/4] RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/* && useradd -m app
+#34 CACHED
+
+#35 [backend stage-1 3/4] WORKDIR /app
+#35 CACHED
+
+#36 [backend stage-1 4/4] COPY --from=build /app/target/citebase-0.1.0.jar app.jar
+#36 DONE 0.1s
+
+#37 [backend] exporting to image
+#37 exporting layers 1.2s done
+#37 exporting manifest sha256:d63e11d8d7ef219a068817ed4d9fe0501e310a674725e8a2b64e647a98a80bef 0.0s done
+#37 exporting config sha256:99ebd8bbb3a0348e3f34a08f4f6b34d60b322b93a6530706c9e97837080176fa 0.0s done
+#37 exporting attestation manifest sha256:a991d0da7631d7573d8d307bee753758e057aa478a933fe2fd133212e98942d4 0.0s done
+#37 exporting manifest list sha256:528d491cc7d64646b72dad24440ec4a6162256f5aa5eb652f22e105b269320e7
+#37 exporting manifest list sha256:528d491cc7d64646b72dad24440ec4a6162256f5aa5eb652f22e105b269320e7 0.0s done
+#37 naming to docker.io/library/citebase-phase4-real-backend:latest done
+#37 unpacking to docker.io/library/citebase-phase4-real-backend:latest
+#37 unpacking to docker.io/library/citebase-phase4-real-backend:latest 0.2s done
+#37 DONE 1.5s
+
+#38 [backend] resolving provenance for metadata file
+#38 DONE 0.0s
+ Image citebase-phase4-real-backend Built 
+ Image citebase-phase4-real-frontend Built 
+ Container citebase-phase4-real-frontend-1 Running 
+ Container citebase-phase4-real-db-1 Running 
+ Container citebase-phase4-real-backend-1 Recreate 
+ Container citebase-phase4-real-backend-1 Recreated 
+ Container citebase-phase4-real-db-1 Waiting 
+ Container citebase-phase4-real-db-1 Healthy 
+ Container citebase-phase4-real-backend-1 Starting 
+ Container citebase-phase4-real-backend-1 Started 
+ Container citebase-phase4-real-backend-1 Waiting 
+ Container citebase-phase4-real-backend-1 Healthy 

@@ -1,0 +1,134 @@
+{
+  "id": "29e831d9-b592-4955-b75f-e6ef9c85e5ed",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "29e831d9-b592-4955-b75f-e6ef9c85e5ed",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q013",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-010",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "近事实干扰",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+              "groupId": "g1",
+              "endOffset": 331,
+              "paragraph": 6,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 282,
+              "documentName": "brass-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+              "groupId": "g2",
+              "endOffset": 247,
+              "paragraph": 5,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 215,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 录音留30天，所以旧件也留30天吗？",
+          "answerable": true,
+          "expectedAnswer": "不是；旧件取件后14天或随取件返还"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-b57f0f742d61863128885a927ea51b35b9ee458c5e28e8017e9ffa26676f",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:43:13.784874Z",
+  "startedAt": "2026-09-30T06:43:14.217974Z",
+  "finishedAt": "2026-09-30T06:43:23.315752Z",
+  "availableAt": "2026-09-30T06:43:13.784874Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "630fe3b4-304e-4e08-a957-06e2f5d0c134",
+      "operationKey": "45a3ad4b-3f4f-42e6-9a84-574ee72f99c4:embedding:f004b75b-6c7a-4921-8d5d-d8975f60fbd5",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:43:14.230524Z",
+      "finishedAt": "2026-09-30T06:43:14.575750Z"
+    },
+    {
+      "callId": "3d8f3e2c-99ca-4b27-888a-fa2806587e5b",
+      "operationKey": "45a3ad4b-3f4f-42e6-9a84-574ee72f99c4:generation:9bd652fa-0003-452b-9a32-0f3da04b57d4",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1698,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:43:14.581330Z",
+      "finishedAt": "2026-09-30T06:43:20.649685Z"
+    },
+    {
+      "callId": "cc6b1340-6110-409d-8fc8-2578cb2fe5be",
+      "operationKey": "254be3fa-dd37-487c-ab80-1fa5a3e99381:embedding:7c510655-9f86-4662-95fb-61450a83c8b0",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:43:20.666468Z",
+      "finishedAt": "2026-09-30T06:43:20.935045Z"
+    },
+    {
+      "callId": "9996a497-a694-4b3e-b7cc-55fa490ee33a",
+      "operationKey": "254be3fa-dd37-487c-ab80-1fa5a3e99381:generation:3c334909-161f-4a51-8a67-d4661962715f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:43:20.942884Z",
+      "finishedAt": "2026-09-30T06:43:23.302871Z"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "4f915a7b-bdeb-4d13-876e-89f35d2bfd29",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "4f915a7b-bdeb-4d13-876e-89f35d2bfd29",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-0-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-0-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+              "groupId": "g1",
+              "endOffset": 65,
+              "paragraph": 1,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。",
+              "groupId": "g2",
+              "endOffset": 93,
+              "paragraph": 2,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 50,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 缺地点记录应找谁提交、谁审核，检测员能代批吗？",
+          "answerable": true,
+          "expectedAnswer": "采集人提交、库管审核；检测员不能代批"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-f99b0fb85f6fdd491e9e738c96b09b3564c0a71ee9304edf74ab6c3c0084",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 1,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:15:16.202795Z",
+  "startedAt": "2026-10-01T08:15:16.445540Z",
+  "finishedAt": "2026-10-01T08:15:30.877396Z",
+  "availableAt": "2026-10-01T08:15:16.202795Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "707e8879-3a35-449a-bcd9-25774b02507a",
+      "operationKey": "11d6735b-e9f0-447a-8d8b-cc2151930c4b:embedding:7a395c5b-c61c-42e0-b1bc-1c83555ebcea",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-01T08:15:16.460248Z",
+      "finishedAt": "2026-10-01T08:15:16.774860Z"
+    },
+    {
+      "callId": "9901219c-f8ed-4d3f-8365-addcb30e1aaf",
+      "operationKey": "11d6735b-e9f0-447a-8d8b-cc2151930c4b:generation:d8f20aad-858b-433d-87eb-7850b9fcc9cd",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1733,
+        "completionTokens": 106
+      },
+      "startedAt": "2026-10-01T08:15:16.779033Z",
+      "finishedAt": "2026-10-01T08:15:24.540318Z"
+    },
+    {
+      "callId": "cf7def38-06b3-4d96-9ee2-9ffb05773a99",
+      "operationKey": "d320222f-81b3-4f8e-a04d-5f00c2a7325a:embedding:d8d58e6e-0219-45b3-bb43-5b8267d9e7af",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-10-01T08:15:24.560310Z",
+      "finishedAt": "2026-10-01T08:15:24.821826Z"
+    },
+    {
+      "callId": "a0cdaf12-32ca-47d6-bb68-9f35db476847",
+      "operationKey": "d320222f-81b3-4f8e-a04d-5f00c2a7325a:generation:d7caf21d-3ed8-41c4-a675-ac88fae36f85",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 109
+      },
+      "startedAt": "2026-10-01T08:15:24.829901Z",
+      "finishedAt": "2026-10-01T08:15:30.859162Z"
+    }
+  ]
+}

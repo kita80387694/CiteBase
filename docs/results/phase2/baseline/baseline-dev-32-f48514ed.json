@@ -1,0 +1,2571 @@
+{
+  "id": "2105ba82-f0f6-4a4e-81f0-f93bceee62a5",
+  "name": "baseline-dev-32-f48514ed",
+  "status": "COMPLETED",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:14:42.845259035Z",
+  "error": null,
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "quartz-007",
+          "question": "Quartz 的 ACK 和 RSVP 都能证明订位成功吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；ACK仅传递确认，RSVP才是预约确认",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 3,
+              "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 87,
+              "endOffset": 145,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 8,
+              "paragraph": 1,
+              "quote": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 96,
+              "groupId": "g2"
+            }
+          ],
+          "category": "缩写",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-008",
+          "question": "Quartz GSL 是什么状态，何时开始？",
+          "answerable": true,
+          "expectedAnswer": "团体名单锁定，场次前3小时",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 4,
+              "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 147,
+              "endOffset": 198,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 6,
+              "paragraph": 1,
+              "quote": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 116,
+              "groupId": "g2"
+            }
+          ],
+          "category": "缩写",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-009",
+          "question": "Quartz 常设展馆可以沿用去年临展30人的团体规模吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，最多24人",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 1,
+              "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 0,
+              "endOffset": 45,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 10,
+              "quote": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 584,
+              "endOffset": 634,
+              "groupId": "g2"
+            }
+          ],
+          "category": "近事实干扰",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-010",
+          "question": "Quartz 收到48小时前提醒，是否意味着取消期限自动延长48小时？",
+          "answerable": true,
+          "expectedAnswer": "不延长",
+          "evidence": [
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 11,
+              "paragraph": 1,
+              "quote": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 116,
+              "groupId": "g1"
+            }
+          ],
+          "category": "近事实干扰",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-011",
+          "question": "Quartz 场次码能正常读取，但场次已关闭，候补团还能进去吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，码不证明资格且关闭场次不入场",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 11,
+              "quote": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 636,
+              "endOffset": 680,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 12,
+              "paragraph": 1,
+              "quote": "Quartz closure card: a fully closed session never admits a waitlisted group,\neven if its scan code is readable.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 111,
+              "groupId": "g2"
+            }
+          ],
+          "category": "近事实干扰",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-012",
+          "question": "Quartz 已有24名访客还要加一名入馆讲解员，能复制同一名单绕过限制吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，讲解员计入24人上限且禁止复制名单绕过",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 1,
+              "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 0,
+              "endOffset": 45,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 14,
+              "quote": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 764,
+              "endOffset": 799,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-013",
+          "question": "Quartz 儿童团的成年联系人缺席，能把随团讲解员默认当监护人直接入馆吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，先指定联系人，讲解员非默认监护人",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 6,
+              "quote": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 248,
+              "endOffset": 301,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 13,
+              "quote": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 724,
+              "endOffset": 762,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-014",
+          "question": "Quartz 夜场无障碍团队应从何门沿什么路线进入？",
+          "answerable": true,
+          "expectedAnswer": "南门，经一层坡道",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 15,
+              "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 801,
+              "endOffset": 838,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 16,
+              "quote": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 840,
+              "endOffset": 885,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.9375,
+      "mrr": 1,
+      "retrievalMs": 306.625,
+      "totalMs": 8852.875,
+      "errorCount": 0
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.9375,
+      "mrr": 0.9375,
+      "retrievalMs": 358.875,
+      "totalMs": 8018.75,
+      "errorCount": 0
+    }
+  },
+  "results": [
+    {
+      "id": "c2d28dd2-5327-48c8-8b4c-4e0bd4968f6a",
+      "question": "Quartz 的 ACK 和 RSVP 都能证明订位成功吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "24c6d8c9-4a42-4234-bbc4-60cd2e1666a2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "text": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "score": 0.6960309588955309
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.6721066441663127
+        },
+        {
+          "id": "f94dc468-80e2-4960-aa2a-a33cd3ba9425",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 96,
+          "text": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "score": 0.6393514060587632
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.6272650886652044
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.6127270460128958
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 328,
+      "totalMs": 2909,
+      "promptTokens": 843,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-007",
+      "category": "缩写",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能；ACK仅传递确认，RSVP才是预约确认",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 87,
+          "endOffset": 145,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 8,
+          "paragraph": 1,
+          "quote": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 96,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "275d14bf-d6b7-41b9-a6b4-a244e9461991",
+      "question": "Quartz 的 ACK 和 RSVP 都能证明订位成功吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "24c6d8c9-4a42-4234-bbc4-60cd2e1666a2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "text": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "f94dc468-80e2-4960-aa2a-a33cd3ba9425",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 96,
+          "text": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "score": 0.03057889822595705
+        },
+        {
+          "id": "db934052-b472-492c-a4a6-52169e244173",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 120,
+          "text": "Quartz transfer card: moving a confirmed group to another session requires a\nnew RSVP and invalidates the old scan code.",
+          "score": 0.03007688828584351
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 303,
+      "totalMs": 10897,
+      "promptTokens": 842,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-007",
+      "category": "缩写",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能；ACK仅传递确认，RSVP才是预约确认",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 87,
+          "endOffset": 145,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 8,
+          "paragraph": 1,
+          "quote": "Quartz terminology: ACK means a system acknowledgement of delivery, not a\nconfirmed reservation.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 96,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d26bc5cd-fdb0-4896-831a-94219e2dbebf",
+      "question": "Quartz GSL 是什么状态，何时开始？",
+      "answer": "根据提供的证据，Quartz GSL 是一种状态，并且有特定的开始时间。\n\n1.  **GSL 是什么状态？**\n    *   Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。[d1403318-7a75-4d70-aca7-e99dcb94f9df]\n\n2.  **GSL 何时开始？**\n    *   GSL 在预订场次开始前 3 小时开始。[5b4ab8e5-b22a-4a15-8987-70dc92640ac0]",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.6255384050791055
+        },
+        {
+          "id": "5b4ab8e5-b22a-4a15-8987-70dc92640ac0",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "score": 0.5917765364247327
+        },
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.4932700538578698
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.4565435460099787
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.4424805509304932
+        }
+      ],
+      "citations": [
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.6255384050791055
+        },
+        {
+          "id": "5b4ab8e5-b22a-4a15-8987-70dc92640ac0",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "score": 0.5917765364247327
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 296,
+      "totalMs": 13890,
+      "promptTokens": 872,
+      "completionTokens": 139,
+      "error": null,
+      "caseId": "quartz-008",
+      "category": "缩写",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "团体名单锁定，场次前3小时",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 147,
+          "endOffset": 198,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 6,
+          "paragraph": 1,
+          "quote": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d02e44bb-dd3f-40b4-ac77-9df603fca1b8",
+      "question": "Quartz GSL 是什么状态，何时开始？",
+      "answer": "根据提供的证据，Quartz GSL 是团体名单锁定状态，进入此状态后不能自助增加成员，只能由预约岗审核 [d1403318-7a75-4d70-aca7-e99dcb94f9df]。GSL 状态在预订场次开始前 3 小时开始 [5b4ab8e5-b22a-4a15-8987-70dc92640ac0]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "5b4ab8e5-b22a-4a15-8987-70dc92640ac0",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.02967032967032967
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.02819138376017471
+        }
+      ],
+      "citations": [
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "5b4ab8e5-b22a-4a15-8987-70dc92640ac0",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "score": 0.0315136476426799
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 299,
+      "totalMs": 8607,
+      "promptTokens": 876,
+      "completionTokens": 95,
+      "error": null,
+      "caseId": "quartz-008",
+      "category": "缩写",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "团体名单锁定，场次前3小时",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 147,
+          "endOffset": 198,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 6,
+          "paragraph": 1,
+          "quote": "Quartz roster card: GSL begins 3 hours before the booked session. Staff review\nis required for subsequent additions.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "a50722bb-adf6-4096-a180-977664e23303",
+      "question": "Quartz 常设展馆可以沿用去年临展30人的团体规模吗？",
+      "answer": "根据证据，Quartz 常设展馆不能沿用去年临时展厅的30人团体规模。证据明确指出，Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限，且去年的规则不得直接用于常设展馆 [8b73365f-1516-4330-a8c1-8e9c4cd59928]。此外，另一份证据也说明 Quartz 展馆每个参观团最多 24 人 [52fd7300-3ecd-4690-b421-72ba4be5ef76]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.7846725115375228
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.6826906204223633
+        },
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.6166390180587769
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.5979571342468262
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.5775691270828247
+        }
+      ],
+      "citations": [
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.7846725115375228
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.6826906204223633
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 298,
+      "totalMs": 6603,
+      "promptTokens": 838,
+      "completionTokens": 125,
+      "error": null,
+      "caseId": "quartz-009",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，最多24人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 0,
+          "endOffset": 45,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 584,
+          "endOffset": 634,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "820dd1cf-5fff-46b3-8a88-e0dd9ea5e755",
+      "question": "Quartz 常设展馆可以沿用去年临展30人的团体规模吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.03149801587301587
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.030776515151515152
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 379,
+      "totalMs": 2382,
+      "promptTokens": 842,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-009",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，最多24人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 0,
+          "endOffset": 45,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 584,
+          "endOffset": 634,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "e5000782-ba0d-406f-b2e4-6fb28ed6949e",
+      "question": "Quartz 收到48小时前提醒，是否意味着取消期限自动延长48小时？",
+      "answer": "不，Quartz 收到48小时前提醒并不意味着取消期限自动延长48小时。根据证据，提醒邮件在入场前48小时发送，但明确指出“reminders do not extend the cancellation deadline”（提醒不会延长取消截止日期）[7cff38af-294d-4d3d-995f-f6fda66fd6ce]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "7cff38af-294d-4d3d-995f-f6fda66fd6ce",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "score": 0.7527069526350784
+        },
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.7036622409417929
+        },
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.6631833311781312
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.6583251742013061
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.61578392527556
+        }
+      ],
+      "citations": [
+        {
+          "id": "7cff38af-294d-4d3d-995f-f6fda66fd6ce",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "score": 0.7527069526350784
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 324,
+      "totalMs": 4312,
+      "promptTokens": 865,
+      "completionTokens": 75,
+      "error": null,
+      "caseId": "quartz-010",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不延长",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 11,
+          "paragraph": 1,
+          "quote": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d5cff18c-56fa-4cb5-b675-6061fa9fc421",
+      "question": "Quartz 收到48小时前提醒，是否意味着取消期限自动延长48小时？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "7cff38af-294d-4d3d-995f-f6fda66fd6ce",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "score": 0.030886196246139225
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "24c6d8c9-4a42-4234-bbc4-60cd2e1666a2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "text": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.029571646010002173
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 432,
+      "totalMs": 2057,
+      "promptTokens": 879,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-010",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不延长",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 11,
+          "paragraph": 1,
+          "quote": "Quartz reminder card: one reminder is sent 48 hours before entry; reminders do\nnot extend the cancellation deadline.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "196bdde8-aa09-4a34-bf08-2ec09c9bd883",
+      "question": "Quartz 场次码能正常读取，但场次已关闭，候补团还能进去吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.6946485406579376
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.6941768113269433
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.6547000819802233
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.6334230581705431
+        },
+        {
+          "id": "778a0f3a-ebab-49b6-9b20-58e84ac0ffa1",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz emergency card: the duty manager may close a session; the roster\nremains available for evacuation accounting.",
+          "score": 0.62457295509739
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 296,
+      "totalMs": 9798,
+      "promptTokens": 841,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-011",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，码不证明资格且关闭场次不入场",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 636,
+          "endOffset": 680,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 12,
+          "paragraph": 1,
+          "quote": "Quartz closure card: a fully closed session never admits a waitlisted group,\neven if its scan code is readable.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 111,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f0efbecb-0c3b-4bbd-96fa-c99e81ae683d",
+      "question": "Quartz 场次码能正常读取，但场次已关闭，候补团还能进去吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.030117753623188408
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.029827662395050816
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 306,
+      "totalMs": 2422,
+      "promptTokens": 877,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-011",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，码不证明资格且关闭场次不入场",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 636,
+          "endOffset": 680,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 12,
+          "paragraph": 1,
+          "quote": "Quartz closure card: a fully closed session never admits a waitlisted group,\neven if its scan code is readable.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 111,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d91f79bd-c47d-4c91-b447-b64f72257258",
+      "question": "Quartz 已有24名访客还要加一名入馆讲解员，能复制同一名单绕过限制吗？",
+      "answer": "根据证据，Quartz 展馆每个参观团最多 24 人，且随团讲解员计入人数 [52fd7300-3ecd-4690-b421-72ba4be5ef76]。同时，证据明确指出，禁止为了绕开人数限制把同一已确认团队复制成多份相同名单 [de570764-48dd-4c5c-8b4d-f65b537b3972]。因此，不能通过复制同一名单来绕过限制以增加一名讲解员。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.7421918511390686
+        },
+        {
+          "id": "de570764-48dd-4c5c-8b4d-f65b537b3972",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "text": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "score": 0.7227644324302673
+        },
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.6891769952072516
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.6783644163121112
+        },
+        {
+          "id": "b4c5e3cc-b233-4ec0-84de-43d4566a6c21",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Quartz guide card: voluntary tour guides may explain exhibits but cannot\napprove roster overrides.",
+          "score": 0.6414689421653748
+        }
+      ],
+      "citations": [
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.7421918511390686
+        },
+        {
+          "id": "de570764-48dd-4c5c-8b4d-f65b537b3972",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "text": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "score": 0.7227644324302673
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 296,
+      "totalMs": 13279,
+      "promptTokens": 853,
+      "completionTokens": 109,
+      "error": null,
+      "caseId": "quartz-012",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，讲解员计入24人上限且禁止复制名单绕过",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 0,
+          "endOffset": 45,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 764,
+          "endOffset": 799,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "441a8c91-e0a0-4972-9000-73ce0a9d02cd",
+      "question": "Quartz 已有24名访客还要加一名入馆讲解员，能复制同一名单绕过限制吗？",
+      "answer": "根据证据，不能通过复制同一名单来绕过人数限制。证据明确指出“Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单”[de570764-48dd-4c5c-8b4d-f65b537b3972]。此外，证据规定“Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数”[52fd7300-3ecd-4690-b421-72ba4be5ef76]。因此，一个已有24名访客的团队，若再加入一名讲解员，总人数将超过24人的上限，这是不被允许的。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "de570764-48dd-4c5c-8b4d-f65b537b3972",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "text": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.030309988518943745
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.030117753623188408
+        }
+      ],
+      "citations": [
+        {
+          "id": "de570764-48dd-4c5c-8b4d-f65b537b3972",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "text": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 315,
+      "totalMs": 10488,
+      "promptTokens": 843,
+      "completionTokens": 138,
+      "error": null,
+      "caseId": "quartz-012",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，讲解员计入24人上限且禁止复制名单绕过",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 1,
+          "quote": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 0,
+          "endOffset": 45,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 764,
+          "endOffset": 799,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "7632f235-16eb-4084-8ae3-ce7a4d0a3b7f",
+      "question": "Quartz 儿童团的成年联系人缺席，能把随团讲解员默认当监护人直接入馆吗？",
+      "answer": "根据证据，不能将随团讲解员默认当监护人直接入馆。Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色 [44761950-529e-42e4-a03a-0a7d8d1e13d3]。此外，名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆 [d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.8563149655334604
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.7629921749820932
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.6981558827897233
+        },
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.6170424406839213
+        },
+        {
+          "id": "b4c5e3cc-b233-4ec0-84de-43d4566a6c21",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Quartz guide card: voluntary tour guides may explain exhibits but cannot\napprove roster overrides.",
+          "score": 0.5949189002739423
+        }
+      ],
+      "citations": [
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.8563149655334604
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.7629921749820932
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 312,
+      "totalMs": 13422,
+      "promptTokens": 853,
+      "completionTokens": 118,
+      "error": null,
+      "caseId": "quartz-013",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，先指定联系人，讲解员非默认监护人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 248,
+          "endOffset": 301,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 13,
+          "quote": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 724,
+          "endOffset": 762,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2c98eab2-d983-48de-814d-73f524b50034",
+      "question": "Quartz 儿童团的成年联系人缺席，能把随团讲解员默认当监护人直接入馆吗？",
+      "answer": "根据证据，不能将随团讲解员默认当监护人直接入馆。Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色 [44761950-529e-42e4-a03a-0a7d8d1e13d3]。此外，名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆 [d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "8b73365f-1516-4330-a8c1-8e9c4cd59928",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 584,
+          "endOffset": 634,
+          "text": "Quartz 去年临时展厅允许每团30人，但常设展馆仍执行24人上限；去年规则不得直接用于常设展馆。",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.02964426877470356
+        }
+      ],
+      "citations": [
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 516,
+      "totalMs": 13307,
+      "promptTokens": 855,
+      "completionTokens": 118,
+      "error": null,
+      "caseId": "quartz-013",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，先指定联系人，讲解员非默认监护人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 248,
+          "endOffset": 301,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 13,
+          "quote": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 724,
+          "endOffset": 762,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "506d7128-205c-4c8a-a323-73d6163ecb53",
+      "question": "Quartz 夜场无障碍团队应从何门沿什么路线进入？",
+      "answer": "根据证据，Quartz 夜场无障碍团队应从南门进入，路线为：从南门进入，经一层坡道到达展厅 [038d24bf-f94f-42b9-98ae-ae424b92e2d1]。同时，证据指出Quartz夜场不开放东门，夜场团队只走南门 [8673049f-7af7-456a-a5c8-b0e381806ecb]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.7237935281930505
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.7123190376853735
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.5856369835897675
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.557356943847862
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.5548237992875756
+        }
+      ],
+      "citations": [
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.7123190376853735
+        },
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.7237935281930505
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 303,
+      "totalMs": 6610,
+      "promptTokens": 843,
+      "completionTokens": 98,
+      "error": null,
+      "caseId": "quartz-014",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "南门，经一层坡道",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 801,
+          "endOffset": 838,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 840,
+          "endOffset": 885,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "32c15b3f-dae8-498c-bb85-5959d56524ea",
+      "question": "Quartz 夜场无障碍团队应从何门沿什么路线进入？",
+      "answer": "根据证据，Quartz 夜场无障碍团队应从南门进入，经一层坡道到达展厅 [038d24bf-f94f-42b9-98ae-ae424b92e2d1]。夜场团队只走南门 [8673049f-7af7-456a-a5c8-b0e381806ecb]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.029877369007803793
+        }
+      ],
+      "citations": [
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 321,
+      "totalMs": 13990,
+      "promptTokens": 882,
+      "completionTokens": 77,
+      "error": null,
+      "caseId": "quartz-014",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "南门，经一层坡道",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 801,
+          "endOffset": 838,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 840,
+          "endOffset": 885,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "缩写": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 312,
+          "totalMs": 8399.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 301,
+          "totalMs": 9752
+        }
+      },
+      "近事实干扰": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 1,
+          "retrievalMs": 306,
+          "totalMs": 6904.333333333333
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.8333333333333334,
+          "retrievalMs": 372.3333333333333,
+          "totalMs": 2287
+        }
+      },
+      "跨段落": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 303.6666666666667,
+          "totalMs": 11103.666666666666
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 384,
+          "totalMs": 12595
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 1,
+          "retrievalMs": 306.625,
+          "totalMs": 8852.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 0.9375,
+          "retrievalMs": 358.875,
+          "totalMs": 8018.75
+        }
+      }
+    },
+    "group": {
+      "quartz": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 1,
+          "retrievalMs": 306.625,
+          "totalMs": 8852.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 0.9375,
+          "retrievalMs": 358.875,
+          "totalMs": 8018.75
+        }
+      }
+    },
+    "topic": {
+      "quartz": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 1,
+          "retrievalMs": 306.625,
+          "totalMs": 8852.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.9375,
+          "mrr": 0.9375,
+          "retrievalMs": 358.875,
+          "totalMs": 8018.75
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "baseCaseId": "aster-020",
+  "batchId": "ci-30",
+  "group": "mixed",
+  "arm": "candidate",
+  "questions": [
+    {
+      "caseId": "ci-30-0",
+      "phase": "mixed-new",
+      "repeat": 0
+    },
+    {
+      "caseId": "ci-30-1",
+      "phase": "mixed-repeat",
+      "repeat": 1
+    }
+  ],
+  "runId": "1aa55e8a-f179-4fbf-8621-ea8ea228fa01",
+  "cache": [
+    {
+      "caseId": "ci-30-0",
+      "phase": "mixed-new",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-30-0",
+      "phase": "mixed-new",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-30-1",
+      "phase": "mixed-repeat",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-30-1",
+      "phase": "mixed-repeat",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    }
+  ],
+  "source": "ASSISTED"
+}

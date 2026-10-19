@@ -1,0 +1,2703 @@
+{
+  "version": "citebase-phase3-quality-v1",
+  "seed": 20260930,
+  "split": "all",
+  "questions": [
+    {
+      "id": "aster-001",
+      "question": "接收一份 Aster 样本至少要登记哪两项采集信息？",
+      "answerable": true,
+      "expectedAnswer": "地点、日期",
+      "category": "事实",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-002",
+      "question": "Aster 干燥种子多久复检一次，保存温度是多少？",
+      "answerable": true,
+      "expectedAnswer": "180天；4摄氏度",
+      "category": "表格",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 135,
+          "endOffset": 212,
+          "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-003",
+      "question": "Aster 湿样和干样的复检间隔差多少天？",
+      "answerable": true,
+      "expectedAnswer": "173天",
+      "category": "表格",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 135,
+          "endOffset": 212,
+          "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-004",
+      "question": "Aster 30粒中萌发24粒但缺采集日期，能分发吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；检测达标但资料不完整",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "aster-005",
+      "question": "Aster 库存79粒、资料完整且检测通过，可以先发1粒吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；库存不足80粒",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-006",
+      "question": "Aster 缺地点记录应找谁提交、谁审核，检测员能代批吗？",
+      "answerable": true,
+      "expectedAnswer": "采集人提交、库管审核；检测员不能代批",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 65,
+          "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 50,
+          "endOffset": 93,
+          "quote": "Aster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-007",
+      "question": "Aster 补发后只剩49粒，沿用原单号就可以放行吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；补发也须保留至少50粒",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 133,
+          "endOffset": 175,
+          "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-008",
+      "question": "两个 Aster 容器的品种名一样，是否表示同一批？",
+      "answerable": true,
+      "expectedAnswer": "不表示；还须地点、日期、批次匹配",
+      "category": "歧义",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 269,
+          "endOffset": 319,
+          "quote": "Aster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-009",
+      "question": "Aster 正式库每批至少留下几粒？只需要这个数。",
+      "answerable": true,
+      "expectedAnswer": "50粒",
+      "category": "证据充分",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 219,
+          "endOffset": 257,
+          "quote": "Aster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-010",
+      "question": "Aster 老演练规则写40粒，本次AST分发能用它吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；正式库50粒",
+      "category": "近事实干扰",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 177,
+          "endOffset": 217,
+          "quote": "Aster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-011",
+      "question": "Aster 30粒中萌发23粒可以标记V-PASS吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以；至少24粒",
+      "category": "计算",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-012",
+      "question": "Aster 无标签容器放在已知样本旁，能按邻居编号补登记并分发吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；进入隔离架，不凭相邻恢复编号",
+      "category": "跨文档",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 95,
+          "endOffset": 131,
+          "quote": "Aster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-013",
+      "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；仅说明检测条件下萌发表现",
+      "category": "拒绝过度推断",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 67,
+          "endOffset": 133,
+          "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-014",
+      "question": "Aster 复检失败后，由谁通知已经领过样本的人？",
+      "answerable": true,
+      "expectedAnswer": "库管",
+      "category": "事实",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 48,
+          "quote": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-015",
+      "question": "Aster 80粒库存且其他条件都合格，一次最多分发多少粒？",
+      "answerable": true,
+      "expectedAnswer": "30粒，保留50粒",
+      "category": "跨段落",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 214,
+          "endOffset": 267,
+          "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "aster-a.md",
+          "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 321,
+          "endOffset": 377,
+          "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "aster-016",
+      "question": "Aster 同一张领用单再次补寄时，编号如何处理？",
+      "answerable": true,
+      "expectedAnswer": "原单号加新的补发序号",
+      "category": "同义",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "aster-b.md",
+          "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 133,
+          "endOffset": 175,
+          "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "aster-017",
+      "question": "Aster 种子在南方每亩能增产多少公斤？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-018",
+      "question": "Aster 库管的个人手机号码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-019",
+      "question": "Aster 保存柜应买哪家公司的产品？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "aster-020",
+      "question": "Aster 当前真实库存总共多少粒？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "aster",
+      "group": "aster",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "brass-001",
+      "question": "Brass 开工单之前先做什么？",
+      "answerable": true,
+      "expectedAnswer": "拍外观照片",
+      "category": "事实",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 59,
+          "quote": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-002",
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "answerable": true,
+      "expectedAnswer": "未复现故障；不能",
+      "category": "缩写",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 61,
+          "endOffset": 105,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-003",
+      "question": "Brass 键垫更换比清洁的标准工时多多久？",
+      "answerable": true,
+      "expectedAnswer": "50分钟",
+      "category": "表格",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 107,
+          "endOffset": 180,
+          "quote": "Brass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-004",
+      "question": "Brass 清洁加全面调校的标准工时合计多少？",
+      "answerable": true,
+      "expectedAnswer": "190分钟",
+      "category": "表格",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 107,
+          "endOffset": 180,
+          "quote": "Brass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-005",
+      "question": "Brass 已给估价且客户说尽快修，可以直接拆卸并增加费用吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；拆卸及加费均需书面授权",
+      "category": "跨段落",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 59,
+          "quote": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 232,
+          "endOffset": 280,
+          "quote": "Brass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "brass-006",
+      "question": "Brass 技师完成两项测试后能自行通知取件吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；技师提交记录，接待员通知",
+      "category": "跨文档",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 182,
+          "endOffset": 230,
+          "quote": "Brass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 42,
+          "endOffset": 89,
+          "quote": "Brass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "brass-007",
+      "question": "Brass 有工单号但没取件码，可以取回已通过测试的乐器吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；两项凭据都需要",
+      "category": "跨文档",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 182,
+          "endOffset": 230,
+          "quote": "Brass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 42,
+          "endOffset": 89,
+          "quote": "Brass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "brass-008",
+      "question": "Brass 第二天又有同样症状，是不是已确认原零件再次损坏？",
+      "answerable": true,
+      "expectedAnswer": "不是；先复现并核对测试",
+      "category": "歧义",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 135,
+          "quote": "Brass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-009",
+      "question": "Brass 测试录音保留多少天？",
+      "answerable": true,
+      "expectedAnswer": "30天",
+      "category": "证据充分",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 215,
+          "endOffset": 247,
+          "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-010",
+      "question": "Brass 录音留30天，所以旧件也留30天吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；旧件取件后14天或随取件返还",
+      "category": "近事实干扰",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 282,
+          "endOffset": 331,
+          "quote": "Brass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 215,
+          "endOffset": 247,
+          "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "brass-011",
+      "question": "Brass 返修时可以抹掉原验收、借同型号其他客户测试通过吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以；保留原结果且每工单独立测试",
+      "category": "跨段落",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 40,
+          "quote": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 249,
+          "endOffset": 283,
+          "quote": "Brass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "brass-012",
+      "question": "Brass 客户明确要领回旧件时怎么处理？",
+      "answerable": true,
+      "expectedAnswer": "随乐器返还",
+      "category": "事实",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 282,
+          "endOffset": 331,
+          "quote": "Brass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-013",
+      "question": "Brass 标记NFF之后是否自动允许换件？",
+      "answerable": true,
+      "expectedAnswer": "不允许",
+      "category": "拒绝过度推断",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 61,
+          "endOffset": 105,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-014",
+      "question": "Brass 主管批准排期能代替客户批准额外费用吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；加费由客户批准",
+      "category": "表格",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 137,
+          "endOffset": 213,
+          "quote": "Brass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-015",
+      "question": "Brass 已完成清洁和气密测试，缺演奏测试能标待取件吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；两项测试都通过才可",
+      "category": "跨段落",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 182,
+          "endOffset": 230,
+          "quote": "Brass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-016",
+      "question": "Brass 再次送修要建全新独立记录还是关联老单？",
+      "answerable": true,
+      "expectedAnswer": "原工单下建子单",
+      "category": "同义",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 40,
+          "quote": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "brass-017",
+      "question": "Brass 对这把萨克斯应收多少人民币？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "brass-018",
+      "question": "Brass 使用哪个品牌的键垫最好？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "brass-019",
+      "question": "Brass 客户李先生的取件码是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "brass-020",
+      "question": "Brass 修好后乐器音色会提高多少分？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "brass",
+      "group": "brass",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "cobalt-001",
+      "question": "Cobalt 工作副本能用来实际航行吗？",
+      "answerable": true,
+      "expectedAnswer": "不能",
+      "category": "事实",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 59,
+          "quote": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-002",
+      "question": "Cobalt 修订日期更新，是否说明又测了一遍海底？",
+      "answerable": true,
+      "expectedAnswer": "不说明；修订与测绘日期不同",
+      "category": "歧义",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 61,
+          "endOffset": 100,
+          "quote": "Cobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-003",
+      "question": "Cobalt 彩色潮汐图用什么分辨率和色彩？",
+      "answerable": true,
+      "expectedAnswer": "400dpi，RGB",
+      "category": "表格",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 102,
+          "endOffset": 180,
+          "quote": "Cobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-004",
+      "question": "Cobalt 线图扫描比潮汐图高多少dpi？",
+      "answerable": true,
+      "expectedAnswer": "200dpi",
+      "category": "表格",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 102,
+          "endOffset": 180,
+          "quote": "Cobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-005",
+      "question": "Cobalt 图幅缺页但OCR能搜索到，能公开标完整吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；缺页必须INCOMPLETE，OCR不改变完整性",
+      "category": "跨段落",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 182,
+          "endOffset": 232,
+          "quote": "Cobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 234,
+          "endOffset": 286,
+          "quote": "Cobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-006",
+      "question": "Cobalt 新版发布是否只要管理员登记发行就够？",
+      "answerable": true,
+      "expectedAnswer": "不够；还须哈希、页序、发行标记校验且校验发布账号分离",
+      "category": "跨文档",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 59,
+          "quote": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 41,
+          "quote": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-007",
+      "question": "Cobalt 论文引用多版同名图，需哪些标识才能辨别？",
+      "answerable": true,
+      "expectedAnswer": "图幅号、版次、页码",
+      "category": "跨文档",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 288,
+          "endOffset": 323,
+          "quote": "Cobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 93,
+          "endOffset": 133,
+          "quote": "Cobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-008",
+      "question": "Cobalt 原图坐标看不清，可以根据OCR直接确认吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以；待核验，OCR不取代原图",
+      "category": "拒绝过度推断",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 234,
+          "endOffset": 286,
+          "quote": "Cobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-009",
+      "question": "Cobalt 正式发行标记是哪一个？",
+      "answerable": true,
+      "expectedAnswer": "ISSUED",
+      "category": "证据充分",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 221,
+          "endOffset": 274,
+          "quote": "Cobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-010",
+      "question": "Cobalt 600dpi扫描代表测绘精度更高吗？",
+      "answerable": true,
+      "expectedAnswer": "不能这样推断",
+      "category": "近事实干扰",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 102,
+          "endOffset": 180,
+          "quote": "Cobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 276,
+          "endOffset": 311,
+          "quote": "Cobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-011",
+      "question": "Cobalt 某版撤回后旧工作副本链接还可下载吗？",
+      "answerable": true,
+      "expectedAnswer": "不可；链接失效，仅留撤回编号和原因",
+      "category": "事实",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 43,
+          "endOffset": 91,
+          "quote": "Cobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-012",
+      "question": "Cobalt 最新修订能覆盖旧版原图吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，分别保留",
+      "category": "事实",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 288,
+          "endOffset": 323,
+          "quote": "Cobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-013",
+      "question": "Cobalt 哈希不符合时应重排页序还是隔离？",
+      "answerable": true,
+      "expectedAnswer": "隔离待核验",
+      "category": "表格",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 135,
+          "endOffset": 219,
+          "quote": "Cobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-014",
+      "question": "Cobalt OCR错字修复时可以直接修改原图坐标吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；修搜索文本保留原图，模糊坐标待核验",
+      "category": "跨文档",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 234,
+          "endOffset": 286,
+          "quote": "Cobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 135,
+          "endOffset": 219,
+          "quote": "Cobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-015",
+      "question": "Cobalt 缺页资料是否完全禁止建立目录？",
+      "answerable": true,
+      "expectedAnswer": "不是；可建目录但标INCOMPLETE",
+      "category": "跨段落",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-a.md",
+          "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 182,
+          "endOffset": 232,
+          "quote": "Cobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-016",
+      "question": "Cobalt 检查材料和最后发布可以由同一个账号完成吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以",
+      "category": "同义",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": [
+        {
+          "documentName": "cobalt-b.md",
+          "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 41,
+          "quote": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "cobalt-017",
+      "question": "Cobalt 某海峡今天实际水深多少米？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "cobalt-018",
+      "question": "Cobalt 图幅CBL-999的坐标是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "cobalt-019",
+      "question": "Cobalt 下一版海图何时上市？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "cobalt-020",
+      "question": "Cobalt 扫描仪具体采购价格是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "cobalt",
+      "group": "cobalt",
+      "split": "dev",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-001",
+      "question": "Dahlia 常设站一个人同时最多借几件？",
+      "answerable": true,
+      "expectedAnswer": "3件",
+      "category": "事实",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-002",
+      "question": "Dahlia 梯子能借多久，能续吗？",
+      "answerable": true,
+      "expectedAnswer": "2天，不能续",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-003",
+      "question": "Dahlia 手推车续一次后总借期是多少？",
+      "answerable": true,
+      "expectedAnswer": "10天，前提符合续期条件",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-004",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；已有下一预约禁止续期",
+      "category": "跨段落",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-005",
+      "question": "Dahlia 已借3件并预约今晚归还一件，现在能再借吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；现场验收才释放额度",
+      "category": "跨段落",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 44,
+          "endOffset": 90,
+          "quote": "Dahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-006",
+      "question": "Dahlia 借用人自行声明损坏工具已修好能恢复借出吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；管理员确认安全且争议由管理员复核",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 221,
+          "endOffset": 273,
+          "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 50,
+          "quote": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-007",
+      "question": "Dahlia 工具能转动但少附件，值班员可以忽略缺失吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，分别记录并验收",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 275,
+          "endOffset": 313,
+          "quote": "Dahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 50,
+          "quote": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-008",
+      "question": "Dahlia 手钻连附件借走，这算两件吗？",
+      "answerable": true,
+      "expectedAnswer": "随主工具算1件；附件独立借出才单计",
+      "category": "歧义",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-009",
+      "question": "Dahlia 预约超过取件时刻几分钟失效？",
+      "answerable": true,
+      "expectedAnswer": "45分钟",
+      "category": "证据充分",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 52,
+          "endOffset": 97,
+          "quote": "Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-010",
+      "question": "Dahlia 活动日能借5件，平常也照办吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，常设站3件",
+      "category": "近事实干扰",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 255,
+          "endOffset": 287,
+          "quote": "Dahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-011",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；手钻禁止，手推车可用但归还擦干检查",
+      "category": "表格",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 209,
+          "quote": "Dahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-012",
+      "question": "Dahlia 安全检查记录比借用收据多留多少天？",
+      "answerable": true,
+      "expectedAnswer": "550天",
+      "category": "计算",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 141,
+          "quote": "Dahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-013",
+      "question": "Dahlia 管理员改了还梯子的日期，是不是有一次续期权了？",
+      "answerable": true,
+      "expectedAnswer": "不是；改期不自动授予续借，梯子0次",
+      "category": "跨文档",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 211,
+          "endOffset": 253,
+          "quote": "Dahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-014",
+      "question": "Dahlia 过期预约会抹掉历史借用吗？",
+      "answerable": true,
+      "expectedAnswer": "不会，只释放预约",
+      "category": "事实",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 52,
+          "endOffset": 97,
+          "quote": "Dahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-015",
+      "question": "Dahlia 把STOP标签擦掉就表示安全复核通过吗？",
+      "answerable": true,
+      "expectedAnswer": "不是，管理员确认才可",
+      "category": "拒绝过度推断",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 221,
+          "endOffset": 273,
+          "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-016",
+      "question": "Dahlia 修改约定日期需要留下哪些审计信息？",
+      "answerable": true,
+      "expectedAnswer": "原时间、新时间、操作者、原因",
+      "category": "同义",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 211,
+          "endOffset": 253,
+          "quote": "Dahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "dahlia-017",
+      "question": "Dahlia 丢失一把手钻罚多少钱？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-018",
+      "question": "Dahlia 当前有几台闲置手推车？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-019",
+      "question": "Dahlia 推荐哪一型号电钻？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "dahlia-020",
+      "question": "Dahlia 值班员家庭地址是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "dahlia",
+      "group": "dahlia",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-001",
+      "question": "Elm 最长申请含校准共多少分钟？",
+      "answerable": true,
+      "expectedAnswer": "90分钟",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-002",
+      "question": "Elm 90分钟申请扣除首次校准最多还剩多少分钟？",
+      "answerable": true,
+      "expectedAnswer": "75分钟",
+      "category": "计算",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-003",
+      "question": "Elm SNR代表什么，教学阈值是多少？",
+      "answerable": true,
+      "expectedAnswer": "信噪比；不少于12",
+      "category": "缩写",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-004",
+      "question": "Elm B滤镜最多连续曝光几张，每张多久？",
+      "answerable": true,
+      "expectedAnswer": "5张，每张60秒",
+      "category": "表格",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 161,
+          "quote": "Elm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-005",
+      "question": "Elm R滤镜8张的曝光累计是多少秒？",
+      "answerable": true,
+      "expectedAnswer": "320秒",
+      "category": "表格",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 99,
+          "endOffset": 161,
+          "quote": "Elm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-006",
+      "question": "Elm R达到SNR12但B未达标，能宣布两种滤镜都完成目标吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；分别保存与判断",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 212,
+          "endOffset": 251,
+          "quote": "Elm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-007",
+      "question": "Elm 云散后设备校准仍失败，可以先曝光再补校准吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；重新校准，维护员处理失败，值班员暂停",
+      "category": "跨文档",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 163,
+          "endOffset": 210,
+          "quote": "Elm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 132,
+          "quote": "Elm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-008",
+      "question": "Elm 故障前完成第3帧，交班要提供哪些信息，从哪帧恢复？",
+      "answerable": true,
+      "expectedAnswer": "申请号、滤镜、完成帧号、暂停原因；第4帧",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 45,
+          "endOffset": 90,
+          "quote": "Elm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 177,
+          "quote": "Elm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-009",
+      "question": "Elm 收到预约确认是不是可以远程解锁开机？",
+      "answerable": true,
+      "expectedAnswer": "不是；值班员确认设备状态",
+      "category": "歧义",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 253,
+          "endOffset": 298,
+          "quote": "Elm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-010",
+      "question": "Elm 原始图像留多久？",
+      "answerable": true,
+      "expectedAnswer": "365天",
+      "category": "证据充分",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 43,
+          "quote": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-011",
+      "question": "Elm 缩略图30天后删掉，原始图像也同时消失吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；原图保留365天",
+      "category": "近事实干扰",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 43,
+          "quote": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-012",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answerable": true,
+      "expectedAnswer": "不可以",
+      "category": "拒绝过度推断",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-013",
+      "question": "Elm 云量七成仍在预约时段内，能继续曝光吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；大于六成暂停",
+      "category": "跨段落",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 163,
+          "endOffset": 210,
+          "quote": "Elm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 253,
+          "endOffset": 298,
+          "quote": "Elm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "elm-014",
+      "question": "Elm 提前结束后剩余时间自动给申请人的下一目标吗？",
+      "answerable": true,
+      "expectedAnswer": "不会，回排程池",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 179,
+          "endOffset": 215,
+          "quote": "Elm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-015",
+      "question": "Elm 恢复故障时可以覆盖前三张完成图来保持连续吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；从下一帧继续且保留完成帧",
+      "category": "事实",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 45,
+          "endOffset": 90,
+          "quote": "Elm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-016",
+      "question": "Elm 交班只留目标名字，足够接班恢复吗？",
+      "answerable": true,
+      "expectedAnswer": "不够；还需申请号、滤镜、帧号、暂停原因",
+      "category": "同义",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": [
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 177,
+          "quote": "Elm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "elm-017",
+      "question": "Elm 明晚具体有多少云量？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-018",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-019",
+      "question": "Elm 望远镜的购买价格是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "elm-020",
+      "question": "Elm 下一次发现新天体会在哪天？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "elm",
+      "group": "elm",
+      "split": "validation",
+      "evidence": []
+    },
+    {
+      "id": "flint-001",
+      "question": "Flint 录音开始前必须取得什么？",
+      "answerable": true,
+      "expectedAnswer": "受访者授权",
+      "category": "事实",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-002",
+      "question": "Flint 允许内部整理是否包含公开发布？",
+      "answerable": true,
+      "expectedAnswer": "不包含，分别授权",
+      "category": "歧义",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-003",
+      "question": "Flint 临时转写草稿保存多久？",
+      "answerable": true,
+      "expectedAnswer": "14天",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 108,
+          "endOffset": 178,
+          "quote": "Flint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-004",
+      "question": "Flint 授权记录比确认文字稿多保存几年？",
+      "answerable": true,
+      "expectedAnswer": "2年",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 108,
+          "endOffset": 178,
+          "quote": "Flint 文件保留表\n| 资料 | 期限 |\n| 临时转写草稿 | 14天 |\n| 经确认文字稿 | 5年 |\n| 授权记录 | 7年 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-005",
+      "question": "Flint 为匿名发布替换姓名后，原授权能一起公开吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；原授权由档案员保管",
+      "category": "跨段落",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 57,
+          "endOffset": 106,
+          "quote": "Flint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-006",
+      "question": "Flint 受访者确认稿件就能上新的公开平台吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；确认不扩大授权，新增渠道需同意",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 230,
+          "endOffset": 272,
+          "quote": "Flint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-007",
+      "question": "Flint 一段话听不清但已有时间码，可以编顺句子通过审核吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；标听辨不清，不补写未说内容",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 223,
+          "quote": "Flint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-008",
+      "question": "Flint 撤回公开授权之后，内部档案必须全部销毁吗？",
+      "answerable": true,
+      "expectedAnswer": "不一定；停止公开，内部按原授权处理",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 55,
+          "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 44,
+          "endOffset": 94,
+          "quote": "Flint 撤回公开授权后停止公开文本与音频访问，内部资料是否保留依原授权范围处理，不自动全部删除。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-009",
+      "question": "Flint 引用访谈需哪三个定位字段？",
+      "answerable": true,
+      "expectedAnswer": "访谈编号、时间码、文字稿版本",
+      "category": "证据充分",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 141,
+          "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-010",
+      "question": "Flint 两次录音重复同一细节，是否足以称为已证实事实？",
+      "answerable": true,
+      "expectedAnswer": "不足；仍属于个人回忆",
+      "category": "近事实干扰",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 268,
+          "endOffset": 312,
+          "quote": "Flint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-011",
+      "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录",
+      "category": "跨段落",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-a.md",
+          "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 225,
+          "endOffset": 266,
+          "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-012",
+      "question": "Flint 两版句子冲突时直接删旧版是否符合审核表？",
+      "answerable": true,
+      "expectedAnswer": "不符合；保留版本并核验",
+      "category": "表格",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-013",
+      "question": "Flint 谁检查授权范围，谁核对匿名化？",
+      "answerable": true,
+      "expectedAnswer": "编辑检查授权；档案员核对匿名化",
+      "category": "事实",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-014",
+      "question": "Flint 公开稿暴露第三人姓名，已有发布授权可直接上网吗？",
+      "answerable": true,
+      "expectedAnswer": "不能；遮蔽重新审核，授权和匿名化均需通过",
+      "category": "跨文档",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 42,
+          "quote": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 228,
+          "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "flint-015",
+      "question": "Flint 可以从受访者声线推断疾病并写进档案吗？",
+      "answerable": true,
+      "expectedAnswer": "不允许",
+      "category": "拒绝过度推断",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 274,
+          "endOffset": 313,
+          "quote": "Flint 音频仅供授权用途，不允许根据声线推断未记录的疾病、民族或政治立场。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-016",
+      "question": "Flint 查找一句话只提供受访者名字够吗？",
+      "answerable": true,
+      "expectedAnswer": "不够；需访谈编号、时间码、版本",
+      "category": "同义",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "flint-b.md",
+          "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 141,
+          "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "flint-017",
+      "question": "Flint 这位受访者患有什么疾病？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-018",
+      "question": "Flint 受访者未公开的真实身份证号是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-019",
+      "question": "Flint 某场历史事件究竟发生在哪个日期？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "flint-020",
+      "question": "Flint 下一次访谈受访者的具体姓名是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "flint",
+      "group": "flint",
+      "split": "test",
+      "evidence": []
+    }
+  ]
+}

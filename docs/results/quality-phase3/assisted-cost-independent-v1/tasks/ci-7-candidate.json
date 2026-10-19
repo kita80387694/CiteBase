@@ -1,0 +1,125 @@
+{
+  "id": "3dab0f6a-a5f1-4461-8a26-1e448de9013c",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "3dab0f6a-a5f1-4461-8a26-1e448de9013c",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-7-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-7-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+              "groupId": "g1",
+              "endOffset": 212,
+              "paragraph": 3,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 135,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 湿样和干样的复检间隔差多少天？",
+          "answerable": true,
+          "expectedAnswer": "173天"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-0d9ed95b943404df9230eda706f227d8b6a4431300577c4d5859110d73a5",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:18:53.615129Z",
+  "startedAt": "2026-10-01T08:18:53.987392Z",
+  "finishedAt": "2026-10-01T08:19:22.592297Z",
+  "availableAt": "2026-10-01T08:18:53.615129Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "88522ded-a6b5-40f2-a5f6-ac08dab5ce93",
+      "operationKey": "f486dc9e-cfa8-4b39-a8d2-30478d1fddd7:embedding:8a150e3a-da26-4557-8332-abff4b56849e",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T08:18:54.012343Z",
+      "finishedAt": "2026-10-01T08:18:54.386021Z"
+    },
+    {
+      "callId": "e5975298-697e-4aae-9b43-b4e265654d79",
+      "operationKey": "f486dc9e-cfa8-4b39-a8d2-30478d1fddd7:generation:b22548b6-b68e-4c6d-9f99-86f4ec276551",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1768,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-10-01T08:18:54.393825Z",
+      "finishedAt": "2026-10-01T08:19:16.109036Z"
+    },
+    {
+      "callId": "9d9b7b9c-fb1b-4731-b00e-44b10a233192",
+      "operationKey": "b5e14b3d-2994-415a-8290-bf20c1c7d631:embedding:c2ae7751-579c-4404-8b7e-abfa56319912",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T08:19:16.142468Z",
+      "finishedAt": "2026-10-01T08:19:16.407338Z"
+    },
+    {
+      "callId": "0c80a1e4-421b-40e3-873a-1648aae94946",
+      "operationKey": "b5e14b3d-2994-415a-8290-bf20c1c7d631:generation:cbabd44b-21b7-49ef-9508-d19a23a800c8",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-10-01T08:19:16.418317Z",
+      "finishedAt": "2026-10-01T08:19:22.571595Z"
+    }
+  ]
+}

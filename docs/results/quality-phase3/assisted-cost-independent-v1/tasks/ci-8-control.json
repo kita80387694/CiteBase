@@ -1,0 +1,167 @@
+{
+  "id": "da99bb1f-3864-4558-808c-9beb5adc7af6",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "da99bb1f-3864-4558-808c-9beb5adc7af6",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-8-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-8-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Flint 下一次访谈受访者的具体姓名是什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-1a96511d5c20a389862ac7784277e1827212ccbf82be8d6303a894406744",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:19:52.914926Z",
+  "startedAt": "2026-10-01T08:19:53.138931Z",
+  "finishedAt": "2026-10-01T08:20:15.945097Z",
+  "availableAt": "2026-10-01T08:19:52.914926Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "8ebc66b6-3f5c-4a67-a8fc-0073bc65af4a",
+      "operationKey": "511a28f8-0a0a-4cba-bdb3-206f100b9cc9:embedding:a8698405-9e7d-4f57-8569-bcc4f64b6b8e",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-10-01T08:19:53.166816Z",
+      "finishedAt": "2026-10-01T08:19:53.438181Z"
+    },
+    {
+      "callId": "ee0624ee-f783-4041-aea5-93d04df0085a",
+      "operationKey": "511a28f8-0a0a-4cba-bdb3-206f100b9cc9:rerank:87ae00b8-a8b7-4226-8d7c-dd3e2a2af416",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2686,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2686,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2686,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:19:53.448553Z",
+      "finishedAt": "2026-10-01T08:19:53.800803Z"
+    },
+    {
+      "callId": "d8bf7aff-b689-4efb-9735-cc80bb6167c1",
+      "operationKey": "511a28f8-0a0a-4cba-bdb3-206f100b9cc9:generation:eab2c192-6493-4a97-89fa-5f08a37546ea",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1770,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:19:53.804696Z",
+      "finishedAt": "2026-10-01T08:19:59.140727Z"
+    },
+    {
+      "callId": "40906298-69f8-4956-bbf6-7e13f9301d50",
+      "operationKey": "c855b83f-0077-4499-9042-5cadc9a636c8:embedding:ba4ce833-168b-4660-aebd-2795ba873bf9",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-10-01T08:19:59.165427Z",
+      "finishedAt": "2026-10-01T08:19:59.455778Z"
+    },
+    {
+      "callId": "bdaa931f-8a35-45d2-b695-64a70fe07315",
+      "operationKey": "c855b83f-0077-4499-9042-5cadc9a636c8:rerank:ddd57733-35d8-4256-afe0-cdd0b9f64d70",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2686,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2686,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2686,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:19:59.469517Z",
+      "finishedAt": "2026-10-01T08:20:00.276917Z"
+    },
+    {
+      "callId": "ea265375-e7a6-45bc-be3c-0af1bc8b986e",
+      "operationKey": "c855b83f-0077-4499-9042-5cadc9a636c8:generation:f3850635-5bdf-413a-bc1f-b451cd21e7a9",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1770,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:00.282016Z",
+      "finishedAt": "2026-10-01T08:20:15.923560Z"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "186e5b4a-26e8-409f-9555-730fc1825d82",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "186e5b4a-26e8-409f-9555-730fc1825d82",
+  "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "e0d817fd-6b4d-46a0-9ac3-319256a7b237",
+    "name": "p2opt-Independent-19ad7e5a86fcb91026dc-smoke",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "aster-001",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "事实",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+              "groupId": "g1",
+              "endOffset": 65,
+              "paragraph": 1,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "接收一份 Aster 样本至少要登记哪两项采集信息？",
+          "answerable": true,
+          "expectedAnswer": "地点、日期"
+        },
+        {
+          "id": "aster-017",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Aster 种子在南方每亩能增产多少公斤？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-6e339d1548c8f80f1fac2fefef1439145e794ee9563025726c53d24ada2d",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T07:24:03.082310Z",
+  "startedAt": "2026-10-01T07:24:03.206510Z",
+  "finishedAt": "2026-10-01T07:24:17.590448Z",
+  "availableAt": "2026-10-01T07:24:03.082310Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "faecfd5d-18c9-4f48-ae15-1b31396869aa",
+      "operationKey": "d36f7754-9d89-432f-9730-33565b0255de:embedding:775b382f-6ee7-4cad-b528-0cced0f5e8d8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T07:24:03.225559Z",
+      "finishedAt": "2026-10-01T07:24:03.634893Z"
+    },
+    {
+      "callId": "229b7e56-d7b0-4976-a895-395f1240a0ac",
+      "operationKey": "d36f7754-9d89-432f-9730-33565b0255de:generation:a850ccb6-3b04-4ada-a640-af46f0ff8eac",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1697,
+        "completionTokens": 45
+      },
+      "startedAt": "2026-10-01T07:24:03.641091Z",
+      "finishedAt": "2026-10-01T07:24:06.853166Z"
+    },
+    {
+      "callId": "2334eefc-a823-40f0-964a-8afdbb564a69",
+      "operationKey": "e025f4ca-2a14-46ef-84c7-de3211ab50b4:embedding:755fce06-bc98-49b5-a29b-40b8921f0535",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T07:24:06.881823Z",
+      "finishedAt": "2026-10-01T07:24:07.196390Z"
+    },
+    {
+      "callId": "a998e054-c3a2-4342-9378-d21f8de7112f",
+      "operationKey": "e025f4ca-2a14-46ef-84c7-de3211ab50b4:generation:cd812d90-b8f9-4d97-9318-55f687234df1",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1724,
+        "completionTokens": 45
+      },
+      "startedAt": "2026-10-01T07:24:07.209402Z",
+      "finishedAt": "2026-10-01T07:24:12.300814Z"
+    },
+    {
+      "callId": "c9cc3ac0-659a-4d61-8786-587e4504a77c",
+      "operationKey": "49fca913-ecf3-422c-a1da-73140052ea08:embedding:7bb98bb9-b666-4523-bdfd-5aea7f60b59f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-01T07:24:12.321280Z",
+      "finishedAt": "2026-10-01T07:24:12.740841Z"
+    },
+    {
+      "callId": "15bff5f9-6616-4834-854a-886022878a3d",
+      "operationKey": "49fca913-ecf3-422c-a1da-73140052ea08:generation:9fe7d828-05fa-4a93-afa6-487b5ba94aba",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T07:24:12.746742Z",
+      "finishedAt": "2026-10-01T07:24:15.244865Z"
+    },
+    {
+      "callId": "9627cbff-c008-4c1b-92e0-f406c4b38822",
+      "operationKey": "2a676ec2-f5f0-411b-b9ee-4a79f40efd32:embedding:9062e464-ae78-4c64-8275-8ec981cf7edc",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-01T07:24:15.266346Z",
+      "finishedAt": "2026-10-01T07:24:15.587266Z"
+    },
+    {
+      "callId": "53c61f4d-d835-45f0-a5d5-cd22dbc28205",
+      "operationKey": "2a676ec2-f5f0-411b-b9ee-4a79f40efd32:generation:eead649b-02f1-4a48-8a14-8e1fa9eb7eaf",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1715,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T07:24:15.595096Z",
+      "finishedAt": "2026-10-01T07:24:17.576188Z"
+    }
+  ]
+}

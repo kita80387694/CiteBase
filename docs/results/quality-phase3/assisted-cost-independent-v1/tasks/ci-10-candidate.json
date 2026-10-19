@@ -1,0 +1,135 @@
+{
+  "id": "22eeccf3-4e9f-4763-b01a-03d4212ed594",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "22eeccf3-4e9f-4763-b01a-03d4212ed594",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-10-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-10-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。",
+              "groupId": "g1",
+              "endOffset": 131,
+              "paragraph": 3,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 95,
+              "documentName": "aster-b.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+              "groupId": "g2",
+              "endOffset": 267,
+              "paragraph": 4,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 214,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 无标签容器放在已知样本旁，能按邻居编号补登记并分发吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；进入隔离架，不凭相邻恢复编号"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-2166646a8e3b300bc0dac0c1c90fcf6c923ae1cdced0064b737ce0f13b40",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:20:51.008964Z",
+  "startedAt": "2026-10-01T08:20:51.292918Z",
+  "finishedAt": "2026-10-01T08:21:00.937747Z",
+  "availableAt": "2026-10-01T08:20:51.008964Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "f2522ecd-ecc5-4554-a447-b7266f2c5731",
+      "operationKey": "564abd23-8d2d-41b6-b175-a81b62beefe7:embedding:c471ff8e-f0c9-4d57-a774-05412fb9a8d5",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 27,
+        "promptTokens": 27
+      },
+      "startedAt": "2026-10-01T08:20:51.320295Z",
+      "finishedAt": "2026-10-01T08:20:51.595677Z"
+    },
+    {
+      "callId": "2cf77240-0e24-40c8-9ca6-bccdc4e851ba",
+      "operationKey": "564abd23-8d2d-41b6-b175-a81b62beefe7:generation:27cd308e-d97a-457e-8e1f-a805b26e74f9",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:51.605999Z",
+      "finishedAt": "2026-10-01T08:20:59.014330Z"
+    },
+    {
+      "callId": "a350862b-6ed9-4c91-b64e-bedef9b26f0e",
+      "operationKey": "dbe86280-8afd-4f1d-b9b1-beeec9c21a53:embedding:b28fff78-a5ec-4740-ac0e-a02697f76cf7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 27,
+        "promptTokens": 27
+      },
+      "startedAt": "2026-10-01T08:20:59.035418Z",
+      "finishedAt": "2026-10-01T08:20:59.305315Z"
+    },
+    {
+      "callId": "5967e083-3a7d-4d9f-b50b-aaed89866d00",
+      "operationKey": "dbe86280-8afd-4f1d-b9b1-beeec9c21a53:generation:a2bb8c2c-e59d-4429-a976-f178f61f3fbd",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:59.317772Z",
+      "finishedAt": "2026-10-01T08:21:00.915676Z"
+    }
+  ]
+}

@@ -1,0 +1,1292 @@
+{
+  "schema": "quality-operations-report-v1",
+  "generatedAt": "2026-10-01T06:03:44.975Z",
+  "harnessStatus": "PASSED",
+  "modelMode": "mock/fault-test-only",
+  "sourceBuild": "a9eb0ae89b552faf4b784af6c2f52e73de170a6e9a298e96fed386448f6ddc62",
+  "registration": {
+    "machine": {
+      "platform": "win32",
+      "release": "10.0.26200",
+      "arch": "x64",
+      "logicalCpus": 16,
+      "cpuModel": "AMD Ryzen 7 5800H with Radeon Graphics         ",
+      "totalMemoryBytes": 17041780736
+    },
+    "workerProcesses": 2,
+    "perWorker": {
+      "heapMaxMiB": 384,
+      "activeProcessorCount": 2,
+      "taskConcurrency": 1,
+      "dbPoolMax": 6,
+      "leaseSeconds": 6,
+      "heartbeatSeconds": 1
+    },
+    "load": {
+      "model": "closed-loop",
+      "concurrency": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "warmupSeconds": 10,
+      "measurementSeconds": 60,
+      "maxOperationsPerStep": 240,
+      "mix": {
+        "index": 1,
+        "rag": 4,
+        "agent": 2,
+        "evaluation": 3
+      },
+      "provider": "explicit controllable mock, not DeepSeek throughput"
+    },
+    "stop": [
+      "scope violation",
+      "unbounded retry",
+      "dedicated DB unavailable after recovery",
+      "worker disappears",
+      "external service affected"
+    ],
+    "qualityConclusion": null
+  },
+  "loadComplete": true,
+  "rawRows": 968,
+  "warmupRows": 174,
+  "measurementRows": 794,
+  "levels": [
+    {
+      "concurrency": 1,
+      "samples": 101,
+      "failures": 0,
+      "errorRate": 0,
+      "windowSeconds": 60.5,
+      "completedPerSecond": 1.6694214876033058,
+      "successfulPerSecond": 1.6694214876033058,
+      "latency": {
+        "sampleCount": 101,
+        "meanMs": 598.3762376237623,
+        "p50Ms": 659,
+        "p95Ms": 1053
+      },
+      "queueWait": {
+        "sampleCount": 61,
+        "meanMs": 60.98360655737705,
+        "p50Ms": 57,
+        "p95Ms": 116
+      },
+      "queueWaitUnavailable": 0,
+      "byKind": {
+        "INDEX": {
+          "samples": 10,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 54.49,
+          "completedPerSecond": 0.18351991191044228,
+          "successfulPerSecond": 0.18351991191044228,
+          "latency": {
+            "sampleCount": 10,
+            "meanMs": 393.6,
+            "p50Ms": 373,
+            "p95Ms": 601
+          },
+          "queueWait": {
+            "sampleCount": 10,
+            "meanMs": 49.2,
+            "p50Ms": 28,
+            "p95Ms": 106
+          },
+          "queueWaitUnavailable": 0
+        },
+        "RAG": {
+          "samples": 40,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 55.059,
+          "completedPerSecond": 0.7264933979912458,
+          "successfulPerSecond": 0.7264933979912458,
+          "latency": {
+            "sampleCount": 40,
+            "meanMs": 247.025,
+            "p50Ms": 234,
+            "p95Ms": 305
+          },
+          "queueWait": {
+            "sampleCount": 0,
+            "meanMs": null,
+            "p50Ms": null,
+            "p95Ms": null
+          },
+          "queueWaitUnavailable": 0
+        },
+        "AGENT": {
+          "samples": 20,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 55.767,
+          "completedPerSecond": 0.3586350350565747,
+          "successfulPerSecond": 0.3586350350565747,
+          "latency": {
+            "sampleCount": 20,
+            "meanMs": 1022.3,
+            "p50Ms": 1004,
+            "p95Ms": 1278
+          },
+          "queueWait": {
+            "sampleCount": 20,
+            "meanMs": 62.95,
+            "p50Ms": 54,
+            "p95Ms": 116
+          },
+          "queueWaitUnavailable": 0
+        },
+        "EVALUATION": {
+          "samples": 31,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 60.5,
+          "completedPerSecond": 0.512396694214876,
+          "successfulPerSecond": 0.512396694214876,
+          "latency": {
+            "sampleCount": 31,
+            "meanMs": 844.2903225806451,
+            "p50Ms": 840,
+            "p95Ms": 1053
+          },
+          "queueWait": {
+            "sampleCount": 31,
+            "meanMs": 63.516129032258064,
+            "p50Ms": 67,
+            "p95Ms": 117
+          },
+          "queueWaitUnavailable": 0
+        }
+      },
+      "resources": {
+        "samples": 11,
+        "selfScope": "SELF (harness authenticated user; database-wide across its tasks, not per JVM)",
+        "selfKinds": [
+          {
+            "kind": "INDEX",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 0,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 0,
+            "oldestQueuedAgeMsSampledMax": null
+          },
+          {
+            "kind": "AGENT",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 1,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 1,
+            "oldestQueuedAgeMsSampledMax": null
+          },
+          {
+            "kind": "EVALUATION",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 1,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 1,
+            "oldestQueuedAgeMsSampledMax": null
+          }
+        ],
+        "databaseConnectionsMax": 13,
+        "processes": [
+          {
+            "position": 0,
+            "endpoint": "127.0.0.1:28083",
+            "samples": 11,
+            "heapUsedBytesMax": 53043056,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.009177874290361866,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          },
+          {
+            "position": 1,
+            "endpoint": "127.0.0.1:28084",
+            "samples": 11,
+            "heapUsedBytesMax": 55968304,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.014199941775685152,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          }
+        ]
+      }
+    },
+    {
+      "concurrency": 2,
+      "samples": 213,
+      "failures": 0,
+      "errorRate": 0,
+      "windowSeconds": 60.7,
+      "completedPerSecond": 3.5090609555189456,
+      "successfulPerSecond": 3.5090609555189456,
+      "latency": {
+        "sampleCount": 213,
+        "meanMs": 566.2206572769953,
+        "p50Ms": 653,
+        "p95Ms": 993
+      },
+      "queueWait": {
+        "sampleCount": 129,
+        "meanMs": 63.44186046511628,
+        "p50Ms": 63,
+        "p95Ms": 116
+      },
+      "queueWaitUnavailable": 0,
+      "byKind": {
+        "INDEX": {
+          "samples": 21,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 56.707,
+          "completedPerSecond": 0.37032465127762004,
+          "successfulPerSecond": 0.37032465127762004,
+          "latency": {
+            "sampleCount": 21,
+            "meanMs": 377.6666666666667,
+            "p50Ms": 374,
+            "p95Ms": 485
+          },
+          "queueWait": {
+            "sampleCount": 21,
+            "meanMs": 54.38095238095238,
+            "p50Ms": 43,
+            "p95Ms": 106
+          },
+          "queueWaitUnavailable": 0
+        },
+        "RAG": {
+          "samples": 84,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 57.048,
+          "completedPerSecond": 1.472444257467396,
+          "successfulPerSecond": 1.472444257467396,
+          "latency": {
+            "sampleCount": 84,
+            "meanMs": 244.07142857142858,
+            "p50Ms": 234,
+            "p95Ms": 249
+          },
+          "queueWait": {
+            "sampleCount": 0,
+            "meanMs": null,
+            "p50Ms": null,
+            "p95Ms": null
+          },
+          "queueWaitUnavailable": 0
+        },
+        "AGENT": {
+          "samples": 42,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 57.33,
+          "completedPerSecond": 0.7326007326007327,
+          "successfulPerSecond": 0.7326007326007327,
+          "latency": {
+            "sampleCount": 42,
+            "meanMs": 919.3809523809524,
+            "p50Ms": 844,
+            "p95Ms": 1214
+          },
+          "queueWait": {
+            "sampleCount": 42,
+            "meanMs": 56.476190476190474,
+            "p50Ms": 51,
+            "p95Ms": 112
+          },
+          "queueWaitUnavailable": 0
+        },
+        "EVALUATION": {
+          "samples": 66,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 60.7,
+          "completedPerSecond": 1.087314662273476,
+          "successfulPerSecond": 1.087314662273476,
+          "latency": {
+            "sampleCount": 66,
+            "meanMs": 811.4848484848485,
+            "p50Ms": 824,
+            "p95Ms": 978
+          },
+          "queueWait": {
+            "sampleCount": 66,
+            "meanMs": 70.75757575757575,
+            "p50Ms": 73,
+            "p95Ms": 119
+          },
+          "queueWaitUnavailable": 0
+        }
+      },
+      "resources": {
+        "samples": 11,
+        "selfScope": "SELF (harness authenticated user; database-wide across its tasks, not per JVM)",
+        "selfKinds": [
+          {
+            "kind": "INDEX",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 1,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 1,
+            "oldestQueuedAgeMsSampledMax": null
+          },
+          {
+            "kind": "AGENT",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": null
+          },
+          {
+            "kind": "EVALUATION",
+            "samples": 11,
+            "queuedSampledMax": 0,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": null
+          }
+        ],
+        "databaseConnectionsMax": 13,
+        "processes": [
+          {
+            "position": 0,
+            "endpoint": "127.0.0.1:28083",
+            "samples": 11,
+            "heapUsedBytesMax": 54046304,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.011937681876443704,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          },
+          {
+            "position": 1,
+            "endpoint": "127.0.0.1:28084",
+            "samples": 11,
+            "heapUsedBytesMax": 57407000,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.015102781487493973,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          }
+        ]
+      }
+    },
+    {
+      "concurrency": 4,
+      "samples": 240,
+      "failures": 0,
+      "errorRate": 0,
+      "windowSeconds": 48.304,
+      "completedPerSecond": 4.9685326266975816,
+      "successfulPerSecond": 4.9685326266975816,
+      "latency": {
+        "sampleCount": 240,
+        "meanMs": 802.1875,
+        "p50Ms": 851,
+        "p95Ms": 1545
+      },
+      "queueWait": {
+        "sampleCount": 144,
+        "meanMs": 487.19444444444446,
+        "p50Ms": 613,
+        "p95Ms": 829
+      },
+      "queueWaitUnavailable": 0,
+      "byKind": {
+        "INDEX": {
+          "samples": 24,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 47.227,
+          "completedPerSecond": 0.5081838778664747,
+          "successfulPerSecond": 0.5081838778664747,
+          "latency": {
+            "sampleCount": 24,
+            "meanMs": 868.5833333333334,
+            "p50Ms": 866,
+            "p95Ms": 1021
+          },
+          "queueWait": {
+            "sampleCount": 24,
+            "meanMs": 608.7916666666666,
+            "p50Ms": 581,
+            "p95Ms": 741
+          },
+          "queueWaitUnavailable": 0
+        },
+        "RAG": {
+          "samples": 96,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 46.815,
+          "completedPerSecond": 2.050624799743672,
+          "successfulPerSecond": 2.050624799743672,
+          "latency": {
+            "sampleCount": 96,
+            "meanMs": 238.66666666666666,
+            "p50Ms": 233,
+            "p95Ms": 247
+          },
+          "queueWait": {
+            "sampleCount": 0,
+            "meanMs": null,
+            "p50Ms": null,
+            "p95Ms": null
+          },
+          "queueWaitUnavailable": 0
+        },
+        "AGENT": {
+          "samples": 48,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 47.196,
+          "completedPerSecond": 1.0170353419781337,
+          "successfulPerSecond": 1.0170353419781337,
+          "latency": {
+            "sampleCount": 48,
+            "meanMs": 1039.2083333333333,
+            "p50Ms": 987,
+            "p95Ms": 1578
+          },
+          "queueWait": {
+            "sampleCount": 48,
+            "meanMs": 172.39583333333334,
+            "p50Ms": 97,
+            "p95Ms": 737
+          },
+          "queueWaitUnavailable": 0
+        },
+        "EVALUATION": {
+          "samples": 72,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 48.251,
+          "completedPerSecond": 1.4921970529108206,
+          "successfulPerSecond": 1.4921970529108206,
+          "latency": {
+            "sampleCount": 72,
+            "meanMs": 1373.4027777777778,
+            "p50Ms": 1330,
+            "p95Ms": 1643
+          },
+          "queueWait": {
+            "sampleCount": 72,
+            "meanMs": 656.5277777777778,
+            "p50Ms": 672,
+            "p95Ms": 861
+          },
+          "queueWaitUnavailable": 0
+        }
+      },
+      "resources": {
+        "samples": 8,
+        "selfScope": "SELF (harness authenticated user; database-wide across its tasks, not per JVM)",
+        "selfKinds": [
+          {
+            "kind": "INDEX",
+            "samples": 8,
+            "queuedSampledMax": 1,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 1,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 1,
+            "oldestQueuedAgeMsSampledMax": 642.535
+          },
+          {
+            "kind": "AGENT",
+            "samples": 8,
+            "queuedSampledMax": 1,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": 365.906
+          },
+          {
+            "kind": "EVALUATION",
+            "samples": 8,
+            "queuedSampledMax": 2,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": 801.302
+          }
+        ],
+        "databaseConnectionsMax": 13,
+        "processes": [
+          {
+            "position": 0,
+            "endpoint": "127.0.0.1:28083",
+            "samples": 8,
+            "heapUsedBytesMax": 57260032,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.014258929569811486,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          },
+          {
+            "position": 1,
+            "endpoint": "127.0.0.1:28084",
+            "samples": 8,
+            "heapUsedBytesMax": 57360720,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.02206686197117356,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          }
+        ]
+      }
+    },
+    {
+      "concurrency": 8,
+      "samples": 240,
+      "failures": 0,
+      "errorRate": 0,
+      "windowSeconds": 47.379,
+      "completedPerSecond": 5.065535363768759,
+      "successfulPerSecond": 5.065535363768759,
+      "latency": {
+        "sampleCount": 240,
+        "meanMs": 1538.1875,
+        "p50Ms": 2085,
+        "p95Ms": 2904
+      },
+      "queueWait": {
+        "sampleCount": 144,
+        "meanMs": 1697.2569444444443,
+        "p50Ms": 1733,
+        "p95Ms": 2248
+      },
+      "queueWaitUnavailable": 0,
+      "byKind": {
+        "INDEX": {
+          "samples": 24,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 45.551,
+          "completedPerSecond": 0.5268819564883317,
+          "successfulPerSecond": 0.5268819564883317,
+          "latency": {
+            "sampleCount": 24,
+            "meanMs": 2084.7916666666665,
+            "p50Ms": 2169,
+            "p95Ms": 2537
+          },
+          "queueWait": {
+            "sampleCount": 24,
+            "meanMs": 1815.2083333333333,
+            "p50Ms": 1889,
+            "p95Ms": 2268
+          },
+          "queueWaitUnavailable": 0
+        },
+        "RAG": {
+          "samples": 96,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 44.552,
+          "completedPerSecond": 2.1547854192853295,
+          "successfulPerSecond": 2.1547854192853295,
+          "latency": {
+            "sampleCount": 96,
+            "meanMs": 249.76041666666666,
+            "p50Ms": 233,
+            "p95Ms": 464
+          },
+          "queueWait": {
+            "sampleCount": 0,
+            "meanMs": null,
+            "p50Ms": null,
+            "p95Ms": null
+          },
+          "queueWaitUnavailable": 0
+        },
+        "AGENT": {
+          "samples": 48,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 47.16,
+          "completedPerSecond": 1.0178117048346056,
+          "successfulPerSecond": 1.0178117048346056,
+          "latency": {
+            "sampleCount": 48,
+            "meanMs": 2316.75,
+            "p50Ms": 2309,
+            "p95Ms": 2735
+          },
+          "queueWait": {
+            "sampleCount": 48,
+            "meanMs": 1434.4583333333333,
+            "p50Ms": 1434,
+            "p95Ms": 1873
+          },
+          "queueWaitUnavailable": 0
+        },
+        "EVALUATION": {
+          "samples": 72,
+          "failures": 0,
+          "errorRate": 0,
+          "windowSeconds": 47.379,
+          "completedPerSecond": 1.5196606091306275,
+          "successfulPerSecond": 1.5196606091306275,
+          "latency": {
+            "sampleCount": 72,
+            "meanMs": 2554.847222222222,
+            "p50Ms": 2607,
+            "p95Ms": 3005
+          },
+          "queueWait": {
+            "sampleCount": 72,
+            "meanMs": 1833.138888888889,
+            "p50Ms": 1882,
+            "p95Ms": 2259
+          },
+          "queueWaitUnavailable": 0
+        }
+      },
+      "resources": {
+        "samples": 8,
+        "selfScope": "SELF (harness authenticated user; database-wide across its tasks, not per JVM)",
+        "selfKinds": [
+          {
+            "kind": "INDEX",
+            "samples": 8,
+            "queuedSampledMax": 1,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 1,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 1,
+            "oldestQueuedAgeMsSampledMax": 2073.714
+          },
+          {
+            "kind": "AGENT",
+            "samples": 8,
+            "queuedSampledMax": 2,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": 1554.994
+          },
+          {
+            "kind": "EVALUATION",
+            "samples": 8,
+            "queuedSampledMax": 3,
+            "retryWaitSampledMax": 0,
+            "runningSampledMax": 2,
+            "cancelRequestedSampledMax": 0,
+            "activeLeasesSampledMax": 2,
+            "oldestQueuedAgeMsSampledMax": 2225.539
+          }
+        ],
+        "databaseConnectionsMax": 13,
+        "processes": [
+          {
+            "position": 0,
+            "endpoint": "127.0.0.1:28083",
+            "samples": 8,
+            "heapUsedBytesMax": 53999944,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.007548974502671144,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 1,
+            "poolPendingSampledMax": 0
+          },
+          {
+            "position": 1,
+            "endpoint": "127.0.0.1:28084",
+            "samples": 8,
+            "heapUsedBytesMax": 55847120,
+            "heapMaxBytes": 402653184,
+            "processCpuLoadMax": 0.02007677542481539,
+            "activeTasksSampledMax": 1,
+            "poolActiveSampledMax": 2,
+            "poolPendingSampledMax": 0
+          }
+        ]
+      }
+    }
+  ],
+  "resources": {
+    "samples": 46,
+    "selfScope": "SELF (harness authenticated user; database-wide across its tasks, not per JVM)",
+    "selfKinds": [
+      {
+        "kind": "INDEX",
+        "samples": 46,
+        "queuedSampledMax": 1,
+        "retryWaitSampledMax": 0,
+        "runningSampledMax": 1,
+        "cancelRequestedSampledMax": 0,
+        "activeLeasesSampledMax": 1,
+        "oldestQueuedAgeMsSampledMax": 2073.714
+      },
+      {
+        "kind": "AGENT",
+        "samples": 46,
+        "queuedSampledMax": 2,
+        "retryWaitSampledMax": 0,
+        "runningSampledMax": 2,
+        "cancelRequestedSampledMax": 0,
+        "activeLeasesSampledMax": 2,
+        "oldestQueuedAgeMsSampledMax": 1554.994
+      },
+      {
+        "kind": "EVALUATION",
+        "samples": 46,
+        "queuedSampledMax": 3,
+        "retryWaitSampledMax": 0,
+        "runningSampledMax": 2,
+        "cancelRequestedSampledMax": 0,
+        "activeLeasesSampledMax": 2,
+        "oldestQueuedAgeMsSampledMax": 2225.539
+      }
+    ],
+    "databaseConnectionsMax": 13,
+    "processes": [
+      {
+        "position": 0,
+        "endpoint": "127.0.0.1:28083",
+        "samples": 46,
+        "heapUsedBytesMax": 57260032,
+        "heapMaxBytes": 402653184,
+        "processCpuLoadMax": 0.04182634291337276,
+        "activeTasksSampledMax": 1,
+        "poolActiveSampledMax": 1,
+        "poolPendingSampledMax": 0
+      },
+      {
+        "position": 1,
+        "endpoint": "127.0.0.1:28084",
+        "samples": 46,
+        "heapUsedBytesMax": 57407000,
+        "heapMaxBytes": 402653184,
+        "processCpuLoadMax": 0.05504197028865896,
+        "activeTasksSampledMax": 1,
+        "poolActiveSampledMax": 2,
+        "poolPendingSampledMax": 0
+      }
+    ]
+  },
+  "recovery": [
+    {
+      "check": "dedicated PostgreSQL outage recovers with first checkpoint unchanged",
+      "passed": true,
+      "recoveryMs": 199,
+      "definition": "Harness-observed restoration until asserted task completion; not inferred from API health"
+    }
+  ],
+  "checks": [
+    {
+      "name": "B startup does not steal A valid lease",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "id": "829908c2-de19-4f1c-97bf-bb38ee6f5a9e",
+          "kind": "EVALUATION",
+          "status": "RUNNING",
+          "attempts": 1,
+          "fencing_token": 1,
+          "lease_owner": "98730baf-4678-479a-bfce-cae95aa75857",
+          "lease_until": "2026-10-01T05:57:41.521+00:00",
+          "error_code": null
+        },
+        "after": {
+          "id": "829908c2-de19-4f1c-97bf-bb38ee6f5a9e",
+          "kind": "EVALUATION",
+          "status": "RUNNING",
+          "attempts": 1,
+          "fencing_token": 1,
+          "lease_owner": "98730baf-4678-479a-bfce-cae95aa75857",
+          "lease_until": "2026-10-01T05:57:48.545+00:00",
+          "error_code": null
+        }
+      }
+    },
+    {
+      "name": "two actual JVM workers independently claim tasks",
+      "passed": true,
+      "evidence": {
+        "A": {
+          "database": "phase4_process_1790834245097",
+          "modelMode": "mock/fault-test-only",
+          "process": "A",
+          "pid": 20132,
+          "workerId": "98730baf-4678-479a-bfce-cae95aa75857",
+          "postgres": "PostgreSQL 17.10 (Debian 17.10-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit"
+        },
+        "B": {
+          "pid": 40796,
+          "process": "B",
+          "modelMode": "mock/fault-test-only",
+          "database": "phase4_process_1790834245097",
+          "postgres": "PostgreSQL 17.10 (Debian 17.10-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+          "workerId": "380338cf-157d-4b02-ac64-da28c9a549ea"
+        }
+      }
+    },
+    {
+      "name": "kill owner resumes only unfinished evaluation item with immutable first checkpoint",
+      "passed": true,
+      "evidence": {
+        "runId": "829908c2-de19-4f1c-97bf-bb38ee6f5a9e",
+        "oldResultHash": "32128a548e466922c97735d814e6db32bc12ddb2828b212c167af67f2c05f27f",
+        "newGeneration": 2,
+        "unknownCalls": 1
+      }
+    },
+    {
+      "name": "expired live worker late response cannot replace new generation chunks or terminal state",
+      "passed": true,
+      "evidence": {
+        "taskId": "ae03dcf9-3fb6-4e99-a02b-4e0506815d3f",
+        "oldWorker": "53f97bd5-0c46-43b7-ab34-a52a7c083db6",
+        "newWorker": "5fe658da-930a-4c04-bab7-f2066ad21f51",
+        "oldGeneration": 1,
+        "newGeneration": 2,
+        "chunkIds": [
+          "750cdb2c-80d1-40d5-8952-6a88343408e3"
+        ]
+      }
+    },
+    {
+      "name": "running cancellation prevents next item and late success publication",
+      "passed": true,
+      "evidence": {
+        "runId": "66171d86-a18f-4079-a867-e78ec95d5f9b",
+        "actualGenerationCalls": 1,
+        "terminal": "CANCELLED"
+      }
+    },
+    {
+      "name": "dedicated PostgreSQL outage recovers with first checkpoint unchanged",
+      "passed": true,
+      "evidence": {
+        "taskId": "97e39450-ea73-4fbe-be11-e416658ffa5e",
+        "outageMs": 8000,
+        "recoveryMs": 199,
+        "unknownCalls": 1
+      }
+    },
+    {
+      "name": "HTTP 429 has finite retries and spacing",
+      "passed": true,
+      "evidence": {
+        "taskId": "10e2b872-ab4d-46c1-b1af-733cd4d06109",
+        "attempts": 3,
+        "calls": 3,
+        "receivedAt": [
+          "2026-10-01T05:58:11.386Z",
+          "2026-10-01T05:58:12.478Z",
+          "2026-10-01T05:58:13.589Z"
+        ]
+      }
+    },
+    {
+      "name": "HTTP 504 has finite retries and spacing",
+      "passed": true,
+      "evidence": {
+        "taskId": "a2deb915-e833-4d6e-8385-0f5e8cd995b4",
+        "attempts": 3,
+        "calls": 3,
+        "receivedAt": [
+          "2026-10-01T05:58:13.815Z",
+          "2026-10-01T05:58:14.892Z",
+          "2026-10-01T05:58:15.984Z"
+        ]
+      }
+    },
+    {
+      "name": "real HttpClient timeout has three bounded attempts and rejects late success",
+      "passed": true,
+      "evidence": {
+        "taskId": "3ef8dc95-cf12-4e0c-ad26-f6aa6e03d09a",
+        "clientDeadlineMs": 2000,
+        "providerDelayMs": 5000,
+        "attempts": 3,
+        "errorCode": "PROVIDER_TIMEOUT",
+        "lateProviderStatus": 200,
+        "persistedChunks": 0
+      }
+    },
+    {
+      "name": "Agent crash explains interruption instead of replaying paid action",
+      "passed": true,
+      "evidence": {
+        "runId": "2393f0e2-6b74-4a11-a04d-c14c25ff4f5c",
+        "status": "FAILED",
+        "errorCode": "UNSAFE_TO_RESUME"
+      }
+    },
+    {
+      "name": "Agent cancellation rejects late success",
+      "passed": true,
+      "evidence": {
+        "runId": "447b07b7-6c85-42dc-916f-e51522a8c3be",
+        "status": "CANCELLED"
+      }
+    },
+    {
+      "name": "two-worker in-flight deletion withdraws export citations and cached retrieval",
+      "passed": true,
+      "evidence": {
+        "taskId": "0d01694b-02fa-47d5-90b2-d6814c1867da",
+        "status": "DELETED",
+        "workers": 2,
+        "persistedEvaluationRows": 0,
+        "persistedDocumentRows": 0,
+        "persistedChunks": 0
+      }
+    },
+    {
+      "name": "closed-loop mixed load completed with actual resource and terminal-task sampling",
+      "passed": true,
+      "evidence": {
+        "levels": [
+          {
+            "concurrency": 1,
+            "samples": 101,
+            "failures": 0,
+            "errorRate": 0,
+            "actualWindowSeconds": 60.5,
+            "completedPerSecond": 1.6694214876033058,
+            "successfulPerSecond": 1.6694214876033058,
+            "latencyMs": {
+              "mean": 598.3762376237623,
+              "p50": 659,
+              "p95": 1053
+            },
+            "byKind": {
+              "INDEX": {
+                "samples": 10,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 54.49,
+                "completedPerSecond": 0.18351991191044228,
+                "successfulPerSecond": 0.18351991191044228,
+                "latencyMs": {
+                  "mean": 393.6,
+                  "p50": 373,
+                  "p95": 601
+                }
+              },
+              "RAG": {
+                "samples": 40,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 55.059,
+                "completedPerSecond": 0.7264933979912458,
+                "successfulPerSecond": 0.7264933979912458,
+                "latencyMs": {
+                  "mean": 247.025,
+                  "p50": 234,
+                  "p95": 305
+                }
+              },
+              "AGENT": {
+                "samples": 20,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 55.767,
+                "completedPerSecond": 0.3586350350565747,
+                "successfulPerSecond": 0.3586350350565747,
+                "latencyMs": {
+                  "mean": 1022.3,
+                  "p50": 1004,
+                  "p95": 1278
+                }
+              },
+              "EVALUATION": {
+                "samples": 31,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 60.5,
+                "completedPerSecond": 0.512396694214876,
+                "successfulPerSecond": 0.512396694214876,
+                "latencyMs": {
+                  "mean": 844.2903225806451,
+                  "p50": 840,
+                  "p95": 1053
+                }
+              }
+            },
+            "timingDefinition": "earliest submitted measurement operation through latest completion; includes drain, excludes warmup and sampler drain",
+            "plannedMeasurementSeconds": 60,
+            "cap": 240,
+            "capReached": false
+          },
+          {
+            "concurrency": 2,
+            "samples": 213,
+            "failures": 0,
+            "errorRate": 0,
+            "actualWindowSeconds": 60.7,
+            "completedPerSecond": 3.5090609555189456,
+            "successfulPerSecond": 3.5090609555189456,
+            "latencyMs": {
+              "mean": 566.2206572769953,
+              "p50": 653,
+              "p95": 993
+            },
+            "byKind": {
+              "INDEX": {
+                "samples": 21,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 56.707,
+                "completedPerSecond": 0.37032465127762004,
+                "successfulPerSecond": 0.37032465127762004,
+                "latencyMs": {
+                  "mean": 377.6666666666667,
+                  "p50": 374,
+                  "p95": 485
+                }
+              },
+              "RAG": {
+                "samples": 84,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 57.048,
+                "completedPerSecond": 1.472444257467396,
+                "successfulPerSecond": 1.472444257467396,
+                "latencyMs": {
+                  "mean": 244.07142857142858,
+                  "p50": 234,
+                  "p95": 249
+                }
+              },
+              "AGENT": {
+                "samples": 42,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 57.33,
+                "completedPerSecond": 0.7326007326007327,
+                "successfulPerSecond": 0.7326007326007327,
+                "latencyMs": {
+                  "mean": 919.3809523809524,
+                  "p50": 844,
+                  "p95": 1214
+                }
+              },
+              "EVALUATION": {
+                "samples": 66,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 60.7,
+                "completedPerSecond": 1.087314662273476,
+                "successfulPerSecond": 1.087314662273476,
+                "latencyMs": {
+                  "mean": 811.4848484848485,
+                  "p50": 824,
+                  "p95": 978
+                }
+              }
+            },
+            "timingDefinition": "earliest submitted measurement operation through latest completion; includes drain, excludes warmup and sampler drain",
+            "plannedMeasurementSeconds": 60,
+            "cap": 240,
+            "capReached": false
+          },
+          {
+            "concurrency": 4,
+            "samples": 240,
+            "failures": 0,
+            "errorRate": 0,
+            "actualWindowSeconds": 48.304,
+            "completedPerSecond": 4.9685326266975816,
+            "successfulPerSecond": 4.9685326266975816,
+            "latencyMs": {
+              "mean": 802.1875,
+              "p50": 851,
+              "p95": 1545
+            },
+            "byKind": {
+              "INDEX": {
+                "samples": 24,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 47.227,
+                "completedPerSecond": 0.5081838778664747,
+                "successfulPerSecond": 0.5081838778664747,
+                "latencyMs": {
+                  "mean": 868.5833333333334,
+                  "p50": 866,
+                  "p95": 1021
+                }
+              },
+              "RAG": {
+                "samples": 96,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 46.815,
+                "completedPerSecond": 2.050624799743672,
+                "successfulPerSecond": 2.050624799743672,
+                "latencyMs": {
+                  "mean": 238.66666666666666,
+                  "p50": 233,
+                  "p95": 247
+                }
+              },
+              "AGENT": {
+                "samples": 48,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 47.196,
+                "completedPerSecond": 1.0170353419781337,
+                "successfulPerSecond": 1.0170353419781337,
+                "latencyMs": {
+                  "mean": 1039.2083333333333,
+                  "p50": 987,
+                  "p95": 1578
+                }
+              },
+              "EVALUATION": {
+                "samples": 72,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 48.251,
+                "completedPerSecond": 1.4921970529108206,
+                "successfulPerSecond": 1.4921970529108206,
+                "latencyMs": {
+                  "mean": 1373.4027777777778,
+                  "p50": 1330,
+                  "p95": 1643
+                }
+              }
+            },
+            "timingDefinition": "earliest submitted measurement operation through latest completion; includes drain, excludes warmup and sampler drain",
+            "plannedMeasurementSeconds": 60,
+            "cap": 240,
+            "capReached": true
+          },
+          {
+            "concurrency": 8,
+            "samples": 240,
+            "failures": 0,
+            "errorRate": 0,
+            "actualWindowSeconds": 47.379,
+            "completedPerSecond": 5.065535363768759,
+            "successfulPerSecond": 5.065535363768759,
+            "latencyMs": {
+              "mean": 1538.1875,
+              "p50": 2085,
+              "p95": 2904
+            },
+            "byKind": {
+              "INDEX": {
+                "samples": 24,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 45.551,
+                "completedPerSecond": 0.5268819564883317,
+                "successfulPerSecond": 0.5268819564883317,
+                "latencyMs": {
+                  "mean": 2084.7916666666665,
+                  "p50": 2169,
+                  "p95": 2537
+                }
+              },
+              "RAG": {
+                "samples": 96,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 44.552,
+                "completedPerSecond": 2.1547854192853295,
+                "successfulPerSecond": 2.1547854192853295,
+                "latencyMs": {
+                  "mean": 249.76041666666666,
+                  "p50": 233,
+                  "p95": 464
+                }
+              },
+              "AGENT": {
+                "samples": 48,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 47.16,
+                "completedPerSecond": 1.0178117048346056,
+                "successfulPerSecond": 1.0178117048346056,
+                "latencyMs": {
+                  "mean": 2316.75,
+                  "p50": 2309,
+                  "p95": 2735
+                }
+              },
+              "EVALUATION": {
+                "samples": 72,
+                "failures": 0,
+                "errorRate": 0,
+                "actualWindowSeconds": 47.379,
+                "completedPerSecond": 1.5196606091306275,
+                "successfulPerSecond": 1.5196606091306275,
+                "latencyMs": {
+                  "mean": 2554.847222222222,
+                  "p50": 2607,
+                  "p95": 3005
+                }
+              }
+            },
+            "timingDefinition": "earliest submitted measurement operation through latest completion; includes drain, excludes warmup and sampler drain",
+            "plannedMeasurementSeconds": 60,
+            "cap": 240,
+            "capReached": true
+          }
+        ],
+        "modelMode": "mock/fault-test-only",
+        "qualityConclusion": null
+      }
+    }
+  ],
+  "qualityConclusion": null,
+  "limitations": [
+    "Closed-loop concurrency; arrivals slow when response times rise. This is not open-loop offered-load capacity or proof against coordinated omission.",
+    "All model calls use a controlled mock/fault adapter; throughput does not measure DeepSeek and provides no human quality conclusion.",
+    "All failed measurement rows remain in latency, error and completion denominators. Throughput window spans earliest submission to latest completion including drain.",
+    "Queue wait is first task createdAt to startedAt, only when both were observed; synchronous RAG has no durable task queue sample.",
+    "Resources are sampled maxima, not strict concurrency or peak-memory proofs. Per-process position follows fixed endpoint order and may aggregate process restarts.",
+    "PostgreSQL connection snapshots include the observing SQL connection. Resource points are assigned to a level only when their timestamp falls within its measured operation window.",
+    "P50/P95 use nearest rank, unlike the online SELF API percentile_cont. Recovery durations are reported only for explicitly recorded harness evidence.",
+    "SELF queue and lease maxima are authenticated-user database snapshots; they are not per-JVM metrics or strict peak/backpressure proofs.",
+    "Missing resource values remain null. Failure runs and partial files remain valid incomplete evidence, not a successful acceptance result."
+  ],
+  "inputs": {
+    "report.json": {
+      "sha256": "97c66ed72ebe3fc8f013547aa00d98ccb9ce26678a985b2e2c45faeb66b35e02",
+      "bytes": 50329
+    },
+    "load-samples.jsonl": {
+      "sha256": "4ed1c890d4b99f854cff49220c47a95cfa6e17695715d40692ab4f9097a4ebd1",
+      "bytes": 2614564
+    },
+    "resource-samples.jsonl": {
+      "sha256": "fb986d730ed02f5ea2e126fe8ceca4cc2c5b718983465f7e6f2a00a31ae57553",
+      "bytes": 543677
+    }
+  },
+  "reporterSha256": "60eb41b6f88ae83e5ffef9b884b4654867c76d4ee6d182827906f84eb720436e"
+}

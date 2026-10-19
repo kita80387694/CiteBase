@@ -1,0 +1,125 @@
+{
+  "id": "ea642c27-a76c-4e17-96ed-4f4939db774f",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "ea642c27-a76c-4e17-96ed-4f4939db774f",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-16-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-16-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+              "groupId": "g1",
+              "endOffset": 141,
+              "paragraph": 3,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 96,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 查找一句话只提供受访者名字够吗？",
+          "answerable": true,
+          "expectedAnswer": "不够；需访谈编号、时间码、版本"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-3066f732b5f400b48d5e9de798daccdddc488e69b94430232648565c519c",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:09:04.430566Z",
+  "startedAt": "2026-10-10T13:09:04.935006Z",
+  "finishedAt": "2026-10-10T13:09:30.498542Z",
+  "availableAt": "2026-10-10T13:09:04.430566Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "3ec0c646-a085-4c16-ad6b-f807b729c535",
+      "operationKey": "568c2f5c-2e7a-4d72-8699-21981d22aaef:embedding:97dd2366-6fb0-4544-b9cc-6bd4edc29478",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:09:04.952187Z",
+      "finishedAt": "2026-10-10T13:09:05.060898Z"
+    },
+    {
+      "callId": "995b86bf-a57f-4150-b74d-1d389822ec04",
+      "operationKey": "568c2f5c-2e7a-4d72-8699-21981d22aaef:generation:e6e35d5b-435a-4226-9e6f-8416fe0dee81",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1727,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-10-10T13:09:05.067924Z",
+      "finishedAt": "2026-10-10T13:09:28.668860Z"
+    },
+    {
+      "callId": "015932c1-d13e-431a-a36c-0771e855b880",
+      "operationKey": "142bd7d3-6f17-4f98-92cb-cb522a9c1fbe:embedding:bfe82c21-ca57-4ed4-9ae2-2467505f27b3",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:09:28.696583Z",
+      "finishedAt": "2026-10-10T13:09:28.787708Z"
+    },
+    {
+      "callId": "13501d9f-5931-41e3-a5c5-f66898d30454",
+      "operationKey": "142bd7d3-6f17-4f98-92cb-cb522a9c1fbe:generation:274ec5b1-7a35-4b24-a5cc-6fad84505992",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1720,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:09:28.804212Z",
+      "finishedAt": "2026-10-10T13:09:30.481424Z"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "1c65652e-79a8-4f52-9c02-4c82db1e2fab",
+  "kind": "AGENT",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "1c65652e-79a8-4f52-9c02-4c82db1e2fab",
+  "kbId": "08feedc5-e366-4e35-b3bd-10afd1c0e527",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "1c65652e-79a8-4f52-9c02-4c82db1e2fab"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T07:11:27.732041Z",
+  "startedAt": "2026-10-01T07:11:28.120284Z",
+  "finishedAt": "2026-10-01T07:11:36.647922Z",
+  "availableAt": "2026-10-01T07:11:27.732041Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "7c2ba1cc-2e86-4f91-8cc8-34213e7120fc",
+      "operationKey": "embedding:3e6a8ea3-a4f1-4694-ba1a-ea82ace3197f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-10-01T07:11:28.154249Z",
+      "finishedAt": "2026-10-01T07:11:28.396757Z"
+    },
+    {
+      "callId": "e083d1ad-76a6-4fad-be34-703e58d0b34c",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2404,
+        "completionTokens": 27
+      },
+      "startedAt": "2026-10-01T07:11:28.444448Z",
+      "finishedAt": "2026-10-01T07:11:32.453997Z"
+    },
+    {
+      "callId": "61be3a18-779b-4a2f-a82e-5cdf1c52ad26",
+      "operationKey": "agent/generation",
+      "fencingToken": 1,
+      "provider": "chat",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1681,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T07:11:32.506578Z",
+      "finishedAt": "2026-10-01T07:11:36.610225Z"
+    }
+  ]
+}

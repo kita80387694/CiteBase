@@ -1,0 +1,124 @@
+{
+  "id": "0d58e7e0-beaa-493c-932c-b3521f37bb2b",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "0d58e7e0-beaa-493c-932c-b3521f37bb2b",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q029",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-012",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "计算",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。",
+              "groupId": "g1",
+              "endOffset": 141,
+              "paragraph": 3,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 99,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 安全检查记录比借用收据多留多少天？",
+          "answerable": true,
+          "expectedAnswer": "550天"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-cff2509357caa1e8082d3220e9471cf54ff0f19848ba5e4a9530d1085d56",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:52:48.544420Z",
+  "startedAt": "2026-09-30T06:52:48.608328Z",
+  "finishedAt": "2026-09-30T06:52:58.917842Z",
+  "availableAt": "2026-09-30T06:52:48.544420Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "9dbb0190-4cef-4acb-8f0d-e873b637b18a",
+      "operationKey": "f4cacf04-f8b0-4f81-a997-979ab22981cf:embedding:77935397-bb55-426c-bef5-12c00f1bc37f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:52:48.621838Z",
+      "finishedAt": "2026-09-30T06:52:48.877911Z"
+    },
+    {
+      "callId": "f4e5ee73-1709-4be4-bfcb-dd262bddecd0",
+      "operationKey": "f4cacf04-f8b0-4f81-a997-979ab22981cf:generation:ee2b50d4-e2af-4bc1-8dbf-56e70edb9bf6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 67
+      },
+      "startedAt": "2026-09-30T06:52:48.883404Z",
+      "finishedAt": "2026-09-30T06:52:54.277476Z"
+    },
+    {
+      "callId": "87f98cbf-a97f-4a24-80ae-8e238f7e5f76",
+      "operationKey": "f6631c73-ae3f-4ac1-a1b0-f115561e9f7d:embedding:f0a09068-b99a-4a65-8621-3fd3201d7bb8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:52:54.306190Z",
+      "finishedAt": "2026-09-30T06:52:54.628899Z"
+    },
+    {
+      "callId": "8fba626e-3b25-43f9-8e7e-3534c9861b75",
+      "operationKey": "f6631c73-ae3f-4ac1-a1b0-f115561e9f7d:generation:c01395aa-5027-4d41-928b-7404d30522d9",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 66
+      },
+      "startedAt": "2026-09-30T06:52:54.642351Z",
+      "finishedAt": "2026-09-30T06:52:58.897135Z"
+    }
+  ]
+}

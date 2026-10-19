@@ -1,0 +1,124 @@
+{
+  "id": "da7b454d-205f-4504-a1c3-a5c09770cc51",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "da7b454d-205f-4504-a1c3-a5c09770cc51",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q028",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-011",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |",
+              "groupId": "g1",
+              "endOffset": 209,
+              "paragraph": 4,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 143,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+          "answerable": true,
+          "expectedAnswer": "不是；手钻禁止，手推车可用但归还擦干检查"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-05db6548e5bd6f901b39c53bbe5e2b0bbdadc212ebf71f4d5d3910c13aac",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:52:13.251238Z",
+  "startedAt": "2026-09-30T06:52:13.518254Z",
+  "finishedAt": "2026-09-30T06:52:31.709874Z",
+  "availableAt": "2026-09-30T06:52:13.251238Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "a1086030-128e-4f82-bb84-a9867b5c2f4d",
+      "operationKey": "dc3ffc3d-7b24-4de3-b570-e8130c106ff1:embedding:9b27a80c-38fc-4a65-89dd-f67acd62eae8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:52:13.531599Z",
+      "finishedAt": "2026-09-30T06:52:13.805405Z"
+    },
+    {
+      "callId": "d2d1b117-c7f3-4133-9db2-3330a63e9045",
+      "operationKey": "dc3ffc3d-7b24-4de3-b570-e8130c106ff1:generation:2a8a5c74-174e-4945-9258-c7a514f31890",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 119
+      },
+      "startedAt": "2026-09-30T06:52:13.810359Z",
+      "finishedAt": "2026-09-30T06:52:21.121171Z"
+    },
+    {
+      "callId": "a2e8404f-be41-487a-8e90-7b536f426d2f",
+      "operationKey": "cbc8750e-2f0c-4aef-a1e7-ee265ff7fbe2:embedding:8e75564c-0c15-472c-9047-b3c9a56b3ac7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-09-30T06:52:21.139112Z",
+      "finishedAt": "2026-09-30T06:52:22.259493Z"
+    },
+    {
+      "callId": "1a064c77-c249-4dc9-a875-98779a2da855",
+      "operationKey": "cbc8750e-2f0c-4aef-a1e7-ee265ff7fbe2:generation:744e5313-f762-4344-9e50-1b93b96438ff",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1725,
+        "completionTokens": 115
+      },
+      "startedAt": "2026-09-30T06:52:22.272823Z",
+      "finishedAt": "2026-09-30T06:52:31.689402Z"
+    }
+  ]
+}

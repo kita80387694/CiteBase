@@ -1,0 +1,2590 @@
+{
+  "id": "b5f02a03-8fe7-4bdd-85de-4a6bd9811117",
+  "name": "baseline-dev-64-f48514ed",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:23:03.137670365Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "moss-013",
+          "question": "Moss 发芽复测袋用完后，能把永久袋当测试袋拆开吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，须补样申请",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 11,
+              "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 555,
+              "endOffset": 604,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 12,
+              "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 606,
+              "endOffset": 645,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-014",
+          "question": "Moss 一个LOT共有6袋永久样，申请出3袋即使双岗批准仍符合最低库存吗？",
+          "answerable": true,
+          "expectedAnswer": "不符合，剩3袋低于4袋底线",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 7,
+              "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 290,
+              "endOffset": 355,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 9,
+              "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 430,
+              "endOffset": 505,
+              "groupId": "g2"
+            },
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 11,
+              "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 555,
+              "endOffset": 604,
+              "groupId": "g3"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-015",
+          "question": "Moss 对外交换的保温箱外和提供给收件人的资料是否应列精确采集坐标？",
+          "answerable": true,
+          "expectedAnswer": "不应，坐标在受控数据库，默认不公开",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 15,
+              "quote": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 742,
+              "endOffset": 789,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 16,
+              "quote": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 791,
+              "endOffset": 828,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨段落",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-016",
+          "question": "Moss 设备故障转库时，设施岗可以自行确定并执行最终LOT转移清单吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，保藏岗决定并批准清单",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 14,
+              "quote": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 694,
+              "endOffset": 740,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-cards.pdf",
+              "page": 12,
+              "paragraph": 1,
+              "quote": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+              "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+              "startOffset": 0,
+              "endOffset": 101,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-017",
+          "question": "Moss 超标含水率样品需要采取什么处理，重新封装前须达到什么数值？",
+          "answerable": true,
+          "expectedAnswer": "返回调理，MC不高于7%",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 3,
+              "quote": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 98,
+              "endOffset": 152,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-cards.pdf",
+              "page": 5,
+              "paragraph": 1,
+              "quote": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+              "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+              "startOffset": 0,
+              "endOffset": 110,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-018",
+          "question": "Moss 一次标准发芽复测需要几粒种子，应优先取哪类袋？",
+          "answerable": true,
+          "expectedAnswer": "200粒；发芽复测袋",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 12,
+              "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 606,
+              "endOffset": 645,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-cards.pdf",
+              "page": 13,
+              "paragraph": 1,
+              "quote": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+              "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+              "startOffset": 0,
+              "endOffset": 90,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-019",
+          "question": "Moss 低于GR门槛的批次走例外评议还要准备哪两项信息？",
+          "answerable": true,
+          "expectedAnswer": "保藏理由和具名复核负责人",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 4,
+              "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 154,
+              "endOffset": 202,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "moss-cards.pdf",
+              "page": 4,
+              "paragraph": 1,
+              "quote": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+              "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+              "startOffset": 0,
+              "endOffset": 101,
+              "groupId": "g2"
+            }
+          ],
+          "category": "跨文档",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        },
+        {
+          "id": "moss-020",
+          "question": "Moss 野花混合样和禾本科的复测周期相差几个月？",
+          "answerable": true,
+          "expectedAnswer": "12个月",
+          "evidence": [
+            {
+              "documentName": "moss-handbook.md",
+              "page": 1,
+              "paragraph": 8,
+              "quote": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+              "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+              "startOffset": 357,
+              "endOffset": 428,
+              "groupId": "g1"
+            }
+          ],
+          "category": "表格",
+          "split": "dev",
+          "group": "moss",
+          "topic": "moss"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 304.375,
+      "totalMs": 12149.875,
+      "errorCount": 0
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.8125,
+      "mrr": 1,
+      "retrievalMs": 359.875,
+      "totalMs": 11296,
+      "errorCount": 3
+    }
+  },
+  "results": [
+    {
+      "id": "08310738-7b96-4865-8675-b1fed6206bc1",
+      "question": "Moss 发芽复测袋用完后，能把永久袋当测试袋拆开吗？",
+      "answer": "根据证据，Moss 发芽复测袋用完后，不能把永久袋当测试袋拆开。证据明确指出，Moss 发芽试验应先取复测袋，在复测袋不足时，应提交补样申请，不得直接拆永久保存袋 [0dab6372-4826-4dac-8575-1eba22f70cc7]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.7906674742698669
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.6806342601776123
+        },
+        {
+          "id": "7a6562ae-8f31-41f8-a6af-092b8d46ef8f",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 204,
+          "endOffset": 242,
+          "text": "Moss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。",
+          "score": 0.6571175660420927
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.6443656086921692
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.5895235783145689
+        }
+      ],
+      "citations": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.7906674742698669
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 382,
+      "totalMs": 5027,
+      "promptTokens": 934,
+      "completionTokens": 81,
+      "error": null,
+      "caseId": "moss-013",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，须补样申请",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 555,
+          "endOffset": 604,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 606,
+          "endOffset": 645,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "da01fc9f-2238-442a-b940-b614f13c17b8",
+      "question": "Moss 发芽复测袋用完后，能把永久袋当测试袋拆开吗？",
+      "answer": "根据证据，Moss 发芽复测袋用完后，不能把永久袋当测试袋拆开。证据明确指出：“Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。” [0dab6372-4826-4dac-8575-1eba22f70cc7]",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.029877369007803793
+        },
+        {
+          "id": "78d30c53-ee45-446a-ba74-ffb9126d03d9",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "text": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "score": 0.029437229437229435
+        }
+      ],
+      "citations": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 401,
+      "totalMs": 20057,
+      "promptTokens": 941,
+      "completionTokens": 79,
+      "error": null,
+      "caseId": "moss-013",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，须补样申请",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 555,
+          "endOffset": 604,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 606,
+          "endOffset": 645,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "b37632e0-2d54-4b7d-80e0-188226295096",
+      "question": "Moss 一个LOT共有6袋永久样，申请出3袋即使双岗批准仍符合最低库存吗？",
+      "answer": "根据当前资料，无法根据当前资料回答：证据不足。\n\n证据中说明了Moss出库必须保留至少4袋永久保存样 [786aefca-b043-4d75-bf83-5b48a8156218]，以及一个LOT中永久保存样为6袋 [9a1c8c63-a49c-4bbf-a022-da6f546b0e80]。然而，证据中没有提供关于“最低库存”的明确定义，也没有说明“申请出3袋”是否指从这6袋永久保存样中申请。因此，无法判断申请出库3袋后剩余的袋数是否符合“必须保留至少4袋”的规定。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.7025509895414717
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.6948245763778735
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.6619756616339494
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.6462678102414506
+        },
+        {
+          "id": "7a6562ae-8f31-41f8-a6af-092b8d46ef8f",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 204,
+          "endOffset": 242,
+          "text": "Moss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。",
+          "score": 0.6179502010345503
+        }
+      ],
+      "citations": [
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.7025509895414717
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.6619756616339494
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 289,
+      "totalMs": 7906,
+      "promptTokens": 940,
+      "completionTokens": 146,
+      "error": null,
+      "caseId": "moss-014",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 3,
+      "hitEvidenceGroupCount": 3,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不符合，剩3袋低于4袋底线",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 290,
+          "endOffset": 355,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 430,
+          "endOffset": 505,
+          "groupId": "g2"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 555,
+          "endOffset": 604,
+          "groupId": "g3"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d42c8026-195a-4d50-8131-04040af0a538",
+      "question": "Moss 一个LOT共有6袋永久样，申请出3袋即使双岗批准仍符合最低库存吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.031054405392392875
+        },
+        {
+          "id": "9b281d61-a366-47fe-9a09-0c62016d9c1e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.030776515151515152
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 300,
+      "totalMs": 26623,
+      "promptTokens": 937,
+      "completionTokens": 136,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "moss-014",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 3,
+      "hitEvidenceGroupCount": 3,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不符合，剩3袋低于4袋底线",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 7,
+          "quote": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 290,
+          "endOffset": 355,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 9,
+          "quote": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 430,
+          "endOffset": 505,
+          "groupId": "g2"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 11,
+          "quote": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 555,
+          "endOffset": 604,
+          "groupId": "g3"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "b9de3168-85c9-452f-956f-1541bd071dc9",
+      "question": "Moss 对外交换的保温箱外和提供给收件人的资料是否应列精确采集坐标？",
+      "answer": "根据证据，Moss对外交换的保温箱外和提供给收件人的资料不应列出精确采集坐标。\n\n证据表明，精确采集坐标只在受控数据库中保存 [e258d72a-dc79-485d-b52f-93edb44c969a]。同时，Moss对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标 [73d23146-6943-4b51-aeed-9fcb3ea36950]。此外，Moss资料不提供具体采集点坐标 [676e3981-a855-4b0a-a73c-c740da66e65e]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.7779775857925415
+        },
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.7366278171539307
+        },
+        {
+          "id": "a5019ab1-db7a-47dc-9b47-1d59429defcb",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 830,
+          "endOffset": 873,
+          "text": "Moss 年度盘点需核对袋数、封口状态和标签关联；温度日志齐全不代表袋数盘点可以省略。",
+          "score": 0.6686899263447579
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.6433583498001099
+        },
+        {
+          "id": "676e3981-a855-4b0a-a73c-c740da66e65e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 875,
+          "endOffset": 920,
+          "text": "Moss 资料不提供野外物种市场价格、种子食用安全结论、具体采集点坐标或种植后的亩产预测。",
+          "score": 0.6243785805815038
+        }
+      ],
+      "citations": [
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.7779775857925415
+        },
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.7366278171539307
+        },
+        {
+          "id": "676e3981-a855-4b0a-a73c-c740da66e65e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 875,
+          "endOffset": 920,
+          "text": "Moss 资料不提供野外物种市场价格、种子食用安全结论、具体采集点坐标或种植后的亩产预测。",
+          "score": 0.6243785805815038
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 288,
+      "totalMs": 20578,
+      "promptTokens": 869,
+      "completionTokens": 139,
+      "error": null,
+      "caseId": "moss-015",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不应，坐标在受控数据库，默认不公开",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 742,
+          "endOffset": 789,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 791,
+          "endOffset": 828,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "bca52e5f-0015-4dad-a978-45ee964bbfc8",
+      "question": "Moss 对外交换的保温箱外和提供给收件人的资料是否应列精确采集坐标？",
+      "answer": "根据证据，Moss对外交换的保温箱外和提供给收件人的资料不应列出精确采集坐标。\n\n证据表明：\n1.  Moss运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存 [e258d72a-dc79-485d-b52f-93edb44c969a]。\n2.  Moss对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标 [73d23146-6943-4b51-aeed-9fcb3ea36950]。\n3.  Moss资料不提供具体采集点坐标 [676e3981-a855-4b0a-a73c-c740da66e65e]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "676e3981-a855-4b0a-a73c-c740da66e65e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 875,
+          "endOffset": 920,
+          "text": "Moss 资料不提供野外物种市场价格、种子食用安全结论、具体采集点坐标或种植后的亩产预测。",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.029910714285714284
+        }
+      ],
+      "citations": [
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "676e3981-a855-4b0a-a73c-c740da66e65e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 875,
+          "endOffset": 920,
+          "text": "Moss 资料不提供野外物种市场价格、种子食用安全结论、具体采集点坐标或种植后的亩产预测。",
+          "score": 0.03125763125763126
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 498,
+      "totalMs": 8737,
+      "promptTokens": 892,
+      "completionTokens": 164,
+      "error": null,
+      "caseId": "moss-015",
+      "category": "跨段落",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不应，坐标在受控数据库，默认不公开",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 742,
+          "endOffset": 789,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 16,
+          "quote": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 791,
+          "endOffset": 828,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "689ec794-e043-4c80-8615-b717407ec6bb",
+      "question": "Moss 设备故障转库时，设施岗可以自行确定并执行最终LOT转移清单吗？",
+      "answer": "根据证据，设施岗不能自行确定并执行最终LOT转移清单。在Moss设备故障转库时，种子转移决定由保藏岗作出 [2a3e6b81-ca1a-45bd-b532-24d853b9596a]，并且最终的紧急转移清单需要由保藏岗（conservation officer）批准后才能执行转移 [23023183-e0a5-483c-bc40-6333ea6ffd2c]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2a3e6b81-ca1a-45bd-b532-24d853b9596a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 694,
+          "endOffset": 740,
+          "text": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "score": 0.7353809914219983
+        },
+        {
+          "id": "23023183-e0a5-483c-bc40-6333ea6ffd2c",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+          "score": 0.63031478289542
+        },
+        {
+          "id": "204ea91f-0805-48c4-bced-1ea136a4e4cd",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 115,
+          "text": "Moss transfer card: every emergency transfer records source freezer,\ndestination freezer, start time, and LOT list.",
+          "score": 0.6018898845845403
+        },
+        {
+          "id": "9b281d61-a366-47fe-9a09-0c62016d9c1e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "score": 0.5966846639938155
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.5842815985847483
+        }
+      ],
+      "citations": [
+        {
+          "id": "2a3e6b81-ca1a-45bd-b532-24d853b9596a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 694,
+          "endOffset": 740,
+          "text": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "score": 0.7353809914219983
+        },
+        {
+          "id": "23023183-e0a5-483c-bc40-6333ea6ffd2c",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+          "score": 0.63031478289542
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 272,
+      "totalMs": 11545,
+      "promptTokens": 865,
+      "completionTokens": 102,
+      "error": null,
+      "caseId": "moss-016",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，保藏岗决定并批准清单",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 694,
+          "endOffset": 740,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 12,
+          "paragraph": 1,
+          "quote": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "a53b8edb-77b0-467e-b850-1665650040ea",
+      "question": "Moss 设备故障转库时，设施岗可以自行确定并执行最终LOT转移清单吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2a3e6b81-ca1a-45bd-b532-24d853b9596a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 694,
+          "endOffset": 740,
+          "text": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "9b281d61-a366-47fe-9a09-0c62016d9c1e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "score": 0.03149801587301587
+        },
+        {
+          "id": "204ea91f-0805-48c4-bced-1ea136a4e4cd",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 115,
+          "text": "Moss transfer card: every emergency transfer records source freezer,\ndestination freezer, start time, and LOT list.",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.029437229437229435
+        },
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.029418126757516764
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 346,
+      "totalMs": 5977,
+      "promptTokens": 868,
+      "completionTokens": 105,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "moss-016",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，保藏岗决定并批准清单",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 14,
+          "quote": "Moss 冻库报警后由设施岗检查设备，种子转移决定由保藏岗作出，设施岗不能单独决定批次去向。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 694,
+          "endOffset": 740,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 12,
+          "paragraph": 1,
+          "quote": "Moss audit card: the conservation officer approves the final emergency\ntransfer list before the move.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "52752f4f-44db-4b3d-9b9e-1c6d5e1ede62",
+      "question": "Moss 超标含水率样品需要采取什么处理，重新封装前须达到什么数值？",
+      "answer": "根据当前资料，Moss 超标含水率样品需要返回进行调节处理，而不是自动丢弃 [8d82d152-c88c-4a9f-879d-d547464935a0]。重新封装前，含水率（MC）必须不高于 7% [78d30c53-ee45-446a-ba74-ffb9126d03d9]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "78d30c53-ee45-446a-ba74-ffb9126d03d9",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "text": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "score": 0.7538958641228608
+        },
+        {
+          "id": "7a6562ae-8f31-41f8-a6af-092b8d46ef8f",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 204,
+          "endOffset": 242,
+          "text": "Moss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。",
+          "score": 0.6924078647847268
+        },
+        {
+          "id": "e258d72a-dc79-485d-b52f-93edb44c969a",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 742,
+          "endOffset": 789,
+          "text": "Moss 运输前将样包放入密闭保温箱，箱外标记LOT和包数，精确采集坐标只在受控数据库中保存。",
+          "score": 0.6698609590530396
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.6332739591598511
+        },
+        {
+          "id": "8d82d152-c88c-4a9f-879d-d547464935a0",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "text": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "score": 0.6310836452891626
+        }
+      ],
+      "citations": [
+        {
+          "id": "8d82d152-c88c-4a9f-879d-d547464935a0",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "text": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "score": 0.6310836452891626
+        },
+        {
+          "id": "78d30c53-ee45-446a-ba74-ffb9126d03d9",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "text": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "score": 0.7538958641228608
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 302,
+      "totalMs": 18379,
+      "promptTokens": 878,
+      "completionTokens": 84,
+      "error": null,
+      "caseId": "moss-017",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "返回调理，MC不高于7%",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 98,
+          "endOffset": 152,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 5,
+          "paragraph": 1,
+          "quote": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 110,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "c0fffd24-63f3-4b72-baf8-d42c3cc0701c",
+      "question": "Moss 超标含水率样品需要采取什么处理，重新封装前须达到什么数值？",
+      "answer": "根据当前资料，无法回答关于Moss超标含水率样品处理及重新封装前须达到数值的问题。证据不足。\n\n提供的证据中，仅有一条提到了含水率（MC）和封装前的数值要求：封装前MC必须不高于7% [78d30c53-ee45-446a-ba74-ffb9126d03d9]。然而，该证据并未说明当样品含水率“超标”（即高于7%）时，需要采取何种具体处理措施。其他证据涉及样品份额、出库审核、发芽试验和标签管理，均与问题核心无关。\n\n因此，无法根据当前资料回答。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "78d30c53-ee45-446a-ba74-ffb9126d03d9",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "text": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.029957522915269395
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.029857397504456328
+        },
+        {
+          "id": "f56e84f8-420b-4e53-9e28-77dba3fcbfdd",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 647,
+          "endOffset": 692,
+          "text": "Moss 标签打印错误时生成新标签并记录旧标签号；不能把不同采集地批次重新贴成同一LOT。",
+          "score": 0.029273504273504274
+        }
+      ],
+      "citations": [
+        {
+          "id": "78d30c53-ee45-446a-ba74-ffb9126d03d9",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 98,
+          "endOffset": 152,
+          "text": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 300,
+      "totalMs": 7688,
+      "promptTokens": 942,
+      "completionTokens": 133,
+      "error": null,
+      "caseId": "moss-017",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "返回调理，MC不高于7%",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Moss 将 MC 定义为含水率。封装前 MC 必须不高于 7%，检测使用批次留样，不拆封已归档的永久样包。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 98,
+          "endOffset": 152,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 5,
+          "paragraph": 1,
+          "quote": "Moss wet sample card: samples above the MC limit return to conditioning; they\nare not discarded automatically.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 110,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "863fdfa2-5342-4581-9579-d5aab1f576cb",
+      "question": "Moss 一次标准发芽复测需要几粒种子，应优先取哪类袋？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.7524154186248779
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.6589793766153242
+        },
+        {
+          "id": "105fe914-fb38-40d0-9fad-9e9adbbdc0ba",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 90,
+          "text": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+          "score": 0.6589550971984863
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.6534899473190308
+        },
+        {
+          "id": "786aefca-b043-4d75-bf83-5b48a8156218",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 555,
+          "endOffset": 604,
+          "text": "Moss 出库必须保留至少4袋永久保存样。交换用袋与永久保存袋分开计数，不得将交换袋计入永久库存。",
+          "score": 0.6438733339309692
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 293,
+      "totalMs": 2620,
+      "promptTokens": 928,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "moss-018",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "200粒；发芽复测袋",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 606,
+          "endOffset": 645,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 13,
+          "paragraph": 1,
+          "quote": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 90,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "631c9979-b372-49c6-8a3a-6cacef3813b8",
+      "question": "Moss 一次标准发芽复测需要几粒种子，应优先取哪类袋？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "9e7b87df-fc1e-4598-93ab-5e67f73b215d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "text": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "score": 0.03057889822595705
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.029827662395050816
+        },
+        {
+          "id": "9b281d61-a366-47fe-9a09-0c62016d9c1e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "score": 0.029631255487269532
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 305,
+      "totalMs": 2049,
+      "promptTokens": 956,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "moss-018",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "200粒；发芽复测袋",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 606,
+          "endOffset": 645,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 13,
+          "paragraph": 1,
+          "quote": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 90,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f313e30a-47f1-4f33-a76b-153737aa31fe",
+      "question": "Moss 低于GR门槛的批次走例外评议还要准备哪两项信息？",
+      "answer": "根据证据，Moss 低于GR门槛的批次走例外评议需要准备的两项信息是：**保护理由**和**指定的评审负责人** [27645e03-4f04-4fc0-8cc8-a429d36c0880]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "27645e03-4f04-4fc0-8cc8-a429d36c0880",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "score": 0.6904842853546143
+        },
+        {
+          "id": "b79188df-d27d-44b4-85cb-461a9b02045b",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 507,
+          "endOffset": 553,
+          "text": "Moss 早期实验批次曾采用75%的GR门槛；这仅用于历史研究，不替代常规82%的入库标准。",
+          "score": 0.6679650545120239
+        },
+        {
+          "id": "cc260c3a-59f3-444c-b86b-96d0e8380c52",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 154,
+          "endOffset": 202,
+          "text": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "score": 0.6431814048778185
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.5806681167681158
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.5434565544128418
+        }
+      ],
+      "citations": [
+        {
+          "id": "27645e03-4f04-4fc0-8cc8-a429d36c0880",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "score": 0.6904842853546143
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 313,
+      "totalMs": 4847,
+      "promptTokens": 901,
+      "completionTokens": 56,
+      "error": null,
+      "caseId": "moss-019",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保藏理由和具名复核负责人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 154,
+          "endOffset": 202,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "9700287c-e3dd-4bc1-9991-e588830c1e4b",
+      "question": "Moss 低于GR门槛的批次走例外评议还要准备哪两项信息？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "cc260c3a-59f3-444c-b86b-96d0e8380c52",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 154,
+          "endOffset": 202,
+          "text": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "b79188df-d27d-44b4-85cb-461a9b02045b",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 507,
+          "endOffset": 553,
+          "text": "Moss 早期实验批次曾采用75%的GR门槛；这仅用于历史研究，不替代常规82%的入库标准。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "27645e03-4f04-4fc0-8cc8-a429d36c0880",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "9b281d61-a366-47fe-9a09-0c62016d9c1e",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 47,
+          "text": "Moss 种子库每个入库批次使用一个 LOT 编号；同品种不同采集地不得合并为同一个 LOT。",
+          "score": 0.029631255487269532
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.0293236301369863
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 437,
+      "totalMs": 13286,
+      "promptTokens": 899,
+      "completionTokens": 55,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "moss-019",
+      "category": "跨文档",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保藏理由和具名复核负责人",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Moss 将 GR 定义为发芽率。常规批次的入库 GR 门槛为 82%，低于门槛须由保藏岗评议。",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 154,
+          "endOffset": 202,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "moss-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Moss review card: a GR exception requires both a conservation justification\nand a named review owner.",
+          "sourceHash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "8ff0faf4-a678-405b-9961-e12f6f0785f8",
+      "question": "Moss 野花混合样和禾本科的复测周期相差几个月？",
+      "answer": "根据证据，Moss 野花混合样的常规复测周期是6个月，禾本科的常规复测周期是18个月 [9e7b87df-fc1e-4598-93ab-5e67f73b215d]。两者相差12个月。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9e7b87df-fc1e-4598-93ab-5e67f73b215d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "text": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "score": 0.769829511642456
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.5685220956802368
+        },
+        {
+          "id": "7a6562ae-8f31-41f8-a6af-092b8d46ef8f",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 204,
+          "endOffset": 242,
+          "text": "Moss 样包封口后需静置48小时做密封检查，未通过密封检查不能移入长期库。",
+          "score": 0.542987612307811
+        },
+        {
+          "id": "a5019ab1-db7a-47dc-9b47-1d59429defcb",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 830,
+          "endOffset": 873,
+          "text": "Moss 年度盘点需核对袋数、封口状态和标签关联；温度日志齐全不代表袋数盘点可以省略。",
+          "score": 0.5254075214023884
+        },
+        {
+          "id": "73d23146-6943-4b51-aeed-9fcb3ea36950",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 791,
+          "endOffset": 828,
+          "text": "Moss 对外交换仅提供物种名、采集年份和LOT，不默认公开精确采集坐标。",
+          "score": 0.5223971009254456
+        }
+      ],
+      "citations": [
+        {
+          "id": "9e7b87df-fc1e-4598-93ab-5e67f73b215d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "text": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "score": 0.769829511642456
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 296,
+      "totalMs": 26297,
+      "promptTokens": 890,
+      "completionTokens": 60,
+      "error": null,
+      "caseId": "moss-020",
+      "category": "表格",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "12个月",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 357,
+          "endOffset": 428,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "6d45e774-cc4c-46e0-a403-e62cb6b95d3f",
+      "question": "Moss 野花混合样和禾本科的复测周期相差几个月？",
+      "answer": "根据证据，Moss 野花混合样的常规复测周期为6个月，禾本科的常规复测周期为18个月，两者相差12个月 [9e7b87df-fc1e-4598-93ab-5e67f73b215d]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9e7b87df-fc1e-4598-93ab-5e67f73b215d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "text": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "0dab6372-4826-4dac-8575-1eba22f70cc7",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 606,
+          "endOffset": 645,
+          "text": "Moss 发芽试验先取复测袋，复测袋不足时提交补样申请，不得直接拆永久保存袋。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "105fe914-fb38-40d0-9fad-9e9adbbdc0ba",
+          "documentId": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+          "documentName": "moss-cards.pdf",
+          "versionId": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 90,
+          "text": "Moss sample card: replicate germination counts use 50 seeds per tray and 4\ntrays per test.",
+          "score": 0.030309988518943745
+        },
+        {
+          "id": "9a1c8c63-a49c-4bbf-a022-da6f546b0e80",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 290,
+          "endOffset": 355,
+          "text": "Moss 样品份额表\n| 用途 | 每LOT袋数 |\n| 永久保存 | 6 |\n| 发芽复测 | 2 |\n| 对外交换 | 1 |",
+          "score": 0.02976190476190476
+        },
+        {
+          "id": "104fe1b0-6c01-4e65-9c30-3c4590c1fe8d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 430,
+          "endOffset": 505,
+          "text": "Moss 出库审核表\n| 数量 | 所需审核 |\n| 1袋 | 保藏岗 |\n| 2至3袋 | 保藏岗与科研岗 |\n| 超过3袋 | 不允许常规出库 |",
+          "score": 0.028283227848101264
+        }
+      ],
+      "citations": [
+        {
+          "id": "9e7b87df-fc1e-4598-93ab-5e67f73b215d",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 357,
+          "endOffset": 428,
+          "text": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 292,
+      "totalMs": 5951,
+      "promptTokens": 950,
+      "completionTokens": 60,
+      "error": null,
+      "caseId": "moss-020",
+      "category": "表格",
+      "split": "dev",
+      "group": "moss",
+      "topic": "moss",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "12个月",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "moss-handbook.md",
+          "page": 1,
+          "paragraph": 8,
+          "quote": "Moss 复测周期表\n| 类别 | 常规复测周期 |\n| 禾本科 | 18个月 |\n| 豆科 | 12个月 |\n| 野花混合样 | 6个月 |",
+          "sourceHash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+          "startOffset": 357,
+          "endOffset": 428,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "跨段落": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 319.6666666666667,
+          "totalMs": 11170.333333333334
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 399.6666666666667,
+          "totalMs": 18472.333333333332
+        }
+      },
+      "跨文档": {
+        "vector": {
+          "count": 4,
+          "answerableCount": 4,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 295,
+          "totalMs": 9347.75
+        },
+        "hybrid": {
+          "count": 4,
+          "answerableCount": 4,
+          "errorCount": 2,
+          "recallAtK": 0.625,
+          "mrr": 1,
+          "retrievalMs": 347,
+          "totalMs": 7250
+        }
+      },
+      "表格": {
+        "vector": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 296,
+          "totalMs": 26297
+        },
+        "hybrid": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 292,
+          "totalMs": 5951
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 304.375,
+          "totalMs": 12149.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 3,
+          "recallAtK": 0.8125,
+          "mrr": 1,
+          "retrievalMs": 359.875,
+          "totalMs": 11296
+        }
+      }
+    },
+    "group": {
+      "moss": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 304.375,
+          "totalMs": 12149.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 3,
+          "recallAtK": 0.8125,
+          "mrr": 1,
+          "retrievalMs": 359.875,
+          "totalMs": 11296
+        }
+      }
+    },
+    "topic": {
+      "moss": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 304.375,
+          "totalMs": 12149.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 3,
+          "recallAtK": 0.8125,
+          "mrr": 1,
+          "retrievalMs": 359.875,
+          "totalMs": 11296
+        }
+      }
+    }
+  }
+}

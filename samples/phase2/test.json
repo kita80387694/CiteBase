@@ -1,0 +1,1273 @@
+{
+  "version": "citebase-phase2-v1",
+  "seed": 20260928,
+  "split": "test",
+  "questions": [
+    {
+      "id": "tide-001",
+      "question": "Tide 常规样在装瓶后保持多少摄氏度？",
+      "answerable": true,
+      "expectedAnswer": "4摄氏度",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "quote": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-002",
+      "question": "Tide 现场电导率仪多久校验一次？",
+      "answerable": true,
+      "expectedAnswer": "每个采样日一次",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-003",
+      "question": "Tide 监管链例外决定保留多少年？",
+      "answerable": true,
+      "expectedAnswer": "7年",
+      "category": "事实",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 14,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 70,
+          "quote": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-004",
+      "question": "Tide 快递换了一条行车路线，能不能把采样计时重新开始？",
+      "answerable": true,
+      "expectedAnswer": "不能，采集时间戳不重置",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-005",
+      "question": "Tide 拒收的样本能在报告里填成污染物含量为零吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，应注明拒收与原因",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 109,
+          "quote": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-006",
+      "question": "Tide 河岸太危险没采成，能把上次读数当作本次结果吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，停止该站采样",
+      "category": "同义",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-007",
+      "question": "Tide COC 表示什么，只有运输签收单够不够？",
+      "answerable": true,
+      "expectedAnswer": "样品监管链，不够",
+      "category": "缩写",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-008",
+      "question": "Tide DUP 和 FB 都是空白水样吗？",
+      "answerable": true,
+      "expectedAnswer": "不是；DUP为现场重复样，FB为现场空白样",
+      "category": "缩写",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "quote": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-009",
+      "question": "Tide 未启用暴雨任务，常规水样是否必须按6小时时限送达？",
+      "answerable": true,
+      "expectedAnswer": "常规时限8小时",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "quote": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "quote": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-010",
+      "question": "Tide 箱温合格但移交签字缺失，能认为监管链正常吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，触发监管链例外",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "quote": "Tide chain card: a missing handover signature starts a chain exception even\nwhen the water temperature is acceptable.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-011",
+      "question": "Tide 容器外壁脏污是否足以判定水样化学超标？",
+      "answerable": true,
+      "expectedAnswer": "不足以，先清洁记录",
+      "category": "近事实干扰",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 707,
+          "endOffset": 750,
+          "quote": "Tide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-012",
+      "question": "Tide 车辆到站但事件号与COC不一致，能登记已核验吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，瓶号事件号COC均一致才核验",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "quote": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-013",
+      "question": "Tide 换手套后是否可省掉清洁采样杆并从排口倒回上游采样？",
+      "answerable": true,
+      "expectedAnswer": "不能，杆需清洁且先上游",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "quote": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "quote": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-014",
+      "question": "Tide 每站包括现场空白共准备多少毫升容积，其中现场空白能否替代河水报告环境结果？",
+      "answerable": true,
+      "expectedAnswer": "1500毫升；不能替代河水样",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "quote": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-015",
+      "question": "Tide 周报仅写河段代号，但附照片含GPS水印并把异味写为浓度超标，合规吗？",
+      "answerable": true,
+      "expectedAnswer": "不合规；处理照片坐标，不把感官描述当浓度数值",
+      "category": "跨段落",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "quote": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 843,
+          "endOffset": 882,
+          "quote": "Tide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-016",
+      "question": "Tide 常规样9小时送达是否直接由司机宣布有效？",
+      "answerable": true,
+      "expectedAnswer": "不能，超时标记并由实验室主管评议",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "quote": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "quote": "Tide delay card: an overdue routine sample is reviewed by the laboratory\nsupervisor; the courier cannot waive the deadline.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-017",
+      "question": "Tide 正式启用暴雨采样前要谁签字，送达时限随之变成多少？",
+      "answerable": true,
+      "expectedAnswer": "现场协调员，6小时",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "quote": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 104,
+          "quote": "Tide storm card: activation of the storm task requires the field coordinator\nsignature before departure.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-018",
+      "question": "Tide 校验首次失败后换新标准再失败，仪器还能出正式数据吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，退出使用",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 12,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 145,
+          "quote": "Tide instrument card: failed conductivity calibration is repeated once with\nfresh standard; a second failure removes the instrument from service.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "tide-019",
+      "question": "Tide 现场采样时间如何对齐时区，改变车程会不会改变8小时截止起点？",
+      "answerable": true,
+      "expectedAnswer": "出发前同步UTC，不改变采集完成时间起点",
+      "category": "跨文档",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "quote": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "groupId": "g2"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 83,
+          "quote": "Tide audit card: collection clocks are synchronized to UTC before the crew\ndeparts.",
+          "groupId": "g3"
+        }
+      ]
+    },
+    {
+      "id": "tide-020",
+      "question": "Tide 采样顺序中排口邻近点前后各是什么点？",
+      "answerable": true,
+      "expectedAnswer": "前上游背景点，后下游混合点",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 371,
+          "endOffset": 435,
+          "quote": "Tide 采样顺序表\n| 河段 | 顺序 |\n| 上游背景点 | 1 |\n| 排口邻近点 | 2 |\n| 下游混合点 | 3 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-021",
+      "question": "Tide 容器破裂与标签模糊但COC可核对的样品，处理相同吗？",
+      "answerable": true,
+      "expectedAnswer": "不同，破裂拒收，模糊双人补标",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "quote": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-022",
+      "question": "Tide 常规分析与复核备用的单瓶容量差多少？",
+      "answerable": true,
+      "expectedAnswer": "250毫升",
+      "category": "表格",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "quote": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "tide-023",
+      "question": "Tide 下游今天的铅浓度是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-024",
+      "question": "Tide 这段河水未经处理是否能直接饮用？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-025",
+      "question": "Tide 排口邻近点的精确GPS坐标是多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "tide-026",
+      "question": "Tide 第三方实验室一次检测收费多少？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "tide",
+      "group": "tide",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-001",
+      "question": "Ember 标准釉烧的峰值温度是多少？",
+      "answerable": true,
+      "expectedAnswer": "1180摄氏度",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-002",
+      "question": "Ember 作品与加热元件至少间隔多少毫米？",
+      "answerable": true,
+      "expectedAnswer": "50毫米",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "quote": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-003",
+      "question": "Ember 釉料试片连同批号保存多久？",
+      "answerable": true,
+      "expectedAnswer": "18个月",
+      "category": "事实",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "quote": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-004",
+      "question": "Ember 意外断电重新开炉，可以删除之前停电时刻让曲线看起来连续吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，保留中断记录",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "quote": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-005",
+      "question": "Ember 釉料流下来粘住垫板，垫板清理后能不检查就再用吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，受影响窑板须检查",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "quote": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-006",
+      "question": "Ember 磨坯产生粉尘，可以吹到公共房间里散掉吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，工位收集",
+      "category": "同义",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "quote": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-007",
+      "question": "Ember RAMP和HOLD分别是什么，标准釉烧取什么值？",
+      "answerable": true,
+      "expectedAnswer": "升温斜率前段100摄氏度每小时；保温25分钟",
+      "category": "缩写",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "quote": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "quote": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-008",
+      "question": "Ember TC读数能作为食用器具安全认证吗，TC指什么？",
+      "answerable": true,
+      "expectedAnswer": "不能；热电偶",
+      "category": "缩写",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 112,
+          "quote": "Ember terminology: TC means thermocouple; a TC reading is temperature\nevidence, not a food-safety certification.",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-009",
+      "question": "Ember 工作室标准素烧可以照教学小窑850度模板记录吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，标准900度",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 561,
+          "endOffset": 611,
+          "quote": "Ember 小型教学演示窑允许850摄氏度素烧，但工作室标准素烧仍为900摄氏度，不能混用记录模板。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-010",
+      "question": "Ember 温度刚好降到80摄氏度，符合开窑条件吗？",
+      "answerable": true,
+      "expectedAnswer": "不符合，必须低于80度",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-011",
+      "question": "Ember 为了自然冷却更快，打开窑门是否等同改善环境通风？",
+      "answerable": true,
+      "expectedAnswer": "不是，不强行开门加速",
+      "category": "近事实干扰",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "quote": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-012",
+      "question": "Ember 表面干燥但没有干燥检查记录的作品能直接按标准曲线烧吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，先通过干燥检查",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "quote": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-013",
+      "question": "Ember 学生遇到停电能自己恢复控制器并接着原记录烧吗？",
+      "answerable": true,
+      "expectedAnswer": "不能，窑务负责人批准并另建复烧事件",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "quote": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-014",
+      "question": "Ember 同一天给不同釉料作品拍了色卡，是否能不用釉浆编号并合并批次？",
+      "answerable": true,
+      "expectedAnswer": "不能，不同体系分批且需釉浆编号",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "quote": "Ember 陶瓷工作室每次烧制分配一个 KILN 批次号；不同釉料体系不得仅因同日入窑而合并批次记录。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "quote": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-015",
+      "question": "Ember 贯穿裂纹作品能完整交付吗；能用釉浆标签当食品安全认证来放行吗？",
+      "answerable": true,
+      "expectedAnswer": "不能完整交付，釉浆标签也不代表食品接触认证",
+      "category": "跨段落",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "quote": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-016",
+      "question": "Ember 前段从100度升到600度按标准斜率需要多久，不计保温？",
+      "answerable": true,
+      "expectedAnswer": "5小时",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "quote": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-017",
+      "question": "Ember 热电偶故障时有人说温度低于80度，开窑前还要什么确认？",
+      "answerable": true,
+      "expectedAnswer": "独立校准探头确认温度",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "quote": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 121,
+          "quote": "Ember cooling card: a thermocouple fault blocks unloading until an independent\ncalibrated probe confirms the temperature.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-018",
+      "question": "Ember 卸件包装前应依据哪份图清点，这张图是否属于烧成记录？",
+      "answerable": true,
+      "expectedAnswer": "窑位图，属于烧成记录",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "quote": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 89,
+          "quote": "Ember transport card: cooled pieces are counted against the loading map before\npackaging.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-019",
+      "question": "Ember 断电后谁批准复烧，批准前对装载物还要做什么？",
+      "answerable": true,
+      "expectedAnswer": "窑务负责人，先检查装载物",
+      "category": "跨文档",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "quote": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "ember-cards.pdf",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "quote": "Ember power card: after an outage, the kiln lead inspects the load before\nauthorizing a new firing event.",
+          "groupId": "g2"
+        }
+      ]
+    },
+    {
+      "id": "ember-020",
+      "question": "Ember 标准釉烧后段比前段每小时多升温多少？",
+      "answerable": true,
+      "expectedAnswer": "45摄氏度",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "quote": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-021",
+      "question": "Ember 流釉粘板和轻微色差分别怎样处置？",
+      "answerable": true,
+      "expectedAnswer": "前者隔离检查窑板，后者记录分级",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "quote": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-022",
+      "question": "Ember 冷窑卸件和上釉都戴手套，另外分别需要什么？",
+      "answerable": true,
+      "expectedAnswer": "卸件护目镜，上釉围裙",
+      "category": "表格",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "quote": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "groupId": "g1"
+        }
+      ]
+    },
+    {
+      "id": "ember-023",
+      "question": "Ember 1180度烧成的杯子一定符合食品接触国标吗？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-024",
+      "question": "Ember 这窑作品每件应该卖多少钱？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-025",
+      "question": "Ember 烧一窑需要缴纳多少元电费？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    },
+    {
+      "id": "ember-026",
+      "question": "Ember 控制器管理员的维修密码是什么？",
+      "answerable": false,
+      "expectedAnswer": null,
+      "category": "不可回答",
+      "topic": "ember",
+      "group": "ember",
+      "split": "test",
+      "evidence": []
+    }
+  ]
+}

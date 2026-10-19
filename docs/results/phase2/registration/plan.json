@@ -1,0 +1,96 @@
+{
+  "registeredAt": "2026-09-28T07:43:51.298Z",
+  "seed": 20260928,
+  "developmentSourceSha256": "20092ebdd6f50e4ca09ba5d6cc7e32d3f557c6aa1c913c38e1ed2eaaf2bdbb24",
+  "selection": "8 categories x 2 predetermined distinct topics; within stratum lowest SHA256(seed:id); no outcome-based sample selection",
+  "caseIds": [
+    "harbor-026",
+    "moss-026",
+    "lumen-003",
+    "quartz-001",
+    "moss-004",
+    "harbor-005",
+    "quartz-007",
+    "lumen-008",
+    "harbor-022",
+    "moss-022",
+    "lumen-016",
+    "quartz-019",
+    "moss-014",
+    "harbor-014",
+    "quartz-010",
+    "lumen-010"
+  ],
+  "topicCounts": {
+    "harbor": 4,
+    "lumen": 4,
+    "moss": 4,
+    "quartz": 4
+  },
+  "testPolicy": "Do not inspect baseline-holdout quality until final configuration is frozen.",
+  "baseline": {
+    "profile": {
+      "strategy": "legacy",
+      "size": 900,
+      "overlap": 200
+    },
+    "candidateK": 20,
+    "keywordWeight": 1,
+    "rerank": false,
+    "citationStyle": "uuid"
+  },
+  "profiles": [
+    {
+      "id": "legacy900",
+      "strategy": "legacy",
+      "size": 900,
+      "overlap": 200
+    },
+    {
+      "id": "structure900",
+      "strategy": "structure-v1",
+      "size": 900,
+      "overlap": 200
+    },
+    {
+      "id": "structure600",
+      "strategy": "structure-v1",
+      "size": 600,
+      "overlap": 200
+    },
+    {
+      "id": "structure1200",
+      "strategy": "structure-v1",
+      "size": 1200,
+      "overlap": 200
+    },
+    {
+      "id": "structure900-o0",
+      "strategy": "structure-v1",
+      "size": 900,
+      "overlap": 0
+    },
+    {
+      "id": "structure900-o100",
+      "strategy": "structure-v1",
+      "size": 900,
+      "overlap": 100
+    }
+  ],
+  "stages": [
+    "A: baseline vs five structural profiles, all other options fixed",
+    "B1: chosen profile, candidateK 10/20/40, other options fixed",
+    "B2: chosen profile and candidateK, keywordWeight .25/.5/1, other options fixed",
+    "C: chosen parameters, dedicated reranker off/on",
+    "D: chosen retrieval pipeline, uuid/compact citation style only",
+    "E: full dev confirmation, including all failed rows; reuse identical completed selected subset",
+    "F: freeze final configuration before looking at or running independent test"
+  ],
+  "selectionRule": "Retrieval stages maximize mean vector/hybrid macro Recall, then mean MRR. Retain control when Recall gain < .02 and MRR gain < .03; never trade >.005 Recall for MRR. Ties keep control. Citation style requires lower error count without worse retrieved evidence; unreviewed answer correctness remains null. Final adoption requires confirmation on all dev, otherwise retain original defaults and report experimental alternatives.",
+  "limits": {
+    "parallelEvaluationRequests": 2,
+    "maxNewGenerationRows": 700,
+    "rerankerTimeoutSeconds": 10
+  },
+  "reporting": "Each e2e variant uses the same 16-question sample and reports Recall/MRR, errors, mean/P50/P95 retrieval and total latency, actual usage/coverage. Retrieval-only diagnostics are separately labelled and never represented as end-to-end results."
+}

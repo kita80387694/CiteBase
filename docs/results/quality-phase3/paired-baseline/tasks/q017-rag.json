@@ -1,0 +1,124 @@
+{
+  "id": "9d15d410-2ba6-4424-95ce-b00012bf046d",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9d15d410-2ba6-4424-95ce-b00012bf046d",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q017",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "cobalt-002",
+          "group": "cobalt",
+          "split": "dev",
+          "topic": "cobalt",
+          "category": "歧义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Cobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。",
+              "groupId": "g1",
+              "endOffset": 100,
+              "paragraph": 2,
+              "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "startOffset": 61,
+              "documentName": "cobalt-a.md"
+            }
+          ],
+          "question": "Cobalt 修订日期更新，是否说明又测了一遍海底？",
+          "answerable": true,
+          "expectedAnswer": "不说明；修订与测绘日期不同"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-e34bc45891ff27c132fa34a31d983629f3bac413f685b2fc433109e642ed",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:45:57.592545Z",
+  "startedAt": "2026-09-30T06:45:57.606657Z",
+  "finishedAt": "2026-09-30T06:46:02.447110Z",
+  "availableAt": "2026-09-30T06:45:57.592545Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "33df7d77-6908-4e97-b86a-564c6b0c27d5",
+      "operationKey": "044f0054-4beb-4eda-95b8-f257cd680e48:embedding:410820bc-d9f2-406a-85dc-1183995fb6a5",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:45:57.619402Z",
+      "finishedAt": "2026-09-30T06:45:57.881630Z"
+    },
+    {
+      "callId": "a6442a98-aace-4a6d-9874-a82af74724b3",
+      "operationKey": "044f0054-4beb-4eda-95b8-f257cd680e48:generation:c2dcd133-2024-4c5e-8c4e-c49364e49141",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1666,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:45:57.886710Z",
+      "finishedAt": "2026-09-30T06:45:59.689275Z"
+    },
+    {
+      "callId": "1391f119-a40f-49ca-80dc-88a57eaf8761",
+      "operationKey": "c943b36a-3267-473a-a4aa-d0be922ad2b9:embedding:f3d9fd93-8932-44b0-b57d-749c499f23f0",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:45:59.711987Z",
+      "finishedAt": "2026-09-30T06:46:00.001647Z"
+    },
+    {
+      "callId": "3684a5e6-fd6f-4188-b504-6151b0648373",
+      "operationKey": "c943b36a-3267-473a-a4aa-d0be922ad2b9:generation:8514fe57-feeb-484c-b151-f1e4a3d4d59f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1672,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:46:00.013298Z",
+      "finishedAt": "2026-09-30T06:46:02.434645Z"
+    }
+  ]
+}

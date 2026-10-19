@@ -1,4 +1,35 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  TaskPanel,
+  ProgressView,
+  type WorkTask,
+  type TaskProgress,
+} from "./TaskPanel";
+import { OperationsPanel } from "./OperationsPanel";
+import { AgentPanel } from "./AgentPanel";
+import { ReviewPanel } from "./ReviewPanel";
+import {
+  RetrievalControls,
+  RetrievalDiagnostics,
+  defaultRetrievalOptions,
+  retrievalOptionsForRequest,
+  type RetrievalOptions,
+  type RetrievalDetails,
+} from "./RetrievalControls";
+import {
+  ChunkControls,
+  DocumentVersions,
+  defaultChunkProfile,
+  validateChunkProfile,
+  type ChunkProfile,
+  type DocumentVersion,
+} from "./DocumentProfiles";
+import {
+  EvaluationAnalysis,
+  EvaluationReview,
+  type ManualScore,
+  type EvidenceLabel,
+} from "./EvaluationAnalysis";
 import {
   BookOpen,
   MessageSquare,
@@ -24,16 +55,9 @@ type Doc = {
   status: string;
   error?: string;
   activeVersionId?: string;
+  activeProfile?: ChunkProfile | null;
 };
-type Task = {
-  id: string;
-  documentId: string;
-  documentName: string;
-  status: string;
-  attempts: number;
-  error?: string;
-};
-type Evidence = {
+export type Evidence = {
   id: string;
   documentName: string;
   page: number;
@@ -43,7 +67,7 @@ type Evidence = {
   text: string;
   score: number;
 };
-type QA = {
+type QA = RetrievalDetails & {
   id: string;
   question: string;
   answer: string;
@@ -59,36 +83,59 @@ type QA = {
   completionTokens?: number;
   error?: string;
 };
-type Result = QA & {
+export type Result = QA & {
   caseId: string;
   answerable: boolean;
   expectedAnswer?: string;
   recallAtK?: number;
   mrr?: number;
   evidenceHit: boolean;
-  answerCorrect?: boolean;
+  answerCorrect?: boolean | null;
+  citationSupported?: boolean | null;
+  category?: string | null;
+  split?: string | null;
+  group?: string | null;
+  topic?: string | null;
+  expectedEvidence?: EvidenceLabel[];
+  evidenceGroupCount?: number;
+  hitEvidenceGroupCount?: number;
+  allEvidenceHit?: boolean;
+  manualScore?: ManualScore | null;
   referenceAnswerMatch?: boolean;
   abstentionCorrect?: boolean;
 };
-type Metric = {
+export type Metric = {
   recallAtK: number;
   mrr: number;
   retrievalMs: number;
   totalMs: number;
   count: number;
 };
-type Run = {
+export type Run = {
   id: string;
   name: string;
+  kbId?: string;
+  taskId?: string;
+  taskStatus?: string;
+  progress?: TaskProgress;
+  partial?: boolean;
+  canScore?: boolean;
+  pendingItems?: unknown[];
   status: string;
   modelMode: string;
-  config: unknown;
+  config: { retrievalOptions?: RetrievalOptions; [key: string]: unknown };
   summary?: Record<string, Metric>;
   results?: Result[];
+  manualScores?: ManualScore[];
+  breakdowns?: Record<string, Record<string, Record<string, Metric>>>;
   error?: string;
   createdAt: string;
 };
 const labels: Record<string, string> = {
+  QUEUED: "排队",
+  RETRY_WAIT: "等待重试",
+  CANCEL_REQUESTED: "正在取消",
+  CANCELLED: "已取消",
   PENDING: "待处理",
   PROCESSING: "处理中",
   RUNNING: "运行中",
@@ -106,6 +153,17 @@ const fmt = (n: number | undefined) =>
   n == null ? "不可用" : Number(n).toFixed(2);
 
 export default function App() {
+  const [evidenceContext, setEvidenceContext] = useState("当前有效文档版本");
+  const [evalPending, setEvalPending] = useState<string | null>(null);
+  const [runTask, setRunTask] = useState<WorkTask | null>(null);
+  const [evalPollError, setEvalPollError] = useState("");
+  const [answerMode, setAnswerMode] = useState("rag");
+  const [retrievalOptions, setRetrievalOptions] = useState<RetrievalOptions>(
+    defaultRetrievalOptions,
+  );
+  const [chunkProfile, setChunkProfile] =
+    useState<ChunkProfile>(defaultChunkProfile);
+  const [versionDocument, setVersionDocument] = useState<Doc | null>(null);
   const [token, setToken] = useState(
     localStorage.getItem("citebase.token") || "",
   );
@@ -116,7 +174,6 @@ export default function App() {
     [kbs, setKbs] = useState<KB[]>([]),
     [kb, setKb] = useState(""),
     [docs, setDocs] = useState<Doc[]>([]),
-    [tasks, setTasks] = useState<Task[]>([]),
     [history, setHistory] = useState<QA[]>([]),
     [runs, setRuns] = useState<Run[]>([]);
   const [busy, setBusy] = useState(false),
@@ -154,7 +211,18 @@ export default function App() {
         setToken("");
         setUser(null);
       }
-      throw new Error(message);
+      const retryHeader = r.headers.get("Retry-After");
+      const retryAfterSeconds =
+        r.status === 429 && retryHeader && /^\d+$/.test(retryHeader)
+          ? Number(retryHeader)
+          : null;
+      if (retryAfterSeconds !== null && Number.isSafeInteger(retryAfterSeconds)) {
+        message += `（建议等待 ${retryAfterSeconds} 秒后手动重试，不会自动重提。）`;
+      }
+      throw Object.assign(new Error(message), {
+        status: r.status,
+        retryAfterSeconds,
+      });
     }
     const text = await r.text();
     return text ? JSON.parse(text) : (undefined as T);
@@ -171,16 +239,23 @@ export default function App() {
       setBusy(false);
     }
   }
+  const refreshGeneration = useRef(0);
+  const viewIdentity = useRef({ token, kb });
+  viewIdentity.current = { token, kb };
   async function refresh() {
+    const generation = ++refreshGeneration.current;
+    const current = () =>
+      generation === refreshGeneration.current &&
+      viewIdentity.current.token === token &&
+      viewIdentity.current.kb === kb;
     setLoading(true);
     try {
-      const [bases, ts, rs] = await Promise.all([
+      const [bases, rs] = await Promise.all([
         api<KB[]>("/knowledge-bases"),
-        api<Task[]>("/tasks"),
         api<Run[]>("/evaluations"),
       ]);
+      if (!current()) return;
       setKbs(bases);
-      setTasks(ts);
       setRuns(rs);
       if (!bases.some((b) => b.id === kb)) {
         setKb(bases[0]?.id || "");
@@ -193,11 +268,12 @@ export default function App() {
           api<Doc[]>(`/knowledge-bases/${kb}/documents`),
           api<QA[]>(`/questions?kbId=${kb}`),
         ]);
+        if (!current()) return;
         setDocs(ds);
         setHistory(hs);
       }
     } finally {
-      setLoading(false);
+      if (generation === refreshGeneration.current) setLoading(false);
     }
   }
   useEffect(() => {
@@ -227,6 +303,7 @@ export default function App() {
     setKb("");
     setRun(null);
     setEvidence(null);
+    setVersionDocument(null);
   };
   async function login(e: FormEvent) {
     e.preventDefault();
@@ -241,8 +318,12 @@ export default function App() {
   }
   async function upload(file: File, documentId?: string) {
     await action(async () => {
+      validateChunkProfile(chunkProfile);
       const form = new FormData();
       form.append("file", file);
+      form.append("chunkStrategy", chunkProfile.strategy);
+      form.append("chunkSize", String(chunkProfile.size));
+      form.append("chunkOverlap", String(chunkProfile.overlap));
       if (documentId) form.append("documentId", documentId);
       await api(`/knowledge-bases/${kb}/documents`, {
         method: "POST",
@@ -253,6 +334,7 @@ export default function App() {
     });
   }
   async function cite(ev: Evidence) {
+    setEvidenceContext("当前有效文档版本");
     await action(async () =>
       setEvidence(await api<Evidence>(`/citations/${ev.id}`)),
     );
@@ -263,39 +345,174 @@ export default function App() {
     await action(async () => {
       const result = await api<QA>("/questions", {
         method: "POST",
-        body: JSON.stringify({ kbId: kb, question, mode, topK }),
+        body: JSON.stringify({
+          kbId: kb,
+          question,
+          mode,
+          topK,
+          retrievalOptions: retrievalOptionsForRequest(retrievalOptions),
+        }),
       });
       setHistory((h) => [result, ...h]);
       setQuestion("");
     });
   }
+  const evalJournalKey = `citebase.eval.pending.${user?.username || ""}.${kb}`;
+  const apiRef = useRef(api);
+  apiRef.current = api;
+  useEffect(() => {
+    setEvalPending(user && kb ? sessionStorage.getItem(evalJournalKey) : null);
+  }, [evalJournalKey, user?.username, kb]);
+  useEffect(() => {
+    if (page !== "eval" || !run?.taskId) {
+      setRunTask(null);
+      return;
+    }
+    setRunTask(null);
+    let live = true,
+      fetching = false;
+    const selectedId = run.id,
+      taskId = run.taskId;
+    async function poll() {
+      if (fetching) return;
+      fetching = true;
+      try {
+        const [current, task] = await Promise.all([
+          apiRef.current<Run>(`/evaluations/${selectedId}`),
+          apiRef.current<WorkTask>(`/tasks/${taskId}`),
+        ]);
+        if (live) {
+          setRun((old) => (old?.id === selectedId ? current : old));
+          setRunTask(task);
+          setEvalPollError("");
+        }
+      } catch (e) {
+        if (live) {
+          setEvalPollError(e instanceof Error ? e.message : "进度读取失败");
+          if ((e as { status?: number }).status === 404) {
+            setRun(null);
+            setDetail(null);
+            setEvidence(null);
+          }
+        }
+      } finally {
+        fetching = false;
+      }
+    }
+    void poll();
+    const timer = setInterval(poll, 2000);
+    return () => {
+      live = false;
+      clearInterval(timer);
+    };
+  }, [page, run?.id, run?.taskId]);
+  function selectEvaluation(value: Run) {
+    setRun(value);
+    setDetail(null);
+    setEvalPollError("");
+    sessionStorage.setItem(
+      `citebase.eval.selected.${user?.username}`,
+      value.id,
+    );
+  }
+  useEffect(() => {
+    if (page !== "eval" || !user || run) return;
+    let active = true;
+    const id = sessionStorage.getItem(
+      `citebase.eval.selected.${user.username}`,
+    );
+    if (id)
+      void apiRef
+        .current<Run>(`/evaluations/${id}`)
+        .then((saved) => {
+          if (active) setRun(saved);
+        })
+        .catch((e) => {
+          if (active)
+            setEvalPollError(e instanceof Error ? e.message : "评测恢复失败");
+        });
+    return () => {
+      active = false;
+    };
+  }, [page, user?.username]);
   async function evaluate(e: FormEvent) {
     e.preventDefault();
     await action(async () => {
-      let data;
-      try {
-        data = JSON.parse(dataset);
-      } catch {
-        throw new Error("评测集不是有效 JSON，请检查文件格式。");
+      let body = evalPending;
+      if (!body) {
+        let data;
+        try {
+          data = JSON.parse(dataset);
+        } catch {
+          throw new Error("评测集不是有效 JSON，请检查文件格式。");
+        }
+        body = JSON.stringify({
+          kbId: kb,
+          name: evalName,
+          dataset: data,
+          topK,
+          retrievalOptions: retrievalOptionsForRequest(retrievalOptions),
+          idempotencyKey: crypto.randomUUID(),
+        });
+        sessionStorage.setItem(evalJournalKey, body);
+        setEvalPending(body);
       }
-      const result = await api<Run>("/evaluations", {
-        method: "POST",
-        body: JSON.stringify({ kbId: kb, name: evalName, dataset: data, topK }),
-      });
-      setRun(result);
-      await refresh();
+      try {
+        const result = await api<Run>("/evaluations", { method: "POST", body });
+        sessionStorage.removeItem(evalJournalKey);
+        setEvalPending(null);
+        selectEvaluation(result);
+        setNotice(
+          "评测已持久化并加入任务队列。关闭页面后仍会继续，可从处理任务查看、取消或恢复。",
+        );
+        await refresh().catch(() =>
+          setNotice("评测已创建；列表暂未刷新，请通过已保存任务查看状态。"),
+        );
+      } catch (e) {
+        const code = (e as { status?: number }).status;
+        if (code && [400, 403, 404, 422].includes(code)) {
+          sessionStorage.removeItem(evalJournalKey);
+          setEvalPending(null);
+        }
+        throw e;
+      }
     });
+  }
+  async function evalTaskAction(actionName: "cancel" | "retry") {
+    if (!run?.taskId) return;
+    await action(async () => {
+      await api(`/tasks/${run.taskId}/${actionName}`, { method: "POST" });
+      selectEvaluation(await api<Run>(`/evaluations/${run.id}`));
+      setRunTask(await api<WorkTask>(`/tasks/${run.taskId}`));
+    });
+  }
+  function openTask(task: WorkTask) {
+    if (task.kind === "INDEX") return;
+    if (task.kbId) setKb(task.kbId);
+    if (task.kind === "EVALUATION") {
+      setPage("eval");
+      void action(async () =>
+        selectEvaluation(await api<Run>(`/evaluations/${task.id}`)),
+      );
+    } else {
+      sessionStorage.setItem(
+        `citebase.agent.selected.${user?.username}.${task.kbId || kb}`,
+        task.id,
+      );
+      setAnswerMode("agent");
+      setPage("chat");
+    }
   }
   async function exportRun() {
     if (!run) return;
     await action(async () => {
-      const data = await api(`/evaluations/${run.id}/export`);
+      const data = await api<Run>(`/evaluations/${run.id}/export`);
       const url = URL.createObjectURL(
         new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
       );
       const a = document.createElement("a");
       a.href = url;
-      a.download = `citebase-${run.id}.json`;
+      a.download = `citebase-${run.id}-${data.partial ? "partial" : "final"}.json`;
       a.click();
       URL.revokeObjectURL(url);
     });
@@ -305,6 +522,8 @@ export default function App() {
     ["chat", "知识问答", MessageSquare],
     ["tasks", "处理任务", ListChecks],
     ["eval", "检索评测", FlaskConical],
+    ["review", "人工质量评审", ListChecks],
+    ["operations", "运行状态", Database],
   ] as const;
   if (!token)
     return (
@@ -464,7 +683,7 @@ export default function App() {
                     ? "GROUNDED ANSWERS"
                     : page === "eval"
                       ? "MEASURE & COMPARE"
-                      : "INDEXING PIPELINE"}
+                      : page === "operations" ? "OPERATIONS" : page === "review" ? "BLIND QUALITY REVIEW" : "INDEXING PIPELINE"}
               </div>
               <h1>{nav.find((n) => n[0] === page)?.[1]}</h1>
               <p>
@@ -474,13 +693,13 @@ export default function App() {
                     ? "基于你选择的知识库回答，点击引用核验原始证据。"
                     : page === "eval"
                       ? "用同一组问题，对比向量检索与混合检索的真实表现。"
-                      : "查看索引进度、失败原因与重试记录。"}
+                      : page === "operations" ? "查看个人任务队列、租约、延迟与失败原因。" : page === "review" ? "独立盲评答案与引用，保留真人评分依据和审计历史。" : "查看索引进度、失败原因与重试记录。"}
               </p>
             </div>
             {page === "library" && (
               <button
                 className="primary"
-                disabled={busy}
+                disabled={busy || loading}
                 onClick={() => {
                   const name = prompt("新知识库名称");
                   if (name?.trim())
@@ -489,7 +708,11 @@ export default function App() {
                         method: "POST",
                         body: JSON.stringify({ name: name.trim() }),
                       });
-                      await refresh();
+                      ++refreshGeneration.current;
+                      setKbs((existing) => [
+                        ...existing.filter((item) => item.id !== b.id),
+                        b,
+                      ]);
                       setKb(b.id);
                     });
                 }}
@@ -499,7 +722,7 @@ export default function App() {
               </button>
             )}
           </div>
-          {page !== "tasks" && (
+          {
             <div className="kb-selector">
               <Database size={17} />
               <label htmlFor="knowledge-base">当前知识库</label>
@@ -519,7 +742,7 @@ export default function App() {
               </select>
               {loading && <span className="muted">加载中…</span>}
             </div>
-          )}
+          }
           {page === "library" && (
             <>
               <div className="stats">
@@ -595,6 +818,11 @@ export default function App() {
                     支持文本型
                     PDF、Markdown、TXT。重复内容自动检测；更新成功后切换索引版本。
                   </div>
+                  <ChunkControls
+                    value={chunkProfile}
+                    onChange={setChunkProfile}
+                    disabled={busy}
+                  />
                   {!docs.length ? (
                     <Empty
                       text="还没有文档"
@@ -630,9 +858,22 @@ export default function App() {
                                     ? d.activeVersionId.slice(0, 8)
                                     : "尚未索引"}
                                 </span>
+                                {d.activeProfile && (
+                                  <small className="result-sub">
+                                    {d.activeProfile.strategy} ·{" "}
+                                    {d.activeProfile.size} /{" "}
+                                    {d.activeProfile.overlap}
+                                  </small>
+                                )}
                               </td>
                               <td>
                                 <div className="actions">
+                                  <button
+                                    className="quiet"
+                                    onClick={() => setVersionDocument(d)}
+                                  >
+                                    版本
+                                  </button>
                                   <label className="button quiet">
                                     更新
                                     <input
@@ -680,55 +921,43 @@ export default function App() {
               )}
             </>
           )}
+          {page === "operations" && <OperationsPanel api={api} />}
+          {page === "review" && <ReviewPanel api={api} kbId={kb} />}
           {page === "tasks" && (
-            <section className="panel">
-              <div className="panel-title">
-                <h2>索引任务</h2>
-                <span className="muted">每 8 秒自动刷新</span>
-              </div>
-              {!tasks.length ? (
-                <Empty
-                  text="暂无处理任务"
-                  sub="上传文档后，可以在这里追踪解析、向量化和入库。"
-                />
-              ) : (
-                <div className="task-list">
-                  {tasks.map((t) => (
-                    <div className="task" key={t.id}>
-                      <FileText size={22} />
-                      <div className="grow">
-                        <strong>{t.documentName}</strong>
-                        <p className="muted">
-                          任务 {t.id.slice(0, 8)} · 已尝试 {t.attempts} 次
-                        </p>
-                        {t.error && (
-                          <div className="inline-error">{t.error}</div>
-                        )}
-                      </div>
-                      {status(t.status)}
-                      {t.status === "FAILED" && (
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            action(async () => {
-                              await api(`/tasks/${t.id}/retry`, {
-                                method: "POST",
-                              });
-                              await refresh();
-                            })
-                          }
-                        >
-                          <RefreshCw size={15} />
-                          重试
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
+            <TaskPanel kbId={kb} api={api} onOpen={openTask} />
           )}
           {page === "chat" && (
+            <div
+              className="answer-mode-tabs"
+              role="group"
+              aria-label="问答执行方式"
+            >
+              <button
+                className={answerMode === "rag" ? "selected" : ""}
+                aria-pressed={answerMode === "rag"}
+                onClick={() => setAnswerMode("rag")}
+              >
+                基础 RAG
+              </button>
+              <button
+                className={answerMode === "agent" ? "selected" : ""}
+                aria-pressed={answerMode === "agent"}
+                onClick={() => setAnswerMode("agent")}
+              >
+                有边界 Agent
+              </button>
+            </div>
+          )}
+          {page === "chat" && answerMode === "agent" && (
+            <AgentPanel
+              key={`${user?.username}:${kb}`}
+              kbId={kb}
+              username={user?.username || ""}
+              api={api}
+              onCite={cite}
+            />
+          )}
+          {page === "chat" && answerMode === "rag" && (
             <div className="chat-layout">
               <section className="chat-main">
                 <form className="ask-box" onSubmit={ask}>
@@ -740,6 +969,12 @@ export default function App() {
                     placeholder="例如：文档更新失败时，系统如何保护旧版本索引？"
                     required
                     disabled={!kb || busy}
+                  />
+                  <RetrievalControls
+                    value={retrievalOptions}
+                    onChange={setRetrievalOptions}
+                    topK={topK}
+                    disabled={busy}
                   />
                   <div className="ask-bottom">
                     <div className="actions">
@@ -786,10 +1021,16 @@ export default function App() {
                         <MessageSquare size={17} />
                         <h3>{q.question}</h3>
                       </div>
-                      {q.abstained && (
-                        <span className="badge pending">
-                          证据不足 · 拒绝推断
+                      {q.error ? (
+                        <span className="badge failed">
+                          执行失败 · 已停止回答
                         </span>
+                      ) : (
+                        q.abstained && (
+                          <span className="badge pending">
+                            证据不足 · 拒绝推断
+                          </span>
+                        )
                       )}
                       <p className="answer-text">{renderAnswer(q, cite)}</p>
                       {q.error && <div className="inline-error">{q.error}</div>}
@@ -819,6 +1060,7 @@ export default function App() {
                           引用格式 {q.citationValid ? "有效" : "无效"}
                         </span>
                       </div>
+                      <RetrievalDiagnostics result={q} />
                       <details>
                         <summary>
                           查看本次检索证据（{q.evidence?.length || 0}）
@@ -871,82 +1113,103 @@ export default function App() {
                   <p className="muted">
                     同一评测集将分别运行 vector 与 hybrid 配置。
                   </p>
-                  <label>
-                    评测名称
-                    <input
-                      value={evalName}
-                      onChange={(e) => setEvalName(e.target.value)}
-                      required
+                  <fieldset
+                    className="eval-request-fields"
+                    disabled={busy || Boolean(evalPending)}
+                  >
+                    <label>
+                      评测名称
+                      <input
+                        value={evalName}
+                        onChange={(e) => setEvalName(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <label>
+                      导入评测集 JSON
+                      <input
+                        type="file"
+                        accept=".json"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f)
+                            f.text()
+                              .then((t) => {
+                                setDataset(t);
+                                setDatasetName(f.name);
+                              })
+                              .catch(() => setError("无法读取评测文件"));
+                        }}
+                      />
+                    </label>
+                    <div className="muted">
+                      {datasetName ||
+                        "选择 samples/evaluation.json 样例，或按文档格式制作评测集。"}
+                    </div>
+                    <details>
+                      <summary>查看导入格式</summary>
+                      <pre>
+                        {JSON.stringify(
+                          {
+                            version: "v1",
+                            questions: [
+                              {
+                                id: "q1",
+                                question: "示例问题",
+                                answerable: true,
+                                category: "fact",
+                                split: "dev",
+                                group: "example-topic",
+                                expectedAnswer: "预期答案",
+                                evidence: [
+                                  {
+                                    documentName: "example.md",
+                                    page: 1,
+                                    paragraph: 1,
+                                    quote: "原文证据",
+                                    groupId: "required-fact",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          null,
+                          2,
+                        )}
+                      </pre>
+                    </details>
+                    <label>
+                      返回证据数量 Top K
+                      <input
+                        type="number"
+                        min="1"
+                        max="20"
+                        value={topK}
+                        onChange={(e) => setTopK(Number(e.target.value))}
+                      />
+                    </label>
+                    <RetrievalControls
+                      value={retrievalOptions}
+                      onChange={setRetrievalOptions}
+                      topK={topK}
+                      disabled={busy}
+                      forEvaluation
                     />
-                  </label>
-                  <label>
-                    导入评测集 JSON
-                    <input
-                      type="file"
-                      accept=".json"
-                      onChange={(e) => {
-                        const f = e.target.files?.[0];
-                        if (f)
-                          f.text()
-                            .then((t) => {
-                              setDataset(t);
-                              setDatasetName(f.name);
-                            })
-                            .catch(() => setError("无法读取评测文件"));
-                      }}
-                    />
-                  </label>
-                  <div className="muted">
-                    {datasetName ||
-                      "选择 samples/evaluation.json 样例，或按文档格式制作评测集。"}
-                  </div>
-                  <details>
-                    <summary>查看导入格式</summary>
-                    <pre>
-                      {JSON.stringify(
-                        {
-                          version: "v1",
-                          questions: [
-                            {
-                              id: "q1",
-                              question: "示例问题",
-                              answerable: true,
-                              expectedAnswer: "预期答案",
-                              evidence: [
-                                {
-                                  documentName: "example.md",
-                                  page: 1,
-                                  paragraph: 1,
-                                  quote: "原文证据",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                        null,
-                        2,
-                      )}
-                    </pre>
-                  </details>
-                  <label>
-                    返回证据数量 Top K
-                    <input
-                      type="number"
-                      min="1"
-                      max="20"
-                      value={topK}
-                      onChange={(e) => setTopK(Number(e.target.value))}
-                    />
-                  </label>
+                  </fieldset>
                   <button
                     className="primary"
-                    disabled={!kb || !dataset || busy}
+                    disabled={!kb || (!dataset && !evalPending) || busy}
                   >
                     <FlaskConical size={17} />
-                    {busy ? "正在运行，请稍候…" : "运行向量 / 混合对比"}
+                    {busy
+                      ? "正在创建任务…"
+                      : evalPending
+                        ? "核对并重试创建评测"
+                        : "运行向量 / 混合对比"}
                   </button>
                   <small className="muted">
-                    评测可能耗时较长。任务持久化后可从右侧历史列表查看状态。
+                    创建请求返回任务 ID 后即可继续使用页面；进度每 2
+                    秒读取，刷新不会重新提交整批评测。
                   </small>
                 </form>
                 <section className="panel">
@@ -968,7 +1231,9 @@ export default function App() {
                         key={r.id}
                         onClick={() =>
                           action(async () => {
-                            setRun(await api<Run>(`/evaluations/${r.id}`));
+                            selectEvaluation(
+                              await api<Run>(`/evaluations/${r.id}`),
+                            );
                             setDetail(null);
                           })
                         }
@@ -987,6 +1252,17 @@ export default function App() {
                   )}
                 </section>
               </div>
+              {evalPending && (
+                <div className="alert" role="alert">
+                  有待确认的评测创建请求。再次提交将使用原始配置和同一幂等标识，不创建第二批；请先核对状态，再更改配置。
+                </div>
+              )}
+              {evalPollError && (
+                <div className="alert" role="alert">
+                  进度读取失败：{evalPollError}
+                  。不会自动重新执行，可刷新页面恢复读取。
+                </div>
+              )}
               {run && (
                 <section className="panel results">
                   <div className="panel-title">
@@ -1003,7 +1279,50 @@ export default function App() {
                       <ArrowUpRight size={16} />
                     </button>
                   </div>
+                  <div className="evaluation-task-status">
+                    {status(run.taskStatus || run.status)}
+                    {run.taskId && (
+                      <span className="muted">任务 {run.taskId}</span>
+                    )}
+                    <ProgressView progress={run.progress} />
+                    {runTask?.canCancel && (
+                      <button
+                        disabled={busy}
+                        onClick={() => void evalTaskAction("cancel")}
+                      >
+                        取消评测
+                      </button>
+                    )}
+                    {runTask?.canRetry && (
+                      <button
+                        disabled={busy}
+                        onClick={() => void evalTaskAction("retry")}
+                      >
+                        恢复未完成评测
+                      </button>
+                    )}
+                    {runTask?.retryBlockedReason && (
+                      <p className="muted">{runTask.retryBlockedReason}</p>
+                    )}
+                  </div>
+                  {run.partial && (
+                    <p className="agent-notice">
+                      部分结果：指标仅覆盖已完成项，不代表完整对比。尚未完成{" "}
+                      {run.pendingItems?.length ?? "未知"}{" "}
+                      个问题/模式项；未运行项不当作正确答案或零分。
+                    </p>
+                  )}
                   {run.error && <div className="alert">{run.error}</div>}
+                  {run.config?.retrievalOptions && (
+                    <p className="run-retrieval-config">
+                      本次统一配置：候选{" "}
+                      {run.config.retrievalOptions.candidateK} · 关键词权重{" "}
+                      {run.config.retrievalOptions.keywordWeight}（向量权重 1）
+                      · 重排{" "}
+                      {run.config.retrievalOptions.rerank ? "开启" : "关闭"} ·
+                      引用 {run.config.retrievalOptions.citationStyle}
+                    </p>
+                  )}
                   <div className="table-scroll">
                     <table>
                       <thead>
@@ -1035,58 +1354,19 @@ export default function App() {
                     </table>
                   </div>
                   <p className="metric-note">
-                    Recall@K：相关标注证据的召回比例；MRR：首个相关结果倒数排名。引用格式有效不等于答案正确。详细统计口径见
+                    Recall@K：命中证据组数 /
+                    全部必需组数（同组可替代）；MRR：首个命中任一组结果的倒数排名。引用格式有效不等于答案正确。详细统计口径见
                     EVALUATION.md。
                   </p>
                   <details>
                     <summary>查看可复现配置</summary>
                     <pre>{JSON.stringify(run.config, null, 2)}</pre>
                   </details>
-                  <div className="section-label">逐题结果 · 点击查看证据</div>
-                  <div className="table-scroll">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>问题 / 配置</th>
-                          <th>证据命中</th>
-                          <th>引用格式</th>
-                          <th>答案判定</th>
-                          <th>耗时</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {run.results?.map((r, i) => (
-                          <tr
-                            key={i}
-                            className="clickable"
-                            onClick={() => setDetail(r)}
-                          >
-                            <td>
-                              <button
-                                className="question-button"
-                                onClick={() => setDetail(r)}
-                              >
-                                {r.question}
-                              </button>
-                              <small className="muted">
-                                {r.caseId} · {r.mode}
-                              </small>
-                            </td>
-                            <td>{r.evidenceHit ? "命中" : "未命中"}</td>
-                            <td>{r.citationValid ? "有效" : "无效"}</td>
-                            <td>
-                              {r.answerCorrect == null
-                                ? "未评分"
-                                : r.answerCorrect
-                                  ? "通过"
-                                  : "未通过"}
-                            </td>
-                            <td>{fmt(r.totalMs)} ms</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  <EvaluationAnalysis
+                    key={run.id}
+                    run={run}
+                    onSelect={setDetail}
+                  />
                 </section>
               )}
             </>
@@ -1096,6 +1376,16 @@ export default function App() {
           CiteBase 知据 <span>让知识可检索，让答案可验证。</span>
         </footer>
       </main>
+      {versionDocument && (
+        <DocumentVersions
+          document={
+            docs.find((document) => document.id === versionDocument.id) ||
+            versionDocument
+          }
+          load={(id) => api<DocumentVersion[]>(`/documents/${id}/versions`)}
+          onClose={() => setVersionDocument(null)}
+        />
+      )}
       {evidence && (
         <div className="drawer-backdrop" onClick={() => setEvidence(null)}>
           <aside className="drawer" onClick={(e) => e.stopPropagation()}>
@@ -1117,7 +1407,7 @@ export default function App() {
             </div>
             <div className="source-text">{evidence.text}</div>
             <small className="muted">
-              仅展示你有权限访问的当前有效文档版本。
+              仅展示你有权限访问的证据：{evidenceContext}。
             </small>
           </aside>
         </div>
@@ -1144,14 +1434,47 @@ export default function App() {
             <p className="source-text">
               {renderAnswer(detail, (source) => {
                 setDetail(null);
-                void cite(source);
+                setEvidenceContext("本次评测快照版本，文档仍须允许访问");
+                if (run)
+                  void action(async () =>
+                    setEvidence(
+                      await api<Evidence>(
+                        `/evaluations/${run.id}/citations/${source.id}`,
+                      ),
+                    ),
+                  );
               })}
             </p>
             {detail.error && <div className="alert">{detail.error}</div>}
+            <RetrievalDiagnostics result={detail} />
             <p className="muted">
               Recall@K {fmt(detail.recallAtK)} · MRR {fmt(detail.mrr)} ·{" "}
               {detail.answerable ? "可回答" : "不可回答"}
             </p>
+            {run && (
+              <EvaluationReview
+                key={`${run.id}-${detail.caseId}-${detail.mode}`}
+                result={detail}
+                run={run}
+                onScore={async (score) => {
+                  const saved = await api<ManualScore>(
+                    `/evaluations/${run.id}/scores`,
+                    { method: "POST", body: JSON.stringify(score) },
+                  );
+                  const next: Run = {
+                    ...run,
+                    manualScores: [...(run.manualScores || []), saved],
+                    results: run.results?.map((row) =>
+                      row.caseId === saved.caseId && row.mode === saved.mode
+                        ? { ...row, manualScore: saved }
+                        : row,
+                    ),
+                  };
+                  setRun(next);
+                  setDetail({ ...detail, manualScore: saved });
+                }}
+              />
+            )}
             <h3>检索证据</h3>
             {detail.evidence?.map((ev) => (
               <div className="case-evidence" key={ev.id}>

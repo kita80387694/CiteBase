@@ -12,29 +12,59 @@ public class RagController {
   private final QuestionService questions;
   private final RetrievalService retrieval;
   private final EvaluationService evaluations;
+  private final EvaluationInput evaluationInput;
+  private final EvaluationScoringService scoring;
+  private final AdmissionService admission;
 
   public RagController(
       AuthService auth,
       QuestionService questions,
       RetrievalService retrieval,
-      EvaluationService evaluations) {
+      EvaluationService evaluations,
+      EvaluationInput evaluationInput,
+      EvaluationScoringService scoring,
+      AdmissionService admission) {
     this.auth = auth;
     this.questions = questions;
     this.retrieval = retrieval;
     this.evaluations = evaluations;
+    this.evaluationInput = evaluationInput;
+    this.scoring = scoring;
+    this.admission = admission;
   }
 
-  public record Ask(String kbId, String question, String mode, Integer topK) {}
+  public record Ask(
+      String kbId, String question, String mode, Integer topK, RetrievalOptions retrievalOptions) {
+    public Ask(String kbId, String question, String mode, Integer topK) {
+      this(kbId, question, mode, topK, null);
+    }
+  }
 
   @PostMapping("/questions")
-  public QuestionResult ask(@RequestBody Ask body, HttpServletRequest req) {
-    return questions.ask(
-        auth.require(req),
+  public QuestionResult ask(@RequestBody String source, HttpServletRequest req) {
+    String user = auth.require(req);
+    var body = evaluationInput.ask(source);
+    return admission.synchronous(user, body.kbId(), () -> questions.ask(
+        user,
         body.kbId(),
         body.question(),
         body.mode() == null ? "vector" : body.mode(),
         body.topK() == null ? 5 : body.topK(),
-        true);
+        true,
+        body.retrievalOptions()));
+  }
+
+  @PostMapping("/retrieval-diagnostics")
+  public Object diagnose(@RequestBody String source, HttpServletRequest req) {
+    String user = auth.require(req);
+    var body = evaluationInput.ask(source);
+    return admission.synchronous(user, body.kbId(), () -> questions.diagnose(
+        user,
+        body.kbId(),
+        body.question(),
+        body.mode() == null ? "vector" : body.mode(),
+        body.topK() == null ? 5 : body.topK(),
+        body.retrievalOptions()));
   }
 
   @GetMapping("/questions")
@@ -48,8 +78,26 @@ public class RagController {
   }
 
   @PostMapping("/evaluations")
-  public Object run(@RequestBody EvaluationService.Request body, HttpServletRequest req) {
-    return evaluations.run(auth.require(req), body);
+  public Object run(@RequestBody String body, HttpServletRequest req) {
+    String user = auth.require(req);
+    try {
+      return ResponseEntity.accepted()
+          .body(evaluations.create(user, evaluationInput.request(body)));
+    } catch (IllegalArgumentException e) {
+      throw new org.springframework.web.server.ResponseStatusException(
+          HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+  }
+
+  @PostMapping("/evaluations/{id}/scores")
+  public Object score(@PathVariable String id, @RequestBody String body, HttpServletRequest req) {
+    String user = auth.require(req);
+    try {
+      return scoring.score(user, id, evaluationInput.score(body));
+    } catch (IllegalArgumentException e) {
+      throw new org.springframework.web.server.ResponseStatusException(
+          HttpStatus.BAD_REQUEST, e.getMessage());
+    }
   }
 
   @GetMapping("/evaluations")
@@ -60,6 +108,12 @@ public class RagController {
   @GetMapping("/evaluations/{id}")
   public Object get(@PathVariable String id, HttpServletRequest req) {
     return evaluations.get(auth.require(req), id);
+  }
+
+  @GetMapping("/evaluations/{id}/citations/{chunkId}")
+  public Evidence evaluationCitation(
+      @PathVariable String id, @PathVariable String chunkId, HttpServletRequest req) {
+    return retrieval.evaluationCitation(auth.require(req), id, chunkId);
   }
 
   @GetMapping("/evaluations/{id}/export")

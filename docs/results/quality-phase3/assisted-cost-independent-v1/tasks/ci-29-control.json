@@ -1,0 +1,310 @@
+{
+  "id": "251fd256-a854-4868-a96f-8424963b4e76",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "251fd256-a854-4868-a96f-8424963b4e76",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-29-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-29-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+              "groupId": "g1",
+              "endOffset": 133,
+              "paragraph": 2,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 67,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；仅说明检测条件下萌发表现"
+        },
+        {
+          "id": "ci-29-1",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+              "groupId": "g1",
+              "endOffset": 133,
+              "paragraph": 2,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 67,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；仅说明检测条件下萌发表现"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-d5e5de1c91590d3bba1480948e297d177a956a2a88df79012d6c65803823",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-19T07:33:35.194874Z",
+  "startedAt": "2026-10-19T07:33:35.320276Z",
+  "finishedAt": "2026-10-19T07:34:38.346635Z",
+  "availableAt": "2026-10-19T07:33:35.194874Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "efca1201-f242-43d8-a22e-b137de910e92",
+      "operationKey": "5ca06129-b697-4a5b-a652-21ace48065bc:embedding:520e5741-814d-4cb8-b6c9-31fb780ce001",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-19T07:33:35.353784Z",
+      "finishedAt": "2026-10-19T07:33:35.811325Z"
+    },
+    {
+      "callId": "450896f2-9574-4cb3-a491-31b1db96a206",
+      "operationKey": "5ca06129-b697-4a5b-a652-21ace48065bc:rerank:d1aeb8c3-b42e-4e1d-9242-ee3625ebe154",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-19T07:33:35.837986Z",
+      "finishedAt": "2026-10-19T07:33:36.130372Z"
+    },
+    {
+      "callId": "f92ccb6a-29b3-4222-ab32-edc3db258562",
+      "operationKey": "5ca06129-b697-4a5b-a652-21ace48065bc:generation:ff708123-a493-4f61-917f-3e157ed176c7",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:33:36.139579Z",
+      "finishedAt": "2026-10-19T07:33:40.260419Z"
+    },
+    {
+      "callId": "60ab8ed9-7ad6-49d1-be19-f765c54c4aa5",
+      "operationKey": "258e902f-6a07-4df3-abef-611fdd129be0:embedding:a76cd128-a675-4bd4-a48b-d0dccbc1f6b2",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-19T07:33:40.302237Z",
+      "finishedAt": "2026-10-19T07:33:40.407166Z"
+    },
+    {
+      "callId": "f9e3f889-92f5-4ce2-b41d-777ca714e57c",
+      "operationKey": "258e902f-6a07-4df3-abef-611fdd129be0:rerank:92efd473-063a-4d23-a594-d42cb3ae3fb7",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-19T07:33:40.423845Z",
+      "finishedAt": "2026-10-19T07:33:40.628476Z"
+    },
+    {
+      "callId": "e661520f-389e-45ac-a188-917ab5d241f4",
+      "operationKey": "258e902f-6a07-4df3-abef-611fdd129be0:generation:3d05f9da-236e-4f5e-8b48-7d5266c0e9a5",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:33:40.633442Z",
+      "finishedAt": "2026-10-19T07:33:52.089715Z"
+    },
+    {
+      "callId": "5ad38453-4db7-46ac-b3fd-351039114696",
+      "operationKey": "cbae4c6a-6357-401f-8085-5e546c8f4ceb:embedding:b8d227fc-cffa-4d63-933b-85b142dc4e21",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-19T07:33:52.118500Z",
+      "finishedAt": "2026-10-19T07:33:52.221108Z"
+    },
+    {
+      "callId": "79dd110d-e42b-470e-b276-0ad97c8c03ab",
+      "operationKey": "cbae4c6a-6357-401f-8085-5e546c8f4ceb:rerank:bca6fd15-4203-40de-b3da-7b73614dac49",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-19T07:33:52.228961Z",
+      "finishedAt": "2026-10-19T07:33:52.418539Z"
+    },
+    {
+      "callId": "6d0a8540-484f-4534-80c1-644540e5c0f4",
+      "operationKey": "cbae4c6a-6357-401f-8085-5e546c8f4ceb:generation:7f436ade-dc45-4b87-9a93-80971b041e7b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:33:52.422594Z",
+      "finishedAt": "2026-10-19T07:34:06.582160Z"
+    },
+    {
+      "callId": "69da328a-d321-404a-9d58-4bb0c72d26b1",
+      "operationKey": "c6d797b7-ca35-4f52-a7a7-5ad76030e580:embedding:1a817ca2-9df4-4bc7-bee8-bd3efe146a79",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-19T07:34:06.608491Z",
+      "finishedAt": "2026-10-19T07:34:06.711955Z"
+    },
+    {
+      "callId": "bed2ebe9-17a8-4086-ae70-291cc8918589",
+      "operationKey": "c6d797b7-ca35-4f52-a7a7-5ad76030e580:rerank:afe94535-8a29-470c-ae77-e988d1b03d15",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-19T07:34:06.720711Z",
+      "finishedAt": "2026-10-19T07:34:06.947222Z"
+    },
+    {
+      "callId": "52eb3b79-f08c-477e-a872-bd51107c635f",
+      "operationKey": "c6d797b7-ca35-4f52-a7a7-5ad76030e580:generation:d7147f7a-8ee0-4688-a36b-c0c21af6009b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-19T07:34:06.951391Z",
+      "finishedAt": "2026-10-19T07:34:38.323218Z"
+    }
+  ]
+}

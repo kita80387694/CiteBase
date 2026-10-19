@@ -1,0 +1,188 @@
+{
+  "id": "1df003db-e65a-4c29-b6e1-6148814893d8",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "1df003db-e65a-4c29-b6e1-6148814893d8",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-10-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-10-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。",
+              "groupId": "g1",
+              "endOffset": 131,
+              "paragraph": 3,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 95,
+              "documentName": "aster-b.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+              "groupId": "g2",
+              "endOffset": 267,
+              "paragraph": 4,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 214,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 无标签容器放在已知样本旁，能按邻居编号补登记并分发吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；进入隔离架，不凭相邻恢复编号"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-1af31402549b026b0fd5901bfab90c14ddc621b117fc32b3359a0a3167bf",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:21:04.143442Z",
+  "startedAt": "2026-10-01T08:21:04.329625Z",
+  "finishedAt": "2026-10-01T08:21:13.935840Z",
+  "availableAt": "2026-10-01T08:21:04.143442Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "481faee5-faad-4155-8d52-68aa5a0171f0",
+      "operationKey": "31e756ff-e607-475b-9cfa-67c218096357:embedding:7b366787-89e0-47c2-a785-f489e227708f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 27,
+        "promptTokens": 27
+      },
+      "startedAt": "2026-10-01T08:21:04.356824Z",
+      "finishedAt": "2026-10-01T08:21:04.628824Z"
+    },
+    {
+      "callId": "f4df8c8f-d874-4604-8a98-2e2967e8984d",
+      "operationKey": "31e756ff-e607-475b-9cfa-67c218096357:rerank:cc055df7-d1aa-459d-9b77-4e8c9b1f5041",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2830,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2830,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2830,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:21:04.639442Z",
+      "finishedAt": "2026-10-01T08:21:04.985754Z"
+    },
+    {
+      "callId": "f4a92bc8-20a4-4c2d-8277-792a498225cb",
+      "operationKey": "31e756ff-e607-475b-9cfa-67c218096357:generation:1846f680-1936-4f02-9cf3-5b57e95ff594",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1737,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:04.989173Z",
+      "finishedAt": "2026-10-01T08:21:07.760150Z"
+    },
+    {
+      "callId": "d04088f1-1640-4da0-8784-8d4a4a4140b3",
+      "operationKey": "2488c56e-d9b4-40bc-8c09-edbf3da343f3:embedding:400fef3c-e38a-43d5-afa7-e565afed065d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 27,
+        "promptTokens": 27
+      },
+      "startedAt": "2026-10-01T08:21:07.785484Z",
+      "finishedAt": "2026-10-01T08:21:08.186898Z"
+    },
+    {
+      "callId": "140d1ae8-108f-4b77-9073-c566fa2e4da4",
+      "operationKey": "2488c56e-d9b4-40bc-8c09-edbf3da343f3:rerank:67598912-f582-4415-829c-fe7a6d3e5555",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2830,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2830,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2830,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:21:08.198001Z",
+      "finishedAt": "2026-10-01T08:21:08.826075Z"
+    },
+    {
+      "callId": "a6746d08-8418-47a3-8b43-7f75644389a4",
+      "operationKey": "2488c56e-d9b4-40bc-8c09-edbf3da343f3:generation:f3756bff-61a6-45d8-bc86-c570e00dc698",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1736,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:08.829295Z",
+      "finishedAt": "2026-10-01T08:21:13.908935Z"
+    }
+  ]
+}

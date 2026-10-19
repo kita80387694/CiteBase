@@ -1,0 +1,53 @@
+{
+  "topK": 5,
+  "fusion": "keyword-vector RRF",
+  "chunking": {
+    "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+    "strategy": "per-active-document-version",
+    "offsetUnit": "UTF-16"
+  },
+  "provider": {
+    "provider": "OpenAI-compatible via Spring AI",
+    "chatEndpoint": "https://api.siliconflow.cn",
+    "timeoutSeconds": 60,
+    "springAiVersion": "1.1.8",
+    "embeddingEndpoint": "https://api.siliconflow.cn"
+  },
+  "reranker": {
+    "model": "BAAI/bge-reranker-v2-m3",
+    "endpoint": "https://api.siliconflow.cn",
+    "provider": "SiliconFlow-compatible /v1/rerank",
+    "configured": true,
+    "timeoutSeconds": 10
+  },
+  "chatModel": "deepseek-ai/DeepSeek-V3.2",
+  "modelMode": "real",
+  "candidateK": 20,
+  "concurrency": 2,
+  "rrfConstant": 60,
+  "temperature": 0,
+  "agentPlanner": {
+    "model": "deepseek-ai/DeepSeek-V3.2",
+    "endpoint": "https://api.siliconflow.cn",
+    "provider": "Spring AI tools; Java execution",
+    "toolChoice": "required",
+    "temperature": 0,
+    "protocolVersion": "single-whitelisted-tool-v2",
+    "parallelToolCalls": false,
+    "internalToolExecutionEnabled": false
+  },
+  "agentStrategy": "grounded-answer-v1",
+  "embeddingModel": "BAAI/bge-m3",
+  "keywordAnalyzer": "Latin words + Han bigrams v1",
+  "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+  "generationPolicy": "grounded-answer-v1",
+  "retrievalOptions": {
+    "rerank": false,
+    "candidateK": 20,
+    "citationStyle": "uuid",
+    "keywordWeight": 1
+  },
+  "minimumSimilarity": null,
+  "agentPolicyVersion": "bounded-agent-v1",
+  "agentStrategyProtocol": "bounded-actions-v1"
+}

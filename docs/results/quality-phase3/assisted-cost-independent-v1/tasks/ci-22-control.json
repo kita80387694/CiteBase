@@ -1,0 +1,330 @@
+{
+  "id": "b3aa1e5b-caec-4899-a9b5-4b7c86ceb901",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "b3aa1e5b-caec-4899-a9b5-4b7c86ceb901",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-22-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-22-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "groupId": "g1",
+              "endOffset": 377,
+              "paragraph": 6,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 321,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "groupId": "g1",
+              "endOffset": 257,
+              "paragraph": 6,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 219,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 正式库每批至少留下几粒？只需要这个数。",
+          "answerable": true,
+          "expectedAnswer": "50粒"
+        },
+        {
+          "id": "ci-22-1",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "groupId": "g1",
+              "endOffset": 377,
+              "paragraph": 6,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 321,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "groupId": "g1",
+              "endOffset": 257,
+              "paragraph": 6,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 219,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 正式库每批至少留下几粒？只需要这个数。",
+          "answerable": true,
+          "expectedAnswer": "50粒"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-1d533966f6eb70b770804a07e6a019413d902469573c2de22672cd405faf",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:15:03.725125Z",
+  "startedAt": "2026-10-10T13:15:03.786294Z",
+  "finishedAt": "2026-10-10T13:15:26.288981Z",
+  "availableAt": "2026-10-10T13:15:03.725125Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "13a2679d-d389-4625-8288-561791257dc1",
+      "operationKey": "d5eede75-d8d3-4525-b6c3-5c98324f51b6:embedding:f3160821-44bc-438f-9e4a-aa7eb70e4347",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:15:03.802376Z",
+      "finishedAt": "2026-10-10T13:15:03.898927Z"
+    },
+    {
+      "callId": "ccf46fee-ded1-49d9-ad42-e18d6b304543",
+      "operationKey": "d5eede75-d8d3-4525-b6c3-5c98324f51b6:rerank:f079c5b5-ee48-4f47-863f-4c649987db53",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2722,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:15:03.906910Z",
+      "finishedAt": "2026-10-10T13:15:04.180725Z"
+    },
+    {
+      "callId": "d3684605-5010-4ae4-ae48-34a1215adb61",
+      "operationKey": "d5eede75-d8d3-4525-b6c3-5c98324f51b6:generation:bc5e26e0-c3f0-4380-8a37-81cf09a21db1",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 70
+      },
+      "startedAt": "2026-10-10T13:15:04.184322Z",
+      "finishedAt": "2026-10-10T13:15:10.401445Z"
+    },
+    {
+      "callId": "954552d3-e46c-40cd-a4a1-1485e1af044a",
+      "operationKey": "d24ee800-a040-4e5a-9716-9670d363ce42:embedding:ff959cf9-d3f2-48be-a1a7-4cc08d3f9288",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:15:10.434840Z",
+      "finishedAt": "2026-10-10T13:15:10.535832Z"
+    },
+    {
+      "callId": "4524662b-e649-411c-a94b-a7dffd2822bf",
+      "operationKey": "d24ee800-a040-4e5a-9716-9670d363ce42:rerank:4b7b6d41-8103-4586-a797-3cf488c21d6f",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2722,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:15:10.554117Z",
+      "finishedAt": "2026-10-10T13:15:10.753971Z"
+    },
+    {
+      "callId": "8f927d92-f36c-478f-b703-be826aca6ee0",
+      "operationKey": "d24ee800-a040-4e5a-9716-9670d363ce42:generation:76f9a7fb-8d57-4cc8-8da8-203084c9b9bf",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 69
+      },
+      "startedAt": "2026-10-10T13:15:10.757885Z",
+      "finishedAt": "2026-10-10T13:15:14.855654Z"
+    },
+    {
+      "callId": "8dc2652c-6cf6-4fc9-911b-0c573b41fd88",
+      "operationKey": "1e9f19c7-43f6-4bf4-937a-a04cdf0fe5da:embedding:9bd7353f-0c19-43b5-a2f5-6d64fd4094c6",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:15:14.877277Z",
+      "finishedAt": "2026-10-10T13:15:14.976336Z"
+    },
+    {
+      "callId": "1da787e7-bf42-4211-9078-a0208e590d47",
+      "operationKey": "1e9f19c7-43f6-4bf4-937a-a04cdf0fe5da:rerank:1aad2e62-61a2-4651-bffd-418bf1d85d4b",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2722,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:15:14.982270Z",
+      "finishedAt": "2026-10-10T13:15:15.175964Z"
+    },
+    {
+      "callId": "d3550d2c-a2e3-405c-8cc3-b2c776e7e9b0",
+      "operationKey": "1e9f19c7-43f6-4bf4-937a-a04cdf0fe5da:generation:678935ed-cccd-4b7a-bae3-fe76245238d4",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 66
+      },
+      "startedAt": "2026-10-10T13:15:15.179319Z",
+      "finishedAt": "2026-10-10T13:15:19.392965Z"
+    },
+    {
+      "callId": "fea51c05-b5d1-4d1f-bfbd-44fba7aa0f61",
+      "operationKey": "f238df51-b3f3-43ba-a23d-1245e4f78c19:embedding:bbec7e3c-46f5-4f5c-8d86-07c993ca9fda",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:15:19.428509Z",
+      "finishedAt": "2026-10-10T13:15:19.522273Z"
+    },
+    {
+      "callId": "8c72d121-2478-4013-9781-dbbe1ad99d0b",
+      "operationKey": "f238df51-b3f3-43ba-a23d-1245e4f78c19:rerank:ddbcac40-770a-4aea-8b15-3f0347ba291b",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2722,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2722,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:15:19.537025Z",
+      "finishedAt": "2026-10-10T13:15:19.730807Z"
+    },
+    {
+      "callId": "42e51c4c-c383-43de-ae7f-f750d433f826",
+      "operationKey": "f238df51-b3f3-43ba-a23d-1245e4f78c19:generation:fcbffb9f-2222-4efa-b310-9bd228e7440e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 66
+      },
+      "startedAt": "2026-10-10T13:15:19.736924Z",
+      "finishedAt": "2026-10-10T13:15:26.273515Z"
+    }
+  ]
+}

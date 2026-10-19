@@ -1,0 +1,202 @@
+{
+  "id": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "f14b6200-0ff7-4543-a462-ea6f08c66fd5",
+  "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+  "maxAttempts": 5,
+  "retryGeneration": 1,
+  "payload": {
+    "kbId": "f3fa5211-68af-40d1-b72b-2fb1498fc0ee",
+    "name": "Phase4真实闭环-3ddb1d41d900",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "phase4-real-smoke-v1",
+      "questions": [
+        {
+          "id": "q001",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 的默认 HTTP 监听端口是 9081。",
+              "groupId": null,
+              "endOffset": null,
+              "paragraph": 2,
+              "sourceHash": null,
+              "startOffset": null,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 默认监听哪个端口？",
+          "answerable": true,
+          "expectedAnswer": "9081"
+        },
+        {
+          "id": "q002",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Atlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。",
+              "groupId": null,
+              "endOffset": null,
+              "paragraph": 3,
+              "sourceHash": null,
+              "startOffset": null,
+              "documentName": "atlas-api.md"
+            }
+          ],
+          "question": "Atlas API 单次请求体上限是多少？",
+          "answerable": true,
+          "expectedAnswer": "8 MiB"
+        }
+      ]
+    },
+    "idempotencyKey": "Phase4真实闭环-3ddb1d41d900-evaluation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-29T07:37:48.620078Z",
+  "startedAt": "2026-09-29T07:37:48.996804Z",
+  "finishedAt": "2026-09-29T07:38:31.236034Z",
+  "availableAt": "2026-09-29T07:37:48.667050Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "471c1c32-9421-4252-a407-328dd09174d2",
+      "operationKey": "e1654842-e906-4873-b12e-0f405628e027:embedding:a90d117e-97b9-4165-b591-aaa9e089a01b",
+      "fencingToken": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-29T07:37:49.021386Z",
+      "finishedAt": "2026-09-29T07:37:49.305298Z"
+    },
+    {
+      "callId": "e9ee4223-782f-41b8-abf7-bc515160e6e9",
+      "operationKey": "e1654842-e906-4873-b12e-0f405628e027:generation:4d62e48e-5571-47b0-993d-cecae8700d4b",
+      "fencingToken": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 479,
+        "completionTokens": 39
+      },
+      "startedAt": "2026-09-29T07:37:49.311613Z",
+      "finishedAt": "2026-09-29T07:37:52.649889Z"
+    },
+    {
+      "callId": "3d068ea2-8a48-4fad-8389-457d969fb366",
+      "operationKey": "d306ab61-3de8-4be9-8e84-12048582532b:embedding:17cb4d2a-5a14-4600-96c8-45dcb3ef05e6",
+      "fencingToken": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-29T07:37:52.675442Z",
+      "finishedAt": "2026-09-29T07:37:52.954841Z"
+    },
+    {
+      "callId": "5802f8ad-0c9f-40df-bdc1-fa1742f9e706",
+      "operationKey": "d306ab61-3de8-4be9-8e84-12048582532b:generation:2cf699ef-d960-4be7-8ddf-6ef1f4372650",
+      "fencingToken": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 480,
+        "completionTokens": 42
+      },
+      "startedAt": "2026-09-29T07:37:52.964047Z",
+      "finishedAt": "2026-09-29T07:38:15.365090Z"
+    },
+    {
+      "callId": "ab3d07e4-d79c-43f5-901a-9da7f9dbf393",
+      "operationKey": "edde3123-1809-4bb3-ac59-c7e7ef41716f:embedding:da7165eb-a3cd-4409-8464-d122350436c1",
+      "fencingToken": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-29T07:38:15.388798Z",
+      "finishedAt": "2026-09-29T07:38:15.676099Z"
+    },
+    {
+      "callId": "5dd7c565-c37c-4456-ad2f-bd7af4833934",
+      "operationKey": "edde3123-1809-4bb3-ac59-c7e7ef41716f:generation:853eef22-fd22-4ab6-8874-903a386ff0fb",
+      "fencingToken": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 481,
+        "completionTokens": 50
+      },
+      "startedAt": "2026-09-29T07:38:15.681195Z",
+      "finishedAt": "2026-09-29T07:38:25.982395Z"
+    },
+    {
+      "callId": "c80b15e9-3f12-4756-82a7-d39a886b06ed",
+      "operationKey": "e5d77a1f-287e-4fe1-b897-0ef8272ec654:embedding:dbab9079-3463-444b-83a9-92b3d683a266",
+      "fencingToken": 3,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-29T07:38:26.014026Z",
+      "finishedAt": "2026-09-29T07:38:26.291144Z"
+    },
+    {
+      "callId": "2952ce5b-6f9d-448a-8a8b-355d34e61c67",
+      "operationKey": "e5d77a1f-287e-4fe1-b897-0ef8272ec654:generation:58d0d1e3-d381-44cf-a3e4-322a34dc6c27",
+      "fencingToken": 3,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 482,
+        "completionTokens": 50
+      },
+      "startedAt": "2026-09-29T07:38:26.317194Z",
+      "finishedAt": "2026-09-29T07:38:31.219471Z"
+    }
+  ]
+}

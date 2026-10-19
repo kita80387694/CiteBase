@@ -1,0 +1,119 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< io.citebase:citebase >------------------------
+[INFO] Building citebase 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ citebase ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 10 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ citebase ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 73 source files with javac [debug parameters release 21] to target\classes
+[INFO] /F:/CiteBase/backend/src/main/java/io/citebase/RetrievalService.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /F:/CiteBase/backend/src/main/java/io/citebase/RetrievalService.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ citebase ---
+[INFO] skip non existing resourceDirectory F:\CiteBase\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ citebase ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 35 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] /F:/CiteBase/backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: F:\CiteBase\backend\src\test\java\io\citebase\Stage2RetrievalIntegrationTest.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /F:/CiteBase/backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ citebase ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+13:37:09.335 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.21.4
+13:37:09.671 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+13:37:10.138 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+13:37:10.141 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+13:37:10.168 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 7873 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+13:37:10.195 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+13:37:10.198 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+13:37:10.380 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Creating container for image: testcontainers/ryuk:0.12.0
+13:37:11.002 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 is starting: c7165b5d7db63b3a07737487d9247ddcc8689c7d2d092d298c3b54b27b1cf8fd
+13:37:11.449 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 started in PT1.0678162S
+13:37:11.463 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+13:37:11.463 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+13:37:11.464 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+[INFO] Running io.citebase.AsyncEvaluationIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+13:37:11.630 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.citebase.AsyncEvaluationIntegrationTest]: AsyncEvaluationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:37:12.021 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.citebase.Application for test class io.citebase.AsyncEvaluationIntegrationTest
+13:37:12.190 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Creating container for image: pgvector/pgvector:0.8.2-pg17
+13:37:12.296 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 is starting: df2f58f9239beb890529661d4091d1e08f186fecaad6a7507a9f14264ad30dfa
+13:37:13.731 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 started in PT1.5410504S
+13:37:13.732 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container is started (JDBC URL: jdbc:postgresql://localhost:63619/eval_tasks?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-01T13:37:14.219+08:00  INFO 39740 --- [           main] i.c.AsyncEvaluationIntegrationTest       : Starting AsyncEvaluationIntegrationTest using Java 21.0.12.1 with PID 39740 (started by pxj in F:\CiteBase\backend)
+2026-10-01T13:37:14.221+08:00  INFO 39740 --- [           main] i.c.AsyncEvaluationIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+2026-10-01T13:37:16.434+08:00  INFO 39740 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-01T13:37:16.773+08:00  INFO 39740 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@432eb882
+2026-10-01T13:37:16.776+08:00  INFO 39740 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-01T13:37:16.819+08:00  INFO 39740 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:63619/eval_tasks?loggerLevel=OFF (PostgreSQL 17.10)
+2026-10-01T13:37:16.891+08:00  INFO 39740 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-01T13:37:16.897+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.041s)
+2026-10-01T13:37:16.921+08:00  INFO 39740 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-01T13:37:16.984+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-01T13:37:17.001+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - core"
+2026-10-01T13:37:17.083+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - questions evaluations"
+2026-10-01T13:37:17.118+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - manual evaluation scores"
+2026-10-01T13:37:17.149+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - chunk profiles"
+2026-10-01T13:37:17.177+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - agent runs"
+2026-10-01T13:37:17.211+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - unified work tasks"
+2026-10-01T13:37:17.259+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - evaluation tasks"
+2026-10-01T13:37:17.309+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - legacy agent recovery boundary"
+2026-10-01T13:37:17.332+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-10-01T13:37:17.369+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - operations events"
+2026-10-01T13:37:17.403+08:00  INFO 39740 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "public", now at version v10 (execution time 00:00.201s)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\pxj\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-01T13:37:22.729+08:00  INFO 39740 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-01T13:37:22.730+08:00  INFO 39740 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-01T13:37:22.742+08:00  INFO 39740 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-01T13:37:22.761+08:00  INFO 39740 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 31 ms
+2026-10-01T13:37:23.065+08:00  INFO 39740 --- [           main] i.c.AsyncEvaluationIntegrationTest       : Started AsyncEvaluationIntegrationTest in 9.283 seconds (process running for 18.167)
+2026-10-01T13:37:23.746+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=c897fcf4-cceb-4100-86d1-f2d3e90ec3d3 workerId=null fencingToken=0 attempt=0
+2026-10-01T13:37:23.759+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c897fcf4-cceb-4100-86d1-f2d3e90ec3d3 workerId=072079e1-8d6b-4c70-92d1-3c9af9c14d18 fencingToken=1 attempt=1
+2026-10-01T13:37:23.892+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=c897fcf4-cceb-4100-86d1-f2d3e90ec3d3 workerId=072079e1-8d6b-4c70-92d1-3c9af9c14d18 fencingToken=1 attempt=1
+2026-10-01T13:37:23.989+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=f507b1f4-8713-42bd-bd1e-00992c10229d workerId=null fencingToken=0 attempt=0
+2026-10-01T13:37:24.000+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=f507b1f4-8713-42bd-bd1e-00992c10229d workerId=072079e1-8d6b-4c70-92d1-3c9af9c14d18 fencingToken=1 attempt=1
+2026-10-01T13:37:24.072+08:00  INFO 39740 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=FAILED taskId=f507b1f4-8713-42bd-bd1e-00992c10229d workerId=072079e1-8d6b-4c70-92d1-3c9af9c14d18 fencingToken=1 attempt=1
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.18 s -- in io.citebase.AsyncEvaluationIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  34.752 s
+[INFO] Finished at: 2026-10-01T13:37:25+08:00
+[INFO] ------------------------------------------------------------------------

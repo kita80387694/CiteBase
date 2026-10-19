@@ -1,0 +1,95 @@
+{
+  "verifiedAt": "2026-10-01T05:56:40.231937+00:00",
+  "mode": "MOCK",
+  "e2e": {
+    "passed": 6,
+    "failed": 0,
+    "seconds": 59.7,
+    "log": "final-e2e.txt"
+  },
+  "bundle": "index-BpexbSbX.js",
+  "servedHtml": "<!doctype html>\n<html lang=\"zh-CN\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"theme-color\" content=\"#102a34\" />\n    <title>CiteBase 知据 · 有据可循</title>\n    <script type=\"module\" crossorigin src=\"/assets/index-BpexbSbX.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-5srJ6V2f.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n\n",
+  "frontendContainer": "8502c84be3abed7db8b50d9986e8a891ee936acc259a9289fd9a47bbce554bec sha256:52293118402b99115e8e7cafe2c90742859f9baeb1a00a9fcd41bd70aa96083b {\"80/tcp\":[{\"HostIp\":\"127.0.0.1\",\"HostPort\":\"25181\"}]}",
+  "preservedBackendAndDatabase": [
+    "/citebase-quality-mock-backend-1 8dfe023df71b0657a7d8af37accf5cef4697b031681c3e3ce08d5b940ce44296 sha256:203dc6558243af414cff1d60bfcbb7f3259a56fbd75f43d7cfab1d56ac3136da {\"8080/tcp\":[{\"HostIp\":\"127.0.0.1\",\"HostPort\":\"28091\"}]}",
+    "/citebase-quality-mock-db-1 0daf8469c0ec54b82a1a503be89232d3f30ed52be9ea26fad8096f47ea28cf94 sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 {\"5432/tcp\":[{\"HostIp\":\"127.0.0.1\",\"HostPort\":\"25442\"}]}"
+  ],
+  "deploymentCommand": "MODEL_MODE=mock API_PORT=28091 WEB_PORT=25181 DB_PORT=25442 docker compose -p citebase-quality-mock up -d --no-deps --build frontend",
+  "sources": {
+    "frontend/src/AgentPanel.tsx": "16e07eee64c2c4b6b6f589cd77b05811897105357c76b9e7aaa4c8677e1dd156",
+    "frontend/src/App.tsx": "d96168b5ba8cefd355ed21188a75bfd7bffd7ab133b9c8910c4c7e43a7618cbb",
+    "frontend/src/DocumentProfiles.tsx": "b999c53fd94d8f1ed422b20f02c76dba7d987441060e68904fd395a45b4b4e2f",
+    "frontend/src/EvaluationAnalysis.tsx": "8031e175384ff339334719c6f74a28ec20f8144d5802ff3644bdef503b294cc0",
+    "frontend/src/main.tsx": "575c9833bc5993d6a7b8db0587b8ecc202809448fd71842c5a4331bec6ee7977",
+    "frontend/src/OperationsPanel.tsx": "eb272f78dce0ca9561839387bf0f1a2fd8ef04149435db4577fbc1850b35d0be",
+    "frontend/src/RetrievalControls.tsx": "b7a5028a3f1cd50eee1bd21f691d6b8b7f3785335a04a952e733593ffc811337",
+    "frontend/src/ReviewPanel.tsx": "0acea910829d6c4822d46cdd46c35e47cca37c73cbab0cb7e7b2963c33f71654",
+    "frontend/src/ReviewScoreForm.tsx": "31349b3ff11d212a7d19e5e28a665bb076709e8cfd590e3e5b094ddd1933917f",
+    "frontend/src/style.css": "fe0ebcc8b77a9cce45b325d447bd1cd720e4d72a12fbdfe9687cc9b320e76132",
+    "frontend/src/TaskPanel.tsx": "edfe2a43d952ac68a7d4f68c6030be63c69be0755b120e2c9fd0d7f56ecf30c0",
+    "frontend/package.json": "075a6430412534d9d9d2873fd5b1aba22628889b20f40b4b0b30b802e4ce6e4c",
+    "frontend/package-lock.json": "a1b9d7ded126fae10df7be024dbdf067a0b531ff16f2f9539a0dfe059f3657c0",
+    "frontend/Dockerfile": "83d109125f398785bd3ff8c2d30158ad9d1ea4e12b7e96d7f5b13bfad5cacece",
+    "frontend/tests/phase3-agent-real.spec.ts": "3b18af8b8cab521e814d11f1dba9948c6c84a564a3e257351fd91ef438a54ecb",
+    "frontend/tests/phase3-agent.spec.ts": "4c6e73078ce7b77350de6076f914eae8ebe682bf4c5546b2bbaa7a4c0fba838e",
+    "frontend/tests/quality-phase3-agent-strategy.spec.ts": "d5047f5e2535df11f2084bd6271a5cc9e02445adf0cdf9e1612cfe4aa7d6feb4",
+    "frontend/tests/quality-phase3-operations.spec.ts": "f0f96cdc2a37c0a74c3365f9b56a7d352f4012fbb1155253e649cf5be27504ee",
+    "frontend/tests/quality-phase3-retrieval-cost.spec.ts": "f73af8051f54f5e4d8965adc13155cb6b590a181ffd508cae173d6c210df6082",
+    "frontend/tests/quality-phase3-review.spec.ts": "31354cb03621e05a202348ab7a7a67ac34058952cb2280e9b3a35bc1dab2174b"
+  },
+  "screenshots": [
+    {
+      "path": "docs/screenshots/quality-phase3-final-agent-budget-failed.png",
+      "sha256": "68118fe84bcb071554c8e7b0f1738dc5fd573f0ee669975db199320cd056ee6f"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-agent-mock-completed.png",
+      "sha256": "6af1ff0d206e115e9c8cf663e607503e62745e59f545b3e70ad606cb1ceeac15"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-agent-strategy-mock.png",
+      "sha256": "d5419519b764de46ce1aeb42101e1325ef95a8449162c974314e8083dd603c67"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-operations-mock.png",
+      "sha256": "9aaa16d61d36e60d8b13e836c4757dd97fc4ec7d41eb79e08eba9ce2995dbe32"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-retrieval-cost-hit-mock.png",
+      "sha256": "bbd3dfe9d2ed5c3588b9e482bba1f584e7152ee8e9edbcf70a60873affaad20a"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-blind-review-mock.png",
+      "sha256": "50cc42c9a59ea710b523e19d52109a945fa0980b186507723fd5503373dac733"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-owner-review-mock.png",
+      "sha256": "c8d19d7de3e5e5f35196f62030c552ac83a4a7cd28b4c6dd1cde00e21fe33f3f"
+    },
+    {
+      "path": "docs/screenshots/quality-phase3-final-withdrawn-mock.png",
+      "sha256": "541381935c0f5ce72120eba1313cc590de0526eb8ba5f1a83ebd4311af838ecd"
+    }
+  ],
+  "humanReview": false,
+  "limitations": [
+    "MOCK UI/business/security verification; not real model quality or human review.",
+    "Legacy test screenshot paths were overwritten by this run. Tracked historical screenshots restored from HEAD after saving final copies; untracked operations/cost screenshots regenerated and older hashes are historical, not current-byte assertions."
+  ],
+  "visualInspection": {
+    "performed": true,
+    "reviewedScreenshots": [
+      "quality-phase3-final-operations-mock.png",
+      "quality-phase3-final-agent-strategy-mock.png",
+      "quality-phase3-final-blind-review-mock.png",
+      "quality-phase3-final-retrieval-cost-hit-mock.png"
+    ],
+    "observations": [
+      "Operations STARTED label correctly displayed as waiting for return; three task cards and actual failure/events readable.",
+      "Agent strategy, budgets, trace and explicit MOCK answer visible.",
+      "Blind review reference/evidence/form/history visible with automated fixture disclaimer.",
+      "Cost cache HIT shows zero current retrieval calls and null provider usage; no layout overlap seen in inspected 1440px screenshots."
+    ],
+    "limitations": "Desktop 1440px full-page captures; not mobile or human quality review."
+  }
+}

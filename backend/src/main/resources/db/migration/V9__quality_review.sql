@@ -1,0 +1,5 @@
+CREATE TABLE review_project(id text PRIMARY KEY, owner_id text NOT NULL REFERENCES app_user(id), name text NOT NULL, rule_version text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE review_item(id text PRIMARY KEY, project_id text NOT NULL REFERENCES review_project(id) ON DELETE CASCADE, source jsonb NOT NULL, source_digest text NOT NULL, packet jsonb NOT NULL, dependencies jsonb NOT NULL);
+CREATE TABLE review_assignment(id text PRIMARY KEY, item_id text NOT NULL REFERENCES review_item(id) ON DELETE CASCADE, reviewer_id text NOT NULL REFERENCES app_user(id), ordinal int NOT NULL, revoked boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(item_id,reviewer_id));
+CREATE TABLE review_score(id text PRIMARY KEY, assignment_id text REFERENCES review_assignment(id), item_id text NOT NULL REFERENCES review_item(id), scored_by text NOT NULL REFERENCES app_user(id), kind text NOT NULL CHECK(kind IN ('HUMAN','ADJUDICATION')), payload jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), sequence_id bigserial UNIQUE);
+CREATE INDEX review_assignment_user ON review_assignment(reviewer_id,revoked,ordinal);

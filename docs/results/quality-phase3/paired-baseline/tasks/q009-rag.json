@@ -1,0 +1,124 @@
+{
+  "id": "c405a380-7d7b-48ee-8a73-d7c4a2e69504",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "c405a380-7d7b-48ee-8a73-d7c4a2e69504",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q009",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-014",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |",
+              "groupId": "g1",
+              "endOffset": 213,
+              "paragraph": 4,
+              "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "startOffset": 137,
+              "documentName": "brass-b.md"
+            }
+          ],
+          "question": "Brass 主管批准排期能代替客户批准额外费用吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；加费由客户批准"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-2c74cb5dfaf0000f4141d34c4bccf84b8aae1890f5aca535cc3814721660",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:40:13.630598Z",
+  "startedAt": "2026-09-30T06:40:13.799162Z",
+  "finishedAt": "2026-09-30T06:40:35.346602Z",
+  "availableAt": "2026-09-30T06:40:13.630598Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "974efb0d-7d3a-4219-a4b1-e8919c40463e",
+      "operationKey": "b0bb62e7-bd5d-425d-816f-a7d3dde8693a:embedding:9cf2bbcf-eda3-41b9-bbd7-8ffac0ba05b2",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:40:13.813149Z",
+      "finishedAt": "2026-09-30T06:40:14.170688Z"
+    },
+    {
+      "callId": "beaae227-f254-471f-904c-ba07d328d9c3",
+      "operationKey": "b0bb62e7-bd5d-425d-816f-a7d3dde8693a:generation:be2cd829-287f-4096-a28d-a046ab7218e3",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1751,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:40:14.176437Z",
+      "finishedAt": "2026-09-30T06:40:23.194175Z"
+    },
+    {
+      "callId": "c8ae6cea-28d7-459d-85d7-5238f0b5ba66",
+      "operationKey": "77e77a31-c141-4664-acb6-0731d11f6f1f:embedding:21cfa00e-4bfb-4078-be95-d802b3b21d89",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:40:23.211261Z",
+      "finishedAt": "2026-09-30T06:40:23.536449Z"
+    },
+    {
+      "callId": "2ff30fac-ebf9-4ed7-a716-0ba3e30a8e83",
+      "operationKey": "77e77a31-c141-4664-acb6-0731d11f6f1f:generation:33e19038-d448-4be3-8310-bcbd340e7c36",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1753,
+        "completionTokens": 151
+      },
+      "startedAt": "2026-09-30T06:40:23.543821Z",
+      "finishedAt": "2026-09-30T06:40:35.334360Z"
+    }
+  ]
+}

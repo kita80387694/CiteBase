@@ -1,0 +1,124 @@
+{
+  "id": "f344431f-f7ac-4f46-a801-7d30c547c026",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "f344431f-f7ac-4f46-a801-7d30c547c026",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q006",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-013",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+              "groupId": "g1",
+              "endOffset": 105,
+              "paragraph": 2,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 61,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 标记NFF之后是否自动允许换件？",
+          "answerable": true,
+          "expectedAnswer": "不允许"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-54f7e953a332c1261ab194e2025dafca48a98e7e1eb3257a2b71012ecae7",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:38:44.626952Z",
+  "startedAt": "2026-09-30T06:38:45.079352Z",
+  "finishedAt": "2026-09-30T06:39:04.723011Z",
+  "availableAt": "2026-09-30T06:38:44.626952Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "d245a8df-55bc-402f-b50d-c247130771df",
+      "operationKey": "ef289b75-7d89-43d6-8e7c-070a887e689c:embedding:195a8f39-c0ae-43cc-872f-4e28e54f15d7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:38:45.093854Z",
+      "finishedAt": "2026-09-30T06:38:45.430845Z"
+    },
+    {
+      "callId": "23cbed70-f81c-4a7f-81fa-d9bc3b335c12",
+      "operationKey": "ef289b75-7d89-43d6-8e7c-070a887e689c:generation:746e1252-f52d-4958-bb25-8c0cc3ae6068",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1744,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:38:45.436195Z",
+      "finishedAt": "2026-09-30T06:38:51.941254Z"
+    },
+    {
+      "callId": "cf1a8464-c5e8-4ae4-90e4-ff4c7b2226a9",
+      "operationKey": "5021a320-0067-4d6c-ad4c-39ad00e8fa2d:embedding:812ce823-43a6-46d7-bcd1-b3f2379a4c57",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:38:51.958584Z",
+      "finishedAt": "2026-09-30T06:38:52.292684Z"
+    },
+    {
+      "callId": "dd03ecc3-63a5-4057-b6ef-e1ad3102de0e",
+      "operationKey": "5021a320-0067-4d6c-ad4c-39ad00e8fa2d:generation:f29d48e2-ff7b-458d-844c-20aaccff11b6",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1743,
+        "completionTokens": 94
+      },
+      "startedAt": "2026-09-30T06:38:52.302136Z",
+      "finishedAt": "2026-09-30T06:39:04.709402Z"
+    }
+  ]
+}

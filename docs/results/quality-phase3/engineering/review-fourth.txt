@@ -1,0 +1,243 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< io.citebase:citebase >------------------------
+[INFO] Building citebase 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ citebase ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 9 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ citebase ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 67 source files with javac [debug parameters release 21] to target\classes
+[INFO] /F:/CiteBase/backend/src/main/java/io/citebase/EvaluationService.java: F:\CiteBase\backend\src\main\java\io\citebase\EvaluationService.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /F:/CiteBase/backend/src/main/java/io/citebase/EvaluationService.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ citebase ---
+[INFO] skip non existing resourceDirectory F:\CiteBase\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ citebase ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 29 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] /F:/CiteBase/backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: F:\CiteBase\backend\src\test\java\io\citebase\Stage2RetrievalIntegrationTest.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /F:/CiteBase/backend/src/test/java/io/citebase/Stage2RetrievalIntegrationTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ citebase ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+14:29:31.533 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.21.4
+14:29:31.802 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+14:29:32.132 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+14:29:32.135 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+14:29:32.156 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 7873 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+14:29:32.170 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+14:29:32.174 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+14:29:32.299 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Creating container for image: testcontainers/ryuk:0.12.0
+14:29:32.823 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 is starting: 64e5630907b98350e8fca1c938de7b448d39d9a8c67d98dcbcd6107268f3b937
+14:29:33.173 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 started in PT0.8745361S
+14:29:33.182 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+14:29:33.183 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+14:29:33.184 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+[INFO] Running io.citebase.ReviewIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+14:29:33.314 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.citebase.ReviewIntegrationTest]: ReviewIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:29:33.532 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.citebase.Application for test class io.citebase.ReviewIntegrationTest
+14:29:33.643 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Creating container for image: pgvector/pgvector:0.8.2-pg17
+14:29:33.732 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 is starting: c9dbd3661fed77715058838deaeb8db761790b091984175685dd7e4476ab481d
+14:29:35.012 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container pgvector/pgvector:0.8.2-pg17 started in PT1.3697053S
+14:29:35.013 [main] INFO tc.pgvector/pgvector:0.8.2-pg17 -- Container is started (JDBC URL: jdbc:postgresql://localhost:53302/citebase?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-09-30T14:29:35.429+08:00  INFO 36484 --- [           main] io.citebase.ReviewIntegrationTest        : Starting ReviewIntegrationTest using Java 21.0.12.1 with PID 36484 (started by pxj in F:\CiteBase\backend)
+2026-09-30T14:29:35.430+08:00  INFO 36484 --- [           main] io.citebase.ReviewIntegrationTest        : No active profile set, falling back to 1 default profile: "default"
+2026-09-30T14:29:37.451+08:00  INFO 36484 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-30T14:29:37.635+08:00  INFO 36484 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a13f663
+2026-09-30T14:29:37.637+08:00  INFO 36484 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-30T14:29:37.669+08:00  INFO 36484 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:53302/citebase?loggerLevel=OFF (PostgreSQL 17.10)
+2026-09-30T14:29:37.723+08:00  INFO 36484 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-09-30T14:29:37.728+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.030s)
+2026-09-30T14:29:37.748+08:00  INFO 36484 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-09-30T14:29:37.803+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-09-30T14:29:37.820+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - core"
+2026-09-30T14:29:37.892+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - questions evaluations"
+2026-09-30T14:29:37.919+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - manual evaluation scores"
+2026-09-30T14:29:37.944+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - chunk profiles"
+2026-09-30T14:29:37.972+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - agent runs"
+2026-09-30T14:29:38.000+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - unified work tasks"
+2026-09-30T14:29:38.038+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - evaluation tasks"
+2026-09-30T14:29:38.073+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - legacy agent recovery boundary"
+2026-09-30T14:29:38.091+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-09-30T14:29:38.118+08:00  INFO 36484 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 9 migrations to schema "public", now at version v9 (execution time 00:00.146s)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\pxj\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-09-30T14:29:44.237+08:00  INFO 36484 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-09-30T14:29:44.238+08:00  INFO 36484 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-09-30T14:29:44.262+08:00  INFO 36484 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-09-30T14:29:44.286+08:00  INFO 36484 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 48 ms
+2026-09-30T14:29:45.040+08:00  INFO 36484 --- [           main] io.citebase.ReviewIntegrationTest        : Started ReviewIntegrationTest in 9.989 seconds (process running for 16.424)
+2026-09-30T14:29:45.788+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=3a45829b-8080-4fdc-8d79-14ca0b1450dc workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:45.813+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=e729b7f1-a51e-4322-8e93-10dd58fd89c3 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:45.822+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=3a45829b-8080-4fdc-8d79-14ca0b1450dc workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:45.986+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=3a45829b-8080-4fdc-8d79-14ca0b1450dc workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:45.992+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=e729b7f1-a51e-4322-8e93-10dd58fd89c3 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.050+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=e729b7f1-a51e-4322-8e93-10dd58fd89c3 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.327+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=75f3b395-293f-48e8-849e-8f2f54ea00e7 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:46.343+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=fa55d347-fc8c-4452-a20b-186d6e69328b workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:46.349+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=75f3b395-293f-48e8-849e-8f2f54ea00e7 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.454+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=75f3b395-293f-48e8-849e-8f2f54ea00e7 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.460+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=fa55d347-fc8c-4452-a20b-186d6e69328b workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.510+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=fa55d347-fc8c-4452-a20b-186d6e69328b workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.691+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=216d0187-16d4-457b-86f0-0b9555a9bdef workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:46.706+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=4bc7b92f-e278-4503-967f-92f3cd5c6142 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:46.711+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=216d0187-16d4-457b-86f0-0b9555a9bdef workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.808+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=216d0187-16d4-457b-86f0-0b9555a9bdef workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.813+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=4bc7b92f-e278-4503-967f-92f3cd5c6142 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:46.857+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=4bc7b92f-e278-4503-967f-92f3cd5c6142 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.102+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=c95a6a3b-2b3c-4a80-8665-1d06c930e34f workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:47.108+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=c95a6a3b-2b3c-4a80-8665-1d06c930e34f workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.266+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=c95a6a3b-2b3c-4a80-8665-1d06c930e34f workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.459+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=ebb8fcb3-db10-4736-a71a-87db3fb5a2d8 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:47.474+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=e5ce663f-3c21-4e73-8e1a-04078b81c664 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:47.479+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=ebb8fcb3-db10-4736-a71a-87db3fb5a2d8 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.582+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=ebb8fcb3-db10-4736-a71a-87db3fb5a2d8 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.587+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=e5ce663f-3c21-4e73-8e1a-04078b81c664 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.632+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=e5ce663f-3c21-4e73-8e1a-04078b81c664 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.805+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=54c9a69e-6cb8-4bd4-b628-036bd7162e50 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:47.826+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=a8cacbea-314b-4b6f-9306-bc58c32184a0 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:47.832+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=54c9a69e-6cb8-4bd4-b628-036bd7162e50 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.932+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=54c9a69e-6cb8-4bd4-b628-036bd7162e50 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.935+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=a8cacbea-314b-4b6f-9306-bc58c32184a0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:47.985+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=a8cacbea-314b-4b6f-9306-bc58c32184a0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.022+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=7a56b4b8-e1f1-4760-b33d-ca4eb60adae1 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:48.027+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=7a56b4b8-e1f1-4760-b33d-ca4eb60adae1 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.126+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=7a56b4b8-e1f1-4760-b33d-ca4eb60adae1 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.666+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=8e2b76b1-573b-4ba4-bf28-0f89498ef6b3 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:48.679+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=526035af-21bb-46d7-9564-b13a11a3a021 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:48.683+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=8e2b76b1-573b-4ba4-bf28-0f89498ef6b3 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.765+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=8e2b76b1-573b-4ba4-bf28-0f89498ef6b3 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.769+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=526035af-21bb-46d7-9564-b13a11a3a021 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.808+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=526035af-21bb-46d7-9564-b13a11a3a021 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:48.964+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=d43bcc8d-dd4e-40cd-a715-cdc006210157 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:48.977+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=8d8edbcc-fd24-4ef7-af10-8c09cb5a441c workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:48.981+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=d43bcc8d-dd4e-40cd-a715-cdc006210157 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.068+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=d43bcc8d-dd4e-40cd-a715-cdc006210157 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.072+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=8d8edbcc-fd24-4ef7-af10-8c09cb5a441c workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.115+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=8d8edbcc-fd24-4ef7-af10-8c09cb5a441c workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.144+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=f09cfa4e-2b0c-4984-bfa7-c6c4d8df5a71 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:49.148+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=f09cfa4e-2b0c-4984-bfa7-c6c4d8df5a71 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.238+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=f09cfa4e-2b0c-4984-bfa7-c6c4d8df5a71 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.542+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=d227cc47-2cb1-40f0-9697-fc2b793aa9de workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:49.557+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=5004bc48-3f61-43f9-b8d0-0197bd8f14cd workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:49.561+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=d227cc47-2cb1-40f0-9697-fc2b793aa9de workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.657+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=d227cc47-2cb1-40f0-9697-fc2b793aa9de workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.662+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=5004bc48-3f61-43f9-b8d0-0197bd8f14cd workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.707+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=5004bc48-3f61-43f9-b8d0-0197bd8f14cd workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.738+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=6d54c4d4-e718-46b8-9599-95a4ff4abf3c workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:49.743+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=6d54c4d4-e718-46b8-9599-95a4ff4abf3c workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:49.838+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=6d54c4d4-e718-46b8-9599-95a4ff4abf3c workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.066+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f081b0e1-75dc-4a0c-9e82-cd635b04dac4 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:50.085+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=7a7ec327-ca95-4eaa-b3e8-f973e5526e1e workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:50.090+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=f081b0e1-75dc-4a0c-9e82-cd635b04dac4 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.189+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=f081b0e1-75dc-4a0c-9e82-cd635b04dac4 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.194+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=7a7ec327-ca95-4eaa-b3e8-f973e5526e1e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.249+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=7a7ec327-ca95-4eaa-b3e8-f973e5526e1e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.284+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=7b9e9f94-481a-410c-a667-6632089c14a0 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:50.288+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=7b9e9f94-481a-410c-a667-6632089c14a0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.403+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=7b9e9f94-481a-410c-a667-6632089c14a0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:50.866+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f8d1a0db-bc76-4d8c-860d-6dac7dd0ef8e workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:50.891+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=9589cada-1712-4199-a6a7-2cc220235af5 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:50.897+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=f8d1a0db-bc76-4d8c-860d-6dac7dd0ef8e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.004+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=f8d1a0db-bc76-4d8c-860d-6dac7dd0ef8e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.008+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=9589cada-1712-4199-a6a7-2cc220235af5 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.051+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=9589cada-1712-4199-a6a7-2cc220235af5 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.084+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=909baddb-ea7c-460b-a8fa-086cc562d1d7 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:51.089+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=909baddb-ea7c-460b-a8fa-086cc562d1d7 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.188+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=909baddb-ea7c-460b-a8fa-086cc562d1d7 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.451+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=26e519b2-16ce-4393-9878-d9333dd76f80 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:51.466+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=204554de-5f03-43aa-810c-107da1e03041 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:51.470+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=26e519b2-16ce-4393-9878-d9333dd76f80 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.562+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=26e519b2-16ce-4393-9878-d9333dd76f80 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.566+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=204554de-5f03-43aa-810c-107da1e03041 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.607+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=204554de-5f03-43aa-810c-107da1e03041 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.637+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=a650944f-9379-4272-bb9c-214dd59341f4 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:51.641+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=a650944f-9379-4272-bb9c-214dd59341f4 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:51.740+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=a650944f-9379-4272-bb9c-214dd59341f4 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.038+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=e708c863-cbb0-4b77-8db2-19134f353181 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.054+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f25c84c0-d962-459c-8b50-30e3d0849db0 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.060+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=e708c863-cbb0-4b77-8db2-19134f353181 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.168+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=e708c863-cbb0-4b77-8db2-19134f353181 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.173+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=f25c84c0-d962-459c-8b50-30e3d0849db0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.219+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=f25c84c0-d962-459c-8b50-30e3d0849db0 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.254+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=c2329651-e234-42e0-afc9-de8815cd5977 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.258+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=c2329651-e234-42e0-afc9-de8815cd5977 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.357+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=c2329651-e234-42e0-afc9-de8815cd5977 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.633+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=3afdc356-188e-43ea-a553-05c6cd82321f workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.650+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=e467c0e4-027e-442c-8155-91715d530f70 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.655+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=3afdc356-188e-43ea-a553-05c6cd82321f workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.748+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=3afdc356-188e-43ea-a553-05c6cd82321f workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.752+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=e467c0e4-027e-442c-8155-91715d530f70 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.795+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=e467c0e4-027e-442c-8155-91715d530f70 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.827+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=82157c36-f380-4811-b5a7-74cea1c33141 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:52.832+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=82157c36-f380-4811-b5a7-74cea1c33141 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:52.922+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=82157c36-f380-4811-b5a7-74cea1c33141 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.170+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=1d299138-f596-45cb-804d-514f432d6c7e workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:53.186+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=f5c3a259-8051-4e91-9885-097ebc6e9d71 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:53.192+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=1d299138-f596-45cb-804d-514f432d6c7e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.288+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=1d299138-f596-45cb-804d-514f432d6c7e workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.293+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=f5c3a259-8051-4e91-9885-097ebc6e9d71 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.335+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=f5c3a259-8051-4e91-9885-097ebc6e9d71 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.569+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=08a9be70-aacf-4667-b75c-e696fca7df5b workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:53.583+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=184f43eb-e6a4-4f57-9bfd-87030918a6a9 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:53.588+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=08a9be70-aacf-4667-b75c-e696fca7df5b workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.680+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=08a9be70-aacf-4667-b75c-e696fca7df5b workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.684+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=184f43eb-e6a4-4f57-9bfd-87030918a6a9 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.725+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=184f43eb-e6a4-4f57-9bfd-87030918a6a9 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.751+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=7ca72d72-f27f-4d5f-8744-8878ac4a2bce workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:53.755+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=7ca72d72-f27f-4d5f-8744-8878ac4a2bce workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:53.850+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=7ca72d72-f27f-4d5f-8744-8878ac4a2bce workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.091+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=2bdd844b-be3c-4c46-a3cd-9022bdd63c43 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:54.104+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=bc5d6e58-a94a-43aa-b509-80ac5bbfb218 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:54.109+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=2bdd844b-be3c-4c46-a3cd-9022bdd63c43 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.190+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=2bdd844b-be3c-4c46-a3cd-9022bdd63c43 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.193+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=bc5d6e58-a94a-43aa-b509-80ac5bbfb218 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.230+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=bc5d6e58-a94a-43aa-b509-80ac5bbfb218 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.253+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=74b927db-7c11-43f8-941e-b8c14b1f9e79 workerId=null fencingToken=0 attempt=0
+2026-09-30T14:29:54.256+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=74b927db-7c11-43f8-941e-b8c14b1f9e79 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+2026-09-30T14:29:54.337+08:00  INFO 36484 --- [           main] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=74b927db-7c11-43f8-941e-b8c14b1f9e79 workerId=5df4e43e-5e3a-42af-b1d4-cd2d98b2fae8 fencingToken=1 attempt=1
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.64 s -- in io.citebase.ReviewIntegrationTest
+[INFO] Running io.citebase.ReviewUnitTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in io.citebase.ReviewUnitTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  37.886 s
+[INFO] Finished at: 2026-09-30T14:29:55+08:00
+[INFO] ------------------------------------------------------------------------

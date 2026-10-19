@@ -2,6 +2,9 @@ server:
   port: ${PORT:8080}
 spring:
   datasource:
+    hikari:
+      connection-timeout: 2500
+      validation-timeout: 1000
     url: ${DB_URL:jdbc:postgresql://localhost:5432/citebase}
     username: ${DB_USER:citebase}
     password: ${DB_PASSWORD:citebase-local}
@@ -13,6 +16,19 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 management:
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,boundedDatabase
+  health:
+    db:
+      enabled: false
   endpoints:
     web:
       exposure:

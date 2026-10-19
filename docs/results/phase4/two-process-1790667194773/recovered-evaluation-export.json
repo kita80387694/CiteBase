@@ -1,0 +1,837 @@
+{
+  "id": "0f65c263-8253-4562-b1d0-850640193ab0",
+  "name": "P4_GATE_RECOVERY",
+  "config": {
+    "topK": 3,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "process-harness-v1",
+      "questions": [
+        {
+          "id": "P4_GATE_RECOVERY",
+          "group": null,
+          "split": null,
+          "topic": null,
+          "category": null,
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "groupId": "recovery",
+              "endOffset": 32,
+              "paragraph": 1,
+              "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "question": "CiteBase 恢复规则是什么？ P4_GATE_RECOVERY",
+          "answerable": true,
+          "expectedAnswer": "保留已完成检查点"
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "test-only-fixed-loopback-gate",
+      "modelMode": "mock",
+      "externalNetwork": true,
+      "qualityEvidence": false
+    },
+    "reranker": {
+      "provider": "disabled-in-mock",
+      "configured": false
+    },
+    "chatModel": "mock-process-gated-extract-v1",
+    "modelMode": "mock",
+    "candidateK": 10,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+        "name": "process-harness.md",
+        "chunk_size": 900,
+        "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+        "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+        "chunk_overlap": 200,
+        "chunk_strategy": "legacy"
+      }
+    ],
+    "embeddingModel": "mock-hash-256-v1",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 10,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [
+    {
+      "id": "0c29ab31-4f8b-44bb-8b55-7d272911fb3a",
+      "mrr": 1,
+      "mode": "vector",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+      "caseId": "P4_GATE_RECOVERY",
+      "totalMs": 76,
+      "category": null,
+      "evidence": [
+        {
+          "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+          "page": 1,
+          "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "score": 0.4330127199299765,
+          "endOffset": 32,
+          "paragraph": 1,
+          "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+          "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "question": "CiteBase 恢复规则是什么？ P4_GATE_RECOVERY",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+          "page": 1,
+          "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "score": 0.4330127199299765,
+          "endOffset": 32,
+          "paragraph": 1,
+          "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+          "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "modelMode": "mock",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+              "page": 1,
+              "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "score": 0.4330127199299765,
+              "endOffset": 32,
+              "paragraph": 1,
+              "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+              "page": 1,
+              "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "score": 0.4330127199299765,
+              "endOffset": 32,
+              "paragraph": 1,
+              "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 4,
+          "keywordMs": 0,
+          "citationMs": 5,
+          "embeddingMs": 29,
+          "generationMs": 30
+        },
+        "aliasMap": {},
+        "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+        "dataVersions": [
+          {
+            "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "name": "process-harness.md",
+            "chunk_size": 900,
+            "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 0,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 35,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保留已完成检查点",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "groupId": "recovery",
+          "endOffset": 32,
+          "paragraph": 1,
+          "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 10,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    },
+    {
+      "id": "1cad1da2-8f77-44fa-99fb-d35ab06f81bd",
+      "mrr": 1,
+      "mode": "hybrid",
+      "error": null,
+      "group": null,
+      "split": null,
+      "topic": null,
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+      "caseId": "P4_GATE_RECOVERY",
+      "totalMs": 95,
+      "category": null,
+      "evidence": [
+        {
+          "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+          "page": 1,
+          "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "score": 0.03278688524590164,
+          "endOffset": 32,
+          "paragraph": 1,
+          "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+          "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "question": "CiteBase 恢复规则是什么？ P4_GATE_RECOVERY",
+      "abstained": false,
+      "citations": [
+        {
+          "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+          "page": 1,
+          "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "score": 0.03278688524590164,
+          "endOffset": 32,
+          "paragraph": 1,
+          "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+          "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "modelMode": "mock",
+      "recallAtK": 1,
+      "answerable": true,
+      "diagnostics": {
+        "trace": {
+          "fused": [
+            {
+              "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+              "page": 1,
+              "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "score": 0.03278688524590164,
+              "endOffset": 32,
+              "paragraph": 1,
+              "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+              "page": 1,
+              "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "score": 0.4330127199299765,
+              "endOffset": 32,
+              "paragraph": 1,
+              "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+              "page": 1,
+              "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+              "score": 0.5,
+              "endOffset": 32,
+              "paragraph": 1,
+              "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "startOffset": 0,
+              "documentName": "process-harness.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 3,
+          "rerankMs": 0,
+          "vectorMs": 4,
+          "keywordMs": 4,
+          "citationMs": 6,
+          "embeddingMs": 38,
+          "generationMs": 29
+        },
+        "aliasMap": {},
+        "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+        "dataVersions": [
+          {
+            "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "name": "process-harness.md",
+            "chunk_size": 900,
+            "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+            "chunk_overlap": 200,
+            "chunk_strategy": "legacy"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 1,
+          "vector": 1,
+          "keyword": 1,
+          "selected": 1,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": true,
+      "retrievalMs": 50,
+      "promptTokens": null,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": true,
+      "expectedAnswer": "保留已完成检查点",
+      "completionTokens": null,
+      "expectedEvidence": [
+        {
+          "page": 1,
+          "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+          "groupId": "recovery",
+          "endOffset": 32,
+          "paragraph": 1,
+          "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+          "startOffset": 0,
+          "documentName": "process-harness.md"
+        }
+      ],
+      "retrievalOptions": {
+        "rerank": false,
+        "candidateK": 10,
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": null,
+      "evidenceGroupCount": 1,
+      "referenceAnswerMatch": true,
+      "hitEvidenceGroupCount": 1,
+      "manualScore": null
+    }
+  ],
+  "createdAt": "2026-09-29T07:33:26.165589100Z",
+  "modelMode": "mock",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "SUCCEEDED",
+  "taskStatus": "SUCCEEDED",
+  "taskId": "0f65c263-8253-4562-b1d0-850640193ab0",
+  "progress": {
+    "total": 2,
+    "completed": 2,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [],
+  "partial": false,
+  "canScore": true,
+  "error": null,
+  "attempts": [
+    {
+      "id": "860e42d6-151d-4cf4-8186-12a2632a7ebe",
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "0c29ab31-4f8b-44bb-8b55-7d272911fb3a",
+        "mrr": 1,
+        "mode": "vector",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": null
+        },
+        "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+        "caseId": "P4_GATE_RECOVERY",
+        "totalMs": 76,
+        "category": null,
+        "evidence": [
+          {
+            "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+            "page": 1,
+            "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "score": 0.4330127199299765,
+            "endOffset": 32,
+            "paragraph": 1,
+            "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "question": "CiteBase 恢复规则是什么？ P4_GATE_RECOVERY",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+            "page": 1,
+            "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "score": 0.4330127199299765,
+            "endOffset": 32,
+            "paragraph": 1,
+            "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "modelMode": "mock",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+                "page": 1,
+                "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+                "score": 0.4330127199299765,
+                "endOffset": 32,
+                "paragraph": 1,
+                "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+                "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+                "startOffset": 0,
+                "documentName": "process-harness.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+                "page": 1,
+                "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+                "score": 0.4330127199299765,
+                "endOffset": 32,
+                "paragraph": 1,
+                "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+                "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+                "startOffset": 0,
+                "documentName": "process-harness.md"
+              }
+            ],
+            "keyword": []
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 4,
+            "keywordMs": 0,
+            "citationMs": 5,
+            "embeddingMs": 29,
+            "generationMs": 30
+          },
+          "aliasMap": {},
+          "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+          "dataVersions": [
+            {
+              "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "name": "process-harness.md",
+              "chunk_size": 900,
+              "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+              "chunk_overlap": 200,
+              "chunk_strategy": "legacy"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 0,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 35,
+        "promptTokens": null,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "保留已完成检查点",
+        "completionTokens": null,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "groupId": "recovery",
+            "endOffset": 32,
+            "paragraph": 1,
+            "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 10,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T15:33:26.260041+08:00",
+      "finished_at": "2026-09-29T15:33:26.387225+08:00"
+    },
+    {
+      "id": "7a83f90c-f4a1-4f95-86b7-3109da43c8ff",
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "hybrid",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "UNKNOWN",
+      "error_code": "UNKNOWN_EXTERNAL_OUTCOME",
+      "result": null,
+      "started_at": "2026-09-29T15:33:26.412258+08:00",
+      "finished_at": "2026-09-29T15:33:41.26024+08:00"
+    },
+    {
+      "id": "90c320aa-4105-4821-b3ee-2de5ef4efc11",
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "hybrid",
+      "attempt_number": 2,
+      "fencing_token": 2,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "1cad1da2-8f77-44fa-99fb-d35ab06f81bd",
+        "mrr": 1,
+        "mode": "hybrid",
+        "error": null,
+        "group": null,
+        "split": null,
+        "topic": null,
+        "usage": {
+          "rerank": null,
+          "embedding": null
+        },
+        "answer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+        "caseId": "P4_GATE_RECOVERY",
+        "totalMs": 95,
+        "category": null,
+        "evidence": [
+          {
+            "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+            "page": 1,
+            "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "score": 0.03278688524590164,
+            "endOffset": 32,
+            "paragraph": 1,
+            "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "question": "CiteBase 恢复规则是什么？ P4_GATE_RECOVERY",
+        "abstained": false,
+        "citations": [
+          {
+            "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+            "page": 1,
+            "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "score": 0.03278688524590164,
+            "endOffset": 32,
+            "paragraph": 1,
+            "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+            "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "modelMode": "mock",
+        "recallAtK": 1,
+        "answerable": true,
+        "diagnostics": {
+          "trace": {
+            "fused": [
+              {
+                "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+                "page": 1,
+                "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+                "score": 0.03278688524590164,
+                "endOffset": 32,
+                "paragraph": 1,
+                "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+                "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+                "startOffset": 0,
+                "documentName": "process-harness.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+                "page": 1,
+                "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+                "score": 0.4330127199299765,
+                "endOffset": 32,
+                "paragraph": 1,
+                "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+                "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+                "startOffset": 0,
+                "documentName": "process-harness.md"
+              }
+            ],
+            "keyword": [
+              {
+                "id": "af2755c0-2926-4142-b32a-1ad91439de3a",
+                "page": 1,
+                "text": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+                "score": 0.5,
+                "endOffset": 32,
+                "paragraph": 1,
+                "versionId": "20253482-ac8f-420c-9139-0870fcd2a162",
+                "documentId": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+                "startOffset": 0,
+                "documentName": "process-harness.md"
+              }
+            ]
+          },
+          "timings": {
+            "fusionMs": 3,
+            "rerankMs": 0,
+            "vectorMs": 4,
+            "keywordMs": 4,
+            "citationMs": 6,
+            "embeddingMs": 38,
+            "generationMs": 29
+          },
+          "aliasMap": {},
+          "rawAnswer": "【MOCK 流程演示，非模型回答】证据摘录：CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。 [af2755c0-2926-4142-b32a-1ad91439de3a]",
+          "dataVersions": [
+            {
+              "id": "f95b3676-8e92-42e5-bcd1-6591aaeddca3",
+              "name": "process-harness.md",
+              "chunk_size": 900,
+              "version_id": "20253482-ac8f-420c-9139-0870fcd2a162",
+              "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+              "chunk_overlap": 200,
+              "chunk_strategy": "legacy"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 1,
+            "vector": 1,
+            "keyword": 1,
+            "selected": 1,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": true,
+        "retrievalMs": 50,
+        "promptTokens": null,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": true,
+        "expectedAnswer": "保留已完成检查点",
+        "completionTokens": null,
+        "expectedEvidence": [
+          {
+            "page": 1,
+            "quote": "CiteBase 恢复规则是保留已完成检查点，仅继续未完成工作。",
+            "groupId": "recovery",
+            "endOffset": 32,
+            "paragraph": 1,
+            "sourceHash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+            "startOffset": 0,
+            "documentName": "process-harness.md"
+          }
+        ],
+        "retrievalOptions": {
+          "rerank": false,
+          "candidateK": 10,
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": null,
+        "evidenceGroupCount": 1,
+        "referenceAnswerMatch": true,
+        "hitEvidenceGroupCount": 1
+      },
+      "started_at": "2026-09-29T15:33:41.347182+08:00",
+      "finished_at": "2026-09-29T15:33:41.500587+08:00"
+    }
+  ],
+  "externalCalls": [
+    {
+      "call_id": "f7445483-241c-4064-a5fc-7e06969921c6",
+      "operation_key": "860e42d6-151d-4cf4-8186-12a2632a7ebe:embedding:aa6a6eb9-8b5d-4d20-84dc-eb3da011510b",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:26.293773+08:00",
+      "finished_at": "2026-09-29T15:33:26.308831+08:00"
+    },
+    {
+      "call_id": "bab052b2-b71a-492b-827b-5ad947b7cb7d",
+      "operation_key": "860e42d6-151d-4cf4-8186-12a2632a7ebe:generation:2e1d0aac-0391-40bd-839b-18614c530ede",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": null,
+        "completionTokens": null
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:26.333472+08:00",
+      "finished_at": "2026-09-29T15:33:26.349339+08:00"
+    },
+    {
+      "call_id": "be2acb12-13e7-48e6-9d07-937a3e36764f",
+      "operation_key": "7a83f90c-f4a1-4f95-86b7-3109da43c8ff:embedding:77255565-621e-4b8c-a68a-dd87c5f71640",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:26.432454+08:00",
+      "finished_at": "2026-09-29T15:33:26.444552+08:00"
+    },
+    {
+      "call_id": "ac15d343-bda6-4e0a-9d16-ba46746d0388",
+      "operation_key": "7a83f90c-f4a1-4f95-86b7-3109da43c8ff:generation:ae6100f8-fa85-468c-b69b-92ed7cb9257a",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "UNKNOWN",
+      "usage": null,
+      "outcome": "PROCESS_INTERRUPTED",
+      "started_at": "2026-09-29T15:33:26.461839+08:00",
+      "finished_at": "2026-09-29T15:33:41.250678+08:00"
+    },
+    {
+      "call_id": "3ebdd96e-949c-4fb4-8407-bb759d85822f",
+      "operation_key": "90c320aa-4105-4821-b3ee-2de5ef4efc11:embedding:29919064-353b-4a6f-8c8a-7631a12df815",
+      "fencing_token": 2,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:41.389982+08:00",
+      "finished_at": "2026-09-29T15:33:41.40812+08:00"
+    },
+    {
+      "call_id": "dd11273c-18e5-478a-99d4-6947282c6077",
+      "operation_key": "90c320aa-4105-4821-b3ee-2de5ef4efc11:generation:2a394de7-1982-4c35-a994-18c2fc3bd4d3",
+      "fencing_token": 2,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": null,
+        "completionTokens": null
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-09-29T15:33:41.440151+08:00",
+      "finished_at": "2026-09-29T15:33:41.45645+08:00"
+    }
+  ],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 1,
+      "answerableCount": 1,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 35,
+      "totalMs": 76
+    },
+    "hybrid": {
+      "count": 1,
+      "answerableCount": 1,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": 1,
+      "mrr": 1,
+      "retrievalMs": 50,
+      "totalMs": 95
+    }
+  },
+  "breakdowns": {
+    "category": {},
+    "split": {},
+    "group": {},
+    "topic": {}
+  },
+  "manualScores": []
+}

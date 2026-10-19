@@ -1,0 +1,178 @@
+{
+  "id": "75805032-800c-48e8-9fa8-229553fb7547",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "75805032-800c-48e8-9fa8-229553fb7547",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-9-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-9-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "近事实干扰",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "groupId": "g1",
+              "endOffset": 312,
+              "paragraph": 6,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 268,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 两次录音重复同一细节，是否足以称为已证实事实？",
+          "answerable": true,
+          "expectedAnswer": "不足；仍属于个人回忆"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-f5223b513d3d3b4a88b2c89cdf0fb1d2d4d48f8a2472005f8ab1931ab5e5",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:20:34.872618Z",
+  "startedAt": "2026-10-01T08:20:35.254799Z",
+  "finishedAt": "2026-10-01T08:20:47.939196Z",
+  "availableAt": "2026-10-01T08:20:34.872618Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "528a1626-e4f5-4c61-ae46-b49f03cb7cb1",
+      "operationKey": "62f2274e-60e8-4867-83ea-78e67620927b:embedding:4f9f1c1f-e3b0-43a3-9162-64390bbc0433",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:20:35.270022Z",
+      "finishedAt": "2026-10-01T08:20:35.536873Z"
+    },
+    {
+      "callId": "42f8aad1-278f-4520-a22c-72c28e499d1b",
+      "operationKey": "62f2274e-60e8-4867-83ea-78e67620927b:rerank:793806d8-b1be-4845-9caa-57f081b40de3",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2746,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:20:35.545340Z",
+      "finishedAt": "2026-10-01T08:20:36.248355Z"
+    },
+    {
+      "callId": "6afbe55e-d6c7-4591-b3c2-79bbd0293204",
+      "operationKey": "62f2274e-60e8-4867-83ea-78e67620927b:generation:d5dad4bf-a217-4132-b513-4f9764b82749",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1720,
+        "completionTokens": 62
+      },
+      "startedAt": "2026-10-01T08:20:36.251624Z",
+      "finishedAt": "2026-10-01T08:20:42.820992Z"
+    },
+    {
+      "callId": "3526b8d9-8c24-4192-9d9a-461342df50ad",
+      "operationKey": "6fb5c5cc-4eb8-4bbb-b036-4ac03b52707a:embedding:448f7b6d-208a-43a8-98f2-26635e9f6026",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:20:42.845136Z",
+      "finishedAt": "2026-10-01T08:20:43.144754Z"
+    },
+    {
+      "callId": "c670e639-d435-4134-8ff9-f58e82490708",
+      "operationKey": "6fb5c5cc-4eb8-4bbb-b036-4ac03b52707a:rerank:dbdcece6-92fb-4985-9a9a-ba9ebddb3127",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2746,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2746,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:20:43.155506Z",
+      "finishedAt": "2026-10-01T08:20:43.601771Z"
+    },
+    {
+      "callId": "1a0c94ee-6bf9-4310-90f9-dbfde643bace",
+      "operationKey": "6fb5c5cc-4eb8-4bbb-b036-4ac03b52707a:generation:a2639949-f0a4-4036-ac92-e62fc72443e3",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:43.604988Z",
+      "finishedAt": "2026-10-01T08:20:47.913538Z"
+    }
+  ]
+}

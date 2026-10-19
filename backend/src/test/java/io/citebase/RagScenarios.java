@@ -16,6 +16,15 @@ abstract class RagScenarios {
   @Autowired QuestionService questions;
   @Autowired RetrievalService retrieval;
   @Autowired EvaluationService evaluations;
+  @Autowired TaskWorker taskWorker;
+
+  @SuppressWarnings("unchecked")
+  Map<String, Object> runEvaluation(String user, EvaluationService.Request request) {
+    var created = evaluations.create(user, request);
+    org.junit.jupiter.api.Assertions.assertTrue(taskWorker.processOne(Set.of(TaskKind.EVALUATION)));
+    return (Map<String, Object>) evaluations.get(user, (String) created.get("id"));
+  }
+
   @org.springframework.test.context.bean.override.mockito.MockitoSpyBean ModelGateway model;
 
   @AfterEach
@@ -62,8 +71,8 @@ abstract class RagScenarios {
     assertThrows(
         org.springframework.web.server.ResponseStatusException.class,
         () -> questions.history(bob, kb));
-    var run = evaluations.run(alice, request());
-    assertEquals("COMPLETED", run.get("status"));
+    var run = runEvaluation(alice, request());
+    assertEquals("SUCCEEDED", run.get("status"));
     assertThrows(
         org.springframework.web.server.ResponseStatusException.class,
         () -> evaluations.get(bob, (String) run.get("id")));
@@ -77,7 +86,7 @@ abstract class RagScenarios {
   @Test
   void deletionRevokesSavedAnswersEvaluationAndEvidence() {
     var answer = questions.ask(alice, kb, "Java rollback", "vector", 5, true);
-    evaluations.run(alice, request());
+    runEvaluation(alice, request());
     documents.delete(alice, document);
     assertTrue(questions.history(alice, kb).isEmpty());
     assertTrue(evaluations.list(alice).isEmpty());
@@ -88,7 +97,7 @@ abstract class RagScenarios {
   }
 
   @Test
-  void interruptedEvaluationRecoveryPreservesPartialPayload() {
+  void legacyInterruptedEvaluationIsNotBlanketRecoveredByAnotherInstance() {
     String id = UUID.randomUUID().toString();
     db.update(
         "insert into evaluation_run(id,user_id,kb_id,name,status,payload)"
@@ -96,9 +105,9 @@ abstract class RagScenarios {
         id,
         alice,
         kb);
-    evaluations.recover();
+    // Startup no longer steals or rewrites other instances / legacy records.
     String saved = questions.encode(evaluations.get(alice, id));
-    assertTrue(saved.contains("FAILED"));
+    assertTrue(saved.contains("RUNNING"));
     assertTrue(saved.contains("saved"));
   }
 
@@ -118,7 +127,7 @@ abstract class RagScenarios {
         .when(model)
         .generate(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
     try (var pool = java.util.concurrent.Executors.newFixedThreadPool(2)) {
-      var task = pool.submit(() -> evaluations.run(alice, request()));
+      var task = pool.submit(() -> runEvaluation(alice, request()));
       try {
         assertTrue(paused.await(10, java.util.concurrent.TimeUnit.SECONDS));
         assertEquals(
@@ -127,56 +136,55 @@ abstract class RagScenarios {
         assertEquals(
             1,
             db.queryForObject(
-                "select jsonb_array_length(payload->'results') from evaluation_run where kb_id=?",
+                "select count(*) from evaluation_item i join evaluation_run r on"
+                    + " r.id=i.evaluation_id where r.kb_id=? and i.result is not null",
                 Integer.class,
                 kb));
         var concurrentQuestion =
             pool.submit(() -> questions.ask(alice, kb, "Java rollback", "hybrid", 5, true));
-        assertTrue(concurrentQuestion.get(3, java.util.concurrent.TimeUnit.SECONDS).citationValid());
+        assertTrue(
+            concurrentQuestion.get(3, java.util.concurrent.TimeUnit.SECONDS).citationValid());
         assertFalse(task.isDone(), "评测仍暂停时，同知识库问答应已完成");
       } finally {
         resume.countDown();
       }
-      assertEquals("COMPLETED", task.get(10, java.util.concurrent.TimeUnit.SECONDS).get("status"));
+      assertEquals("SUCCEEDED", task.get(10, java.util.concurrent.TimeUnit.SECONDS).get("status"));
     }
   }
 
   @Test
-  void deletionWaitsForEvaluationReadLockThenRevokesResults() throws Exception {
+  void deletionDoesNotWaitForEvaluationAndRevokesLateResults() throws Exception {
     var paused = new java.util.concurrent.CountDownLatch(1);
     var resume = new java.util.concurrent.CountDownLatch(1);
-    var first = new java.util.concurrent.atomic.AtomicBoolean(true);
-    org.mockito.Mockito.doAnswer(invocation -> {
-      if (first.getAndSet(false)) {
-        paused.countDown();
-        assertTrue(resume.await(15, java.util.concurrent.TimeUnit.SECONDS));
-      }
-      return invocation.callRealMethod();
-    }).when(model).generate(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
+    org.mockito.Mockito.doAnswer(
+            invocation -> {
+              paused.countDown();
+              assertTrue(resume.await(15, java.util.concurrent.TimeUnit.SECONDS));
+              return invocation.callRealMethod();
+            })
+        .when(model)
+        .generate(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyList());
+    var created = evaluations.create(alice, request());
+    String id = (String) created.get("id");
     try (var pool = java.util.concurrent.Executors.newFixedThreadPool(2)) {
-      var evaluation = pool.submit(() -> evaluations.run(alice, request()));
-      java.util.concurrent.Future<?> deletion = null;
+      var execution = pool.submit(() -> taskWorker.processOne(Set.of(TaskKind.EVALUATION)));
+      assertTrue(paused.await(10, java.util.concurrent.TimeUnit.SECONDS));
       try {
-        assertTrue(paused.await(10, java.util.concurrent.TimeUnit.SECONDS));
-        deletion = pool.submit(() -> documents.delete(alice, document));
-        long deadline = System.nanoTime() + java.util.concurrent.TimeUnit.SECONDS.toNanos(5);
-        boolean waiting = false;
-        while (System.nanoTime() < deadline) {
-          waiting = db.queryForObject("select exists(select 1 from pg_locks l join pg_stat_activity a on a.pid=l.pid where l.locktype='advisory' and not l.granted and a.datname=current_database())", Boolean.class);
-          if (waiting) break;
-          Thread.sleep(20);
-        }
-        assertTrue(waiting, "删除必须等待当前评测共享读锁");
-        assertFalse(deletion.isDone());
+        pool.submit(() -> documents.delete(alice, document))
+            .get(3, java.util.concurrent.TimeUnit.SECONDS);
+        assertThrows(
+            org.springframework.web.server.ResponseStatusException.class,
+            () -> evaluations.get(alice, id));
       } finally {
         resume.countDown();
       }
-      assertEquals("COMPLETED", evaluation.get(10, java.util.concurrent.TimeUnit.SECONDS).get("status"));
-      assertNotNull(deletion);
-      deletion.get(10, java.util.concurrent.TimeUnit.SECONDS);
-      assertTrue(evaluations.list(alice).isEmpty());
-      assertEquals(0, db.queryForObject("select count(*) from document where id=?", Integer.class, document));
+      execution.get(10, java.util.concurrent.TimeUnit.SECONDS);
     }
+    assertTrue(evaluations.list(alice).isEmpty());
+    assertEquals(
+        0,
+        db.queryForObject(
+            "select count(*) from evaluation_item where evaluation_id=?", Integer.class, id));
   }
 
   EvaluationService.Request request() {

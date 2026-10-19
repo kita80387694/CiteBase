@@ -1,0 +1,27 @@
+{
+  "schema": "citebase-cost-investigated-failure-clearance-v1",
+  "source": "ENGINEERING_INVESTIGATION",
+  "registrationSha256": "89d15e4d2fc6475a5776829e23e608b02cb469c16a8fa11aa1089b4fad180d28",
+  "investigatedAt": "2026-10-19T07:55:30.717Z",
+  "entries": [
+    {
+      "runId": "e6012a26-c593-485d-ac87-7108dbd56b9c",
+      "caseId": "ci-36-1",
+      "mode": "vector",
+      "error": "PROVIDER_TIMEOUT",
+      "investigation": "The persisted generation ledger interval 2026-10-19T07:38:58.774151Z to 07:39:58.784318Z reached the configured 60-second timeout. The subsequent hybrid generation finished in approximately 6.4 seconds. There are no pending server tasks. Preserve this exact failed row and all 12 call attempts; RETURNED means adapter completion, not successful provider output. Do not retry the failed case. Model/source/retrieval configuration remains frozen. Docker proxy repair occurred after this event and after 212 rows were saved; remaining 28 rows have an explicitly disclosed network-environment change and no causal latency claim.",
+      "raw": {
+        "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-36-control.raw.json",
+        "sha256": "43ad274309372bcb0bc4321e493125df04e7dda740813af700825eb774d2de4b"
+      },
+      "journal": {
+        "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-36-control.state.json",
+        "sha256": "91e3be6758184831526f0f82a1c9c20832f6fb2e5fd92d422e4979d8f1cc137d"
+      },
+      "task": {
+        "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-36-control.json",
+        "sha256": "bcdbc89d5ac861666e02f6f3a6a77d3a2076550813060f31c0b52f003b015df3"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "c4178c80-d588-4bf9-a6ee-1c33ecc2be80",
+  "documentId": "2bcc7d96-2e0b-47ba-b28e-89aab2acbf2a",
+  "documentName": "atlas-api.md",
+  "versionId": "ae643d77-0e3d-4484-b848-7dcb4198b3a6",
+  "page": 1,
+  "paragraph": 1,
+  "startOffset": 0,
+  "endOffset": 444,
+  "text": "# Atlas API 运行手册\n\nAtlas API 的默认 HTTP 监听端口是 9081。\n\nAtlas API 单次请求体上限为 8 MiB，超过限制返回 HTTP 413。\n\nAtlas API 的服务端请求超时阈值为 12 秒。\n\nAtlas API 的存活检查路径是 /health/live，就绪检查路径是 /health/ready。\n\nAtlas API 使用 X-Trace-Id 请求头传递追踪号；缺失时服务端生成 UUID。\n\nAtlas API 按用户限流，每分钟允许 120 次请求，超额返回 HTTP 429。\n\nAtlas API 的 Idempotency-Key 幂等键保留 24 小时，重复键返回首次结果。\n\nAtlas API 的时间字段采用 UTC 时区的 ISO-8601 格式。\n\nAtlas API 的错误响应包含 code、message、traceId 三个字段。\n\nAtlas API 分页默认每页 20 条，最大每页 100 条。",
+  "score": 0
+}

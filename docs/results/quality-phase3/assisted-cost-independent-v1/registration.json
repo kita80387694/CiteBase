@@ -1,0 +1,1438 @@
+{
+  "schema": "citebase-assisted-cost-independent-registration-v1",
+  "freeze": {
+    "schema": "citebase-assisted-cost-independent-freeze-v1",
+    "frozenAt": "2026-10-01T08:14:19.329Z",
+    "devReport": {
+      "file": "docs/results/quality-phase3/assisted-cost-dev-review-v1/selection.json",
+      "sha256": "c864edceb78b2372e635a243184e4864ccfb3c8254be43d61252485408b7c608"
+    },
+    "selectedOptions": {
+      "candidateK": 5,
+      "keywordWeight": 1,
+      "rerank": true,
+      "citationStyle": "uuid",
+      "rerankPolicy": "candidate-pressure-v1"
+    },
+    "baselineOptions": {
+      "candidateK": 20,
+      "keywordWeight": 1,
+      "rerank": true,
+      "citationStyle": "uuid"
+    },
+    "runtime": {
+      "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+      "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+      "containerName": "citebase-quality-assisted-backend-1",
+      "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+      "apiUrl": "http://localhost:28096",
+      "modelConfig": {
+        "chatModel": "deepseek-ai/DeepSeek-V3.2",
+        "embeddingModel": "BAAI/bge-m3",
+        "reranker": {
+          "model": "BAAI/bge-reranker-v2-m3",
+          "endpoint": "https://api.siliconflow.cn",
+          "provider": "SiliconFlow-compatible /v1/rerank",
+          "configured": true,
+          "timeoutSeconds": 10
+        }
+      },
+      "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+      "startedAt": "2026-10-01T07:00:36.115948384Z"
+    },
+    "dataset": {
+      "file": "samples/phase3-quality/test.json",
+      "sha256": "094997f485c8e61658a4e2b541a3a81d3de516bdcb4d696c96ba7a1e4fe30b17"
+    },
+    "manifest": {
+      "file": "samples/phase3-quality/manifest.json",
+      "sha256": "f900ea15bbe8d3ab16c86e09e83a1e7573c7775822ad09c9e9481d182e578fd6"
+    },
+    "chunkProfile": {
+      "strategy": "structure-v1",
+      "size": 900,
+      "overlap": 200
+    }
+  },
+  "freezeSha256": "9cf0f980815d0699b142ed8a5c60206562d84fb58277f58af81793d7eac2c0f6",
+  "developmentDecision": {
+    "source": "ASSISTED",
+    "eligibleByAssistedGates": true,
+    "decision": "QUALITY_ELIGIBLE",
+    "defaultChanged": false,
+    "reason": "conditional5 passes the registered development point-estimate gates against candidate5; candidate5 also passes against fixed20. conditional5 and repeated-cache both reduce actual external calls from 3 to 2 per request (33.333%), and retrieval calls by 50%. Unequal arm sizes (8 versus 16 requests) are normalized per request rather than rewarding repeated traffic for a larger raw count. With call savings tied, conditional5 has lower measured mean retrieval latency (331.875ms versus 368.75ms) and the larger paired mean latency reduction (60.978% versus 55.789%). Select only the existing conditional5 arm; do not add cache or deduplication. This is development candidate eligibility on four independent questions, not formal noninferiority or evidence to change production defaults."
+  },
+  "items": [
+    {
+      "baseCaseId": "aster-006",
+      "batchId": "ci-0",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-0-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-006",
+      "batchId": "ci-0",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-0-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-006",
+      "batchId": "ci-1",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-1-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-006",
+      "batchId": "ci-1",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-1-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-008",
+      "batchId": "ci-2",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-2-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-008",
+      "batchId": "ci-2",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-2-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-019",
+      "batchId": "ci-3",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-3-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-019",
+      "batchId": "ci-3",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-3-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-001",
+      "batchId": "ci-4",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-4-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-001",
+      "batchId": "ci-4",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-4-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-012",
+      "batchId": "ci-5",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-5-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-012",
+      "batchId": "ci-5",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-5-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-010",
+      "batchId": "ci-6",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-6-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-010",
+      "batchId": "ci-6",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-6-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-003",
+      "batchId": "ci-7",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-7-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-003",
+      "batchId": "ci-7",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-7-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-020",
+      "batchId": "ci-8",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-8-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-020",
+      "batchId": "ci-8",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-8-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-010",
+      "batchId": "ci-9",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-9-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-010",
+      "batchId": "ci-9",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-9-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-012",
+      "batchId": "ci-10",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-10-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-012",
+      "batchId": "ci-10",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-10-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-015",
+      "batchId": "ci-11",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-11-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-015",
+      "batchId": "ci-11",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-11-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-005",
+      "batchId": "ci-12",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-12-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-005",
+      "batchId": "ci-12",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-12-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-017",
+      "batchId": "ci-13",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-13-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-017",
+      "batchId": "ci-13",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-13-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-015",
+      "batchId": "ci-14",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-14-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-015",
+      "batchId": "ci-14",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-14-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-013",
+      "batchId": "ci-15",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-15-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-013",
+      "batchId": "ci-15",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-15-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-016",
+      "batchId": "ci-16",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-16-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-016",
+      "batchId": "ci-16",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-16-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-004",
+      "batchId": "ci-17",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-17-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-004",
+      "batchId": "ci-17",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-17-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-008",
+      "batchId": "ci-18",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-18-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-008",
+      "batchId": "ci-18",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-18-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-002",
+      "batchId": "ci-19",
+      "group": "cold",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-19-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-002",
+      "batchId": "ci-19",
+      "group": "cold",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-19-0",
+          "phase": "cold",
+          "repeat": 0
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-002",
+      "batchId": "ci-20",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-20-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-20-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-002",
+      "batchId": "ci-20",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-20-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-20-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-011",
+      "batchId": "ci-21",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-21-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-21-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-011",
+      "batchId": "ci-21",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-21-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-21-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-009",
+      "batchId": "ci-22",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-22-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-22-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-009",
+      "batchId": "ci-22",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-22-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-22-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-016",
+      "batchId": "ci-23",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-23-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-23-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-016",
+      "batchId": "ci-23",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-23-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-23-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-004",
+      "batchId": "ci-24",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-24-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-24-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-004",
+      "batchId": "ci-24",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-24-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-24-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-009",
+      "batchId": "ci-25",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-25-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-25-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-009",
+      "batchId": "ci-25",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-25-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-25-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-014",
+      "batchId": "ci-26",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-26-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-26-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-014",
+      "batchId": "ci-26",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-26-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-26-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-007",
+      "batchId": "ci-27",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-27-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-27-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-007",
+      "batchId": "ci-27",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-27-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-27-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-011",
+      "batchId": "ci-28",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-28-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-28-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-011",
+      "batchId": "ci-28",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-28-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-28-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-013",
+      "batchId": "ci-29",
+      "group": "warm",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-29-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-29-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-013",
+      "batchId": "ci-29",
+      "group": "warm",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-29-0",
+          "phase": "cold",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-29-1",
+          "phase": "warm",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-020",
+      "batchId": "ci-30",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-30-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-30-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-020",
+      "batchId": "ci-30",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-30-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-30-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-017",
+      "batchId": "ci-31",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-31-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-31-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-017",
+      "batchId": "ci-31",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-31-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-31-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-018",
+      "batchId": "ci-32",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-32-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-32-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-018",
+      "batchId": "ci-32",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-32-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-32-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-007",
+      "batchId": "ci-33",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-33-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-33-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-007",
+      "batchId": "ci-33",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-33-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-33-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-003",
+      "batchId": "ci-34",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-34-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-34-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-003",
+      "batchId": "ci-34",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-34-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-34-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-019",
+      "batchId": "ci-35",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-35-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-35-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-019",
+      "batchId": "ci-35",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-35-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-35-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-014",
+      "batchId": "ci-36",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-36-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-36-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-014",
+      "batchId": "ci-36",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-36-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-36-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-018",
+      "batchId": "ci-37",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-37-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-37-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "flint-018",
+      "batchId": "ci-37",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-37-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-37-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-001",
+      "batchId": "ci-38",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-38-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-38-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-001",
+      "batchId": "ci-38",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-38-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-38-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-005",
+      "batchId": "ci-39",
+      "group": "mixed",
+      "arm": "candidate",
+      "questions": [
+        {
+          "caseId": "ci-39-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-39-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "baseCaseId": "aster-005",
+      "batchId": "ci-39",
+      "group": "mixed",
+      "arm": "control",
+      "questions": [
+        {
+          "caseId": "ci-39-0",
+          "phase": "mixed-new",
+          "repeat": 0
+        },
+        {
+          "caseId": "ci-39-1",
+          "phase": "mixed-repeat",
+          "repeat": 1
+        }
+      ]
+    }
+  ],
+  "smokeCaseIds": [
+    "aster-006",
+    "aster-019"
+  ],
+  "ordering": "SHA256(baseCaseId) ascending; groups 20 cold / 10 warm / 10 mixed; hash first-byte parity sets arm order, each arm batches first/repeat in same evaluation; single concurrency",
+  "documents": [
+    {
+      "documentName": "aster-a.md",
+      "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+      "topic": "aster",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 866,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "aster-b.md",
+      "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+      "topic": "aster",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 644,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "brass-a.md",
+      "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "topic": "brass",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 788,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "brass-b.md",
+      "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "topic": "brass",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 690,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "cobalt-a.md",
+      "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "topic": "cobalt",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 728,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "cobalt-b.md",
+      "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "topic": "cobalt",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 736,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "dahlia-a.md",
+      "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "topic": "dahlia",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 724,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "dahlia-b.md",
+      "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "topic": "dahlia",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 690,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "elm-a.md",
+      "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "topic": "elm",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 713,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "elm-b.md",
+      "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "topic": "elm",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 700,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "flint-a.md",
+      "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+      "topic": "flint",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 773,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "flint-b.md",
+      "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+      "topic": "flint",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 784,
+      "paragraphs": 6
+    }
+  ],
+  "limits": {
+    "uniqueQuestions": 40,
+    "pairedItems": 60,
+    "arms": 2,
+    "modes": 2,
+    "ragRows": 240,
+    "pairedModeRows": 120,
+    "evaluationTasks": 80,
+    "theoreticalProviderCalls": 720,
+    "providerAttemptsPerCall": 1,
+    "indexing": "separate ledger",
+    "concurrency": 1
+  },
+  "cacheInterpretation": "cold/warm/mixed are scheduled request labels only. Actual HIT/MISS is read from raw metadata. Each warm/mixed arm keeps repeated questions in the same evaluation and mode; cache hits still require actual metadata.",
+  "source": "ASSISTED",
+  "humanReviewed": 0
+}

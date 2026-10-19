@@ -17,3 +17,7 @@
 - [Spring AI 官方仓库](https://github.com/spring-projects/spring-ai)：1.1.x 对应 Spring Boot 3.5.x。
 - [Spring AI 发布记录](https://github.com/spring-projects/spring-ai/releases)：采用1.1.8维护版。
 - Maven Central 元数据核实 `spring-ai-bom:1.1.8`、`spring-boot-starter-parent:3.5.16` 可用，Java目标21；锁定版本由 backend/pom.xml 管理。
+
+## 第二阶段专用重排接口
+
+2026-09-28实际阅读[硅基流动Rerank官方协议](https://docs.siliconflow.cn/docs/api/rerank-post)：独立/v1/rerank、query/documents/top_n、index与relevance_score及meta.tokens计数。自行编写Java兼容客户端和候选映射/异常校验，不复用示例代码。真实三文档协议冒烟HTTP200，使用BAAI/bge-reranker-v2-m3，原响应见results/phase2/reranker-provider-probe.json；仅证明接口可用，不据此声称检索效果提升。

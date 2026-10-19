@@ -1,0 +1,134 @@
+{
+  "id": "46f9de94-d521-4623-a3f2-6fb24770ec20",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "46f9de94-d521-4623-a3f2-6fb24770ec20",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q012",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "brass-005",
+          "group": "brass",
+          "split": "dev",
+          "topic": "brass",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。",
+              "groupId": "g1",
+              "endOffset": 59,
+              "paragraph": 1,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 0,
+              "documentName": "brass-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Brass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。",
+              "groupId": "g2",
+              "endOffset": 280,
+              "paragraph": 5,
+              "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "startOffset": 232,
+              "documentName": "brass-a.md"
+            }
+          ],
+          "question": "Brass 已给估价且客户说尽快修，可以直接拆卸并增加费用吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；拆卸及加费均需书面授权"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-64f345c62237c0a7c566a24f984919660f0ef25a80f8a8408a4ed716bcf6",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:42:21.935146Z",
+  "startedAt": "2026-09-30T06:42:22.099400Z",
+  "finishedAt": "2026-09-30T06:42:41.676569Z",
+  "availableAt": "2026-09-30T06:42:21.935146Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "34e485d2-7c49-49b9-b1fc-8c71e25d8cd3",
+      "operationKey": "e44d40b0-1cb3-4008-b0d9-7199da2a0b8c:embedding:55353f3c-0d31-4f50-a9cd-0227bba89fa8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-09-30T06:42:22.112462Z",
+      "finishedAt": "2026-09-30T06:42:22.730858Z"
+    },
+    {
+      "callId": "082af349-0c53-4a8a-89ac-7e36ed6922b5",
+      "operationKey": "e44d40b0-1cb3-4008-b0d9-7199da2a0b8c:generation:19aba053-31f9-4cd5-98cd-06a8945d337f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1749,
+        "completionTokens": 183
+      },
+      "startedAt": "2026-09-30T06:42:22.736068Z",
+      "finishedAt": "2026-09-30T06:42:31.575371Z"
+    },
+    {
+      "callId": "180e5cce-0529-4ace-9598-cf32f7ec6e61",
+      "operationKey": "425f9a6a-db93-448d-8945-c030cd859ca5:embedding:574c025a-920f-44d9-ba15-c632bf3f6897",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 23,
+        "promptTokens": 23
+      },
+      "startedAt": "2026-09-30T06:42:31.592950Z",
+      "finishedAt": "2026-09-30T06:42:31.913596Z"
+    },
+    {
+      "callId": "7133325c-1828-4d9b-90ba-e97468bd8184",
+      "operationKey": "425f9a6a-db93-448d-8945-c030cd859ca5:generation:f4e57047-1fe6-4fe7-8f03-2b7ee82fe4db",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1750,
+        "completionTokens": 167
+      },
+      "startedAt": "2026-09-30T06:42:31.921402Z",
+      "finishedAt": "2026-09-30T06:42:41.664242Z"
+    }
+  ]
+}

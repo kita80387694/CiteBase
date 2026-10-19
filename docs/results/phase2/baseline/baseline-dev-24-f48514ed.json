@@ -1,0 +1,2162 @@
+{
+  "id": "42e7f191-d785-49fa-a7e5-3ee67b0074b5",
+  "name": "baseline-dev-24-f48514ed",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:13:26.677781916Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "harbor-025",
+          "question": "Harbor 承运人每次延迟应赔偿多少元？",
+          "answerable": false,
+          "expectedAnswer": null,
+          "evidence": [],
+          "category": "不可回答",
+          "split": "dev",
+          "group": "harbor",
+          "topic": "harbor"
+        },
+        {
+          "id": "harbor-026",
+          "question": "Harbor 值班质量官的个人手机号码是什么？",
+          "answerable": false,
+          "expectedAnswer": null,
+          "evidence": [],
+          "category": "不可回答",
+          "split": "dev",
+          "group": "harbor",
+          "topic": "harbor"
+        },
+        {
+          "id": "quartz-001",
+          "question": "Quartz 团体预约最早提前多少天开放？",
+          "answerable": true,
+          "expectedAnswer": "14天",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 2,
+              "quote": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 47,
+              "endOffset": 85,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-002",
+          "question": "Quartz 夜场团队从哪个门进入？",
+          "answerable": true,
+          "expectedAnswer": "南门",
+          "evidence": [
+            {
+              "documentName": "quartz-handbook.md",
+              "page": 1,
+              "paragraph": 15,
+              "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+              "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+              "startOffset": 801,
+              "endOffset": 838,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-003",
+          "question": "Quartz 候补团接到名额后有多久确认？",
+          "answerable": true,
+          "expectedAnswer": "45分钟",
+          "evidence": [
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 2,
+              "paragraph": 1,
+              "quote": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 113,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-004",
+          "question": "Quartz 门票扫码重复扫了，是否会再扣一个入场名额？",
+          "answerable": true,
+          "expectedAnswer": "不会，显示首次入场时间",
+          "evidence": [
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 17,
+              "paragraph": 1,
+              "quote": "Quartz rescan card: a duplicate scan shows the first entry timestamp and does\nnot consume another place.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 104,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-005",
+          "question": "Quartz 名单里把名字拼错了，订正拼写是否等于换了一个参观者？",
+          "answerable": true,
+          "expectedAnswer": "不是，仍为同一成员",
+          "evidence": [
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 5,
+              "paragraph": 1,
+              "quote": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 116,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        },
+        {
+          "id": "quartz-006",
+          "question": "Quartz 借出的耳机弄丢了，应向哪处工作人员登记？",
+          "answerable": true,
+          "expectedAnswer": "出口柜台",
+          "evidence": [
+            {
+              "documentName": "quartz-cards.pdf",
+              "page": 7,
+              "paragraph": 1,
+              "quote": "Quartz equipment card: a lost receiver is reported to the exit counter. The\noperations guide does not specify compensation.",
+              "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+              "startOffset": 0,
+              "endOffset": 123,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "quartz",
+          "topic": "quartz"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 6,
+      "recallAtK": 0.8333333333333334,
+      "mrr": 0.5972222222222222,
+      "retrievalMs": 306.125,
+      "totalMs": 4059.625,
+      "errorCount": 1
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 6,
+      "recallAtK": 0.3333333333333333,
+      "mrr": 0.3333333333333333,
+      "retrievalMs": 316.375,
+      "totalMs": 5445.875,
+      "errorCount": 1
+    }
+  },
+  "results": [
+    {
+      "id": "524f9441-45ca-4f28-af2a-597af0515b8b",
+      "question": "Harbor 承运人每次延迟应赔偿多少元？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "score": 0.6728390054202684
+        },
+        {
+          "id": "9f7271b5-7590-47aa-80c4-9713a7a8eccb",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 1062,
+          "endOffset": 1111,
+          "text": "Harbor 手册刻意不规定货品的药理效力、承运人赔偿金额或设备采购品牌；温控偏差不等于效力结论。",
+          "score": 0.5693183798004172
+        },
+        {
+          "id": "c873fce0-393e-4663-b7e8-a2238ecbd3a8",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 355,
+          "endOffset": 475,
+          "text": "Harbor 风险等级表\n| 等级 | 温度超带持续时间 | 动作 |\n| H1 | 不超过 80 秒 | 记录偏差 |\n| H2 | 超过 80 秒且不超过 240 秒 | 暂停签收 |\n| H3 | 超过 240 秒 | 隔离并复核 |",
+          "score": 0.5653104950580211
+        },
+        {
+          "id": "ae367d13-731e-46a5-ad99-36c217c12d09",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "text": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "score": 0.5606537985022308
+        },
+        {
+          "id": "f60adc21-d845-46be-8b81-946b9be75aa3",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 801,
+          "endOffset": 846,
+          "text": "Harbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。",
+          "score": 0.5528359413147012
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 300,
+      "totalMs": 2974,
+      "promptTokens": 889,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "harbor-025",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "ec2391b2-6f83-4635-bec5-067456f8bc54",
+      "question": "Harbor 承运人每次延迟应赔偿多少元？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9f7271b5-7590-47aa-80c4-9713a7a8eccb",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 1062,
+          "endOffset": 1111,
+          "text": "Harbor 手册刻意不规定货品的药理效力、承运人赔偿金额或设备采购品牌；温控偏差不等于效力结论。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "02a118f4-fd34-4da6-a99a-ce1832906c57",
+          "documentId": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+          "documentName": "harbor-cards.pdf",
+          "versionId": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "text": "Harbor special route: the island route has a 32-minute unloading reservation.\nThis reservation is not a receipt window.",
+          "score": 0.03057889822595705
+        },
+        {
+          "id": "a225427a-b416-4061-b369-443b31069c12",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 1113,
+          "endOffset": 2013,
+          "text": "Harbor 长文复盘附录：以下是虚构的跨班次事件复盘，不更改前文的正式阈值。清晨，值班员接到一辆提前到达的车辆。预约屏显示的预计时间还未到，但车头已经进入卸货区；值班员先登记实际到站时刻，再分配暂存位。他没有为了让统计更好看而把实际时间改成预约时间。第一箱的封条完好，探头证明可读，第二箱封口处有可疑折痕。两箱虽然同车到站，仍分别检查、分别记录，不能借第一箱的结论直接签收第二箱。记录员在交接单上注明看到的事实，而不将“可能运输碰撞”写成已查明的责任归属。\n复盘继续：货台的屏幕一度失去网络连接，记录员转用本地草稿。他向司机解释，屏幕里已经出现箱号不代表后台已签收；司机要求先给正式收据以便离场，记录员仍保留待核验状态。联网后，他核对原交接序号、采样序列和到站批次，发现司机手机与货台终端各传了一次同一事件。两份上传的图片文件名不同，但交接身份相同，因此系统关联已有签收单，而非再建立一个新的签收承诺。临时网络故障没有改变质检授权人，也不改变现场事实的采集时间。\n第三步，质量岗对第二箱开展人工复核。值班员先把箱子放到隔离库位，拍摄能看清封口位置和箱号的照片，避免背景里混入其他客户的运单。质量岗读取原始探头记录并查阅校准证明；司机提供运输说明，但不能自行填写质量结论。即便司机与值班员达成了口头赔偿安排，这也与质量放行是两个不同问题。复核单分别记录证据、待解释现象和最终判断，不能把未核实的说法抄成检测结论。对暂时无法解释的缺点，应保留疑点而不是删除相应采样行。\n第四步，交班人员发现温控告警已被确认，于是询问是否可以同时取消数据质量告警。上一班说明，告警确认只是有人已看到提示，既不代表偏差消失，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没",
+          "score": 0.02928692699490662
+        },
+        {
+          "id": "15b52fa4-a0fe-4184-8afb-60d421bdae07",
+          "documentId": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+          "documentName": "harbor-cards.pdf",
+          "versionId": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 102,
+          "text": "Harbor audit card: each correction event records actor, UTC time, reason, and\nthe previous receipt ID.",
+          "score": 0.027912386121341344
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 319,
+      "totalMs": 12543,
+      "promptTokens": 1398,
+      "completionTokens": 65,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "harbor-025",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "14d78ac1-8335-40f2-a6d3-18da09b54941",
+      "question": "Harbor 值班质量官的个人手机号码是什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "82bc9eef-2fe6-4511-a80e-4f4b0823411f",
+          "documentId": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+          "documentName": "harbor-cards.pdf",
+          "versionId": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 126,
+          "text": "Harbor contact card: the duty operator records a review request in the quality\nqueue; no personal phone numbers are specified.",
+          "score": 0.6690010231137897
+        },
+        {
+          "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "score": 0.6016952991485596
+        },
+        {
+          "id": "a225427a-b416-4061-b369-443b31069c12",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 1113,
+          "endOffset": 2013,
+          "text": "Harbor 长文复盘附录：以下是虚构的跨班次事件复盘，不更改前文的正式阈值。清晨，值班员接到一辆提前到达的车辆。预约屏显示的预计时间还未到，但车头已经进入卸货区；值班员先登记实际到站时刻，再分配暂存位。他没有为了让统计更好看而把实际时间改成预约时间。第一箱的封条完好，探头证明可读，第二箱封口处有可疑折痕。两箱虽然同车到站，仍分别检查、分别记录，不能借第一箱的结论直接签收第二箱。记录员在交接单上注明看到的事实，而不将“可能运输碰撞”写成已查明的责任归属。\n复盘继续：货台的屏幕一度失去网络连接，记录员转用本地草稿。他向司机解释，屏幕里已经出现箱号不代表后台已签收；司机要求先给正式收据以便离场，记录员仍保留待核验状态。联网后，他核对原交接序号、采样序列和到站批次，发现司机手机与货台终端各传了一次同一事件。两份上传的图片文件名不同，但交接身份相同，因此系统关联已有签收单，而非再建立一个新的签收承诺。临时网络故障没有改变质检授权人，也不改变现场事实的采集时间。\n第三步，质量岗对第二箱开展人工复核。值班员先把箱子放到隔离库位，拍摄能看清封口位置和箱号的照片，避免背景里混入其他客户的运单。质量岗读取原始探头记录并查阅校准证明；司机提供运输说明，但不能自行填写质量结论。即便司机与值班员达成了口头赔偿安排，这也与质量放行是两个不同问题。复核单分别记录证据、待解释现象和最终判断，不能把未核实的说法抄成检测结论。对暂时无法解释的缺点，应保留疑点而不是删除相应采样行。\n第四步，交班人员发现温控告警已被确认，于是询问是否可以同时取消数据质量告警。上一班说明，告警确认只是有人已看到提示，既不代表偏差消失，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没",
+          "score": 0.5929256081581116
+        },
+        {
+          "id": "a480126d-fcd7-4cab-977d-8b8b19ea4341",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 956,
+          "endOffset": 1002,
+          "text": "Harbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。",
+          "score": 0.5803325772285461
+        },
+        {
+          "id": "d36aa3ce-b681-4e89-a4fa-7f910464a1da",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 1004,
+          "endOffset": 1060,
+          "text": "Harbor 现场使用本地时区显示到站时间，系统交换时间统一为带 Z 后缀的 UTC；人工复核同时保存原始时区。",
+          "score": 0.5797162055969238
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 304,
+      "totalMs": 2659,
+      "promptTokens": 1393,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "harbor-026",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "32eb421d-4636-444a-a7b1-8c9334bb89b6",
+      "question": "Harbor 值班质量官的个人手机号码是什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "a225427a-b416-4061-b369-443b31069c12",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 1113,
+          "endOffset": 2013,
+          "text": "Harbor 长文复盘附录：以下是虚构的跨班次事件复盘，不更改前文的正式阈值。清晨，值班员接到一辆提前到达的车辆。预约屏显示的预计时间还未到，但车头已经进入卸货区；值班员先登记实际到站时刻，再分配暂存位。他没有为了让统计更好看而把实际时间改成预约时间。第一箱的封条完好，探头证明可读，第二箱封口处有可疑折痕。两箱虽然同车到站，仍分别检查、分别记录，不能借第一箱的结论直接签收第二箱。记录员在交接单上注明看到的事实，而不将“可能运输碰撞”写成已查明的责任归属。\n复盘继续：货台的屏幕一度失去网络连接，记录员转用本地草稿。他向司机解释，屏幕里已经出现箱号不代表后台已签收；司机要求先给正式收据以便离场，记录员仍保留待核验状态。联网后，他核对原交接序号、采样序列和到站批次，发现司机手机与货台终端各传了一次同一事件。两份上传的图片文件名不同，但交接身份相同，因此系统关联已有签收单，而非再建立一个新的签收承诺。临时网络故障没有改变质检授权人，也不改变现场事实的采集时间。\n第三步，质量岗对第二箱开展人工复核。值班员先把箱子放到隔离库位，拍摄能看清封口位置和箱号的照片，避免背景里混入其他客户的运单。质量岗读取原始探头记录并查阅校准证明；司机提供运输说明，但不能自行填写质量结论。即便司机与值班员达成了口头赔偿安排，这也与质量放行是两个不同问题。复核单分别记录证据、待解释现象和最终判断，不能把未核实的说法抄成检测结论。对暂时无法解释的缺点，应保留疑点而不是删除相应采样行。\n第四步，交班人员发现温控告警已被确认，于是询问是否可以同时取消数据质量告警。上一班说明，告警确认只是有人已看到提示，既不代表偏差消失，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "a480126d-fcd7-4cab-977d-8b8b19ea4341",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 956,
+          "endOffset": 1002,
+          "text": "Harbor 放行后的修订单必须保留原签收单号、质量岗身份和修订理由，禁止覆盖原始探头读数。",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "f60adc21-d845-46be-8b81-946b9be75aa3",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 801,
+          "endOffset": 846,
+          "text": "Harbor 人工复核由质量岗决定放行或退回，运输司机只能提交说明，不能作出质量放行决定。",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "44d49614-6a86-4db9-ae10-904144f0c84a",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 180,
+          "endOffset": 242,
+          "text": "Harbor 的 DQ 是温度数据质量状态；连续缺失 3 个采样点标记 DQ-RED，DQ-RED 的箱子必须进入人工复核。",
+          "score": 0.030309988518943745
+        },
+        {
+          "id": "2e80d70f-9d99-480e-93ea-35be2330f9cd",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 70,
+          "endOffset": 113,
+          "text": "Harbor 的交接窗口为到站后 18 分钟；超过窗口只暂停签收，不自动认定货品报废。",
+          "score": 0.02964254577157803
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 317,
+      "totalMs": 1894,
+      "promptTokens": 1383,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "harbor-026",
+      "category": "不可回答",
+      "split": "dev",
+      "group": "harbor",
+      "topic": "harbor",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "d26f54f5-a7e1-4874-a99a-cb01d137dd24",
+      "question": "Quartz 团体预约最早提前多少天开放？",
+      "answer": "根据证据，Quartz 团体预约最早在参观前 14 天开放 [fd36516b-0039-47f3-a1fa-fcbcc06332b3]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.8453188194429526
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.684105219015946
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.6634533603028467
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.6508760466388495
+        },
+        {
+          "id": "b9cb13cd-8bb3-4e25-9a32-3a950e229a4a",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 113,
+          "text": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+          "score": 0.6415879917618037
+        }
+      ],
+      "citations": [
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.8453188194429526
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 306,
+      "totalMs": 4066,
+      "promptTokens": 872,
+      "completionTokens": 40,
+      "error": null,
+      "caseId": "quartz-001",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "14天",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 47,
+          "endOffset": 85,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "c4a96ecd-dbe6-4ee1-986e-2b652635e704",
+      "question": "Quartz 团体预约最早提前多少天开放？",
+      "answer": "根据证据，Quartz 团体预约最早提前 14 天开放 [fd36516b-0039-47f3-a1fa-fcbcc06332b3]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.03021353930031804
+        },
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.03007688828584351
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.029957522915269395
+        }
+      ],
+      "citations": [
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 326,
+      "totalMs": 3071,
+      "promptTokens": 900,
+      "completionTokens": 38,
+      "error": null,
+      "caseId": "quartz-001",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "14天",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 47,
+          "endOffset": 85,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "23c1694d-e85d-456e-b70d-ced77c31b68d",
+      "question": "Quartz 夜场团队从哪个门进入？",
+      "answer": "根据证据，Quartz 夜场团队从南门进入。证据指出“Quartz 夜场不开放东门，夜场团队只走南门” [8673049f-7af7-456a-a5c8-b0e381806ecb]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.7293187702514207
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.5854342477996054
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.566674011944412
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.5549409820157019
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.5416556273904078
+        }
+      ],
+      "citations": [
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.7293187702514207
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 295,
+      "totalMs": 5071,
+      "promptTokens": 839,
+      "completionTokens": 59,
+      "error": null,
+      "caseId": "quartz-002",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "南门",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 801,
+          "endOffset": 838,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "6919bfdc-b752-4eca-9469-1b51dedf9290",
+      "question": "Quartz 夜场团队从哪个门进入？",
+      "answer": "根据证据，Quartz 夜场团队从南门进入。证据指出“Quartz 夜场不开放东门，夜场团队只走南门”[8673049f-7af7-456a-a5c8-b0e381806ecb]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "ae08f382-d20b-4a41-9f68-3440725eaa10",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 303,
+          "endOffset": 394,
+          "text": "Quartz 场次容量表\n| 场次 | 团体数上限 | 开始时间 |\n| 上午 | 8 | 09:20 |\n| 下午 | 6 | 14:10 |\n| 夜场 | 3 | 19:00 |",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.031009615384615385
+        },
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.03055037313432836
+        }
+      ],
+      "citations": [
+        {
+          "id": "8673049f-7af7-456a-a5c8-b0e381806ecb",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 801,
+          "endOffset": 838,
+          "text": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 321,
+      "totalMs": 4789,
+      "promptTokens": 880,
+      "completionTokens": 58,
+      "error": null,
+      "caseId": "quartz-002",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "南门",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-handbook.md",
+          "page": 1,
+          "paragraph": 15,
+          "quote": "Quartz 夜场不开放东门，夜场团队只走南门；下午团队可以走东门或南门。",
+          "sourceHash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+          "startOffset": 801,
+          "endOffset": 838,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f8824623-bd22-4af6-9932-5c2956217d03",
+      "question": "Quartz 候补团接到名额后有多久确认？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.6765044138732215
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.674142876369615
+        },
+        {
+          "id": "b9cb13cd-8bb3-4e25-9a32-3a950e229a4a",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 113,
+          "text": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+          "score": 0.6607869863510132
+        },
+        {
+          "id": "fd36516b-0039-47f3-a1fa-fcbcc06332b3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 47,
+          "endOffset": 85,
+          "text": "Quartz 团体预约在参观前 14 天开放，参观前 6 小时停止新增预约。",
+          "score": 0.6545011401176453
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.647753119468689
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 307,
+      "totalMs": 2176,
+      "promptTokens": 831,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-003",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "45分钟",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 2,
+          "paragraph": 1,
+          "quote": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 113,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.3333333333333333,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "7c1a8b3e-eca3-4f3c-9109-e59d5004249e",
+      "question": "Quartz 候补团接到名额后有多久确认？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.0304147465437788
+        },
+        {
+          "id": "24c6d8c9-4a42-4234-bbc4-60cd2e1666a2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 87,
+          "endOffset": 145,
+          "text": "Quartz 将 RSVP 定义为预约确认回执；预约申请编号并不是 RSVP，未收到 RSVP 的申请不占正式名额。",
+          "score": 0.030158730158730156
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.029726775956284153
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.028371628371628373
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 311,
+      "totalMs": 2597,
+      "promptTokens": 872,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-003",
+      "category": "事实",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "45分钟",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 2,
+          "paragraph": 1,
+          "quote": "Quartz waitlist card: a released place is offered to the earliest eligible\ngroup, which has 45 minutes to accept.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 113,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f682fc67-71bf-4ac3-b96e-3233af719a35",
+      "question": "Quartz 门票扫码重复扫了，是否会再扣一个入场名额？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.7355899810791016
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.6978121164069087
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.6598314046859741
+        },
+        {
+          "id": "db934052-b472-492c-a4a6-52169e244173",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 120,
+          "text": "Quartz transfer card: moving a confirmed group to another session requires a\nnew RSVP and invalidates the old scan code.",
+          "score": 0.6290166599144553
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.6251245513632637
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 292,
+      "totalMs": 2926,
+      "promptTokens": 831,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-004",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不会，显示首次入场时间",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 17,
+          "paragraph": 1,
+          "quote": "Quartz rescan card: a duplicate scan shows the first entry timestamp and does\nnot consume another place.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 104,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f5b84aaf-7151-43af-8bd5-9d2af7a937bb",
+      "question": "Quartz 门票扫码重复扫了，是否会再扣一个入场名额？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.029827662395050816
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.029726775956284153
+        },
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.029273504273504274
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.028531243721117136
+        },
+        {
+          "id": "39877510-50b4-443a-96c8-0f82d47ba6d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 682,
+          "endOffset": 722,
+          "text": "Quartz 团体迟到不自动顺延到下一场，预约岗只能在下一场仍有余量时办理迁移。",
+          "score": 0.028371628371628373
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 309,
+      "totalMs": 6373,
+      "promptTokens": 866,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-004",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不会，显示首次入场时间",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 17,
+          "paragraph": 1,
+          "quote": "Quartz rescan card: a duplicate scan shows the first entry timestamp and does\nnot consume another place.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 104,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "de2c851a-761c-40ab-9ca2-adfa8f2765a6",
+      "question": "Quartz 名单里把名字拼错了，订正拼写是否等于换了一个参观者？",
+      "answer": "根据证据，订正拼写不等于换了一个参观者。证据指出：“Quartz name correction: a spelling correction keeps the same member identity; replacing a person is a roster change.” [fdcbdf70-60be-4f31-a868-e53f69af89ac]。这表明拼写更正保持成员身份不变，而更换人员则属于名单变更。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "fdcbdf70-60be-4f31-a868-e53f69af89ac",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+          "score": 0.6919537966278925
+        },
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.6437656879425049
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.6262675710400218
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.6107281446456909
+        },
+        {
+          "id": "db934052-b472-492c-a4a6-52169e244173",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 120,
+          "text": "Quartz transfer card: moving a confirmed group to another session requires a\nnew RSVP and invalidates the old scan code.",
+          "score": 0.6052130696050494
+        }
+      ],
+      "citations": [
+        {
+          "id": "fdcbdf70-60be-4f31-a868-e53f69af89ac",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 116,
+          "text": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+          "score": 0.6919537966278925
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 285,
+      "totalMs": 5526,
+      "promptTokens": 841,
+      "completionTokens": 78,
+      "error": null,
+      "caseId": "quartz-005",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不是，仍为同一成员",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 5,
+          "paragraph": 1,
+          "quote": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "34e2387e-15d0-415d-b616-383c5b83d807",
+      "question": "Quartz 名单里把名字拼错了，订正拼写是否等于换了一个参观者？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ec86b62-fe3a-47b6-a986-cf6d1495845e",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 636,
+          "endOffset": 680,
+          "text": "Quartz 场次二维码只说明场次，不证明成员资格；门岗仍需匹配团体名单和个人核验记录。",
+          "score": 0.030834914611005692
+        },
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.029957522915269395
+        },
+        {
+          "id": "d1403318-7a75-4d70-aca7-e99dcb94f9df",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 147,
+          "endOffset": 198,
+          "text": "Quartz 将 GSL 定义为团体名单锁定状态；进入 GSL 后不能自助增加成员，只能由预约岗审核。",
+          "score": 0.029211087420042643
+        },
+        {
+          "id": "52fd7300-3ecd-4690-b421-72ba4be5ef76",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 45,
+          "text": "Quartz 展馆每个参观团最多 24 人；随团讲解员计入人数，未入馆的驾驶员不计入人数。",
+          "score": 0.029138513513513514
+        },
+        {
+          "id": "de570764-48dd-4c5c-8b4d-f65b537b3972",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 764,
+          "endOffset": 799,
+          "text": "Quartz 禁止为了绕开人数限制把同一已确认团队复制成多份相同名单。",
+          "score": 0.02904040404040404
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 312,
+      "totalMs": 2560,
+      "promptTokens": 845,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-005",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不是，仍为同一成员",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 5,
+          "paragraph": 1,
+          "quote": "Quartz name correction: a spelling correction keeps the same member identity;\nreplacing a person is a roster change.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 116,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "00af6b47-2168-4047-9791-54624433a278",
+      "question": "Quartz 借出的耳机弄丢了，应向哪处工作人员登记？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d28a66f3-7f7a-4018-a1c3-407fa9b9f9b9",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 248,
+          "endOffset": 301,
+          "text": "Quartz 名单中必须有一位成年联系人；联系人缺席时必须先指定替代联系人，不能让无人负责的团队直接入馆。",
+          "score": 0.6369476481613705
+        },
+        {
+          "id": "05098238-0a43-43f0-98e7-3b59a1c23e98",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 488,
+          "endOffset": 582,
+          "text": "Quartz 设备借用表\n| 设备 | 单团上限 | 归还处 |\n| 接收耳机 | 24 | 出口柜台 |\n| 无障碍平板 | 2 | 服务台 |\n| 讲解发射器 | 1 | 出口柜台 |",
+          "score": 0.6338831941942219
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.60755603977049
+        },
+        {
+          "id": "917d2af5-7bfa-4b37-898e-eabb39dce3f9",
+          "documentId": "e12a1139-a39c-49f7-9e41-7735c7189244",
+          "documentName": "quartz-cards.pdf",
+          "versionId": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "text": "Quartz equipment card: a lost receiver is reported to the exit counter. The\noperations guide does not specify compensation.",
+          "score": 0.6044937912667231
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.5997627198766982
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 360,
+      "totalMs": 7079,
+      "promptTokens": 878,
+      "completionTokens": 122,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "quartz-006",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "出口柜台",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Quartz equipment card: a lost receiver is reported to the exit counter. The\noperations guide does not specify compensation.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 123,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d87b7963-3187-4837-9e89-4d75d5f57972",
+      "question": "Quartz 借出的耳机弄丢了，应向哪处工作人员登记？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "05098238-0a43-43f0-98e7-3b59a1c23e98",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 488,
+          "endOffset": 582,
+          "text": "Quartz 设备借用表\n| 设备 | 单团上限 | 归还处 |\n| 接收耳机 | 24 | 出口柜台 |\n| 无障碍平板 | 2 | 服务台 |\n| 讲解发射器 | 1 | 出口柜台 |",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "44761950-529e-42e4-a03a-0a7d8d1e13d3",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 724,
+          "endOffset": 762,
+          "text": "Quartz 儿童团必须由登记联系人全程带队，讲解员不自动承担监护人的角色。",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "038d24bf-f94f-42b9-98ae-ae424b92e2d1",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 840,
+          "endOffset": 885,
+          "text": "Quartz 无障碍路线从南门进入，经一层坡道到达展厅；提前在预约单勾选需求便于安排设备。",
+          "score": 0.029857397504456328
+        },
+        {
+          "id": "10ab13b0-8efa-47e6-a567-a066a5ad8ad2",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 200,
+          "endOffset": 246,
+          "text": "Quartz 入口扫描码有效期为首位成员入馆后 35 分钟，后到成员须在这段时间内核验名单。",
+          "score": 0.02967032967032967
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.029030910609857977
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 316,
+      "totalMs": 9740,
+      "promptTokens": 869,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "quartz-006",
+      "category": "同义",
+      "split": "dev",
+      "group": "quartz",
+      "topic": "quartz",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "出口柜台",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "quartz-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Quartz equipment card: a lost receiver is reported to the exit counter. The\noperations guide does not specify compensation.",
+          "sourceHash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+          "startOffset": 0,
+          "endOffset": 123,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "不可回答": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 302,
+          "totalMs": 2816.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 318,
+          "totalMs": 7218.5
+        }
+      },
+      "事实": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.7777777777777778,
+          "retrievalMs": 302.6666666666667,
+          "totalMs": 3771
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0.6666666666666666,
+          "mrr": 0.6666666666666666,
+          "retrievalMs": 319.3333333333333,
+          "totalMs": 3485.6666666666665
+        }
+      },
+      "同义": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 1,
+          "recallAtK": 0.6666666666666666,
+          "mrr": 0.4166666666666667,
+          "retrievalMs": 312.3333333333333,
+          "totalMs": 5177
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": 312.3333333333333,
+          "totalMs": 6224.333333333333
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5972222222222222,
+          "retrievalMs": 306.125,
+          "totalMs": 4059.625
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "retrievalMs": 316.375,
+          "totalMs": 5445.875
+        }
+      }
+    },
+    "group": {
+      "harbor": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 302,
+          "totalMs": 2816.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 318,
+          "totalMs": 7218.5
+        }
+      },
+      "quartz": {
+        "vector": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5972222222222222,
+          "retrievalMs": 307.5,
+          "totalMs": 4474
+        },
+        "hybrid": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 0,
+          "recallAtK": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "retrievalMs": 315.8333333333333,
+          "totalMs": 4855
+        }
+      }
+    },
+    "topic": {
+      "harbor": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 302,
+          "totalMs": 2816.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 1,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 318,
+          "totalMs": 7218.5
+        }
+      },
+      "quartz": {
+        "vector": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5972222222222222,
+          "retrievalMs": 307.5,
+          "totalMs": 4474
+        },
+        "hybrid": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 0,
+          "recallAtK": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "retrievalMs": 315.8333333333333,
+          "totalMs": 4855
+        }
+      }
+    }
+  }
+}

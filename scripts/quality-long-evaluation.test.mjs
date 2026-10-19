@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {dataset,verifyCheckpoints} from './quality-long-evaluation-scenarios.mjs';
+test('long fixture has forty unique stable labelled questions',()=>{const q=dataset().questions;assert.equal(q.length,40);assert.equal(new Set(q.map(x=>x.id)).size,40);assert(q.every(x=>x.evidence[0].paragraph===1&&x.evidence[0].quote));});
+test('checkpoint comparison rejects loss and mutation',()=>{const a=[{case_id:'a',mode:'vector',resultHash:'original'}];verifyCheckpoints(a,[...a,{case_id:'b',mode:'hybrid',resultHash:'next'}]);assert.throws(()=>verifyCheckpoints(a,[]));assert.throws(()=>verifyCheckpoints(a,[{...a[0],resultHash:'changed'}]));});

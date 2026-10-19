@@ -1,0 +1,2120 @@
+{
+  "id": "2737dec8-9447-418d-b23c-f9587f80c581",
+  "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-13-candidate",
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-13-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Aster 种子在南方每亩能增产多少公斤？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 5,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "dataVersions": [
+      {
+        "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+        "name": "elm-a.md",
+        "chunk_size": 900,
+        "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+        "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+        "name": "cobalt-a.md",
+        "chunk_size": 900,
+        "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+        "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+        "name": "cobalt-b.md",
+        "chunk_size": 900,
+        "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+        "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+        "name": "dahlia-a.md",
+        "chunk_size": 900,
+        "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+        "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+        "name": "dahlia-b.md",
+        "chunk_size": 900,
+        "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+        "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+        "name": "brass-a.md",
+        "chunk_size": 900,
+        "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+        "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+        "name": "flint-b.md",
+        "chunk_size": 900,
+        "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+        "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+        "name": "aster-b.md",
+        "chunk_size": 900,
+        "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+        "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+        "name": "flint-a.md",
+        "chunk_size": 900,
+        "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+        "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "d140608e-691c-499b-aff9-f05da99336dd",
+        "name": "elm-b.md",
+        "chunk_size": 900,
+        "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+        "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+        "name": "aster-a.md",
+        "chunk_size": 900,
+        "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+        "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      },
+      {
+        "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+        "name": "brass-b.md",
+        "chunk_size": 900,
+        "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+        "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+        "chunk_overlap": 200,
+        "chunk_strategy": "structure-v1"
+      }
+    ],
+    "retrievalCost": {
+      "cache": {
+        "scope": "process-local",
+        "version": "authorized-retrieval-v1",
+        "maxBytes": 8000000,
+        "maxEntries": 128,
+        "ttlSeconds": 300
+      },
+      "version": "retrieval-cost-v1",
+      "deduplicate": false,
+      "cacheEnabled": false,
+      "rerankPolicy": "candidate-pressure-v1",
+      "dedupAlgorithm": "exact-provider-input-expand-v1"
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention"
+  },
+  "results": [
+    {
+      "id": "5110a986-e2c4-41ae-be87-f7e286415d58",
+      "mrr": null,
+      "mode": "vector",
+      "error": null,
+      "group": "aster",
+      "split": "test",
+      "topic": "aster",
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 16,
+          "promptTokens": 16
+        }
+      },
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "ci-13-0",
+      "totalMs": 2522,
+      "category": "不可回答",
+      "evidence": [
+        {
+          "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+          "page": 1,
+          "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "score": 0.6715743942007073,
+          "endOffset": 377,
+          "paragraph": 1,
+          "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+          "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+          "startOffset": 0,
+          "documentName": "aster-a.md"
+        },
+        {
+          "id": "3343070e-4fec-4604-8469-1b9690db2254",
+          "page": 1,
+          "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+          "score": 0.5877253062888808,
+          "endOffset": 257,
+          "paragraph": 1,
+          "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+          "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+          "startOffset": 0,
+          "documentName": "aster-b.md"
+        },
+        {
+          "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.3497081995010376,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+          "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.2792600226843349,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+          "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.27857688069343567,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+          "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "question": "Aster 种子在南方每亩能增产多少公斤？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "diagnostics": {
+        "cost": {
+          "cache": {
+            "scope": "EVALUATION_SNAPSHOT",
+            "config": {
+              "scope": "process-local",
+              "version": "authorized-retrieval-v1",
+              "maxBytes": 8000000,
+              "maxEntries": 128,
+              "ttlSeconds": 300
+            },
+            "status": "OFF"
+          },
+          "dedupMapping": [
+            {
+              "index": 0,
+              "chunkIds": [
+                "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a"
+              ]
+            },
+            {
+              "index": 1,
+              "chunkIds": [
+                "3343070e-4fec-4604-8469-1b9690db2254"
+              ]
+            },
+            {
+              "index": 2,
+              "chunkIds": [
+                "b114e3fd-9684-4e24-81db-bb9801b9fbb5"
+              ]
+            },
+            {
+              "index": 3,
+              "chunkIds": [
+                "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+              ]
+            },
+            {
+              "index": 4,
+              "chunkIds": [
+                "54f1dbd2-6bf3-4bed-8844-d256ecbb483c"
+              ]
+            }
+          ],
+          "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+          "rawCandidateCount": 5,
+          "uniqueRerankInputs": 5,
+          "currentProviderCalls": {
+            "rerank": 0,
+            "embedding": 1
+          },
+          "savedInputCharacters": 0
+        },
+        "trace": {
+          "fused": [
+            {
+              "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+              "page": 1,
+              "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "score": 0.6715743942007073,
+              "endOffset": 377,
+              "paragraph": 1,
+              "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "id": "3343070e-4fec-4604-8469-1b9690db2254",
+              "page": 1,
+              "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "score": 0.5877253062888808,
+              "endOffset": 257,
+              "paragraph": 1,
+              "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "startOffset": 0,
+              "documentName": "aster-b.md"
+            },
+            {
+              "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+              "page": 1,
+              "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+              "score": 0.3497081995010376,
+              "endOffset": 298,
+              "paragraph": 1,
+              "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "startOffset": 0,
+              "documentName": "elm-a.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.2792600226843349,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+              "page": 1,
+              "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+              "score": 0.27857688069343567,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "startOffset": 0,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+              "page": 1,
+              "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "score": 0.6715743942007073,
+              "endOffset": 377,
+              "paragraph": 1,
+              "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "id": "3343070e-4fec-4604-8469-1b9690db2254",
+              "page": 1,
+              "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "score": 0.5877253062888808,
+              "endOffset": 257,
+              "paragraph": 1,
+              "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "startOffset": 0,
+              "documentName": "aster-b.md"
+            },
+            {
+              "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+              "page": 1,
+              "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+              "score": 0.3497081995010376,
+              "endOffset": 298,
+              "paragraph": 1,
+              "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "startOffset": 0,
+              "documentName": "elm-a.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.2792600226843349,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+              "page": 1,
+              "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+              "score": 0.27857688069343567,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "startOffset": 0,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "keyword": []
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 1,
+          "keywordMs": 0,
+          "citationMs": 0,
+          "embeddingMs": 100,
+          "generationMs": 2419
+        },
+        "aliasMap": {},
+        "rawAnswer": "无法根据当前资料回答：证据不足。",
+        "dataVersions": [
+          {
+            "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "name": "elm-a.md",
+            "chunk_size": 900,
+            "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+            "name": "cobalt-a.md",
+            "chunk_size": 900,
+            "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+            "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "name": "cobalt-b.md",
+            "chunk_size": 900,
+            "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "name": "dahlia-a.md",
+            "chunk_size": 900,
+            "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+            "name": "dahlia-b.md",
+            "chunk_size": 900,
+            "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+            "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+            "name": "brass-a.md",
+            "chunk_size": 900,
+            "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+            "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "name": "flint-b.md",
+            "chunk_size": 900,
+            "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "name": "aster-b.md",
+            "chunk_size": 900,
+            "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "name": "flint-a.md",
+            "chunk_size": 900,
+            "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d140608e-691c-499b-aff9-f05da99336dd",
+            "name": "elm-b.md",
+            "chunk_size": 900,
+            "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "name": "aster-a.md",
+            "chunk_size": 900,
+            "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+            "name": "brass-b.md",
+            "chunk_size": 900,
+            "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+            "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 5,
+          "vector": 5,
+          "keyword": 0,
+          "selected": 5,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": false,
+      "retrievalMs": 102,
+      "promptTokens": 1733,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": 9,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": true,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    },
+    {
+      "id": "84754164-0452-4699-b75e-32001ce89bfa",
+      "mrr": null,
+      "mode": "hybrid",
+      "error": null,
+      "group": "aster",
+      "split": "test",
+      "topic": "aster",
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 16,
+          "promptTokens": 16
+        }
+      },
+      "answer": "无法根据当前资料回答：证据不足。",
+      "caseId": "ci-13-0",
+      "totalMs": 4112,
+      "category": "不可回答",
+      "evidence": [
+        {
+          "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+          "page": 1,
+          "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+          "score": 0.03278688524590164,
+          "endOffset": 377,
+          "paragraph": 1,
+          "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+          "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+          "startOffset": 0,
+          "documentName": "aster-a.md"
+        },
+        {
+          "id": "3343070e-4fec-4604-8469-1b9690db2254",
+          "page": 1,
+          "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+          "score": 0.03225806451612903,
+          "endOffset": 257,
+          "paragraph": 1,
+          "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+          "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+          "startOffset": 0,
+          "documentName": "aster-b.md"
+        },
+        {
+          "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+          "page": 1,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+          "score": 0.015873015873015872,
+          "endOffset": 298,
+          "paragraph": 1,
+          "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+          "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+          "startOffset": 0,
+          "documentName": "elm-a.md"
+        },
+        {
+          "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+          "page": 1,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "score": 0.015625,
+          "endOffset": 259,
+          "paragraph": 1,
+          "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+          "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+          "startOffset": 0,
+          "documentName": "elm-b.md"
+        },
+        {
+          "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+          "page": 1,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+          "score": 0.015384615384615385,
+          "endOffset": 313,
+          "paragraph": 1,
+          "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+          "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+          "startOffset": 0,
+          "documentName": "dahlia-a.md"
+        }
+      ],
+      "question": "Aster 种子在南方每亩能增产多少公斤？",
+      "abstained": true,
+      "citations": [],
+      "modelMode": "real",
+      "recallAtK": null,
+      "answerable": false,
+      "diagnostics": {
+        "cost": {
+          "cache": {
+            "scope": "EVALUATION_SNAPSHOT",
+            "config": {
+              "scope": "process-local",
+              "version": "authorized-retrieval-v1",
+              "maxBytes": 8000000,
+              "maxEntries": 128,
+              "ttlSeconds": 300
+            },
+            "status": "OFF"
+          },
+          "dedupMapping": [
+            {
+              "index": 0,
+              "chunkIds": [
+                "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a"
+              ]
+            },
+            {
+              "index": 1,
+              "chunkIds": [
+                "3343070e-4fec-4604-8469-1b9690db2254"
+              ]
+            },
+            {
+              "index": 2,
+              "chunkIds": [
+                "b114e3fd-9684-4e24-81db-bb9801b9fbb5"
+              ]
+            },
+            {
+              "index": 3,
+              "chunkIds": [
+                "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+              ]
+            },
+            {
+              "index": 4,
+              "chunkIds": [
+                "54f1dbd2-6bf3-4bed-8844-d256ecbb483c"
+              ]
+            }
+          ],
+          "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+          "rawCandidateCount": 5,
+          "uniqueRerankInputs": 5,
+          "currentProviderCalls": {
+            "rerank": 0,
+            "embedding": 1
+          },
+          "savedInputCharacters": 0
+        },
+        "trace": {
+          "fused": [
+            {
+              "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+              "page": 1,
+              "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "score": 0.03278688524590164,
+              "endOffset": 377,
+              "paragraph": 1,
+              "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "id": "3343070e-4fec-4604-8469-1b9690db2254",
+              "page": 1,
+              "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "score": 0.03225806451612903,
+              "endOffset": 257,
+              "paragraph": 1,
+              "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "startOffset": 0,
+              "documentName": "aster-b.md"
+            },
+            {
+              "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+              "page": 1,
+              "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+              "score": 0.015873015873015872,
+              "endOffset": 298,
+              "paragraph": 1,
+              "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "startOffset": 0,
+              "documentName": "elm-a.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.015625,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+              "page": 1,
+              "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+              "score": 0.015384615384615385,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "startOffset": 0,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "rerank": [],
+          "vector": [
+            {
+              "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+              "page": 1,
+              "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "score": 0.6715743942007073,
+              "endOffset": 377,
+              "paragraph": 1,
+              "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "id": "3343070e-4fec-4604-8469-1b9690db2254",
+              "page": 1,
+              "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "score": 0.5877253062888808,
+              "endOffset": 257,
+              "paragraph": 1,
+              "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "startOffset": 0,
+              "documentName": "aster-b.md"
+            },
+            {
+              "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+              "page": 1,
+              "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+              "score": 0.3497081995010376,
+              "endOffset": 298,
+              "paragraph": 1,
+              "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "startOffset": 0,
+              "documentName": "elm-a.md"
+            },
+            {
+              "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+              "page": 1,
+              "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+              "score": 0.2792600226843349,
+              "endOffset": 259,
+              "paragraph": 1,
+              "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+              "startOffset": 0,
+              "documentName": "elm-b.md"
+            },
+            {
+              "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+              "page": 1,
+              "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+              "score": 0.27857688069343567,
+              "endOffset": 313,
+              "paragraph": 1,
+              "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "startOffset": 0,
+              "documentName": "dahlia-a.md"
+            }
+          ],
+          "keyword": [
+            {
+              "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+              "page": 1,
+              "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "score": 0.8,
+              "endOffset": 377,
+              "paragraph": 1,
+              "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "id": "3343070e-4fec-4604-8469-1b9690db2254",
+              "page": 1,
+              "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+              "score": 0.6,
+              "endOffset": 257,
+              "paragraph": 1,
+              "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "startOffset": 0,
+              "documentName": "aster-b.md"
+            }
+          ]
+        },
+        "timings": {
+          "fusionMs": 0,
+          "rerankMs": 0,
+          "vectorMs": 1,
+          "keywordMs": 3,
+          "citationMs": 0,
+          "embeddingMs": 102,
+          "generationMs": 4003
+        },
+        "aliasMap": {},
+        "rawAnswer": "无法根据当前资料回答：证据不足。",
+        "dataVersions": [
+          {
+            "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "name": "elm-a.md",
+            "chunk_size": 900,
+            "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+            "name": "cobalt-a.md",
+            "chunk_size": 900,
+            "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+            "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+            "name": "cobalt-b.md",
+            "chunk_size": 900,
+            "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+            "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "name": "dahlia-a.md",
+            "chunk_size": 900,
+            "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+            "name": "dahlia-b.md",
+            "chunk_size": 900,
+            "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+            "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+            "name": "brass-a.md",
+            "chunk_size": 900,
+            "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+            "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+            "name": "flint-b.md",
+            "chunk_size": 900,
+            "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+            "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "name": "aster-b.md",
+            "chunk_size": 900,
+            "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+            "name": "flint-a.md",
+            "chunk_size": 900,
+            "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+            "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d140608e-691c-499b-aff9-f05da99336dd",
+            "name": "elm-b.md",
+            "chunk_size": 900,
+            "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "name": "aster-a.md",
+            "chunk_size": 900,
+            "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          },
+          {
+            "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+            "name": "brass-b.md",
+            "chunk_size": 900,
+            "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+            "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+            "chunk_overlap": 200,
+            "chunk_strategy": "structure-v1"
+          }
+        ],
+        "candidateCounts": {
+          "fused": 5,
+          "vector": 5,
+          "keyword": 2,
+          "selected": 5,
+          "rerankInput": 0
+        }
+      },
+      "evidenceHit": false,
+      "retrievalMs": 108,
+      "promptTokens": 1729,
+      "answerCorrect": null,
+      "citationValid": true,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "completionTokens": 9,
+      "expectedEvidence": [],
+      "retrievalOptions": {
+        "rerank": true,
+        "candidateK": 5,
+        "rerankPolicy": "candidate-pressure-v1",
+        "citationStyle": "uuid",
+        "keywordWeight": 1
+      },
+      "abstentionCorrect": true,
+      "evidenceGroupCount": 0,
+      "referenceAnswerMatch": null,
+      "hitEvidenceGroupCount": 0,
+      "manualScore": null
+    }
+  ],
+  "createdAt": "2026-10-10T13:06:21.183627755Z",
+  "modelMode": "real",
+  "metricDefinitionVersion": "grouped-evidence-v2-error-aware-abstention",
+  "status": "SUCCEEDED",
+  "taskStatus": "SUCCEEDED",
+  "taskId": "2737dec8-9447-418d-b23c-f9587f80c581",
+  "progress": {
+    "total": 2,
+    "completed": 2,
+    "failed": 0,
+    "unit": "question_modes"
+  },
+  "pendingItems": [],
+  "partial": false,
+  "canScore": true,
+  "error": null,
+  "attempts": [
+    {
+      "id": "a8f5a07f-e3bd-4f1a-a4d0-a0e86ccb1834",
+      "case_id": "ci-13-0",
+      "mode": "vector",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "5110a986-e2c4-41ae-be87-f7e286415d58",
+        "mrr": null,
+        "mode": "vector",
+        "error": null,
+        "group": "aster",
+        "split": "test",
+        "topic": "aster",
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        "answer": "无法根据当前资料回答：证据不足。",
+        "caseId": "ci-13-0",
+        "totalMs": 2522,
+        "category": "不可回答",
+        "evidence": [
+          {
+            "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+            "page": 1,
+            "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+            "score": 0.6715743942007073,
+            "endOffset": 377,
+            "paragraph": 1,
+            "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "startOffset": 0,
+            "documentName": "aster-a.md"
+          },
+          {
+            "id": "3343070e-4fec-4604-8469-1b9690db2254",
+            "page": 1,
+            "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+            "score": 0.5877253062888808,
+            "endOffset": 257,
+            "paragraph": 1,
+            "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "startOffset": 0,
+            "documentName": "aster-b.md"
+          },
+          {
+            "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+            "page": 1,
+            "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+            "score": 0.3497081995010376,
+            "endOffset": 298,
+            "paragraph": 1,
+            "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "startOffset": 0,
+            "documentName": "elm-a.md"
+          },
+          {
+            "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+            "page": 1,
+            "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+            "score": 0.2792600226843349,
+            "endOffset": 259,
+            "paragraph": 1,
+            "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+            "startOffset": 0,
+            "documentName": "elm-b.md"
+          },
+          {
+            "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+            "page": 1,
+            "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+            "score": 0.27857688069343567,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "startOffset": 0,
+            "documentName": "dahlia-a.md"
+          }
+        ],
+        "question": "Aster 种子在南方每亩能增产多少公斤？",
+        "abstained": true,
+        "citations": [],
+        "modelMode": "real",
+        "recallAtK": null,
+        "answerable": false,
+        "diagnostics": {
+          "cost": {
+            "cache": {
+              "scope": "EVALUATION_SNAPSHOT",
+              "config": {
+                "scope": "process-local",
+                "version": "authorized-retrieval-v1",
+                "maxBytes": 8000000,
+                "maxEntries": 128,
+                "ttlSeconds": 300
+              },
+              "status": "OFF"
+            },
+            "dedupMapping": [
+              {
+                "index": 0,
+                "chunkIds": [
+                  "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a"
+                ]
+              },
+              {
+                "index": 1,
+                "chunkIds": [
+                  "3343070e-4fec-4604-8469-1b9690db2254"
+                ]
+              },
+              {
+                "index": 2,
+                "chunkIds": [
+                  "b114e3fd-9684-4e24-81db-bb9801b9fbb5"
+                ]
+              },
+              {
+                "index": 3,
+                "chunkIds": [
+                  "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+                ]
+              },
+              {
+                "index": 4,
+                "chunkIds": [
+                  "54f1dbd2-6bf3-4bed-8844-d256ecbb483c"
+                ]
+              }
+            ],
+            "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+            "rawCandidateCount": 5,
+            "uniqueRerankInputs": 5,
+            "currentProviderCalls": {
+              "rerank": 0,
+              "embedding": 1
+            },
+            "savedInputCharacters": 0
+          },
+          "trace": {
+            "fused": [
+              {
+                "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+                "page": 1,
+                "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+                "score": 0.6715743942007073,
+                "endOffset": 377,
+                "paragraph": 1,
+                "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+                "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+                "startOffset": 0,
+                "documentName": "aster-a.md"
+              },
+              {
+                "id": "3343070e-4fec-4604-8469-1b9690db2254",
+                "page": 1,
+                "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+                "score": 0.5877253062888808,
+                "endOffset": 257,
+                "paragraph": 1,
+                "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+                "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+                "startOffset": 0,
+                "documentName": "aster-b.md"
+              },
+              {
+                "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+                "page": 1,
+                "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+                "score": 0.3497081995010376,
+                "endOffset": 298,
+                "paragraph": 1,
+                "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+                "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+                "startOffset": 0,
+                "documentName": "elm-a.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.2792600226843349,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+                "page": 1,
+                "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+                "score": 0.27857688069343567,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+                "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+                "startOffset": 0,
+                "documentName": "dahlia-a.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+                "page": 1,
+                "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+                "score": 0.6715743942007073,
+                "endOffset": 377,
+                "paragraph": 1,
+                "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+                "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+                "startOffset": 0,
+                "documentName": "aster-a.md"
+              },
+              {
+                "id": "3343070e-4fec-4604-8469-1b9690db2254",
+                "page": 1,
+                "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+                "score": 0.5877253062888808,
+                "endOffset": 257,
+                "paragraph": 1,
+                "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+                "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+                "startOffset": 0,
+                "documentName": "aster-b.md"
+              },
+              {
+                "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+                "page": 1,
+                "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+                "score": 0.3497081995010376,
+                "endOffset": 298,
+                "paragraph": 1,
+                "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+                "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+                "startOffset": 0,
+                "documentName": "elm-a.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.2792600226843349,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+                "page": 1,
+                "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+                "score": 0.27857688069343567,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+                "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+                "startOffset": 0,
+                "documentName": "dahlia-a.md"
+              }
+            ],
+            "keyword": []
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 1,
+            "keywordMs": 0,
+            "citationMs": 0,
+            "embeddingMs": 100,
+            "generationMs": 2419
+          },
+          "aliasMap": {},
+          "rawAnswer": "无法根据当前资料回答：证据不足。",
+          "dataVersions": [
+            {
+              "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "name": "elm-a.md",
+              "chunk_size": 900,
+              "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+              "name": "cobalt-a.md",
+              "chunk_size": 900,
+              "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+              "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "name": "cobalt-b.md",
+              "chunk_size": 900,
+              "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "name": "dahlia-a.md",
+              "chunk_size": 900,
+              "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "name": "dahlia-b.md",
+              "chunk_size": 900,
+              "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "name": "brass-a.md",
+              "chunk_size": 900,
+              "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "name": "flint-b.md",
+              "chunk_size": 900,
+              "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "name": "aster-b.md",
+              "chunk_size": 900,
+              "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "name": "flint-a.md",
+              "chunk_size": 900,
+              "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d140608e-691c-499b-aff9-f05da99336dd",
+              "name": "elm-b.md",
+              "chunk_size": 900,
+              "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "name": "aster-a.md",
+              "chunk_size": 900,
+              "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+              "name": "brass-b.md",
+              "chunk_size": 900,
+              "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+              "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 5,
+            "vector": 5,
+            "keyword": 0,
+            "selected": 5,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": false,
+        "retrievalMs": 102,
+        "promptTokens": 1733,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": false,
+        "expectedAnswer": null,
+        "completionTokens": 9,
+        "expectedEvidence": [],
+        "retrievalOptions": {
+          "rerank": true,
+          "candidateK": 5,
+          "rerankPolicy": "candidate-pressure-v1",
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": true,
+        "evidenceGroupCount": 0,
+        "referenceAnswerMatch": null,
+        "hitEvidenceGroupCount": 0
+      },
+      "started_at": "2026-10-10T13:06:21.511685+00:00",
+      "finished_at": "2026-10-10T13:06:24.043241+00:00"
+    },
+    {
+      "id": "3be572f1-8c19-4d2b-9b7f-60a8f4cfe2d5",
+      "case_id": "ci-13-0",
+      "mode": "hybrid",
+      "attempt_number": 1,
+      "fencing_token": 1,
+      "status": "COMPLETED",
+      "error_code": null,
+      "result": {
+        "id": "84754164-0452-4699-b75e-32001ce89bfa",
+        "mrr": null,
+        "mode": "hybrid",
+        "error": null,
+        "group": "aster",
+        "split": "test",
+        "topic": "aster",
+        "usage": {
+          "rerank": null,
+          "embedding": {
+            "totalTokens": 16,
+            "promptTokens": 16
+          }
+        },
+        "answer": "无法根据当前资料回答：证据不足。",
+        "caseId": "ci-13-0",
+        "totalMs": 4112,
+        "category": "不可回答",
+        "evidence": [
+          {
+            "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+            "page": 1,
+            "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+            "score": 0.03278688524590164,
+            "endOffset": 377,
+            "paragraph": 1,
+            "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+            "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+            "startOffset": 0,
+            "documentName": "aster-a.md"
+          },
+          {
+            "id": "3343070e-4fec-4604-8469-1b9690db2254",
+            "page": 1,
+            "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+            "score": 0.03225806451612903,
+            "endOffset": 257,
+            "paragraph": 1,
+            "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+            "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+            "startOffset": 0,
+            "documentName": "aster-b.md"
+          },
+          {
+            "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+            "page": 1,
+            "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+            "score": 0.015873015873015872,
+            "endOffset": 298,
+            "paragraph": 1,
+            "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+            "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+            "startOffset": 0,
+            "documentName": "elm-a.md"
+          },
+          {
+            "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+            "page": 1,
+            "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+            "score": 0.015625,
+            "endOffset": 259,
+            "paragraph": 1,
+            "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+            "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+            "startOffset": 0,
+            "documentName": "elm-b.md"
+          },
+          {
+            "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+            "page": 1,
+            "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+            "score": 0.015384615384615385,
+            "endOffset": 313,
+            "paragraph": 1,
+            "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+            "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+            "startOffset": 0,
+            "documentName": "dahlia-a.md"
+          }
+        ],
+        "question": "Aster 种子在南方每亩能增产多少公斤？",
+        "abstained": true,
+        "citations": [],
+        "modelMode": "real",
+        "recallAtK": null,
+        "answerable": false,
+        "diagnostics": {
+          "cost": {
+            "cache": {
+              "scope": "EVALUATION_SNAPSHOT",
+              "config": {
+                "scope": "process-local",
+                "version": "authorized-retrieval-v1",
+                "maxBytes": 8000000,
+                "maxEntries": 128,
+                "ttlSeconds": 300
+              },
+              "status": "OFF"
+            },
+            "dedupMapping": [
+              {
+                "index": 0,
+                "chunkIds": [
+                  "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a"
+                ]
+              },
+              {
+                "index": 1,
+                "chunkIds": [
+                  "3343070e-4fec-4604-8469-1b9690db2254"
+                ]
+              },
+              {
+                "index": 2,
+                "chunkIds": [
+                  "b114e3fd-9684-4e24-81db-bb9801b9fbb5"
+                ]
+              },
+              {
+                "index": 3,
+                "chunkIds": [
+                  "5fe545d6-5f1d-41c3-afaa-af16f28d46f7"
+                ]
+              },
+              {
+                "index": 4,
+                "chunkIds": [
+                  "54f1dbd2-6bf3-4bed-8844-d256ecbb483c"
+                ]
+              }
+            ],
+            "rerankDecision": "SKIPPED_CANDIDATE_PRESSURE",
+            "rawCandidateCount": 5,
+            "uniqueRerankInputs": 5,
+            "currentProviderCalls": {
+              "rerank": 0,
+              "embedding": 1
+            },
+            "savedInputCharacters": 0
+          },
+          "trace": {
+            "fused": [
+              {
+                "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+                "page": 1,
+                "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+                "score": 0.03278688524590164,
+                "endOffset": 377,
+                "paragraph": 1,
+                "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+                "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+                "startOffset": 0,
+                "documentName": "aster-a.md"
+              },
+              {
+                "id": "3343070e-4fec-4604-8469-1b9690db2254",
+                "page": 1,
+                "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+                "score": 0.03225806451612903,
+                "endOffset": 257,
+                "paragraph": 1,
+                "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+                "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+                "startOffset": 0,
+                "documentName": "aster-b.md"
+              },
+              {
+                "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+                "page": 1,
+                "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+                "score": 0.015873015873015872,
+                "endOffset": 298,
+                "paragraph": 1,
+                "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+                "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+                "startOffset": 0,
+                "documentName": "elm-a.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.015625,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+                "page": 1,
+                "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+                "score": 0.015384615384615385,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+                "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+                "startOffset": 0,
+                "documentName": "dahlia-a.md"
+              }
+            ],
+            "rerank": [],
+            "vector": [
+              {
+                "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+                "page": 1,
+                "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+                "score": 0.6715743942007073,
+                "endOffset": 377,
+                "paragraph": 1,
+                "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+                "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+                "startOffset": 0,
+                "documentName": "aster-a.md"
+              },
+              {
+                "id": "3343070e-4fec-4604-8469-1b9690db2254",
+                "page": 1,
+                "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+                "score": 0.5877253062888808,
+                "endOffset": 257,
+                "paragraph": 1,
+                "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+                "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+                "startOffset": 0,
+                "documentName": "aster-b.md"
+              },
+              {
+                "id": "b114e3fd-9684-4e24-81db-bb9801b9fbb5",
+                "page": 1,
+                "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+                "score": 0.3497081995010376,
+                "endOffset": 298,
+                "paragraph": 1,
+                "versionId": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+                "documentId": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+                "startOffset": 0,
+                "documentName": "elm-a.md"
+              },
+              {
+                "id": "5fe545d6-5f1d-41c3-afaa-af16f28d46f7",
+                "page": 1,
+                "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+                "score": 0.2792600226843349,
+                "endOffset": 259,
+                "paragraph": 1,
+                "versionId": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+                "documentId": "d140608e-691c-499b-aff9-f05da99336dd",
+                "startOffset": 0,
+                "documentName": "elm-b.md"
+              },
+              {
+                "id": "54f1dbd2-6bf3-4bed-8844-d256ecbb483c",
+                "page": 1,
+                "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。",
+                "score": 0.27857688069343567,
+                "endOffset": 313,
+                "paragraph": 1,
+                "versionId": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+                "documentId": "239ca671-3134-4398-b93d-a3cc7c89370f",
+                "startOffset": 0,
+                "documentName": "dahlia-a.md"
+              }
+            ],
+            "keyword": [
+              {
+                "id": "8a4e2d73-0a8b-4e25-9c7f-85793870ce2a",
+                "page": 1,
+                "text": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。\n\nAster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。\n\nAster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |\n\nAster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。\n\nAster 同名品种可能来自不同地点，合并记录必须同时匹配采集地点、日期和批次；不能仅按品种名合并。\n\nAster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+                "score": 0.8,
+                "endOffset": 377,
+                "paragraph": 1,
+                "versionId": "9c06e98b-8f2f-477b-8aad-df961684b718",
+                "documentId": "d519a242-faa7-412b-8bbf-33e3710527e1",
+                "startOffset": 0,
+                "documentName": "aster-a.md"
+              },
+              {
+                "id": "3343070e-4fec-4604-8469-1b9690db2254",
+                "page": 1,
+                "text": "Aster 复检失败时暂停该批后续分发，已发出的样本由库管通知接收者；通知不是自动判定收获损失。\n\nAster 补录由采集人提交原始记录，库管审核后更新资料状态；检测员只能填写检测结果。\n\nAster 标签丢失的容器进入隔离架 Q，不因与已知批次相邻就恢复编号。\n\nAster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。\n\nAster 旧演练库允许留下 40 粒；AST 正式库仍要求至少保留 50 粒。\n\nAster 正式库最低保留数量为每批 50 粒；该数字不随分发单的数量变化。",
+                "score": 0.6,
+                "endOffset": 257,
+                "paragraph": 1,
+                "versionId": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+                "documentId": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+                "startOffset": 0,
+                "documentName": "aster-b.md"
+              }
+            ]
+          },
+          "timings": {
+            "fusionMs": 0,
+            "rerankMs": 0,
+            "vectorMs": 1,
+            "keywordMs": 3,
+            "citationMs": 0,
+            "embeddingMs": 102,
+            "generationMs": 4003
+          },
+          "aliasMap": {},
+          "rawAnswer": "无法根据当前资料回答：证据不足。",
+          "dataVersions": [
+            {
+              "id": "06d752f3-a5c1-4fd5-affe-ba2eaab2eb8e",
+              "name": "elm-a.md",
+              "chunk_size": 900,
+              "version_id": "52aa42e6-9314-4d0f-b5c7-c3fbda000d08",
+              "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "0ac7bb37-8498-4b5d-8e59-4495ebf7e92f",
+              "name": "cobalt-a.md",
+              "chunk_size": 900,
+              "version_id": "f7a60c9d-1c1f-45a3-8570-533038d879c8",
+              "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "104515a7-aa18-4662-97b2-412cda7305e5",
+              "name": "cobalt-b.md",
+              "chunk_size": 900,
+              "version_id": "948c764f-a309-425a-8aff-3ec0a15654db",
+              "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "239ca671-3134-4398-b93d-a3cc7c89370f",
+              "name": "dahlia-a.md",
+              "chunk_size": 900,
+              "version_id": "c37e2134-a1fa-404a-8f82-cdb418cb01be",
+              "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "3cd974a6-ad0a-49ec-9599-0df9ade91dd0",
+              "name": "dahlia-b.md",
+              "chunk_size": 900,
+              "version_id": "3d2cfb72-68fc-40cd-af77-4996dd552259",
+              "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "7dfb1947-e476-4cce-8a71-47913be68504",
+              "name": "brass-a.md",
+              "chunk_size": 900,
+              "version_id": "8d7b5633-7d71-4787-b3ce-8edacd629c8f",
+              "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "9ff76ced-f3cd-46b7-bbf9-806c74c83a07",
+              "name": "flint-b.md",
+              "chunk_size": 900,
+              "version_id": "3fcb8f03-1f52-4dee-8fe1-4510a5bd972d",
+              "content_hash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "a454c81a-680e-4bb4-8b6f-88aea3b4dc6e",
+              "name": "aster-b.md",
+              "chunk_size": 900,
+              "version_id": "9a316a9e-8230-4e8e-8c4d-2bd43d7e3e5b",
+              "content_hash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "ba51e420-03a4-478d-8d07-9be3aa5a9637",
+              "name": "flint-a.md",
+              "chunk_size": 900,
+              "version_id": "e55381c8-abbf-469d-8426-a6e8419fc2b0",
+              "content_hash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d140608e-691c-499b-aff9-f05da99336dd",
+              "name": "elm-b.md",
+              "chunk_size": 900,
+              "version_id": "4bc4370d-6013-4c29-891b-cbdd8fe1ab75",
+              "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "d519a242-faa7-412b-8bbf-33e3710527e1",
+              "name": "aster-a.md",
+              "chunk_size": 900,
+              "version_id": "9c06e98b-8f2f-477b-8aad-df961684b718",
+              "content_hash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            },
+            {
+              "id": "e658c512-3b9a-4f9a-8949-556ddb30b79b",
+              "name": "brass-b.md",
+              "chunk_size": 900,
+              "version_id": "eb985118-707b-4a85-b77d-dd2c5e8d3f3b",
+              "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+              "chunk_overlap": 200,
+              "chunk_strategy": "structure-v1"
+            }
+          ],
+          "candidateCounts": {
+            "fused": 5,
+            "vector": 5,
+            "keyword": 2,
+            "selected": 5,
+            "rerankInput": 0
+          }
+        },
+        "evidenceHit": false,
+        "retrievalMs": 108,
+        "promptTokens": 1729,
+        "answerCorrect": null,
+        "citationValid": true,
+        "allEvidenceHit": false,
+        "expectedAnswer": null,
+        "completionTokens": 9,
+        "expectedEvidence": [],
+        "retrievalOptions": {
+          "rerank": true,
+          "candidateK": 5,
+          "rerankPolicy": "candidate-pressure-v1",
+          "citationStyle": "uuid",
+          "keywordWeight": 1
+        },
+        "abstentionCorrect": true,
+        "evidenceGroupCount": 0,
+        "referenceAnswerMatch": null,
+        "hitEvidenceGroupCount": 0
+      },
+      "started_at": "2026-10-10T13:06:24.059113+00:00",
+      "finished_at": "2026-10-10T13:06:28.185331+00:00"
+    }
+  ],
+  "externalCalls": [
+    {
+      "call_id": "7b6726dd-8061-49a4-9ea5-9e5c8f9889f2",
+      "operation_key": "a8f5a07f-e3bd-4f1a-a4d0-a0e86ccb1834:embedding:49da8789-8d06-4d63-9e1f-8ec52882ee6f",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:06:21.520375+00:00",
+      "finished_at": "2026-10-10T13:06:21.616877+00:00"
+    },
+    {
+      "call_id": "b94155a5-9024-49b3-9b8a-4f7232310e6e",
+      "operation_key": "a8f5a07f-e3bd-4f1a-a4d0-a0e86ccb1834:generation:18100d47-f16a-4491-93f4-c1f55d788e5a",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 1733,
+        "completionTokens": 9
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:06:21.623174+00:00",
+      "finished_at": "2026-10-10T13:06:24.038748+00:00"
+    },
+    {
+      "call_id": "17d27330-4054-4045-88b7-704d11c106ae",
+      "operation_key": "3be572f1-8c19-4d2b-9b7f-60a8f4cfe2d5:embedding:dbe32771-4149-48fb-9eef-839ba76380b9",
+      "fencing_token": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:06:24.073129+00:00",
+      "finished_at": "2026-10-10T13:06:24.169694+00:00"
+    },
+    {
+      "call_id": "be637853-b793-4890-add5-c0d2c4c84305",
+      "operation_key": "3be572f1-8c19-4d2b-9b7f-60a8f4cfe2d5:generation:d02822be-37da-45d5-a22a-3cc20de3517f",
+      "fencing_token": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "usage": {
+        "promptTokens": 1729,
+        "completionTokens": 9
+      },
+      "outcome": "RETURNED",
+      "started_at": "2026-10-10T13:06:24.18205+00:00",
+      "finished_at": "2026-10-10T13:06:28.179728+00:00"
+    }
+  ],
+  "externalCallNote": "operation_key以evaluation_attempt.id为前缀；UNKNOWN表示调用可能已执行但未保存，不保证供应商exactly-once，未知用量为null。",
+  "summary": {
+    "vector": {
+      "count": 1,
+      "answerableCount": 0,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": 102,
+      "totalMs": 2522
+    },
+    "hybrid": {
+      "count": 1,
+      "answerableCount": 0,
+      "plannedCount": 1,
+      "errorCount": 0,
+      "recallAtK": null,
+      "mrr": null,
+      "retrievalMs": 108,
+      "totalMs": 4112
+    }
+  },
+  "breakdowns": {
+    "category": {
+      "不可回答": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 102,
+          "totalMs": 2522
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 108,
+          "totalMs": 4112
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 102,
+          "totalMs": 2522
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 108,
+          "totalMs": 4112
+        }
+      }
+    },
+    "group": {
+      "aster": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 102,
+          "totalMs": 2522
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 108,
+          "totalMs": 4112
+        }
+      }
+    },
+    "topic": {
+      "aster": {
+        "vector": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 102,
+          "totalMs": 2522
+        },
+        "hybrid": {
+          "count": 1,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 108,
+          "totalMs": 4112
+        }
+      }
+    }
+  },
+  "manualScores": []
+}

@@ -1,0 +1,210 @@
+{
+  "id": "d17115d9-decc-4b42-9b0b-e6223575d7a5",
+  "kbId": "7031b03b-db65-4c9f-820d-39d0dad33973",
+  "status": "FAILED",
+  "request": {
+    "kbId": "7031b03b-db65-4c9f-820d-39d0dad33973",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "恢复规则是什么？ P4_GATE_AGENT_CRASH",
+    "idempotencyKey": "3a14de4d-9639-4fb2-95ef-f878e39fa9a7",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "test-only-fixed-loopback-gate",
+      "modelMode": "mock",
+      "externalNetwork": true,
+      "qualityEvidence": false
+    },
+    "reranker": {
+      "provider": "disabled-in-mock",
+      "configured": false
+    },
+    "chatModel": "mock-process-gated-extract-v1",
+    "modelMode": "mock",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "mock-finish-v1",
+      "provider": "test-only-fixed-loopback-gate",
+      "externalNetwork": true,
+      "qualityEvidence": false
+    },
+    "embeddingModel": "mock-hash-256-v1",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "snapshot": [
+    {
+      "id": "0d2b7a49-3119-4431-afd4-a7567d9b9377",
+      "name": "process-harness.md",
+      "chunk_size": 900,
+      "version_id": "b21f0bd5-96e4-4584-b96d-683342beec11",
+      "content_hash": "0ad2ce06d3c23d2d6b5a6f6c6fd988c3be37dc1f5c1f2e1e32f7e2e45393dfce",
+      "chunk_overlap": 200,
+      "chunk_strategy": "legacy"
+    },
+    {
+      "id": "27ccdf3b-2970-41c1-a7ab-86641d3a460c",
+      "name": "stale-index.md",
+      "chunk_size": 900,
+      "version_id": "ad36e43b-4d08-4a73-b0d7-16a18956b87e",
+      "content_hash": "876268d786604c4cad183ce3dc783677b7c27d688ab7e30708b1e0e203e89e35",
+      "chunk_overlap": 200,
+      "chunk_strategy": "legacy"
+    },
+    {
+      "id": "fc208ecc-2322-4734-be11-6c45b43ea6b3",
+      "name": "competition.md",
+      "chunk_size": 900,
+      "version_id": "0afbaa2e-de05-489c-a0f7-32c990807ebc",
+      "content_hash": "ce66950162aadbd06da22d07636209ce2a38fff836dd165aee545950e806632b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "legacy"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": "UNSAFE_TO_RESUME",
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": null,
+        "callId": "f542840c-d833-4101-8bbb-c39083bc783d",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": null,
+          "completionTokens": null
+        },
+        "callId": "833d9190-7a98-4266-aa49-d01fbbc2be19",
+        "status": "RETURNED"
+      },
+      {
+        "kind": "generation",
+        "actual": null,
+        "callId": "8bbe82ca-fc4a-445a-9e19-dc6cf4cc784c",
+        "status": "UNKNOWN"
+      }
+    ],
+    "answer": "",
+    "totalMs": 335,
+    "evidence": [],
+    "abstained": true,
+    "citations": [],
+    "modelMode": "mock",
+    "budgetUsed": {
+      "tools": 1,
+      "searches": 1,
+      "plannerSteps": 1,
+      "evidenceChars": 98,
+      "evidenceCount": 3,
+      "externalCalls": 0
+    },
+    "retrievalMs": 47,
+    "finishReason": "UNSAFE_TO_RESUME",
+    "answerCorrect": null,
+    "citationValid": false,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "inFlightUsageUnavailable": true
+  },
+  "errorCode": "UNSAFE_TO_RESUME",
+  "finishedAt": "2026-10-01T05:44:20.399038Z",
+  "cancelRequestedAt": null,
+  "createdAt": "2026-10-01T05:44:14.234312Z",
+  "startedAt": "2026-10-01T05:44:14.355581Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 28,
+        "description": "检索当前授权知识库",
+        "querySha256": "d49865b18a65500779ebb14192abac04ace2da344e84768415d0aa0eb2502ea5"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": null
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "16bf7466-6e3e-4ebd-ba04-53110075079b",
+          "10416450-7086-48f8-bb3e-659807666792",
+          "510c1153-8616-4604-bac8-d8c61b34c377"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-10-01T05:44:14.609093500Z",
+      "elapsedMs": 101
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": null,
+        "completionTokens": null
+      },
+      "action": "finish",
+      "output": {
+        "callId": "mock-finish",
+        "toolName": "finish"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-10-01T05:44:14.772286800Z",
+      "elapsedMs": 92
+    }
+  ],
+  "taskId": "d17115d9-decc-4b42-9b0b-e6223575d7a5",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "taskStatus": "FAILED"
+}

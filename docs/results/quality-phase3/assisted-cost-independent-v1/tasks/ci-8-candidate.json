@@ -1,0 +1,114 @@
+{
+  "id": "e4a5cbd4-20eb-4d48-8fad-b4e8d3e44e2b",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "e4a5cbd4-20eb-4d48-8fad-b4e8d3e44e2b",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-8-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-8-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Flint 下一次访谈受访者的具体姓名是什么？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-3e8a7414fdad7fe7e7719f5ea32f31de022307c11185b5d5640a18202125",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:20:18.021186Z",
+  "startedAt": "2026-10-01T08:20:18.206689Z",
+  "finishedAt": "2026-10-01T08:20:22.609168Z",
+  "availableAt": "2026-10-01T08:20:18.021186Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "70caed44-fff5-4b85-8c72-9300a08ab083",
+      "operationKey": "09de1a9d-d6bd-464f-82ba-13c7c31beff3:embedding:2703f8a3-d9a1-4c43-abc1-c010f9e71e75",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-10-01T08:20:18.228393Z",
+      "finishedAt": "2026-10-01T08:20:18.616756Z"
+    },
+    {
+      "callId": "092e4f8d-1047-44a9-8178-0777c9ab7e09",
+      "operationKey": "09de1a9d-d6bd-464f-82ba-13c7c31beff3:generation:9140f037-bb77-4410-9b15-29b152b76918",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1738,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:18.634738Z",
+      "finishedAt": "2026-10-01T08:20:20.468005Z"
+    },
+    {
+      "callId": "9a2871ed-6476-4675-ab57-5c4971e6c4e8",
+      "operationKey": "6873b396-4608-4afd-b9d4-c26c0ffbcd7f:embedding:b842f85a-802c-4135-bb34-6c156fea52cb",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-10-01T08:20:20.489658Z",
+      "finishedAt": "2026-10-01T08:20:20.760084Z"
+    },
+    {
+      "callId": "57596372-d2f6-4434-aed9-f05c4182a23b",
+      "operationKey": "6873b396-4608-4afd-b9d4-c26c0ffbcd7f:generation:1f932ba5-7ebe-4532-b3c6-bf325c5b5ae4",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1753,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:20.774666Z",
+      "finishedAt": "2026-10-01T08:20:22.591251Z"
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "id": "c8a611ab-7d4b-4286-b5c4-a5075dcf726a",
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "status": "COMPLETED",
+  "request": {
+    "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+    "mode": "vector",
+    "topK": 5,
+    "budget": {
+      "maxTools": 4,
+      "maxSearch": 2,
+      "maxEvidence": 12,
+      "deadlineSeconds": 120,
+      "maxPlannerSteps": 4,
+      "maxEvidenceChars": 20000,
+      "maxExternalCalls": 10,
+      "maxFinalOutputTokens": 1024,
+      "maxPlannerOutputTokens": 256
+    },
+    "question": "Brass 测试录音保留多少天？",
+    "strategy": "combined-v1",
+    "idempotencyKey": "AgentExplore-d40342d962fc-brass-009-combined-v1",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "config": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 20,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "agentStrategy": "combined-v1",
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1",
+    "agentStrategyProtocol": "bounded-actions-v1"
+  },
+  "snapshot": [
+    {
+      "id": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+      "name": "elm-a.md",
+      "chunk_size": 900,
+      "version_id": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+      "content_hash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+      "name": "elm-b.md",
+      "chunk_size": 900,
+      "version_id": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+      "content_hash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1a8f6fc1-61d1-459b-9ecd-9047674404f6",
+      "name": "cobalt-b.md",
+      "chunk_size": 900,
+      "version_id": "4a531ee3-167d-4df9-9e37-d24681342fc5",
+      "content_hash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "1e95b900-5341-4890-b679-7604fdd36c60",
+      "name": "brass-a.md",
+      "chunk_size": 900,
+      "version_id": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+      "content_hash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+      "name": "dahlia-b.md",
+      "chunk_size": 900,
+      "version_id": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+      "content_hash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+      "name": "brass-b.md",
+      "chunk_size": 900,
+      "version_id": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+      "content_hash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "c5d40bc7-f80d-476b-aa2b-8b4942906a1a",
+      "name": "cobalt-a.md",
+      "chunk_size": 900,
+      "version_id": "74ef17b9-99bd-40db-b347-5b9001b2aaed",
+      "content_hash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eac90d98-7e62-4009-ae1e-7a782fab9f28",
+      "name": "dahlia-a.md",
+      "chunk_size": 900,
+      "version_id": "3d253384-dd6d-4fc0-a7c2-f41e3dec8d35",
+      "content_hash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "result": {
+    "kind": "bounded-agent",
+    "mode": "vector",
+    "error": null,
+    "usage": [
+      {
+        "kind": "embedding",
+        "actual": {
+          "totalTokens": 11,
+          "promptTokens": 11
+        }
+      },
+      {
+        "kind": "planner",
+        "actual": {
+          "promptTokens": 2419,
+          "completionTokens": 28
+        }
+      },
+      {
+        "kind": "generation",
+        "actual": {
+          "promptTokens": 1696,
+          "completionTokens": 35
+        }
+      }
+    ],
+    "answer": "根据证据，Brass 保存测试录音30天 [7c24d893-7578-4217-8060-2e70917638f2]。",
+    "totalMs": 13346,
+    "evidence": [
+      {
+        "id": "7c24d893-7578-4217-8060-2e70917638f2",
+        "page": 1,
+        "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+        "score": 0.6822742427073196,
+        "endOffset": 283,
+        "paragraph": 1,
+        "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+        "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+        "startOffset": 0,
+        "documentName": "brass-b.md"
+      },
+      {
+        "id": "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+        "page": 1,
+        "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。",
+        "score": 0.6569962697326028,
+        "endOffset": 331,
+        "paragraph": 1,
+        "versionId": "492dde45-d9e6-409e-a470-9e8c90cff47a",
+        "documentId": "1e95b900-5341-4890-b679-7604fdd36c60",
+        "startOffset": 0,
+        "documentName": "brass-a.md"
+      },
+      {
+        "id": "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+        "page": 1,
+        "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。",
+        "score": 0.48262689852359,
+        "endOffset": 298,
+        "paragraph": 1,
+        "versionId": "b775e8fe-a4da-4c74-a9b4-4c29652f5e11",
+        "documentId": "03b63cf7-93ea-4c15-8325-9e07dab88650",
+        "startOffset": 0,
+        "documentName": "elm-a.md"
+      },
+      {
+        "id": "99bfbb56-f01a-4600-baeb-cb597880d429",
+        "page": 1,
+        "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+        "score": 0.47066940454634,
+        "endOffset": 259,
+        "paragraph": 1,
+        "versionId": "0be13d0b-0f16-4e87-9c0d-97a87e613d54",
+        "documentId": "123d9cf6-e6ce-4d8e-9a5c-12deb89c0f95",
+        "startOffset": 0,
+        "documentName": "elm-b.md"
+      },
+      {
+        "id": "44a4ba82-d395-42e6-8a80-d180a0ab557d",
+        "page": 1,
+        "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。",
+        "score": 0.43082557824774026,
+        "endOffset": 287,
+        "paragraph": 1,
+        "versionId": "0c40dd67-d6e3-4f13-a78f-7e2e69deed02",
+        "documentId": "33f8229b-0a03-4a09-b69d-07a189c8e392",
+        "startOffset": 0,
+        "documentName": "dahlia-b.md"
+      }
+    ],
+    "question": "Brass 测试录音保留多少天？",
+    "strategy": "combined-v1",
+    "abstained": false,
+    "citations": [
+      {
+        "id": "7c24d893-7578-4217-8060-2e70917638f2",
+        "page": 1,
+        "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。",
+        "score": 0.6822742427073196,
+        "endOffset": 283,
+        "paragraph": 1,
+        "versionId": "31bf8ae6-bc25-4608-87d0-bd2ed3d1cc5e",
+        "documentId": "bc96f860-7b80-4b9c-aaf5-94596717f053",
+        "startOffset": 0,
+        "documentName": "brass-b.md"
+      }
+    ],
+    "modelMode": "real",
+    "budgetUsed": {
+      "tools": 1,
+      "searches": 1,
+      "plannerSteps": 1,
+      "evidenceChars": 1458,
+      "evidenceCount": 5,
+      "externalCalls": 3
+    },
+    "retrievalMs": 271,
+    "finishReason": "ANSWERED",
+    "answerCorrect": null,
+    "citationValid": true,
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "errorCode": null,
+  "finishedAt": "2026-09-30T07:04:20.299041Z",
+  "cancelRequestedAt": null,
+  "createdAt": "2026-09-30T07:04:06.802824Z",
+  "startedAt": "2026-09-30T07:04:06.942308Z",
+  "steps": [
+    {
+      "kind": "tool",
+      "input": {
+        "queryChars": 16,
+        "description": "检索当前授权知识库",
+        "querySha256": "3fd8b55768ca0580c73f8ee106600d9b19f26dd17e9a738ecbf66bf35b93c514"
+      },
+      "usage": {
+        "rerank": null,
+        "embedding": {
+          "totalTokens": 11,
+          "promptTokens": 11
+        }
+      },
+      "action": "search",
+      "output": {
+        "evidenceIds": [
+          "7c24d893-7578-4217-8060-2e70917638f2",
+          "a3c0a79b-7003-4956-9bdc-1d7d14627c15",
+          "b5286fbe-7c61-446f-a6c2-5c9a70af8743",
+          "99bfbb56-f01a-4600-baeb-cb597880d429",
+          "44a4ba82-d395-42e6-8a80-d180a0ab557d"
+        ]
+      },
+      "status": "COMPLETED",
+      "sequence": 1,
+      "createdAt": "2026-09-30T07:04:07.245337707Z",
+      "elapsedMs": 280
+    },
+    {
+      "kind": "planner",
+      "input": {},
+      "usage": {
+        "promptTokens": 2419,
+        "completionTokens": 28
+      },
+      "action": "finish",
+      "output": {
+        "callId": "01a0f120aa846da428fa77975b65e3a3",
+        "policy": {
+          "strategy": "combined-v1",
+          "allowedTools": [
+            "finish",
+            "neighbors",
+            "search"
+          ],
+          "remainingBudget": {
+            "tools": 3,
+            "searches": 1,
+            "plannerSteps": 3,
+            "reservedGenerationCalls": 1,
+            "externalCallsAfterPlanner": 8
+          }
+        },
+        "toolName": "finish"
+      },
+      "status": "COMPLETED",
+      "sequence": 2,
+      "createdAt": "2026-09-30T07:04:13.635667245Z",
+      "elapsedMs": 6371
+    },
+    {
+      "kind": "generation",
+      "input": {},
+      "usage": {
+        "promptTokens": 1696,
+        "completionTokens": 35
+      },
+      "action": "answer",
+      "output": {
+        "received": true
+      },
+      "status": "COMPLETED",
+      "sequence": 3,
+      "createdAt": "2026-09-30T07:04:20.286632805Z",
+      "elapsedMs": 6643
+    }
+  ],
+  "taskId": "c8a611ab-7d4b-4286-b5c4-a5075dcf726a",
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 1
+  },
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "taskStatus": "SUCCEEDED"
+}

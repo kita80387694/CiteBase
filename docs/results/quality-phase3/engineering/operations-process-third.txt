@@ -1,0 +1,15 @@
+PASS B startup does not steal A valid lease
+PASS two actual JVM workers independently claim tasks
+PASS kill owner resumes only unfinished evaluation item with immutable first checkpoint
+PASS expired live worker late response cannot replace new generation chunks or terminal state
+PASS running cancellation prevents next item and late success publication
+PASS dedicated PostgreSQL outage recovers with first checkpoint unchanged
+PASS HTTP 429 has finite retries and spacing
+PASS HTTP 504 has finite retries and spacing
+PASS real HttpClient timeout has three bounded attempts and rejects late success
+PASS Agent crash explains interruption instead of replaying paid action
+PASS Agent cancellation rejects late success
+PASS two-worker in-flight deletion withdraws export citations and cached retrieval
+PASS closed-loop mixed load completed with actual resource and terminal-task sampling
+Evidence: F:\CiteBase\docs\results\quality-phase3\operations\two-process-1790834245097
+Dedicated database retained: citebase-phase4-process-1790834245097 port25435

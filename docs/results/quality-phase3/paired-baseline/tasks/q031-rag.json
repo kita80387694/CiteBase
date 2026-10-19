@@ -1,0 +1,134 @@
+{
+  "id": "359e8625-86ac-4954-9eeb-02169b6688b7",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "359e8625-86ac-4954-9eeb-02169b6688b7",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q031",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-006",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Dahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。",
+              "groupId": "g1",
+              "endOffset": 273,
+              "paragraph": 5,
+              "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+              "startOffset": 221,
+              "documentName": "dahlia-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。",
+              "groupId": "g2",
+              "endOffset": 50,
+              "paragraph": 1,
+              "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+              "startOffset": 0,
+              "documentName": "dahlia-b.md"
+            }
+          ],
+          "question": "Dahlia 借用人自行声明损坏工具已修好能恢复借出吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；管理员确认安全且争议由管理员复核"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-635bf425aedf93844842f844f5a940ba7990dc99b9ee216130165d17f35e",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:53:42.688439Z",
+  "startedAt": "2026-09-30T06:53:42.758219Z",
+  "finishedAt": "2026-09-30T06:53:51.469865Z",
+  "availableAt": "2026-09-30T06:53:42.688439Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "b0e7128f-3ee6-45a5-a2be-c114f9ed8241",
+      "operationKey": "c6e07b02-66d2-4338-a2e1-535957269165:embedding:018995ec-523c-4791-9557-4c6aa6c9b934",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-09-30T06:53:42.775347Z",
+      "finishedAt": "2026-09-30T06:53:43.128303Z"
+    },
+    {
+      "callId": "69d0755b-fa81-4c35-8e52-37289e447ce4",
+      "operationKey": "c6e07b02-66d2-4338-a2e1-535957269165:generation:25e38fd4-7604-4f09-8546-95af768c7ed0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1749,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:53:43.134599Z",
+      "finishedAt": "2026-09-30T06:53:45.904366Z"
+    },
+    {
+      "callId": "4f0b841b-0aa3-493b-bb87-32aa896a2a9a",
+      "operationKey": "b8f546ea-c002-4b0f-81f0-cebc747827f6:embedding:18910b72-3e53-4182-90ba-f1e39dafda75",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-09-30T06:53:45.948382Z",
+      "finishedAt": "2026-09-30T06:53:46.217617Z"
+    },
+    {
+      "callId": "badc5499-5b0f-4c69-9f85-8916ac6b8072",
+      "operationKey": "b8f546ea-c002-4b0f-81f0-cebc747827f6:generation:ee2fdd64-f142-4363-9391-c606be4bb61e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1703,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:53:46.261085Z",
+      "finishedAt": "2026-09-30T06:53:51.455773Z"
+    }
+  ]
+}

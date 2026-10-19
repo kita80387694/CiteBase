@@ -1,0 +1,1450 @@
+{
+  "source": "ASSISTED",
+  "packets": [
+    {
+      "source": "ASSISTED",
+      "question": "Cobalt 下一版海图何时上市？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": false,
+      "referenceAnswer": null,
+      "executionFailed": true,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "2",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "4",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "5",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [],
+      "score": null,
+      "id": "A001"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 测试录音保留多少天？",
+      "answer": "根据证据，Brass 测试录音保留30天 [1]。",
+      "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+      "answerable": true,
+      "referenceAnswer": "30天",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "4",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [
+        "1"
+      ],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 215,
+          "endOffset": 247,
+          "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A004"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 测试录音保留多少天？",
+      "answer": "根据证据，Brass 测试录音保留30天 [1]。",
+      "answerSha256": "4069097250074e55c6e7dcec85986979345999c7e662f5a59079ec929db3876a",
+      "answerable": true,
+      "referenceAnswer": "30天",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "4",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [
+        "1"
+      ],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 215,
+          "endOffset": 247,
+          "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A005"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": false,
+      "referenceAnswer": null,
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [],
+      "score": null,
+      "id": "A006"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Cobalt 下一版海图何时上市？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": false,
+      "referenceAnswer": null,
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "2",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "4",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "5",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [],
+      "score": null,
+      "id": "A007"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不能；已有下一预约禁止续期",
+      "executionFailed": true,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "2",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "3",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "4",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A008"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不可以",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A009"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 主管批准排期能代替客户批准额外费用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不能；加费由客户批准",
+      "executionFailed": true,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "3",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "4",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "5",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 137,
+          "endOffset": 213,
+          "quote": "Brass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A010"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "未复现故障；不能",
+      "executionFailed": true,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 61,
+          "endOffset": 105,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A013"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不是；手钻禁止，手推车可用但归还擦干检查",
+      "executionFailed": true,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "2",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "4",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 209,
+          "quote": "Dahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A014"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不可以",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A015"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": false,
+      "referenceAnswer": null,
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [],
+      "score": null,
+      "id": "A016"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不可以",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A017"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不能；已有下一预约禁止续期",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "2",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "3",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "4",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A018"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Dahlia 手钻还在首个借期且别人已预约，可以续一次吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不能；已有下一预约禁止续期",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "2",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "3",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "4",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 92,
+          "endOffset": 176,
+          "quote": "Dahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "dahlia-a.md",
+          "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 178,
+          "endOffset": 219,
+          "quote": "Dahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A019"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 达到教学SNR阈值，可以宣布发现新天体吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": true,
+      "referenceAnswer": "不可以",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [
+        {
+          "documentName": "elm-a.md",
+          "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 97,
+          "quote": "Elm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。",
+          "groupId": "g1"
+        },
+        {
+          "documentName": "elm-b.md",
+          "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 217,
+          "endOffset": 259,
+          "quote": "Elm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。",
+          "groupId": "g2"
+        }
+      ],
+      "score": null,
+      "id": "A021"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Elm 这张图中的天体叫什么？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "answerable": false,
+      "referenceAnswer": null,
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "2",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "3",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [],
+      "expectedEvidence": [],
+      "score": null,
+      "id": "A024"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+      "answer": "根据证据，Brass 将 NFF 定义为“未复现故障”，并且明确指出“NFF 不代表客户描述虚假” [1]。因此，不能根据 NFF 说客户撒谎。",
+      "answerSha256": "61a148b12372592aa90e10f56a776fd795d4b80d5f7f2daa9fe2f54b3c920828",
+      "answerable": true,
+      "referenceAnswer": "未复现故障；不能",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "4",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 323,
+          "text": "Cobalt 海图档案用 CBL 编号标识图幅。工作副本可作研究标注，不得用于实际航行；正式发行状态由档案管理员登记。\n\nCobalt 修订日期和测绘日期是不同字段。修订日期较新不表示海底重新测量过。\n\nCobalt 扫描参数表\n| 资料 | 分辨率 | 色彩 |\n| 线图 | 600 dpi | 灰度 |\n| 彩色潮汐图 | 400 dpi | RGB |\n\nCobalt 缺页图幅仍可建立目录，但完整性必须标记INCOMPLETE，不能在对外列表显示为完整。\n\nCobalt OCR 文字只能帮助搜索，不取代原图中的坐标。坐标模糊时标记待核验，禁止自动补成推测数字。\n\nCobalt 同一图幅不同版次分别保留，最新修订副本不得覆盖旧版原图。"
+        }
+      ],
+      "citations": [
+        "1"
+      ],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-a.md",
+          "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 61,
+          "endOffset": 105,
+          "quote": "Brass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A026"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Dahlia 下雨时手钻和手推车都禁止室外用吗？",
+      "answer": "根据证据，Dahlia 雨天操作要求如下：\n- 电动手钻室外作业：禁止 [1]。\n- 手推车室外作业：归还后擦干检查 [1]。\n\n因此，对于用户问题“Dahlia 下雨时手钻和手推车都禁止室外用吗？”：\n- 电动手钻在雨天室外作业是禁止的。\n- 手推车在雨天室外作业未被禁止，但要求归还后擦干检查。",
+      "answerSha256": "70e242626c12798846ec2acec9180cb7a8dc14dd13499648994cbda395335a3d",
+      "answerable": true,
+      "referenceAnswer": "不是；手钻禁止，手推车可用但归还擦干检查",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        },
+        {
+          "label": "2",
+          "documentName": "dahlia-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 313,
+          "text": "Dahlia 工具站每人同时可借3件，附件随主工具计为1件；独立借出的附件单独计数。\n\nDahlia 借用必须记录工具序列号和借用人。归还预约不是已归还，现场验收后才释放借用额度。\n\nDahlia 借期表\n| 工具 | 标准借期 | 可续期次数 |\n| 手钻 | 3天 | 1次 |\n| 梯子 | 2天 | 0次 |\n| 手推车 | 5天 | 1次 |\n\nDahlia 工具若已被下一位预约，不允许续期；允许续期的工具每次延长原标准借期。\n\nDahlia 检查发现裂纹时贴STOP标签并隔离，管理员确认安全之前禁止再次借出；擦掉标签不能恢复状态。\n\nDahlia 丢失附件与工具损坏分别记录，不能因主工具可运转而忽略附件缺失。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "4",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "5",
+          "documentName": "cobalt-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 311,
+          "text": "Cobalt 发布前需校验文件哈希、页序和发行标记。校验人和发布人必须是不同账号。\n\nCobalt 撤回后公开目录只显示撤回编号和原因，不提供原图下载；已有工作副本访问链接也要失效。\n\nCobalt 研究引用格式需包含图幅号、版次和页码；只写文件名不能区分多版资料。\n\nCobalt 修复表\n| 异常 | 动作 |\n| 页序颠倒 | 重新排序并复核 |\n| 文件哈希不符 | 隔离待核验 |\n| OCR错字 | 修正搜索文本并保留原图 |\n\nCobalt 出版目录的发行标记是ISSUED；只有管理员登记ISSUED的版本才能作为正式发行副本展示。\n\nCobalt 对历史测绘精度没有新增保证，扫描分辨率不等于测绘准确度。"
+        }
+      ],
+      "citations": [
+        "1"
+      ],
+      "expectedEvidence": [
+        {
+          "documentName": "dahlia-b.md",
+          "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 143,
+          "endOffset": 209,
+          "quote": "Dahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A028"
+    },
+    {
+      "source": "ASSISTED",
+      "question": "Brass 测试录音保留多少天？",
+      "answer": "根据证据，Brass 保存测试录音30天 [1]。",
+      "answerSha256": "7c440bc929834846498332afaff54eee968c820fa08871fccd9d6c7054a8e4bb",
+      "answerable": true,
+      "referenceAnswer": "30天",
+      "executionFailed": false,
+      "evidence": [
+        {
+          "label": "1",
+          "documentName": "brass-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 283,
+          "text": "Brass 返修在原工单下创建子单，保留原验收结果；返修不意味着原记录可以删除。\n\nBrass 待取件通知由接待员发出，技师只提交测试记录。取件人需提供工单号和客户授权的取件码。\n\nBrass 调校后第二天出现相同症状时先复现故障并核对原测试，不直接认定为同一零件损坏。\n\nBrass 排班表\n| 岗位 | 可批准事项 |\n| 接待员 | 改约取件时间 |\n| 主管 | 内部作业排期 |\n| 客户 | 增加费用与拆卸授权 |\n\nBrass 保存测试录音30天；录音保留期限独立于旧件保留期限。\n\nBrass 不接受用其他客户的演奏测试替代本工单测试，即使型号相同。"
+        },
+        {
+          "label": "2",
+          "documentName": "brass-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 331,
+          "text": "Brass 乐器维修室收到乐器后先拍外观照片，再生成 BR 工单。工单中的估价不是客户授权；必须取得书面授权才可拆卸。\n\nBrass 将 NFF 定义为未复现故障。NFF 不代表客户描述虚假，也不授权更换零件。\n\nBrass 工时表\n| 作业 | 标准工时 |\n| 清洁 | 40 分钟 |\n| 键垫更换 | 90 分钟 |\n| 全面调校 | 150 分钟 |\n\nBrass 更换零件后必须做气密测试和演奏测试，两项均通过才能进入待取件；清洁完成不能代替测试。\n\nBrass 维修授权上限为客户批准的金额，增加费用须重新书面确认；口头表示尽快修不等于增加预算。\n\nBrass 旧件装入标有原工单号的袋子，保留到客户取件后14天；客户明确选择领回旧件时随乐器返还。"
+        },
+        {
+          "label": "3",
+          "documentName": "elm-a.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 298,
+          "text": "Elm 观测台只处理虚构教学观测。每个申请最长90分钟，其中前15分钟用于设备校准，不能计为有效曝光。\n\nElm 将 SNR 定义为信噪比，教学目标为SNR不少于12。达到该值不表示发现新天体。\n\nElm 滤镜表\n| 滤镜 | 单次曝光 | 最大连续张数 |\n| R | 40秒 | 8 |\n| B | 60秒 | 5 |\n\nElm 云量大于六成时暂停曝光；云量恢复后重新校准，再继续未完成序列，不能把暂停时间记为曝光。\n\nElm 同一目标的不同滤镜结果分别保存。不能把R滤镜信噪比作为B滤镜达标证明。\n\nElm 预约确认仅说明获得时段，实际开机需要值班员确认设备状态；研究者不能远程绕过设备锁。"
+        },
+        {
+          "label": "4",
+          "documentName": "elm-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 259,
+          "text": "Elm 原始图像保留365天，处理后缩略图保留30天；删除缩略图不表示原始图像被删除。\n\nElm 中途设备故障时记录最后完成的帧号，恢复后从下一帧继续，已完成帧不得以补拍名义覆盖。\n\nElm 设备校准失败时由维护员处理，值班员负责暂停排程；研究者只可提交故障说明。\n\nElm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。\n\nElm 提前结束的剩余时段回到排程池，不自动转给同一申请人的另一个目标。\n\nElm 教学台不发布天体发现结论，也不提供天气预报；观测记录不能被当作未来晴天保证。"
+        },
+        {
+          "label": "5",
+          "documentName": "dahlia-b.md",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 287,
+          "text": "Dahlia 归还验收由值班员执行，损坏争议由管理员复核。借用人可以提交说明，不能自行批准正常归还。\n\nDahlia 预约保留到约定取件时刻后45分钟，过期只释放预约，不删除该人的历史借用记录。\n\nDahlia 借用收据保留180天，工具安全检查记录保留730天，两类记录独立管理。\n\nDahlia 雨天操作要求表\n| 场景 | 要求 |\n| 电动手钻室外作业 | 禁止 |\n| 手推车室外作业 | 归还后擦干检查 |\n\nDahlia 人工改期必须注明原时间、新时间、操作者和原因；改期不自动授予续借资格。\n\nDahlia 旧活动日曾开放每人5件，常设工具站仍执行同时3件。"
+        }
+      ],
+      "citations": [
+        "1"
+      ],
+      "expectedEvidence": [
+        {
+          "documentName": "brass-b.md",
+          "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 215,
+          "endOffset": 247,
+          "quote": "Brass 保存测试录音30天；录音保留期限独立于旧件保留期限。",
+          "groupId": "g1"
+        }
+      ],
+      "score": null,
+      "id": "A032"
+    }
+  ]
+}

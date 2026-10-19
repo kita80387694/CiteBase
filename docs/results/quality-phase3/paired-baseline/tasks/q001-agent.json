@@ -1,0 +1,85 @@
+{
+  "id": "c285d2c3-90c5-4771-933d-1911660c906d",
+  "kind": "AGENT",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "c285d2c3-90c5-4771-933d-1911660c906d",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 2,
+  "retryGeneration": 0,
+  "payload": {
+    "runId": "c285d2c3-90c5-4771-933d-1911660c906d"
+  },
+  "progress": {
+    "unit": "steps",
+    "total": null,
+    "completed": 2
+  },
+  "errorCode": "BUDGET_EXCEEDED",
+  "errorSummary": "任务停止：BUDGET_EXCEEDED",
+  "createdAt": "2026-09-30T06:34:27.692205Z",
+  "startedAt": "2026-09-30T06:34:27.931247Z",
+  "finishedAt": "2026-09-30T06:34:52.066405Z",
+  "availableAt": "2026-09-30T06:34:27.692205Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "为避免重放付费调用，请显式新建运行",
+  "externalCalls": [
+    {
+      "callId": "db41b45d-3ec7-4840-b883-eb0030d25f3e",
+      "operationKey": "embedding:63e4af99-7930-45f3-bc10-057dbc53cafc",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 13,
+        "promptTokens": 13
+      },
+      "startedAt": "2026-09-30T06:34:27.969060Z",
+      "finishedAt": "2026-09-30T06:34:28.229311Z"
+    },
+    {
+      "callId": "f435e329-867b-46ff-8d84-783f84db793c",
+      "operationKey": "agent/planner/1",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2376,
+        "completionTokens": 55
+      },
+      "startedAt": "2026-09-30T06:34:28.271072Z",
+      "finishedAt": "2026-09-30T06:34:40.591141Z"
+    },
+    {
+      "callId": "845e6a43-fa8f-4362-95ca-3ab7eedcc721",
+      "operationKey": "embedding:d6fa3978-1313-44a2-ac54-17e391de2ed4",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-09-30T06:34:40.631831Z",
+      "finishedAt": "2026-09-30T06:34:40.881308Z"
+    },
+    {
+      "callId": "6c2d089b-b405-43b1-9666-f6ab29f00f13",
+      "operationKey": "agent/planner/2",
+      "fencingToken": 1,
+      "provider": "planner",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 2743,
+        "completionTokens": 54
+      },
+      "startedAt": "2026-09-30T06:34:40.935573Z",
+      "finishedAt": "2026-09-30T06:34:52.014539Z"
+    }
+  ]
+}

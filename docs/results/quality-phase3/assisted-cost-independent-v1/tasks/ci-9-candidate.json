@@ -1,0 +1,125 @@
+{
+  "id": "39d8bbe1-eed1-4790-a1e9-a9c3523258b2",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "39d8bbe1-eed1-4790-a1e9-a9c3523258b2",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-9-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-9-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "近事实干扰",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 访谈者陈述属于个人回忆；同一细节获得两次重复讲述也不自动成为已证实历史事实。",
+              "groupId": "g1",
+              "endOffset": 312,
+              "paragraph": 6,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 268,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 两次录音重复同一细节，是否足以称为已证实事实？",
+          "answerable": true,
+          "expectedAnswer": "不足；仍属于个人回忆"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-2352cde0d15e276c7f5f59a8bede16c2b531f687841d66a6970651996b86",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:20:25.022074Z",
+  "startedAt": "2026-10-01T08:20:25.226835Z",
+  "finishedAt": "2026-10-01T08:20:32.061276Z",
+  "availableAt": "2026-10-01T08:20:25.022074Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "40ba503a-618f-4284-b899-d757daed51b5",
+      "operationKey": "97b5689f-3832-4026-8994-eefd89a8b912:embedding:a8783fc3-f76b-4d4e-9560-88b114b09dae",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:20:25.250180Z",
+      "finishedAt": "2026-10-01T08:20:25.521669Z"
+    },
+    {
+      "callId": "a3addd81-0d49-4f67-86e3-a964fb08c228",
+      "operationKey": "97b5689f-3832-4026-8994-eefd89a8b912:generation:3636f65a-59b4-497f-bc2f-49429b277027",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1723,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:20:25.533594Z",
+      "finishedAt": "2026-10-01T08:20:27.194109Z"
+    },
+    {
+      "callId": "278105d1-f579-4f58-80c9-dca9145580fe",
+      "operationKey": "5dabcca6-2217-471c-b1af-6a3ad6d41e5f:embedding:097e9d22-6129-4160-8b21-5c6fb2c1cd98",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-01T08:20:27.216091Z",
+      "finishedAt": "2026-10-01T08:20:27.485142Z"
+    },
+    {
+      "callId": "204697ab-d671-4906-8837-5e521dfd2854",
+      "operationKey": "5dabcca6-2217-471c-b1af-6a3ad6d41e5f:generation:96abb825-5d96-48dc-b608-67817135a0d5",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1692,
+        "completionTokens": 71
+      },
+      "startedAt": "2026-10-01T08:20:27.501864Z",
+      "finishedAt": "2026-10-01T08:20:32.031288Z"
+    }
+  ]
+}

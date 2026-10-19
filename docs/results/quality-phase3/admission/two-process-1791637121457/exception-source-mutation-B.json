@@ -1,0 +1,124 @@
+{
+  "before": [
+    {
+      "id": "2322e89b-2a1a-4957-8b3a-35385848c7c7",
+      "name": "changed-A.md",
+      "version_id": "b0cdb656-7437-4e70-a00d-17789540bac0",
+      "content_hash": "5cc3aa357cf59587a2cdf2242474e355ce39cc7b41a99b8cbad3fb79faba2dd3",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    },
+    {
+      "id": "b4f56b67-b61f-4904-a224-1e7df12b6783",
+      "name": "retry.md",
+      "version_id": "e1a588fd-bf12-4b50-a2c2-af927b7464e2",
+      "content_hash": "6b8fb4ae6821b4a589528bab1c56a778f53cbb562db09a7602d604698d2f3b23",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    },
+    {
+      "id": "f6d7b6ca-30be-4a22-a94d-3db501128251",
+      "name": "admission.md",
+      "version_id": "df450ecc-d4e9-47d1-a01d-492a0b4b0e49",
+      "content_hash": "c6443f9923f421a76e8c5aa9eadf3b263149a6264f2805e70f47a9c0a019c5b3",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    }
+  ],
+  "after": [
+    {
+      "id": "2322e89b-2a1a-4957-8b3a-35385848c7c7",
+      "name": "changed-A.md",
+      "version_id": "b0cdb656-7437-4e70-a00d-17789540bac0",
+      "content_hash": "5cc3aa357cf59587a2cdf2242474e355ce39cc7b41a99b8cbad3fb79faba2dd3",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    },
+    {
+      "id": "61d106ec-f996-47dd-a342-99e0f5e3cc0c",
+      "name": "changed-B.md",
+      "version_id": "3f6a4468-6d39-489c-bdf3-ddf68aeadf70",
+      "content_hash": "1a7982296138c1837ff72e40813a179463db660615fed281f6e6ca6cfa5818e5",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    },
+    {
+      "id": "b4f56b67-b61f-4904-a224-1e7df12b6783",
+      "name": "retry.md",
+      "version_id": "e1a588fd-bf12-4b50-a2c2-af927b7464e2",
+      "content_hash": "6b8fb4ae6821b4a589528bab1c56a778f53cbb562db09a7602d604698d2f3b23",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    },
+    {
+      "id": "f6d7b6ca-30be-4a22-a94d-3db501128251",
+      "name": "admission.md",
+      "version_id": "df450ecc-d4e9-47d1-a01d-492a0b4b0e49",
+      "content_hash": "c6443f9923f421a76e8c5aa9eadf3b263149a6264f2805e70f47a9c0a019c5b3",
+      "chunk_strategy": "legacy",
+      "chunk_size": 900,
+      "chunk_overlap": 200
+    }
+  ],
+  "uploaded": {
+    "doc": {
+      "id": "61d106ec-f996-47dd-a342-99e0f5e3cc0c",
+      "name": "changed-B.md",
+      "status": "PENDING",
+      "error": null,
+      "activeVersionId": null,
+      "createdAt": "2026-10-10T12:59:08.849+00:00",
+      "activeProfile": null
+    },
+    "task": {
+      "id": "48333be8-816c-41d3-a44d-84629208f41f",
+      "kind": "INDEX",
+      "status": "QUEUED",
+      "attempts": 0,
+      "workTaskId": "48333be8-816c-41d3-a44d-84629208f41f",
+      "kbId": "9a457907-b9e3-4add-84a7-f2d1fa4a2992",
+      "maxAttempts": 1,
+      "retryGeneration": 0,
+      "payload": {
+        "versionId": "3f6a4468-6d39-489c-bdf3-ddf68aeadf70",
+        "documentId": "61d106ec-f996-47dd-a342-99e0f5e3cc0c",
+        "sourceHash": "1a7982296138c1837ff72e40813a179463db660615fed281f6e6ca6cfa5818e5",
+        "modelConfig": {
+          "mode": "mock",
+          "provider": {
+            "provider": "test-only-fixed-loopback-gate",
+            "modelMode": "mock",
+            "externalNetwork": true,
+            "qualityEvidence": false
+          },
+          "embeddingModel": "mock-hash-256-v1"
+        },
+        "chunkProfile": {
+          "size": 900,
+          "overlap": 200,
+          "strategy": "legacy"
+        }
+      },
+      "progress": null,
+      "errorCode": null,
+      "errorSummary": null,
+      "createdAt": "2026-10-10T12:59:08.860630Z",
+      "startedAt": null,
+      "finishedAt": null,
+      "availableAt": "2026-10-10T12:59:08.860630Z",
+      "canCancel": true,
+      "canRetry": false,
+      "retryBlockedReason": null,
+      "documentId": "61d106ec-f996-47dd-a342-99e0f5e3cc0c",
+      "versionId": "3f6a4468-6d39-489c-bdf3-ddf68aeadf70",
+      "documentName": "changed-B.md",
+      "legacyStatus": "PENDING"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: frozen 120 questions, 12 original sources, 24 unanswerable, whole-theme 40/40/40
+ok 1 - frozen 120 questions, 12 original sources, 24 unanswerable, whole-theme 40/40/40
+  ---
+  duration_ms: 46.6688
+  ...
+# Subtest: committed datasets match deterministic generator and frozen hashes
+ok 2 - committed datasets match deterministic generator and frozen hashes
+  ---
+  duration_ms: 8.4165
+  ...
+# Subtest: must reject duplicate ids, missing evidence, corrupt range/hash and cross-topic label
+ok 3 - must reject duplicate ids, missing evidence, corrupt range/hash and cross-topic label
+  ---
+  duration_ms: 2.6054
+  ...
+# Subtest: alternative evidence is one required group; multi-hop evidence has multiple groups
+ok 4 - alternative evidence is one required group; multi-hop evidence has multiple groups
+  ---
+  duration_ms: 0.6046
+  ...
+# Subtest: UTF-16 offset contract preserves astral characters
+ok 5 - UTF-16 offset contract preserves astral characters
+  ---
+  duration_ms: 0.1921
+  ...
+# Subtest: cross-split near-duplicate screen ignores names and digits, reports similar questions
+ok 6 - cross-split near-duplicate screen ignores names and digits, reports similar questions
+  ---
+  duration_ms: 40.3077
+  ...
+# Subtest: all expected answer points are explicit and unanswerable keys stay null
+ok 7 - all expected answer points are explicit and unanswerable keys stay null
+  ---
+  duration_ms: 0.7922
+  ...
+# Subtest: review preregistration selects 20 dev + 20 validation, unique and no test
+ok 8 - review preregistration selects 20 dev + 20 validation, unique and no test
+  ---
+  duration_ms: 14.2339
+  ...
+# Subtest: selection independent of input ordering and never mutates dataset
+ok 9 - selection independent of input ordering and never mutates dataset
+  ---
+  duration_ms: 3.2887
+  ...
+# Subtest: insufficient split fails instead of silently reducing review target
+ok 10 - insufficient split fails instead of silently reducing review target
+  ---
+  duration_ms: 1.5333
+  ...
+# Subtest: registration deterministic and preserves null human assessment with auxiliary raw budget
+ok 11 - registration deterministic and preserves null human assessment with auxiliary raw budget
+  ---
+  duration_ms: 2.0342
+  ...
+# Subtest: registration requires frozen runtime and binds exact dataset bytes
+ok 12 - registration requires frozen runtime and binds exact dataset bytes
+  ---
+  duration_ms: 1.3581
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 244.5769

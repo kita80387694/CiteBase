@@ -1,0 +1,82 @@
+{
+  "scope": "phase2-stage1 UI verification",
+  "applicationSourceRevision": "90145a5",
+  "deployment": {
+    "composeProject": "citebase-phase2",
+    "frontendUrl": "http://localhost:25173",
+    "backendUrl": "http://localhost:28080",
+    "note": "Frozen stage-one application deployment. The phase2-real test was added after this application revision; no application source change was needed."
+  },
+  "mock": {
+    "result": "1 passed",
+    "reportedElapsedSeconds": 15.2,
+    "workingDirectory": "frontend",
+    "command": "$env:E2E_BASE_URL='http://localhost:25173'; node node_modules/@playwright/test/cli.js test tests/platform.spec.ts",
+    "testPath": "frontend/tests/platform.spec.ts",
+    "stdoutLogPath": null,
+    "reportPath": null,
+    "reportRetentionNote": "The actual Playwright console output reported 1 passed (15.2s). It was observed in the agent command result, not redirected to a log file. The default HTML report and test-results directory were later replaced by the real UI run; no retained mock report is claimed.",
+    "verified": [
+      "Invalid login and empty knowledge base",
+      "Upload, successful indexing, question and clickable citation through real local APIs",
+      "Malformed JSON and unknown dataset field rejection before run creation",
+      "Category, split, group, topic and evidence-group display",
+      "Two appended scoring events with citation support and error classification",
+      "Server-issued scorer and timestamp, persisted reread, filtering and empty filter state",
+      "Export contains both scoring events while every automatic answerCorrect remains null"
+    ],
+    "scoringDisclaimer": "All test scoring rationales explicitly identify automated E2E simulated interaction; they are not real human review or model-quality judgments.",
+    "screenshots": [
+      "docs/screenshots/phase2-stage1-evaluation.png",
+      "docs/screenshots/phase2-stage1-scoring.png",
+      "docs/screenshots/phase2-stage1-score-audit.png"
+    ]
+  },
+  "real": {
+    "result": "1 passed",
+    "reportedElapsedSeconds": 8.9,
+    "reportDurationMilliseconds": 8850.007,
+    "testDurationMilliseconds": 6065,
+    "reportStartTimeUnixMilliseconds": 1790579287744,
+    "workingDirectory": "frontend",
+    "command": "$env:E2E_BASE_URL='http://localhost:25173'; $env:E2E_REAL='1'; node node_modules/@playwright/test/cli.js test tests/phase2-real.spec.ts",
+    "testPath": "frontend/tests/phase2-real.spec.ts",
+    "testId": "dfc8f727182a167d19dc-c9ce4acc15cee5058930",
+    "stdoutLogPath": null,
+    "stdoutRetentionNote": "Console output was observed in the agent command result and was not redirected. The retained Playwright report supplies the machine-readable duration and passing outcome.",
+    "reportPath": ".tools/phase2-ui-real-playwright-report.html",
+    "machineReadableReportPath": ".tools/phase2-ui-real-playwright-report.json",
+    "originalReportPath": "frontend/playwright-report/index.html",
+    "reportArchiveTestEntry": "dfc8f727182a167d19dc.json",
+    "questionAttachmentName": "single-real-question-response",
+    "questionResponsePath": "docs/results/phase2/ui-real-question.json",
+    "questionResponseSha256": "376e5fca8ef41ffa5ff9f9881c4a51f88e7b5343c15067bb5ea0fa0102cc5050",
+    "questionResponsePreservation": "Exact JSON attachment body copied from the completed HTML report archive. It contains response status and result only, without request headers or authentication token.",
+    "questionRequests": 1,
+    "retries": 0,
+    "newEvaluationRequests": 0,
+    "newScoringRequests": 0,
+    "verified": [
+      "Login to real mode and select Phase2 baseline with 12 successfully indexed documents",
+      "One Harbor official-station temperature question returned 2–6 and a clickable original citation",
+      "Read existing smoke-dev-0-87404fc2 with all four rows retained",
+      "One citation-validation failure is visible in results, error filtering and question detail",
+      "Existing export remains COMPLETED_WITH_ERRORS with four rows, exactly one error and null automatic answerCorrect",
+      "No browser runtime errors"
+    ],
+    "existingEvaluationId": "e00607ff-3cd9-4cc7-bacb-9189fef9af7f",
+    "existingExportAttachmentName": "existing-smoke-export",
+    "existingResultPreservation": "Existing four-row raw smoke results were only read/exported and were not modified.",
+    "screenshots": [
+      "docs/screenshots/phase2-real-chat.png",
+      "docs/screenshots/phase2-real-citation.png",
+      "docs/screenshots/phase2-real-evaluation.png",
+      "docs/screenshots/phase2-real-error-detail.png"
+    ]
+  },
+  "limitations": [
+    "This record verifies the UI workflow and failure visibility, not completion of the separate 156-question baseline.",
+    "No genuine human answer review is claimed.",
+    "The .tools HTML/report snapshots are local ignored artifacts; the response JSON and this verification record are portable project artifacts."
+  ]
+}

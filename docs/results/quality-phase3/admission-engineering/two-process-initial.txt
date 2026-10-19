@@ -1,0 +1,13 @@
+Unrecognized option: --version
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+PASS per-user capacity is shared across JVMs and rejection rolls back
+PASS fixed-rate overload rejects with 429 Retry-After; replay and failed retry preserve capacity and all domain rows
+PASS running cancellation retains admission capacity until terminal
+PASS releasing work restores new admission and manual retry
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+200 !== 409
+
+    at file:///F:/CiteBase/scripts/quality-admission-harness.mjs:228:48
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

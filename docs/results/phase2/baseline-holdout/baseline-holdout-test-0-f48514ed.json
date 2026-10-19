@@ -1,0 +1,2319 @@
+{
+  "id": "ce08e594-cdca-4af0-b973-7256530ac367",
+  "name": "baseline-holdout-test-0-f48514ed",
+  "status": "COMPLETED",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:05:16.109223724Z",
+  "error": null,
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "tide-001",
+          "question": "Tide 常规样在装瓶后保持多少摄氏度？",
+          "answerable": true,
+          "expectedAnswer": "4摄氏度",
+          "evidence": [
+            {
+              "documentName": "tide-handbook.md",
+              "page": 1,
+              "paragraph": 2,
+              "quote": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+              "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+              "startOffset": 53,
+              "endOffset": 89,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-002",
+          "question": "Tide 现场电导率仪多久校验一次？",
+          "answerable": true,
+          "expectedAnswer": "每个采样日一次",
+          "evidence": [
+            {
+              "documentName": "tide-handbook.md",
+              "page": 1,
+              "paragraph": 6,
+              "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+              "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+              "startOffset": 235,
+              "endOffset": 275,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-003",
+          "question": "Tide 监管链例外决定保留多少年？",
+          "answerable": true,
+          "expectedAnswer": "7年",
+          "evidence": [
+            {
+              "documentName": "tide-cards.pdf",
+              "page": 14,
+              "paragraph": 1,
+              "quote": "Tide archive card: chain exception decisions are retained for 7 years.",
+              "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+              "startOffset": 0,
+              "endOffset": 70,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-004",
+          "question": "Tide 快递换了一条行车路线，能不能把采样计时重新开始？",
+          "answerable": true,
+          "expectedAnswer": "不能，采集时间戳不重置",
+          "evidence": [
+            {
+              "documentName": "tide-cards.pdf",
+              "page": 9,
+              "paragraph": 1,
+              "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+              "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+              "startOffset": 0,
+              "endOffset": 95,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-005",
+          "question": "Tide 拒收的样本能在报告里填成污染物含量为零吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，应注明拒收与原因",
+          "evidence": [
+            {
+              "documentName": "tide-cards.pdf",
+              "page": 17,
+              "paragraph": 1,
+              "quote": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+              "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+              "startOffset": 0,
+              "endOffset": 109,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-006",
+          "question": "Tide 河岸太危险没采成，能把上次读数当作本次结果吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，停止该站采样",
+          "evidence": [
+            {
+              "documentName": "tide-cards.pdf",
+              "page": 16,
+              "paragraph": 1,
+              "quote": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+              "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+              "startOffset": 0,
+              "endOffset": 123,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-007",
+          "question": "Tide COC 表示什么，只有运输签收单够不够？",
+          "answerable": true,
+          "expectedAnswer": "样品监管链，不够",
+          "evidence": [
+            {
+              "documentName": "tide-handbook.md",
+              "page": 1,
+              "paragraph": 4,
+              "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+              "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+              "startOffset": 134,
+              "endOffset": 183,
+              "groupId": "g1"
+            }
+          ],
+          "category": "缩写",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-008",
+          "question": "Tide DUP 和 FB 都是空白水样吗？",
+          "answerable": true,
+          "expectedAnswer": "不是；DUP为现场重复样，FB为现场空白样",
+          "evidence": [
+            {
+              "documentName": "tide-handbook.md",
+              "page": 1,
+              "paragraph": 5,
+              "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+              "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+              "startOffset": 185,
+              "endOffset": 233,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "tide-cards.pdf",
+              "page": 7,
+              "paragraph": 1,
+              "quote": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+              "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+              "startOffset": 0,
+              "endOffset": 119,
+              "groupId": "g2"
+            }
+          ],
+          "category": "缩写",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 1,
+      "mrr": 0.8541666666666666,
+      "retrievalMs": 358.875,
+      "totalMs": 6352,
+      "errorCount": 0
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.5,
+      "mrr": 0.5,
+      "retrievalMs": 302.75,
+      "totalMs": 12392.375,
+      "errorCount": 0
+    }
+  },
+  "results": [
+    {
+      "id": "b8e5993e-abb0-4c7f-b68b-37f81207e343",
+      "question": "Tide 常规样在装瓶后保持多少摄氏度？",
+      "answer": "根据证据，Tide 常规水样装瓶后置于4摄氏度冷藏箱 [abdae42e-38ae-4c94-b92d-045da348e4f5]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "abdae42e-38ae-4c94-b92d-045da348e4f5",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "text": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "score": 0.7637192747760265
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.6212357056877449
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.6154543161392212
+        },
+        {
+          "id": "5392f1ac-1abe-4edf-a354-4f9482437fe8",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 2,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Tide cold box card: a sealed temperature logger remains inside the box until\nthe receiving desk opens it.",
+          "score": 0.585027277469635
+        },
+        {
+          "id": "adf619dd-1b57-4c04-9553-3dd40c65948a",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "text": "Tide bottle card: the backup bottle is not opened unless the laboratory\nsupervisor requests a repeat analysis.",
+          "score": 0.5699274796290718
+        }
+      ],
+      "citations": [
+        {
+          "id": "abdae42e-38ae-4c94-b92d-045da348e4f5",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "text": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "score": 0.7637192747760265
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 296,
+      "totalMs": 3393,
+      "promptTokens": 873,
+      "completionTokens": 41,
+      "error": null,
+      "caseId": "tide-001",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "4摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 53,
+          "endOffset": 89,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d9e3393a-086b-4778-8c09-c0d7c0ac4f1a",
+      "question": "Tide 常规样在装瓶后保持多少摄氏度？",
+      "answer": "根据证据，Tide 常规水样装瓶后置于4摄氏度冷藏箱 [abdae42e-38ae-4c94-b92d-045da348e4f5]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "abdae42e-38ae-4c94-b92d-045da348e4f5",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "text": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "1217c9a0-cebd-4d17-929b-963352a4fab4",
+          "documentId": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+          "documentName": "moss-handbook.md",
+          "versionId": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 49,
+          "endOffset": 96,
+          "text": "Moss 常温预处理柜维持 18 摄氏度，长期低温库维持负18摄氏度；预处理柜不是长期保存库。",
+          "score": 0.031024531024531024
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.030798389007344232
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.0304147465437788
+        },
+        {
+          "id": "eeabafcd-3e50-4757-af8d-44549fc3f66c",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Harbor 冷链交接站使用 HBR-24 箱号。温控运输箱的正常温度带为 2–6 摄氏度，交接员只读取箱内校准探头，不以车厢温度替代。",
+          "score": 0.028381642512077296
+        }
+      ],
+      "citations": [
+        {
+          "id": "abdae42e-38ae-4c94-b92d-045da348e4f5",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 89,
+          "text": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 266,
+      "totalMs": 20690,
+      "promptTokens": 896,
+      "completionTokens": 41,
+      "error": null,
+      "caseId": "tide-001",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "4摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Tide 常规水样装瓶后置于4摄氏度冷藏箱，采样瓶不得直接接触散装冰块。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 53,
+          "endOffset": 89,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "99209e9e-cd77-4482-91c7-56389324877c",
+      "question": "Tide 现场电导率仪多久校验一次？",
+      "answer": "根据证据，Tide 现场电导率仪每个采样日校验一次 [d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.8221499429851818
+        },
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.6151542021472063
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.5982570052146912
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.5875723712189429
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.5849746465682983
+        }
+      ],
+      "citations": [
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.8221499429851818
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 272,
+      "totalMs": 8889,
+      "promptTokens": 890,
+      "completionTokens": 48,
+      "error": null,
+      "caseId": "tide-002",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "每个采样日一次",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 235,
+          "endOffset": 275,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "99f1e91b-d4f4-4643-b3e6-5c021da819e6",
+      "question": "Tide 现场电导率仪多久校验一次？",
+      "answer": "根据证据，Tide 现场电导率仪每个采样日校验一次 [d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.02967032967032967
+        },
+        {
+          "id": "ae367d13-731e-46a5-ad99-36c217c12d09",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 297,
+          "endOffset": 353,
+          "text": "Harbor 主探头每 40 秒采样一次，备用探头每 90 秒采样一次；两者不同步时仍以主探头连续点数判定缺失。",
+          "score": 0.028991596638655463
+        }
+      ],
+      "citations": [
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 259,
+      "totalMs": 4404,
+      "promptTokens": 894,
+      "completionTokens": 48,
+      "error": null,
+      "caseId": "tide-002",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "每个采样日一次",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 6,
+          "quote": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 235,
+          "endOffset": 275,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "727032da-3548-4d94-bc7e-e0c5f72c40ab",
+      "question": "Tide 监管链例外决定保留多少年？",
+      "answer": "根据证据，Tide 监管链例外决定保留 7 年 [842c1db1-9abf-41b3-86fe-8c14aab23817]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "842c1db1-9abf-41b3-86fe-8c14aab23817",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 14,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 70,
+          "text": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "score": 0.7375720739364624
+        },
+        {
+          "id": "327b80c9-ad9b-4d03-a593-8a682b516c08",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "text": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "score": 0.5511519908905029
+        },
+        {
+          "id": "2c4f0625-1b66-4398-a9f9-45beb09a9791",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "text": "Tide chain card: a missing handover signature starts a chain exception even\nwhen the water temperature is acceptable.",
+          "score": 0.5474111437797546
+        },
+        {
+          "id": "5e430ef2-8b73-401f-b824-882059951730",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "text": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "score": 0.5274546460780299
+        },
+        {
+          "id": "3799e1fb-58ac-4b5e-bb9d-f641d60cafff",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "text": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "score": 0.5159353171567715
+        }
+      ],
+      "citations": [
+        {
+          "id": "842c1db1-9abf-41b3-86fe-8c14aab23817",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 14,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 70,
+          "text": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "score": 0.7375720739364624
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 250,
+      "totalMs": 3140,
+      "promptTokens": 835,
+      "completionTokens": 41,
+      "error": null,
+      "caseId": "tide-003",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "7年",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 14,
+          "paragraph": 1,
+          "quote": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 70,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "65055c3c-ab58-47d8-9bce-650851496b1a",
+      "question": "Tide 监管链例外决定保留多少年？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2c4f0625-1b66-4398-a9f9-45beb09a9791",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "text": "Tide chain card: a missing handover signature starts a chain exception even\nwhen the water temperature is acceptable.",
+          "score": 0.030158730158730156
+        },
+        {
+          "id": "327b80c9-ad9b-4d03-a593-8a682b516c08",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "text": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "score": 0.030017921146953404
+        },
+        {
+          "id": "49536032-dd3a-4dab-b44d-412aff500296",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 887,
+          "endOffset": 932,
+          "text": "Quartz 扫描失败记录保留30天，正常入馆核验记录保留90天；统计报表只汇总团体数量。",
+          "score": 0.0293236301369863
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.02900988017658188
+        },
+        {
+          "id": "3799e1fb-58ac-4b5e-bb9d-f641d60cafff",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "text": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "score": 0.0288981288981289
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 289,
+      "totalMs": 6803,
+      "promptTokens": 840,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-003",
+      "category": "事实",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "7年",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 14,
+          "paragraph": 1,
+          "quote": "Tide archive card: chain exception decisions are retained for 7 years.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 70,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "6529c9ae-fe54-41b1-8a7e-703950fc1d43",
+      "question": "Tide 快递换了一条行车路线，能不能把采样计时重新开始？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.676906307843523
+        },
+        {
+          "id": "3799e1fb-58ac-4b5e-bb9d-f641d60cafff",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 9,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 95,
+          "text": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "score": 0.6674513021871086
+        },
+        {
+          "id": "327b80c9-ad9b-4d03-a593-8a682b516c08",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 520,
+          "endOffset": 568,
+          "text": "Tide 暴雨专项方案允许6小时送达，该更严格时限只在专项任务单启用时适用，常规任务仍为8小时。",
+          "score": 0.6375177718688397
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.6284960133733752
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.620525978772285
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 307,
+      "totalMs": 2472,
+      "promptTokens": 842,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-004",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，采集时间戳不重置",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 9,
+          "paragraph": 1,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 95,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "c42a8c77-b435-411f-80cd-0afe203c95fb",
+      "question": "Tide 快递换了一条行车路线，能不能把采样计时重新开始？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "a225427a-b416-4061-b369-443b31069c12",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 1113,
+          "endOffset": 2013,
+          "text": "Harbor 长文复盘附录：以下是虚构的跨班次事件复盘，不更改前文的正式阈值。清晨，值班员接到一辆提前到达的车辆。预约屏显示的预计时间还未到，但车头已经进入卸货区；值班员先登记实际到站时刻，再分配暂存位。他没有为了让统计更好看而把实际时间改成预约时间。第一箱的封条完好，探头证明可读，第二箱封口处有可疑折痕。两箱虽然同车到站，仍分别检查、分别记录，不能借第一箱的结论直接签收第二箱。记录员在交接单上注明看到的事实，而不将“可能运输碰撞”写成已查明的责任归属。\n复盘继续：货台的屏幕一度失去网络连接，记录员转用本地草稿。他向司机解释，屏幕里已经出现箱号不代表后台已签收；司机要求先给正式收据以便离场，记录员仍保留待核验状态。联网后，他核对原交接序号、采样序列和到站批次，发现司机手机与货台终端各传了一次同一事件。两份上传的图片文件名不同，但交接身份相同，因此系统关联已有签收单，而非再建立一个新的签收承诺。临时网络故障没有改变质检授权人，也不改变现场事实的采集时间。\n第三步，质量岗对第二箱开展人工复核。值班员先把箱子放到隔离库位，拍摄能看清封口位置和箱号的照片，避免背景里混入其他客户的运单。质量岗读取原始探头记录并查阅校准证明；司机提供运输说明，但不能自行填写质量结论。即便司机与值班员达成了口头赔偿安排，这也与质量放行是两个不同问题。复核单分别记录证据、待解释现象和最终判断，不能把未核实的说法抄成检测结论。对暂时无法解释的缺点，应保留疑点而不是删除相应采样行。\n第四步，交班人员发现温控告警已被确认，于是询问是否可以同时取消数据质量告警。上一班说明，告警确认只是有人已看到提示，既不代表偏差消失，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "7ccd197d-bff6-4b76-9136-6ab0b579a9ee",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Tide 河道采样瓶采用 RIV 编号，每个站点每次采样建立一个独立事件号；上下游站点不得共用事件号。",
+          "score": 0.030303030303030304
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.030117753623188408
+        },
+        {
+          "id": "b957351c-b605-4c6a-9037-353401ebf5d3",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 752,
+          "endOffset": 790,
+          "text": "Tide 实验结果须关联采样事件和实验批次；只凭瓶子颜色或车次不能关联结果。",
+          "score": 0.029631255487269532
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 316,
+      "totalMs": 18410,
+      "promptTokens": 1387,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-004",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，采集时间戳不重置",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 9,
+          "paragraph": 1,
+          "quote": "Tide transport card: the vehicle route may change, but the collection\ntimestamp is never reset.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 95,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "85d03e04-0b37-4c3d-84c0-3f64905e3e46",
+      "question": "Tide 拒收的样本能在报告里填成污染物含量为零吗？",
+      "answer": "不能。根据证据，Tide 拒收的样本在报告卡中会显示为“拒收”并注明原因，而不是作为污染物浓度为零的结果 [f1efce65-da17-4b4b-9908-a8e13077ae5f]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "f1efce65-da17-4b4b-9908-a8e13077ae5f",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 109,
+          "text": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "score": 0.6471675844688675
+        },
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.6195689070481725
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.6012883186340332
+        },
+        {
+          "id": "4b57cb4a-34db-4c1e-b2dd-1afee22e1400",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 707,
+          "endOffset": 750,
+          "text": "Tide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。",
+          "score": 0.5945634004213464
+        },
+        {
+          "id": "910396c4-cd6f-4522-94e2-5aaffedf406d",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 843,
+          "endOffset": 882,
+          "text": "Tide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+          "score": 0.5943593141054709
+        }
+      ],
+      "citations": [
+        {
+          "id": "f1efce65-da17-4b4b-9908-a8e13077ae5f",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 109,
+          "text": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "score": 0.6471675844688675
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 290,
+      "totalMs": 3964,
+      "promptTokens": 855,
+      "completionTokens": 58,
+      "error": null,
+      "caseId": "tide-005",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，应注明拒收与原因",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 17,
+          "paragraph": 1,
+          "quote": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 109,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2c7a6997-bc52-4d57-916b-f76617b3dfeb",
+      "question": "Tide 拒收的样本能在报告里填成污染物含量为零吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.03131881575727918
+        },
+        {
+          "id": "4b57cb4a-34db-4c1e-b2dd-1afee22e1400",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 707,
+          "endOffset": 750,
+          "text": "Tide 若容器外壁污染但未破裂，先外部清洁并记录，不能因此直接认定水样化学指标超标。",
+          "score": 0.03125
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.030303030303030304
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 310,
+      "totalMs": 2494,
+      "promptTokens": 858,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-005",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，应注明拒收与原因",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 17,
+          "paragraph": 1,
+          "quote": "Tide reporting card: a rejected sample appears as rejected with a reason, not\nas a zero concentration result.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 109,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "41cfedb3-e429-422c-bdbe-336c813b46c6",
+      "question": "Tide 河岸太危险没采成，能把上次读数当作本次结果吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "910396c4-cd6f-4522-94e2-5aaffedf406d",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 843,
+          "endOffset": 882,
+          "text": "Tide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+          "score": 0.6512161881456499
+        },
+        {
+          "id": "7ccd197d-bff6-4b76-9136-6ab0b579a9ee",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Tide 河道采样瓶采用 RIV 编号，每个站点每次采样建立一个独立事件号；上下游站点不得共用事件号。",
+          "score": 0.6352465938105167
+        },
+        {
+          "id": "5030f1e1-9fc9-4b54-a37a-431cd9422412",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 16,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 123,
+          "text": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+          "score": 0.6264082193374634
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.6187701225280762
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.6047252416610718
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 757,
+      "totalMs": 16157,
+      "promptTokens": 859,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-006",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，停止该站采样",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 16,
+          "paragraph": 1,
+          "quote": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 123,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.3333333333333333,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f401fb46-e4ba-4f4f-b421-419a7550e857",
+      "question": "Tide 河岸太危险没采成，能把上次读数当作本次结果吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "910396c4-cd6f-4522-94e2-5aaffedf406d",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 843,
+          "endOffset": 882,
+          "text": "Tide 采样员可记录河面气味和颜色，但不能把感官描述写成未经检测的浓度数值。",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "b957351c-b605-4c6a-9037-353401ebf5d3",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 752,
+          "endOffset": 790,
+          "text": "Tide 实验结果须关联采样事件和实验批次；只凭瓶子颜色或车次不能关联结果。",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.030303030303030304
+        },
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.029827662395050816
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.0293236301369863
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 301,
+      "totalMs": 2660,
+      "promptTokens": 858,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-006",
+      "category": "同义",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，停止该站采样",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 16,
+          "paragraph": 1,
+          "quote": "Tide cancellation card: an unsafe riverbank stops sampling at that site; a\nprevious result is never copied as a new sample.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 123,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "7e0bf217-c08a-47bd-9d17-9e1aa912e360",
+      "question": "Tide COC 表示什么，只有运输签收单够不够？",
+      "answer": "根据证据，Tide COC 表示样品监管链记录，记录每次移交的双方及时间 [fa78fe08-56ec-4566-bfb1-2b5ce99304bc]。运输签收单不能替代完整的COC [fa78fe08-56ec-4566-bfb1-2b5ce99304bc]。因此，只有运输签收单是不够的。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "fa78fe08-56ec-4566-bfb1-2b5ce99304bc",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "text": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "score": 0.7136140465736389
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.6523353457450867
+        },
+        {
+          "id": "72d0172c-3205-4caf-992e-086760e43400",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 112,
+          "text": "Tide courier card: the courier scans every handover in the COC and records\nboth sender and receiver identifiers.",
+          "score": 0.6133445501327515
+        },
+        {
+          "id": "2c4f0625-1b66-4398-a9f9-45beb09a9791",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 117,
+          "text": "Tide chain card: a missing handover signature starts a chain exception even\nwhen the water temperature is acceptable.",
+          "score": 0.5945237874984741
+        },
+        {
+          "id": "7c0ddfc0-784f-4042-b7ca-ed7efc73bdf1",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "text": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "score": 0.5878022909164429
+        }
+      ],
+      "citations": [
+        {
+          "id": "fa78fe08-56ec-4566-bfb1-2b5ce99304bc",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "text": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "score": 0.7136140465736389
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 315,
+      "totalMs": 5232,
+      "promptTokens": 888,
+      "completionTokens": 86,
+      "error": null,
+      "caseId": "tide-007",
+      "category": "缩写",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "样品监管链，不够",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 134,
+          "endOffset": 183,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2006843a-91de-425a-939f-f3922b012819",
+      "question": "Tide COC 表示什么，只有运输签收单够不够？",
+      "answer": "根据证据，Tide COC 表示样品监管链记录，记录每次移交的双方及时间 [fa78fe08-56ec-4566-bfb1-2b5ce99304bc]。运输签收单不能替代完整的COC [fa78fe08-56ec-4566-bfb1-2b5ce99304bc]。因此，只有运输签收单是不够的。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "fa78fe08-56ec-4566-bfb1-2b5ce99304bc",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "text": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "72d0172c-3205-4caf-992e-086760e43400",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 112,
+          "text": "Tide courier card: the courier scans every handover in the COC and records\nboth sender and receiver identifiers.",
+          "score": 0.030798389007344232
+        },
+        {
+          "id": "87f43d39-ae5c-4074-b6d7-5b405a66c1e4",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 696,
+          "endOffset": 747,
+          "text": "Harbor 同一箱号同一到站批次只能有一张有效签收单。重传同一交接序号应返回原签收单，不生成第二单。",
+          "score": 0.030776515151515152
+        },
+        {
+          "id": "7c0ddfc0-784f-4042-b7ca-ed7efc73bdf1",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 437,
+          "endOffset": 518,
+          "text": "Tide 接收异常表\n| 异常 | 处理 |\n| 标签模糊但COC可核对 | 双人确认补标 |\n| 容器破裂 | 拒收 |\n| 超过8小时 | 标记超时并评议 |",
+          "score": 0.030090497737556562
+        }
+      ],
+      "citations": [
+        {
+          "id": "fa78fe08-56ec-4566-bfb1-2b5ce99304bc",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 134,
+          "endOffset": 183,
+          "text": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "score": 0.032266458495966696
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 362,
+      "totalMs": 10278,
+      "promptTokens": 895,
+      "completionTokens": 86,
+      "error": null,
+      "caseId": "tide-007",
+      "category": "缩写",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "样品监管链，不够",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Tide 将 COC 定义为样品监管链记录，记录每次移交双方及时间；运输签收单不能替代完整COC。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 134,
+          "endOffset": 183,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "96cb8ad8-84ba-4b8c-b5e8-26e1d48de844",
+      "question": "Tide DUP 和 FB 都是空白水样吗？",
+      "answer": "根据证据：\n- Tide 将 FB 定义为现场空白样，用于检查现场污染 [68565faf-51d9-48f2-aca9-442da903cf9e]。\n- DUP 是重复的现场水样，与 FB 不同 [6c948475-fad3-4354-b216-53fbf2025ca0]。\n- 现场空白样是在现场使用经批准的空白水制备的 [38e5e1d3-376d-4e86-8d89-dafef5eae2f5]。\n\n因此，FB 是空白水样，而 DUP 不是空白水样，它是重复的现场水样。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.6826854348182727
+        },
+        {
+          "id": "6c948475-fad3-4354-b216-53fbf2025ca0",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "text": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "score": 0.5897637116627349
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.546179803978194
+        },
+        {
+          "id": "5e430ef2-8b73-401f-b824-882059951730",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "text": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "score": 0.5248900681603036
+        },
+        {
+          "id": "38e5e1d3-376d-4e86-8d89-dafef5eae2f5",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 118,
+          "text": "Tide blank card: the field blank is prepared at the site using the approved\nblank water and the same handling routine.",
+          "score": 0.5009049475732423
+        }
+      ],
+      "citations": [
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.6826854348182727
+        },
+        {
+          "id": "6c948475-fad3-4354-b216-53fbf2025ca0",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "text": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "score": 0.5897637116627349
+        },
+        {
+          "id": "38e5e1d3-376d-4e86-8d89-dafef5eae2f5",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 118,
+          "text": "Tide blank card: the field blank is prepared at the site using the approved\nblank water and the same handling routine.",
+          "score": 0.5009049475732423
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 384,
+      "totalMs": 7569,
+      "promptTokens": 850,
+      "completionTokens": 149,
+      "error": null,
+      "caseId": "tide-008",
+      "category": "缩写",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不是；DUP为现场重复样，FB为现场空白样",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 185,
+          "endOffset": 233,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 119,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "d1ecd1b8-09db-4a7b-bcfc-e21af74a189b",
+      "question": "Tide DUP 和 FB 都是空白水样吗？",
+      "answer": "根据提供的证据，Tide DUP 和 FB 不是同一种水样。\n\n*   Tide 将 FB 定义为现场空白样，用于检查现场污染 [68565faf-51d9-48f2-aca9-442da903cf9e]。\n*   DUP 指的是现场平行样，它与 FB 以及实验室的重复读数都不同 [6c948475-fad3-4354-b216-53fbf2025ca0]。\n\n因此，FB 是现场空白样，而 DUP 是现场平行样，两者是不同的。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "6c948475-fad3-4354-b216-53fbf2025ca0",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "text": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.029206349206349208
+        },
+        {
+          "id": "38e5e1d3-376d-4e86-8d89-dafef5eae2f5",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 118,
+          "text": "Tide blank card: the field blank is prepared at the site using the approved\nblank water and the same handling routine.",
+          "score": 0.0288981288981289
+        }
+      ],
+      "citations": [
+        {
+          "id": "68565faf-51d9-48f2-aca9-442da903cf9e",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 185,
+          "endOffset": 233,
+          "text": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "6c948475-fad3-4354-b216-53fbf2025ca0",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 119,
+          "text": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "score": 0.03225806451612903
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 319,
+      "totalMs": 33400,
+      "promptTokens": 889,
+      "completionTokens": 122,
+      "error": null,
+      "caseId": "tide-008",
+      "category": "缩写",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不是；DUP为现场重复样，FB为现场空白样",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "tide-handbook.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Tide 将 FB 定义为现场空白样，用于检查现场污染；FB不能代替实际河水样进行环境结果报告。",
+          "sourceHash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+          "startOffset": 185,
+          "endOffset": 233,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "tide-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Tide terminology: DUP means a duplicate field sample, which is distinct from\nFB and from a repeated laboratory reading.",
+          "sourceHash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+          "startOffset": 0,
+          "endOffset": 119,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "事实": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 272.6666666666667,
+          "totalMs": 5140.666666666667
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0.6666666666666666,
+          "mrr": 0.6666666666666666,
+          "retrievalMs": 271.3333333333333,
+          "totalMs": 10632.333333333334
+        }
+      },
+      "同义": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.611111111111111,
+          "retrievalMs": 451.3333333333333,
+          "totalMs": 7531
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": 309,
+          "totalMs": 7854.666666666667
+        }
+      },
+      "缩写": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 349.5,
+          "totalMs": 6400.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 340.5,
+          "totalMs": 21839
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.8541666666666666,
+          "retrievalMs": 358.875,
+          "totalMs": 6352
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.5,
+          "mrr": 0.5,
+          "retrievalMs": 302.75,
+          "totalMs": 12392.375
+        }
+      }
+    },
+    "group": {
+      "tide": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.8541666666666666,
+          "retrievalMs": 358.875,
+          "totalMs": 6352
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.5,
+          "mrr": 0.5,
+          "retrievalMs": 302.75,
+          "totalMs": 12392.375
+        }
+      }
+    },
+    "topic": {
+      "tide": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.8541666666666666,
+          "retrievalMs": 358.875,
+          "totalMs": 6352
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.5,
+          "mrr": 0.5,
+          "retrievalMs": 302.75,
+          "totalMs": 12392.375
+        }
+      }
+    }
+  }
+}

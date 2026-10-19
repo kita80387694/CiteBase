@@ -1,0 +1,178 @@
+{
+  "id": "20095ded-093f-4e2b-add6-ee6a3afbb05f",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "20095ded-093f-4e2b-add6-ee6a3afbb05f",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-7-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-7-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "表格",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 保存表\n| 类别 | 温度 | 复检周期 |\n| 干燥种子 | 4 摄氏度 | 180 天 |\n| 短期湿样 | 12 摄氏度 | 7 天 |",
+              "groupId": "g1",
+              "endOffset": 212,
+              "paragraph": 3,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 135,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 湿样和干样的复检间隔差多少天？",
+          "answerable": true,
+          "expectedAnswer": "173天"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-295f521f5877bdd768fb9eec3f54ac34b3648c63a2be307b1560b7ec6daf",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:19:24.725231Z",
+  "startedAt": "2026-10-01T08:19:25.069647Z",
+  "finishedAt": "2026-10-01T08:19:50.421917Z",
+  "availableAt": "2026-10-01T08:19:24.725231Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "f6e74ede-c630-4884-bd76-a20abdea0c27",
+      "operationKey": "18d125ed-a3e0-4ec8-965a-59797794581d:embedding:bfe18475-8571-4971-a645-65809c8bcd64",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T08:19:25.094459Z",
+      "finishedAt": "2026-10-01T08:19:25.358243Z"
+    },
+    {
+      "callId": "c3c7e0d4-6abb-45ae-8b2e-2d625b6fc3c2",
+      "operationKey": "18d125ed-a3e0-4ec8-965a-59797794581d:rerank:e5c231d1-9f3e-45dd-b420-0ec6ca5cb5ec",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:19:25.367138Z",
+      "finishedAt": "2026-10-01T08:19:26.060305Z"
+    },
+    {
+      "callId": "d95cf74f-4b7d-4ced-b378-b4650419ba19",
+      "operationKey": "18d125ed-a3e0-4ec8-965a-59797794581d:generation:d6c9b142-a9fd-4d45-b889-f94b0802f173",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1715,
+        "completionTokens": 66
+      },
+      "startedAt": "2026-10-01T08:19:26.064521Z",
+      "finishedAt": "2026-10-01T08:19:34.900484Z"
+    },
+    {
+      "callId": "0d9d88cc-6263-4fef-8fb6-a1a32d8bd87f",
+      "operationKey": "0571bd25-64e9-43e3-850f-cb5a3ab91ae5:embedding:72c00e8c-5104-4ff6-86b3-ddefcb53d1f0",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-01T08:19:34.923391Z",
+      "finishedAt": "2026-10-01T08:19:35.203210Z"
+    },
+    {
+      "callId": "422affcf-723a-4689-871d-8da5d57dcdee",
+      "operationKey": "0571bd25-64e9-43e3-850f-cb5a3ab91ae5:rerank:5b01b309-5a2a-48e1-a667-be8e18e5b630",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2734,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2734,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-01T08:19:35.214291Z",
+      "finishedAt": "2026-10-01T08:19:35.579112Z"
+    },
+    {
+      "callId": "bf4ab36c-7263-4102-ae91-b97097d9ce7d",
+      "operationKey": "0571bd25-64e9-43e3-850f-cb5a3ab91ae5:generation:b4d241b3-150e-4ba4-a2db-3d49c8022b3e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1715,
+        "completionTokens": 71
+      },
+      "startedAt": "2026-10-01T08:19:35.583159Z",
+      "finishedAt": "2026-10-01T08:19:50.393905Z"
+    }
+  ]
+}

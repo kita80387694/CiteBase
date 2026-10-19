@@ -1,0 +1,110 @@
+TAP version 13
+# Subtest: registered small capacity and mock-only constraints reject invalid configurations
+ok 1 - registered small capacity and mock-only constraints reject invalid configurations
+  ---
+  duration_ms: 11.7296
+  ...
+# Subtest: fixed arrival schedule covers both APIs independently of completion
+ok 2 - fixed arrival schedule covers both APIs independently of completion
+  ---
+  duration_ms: 4.8059
+  ...
+# Subtest: rejections need admission code, Retry-After, and bounded response time
+ok 3 - rejections need admission code, Retry-After, and bounded response time
+  ---
+  duration_ms: 0.9087
+  ...
+# Subtest: idempotent replay fixture preserves the exact original request
+ok 4 - idempotent replay fixture preserves the exact original request
+  ---
+  duration_ms: 1.2584
+  ...
+# Subtest: every offered arrival uses the preregistered clock offset
+ok 5 - every offered arrival uses the preregistered clock offset
+  ---
+  duration_ms: 0.6711
+  ...
+# Subtest: segmented recovery preserves failed task, successful checkpoint, unknown usage, and all original states
+ok 6 - segmented recovery preserves failed task, successful checkpoint, unknown usage, and all original states
+  ---
+  duration_ms: 112.1918
+  ...
+# Subtest: rejects runtime identity, source, model and cache changes before collection
+ok 7 - rejects runtime identity, source, model and cache changes before collection
+  ---
+  duration_ms: 71.8293
+  ...
+# Subtest: rejects altered evidence identity, version, config and incomplete keys
+ok 8 - rejects altered evidence identity, version, config and incomplete keys
+  ---
+  duration_ms: 182.8812
+  ...
+# Subtest: manifest hashes prevent changing original raw or supplied terminal audit
+ok 9 - manifest hashes prevent changing original raw or supplied terminal audit
+  ---
+  duration_ms: 83.6876
+  ...
+# Subtest: external call audit compares SQL and API naming without losing microseconds or UNKNOWN outcomes
+ok 10 - external call audit compares SQL and API naming without losing microseconds or UNKNOWN outcomes
+  ---
+  duration_ms: 0.5265
+  ...
+# Subtest: live version drift refuses new work and original journal is retained on failure
+ok 11 - live version drift refuses new work and original journal is retained on failure
+  ---
+  duration_ms: 45.9248
+  ...
+# Subtest: 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+ok 12 - 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+  ---
+  duration_ms: 43.4278
+  ...
+# Subtest: partial rows and absent ledger stay pending and unknown; failures retained
+ok 13 - partial rows and absent ledger stay pending and unknown; failures retained
+  ---
+  duration_ms: 24.9655
+  ...
+# Subtest: missing tokens are null and partial ledger calls are observed only
+ok 14 - missing tokens are null and partial ledger calls are observed only
+  ---
+  duration_ms: 9.4938
+  ...
+# Subtest: comparison clusters forty questions; failures zero and missing/NA null
+ok 15 - comparison clusters forty questions; failures zero and missing/NA null
+  ---
+  duration_ms: 75.5086
+  ...
+# Subtest: duplicate rows, modified gold, forged pairing and unsigned answer rejected
+ok 16 - duplicate rows, modified gold, forged pairing and unsigned answer rejected
+  ---
+  duration_ms: 53.0102
+  ...
+# Subtest: pending and malformed synthetic raw files produce partial hashed report
+ok 17 - pending and malformed synthetic raw files produce partial hashed report
+  ---
+  duration_ms: 189.6795
+  ...
+# Subtest: comparison CLI writes hashed synthetic inputs without changing defaults
+ok 18 - comparison CLI writes hashed synthetic inputs without changing defaults
+  ---
+  duration_ms: 222.9272
+  ...
+# Subtest: failed task preserves successful checkpoint rows and unknown calls stay counted
+ok 19 - failed task preserves successful checkpoint rows and unknown calls stay counted
+  ---
+  duration_ms: 26.7674
+  ...
+# Subtest: nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+ok 20 - nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+  ---
+  duration_ms: 344.7937
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1233.9008

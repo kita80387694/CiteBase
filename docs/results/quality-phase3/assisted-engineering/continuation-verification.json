@@ -1,0 +1,58 @@
+{
+  "capturedAt": "2026-10-01T07:33:49.902Z",
+  "commit": "3751e2868c597f1fd9a791de9115a0b7f50a745e",
+  "workingTree": "uncommitted report scripts/docs; production backend remains27219a0 implementation",
+  "tests": {
+    "fullMaven": {
+      "total": 271,
+      "passed": 260,
+      "skipped": 11,
+      "failed": 0
+    },
+    "externalMaven": {
+      "total": 11,
+      "passed": 11,
+      "skipped": 0,
+      "failed": 0,
+      "database": "dedicated citebase_quality_baseline localhost25441"
+    },
+    "uniqueBackendExecuted": 271,
+    "nodeAssistedIndependent": {
+      "total": 44,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "evidence": [
+    {
+      "file": "docs/results/quality-phase3/assisted-engineering/full-backend-271.txt",
+      "sha256": "a38e2f1ca444256939b6aae793fe69b1757d3349d16af39af5d151a9f6a02a4f"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-engineering/external-backend-11.txt",
+      "sha256": "20f6d3423776f66e7ae453c6f3ebe0827bf36d3f18acc07b2866435223abc7b2"
+    },
+    {
+      "file": "docs/results/quality-phase3/assisted-engineering/scripts-44.txt",
+      "sha256": "23a403436679ab4c59197a9862f29e19206db1b41624c8f4159935eab69620a7"
+    }
+  ],
+  "ui": {
+    "url": "http://localhost:25186/",
+    "mode": "real",
+    "readOnlyExistingRun": "dcf772a9-6272-49ec-86ef-3a821346cfee",
+    "checks": [
+      "default original preserved",
+      "grounded strategy visible with assisted limitations",
+      "actual final answer and bounded tool trajectory",
+      "citation opens accessible original text and character position"
+    ],
+    "screenshots": [
+      "docs/screenshots/quality-phase3-grounded-real-20261001.png",
+      "docs/screenshots/quality-phase3-grounded-real-citation-20261001.png"
+    ],
+    "newModelCallsForInspection": 0
+  },
+  "humanReviewed": 0
+}

@@ -1,0 +1,113 @@
+{
+  "id": "6667b48c-ad35-45fb-81e9-34be42e883f1",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "6667b48c-ad35-45fb-81e9-34be42e883f1",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q022",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "dahlia-018",
+          "group": "dahlia",
+          "split": "validation",
+          "topic": "dahlia",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Dahlia 当前有几台闲置手推车？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-2dfb7ab1ee5ddda995713d0f4fe365917317faa17cdef0f83d1f67c130ad",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:49:46.705337Z",
+  "startedAt": "2026-09-30T06:49:47.144287Z",
+  "finishedAt": "2026-09-30T06:50:03.691465Z",
+  "availableAt": "2026-09-30T06:49:46.705337Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "31f23315-f803-4f4e-a7c4-9bc474d14ea6",
+      "operationKey": "6e9b37b4-cf83-47d5-bccd-f8fb300aae4d:embedding:5e287b01-8bf8-4e8d-903a-cdef22c5916c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:49:47.163033Z",
+      "finishedAt": "2026-09-30T06:49:47.445161Z"
+    },
+    {
+      "callId": "e5b98046-04e9-4826-912e-d0479fd7cd66",
+      "operationKey": "6e9b37b4-cf83-47d5-bccd-f8fb300aae4d:generation:b3835922-0fb0-427d-b7b0-274c865a5336",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:49:47.452017Z",
+      "finishedAt": "2026-09-30T06:49:58.116273Z"
+    },
+    {
+      "callId": "bc416637-89e7-4c3c-914a-a78f2a5ce334",
+      "operationKey": "1c5beb7f-0840-46ed-b35c-929171ec21dc:embedding:766d6d8d-1f23-4541-8a91-71e6a19e8fa6",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 15,
+        "promptTokens": 15
+      },
+      "startedAt": "2026-09-30T06:49:58.135286Z",
+      "finishedAt": "2026-09-30T06:49:58.430465Z"
+    },
+    {
+      "callId": "e4d29d56-94d8-4448-9031-b430db4abd07",
+      "operationKey": "1c5beb7f-0840-46ed-b35c-929171ec21dc:generation:62e5959c-e397-43cc-9e48-feca5dad16be",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1714,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:49:58.438601Z",
+      "finishedAt": "2026-09-30T06:50:03.675692Z"
+    }
+  ]
+}

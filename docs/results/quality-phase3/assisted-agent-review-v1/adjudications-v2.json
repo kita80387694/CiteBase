@@ -1,0 +1,48 @@
+{
+  "source": "ASSISTED_ADJUDICATION",
+  "decisions": [
+    {
+      "packetId": "A008",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "source": "ASSISTED_ADJUDICATION",
+      "reviewer": "independent-C",
+      "ruleVersion": "citebase-assisted-quality-v1",
+      "reviewedAt": "2026-10-01T07:20:06.3714083Z",
+      "rationale": "实际证据[1]明确手钻虽可续一次，但被下一位预约后禁止续期，足以回答本题不能续借。执行失败背景保留，但呈现的证据不足兜底未给出结论及原因，正确性和完整性裁为INCORRECT，面对可回答问题的实际拒答裁为INCORRECT_REFUSAL。输出没有虚构业务事实，unsupportedContent为NONE；此项不代表执行成功或答案正确。",
+      "scoreHashes": [
+        "e3ef2d81c4de4304ca7c1aeb79f1c5fbf3a63ff734c5ab6057506ebc82378699",
+        "fefbe94e549cc3988891a068f32f8a2fb76db0c3fd406700dcbea0d66333694d"
+      ],
+      "correctness": "INCORRECT",
+      "completeness": "INCORRECT",
+      "citationSupport": "NA",
+      "unsupportedContent": "NONE",
+      "refusal": "INCORRECT_REFUSAL",
+      "naReasons": {
+        "citationSupport": "实际回答没有引用，仅说明证据不足；不存在可核验的答案引文，引用支持维度不适用。"
+      }
+    },
+    {
+      "packetId": "A013",
+      "answerSha256": "e392ed6afaf323bc9f048ba80689d5905201253643278f864749fe99798908f3",
+      "source": "ASSISTED_ADJUDICATION",
+      "reviewer": "independent-C",
+      "ruleVersion": "citebase-assisted-quality-v1",
+      "reviewedAt": "2026-10-01T07:20:06.3717429Z",
+      "rationale": "实际证据[1]直接定义NFF为未复现故障，并明确不代表客户描述虚假；两个子问题都可回答。执行失败的兜底拒答未覆盖任何目标事实，正确性和完整性裁为INCORRECT，拒答为INCORRECT_REFUSAL，不把执行失败算作正确回答。文本未编造业务事实，unsupportedContent为NONE仅表示无虚构内容。",
+      "scoreHashes": [
+        "2cce860205253c63be996263ffa16989126fa41e630581296204518a9b4aa7dc",
+        "063ecfc42805263bdcd198b4d07de2b754c2dd8a778ca980d8f5f411c9bea9d3"
+      ],
+      "correctness": "INCORRECT",
+      "completeness": "INCORRECT",
+      "citationSupport": "NA",
+      "unsupportedContent": "NONE",
+      "refusal": "INCORRECT_REFUSAL",
+      "naReasons": {
+        "citationSupport": "实际回答没有引用，仅说明证据不足；不存在可核验的答案引文，引用支持维度不适用。"
+      }
+    }
+  ],
+  "note": "Retains prior independent decisions only for unchanged score hashes still disputed after rubric clarification; earlier files preserved."
+}

@@ -1,0 +1,25 @@
+{
+  "kbId": "ef688e4a-abc5-4de1-9174-5ab921794a37",
+  "question": "Brass 的NFF是什么，能据此说客户撒谎吗？",
+  "mode": "vector",
+  "topK": 5,
+  "retrievalOptions": {
+    "candidateK": 20,
+    "keywordWeight": 1,
+    "rerank": false,
+    "citationStyle": "uuid"
+  },
+  "budget": {
+    "maxPlannerSteps": 4,
+    "maxTools": 4,
+    "maxSearch": 2,
+    "maxEvidence": 12,
+    "maxEvidenceChars": 20000,
+    "deadlineSeconds": 120,
+    "maxPlannerOutputTokens": 256,
+    "maxFinalOutputTokens": 1024,
+    "maxExternalCalls": 10
+  },
+  "strategy": "original",
+  "idempotencyKey": "AgentExplore-d40342d962fc-brass-002-original"
+}

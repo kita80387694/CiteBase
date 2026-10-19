@@ -1,0 +1,32 @@
+{
+  "observedAt": "2026-10-19T07:54:15.721Z",
+  "authorization": "User explicitly requested restoring Docker Hub access",
+  "before": {
+    "desktopProxy": "system",
+    "windowsProxy": "127.0.0.1:7890",
+    "dockerTokenAccess": "timeout"
+  },
+  "diagnostic": {
+    "existingProxyTokenHttp": 200,
+    "existingProxyRegistryHttp": 401,
+    "registry401Meaning": "unauthenticated challenge, no credentials disclosed"
+  },
+  "after": {
+    "desktopProxy": "manual",
+    "http": "http://127.0.0.1:7890",
+    "https": "http://127.0.0.1:7890",
+    "exclude": "localhost,127.0.0.1,::1,*.docker.internal",
+    "dockerRestarted": false,
+    "systemDnsModified": false,
+    "backendStartedAt": "2026-10-19T07:25:44.93413333Z"
+  },
+  "verification": {
+    "image": "node:22.14.0-alpine",
+    "result": "pulled successfully",
+    "log": "docs/results/quality-phase3/admission-engineering/docker-proxy-pull-20261019.txt",
+    "sha256": "0d3f7368acd221bc524b4d912a6f0cdcc320438faab975f43f9a144d0c1baba4"
+  },
+  "scope": "Image pull verified; full Compose build not yet verified",
+  "experimentCaveat": "Proxy changed after 212 saved answers; no continuous or causal latency comparison across this change",
+  "rollback": "Docker Desktop Settings > Resources > Proxies > Docker Desktop proxy: System proxy; original settings backup retained only in ignored .tools directory"
+}

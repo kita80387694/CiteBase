@@ -1,0 +1,1394 @@
+[
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "02a4877f-3c39-4ee3-b523-cc3223f3d5a3",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 0,
+    "offsetMs": 0,
+    "process": "A",
+    "scheduledMonotonicMs": 18965.0252,
+    "dispatchLagMs": 4.278200000000652,
+    "startedAt": "2026-10-10T12:59:00.330Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:00 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 46.097099999999045,
+    "finishedAt": "2026-10-10T12:59:00.376Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "9d83b3b7-18e7-466d-98c7-e5b3b1e34f88",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 1,
+    "offsetMs": 125,
+    "process": "B",
+    "scheduledMonotonicMs": 19090.0252,
+    "dispatchLagMs": -0.5973999999987427,
+    "startedAt": "2026-10-10T12:59:00.450Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:00 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 42.59929999999804,
+    "finishedAt": "2026-10-10T12:59:00.492Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "3eb2e1bf-4005-49d8-9411-7d21c69b95e5",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 2,
+    "offsetMs": 250,
+    "process": "A",
+    "scheduledMonotonicMs": 19215.0252,
+    "dispatchLagMs": 6.558099999998376,
+    "startedAt": "2026-10-10T12:59:00.582Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:00 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 35.339600000002974,
+    "finishedAt": "2026-10-10T12:59:00.617Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "0f774a42-5c77-4d70-9b9c-9166dac2d0cd",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 3,
+    "offsetMs": 375,
+    "process": "B",
+    "scheduledMonotonicMs": 19340.0252,
+    "dispatchLagMs": 2.6177999999999884,
+    "startedAt": "2026-10-10T12:59:00.703Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:00 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 42.986400000001595,
+    "finishedAt": "2026-10-10T12:59:00.746Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "35a65211-b19d-45b2-8b1e-eab686fc0f88",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 4,
+    "offsetMs": 500,
+    "process": "A",
+    "scheduledMonotonicMs": 19465.0252,
+    "dispatchLagMs": 12.631000000001222,
+    "startedAt": "2026-10-10T12:59:00.838Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:00 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 68.41349999999875,
+    "finishedAt": "2026-10-10T12:59:00.906Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "c0b84433-37ca-4ef3-a484-d191f5b49b6b",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 5,
+    "offsetMs": 625,
+    "process": "B",
+    "scheduledMonotonicMs": 19590.0252,
+    "dispatchLagMs": 11.47780000000057,
+    "startedAt": "2026-10-10T12:59:00.962Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 52.65589999999793,
+    "finishedAt": "2026-10-10T12:59:01.014Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "2186340d-3431-4f8f-8814-bbc27b6b2fad",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 6,
+    "offsetMs": 750,
+    "process": "A",
+    "scheduledMonotonicMs": 19715.0252,
+    "dispatchLagMs": 6.634099999999307,
+    "startedAt": "2026-10-10T12:59:01.082Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 48.9191000000028,
+    "finishedAt": "2026-10-10T12:59:01.131Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "ff220eb0-a54b-4a86-a5ee-d815e4a98e75",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 7,
+    "offsetMs": 875,
+    "process": "B",
+    "scheduledMonotonicMs": 19840.0252,
+    "dispatchLagMs": 2.646199999999226,
+    "startedAt": "2026-10-10T12:59:01.203Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 46.536700000000565,
+    "finishedAt": "2026-10-10T12:59:01.249Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "f15bf323-9212-428a-858e-89b596eed2c2",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 8,
+    "offsetMs": 1000,
+    "process": "A",
+    "scheduledMonotonicMs": 19965.0252,
+    "dispatchLagMs": 10.695899999998801,
+    "startedAt": "2026-10-10T12:59:01.336Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 50.12450000000172,
+    "finishedAt": "2026-10-10T12:59:01.386Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "9cf46064-2f96-4b0c-a858-e661b7005d14",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 9,
+    "offsetMs": 1125,
+    "process": "B",
+    "scheduledMonotonicMs": 20090.0252,
+    "dispatchLagMs": 2.455900000000838,
+    "startedAt": "2026-10-10T12:59:01.453Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 73.83420000000115,
+    "finishedAt": "2026-10-10T12:59:01.526Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "07c33732-2242-4112-b14e-6cf0fe554548",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 10,
+    "offsetMs": 1250,
+    "process": "A",
+    "scheduledMonotonicMs": 20215.0252,
+    "dispatchLagMs": 2.208699999999226,
+    "startedAt": "2026-10-10T12:59:01.577Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 40.71929999999702,
+    "finishedAt": "2026-10-10T12:59:01.618Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "48143a6a-6959-4528-a56d-3b50559e9890",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 11,
+    "offsetMs": 1375,
+    "process": "B",
+    "scheduledMonotonicMs": 20340.0252,
+    "dispatchLagMs": 13.771700000001147,
+    "startedAt": "2026-10-10T12:59:01.714Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 52.612700000001496,
+    "finishedAt": "2026-10-10T12:59:01.767Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "3767a6c2-1d5f-47a4-ba85-e89ace59145a",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 12,
+    "offsetMs": 1500,
+    "process": "A",
+    "scheduledMonotonicMs": 20465.0252,
+    "dispatchLagMs": 7.64089999999851,
+    "startedAt": "2026-10-10T12:59:01.833Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:01 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 43.774499999999534,
+    "finishedAt": "2026-10-10T12:59:01.877Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "ef509d17-5144-4f5a-8d85-0a38941ade1c",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 13,
+    "offsetMs": 1625,
+    "process": "B",
+    "scheduledMonotonicMs": 20590.0252,
+    "dispatchLagMs": 5.869999999998981,
+    "startedAt": "2026-10-10T12:59:01.956Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 43.764500000001135,
+    "finishedAt": "2026-10-10T12:59:02.000Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "f8391bc5-ebd4-4a1d-93fe-be0458f72d7a",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 14,
+    "offsetMs": 1750,
+    "process": "A",
+    "scheduledMonotonicMs": 20715.0252,
+    "dispatchLagMs": 3.0427999999992608,
+    "startedAt": "2026-10-10T12:59:02.078Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 50.80319999999847,
+    "finishedAt": "2026-10-10T12:59:02.129Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "9c999b6b-6496-4183-94fd-1058d17a0e57",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 15,
+    "offsetMs": 1875,
+    "process": "B",
+    "scheduledMonotonicMs": 20840.0252,
+    "dispatchLagMs": -0.763200000001234,
+    "startedAt": "2026-10-10T12:59:02.199Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 83.52610000000277,
+    "finishedAt": "2026-10-10T12:59:02.283Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "2adb17ab-89d8-4740-8971-c0cd69421ed8",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 16,
+    "offsetMs": 2000,
+    "process": "A",
+    "scheduledMonotonicMs": 20965.0252,
+    "dispatchLagMs": 12.153699999998935,
+    "startedAt": "2026-10-10T12:59:02.337Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 223.98080000000118,
+    "finishedAt": "2026-10-10T12:59:02.561Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "8d239604-1157-4b7c-b5fa-ae7b46b60123",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 17,
+    "offsetMs": 2125,
+    "process": "B",
+    "scheduledMonotonicMs": 21090.0252,
+    "dispatchLagMs": 31.787000000000262,
+    "startedAt": "2026-10-10T12:59:02.482Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 248.3908999999985,
+    "finishedAt": "2026-10-10T12:59:02.730Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "ae0dcb27-145c-4d51-8d35-b647f823b952",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 18,
+    "offsetMs": 2250,
+    "process": "A",
+    "scheduledMonotonicMs": 21215.0252,
+    "dispatchLagMs": 6.780500000000757,
+    "startedAt": "2026-10-10T12:59:02.582Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 153.72420000000056,
+    "finishedAt": "2026-10-10T12:59:02.736Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "c497922f-c2ad-4bd1-8442-0976b11fb2cb",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 19,
+    "offsetMs": 2375,
+    "process": "B",
+    "scheduledMonotonicMs": 21340.0252,
+    "dispatchLagMs": 21.183499999999185,
+    "startedAt": "2026-10-10T12:59:02.721Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 133.2471000000005,
+    "finishedAt": "2026-10-10T12:59:02.855Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "104ddac9-2aad-428a-a3bc-81f465c8c61a",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 20,
+    "offsetMs": 2500,
+    "process": "A",
+    "scheduledMonotonicMs": 21465.0252,
+    "dispatchLagMs": 19.61490000000049,
+    "startedAt": "2026-10-10T12:59:02.845Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:02 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 100.08880000000136,
+    "finishedAt": "2026-10-10T12:59:02.945Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "3f07dbe6-1f97-41de-8b3e-d3386ad374b1",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 21,
+    "offsetMs": 2625,
+    "process": "B",
+    "scheduledMonotonicMs": 21590.0252,
+    "dispatchLagMs": 6.173699999999371,
+    "startedAt": "2026-10-10T12:59:02.956Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:03 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 84.79200000000128,
+    "finishedAt": "2026-10-10T12:59:03.041Z"
+  },
+  {
+    "label": "A",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "e706051c-e619-4cb4-b881-2f78e98094c8",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 22,
+    "offsetMs": 2750,
+    "process": "A",
+    "scheduledMonotonicMs": 21715.0252,
+    "dispatchLagMs": 0.058099999998376006,
+    "startedAt": "2026-10-10T12:59:03.075Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:03 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 62.365499999999884,
+    "finishedAt": "2026-10-10T12:59:03.138Z"
+  },
+  {
+    "label": "B",
+    "route": "/evaluations",
+    "requestBody": {
+      "kbId": "cf3af337-d535-4551-95db-a2e659aee503",
+      "name": "P4_GATE_OVERLOAD",
+      "idempotencyKey": "592a4886-a01f-41a1-a86e-ed75aad0267f",
+      "topK": 3,
+      "retrievalOptions": {
+        "candidateK": 5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "dataset": {
+        "version": "admission-fixture-v1",
+        "questions": [
+          {
+            "id": "P4_GATE_OVERLOAD",
+            "question": "恢复规则是什么？ P4_GATE_OVERLOAD",
+            "answerable": true,
+            "expectedAnswer": "保留检查点",
+            "evidence": [
+              {
+                "documentName": "admission.md",
+                "page": 1,
+                "paragraph": 1,
+                "quote": "恢复规则是保留检查点。",
+                "groupId": "recovery"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "index": 23,
+    "offsetMs": 2875,
+    "process": "B",
+    "scheduledMonotonicMs": 21840.0252,
+    "dispatchLagMs": 11.466199999998935,
+    "startedAt": "2026-10-10T12:59:03.212Z",
+    "status": 429,
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Sat, 10 Oct 2026 12:59:03 GMT",
+      "keep-alive": "timeout=60",
+      "retry-after": "3",
+      "transfer-encoding": "chunked"
+    },
+    "retryAfter": "3",
+    "responseText": "{\"code\":\"ADMISSION_REJECTED\",\"message\":\"服务繁忙，请稍后重试\"}",
+    "body": {
+      "code": "ADMISSION_REJECTED",
+      "message": "服务繁忙，请稍后重试"
+    },
+    "elapsedMs": 64.10649999999805,
+    "finishedAt": "2026-10-10T12:59:03.276Z"
+  }
+]

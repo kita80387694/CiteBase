@@ -1,0 +1,2214 @@
+{
+  "id": "9bf6f249-006a-499e-ab2a-8f494f75558a",
+  "name": "baseline-holdout-test-24-f48514ed",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:14:05.892813791Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "tide-025",
+          "question": "Tide 排口邻近点的精确GPS坐标是多少？",
+          "answerable": false,
+          "expectedAnswer": null,
+          "evidence": [],
+          "category": "不可回答",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "tide-026",
+          "question": "Tide 第三方实验室一次检测收费多少？",
+          "answerable": false,
+          "expectedAnswer": null,
+          "evidence": [],
+          "category": "不可回答",
+          "split": "test",
+          "group": "tide",
+          "topic": "tide"
+        },
+        {
+          "id": "ember-001",
+          "question": "Ember 标准釉烧的峰值温度是多少？",
+          "answerable": true,
+          "expectedAnswer": "1180摄氏度",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 2,
+              "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 53,
+              "endOffset": 101,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-002",
+          "question": "Ember 作品与加热元件至少间隔多少毫米？",
+          "answerable": true,
+          "expectedAnswer": "50毫米",
+          "evidence": [
+            {
+              "documentName": "ember-handbook.md",
+              "page": 1,
+              "paragraph": 3,
+              "quote": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+              "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+              "startOffset": 103,
+              "endOffset": 143,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-003",
+          "question": "Ember 釉料试片连同批号保存多久？",
+          "answerable": true,
+          "expectedAnswer": "18个月",
+          "evidence": [
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 3,
+              "paragraph": 1,
+              "quote": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 87,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-004",
+          "question": "Ember 意外断电重新开炉，可以删除之前停电时刻让曲线看起来连续吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，保留中断记录",
+          "evidence": [
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 4,
+              "paragraph": 1,
+              "quote": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 105,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-005",
+          "question": "Ember 釉料流下来粘住垫板，垫板清理后能不检查就再用吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，受影响窑板须检查",
+          "evidence": [
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 7,
+              "paragraph": 1,
+              "quote": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 97,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        },
+        {
+          "id": "ember-006",
+          "question": "Ember 磨坯产生粉尘，可以吹到公共房间里散掉吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，工位收集",
+          "evidence": [
+            {
+              "documentName": "ember-cards.pdf",
+              "page": 15,
+              "paragraph": 1,
+              "quote": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+              "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+              "startOffset": 0,
+              "endOffset": 101,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "test",
+          "group": "ember",
+          "topic": "ember"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 6,
+      "recallAtK": 1,
+      "mrr": 0.7833333333333333,
+      "retrievalMs": 434.125,
+      "totalMs": 9230.25,
+      "errorCount": 1
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 6,
+      "recallAtK": 0.8333333333333334,
+      "mrr": 0.5750000000000001,
+      "retrievalMs": 379,
+      "totalMs": 13239.5,
+      "errorCount": 1
+    }
+  },
+  "results": [
+    {
+      "id": "e150086a-f942-428f-b141-71e353c756b4",
+      "question": "Tide 排口邻近点的精确GPS坐标是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "5e430ef2-8b73-401f-b824-882059951730",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "text": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "score": 0.6207110881805464
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.5863945730689433
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.5671686788100802
+        },
+        {
+          "id": "7ccd197d-bff6-4b76-9136-6ab0b579a9ee",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Tide 河道采样瓶采用 RIV 编号，每个站点每次采样建立一个独立事件号；上下游站点不得共用事件号。",
+          "score": 0.531914695146244
+        },
+        {
+          "id": "c22f6a81-9c92-42a9-aa44-b260e22ff0be",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 83,
+          "text": "Tide audit card: collection clocks are synchronized to UTC before the crew\ndeparts.",
+          "score": 0.5300478023262151
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 267,
+      "totalMs": 2442,
+      "promptTokens": 846,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-025",
+      "category": "不可回答",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "7c48d9f6-6821-4efe-8ef3-faee97e55e5f",
+      "question": "Tide 排口邻近点的精确GPS坐标是多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "5e430ef2-8b73-401f-b824-882059951730",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 792,
+          "endOffset": 841,
+          "text": "Tide 受控记录保存精确GPS点位，公开周报只发布河段代号；照片中的坐标水印必须处理后才能公开。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.031754032258064516
+        },
+        {
+          "id": "32ffff8e-ed43-4aaf-9814-c5e6d1e44eca",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 570,
+          "endOffset": 611,
+          "text": "Tide 采样员必须先完成上游背景点，再采集排口附近样，避免工具从排口带回污染物。",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "646340ae-2fcb-4826-a08c-1f614ca2d09f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 371,
+          "endOffset": 435,
+          "text": "Tide 采样顺序表\n| 河段 | 顺序 |\n| 上游背景点 | 1 |\n| 排口邻近点 | 2 |\n| 下游混合点 | 3 |",
+          "score": 0.03131881575727918
+        },
+        {
+          "id": "0199c2f3-9baf-43dc-b609-c1519049420f",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 659,
+          "endOffset": 705,
+          "text": "Tide 接收台只有在瓶号、事件号和COC三项一致时登记为已核验；车辆进场不代表样品已核验。",
+          "score": 0.029631255487269532
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 266,
+      "totalMs": 10778,
+      "promptTokens": 875,
+      "completionTokens": 99,
+      "error": null,
+      "caseId": "tide-025",
+      "category": "不可回答",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "99bcd496-a746-491f-8f00-2cd308b90c91",
+      "question": "Tide 第三方实验室一次检测收费多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.6061123609542847
+        },
+        {
+          "id": "a1869691-f29e-4a9d-84bd-15de320e8b53",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 277,
+          "endOffset": 369,
+          "text": "Tide 每站样瓶表\n| 用途 | 瓶数 | 单瓶容量 |\n| 常规分析 | 2 | 500毫升 |\n| 复核备用 | 1 | 250毫升 |\n| 现场空白 | 1 | 250毫升 |",
+          "score": 0.572968815146019
+        },
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.5620406176484206
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.5486228466033936
+        },
+        {
+          "id": "adf619dd-1b57-4c04-9553-3dd40c65948a",
+          "documentId": "19da8a81-c3c2-491b-93a2-d1858097e351",
+          "documentName": "tide-cards.pdf",
+          "versionId": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+          "page": 5,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 110,
+          "text": "Tide bottle card: the backup bottle is not opened unless the laboratory\nsupervisor requests a repeat analysis.",
+          "score": 0.5478723318652918
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 272,
+      "totalMs": 19837,
+      "promptTokens": 874,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-026",
+      "category": "不可回答",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "54afa746-cd0b-40d9-8de6-612663ee5a5f",
+      "question": "Tide 第三方实验室一次检测收费多少？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "3d365e83-bce3-4d59-9f2f-46a92c2eca2a",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 884,
+          "endOffset": 929,
+          "text": "Tide 手册不提供真实污染浓度、饮用安全结论、具体河段GPS坐标或第三方实验室收费标准。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "2ee87c7f-a571-4237-a010-259a644543bf",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 613,
+          "endOffset": 657,
+          "text": "Tide 每个站点更换一次一次性手套，采样杆在站点之间清洁；更换手套不能替代清洁采样杆。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "e3f39442-6dda-4973-b645-5ca6317c562b",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 91,
+          "endOffset": 132,
+          "text": "Tide 常规样需在采样完成后8小时内抵达接收台；接收时间与实验开始时间分别记录。",
+          "score": 0.030117753623188408
+        },
+        {
+          "id": "d7d1e5a4-6e12-4c4d-b67c-14e75a37e0c0",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 235,
+          "endOffset": 275,
+          "text": "Tide 现场电导率仪每个采样日校验一次；校验失败时不得继续记录正式电导率结果。",
+          "score": 0.03007688828584351
+        },
+        {
+          "id": "b957351c-b605-4c6a-9037-353401ebf5d3",
+          "documentId": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+          "documentName": "tide-handbook.md",
+          "versionId": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 752,
+          "endOffset": 790,
+          "text": "Tide 实验结果须关联采样事件和实验批次；只凭瓶子颜色或车次不能关联结果。",
+          "score": 0.029513888888888888
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 563,
+      "totalMs": 3086,
+      "promptTokens": 845,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "tide-026",
+      "category": "不可回答",
+      "split": "test",
+      "group": "tide",
+      "topic": "tide",
+      "evidenceGroupCount": 0,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": null,
+      "answerable": false,
+      "expectedEvidence": [],
+      "recallAtK": null,
+      "mrr": null,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": null,
+      "abstentionCorrect": true
+    },
+    {
+      "id": "d5b3838e-dd11-4409-808a-e2005b2a851f",
+      "question": "Ember 标准釉烧的峰值温度是多少？",
+      "answer": "Ember 标准釉烧的峰值温度是1180摄氏度 [bcf6c9ed-fc6d-4161-963d-bd251fcd8b32]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.8207260859445399
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.7514416651226582
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.7450101293638545
+        },
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.7404123389966704
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.7084437608718922
+        }
+      ],
+      "citations": [
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.8207260859445399
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 916,
+      "totalMs": 4840,
+      "promptTokens": 895,
+      "completionTokens": 39,
+      "error": null,
+      "caseId": "ember-001",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "1180摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 53,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2121f643-39a3-454a-81b4-a682b990fb38",
+      "question": "Ember 标准釉烧的峰值温度是多少？",
+      "answer": "根据证据，Ember 标准釉烧的峰值温度是1180摄氏度 [bcf6c9ed-fc6d-4161-963d-bd251fcd8b32]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "9a727959-0dfb-41b4-9ada-522183540d6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 145,
+          "endOffset": 187,
+          "text": "Ember 将 RAMP 定义为升温斜率，标准釉烧前段RAMP为每小时100摄氏度。",
+          "score": 0.03125
+        }
+      ],
+      "citations": [
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 261,
+      "totalMs": 13335,
+      "promptTokens": 891,
+      "completionTokens": 42,
+      "error": null,
+      "caseId": "ember-001",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "1180摄氏度",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 53,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2836024e-4935-4c2f-a753-abf2380295e1",
+      "question": "Ember 作品与加热元件至少间隔多少毫米？",
+      "answer": "根据证据，Ember 作品与加热元件之间至少留50毫米间距 [2db4ce1d-e26a-4faa-9702-6cb913aeead3]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.8212609887123108
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.660353800037278
+        },
+        {
+          "id": "c30fe10f-0724-403c-85b9-d03620070fca",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 11,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 91,
+          "text": "Ember schedule card: the standard glaze cycle starts its front ramp at 100\ndegrees Celsius.",
+          "score": 0.6317788362503052
+        },
+        {
+          "id": "f1c450c7-ff8c-473f-b2bf-52b5a4f8de6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "text": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "score": 0.6281628795910743
+        },
+        {
+          "id": "bcf6c9ed-fc6d-4161-963d-bd251fcd8b32",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 101,
+          "text": "Ember 标准素烧峰值温度为900摄氏度，釉烧峰值温度为1180摄氏度；两种曲线必须明确区分。",
+          "score": 0.6212394833564758
+        }
+      ],
+      "citations": [
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.8212609887123108
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 262,
+      "totalMs": 4564,
+      "promptTokens": 841,
+      "completionTokens": 42,
+      "error": null,
+      "caseId": "ember-002",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "50毫米",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 103,
+          "endOffset": 143,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "0c9d0f3f-83a6-461f-b21a-63e70112945b",
+      "question": "Ember 作品与加热元件至少间隔多少毫米？",
+      "answer": "根据证据，Ember 作品与加热元件之间至少留50毫米间距 [2db4ce1d-e26a-4faa-9702-6cb913aeead3]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "0f7ea3d2-3608-4c3d-a464-65599b9268ba",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 284,
+          "endOffset": 398,
+          "text": "Ember 釉烧阶段表\n| 阶段 | 终点温度 | 斜率或时长 |\n| 前段 | 600摄氏度 | 100摄氏度每小时 |\n| 后段 | 1180摄氏度 | 145摄氏度每小时 |\n| 保温 | 1180摄氏度 | 25分钟 |",
+          "score": 0.029631255487269532
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.029030910609857977
+        }
+      ],
+      "citations": [
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 288,
+      "totalMs": 21386,
+      "promptTokens": 892,
+      "completionTokens": 42,
+      "error": null,
+      "caseId": "ember-002",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "50毫米",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-handbook.md",
+          "page": 1,
+          "paragraph": 3,
+          "quote": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "sourceHash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+          "startOffset": 103,
+          "endOffset": 143,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "49655473-b9e5-46ce-b54a-c34840f1cd40",
+      "question": "Ember 釉料试片连同批号保存多久？",
+      "answer": "根据证据，Ember 釉料试片连同批号保存 18 个月 [20615ffc-55ae-436b-98a2-71cf0d54a0e7]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "20615ffc-55ae-436b-98a2-71cf0d54a0e7",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "text": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "score": 0.7255749918691815
+        },
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.7130033202769364
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.6921507716178894
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.6515515433148955
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6300684213638306
+        }
+      ],
+      "citations": [
+        {
+          "id": "20615ffc-55ae-436b-98a2-71cf0d54a0e7",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "text": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "score": 0.7255749918691815
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 568,
+      "totalMs": 9066,
+      "promptTokens": 851,
+      "completionTokens": 44,
+      "error": null,
+      "caseId": "ember-003",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "18个月",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 3,
+          "paragraph": 1,
+          "quote": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 87,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "4045753f-0e23-45a0-8e6f-085cd715867d",
+      "question": "Ember 釉料试片连同批号保存多久？",
+      "answer": "根据证据，Ember 釉料试片连同批号保存 18 个月 [20615ffc-55ae-436b-98a2-71cf0d54a0e7]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.03149801587301587
+        },
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.031099324975891997
+        },
+        {
+          "id": "20615ffc-55ae-436b-98a2-71cf0d54a0e7",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "text": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "score": 0.03028233151183971
+        },
+        {
+          "id": "95a39b9e-273b-4ada-a3fe-5598b476cb89",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Ember 陶瓷工作室每次烧制分配一个 KILN 批次号；不同釉料体系不得仅因同日入窑而合并批次记录。",
+          "score": 0.030158730158730156
+        }
+      ],
+      "citations": [
+        {
+          "id": "20615ffc-55ae-436b-98a2-71cf0d54a0e7",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 87,
+          "text": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "score": 0.03028233151183971
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 368,
+      "totalMs": 11195,
+      "promptTokens": 847,
+      "completionTokens": 44,
+      "error": null,
+      "caseId": "ember-003",
+      "category": "事实",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "18个月",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 3,
+          "paragraph": 1,
+          "quote": "Ember sample card: glaze test tiles are stored with their glaze batch ID for\n18 months.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 87,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "e61bee45-a65f-4a9b-8ce3-76f3bf9945aa",
+      "question": "Ember 意外断电重新开炉，可以删除之前停电时刻让曲线看起来连续吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.7881079785888196
+        },
+        {
+          "id": "a057d816-8ea5-4fee-b6a1-9e5b8c40b971",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 105,
+          "text": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+          "score": 0.669101893901825
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.6124486558169938
+        },
+        {
+          "id": "bb42dde4-0856-44a7-ab6e-779518eb3e05",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 758,
+          "endOffset": 795,
+          "text": "Ember 窑务负责人批准复烧方案，学生或客户不能自行修改控制器继续烧制。",
+          "score": 0.5996389389038086
+        },
+        {
+          "id": "597007f9-36cd-46f6-b2a8-eff24579ced4",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Ember repair card: only the maintenance technician disconnects and opens the\ncontroller enclosure.",
+          "score": 0.5979916213745856
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 293,
+      "totalMs": 2849,
+      "promptTokens": 843,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "ember-004",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，保留中断记录",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 105,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.5,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "452bce32-ab78-479b-991b-dd7a2be58109",
+      "question": "Ember 意外断电重新开炉，可以删除之前停电时刻让曲线看起来连续吗？",
+      "answer": "根据证据，Ember 发生供电中断时，原曲线记录会被冻结，复烧必须另建复烧事件并引用原批次，不能伪装成未中断的曲线 [371225f6-174a-4ebd-adaa-a7c657c38f5c]。因此，不能删除停电时刻让曲线看起来连续。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "aeda48ab-ae72-45ed-86bc-e7ffa528fdd5",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 664,
+          "endOffset": 705,
+          "text": "Ember 烧成记录至少包含批次号、温度曲线和窑位图，只有峰值温度不足以重现过程。",
+          "score": 0.030798389007344232
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.028484848484848488
+        },
+        {
+          "id": "4a0444cc-cc80-4df2-97c4-efd42b024b94",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 189,
+          "endOffset": 241,
+          "text": "Ember 将 HOLD 定义为峰值保温段，标准釉烧HOLD为25分钟；保温不包括升温到峰值之前的时间。",
+          "score": 0.027884615384615386
+        },
+        {
+          "id": "423825d2-caf6-4740-98d6-803c37b1e912",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 121,
+          "text": "Ember contact card: maintenance is requested through the workshop register; no\ncontroller override password is published.",
+          "score": 0.027526395173453996
+        }
+      ],
+      "citations": [
+        {
+          "id": "371225f6-174a-4ebd-adaa-a7c657c38f5c",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 13,
+          "startOffset": 707,
+          "endOffset": 756,
+          "text": "Ember 发生供电中断时冻结原曲线记录，复烧必须另建复烧事件并引用原批次，不伪装成未中断的曲线。",
+          "score": 0.032018442622950824
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 284,
+      "totalMs": 27691,
+      "promptTokens": 863,
+      "completionTokens": 73,
+      "error": null,
+      "caseId": "ember-004",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，保留中断记录",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Ember restart card: restarting does not erase the original power-loss\ntimestamp or the interrupted curve.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 105,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "5a7ddeca-2d82-424f-9d0d-c9f410bffe54",
+      "question": "Ember 釉料流下来粘住垫板，垫板清理后能不检查就再用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6919640302658081
+        },
+        {
+          "id": "ebe23afe-7026-4994-b8d8-65a9290fcbad",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 842,
+          "endOffset": 879,
+          "text": "Ember 釉浆标签保留配料批号和混配日期，标签不可写成食品接触安全认证。",
+          "score": 0.6913240367963348
+        },
+        {
+          "id": "96c3524d-9519-4e38-996f-cd28ee10c0d4",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 797,
+          "endOffset": 840,
+          "text": "Ember 上釉样片与正式作品使用相同批次釉浆并共享釉浆编号；色彩照片不代替釉浆编号。",
+          "score": 0.6517224311828613
+        },
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.6497923731803894
+        },
+        {
+          "id": "26d9d1be-ccb3-4f37-ad75-9131fa40ad77",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "score": 0.6429675221443176
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 582,
+      "totalMs": 24691,
+      "promptTokens": 892,
+      "completionTokens": 118,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "ember-005",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，受影响窑板须检查",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 97,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.2,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "7707f97a-aa03-4246-bdce-47244e1197cd",
+      "question": "Ember 釉料流下来粘住垫板，垫板清理后能不检查就再用吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "6a6d7372-12d1-40b6-9ca2-4410c2e3108e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 400,
+          "endOffset": 481,
+          "text": "Ember 缺陷分级表\n| 缺陷 | 处置 |\n| 轻微色差 | 记录并分级 |\n| 贯穿裂纹 | 不得作为完整器件交付 |\n| 流釉粘板 | 隔离并检查窑板 |",
+          "score": 0.031009615384615385
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.029211087420042643
+        },
+        {
+          "id": "26d9d1be-ccb3-4f37-ad75-9131fa40ad77",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "score": 0.029083245521601686
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 642,
+      "totalMs": 9755,
+      "promptTokens": 925,
+      "completionTokens": 118,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "ember-005",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，受影响窑板须检查",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Ember board card: a glaze run requires inspection of the affected kiln board\nbefore it is reused.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 97,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.2,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "0be2f897-87d0-408c-9bcb-fb6a6f724168",
+      "question": "Ember 磨坯产生粉尘，可以吹到公共房间里散掉吗？",
+      "answer": "根据证据，Ember 磨坯产生的粉尘不可以吹到公共房间里散掉。证据明确指出，干磨粉尘应在工作站收集，而不是吹入共享房间 [045e7d82-c9e1-4a03-8950-cf7e1fad7a82]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "045e7d82-c9e1-4a03-8950-cf7e1fad7a82",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "score": 0.6537924798603355
+        },
+        {
+          "id": "9efa5110-b472-4990-bc34-e77b3256c66d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 613,
+          "endOffset": 662,
+          "text": "Ember 作品进窑前必须完成干燥检查，摸起来表面不湿不能代替检查记录；未通过的作品留在待干燥架。",
+          "score": 0.6360852718353271
+        },
+        {
+          "id": "f1c450c7-ff8c-473f-b2bf-52b5a4f8de6e",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 881,
+          "endOffset": 916,
+          "text": "Ember 冷却过程不强行打开窑门加速，环境通风与开启窑门是不同操作。",
+          "score": 0.6357636641193531
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.6115410923957825
+        },
+        {
+          "id": "eef23b31-7ece-492c-9905-dd1eda3588c2",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 243,
+          "endOffset": 282,
+          "text": "Ember 开窑时窑内温度必须低于80摄氏度，刚好80摄氏度仍不允许开窑取件。",
+          "score": 0.610267079488462
+        }
+      ],
+      "citations": [
+        {
+          "id": "045e7d82-c9e1-4a03-8950-cf7e1fad7a82",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "score": 0.6537924798603355
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 313,
+      "totalMs": 5553,
+      "promptTokens": 854,
+      "completionTokens": 61,
+      "error": null,
+      "caseId": "ember-006",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，工位收集",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 15,
+          "paragraph": 1,
+          "quote": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "4a296f8d-2f60-4feb-ba03-21a6de353155",
+      "question": "Ember 磨坯产生粉尘，可以吹到公共房间里散掉吗？",
+      "answer": "根据证据，Ember 干磨产生的粉尘不应吹到公共房间散掉。证据明确指出：“干磨粉尘在工作站收集，不吹入共享房间” [045e7d82-c9e1-4a03-8950-cf7e1fad7a82]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "045e7d82-c9e1-4a03-8950-cf7e1fad7a82",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "2db4ce1d-e26a-4faa-9702-6cb913aeead3",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 103,
+          "endOffset": 143,
+          "text": "Ember 装窑时作品之间至少留20毫米间距，作品与加热元件之间至少留50毫米。",
+          "score": 0.03055037313432836
+        },
+        {
+          "id": "423825d2-caf6-4740-98d6-803c37b1e912",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 17,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 121,
+          "text": "Ember contact card: maintenance is requested through the workshop register; no\ncontroller override password is published.",
+          "score": 0.028991596638655463
+        },
+        {
+          "id": "0830dcfd-f60f-4e70-8db7-9fd222bd749d",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 483,
+          "endOffset": 559,
+          "text": "Ember 工位防护表\n| 作业 | 必需防护 |\n| 干磨 | 护目镜与防尘口罩 |\n| 上釉 | 手套与围裙 |\n| 冷窑卸件 | 手套与护目镜 |",
+          "score": 0.02878726010616578
+        },
+        {
+          "id": "4970dad3-b49f-4f86-ae76-b67657acfb34",
+          "documentId": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+          "documentName": "ember-handbook.md",
+          "versionId": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+          "page": 1,
+          "paragraph": 18,
+          "startOffset": 918,
+          "endOffset": 962,
+          "text": "Ember 手册不提供作品出售价格、釉料食品接触检测结论、电价或具体品牌控制器维修密码。",
+          "score": 0.02797339593114241
+        }
+      ],
+      "citations": [
+        {
+          "id": "045e7d82-c9e1-4a03-8950-cf7e1fad7a82",
+          "documentId": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+          "documentName": "ember-cards.pdf",
+          "versionId": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+          "page": 15,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "score": 0.03278688524590164
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 360,
+      "totalMs": 8690,
+      "promptTokens": 879,
+      "completionTokens": 62,
+      "error": null,
+      "caseId": "ember-006",
+      "category": "同义",
+      "split": "test",
+      "group": "ember",
+      "topic": "ember",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，工位收集",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "ember-cards.pdf",
+          "page": 15,
+          "paragraph": 1,
+          "quote": "Ember hygiene card: dry sanding dust is collected at the workstation, not\nblown into the shared room.",
+          "sourceHash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "不可回答": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 269.5,
+          "totalMs": 11139.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 414.5,
+          "totalMs": 6932
+        }
+      },
+      "事实": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 582,
+          "totalMs": 6156.666666666667
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 0.75,
+          "retrievalMs": 305.6666666666667,
+          "totalMs": 15305.333333333334
+        }
+      },
+      "同义": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 0.5666666666666667,
+          "retrievalMs": 396,
+          "totalMs": 11031
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 1,
+          "recallAtK": 0.6666666666666666,
+          "mrr": 0.39999999999999997,
+          "retrievalMs": 428.6666666666667,
+          "totalMs": 15378.666666666666
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 0.7833333333333333,
+          "retrievalMs": 434.125,
+          "totalMs": 9230.25
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5750000000000001,
+          "retrievalMs": 379,
+          "totalMs": 13239.5
+        }
+      }
+    },
+    "group": {
+      "tide": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 269.5,
+          "totalMs": 11139.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 414.5,
+          "totalMs": 6932
+        }
+      },
+      "ember": {
+        "vector": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 0.7833333333333333,
+          "retrievalMs": 489,
+          "totalMs": 8593.833333333334
+        },
+        "hybrid": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5750000000000001,
+          "retrievalMs": 367.1666666666667,
+          "totalMs": 15342
+        }
+      }
+    },
+    "topic": {
+      "tide": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 269.5,
+          "totalMs": 11139.5
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 0,
+          "errorCount": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "retrievalMs": 414.5,
+          "totalMs": 6932
+        }
+      },
+      "ember": {
+        "vector": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 1,
+          "mrr": 0.7833333333333333,
+          "retrievalMs": 489,
+          "totalMs": 8593.833333333334
+        },
+        "hybrid": {
+          "count": 6,
+          "answerableCount": 6,
+          "errorCount": 1,
+          "recallAtK": 0.8333333333333334,
+          "mrr": 0.5750000000000001,
+          "retrievalMs": 367.1666666666667,
+          "totalMs": 15342
+        }
+      }
+    }
+  }
+}

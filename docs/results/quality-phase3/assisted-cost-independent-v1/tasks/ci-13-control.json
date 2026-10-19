@@ -1,0 +1,167 @@
+{
+  "id": "f10bf9d9-093e-42f2-91e5-2980a3d5125f",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "f10bf9d9-093e-42f2-91e5-2980a3d5125f",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-13-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-13-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Aster 种子在南方每亩能增产多少公斤？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-4415a733e57a5d3d6abb9517b171aaa768733569596fbffc89adf074e3c1",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:06:13.235535Z",
+  "startedAt": "2026-10-10T13:06:13.470406Z",
+  "finishedAt": "2026-10-10T13:06:18.117823Z",
+  "availableAt": "2026-10-10T13:06:13.235535Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "b2abaed7-6297-4f6c-9909-972608445fa8",
+      "operationKey": "dcfe682c-1da9-42ce-af34-21660174864e:embedding:28a1daf8-0baa-4775-b8ad-d70aaaf0563d",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:06:13.496905Z",
+      "finishedAt": "2026-10-10T13:06:13.592620Z"
+    },
+    {
+      "callId": "2fdac4ab-b3e8-4a1f-b82c-0b6885531414",
+      "operationKey": "dcfe682c-1da9-42ce-af34-21660174864e:rerank:66f57ed6-9217-466d-90b1-23bbd5f77485",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2698,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2698,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2698,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:06:13.600038Z",
+      "finishedAt": "2026-10-10T13:06:13.784324Z"
+    },
+    {
+      "callId": "199d6f41-7f4f-44d0-a154-35e31d5ca952",
+      "operationKey": "dcfe682c-1da9-42ce-af34-21660174864e:generation:32cc1520-30cf-489f-97b1-f688c3b0fbbe",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1730,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:06:13.788485Z",
+      "finishedAt": "2026-10-10T13:06:15.959277Z"
+    },
+    {
+      "callId": "a0aee349-5812-4940-b355-5b6436704502",
+      "operationKey": "0055cda2-4aa3-42a1-ad57-c33c9199c148:embedding:0c126bfd-85be-415b-b714-59a77a28a9f4",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:06:15.997007Z",
+      "finishedAt": "2026-10-10T13:06:16.089715Z"
+    },
+    {
+      "callId": "a01fc86c-c60f-4eca-aa21-39e24816287e",
+      "operationKey": "0055cda2-4aa3-42a1-ad57-c33c9199c148:rerank:bcc6a647-1114-40f0-b88b-7bf1a3007d81",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2698,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2698,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2698,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:06:16.100807Z",
+      "finishedAt": "2026-10-10T13:06:16.296177Z"
+    },
+    {
+      "callId": "d5c5f248-746d-48b9-8be6-6f2c839f0737",
+      "operationKey": "0055cda2-4aa3-42a1-ad57-c33c9199c148:generation:95e6e0fd-c9f8-4d5e-944b-980b9f48f52e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1730,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:06:16.302124Z",
+      "finishedAt": "2026-10-10T13:06:18.100899Z"
+    }
+  ]
+}

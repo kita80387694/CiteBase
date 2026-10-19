@@ -1,0 +1,124 @@
+{
+  "id": "112f0b0a-7e2b-4945-a6bd-8acd2736858c",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "112f0b0a-7e2b-4945-a6bd-8acd2736858c",
+  "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+  "maxAttempts": 5,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "79d86073-e6f8-4dfb-9588-2c3467c887b2",
+    "name": "p2opt-Quality3-1e40ebc94083-q035",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "elm-016",
+          "group": "elm",
+          "split": "validation",
+          "topic": "elm",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Elm 夜班交接必须记录申请号、滤镜、完成帧号与暂停原因；只有目标名称不足以恢复任务。",
+              "groupId": "g1",
+              "endOffset": 177,
+              "paragraph": 4,
+              "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+              "startOffset": 134,
+              "documentName": "elm-b.md"
+            }
+          ],
+          "question": "Elm 交班只留目标名字，足够接班恢复吗？",
+          "answerable": true,
+          "expectedAnswer": "不够；还需申请号、滤镜、帧号、暂停原因"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-584a085c0379e2affb8134e745f8e43902461cf8a6a07fa85d53641013da",
+    "retrievalOptions": {
+      "rerank": false,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-09-30T06:55:56.524823Z",
+  "startedAt": "2026-09-30T06:55:56.633366Z",
+  "finishedAt": "2026-09-30T06:56:05.253081Z",
+  "availableAt": "2026-09-30T06:55:56.524823Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "d0f3d352-2225-4919-8ae5-9abb476d668b",
+      "operationKey": "c780785f-687a-4e29-be8b-b1e9181931c0:embedding:16765293-5cbf-43b1-83a6-9661788ff653",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:55:56.646166Z",
+      "finishedAt": "2026-09-30T06:55:57.097448Z"
+    },
+    {
+      "callId": "0e4449be-5fbb-4834-9709-8eaf5343dede",
+      "operationKey": "c780785f-687a-4e29-be8b-b1e9181931c0:generation:96ed6a58-34dc-4c34-b3cb-61b61e40ba00",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1699,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:55:57.102793Z",
+      "finishedAt": "2026-09-30T06:55:59.106271Z"
+    },
+    {
+      "callId": "775fda82-ce03-4f44-9d9d-45266a8f84b4",
+      "operationKey": "9ec62017-b4d5-4bcd-b97e-94d39e9eae94:embedding:77c03083-d9f1-4e0e-8dfb-53188ab451ef",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-09-30T06:55:59.132781Z",
+      "finishedAt": "2026-09-30T06:55:59.490389Z"
+    },
+    {
+      "callId": "716c7fb9-501f-43c0-8648-be27d13c0c98",
+      "operationKey": "9ec62017-b4d5-4bcd-b97e-94d39e9eae94:generation:3462ac39-230e-42c4-9e16-c31d9b43df65",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1695,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-09-30T06:55:59.500547Z",
+      "finishedAt": "2026-09-30T06:56:05.226658Z"
+    }
+  ]
+}

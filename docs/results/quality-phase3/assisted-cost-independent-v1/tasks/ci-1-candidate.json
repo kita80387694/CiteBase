@@ -1,0 +1,135 @@
+{
+  "id": "9cdc3615-ae6b-40f4-8b5b-b74dd5de0e48",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "9cdc3615-ae6b-40f4-8b5b-b74dd5de0e48",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-1-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-1-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+              "groupId": "g1",
+              "endOffset": 55,
+              "paragraph": 1,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Flint 受访者确认文字稿不自动扩大先前授权范围；新增公开渠道须重新取得明确同意。",
+              "groupId": "g2",
+              "endOffset": 272,
+              "paragraph": 5,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 230,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 受访者确认稿件就能上新的公开平台吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；确认不扩大授权，新增渠道需同意"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-576abef05b87ce2fdb212a749d06ed0be8c58964e4fb4ced3aacf9d5df15",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:15:51.817987Z",
+  "startedAt": "2026-10-01T08:15:52.033989Z",
+  "finishedAt": "2026-10-01T08:16:06.742536Z",
+  "availableAt": "2026-10-01T08:15:51.817987Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "643a5877-763a-408d-9772-204982da82a1",
+      "operationKey": "975a5f00-f1f9-491a-a67f-f2a8bcbf0bfb:embedding:f5b41cf0-c043-4c6b-a291-a1fe4a50c5be",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-10-01T08:15:52.048565Z",
+      "finishedAt": "2026-10-01T08:15:52.428534Z"
+    },
+    {
+      "callId": "4dd81c4d-d658-4126-8c0c-d94dd5254b12",
+      "operationKey": "975a5f00-f1f9-491a-a67f-f2a8bcbf0bfb:generation:e59315c9-ce42-40b9-acf5-c57953aef748",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1692,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:15:52.434697Z",
+      "finishedAt": "2026-10-01T08:15:54.020604Z"
+    },
+    {
+      "callId": "b25f159e-dae3-40b3-9487-8e6faf4e2223",
+      "operationKey": "0cd59b64-83cd-4e4b-a332-16b594a89c36:embedding:ca45ec00-3a93-4c84-890a-850d875f8839",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 17,
+        "promptTokens": 17
+      },
+      "startedAt": "2026-10-01T08:15:54.049392Z",
+      "finishedAt": "2026-10-01T08:15:54.550582Z"
+    },
+    {
+      "callId": "f68d77c8-58f7-4ceb-8eb5-36fb22c3e268",
+      "operationKey": "0cd59b64-83cd-4e4b-a332-16b594a89c36:generation:22a41b5b-b20c-4564-919e-746c8747626e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1737,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:15:54.560471Z",
+      "finishedAt": "2026-10-01T08:16:06.726887Z"
+    }
+  ]
+}

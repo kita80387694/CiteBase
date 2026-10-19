@@ -1,0 +1,26 @@
+{
+  "schema": "citebase-cost-investigated-continuation-provenance-v1",
+  "clearance": {
+    "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-recovery-20261019\\investigated-timeout-clearance.json",
+    "sha256": "4cbd5880b5233a86bc3444a4e13b809ab580ca5e7013adf592e21100cdb806dc"
+  },
+  "files": [
+    {
+      "file": "F:\\CiteBase\\scripts\\quality-assisted-cost-continue-investigated.mjs",
+      "sha256": "fd1d982071f70b3e4a53939b652bb96c91ab1de87d90b868c8511dc72dc476bd"
+    },
+    {
+      "file": "F:\\CiteBase\\scripts\\quality-assisted-cost-recover-chain.mjs",
+      "sha256": "5f4c840c85513f77d95197f4aeb305d25e6e694259d2feb1f140893851dcc581"
+    },
+    {
+      "file": "F:\\CiteBase\\scripts\\quality-assisted-cost-recover.mjs",
+      "sha256": "b71b7e4c1bf31521a006968fdcf588388ce64674755c68f688abb198577ba8ad"
+    },
+    {
+      "file": "F:\\CiteBase\\scripts\\quality-assisted-cost-independent.mjs",
+      "sha256": "e3c02bfdd25feea399a4fc2d563af9484de6c9abe95d637c93aed13d2137b49a"
+    }
+  ],
+  "interpretation": "Only the hash-bound investigated failure is allowed to remain in the sample; no failed request is retried, no result is changed, and unregistered infrastructure failures stop collection."
+}

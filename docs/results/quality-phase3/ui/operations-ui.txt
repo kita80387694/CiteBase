@@ -1,0 +1,15 @@
+
+> citebase-web@1.0.0 test:e2e
+> playwright test tests/quality-phase3-operations.spec.ts tests/quality-phase3-retrieval-cost.spec.ts
+
+
+Running 2 tests using 1 worker
+
+(node:33476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\quality-phase3-operations.spec.ts:2:1 › 运行状态读取实际数据库、窗口切换与网络失败重试 (5.6s)
+  ok 2 tests\quality-phase3-retrieval-cost.spec.ts:3:1 › 成本实验实际MOCK：默认兼容、条件重排、缓存MISS/HIT与Agent原配置恢复 (12.3s)
+
+  2 passed (22.4s)

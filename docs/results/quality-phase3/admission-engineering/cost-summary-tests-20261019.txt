@@ -1,0 +1,45 @@
+TAP version 13
+# Subtest: preregistered gates retain UNKNOWN/indexing and no default change
+ok 1 - preregistered gates retain UNKNOWN/indexing and no default change
+  ---
+  duration_ms: 4.0331
+  ...
+# Subtest: strict CI boundary, lower call saving, new citation and unsupported flags fail gates
+ok 2 - strict CI boundary, lower call saving, new citation and unsupported flags fail gates
+  ---
+  duration_ms: 3.6944
+  ...
+# Subtest: partial, disputed, missing ledger and NA cannot declare support
+ok 3 - partial, disputed, missing ledger and NA cannot declare support
+  ---
+  duration_ms: 3.5349
+  ...
+# Subtest: wrong sample counts and frozen runtime rejected
+ok 4 - wrong sample counts and frozen runtime rejected
+  ---
+  duration_ms: 2.6142
+  ...
+# Subtest: read-only CLI hashes source bytes and refuses overwriting output
+ok 5 - read-only CLI hashes source bytes and refuses overwriting output
+  ---
+  duration_ms: 287.3122
+  ...
+# Subtest: protocol-permitted citation NA on correct refusal is non-error, other NA remains unresolved
+ok 6 - protocol-permitted citation NA on correct refusal is non-error, other NA remains unresolved
+  ---
+  duration_ms: 9.0598
+  ...
+# Subtest: failure gate compares preregistered totals and separately discloses offsetting pair regressions
+ok 7 - failure gate compares preregistered totals and separately discloses offsetting pair regressions
+  ---
+  duration_ms: 1.0863
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 475.0102

@@ -1,0 +1,213 @@
+{
+  "version": "citebase-phase3-quality-v1",
+  "seed": 20260930,
+  "splitPolicy": "LCG Fisher-Yates on six authored topics; first two dev, next two validation, last two test. Both documents and all questions remain in their topic split.",
+  "splitOrder": [
+    "cobalt",
+    "brass",
+    "elm",
+    "dahlia",
+    "aster",
+    "flint"
+  ],
+  "createdBeforeTuning": true,
+  "humanReviewed": false,
+  "counts": {
+    "documents": 12,
+    "questions": 120,
+    "answerable": 96,
+    "unanswerable": 24,
+    "dev": 40,
+    "validation": 40,
+    "test": 40
+  },
+  "documents": [
+    {
+      "documentName": "aster-a.md",
+      "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+      "topic": "aster",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 866,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "aster-b.md",
+      "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+      "topic": "aster",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 644,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "brass-a.md",
+      "sourceHash": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb",
+      "topic": "brass",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 788,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "brass-b.md",
+      "sourceHash": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558",
+      "topic": "brass",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 690,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "cobalt-a.md",
+      "sourceHash": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6",
+      "topic": "cobalt",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 728,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "cobalt-b.md",
+      "sourceHash": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18",
+      "topic": "cobalt",
+      "split": "dev",
+      "license": "CC0-1.0",
+      "bytes": 736,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "dahlia-a.md",
+      "sourceHash": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81",
+      "topic": "dahlia",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 724,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "dahlia-b.md",
+      "sourceHash": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931",
+      "topic": "dahlia",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 690,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "elm-a.md",
+      "sourceHash": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4",
+      "topic": "elm",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 713,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "elm-b.md",
+      "sourceHash": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804",
+      "topic": "elm",
+      "split": "validation",
+      "license": "CC0-1.0",
+      "bytes": 700,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "flint-a.md",
+      "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+      "topic": "flint",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 773,
+      "paragraphs": 6
+    },
+    {
+      "documentName": "flint-b.md",
+      "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+      "topic": "flint",
+      "split": "test",
+      "license": "CC0-1.0",
+      "bytes": 784,
+      "paragraphs": 6
+    }
+  ],
+  "evidenceSemantics": "Every distinct groupId required; any label within a group is an acceptable alternative. UTF-16 offsets on LF-normalized complete Markdown text, end exclusive. Hash is exact UTF-8 source bytes.",
+  "generator": {
+    "path": "scripts/generate-phase3-quality.mjs",
+    "sha256": "771aa0d83ef208132a0a6d99d8f3c62a553e03cfcb72247868896568c3462ec2"
+  },
+  "files": [
+    {
+      "path": "documents/aster-a.md",
+      "sha256": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3"
+    },
+    {
+      "path": "documents/aster-b.md",
+      "sha256": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a"
+    },
+    {
+      "path": "documents/brass-a.md",
+      "sha256": "75c668be239f3ca544d7e72366ea186f8d4412b871e47d681f5a11ea84d7b8bb"
+    },
+    {
+      "path": "documents/brass-b.md",
+      "sha256": "4df008a4c163207d1cebf5b81fd9982575a61e955177fd75532701c5e4d99558"
+    },
+    {
+      "path": "documents/cobalt-a.md",
+      "sha256": "860618f5bf0c6a36ca55ff44b0a7a155260da72e69ae9c136f0c685c265514a6"
+    },
+    {
+      "path": "documents/cobalt-b.md",
+      "sha256": "acc6d98d1db88550b56d44d9a6f8aa228c7a81164a7d48cd575a8781cc1a8d18"
+    },
+    {
+      "path": "documents/dahlia-a.md",
+      "sha256": "2c85b010afbefb812405c04d41da751ccf5f5b29674eb7efda73b28fbd2cce81"
+    },
+    {
+      "path": "documents/dahlia-b.md",
+      "sha256": "72372eb058374a192599c0571a5c053147bb8c8677d7199e34af239e454cf931"
+    },
+    {
+      "path": "documents/elm-a.md",
+      "sha256": "d9bd4407533cbcd00b9f5d3614a281a3b4e9fea96e23783b02e553fce49b18a4"
+    },
+    {
+      "path": "documents/elm-b.md",
+      "sha256": "51aec79c0a14665321da370cce366954364421153e7584b7f1e31815a0e12804"
+    },
+    {
+      "path": "documents/flint-a.md",
+      "sha256": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869"
+    },
+    {
+      "path": "documents/flint-b.md",
+      "sha256": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096"
+    },
+    {
+      "path": "evaluation.json",
+      "sha256": "2e8ae8dd56ba61a55ce1ccbc3f614e7e57eb76f11aaa84084d9b95a8fdf443da"
+    },
+    {
+      "path": "dev.json",
+      "sha256": "05df4efb0abe02430e859090eeae7d0dc3613ad855270c347e082612ad4e16c6"
+    },
+    {
+      "path": "validation.json",
+      "sha256": "83b74078dca2543125d262c531cd74dfb8422adb1032f03f4d8befc2e170bca2"
+    },
+    {
+      "path": "test.json",
+      "sha256": "094997f485c8e61658a4e2b541a3a81d3de516bdcb4d696c96ba7a1e4fe30b17"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "7ba3a30325f7584864c31485f44a476d9bf34e14ae3f651abebf0e91c7940f0a"
+    },
+    {
+      "path": "near-duplicate-audit.json",
+      "sha256": "d3753d62c02a7a7d67472a87844daaaf675d5ce314f576d36ac724d6f89e46af"
+    }
+  ]
+}

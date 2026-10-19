@@ -1,0 +1,70 @@
+{
+  "task": [
+    {
+      "id": "805d614b-4a2b-438b-a6b7-3f55f86016c2",
+      "kind": "EVALUATION",
+      "status": "RUNNING",
+      "attempts": 1,
+      "fencing_token": 1,
+      "lease_owner": "a6d7d906-e025-4256-843d-017e72bf93cc",
+      "lease_until": "2026-10-01T05:43:20.352+00:00",
+      "error_code": null
+    }
+  ],
+  "items": [
+    {
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "vector",
+      "status": "SUCCEEDED",
+      "attempts": 1,
+      "resultHash": "f8c2a874d7d0298149d8cff2b858f06ea30c3dbe5df0c712aa62e66f20d8da5c"
+    },
+    {
+      "case_id": "P4_GATE_RECOVERY",
+      "mode": "hybrid",
+      "status": "RUNNING",
+      "attempts": 1,
+      "resultHash": null
+    }
+  ],
+  "calls": [
+    {
+      "call_id": "1ddc56d7-cedd-4f19-97ea-85bcd5855f82",
+      "operation_key": "8d8c43c8-477e-45dd-82ea-334fb6c69cfb:embedding:abf5430e-b1eb-43cf-a4da-ba60ab3a2757",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "433a61b5-2072-4189-8b33-32435a13ed83",
+      "operation_key": "8d8c43c8-477e-45dd-82ea-334fb6c69cfb:generation:185d5fc2-691d-46c0-be52-04b34ab67683",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": {
+        "type": "jsonb",
+        "value": "{\"promptTokens\": null, \"completionTokens\": null}",
+        "null": false
+      },
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "63c2b6b8-35aa-4df3-ade3-9f56dfcaf795",
+      "operation_key": "251149bc-3a2e-4a84-a392-e75245d651b2:embedding:8ea17ef3-7a05-43d8-9684-a8921fe8fc5a",
+      "fencing_token": 1,
+      "status": "RETURNED",
+      "usage": null,
+      "outcome": "RETURNED"
+    },
+    {
+      "call_id": "b16fefec-b16c-4121-b349-881fec57ebf5",
+      "operation_key": "251149bc-3a2e-4a84-a392-e75245d651b2:generation:2c55777b-ebd1-4175-9dd2-3e7d136de4f4",
+      "fencing_token": 1,
+      "status": "STARTED",
+      "usage": null,
+      "outcome": null
+    }
+  ],
+  "stageParts": 0,
+  "chunks": []
+}

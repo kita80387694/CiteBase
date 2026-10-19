@@ -1,0 +1,70 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-10T20:58:45.901+08:00  INFO 91500 --- [           main] c.p.ProcessWorkerApplication             : Starting ProcessWorkerApplication using Java 21.0.12.1 with PID 91500 (F:\CiteBase\backend\target\test-classes started by pxj in F:\CiteBase)
+2026-10-10T20:58:45.905+08:00  INFO 91500 --- [           main] c.p.ProcessWorkerApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T20:58:48.217+08:00  INFO 91500 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 28083 (http)
+2026-10-10T20:58:48.240+08:00  INFO 91500 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-10T20:58:48.240+08:00  INFO 91500 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-10T20:58:48.391+08:00  INFO 91500 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-10T20:58:48.391+08:00  INFO 91500 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2401 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-10-10T20:58:48.926+08:00  INFO 91500 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-10T20:58:49.171+08:00  INFO 91500 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@36d697ab
+2026-10-10T20:58:49.173+08:00  INFO 91500 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-10T20:58:49.209+08:00  INFO 91500 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:25435/phase4_process_1791637121457 (PostgreSQL 17.10)
+2026-10-10T20:58:49.268+08:00  INFO 91500 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-10T20:58:49.272+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.033s)
+2026-10-10T20:58:49.292+08:00  INFO 91500 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-10T20:58:49.344+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-10T20:58:49.358+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - core"
+2026-10-10T20:58:49.436+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - questions evaluations"
+2026-10-10T20:58:49.468+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - manual evaluation scores"
+2026-10-10T20:58:49.498+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - chunk profiles"
+2026-10-10T20:58:49.525+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - agent runs"
+2026-10-10T20:58:49.560+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - unified work tasks"
+2026-10-10T20:58:49.606+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - evaluation tasks"
+2026-10-10T20:58:49.648+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - legacy agent recovery boundary"
+2026-10-10T20:58:49.670+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - quality review"
+2026-10-10T20:58:49.710+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - operations events"
+2026-10-10T20:58:49.739+08:00  INFO 91500 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "public", now at version v10 (execution time 00:00.170s)
+2026-10-10T20:58:50.758+08:00  INFO 91500 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-10T20:58:50.846+08:00  INFO 91500 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 28083 (http) with context path '/'
+2026-10-10T20:58:50.861+08:00  INFO 91500 --- [           main] c.p.ProcessWorkerApplication             : Started ProcessWorkerApplication in 5.794 seconds (process running for 6.619)
+2026-10-10T20:58:50.972+08:00  INFO 91500 --- [.1-28083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-10T20:58:50.973+08:00  INFO 91500 --- [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-10T20:58:50.973+08:00  INFO 91500 --- [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+PROCESS_HARNESS_READY label=A pid=91500 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 mode=mock/fault
+2026-10-10T20:58:57.482+08:00  INFO 91500 --- [.1-28083-exec-6] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=32c946e7-10cf-41d6-89ae-019d922c1fa0 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:58:57.577+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=32c946e7-10cf-41d6-89ae-019d922c1fa0 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:58:57.790+08:00  INFO 91500 --- [     virtual-46] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=32c946e7-10cf-41d6-89ae-019d922c1fa0 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:58:57.902+08:00  INFO 91500 --- [.1-28083-exec-1] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=d68889d5-bdc5-4bf1-a36a-a3083c0b2173 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:58:57.924+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=d68889d5-bdc5-4bf1-a36a-a3083c0b2173 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:58:58.006+08:00  INFO 91500 --- [     virtual-57] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=d68889d5-bdc5-4bf1-a36a-a3083c0b2173 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:58:58.121+08:00  INFO 91500 --- [.1-28083-exec-5] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=98d80c42-a7b3-4a78-a47c-4b3bb8a57c00 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:58:58.413+08:00  INFO 91500 --- [.1-28083-exec-9] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=158c567e-4bcb-431a-8cbe-58bc9d128c82 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:58:58.465+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=158c567e-4bcb-431a-8cbe-58bc9d128c82 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:58:59.809+08:00  INFO 91500 --- [1-28083-exec-10] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=f87cd222-5434-46c5-a461-eb1d44e3b323 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:59:03.892+08:00  INFO 91500 --- [.1-28083-exec-4] io.citebase.TaskTelemetry                : task_event=CANCEL_REQUESTED kind=EVALUATION state=CANCEL_REQUESTED taskId=158c567e-4bcb-431a-8cbe-58bc9d128c82 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:04.518+08:00  INFO 91500 --- [     virtual-60] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=CANCELLED taskId=158c567e-4bcb-431a-8cbe-58bc9d128c82 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:04.585+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=f87cd222-5434-46c5-a461-eb1d44e3b323 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:05.062+08:00  INFO 91500 --- [     virtual-64] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=f87cd222-5434-46c5-a461-eb1d44e3b323 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:05.690+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=98d80c42-a7b3-4a78-a47c-4b3bb8a57c00 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=3 attempt=1
+2026-10-10T20:59:05.796+08:00  INFO 91500 --- [     virtual-69] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=98d80c42-a7b3-4a78-a47c-4b3bb8a57c00 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=3 attempt=1
+2026-10-10T20:59:05.868+08:00  INFO 91500 --- [.1-28083-exec-4] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=EVALUATION state=QUEUED taskId=9b870975-b313-43d3-9d4a-f6ae0bb38909 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:59:05.910+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=EVALUATION state=RUNNING taskId=9b870975-b313-43d3-9d4a-f6ae0bb38909 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:06.258+08:00  INFO 91500 --- [     virtual-71] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=EVALUATION state=SUCCEEDED taskId=9b870975-b313-43d3-9d4a-f6ae0bb38909 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:07.739+08:00  INFO 91500 --- [.1-28083-exec-5] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=c77899e1-62fe-4884-bb6d-7c1ff4e5fa05 workerId=null fencingToken=0 attempt=0
+2026-10-10T20:59:07.762+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=c77899e1-62fe-4884-bb6d-7c1ff4e5fa05 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:07.833+08:00  INFO 91500 --- [     virtual-81] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=c77899e1-62fe-4884-bb6d-7c1ff4e5fa05 workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:08.872+08:00  INFO 91500 --- [.1-28083-exec-1] io.citebase.TaskTelemetry                : task_event=ENQUEUED kind=INDEX state=QUEUED taskId=48333be8-816c-41d3-a44d-84629208f41f workerId=null fencingToken=0 attempt=0
+2026-10-10T20:59:08.953+08:00  INFO 91500 --- [   scheduling-1] io.citebase.TaskTelemetry                : task_event=CLAIMED kind=INDEX state=RUNNING taskId=48333be8-816c-41d3-a44d-84629208f41f workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1
+2026-10-10T20:59:09.017+08:00  INFO 91500 --- [     virtual-85] io.citebase.TaskTelemetry                : task_event=TERMINATED kind=INDEX state=SUCCEEDED taskId=48333be8-816c-41d3-a44d-84629208f41f workerId=77e5a9df-f537-42a8-a0b6-0e4447cda4e0 fencingToken=1 attempt=1

@@ -1,0 +1,310 @@
+{
+  "id": "ede3d338-5da8-4945-84f4-1df6df129fc8",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "ede3d338-5da8-4945-84f4-1df6df129fc8",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-21-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-21-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+              "groupId": "g1",
+              "endOffset": 266,
+              "paragraph": 5,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 225,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录"
+        },
+        {
+          "id": "ci-21-1",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+              "groupId": "g1",
+              "endOffset": 266,
+              "paragraph": 5,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 225,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-fea2dea022271321121aac39df8dd0360eb0d0fd695bebfe676473a2e15a",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:14:10.482953Z",
+  "startedAt": "2026-10-10T13:14:10.668665Z",
+  "finishedAt": "2026-10-10T13:15:01.252624Z",
+  "availableAt": "2026-10-10T13:14:10.482953Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "e78682f6-7790-44af-8ce7-57947a204b78",
+      "operationKey": "f8a94a80-b77b-4ddd-b623-a7f1eead1a3d:embedding:0e4af67f-ce0c-48df-a19d-39b823759cea",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:14:10.684320Z",
+      "finishedAt": "2026-10-10T13:14:10.769560Z"
+    },
+    {
+      "callId": "e391d1d9-d9e0-4f37-9a05-e68e9d5cc115",
+      "operationKey": "f8a94a80-b77b-4ddd-b623-a7f1eead1a3d:rerank:e10c5694-5d60-4402-b53b-f11f33a079a3",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:14:10.774697Z",
+      "finishedAt": "2026-10-10T13:14:11.018850Z"
+    },
+    {
+      "callId": "3405eb0c-3bc8-4b08-90a7-4595c93d7fd8",
+      "operationKey": "f8a94a80-b77b-4ddd-b623-a7f1eead1a3d:generation:e8c80c81-7f1d-4ead-893b-3622f8fd3a38",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:14:11.022867Z",
+      "finishedAt": "2026-10-10T13:14:12.950968Z"
+    },
+    {
+      "callId": "08b51de8-11ad-4897-881e-e7e492f6efc9",
+      "operationKey": "80d836c7-9131-4576-98f4-7ede834113a2:embedding:fd99134f-3d40-4429-9f50-d0d023621a08",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:14:12.970399Z",
+      "finishedAt": "2026-10-10T13:14:13.063246Z"
+    },
+    {
+      "callId": "dad72b77-d667-4d78-8c5a-ce487232e711",
+      "operationKey": "80d836c7-9131-4576-98f4-7ede834113a2:rerank:40cfb876-6ca6-4590-bcf1-9e1d2be2932d",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:14:13.078177Z",
+      "finishedAt": "2026-10-10T13:14:13.277614Z"
+    },
+    {
+      "callId": "c6c24611-94ab-4c2f-896c-77a0bce7807a",
+      "operationKey": "80d836c7-9131-4576-98f4-7ede834113a2:generation:afba4328-a2ae-44f8-864f-fbb3d8a3823f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:14:13.284289Z",
+      "finishedAt": "2026-10-10T13:14:20.613098Z"
+    },
+    {
+      "callId": "00a973d9-bbb2-44c3-917a-5cd79684ed07",
+      "operationKey": "c2ae867a-6970-41ac-9aa4-8860f0403a96:embedding:8a166692-9c5a-4ee5-a933-76feab296531",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:14:20.641955Z",
+      "finishedAt": "2026-10-10T13:14:20.735596Z"
+    },
+    {
+      "callId": "241dab8a-e2c2-4444-a3d5-89e2c4ddf0a2",
+      "operationKey": "c2ae867a-6970-41ac-9aa4-8860f0403a96:rerank:60721f6d-012a-47f5-b49e-8c2ed70f42fb",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:14:20.742225Z",
+      "finishedAt": "2026-10-10T13:14:21.007624Z"
+    },
+    {
+      "callId": "35ef6b49-f911-439d-bf65-0ed058bc5f32",
+      "operationKey": "c2ae867a-6970-41ac-9aa4-8860f0403a96:generation:99d68fe8-7dc4-4a62-9a86-178d96e4bb94",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:14:21.011498Z",
+      "finishedAt": "2026-10-10T13:14:23.150081Z"
+    },
+    {
+      "callId": "f5e8b212-88b4-460b-82cd-cd2126b2f904",
+      "operationKey": "c5291f5f-0878-4f85-b78a-cbbf27968f35:embedding:c72518bb-bbc4-4c90-a51a-bc970943f155",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:14:23.170567Z",
+      "finishedAt": "2026-10-10T13:14:23.259411Z"
+    },
+    {
+      "callId": "92575c3e-e421-4411-b0d8-d1a5615b5058",
+      "operationKey": "c5291f5f-0878-4f85-b78a-cbbf27968f35:rerank:b1134ea1-3b76-4c55-8154-c74d7de986a2",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:14:23.270065Z",
+      "finishedAt": "2026-10-10T13:14:23.476955Z"
+    },
+    {
+      "callId": "9d1e26a0-717f-4eaa-bf07-dafd84404ed4",
+      "operationKey": "c5291f5f-0878-4f85-b78a-cbbf27968f35:generation:0e78390f-f5d6-4b7f-96dd-a5902fc8ccea",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1718,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:14:23.480481Z",
+      "finishedAt": "2026-10-10T13:15:01.236625Z"
+    }
+  ]
+}

@@ -1,0 +1,5323 @@
+{
+  "runtime": {
+    "capturedAt": "2026-09-28T08:02:17.593Z",
+    "commit": "da20d5193a5862d37ad03d3f39ddd51005d0a7f2",
+    "branch": "feat/citebase-phase2",
+    "sourceSha256": "c4152b1994ed1d064423cc4b105383b7a9ad0d7372d87cdc0787932be46d1e0d",
+    "fileHashes": {
+      "backend/Dockerfile": "394b3dcf492ecb8066d2fdaa45fe97f6d18291fa8767d431f8b9a30bd4efc853",
+      "backend/pom.xml": "6746b8e7c08e15afe730f3c3f7d441cd5bd82e9a564bc78bbc2d799b91d39424",
+      "backend/src/main/java/io/citebase/AccessService.java": "128cfcdaa07bbe91dbb3f58b705e2b98045b4dd1c4e7b74a229f4276cc3d84fe",
+      "backend/src/main/java/io/citebase/ApiErrors.java": "89e87ee3dcc8f2d768b27d024fa20d761a1a34fdd99b67676bead7a20eb330b2",
+      "backend/src/main/java/io/citebase/Application.java": "3a1f84daffeb0e57ceafbba03cdfa5f06a52eff5a9ffa396ec4719356c42fe80",
+      "backend/src/main/java/io/citebase/AuthService.java": "ca5986c1bceae03fa1bdca9743f4693ef343ef6e342ac114338aa5ca9f5e8698",
+      "backend/src/main/java/io/citebase/ChunkProfile.java": "331c923b0104d319e3bbdfa3a117500a9d4a4417cb363f6ef2e8cbbed6fb6a1d",
+      "backend/src/main/java/io/citebase/CitationAliases.java": "bc7436badc60da6cd379d32f09ce16a5be91fb0ee656304b1bb7c4c04b1f5930",
+      "backend/src/main/java/io/citebase/Citations.java": "0bae008728ac633f0b7f710e958c1776db1f032f5cf69f1a6ed2de19096b4b14",
+      "backend/src/main/java/io/citebase/CoreController.java": "1d2487a56da778ce7b06f3e1450194345a35579ab6d7aad01d8693af717e8865",
+      "backend/src/main/java/io/citebase/DocumentParser.java": "2613804a75a6a77772af34ab1f92fb9279c93a790ea51701a8f52966af1feebe",
+      "backend/src/main/java/io/citebase/DocumentService.java": "74e103c259f5c36bf02fd15534eed68159d15ef1b88250efb03ea94cc606222a",
+      "backend/src/main/java/io/citebase/EmbeddingResult.java": "8f76b012d9e6e28a6b926c07a580323dcaa3568ada0e28d524b9420aff116142",
+      "backend/src/main/java/io/citebase/EvaluationInput.java": "5b864890a924522bb611bd77bfe9f4c312239038a1dee4cd06118555cdb737b4",
+      "backend/src/main/java/io/citebase/EvaluationLabels.java": "78e33c79092ea6bbcbb12639d3104737c6022c03b7b883934327c51e28e17ae6",
+      "backend/src/main/java/io/citebase/EvaluationMetrics.java": "f326cd5d2bb82d8b4d8092330a4370263ea27d052c5c7fe4df83dc329f36695d",
+      "backend/src/main/java/io/citebase/EvaluationScoringService.java": "7aefed3b40fc1406e77a7f260e66fc939bb0c399b6358c2f67cd229cda854737",
+      "backend/src/main/java/io/citebase/EvaluationService.java": "3cc5324908aeccf29f5bf2966b495f5b838fa9636fee6256f792858478d50b43",
+      "backend/src/main/java/io/citebase/Evidence.java": "16f28e75470c8f72766e7775d677525f6d47f0327df374efd864cf54f50b8914",
+      "backend/src/main/java/io/citebase/Generation.java": "74c74714c430bfc13352e6ecc5f2f580271e4c00277715154e711e36dbb5f2a3",
+      "backend/src/main/java/io/citebase/IndexWorker.java": "c82b4a2218aa8cea12cafb2a3c77a17f7450630eb4c0628a6cab0afe97359e61",
+      "backend/src/main/java/io/citebase/Lexical.java": "3f7fb9c33ee9a34f54cd441817d858b719624f838db7907a3d77e53c9639e1b0",
+      "backend/src/main/java/io/citebase/MockModelGateway.java": "0a66fcc6f40e565c82ab1f13ca6ce0939557adf44a7f8b412916325b84c4b6f7",
+      "backend/src/main/java/io/citebase/ModelConfiguration.java": "acae1bd075380927b13e669ffdd56b4a62aabf50b1b7f3fb1590811bd6dcfdf4",
+      "backend/src/main/java/io/citebase/ModelGateway.java": "e6fd87c7d4b1d3efc346e3d961fbf6333c2c629de8a9f609b7afb2ca74527501",
+      "backend/src/main/java/io/citebase/QuestionResult.java": "4ae8536b4c6dd5117a8a8e2fa99b869dded1d8f9b773f694bd234c4c72b3eda9",
+      "backend/src/main/java/io/citebase/QuestionService.java": "376eec1efae46bdecf4d66081b5b99ae2c0d80c7f7dabd14c2e87a979254b116",
+      "backend/src/main/java/io/citebase/RagController.java": "7258dab0dbcac821237fcbd8ee17970c98728376411644639c80abd59d121233",
+      "backend/src/main/java/io/citebase/RerankGateway.java": "29e06a92f643a7a58ca8a18a4e88f8142cbb2f6557ca5bd910cc87fb7976bd53",
+      "backend/src/main/java/io/citebase/RetrievalOptions.java": "7ec4b0fc9d3d6cfaab2383f4a7157bada0f760cfcda34fa21419d997a2626ad9",
+      "backend/src/main/java/io/citebase/RetrievalOutcome.java": "c9e5c38b68d476ecca980c3432bb708c11d565b345150f335f0b5427b473b009",
+      "backend/src/main/java/io/citebase/RetrievalService.java": "1918da5188bba7e3ed90b1ac390fb9f163bd0a842ae8d31712394f28939f08aa",
+      "backend/src/main/java/io/citebase/SiliconFlowRerankGateway.java": "822e0bfc52ddf45de3975fa585fc3702543b6802891ce8eff543e4a568933edb",
+      "backend/src/main/java/io/citebase/SpringAiGateway.java": "9a1e867cd5b6ff67e8a8f4ff65aca7d46856ec199cb631f6746a78ce54d15693",
+      "backend/src/main/resources/application.yml": "7fff8f5f2abc5265beb93c5bf7ad5c6d11d46a383b48b829568763008911e9d0",
+      "backend/src/main/resources/db/migration/V1__core.sql": "7be7f0507dae5db4d4f42c9d09f8dcd395d4afebf5360993e9a2b5f7bd78ab00",
+      "backend/src/main/resources/db/migration/V2__questions_evaluations.sql": "5706d1b831ebda7d4b2b885c609fc4689510abd12210dacdbd56cd4832c86593",
+      "backend/src/main/resources/db/migration/V3__manual_evaluation_scores.sql": "2e0c4b87b3b112ace03dd6bfdf6b1b19d246e9263da754de41e0d1e99c5b9547",
+      "backend/src/main/resources/db/migration/V4__chunk_profiles.sql": "f694fe690a7adf5539214a7c83d18f959e5ca04fb5c6cacc68398049a536766a"
+    },
+    "image": "citebase-phase2-backend",
+    "imageId": "sha256:ce29871312627ee4763dc0aa9ce0f403eb1c0db6351d705f7deb4dcce5063a70",
+    "precondition": "Captured immediately after build with backend source changes frozen; source hash represents backend runtime sources, not evaluation outcomes."
+  },
+  "planSha256": "66a1a48cff4f03a9a43772ef51c744f448d06c335e812f722064ea76c311023f",
+  "tuningSha256": "96897cccc225b024c2d63f364eac1c39eb6850d35e35bf9dc3848aeb86b8f6fd",
+  "profiles": {
+    "legacy900": {
+      "kbId": "e19f112b-681d-43cb-a832-62b7daf8c6d1",
+      "profile": {
+        "id": "legacy900",
+        "strategy": "legacy",
+        "size": 900,
+        "overlap": 200
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "78428862-a368-4186-8c38-c1d645a99b78",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "89b73c7e-f978-435d-8264-a8ab7c29bdee",
+          "createdAt": "2026-09-28T08:03:48.248212Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "7169f2ba-0899-4f8c-bd15-ca8ab513ebda",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ba608cb7-adca-4c0c-9711-df14d4df089e",
+          "createdAt": "2026-09-28T08:03:48.271220Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "100885c9-e0a1-44f4-a44f-8bfda8099d11",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "a1186a98-d89a-4f47-a8c0-ae82bd1941e3",
+          "createdAt": "2026-09-28T08:03:48.284169Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "e442a0dc-32b8-4faf-9a22-9d1d725ced5b",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "d30e7e5f-f7e6-43a1-aa2e-1afb7756b7d3",
+          "createdAt": "2026-09-28T08:03:48.297468Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "85f46d6e-31ca-489d-8c25-f7b59e3d70d2",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "0c5ce3d9-dad0-4703-89ba-802bd3941773",
+          "createdAt": "2026-09-28T08:03:48.311484Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "f264119d-659c-453d-8861-40b6f7215929",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "734267f2-ec68-4697-a775-1a44b308d1b9",
+          "createdAt": "2026-09-28T08:03:48.325110Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "8b75bec0-ad1d-44dc-a9d1-2becc56e38ab",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "140a7089-9195-4a91-9743-24a7a7a8417d",
+          "createdAt": "2026-09-28T08:03:48.338745Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "cffc0951-faa2-46a5-b2d8-b6086f3364d6",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ff900630-eb21-4d70-9605-b482b73e620b",
+          "createdAt": "2026-09-28T08:03:48.351651Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "a4c4545a-2769-4764-873c-a04ae6f3efea",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "6f302311-bf4c-4e12-a859-e1d9caad774c",
+          "createdAt": "2026-09-28T08:03:48.364542Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "00beff8e-aac0-434b-a3b0-b88d8e292d32",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "af07c9c1-9071-490a-9435-ae55d0e36ef3",
+          "createdAt": "2026-09-28T08:03:48.378551Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "48e376e9-5609-4e4a-acec-f82e3d78263e",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "68ce5acf-8d75-4492-afae-d1d2a3683c0c",
+          "createdAt": "2026-09-28T08:03:48.390816Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "4d01f083-1316-41d7-a88b-0c9375a28350",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "6d79fb09-f25a-4848-b667-3d547aba1bbf",
+          "createdAt": "2026-09-28T08:03:48.401862Z",
+          "activeProfile": {
+            "strategy": "legacy",
+            "size": 900,
+            "overlap": 200
+          }
+        }
+      ]
+    },
+    "structure900": {
+      "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+      "profile": {
+        "id": "structure900",
+        "strategy": "structure-v1",
+        "size": 900,
+        "overlap": 200
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "57a166d3-fb44-4a72-b364-15157bb1a501",
+          "createdAt": "2026-09-28T08:05:12.473383Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "408330a9-e667-426f-a196-85338c50b009",
+          "createdAt": "2026-09-28T08:05:12.485514Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+          "createdAt": "2026-09-28T08:05:12.494715Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+          "createdAt": "2026-09-28T08:05:12.504609Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+          "createdAt": "2026-09-28T08:05:12.513751Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "63ac71b5-471b-4929-ad90-8990985ab0da",
+          "createdAt": "2026-09-28T08:05:12.523155Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+          "createdAt": "2026-09-28T08:05:12.532461Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+          "createdAt": "2026-09-28T08:05:12.542834Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+          "createdAt": "2026-09-28T08:05:12.551723Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+          "createdAt": "2026-09-28T08:05:12.561720Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+          "createdAt": "2026-09-28T08:05:12.570979Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+          "createdAt": "2026-09-28T08:05:12.579977Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 200
+          }
+        }
+      ]
+    },
+    "structure600": {
+      "kbId": "623799f3-b0fe-4ec4-a941-5a298169b6ba",
+      "profile": {
+        "id": "structure600",
+        "strategy": "structure-v1",
+        "size": 600,
+        "overlap": 200
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "cadf7683-6412-45c0-a9fb-99d3b86f0294",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ce4b78a1-8816-4e4b-acec-252589f4b268",
+          "createdAt": "2026-09-28T08:06:05.346118Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "6d8f5e54-a648-47c4-86ef-290d343b04e0",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "392a1dcc-917b-468f-a971-61cee640ed8d",
+          "createdAt": "2026-09-28T08:06:05.356267Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "bba7c39f-edb6-4a11-80ab-6dc077347c6f",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "67220c0b-ddfd-4d63-9b9f-ca8bdf6cbb05",
+          "createdAt": "2026-09-28T08:06:05.365674Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "dc3d328c-b28c-46be-8599-c03dc13bc95d",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "fa2bdb42-e518-493e-9e7b-18dad5a11b5e",
+          "createdAt": "2026-09-28T08:06:05.375146Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "7629eb89-4d5b-4f78-b1a3-a240fddf1090",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "1929dd61-c508-4496-bd5e-d57fa9a3e873",
+          "createdAt": "2026-09-28T08:06:05.386936Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "376f71c0-0b2f-4dfa-998c-dbe601b4c082",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "8a18c72f-ce3d-4370-a206-2e016c5e4626",
+          "createdAt": "2026-09-28T08:06:05.398741Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "7c5ef5b1-6fb8-4dec-a606-b001d546c588",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "fc5d33d0-bdaf-4c16-b5f2-75222a8e5e64",
+          "createdAt": "2026-09-28T08:06:05.409828Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "e6d0fbf8-edcf-4ad9-b997-98612e7bdcdd",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "0c7a02ba-b6c6-475a-bfa8-7277b2ba693e",
+          "createdAt": "2026-09-28T08:06:05.420842Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "9f1ebd9e-35e0-40c7-874e-46fda9efe8f2",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "f4cc3a01-6274-49ca-92bd-51b566ef6aa2",
+          "createdAt": "2026-09-28T08:06:05.433200Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "67aad8ae-8163-44a9-a1f9-102c9f86e9dc",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ca68b5d8-319e-41ad-8f3c-7bf486f1f43a",
+          "createdAt": "2026-09-28T08:06:05.445510Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "bbcc3d6c-2b88-487e-bf78-a51aa91a70c2",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "b6daa69e-e300-469c-ba0c-8a68e5dc2fda",
+          "createdAt": "2026-09-28T08:06:05.456475Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "b671a2bd-5e99-4c0e-8b91-4fe8019dc747",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "e4bc5242-af22-4bf4-9a92-fc25060f5640",
+          "createdAt": "2026-09-28T08:06:05.466349Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 600,
+            "overlap": 200
+          }
+        }
+      ]
+    },
+    "structure1200": {
+      "kbId": "7785a212-da3e-4cdb-938c-fd4a0eff4a17",
+      "profile": {
+        "id": "structure1200",
+        "strategy": "structure-v1",
+        "size": 1200,
+        "overlap": 200
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "ed489061-4831-47c0-acaf-ef1aa482ead9",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "02112cd9-97ec-40d1-bc65-019c1105f09a",
+          "createdAt": "2026-09-28T08:06:55.141607Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "169ce4b9-5880-4db3-a863-7872fb3ff22a",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "12575a1c-0c6e-40c1-972c-2b5e923b2d22",
+          "createdAt": "2026-09-28T08:06:55.150145Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "a854613b-c12c-4612-bd4b-2d25905d01ff",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "3b77873d-26e8-47a1-a495-17ff11a2d803",
+          "createdAt": "2026-09-28T08:06:55.158768Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "3bf0699c-2ad4-440a-9ff5-7782c532ac59",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "9168d5e3-dfa8-45a3-8899-f5eb83caa253",
+          "createdAt": "2026-09-28T08:06:55.167686Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "345a0e61-6b36-4c43-a900-e3cc9451c037",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "4f4b7259-d20d-454f-9c82-fa7b60aeaff3",
+          "createdAt": "2026-09-28T08:06:55.177893Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "7cad7ef4-3c33-4a9e-ae11-40f08a8cef1d",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "2eaabb9d-22de-4710-9dc7-f06be73385e7",
+          "createdAt": "2026-09-28T08:06:55.185980Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "286ee32b-3dda-4b3f-be48-efb67052b420",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "271762ec-19f6-49c5-a838-7cf611fd7bf3",
+          "createdAt": "2026-09-28T08:06:55.195353Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "bed254dd-b6c5-41ed-902f-c2ba7fa28a36",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "46765a1e-5aac-43c1-86ae-cdbde0f2df1c",
+          "createdAt": "2026-09-28T08:06:55.204327Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "4eb8caf2-e868-49ca-aeef-950af59ed969",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "62968221-3d99-420e-92ab-7415f11e9c9f",
+          "createdAt": "2026-09-28T08:06:55.212565Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "2a8d00e3-572e-4625-9bb9-723d73864edc",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "5d71d1fa-242b-4d48-bf6c-4abee38e98ae",
+          "createdAt": "2026-09-28T08:06:55.222235Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "562b149c-4d2d-4eb6-a525-72eb536a3a42",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "3dd47e9d-c4b2-46a2-9fb9-e153b7d362dc",
+          "createdAt": "2026-09-28T08:06:55.231221Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        },
+        {
+          "id": "76dbf7fc-cad9-41fc-bbad-324671c126c5",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "5faa5f6d-81a9-4923-b161-4b8808becda2",
+          "createdAt": "2026-09-28T08:06:55.239442Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 1200,
+            "overlap": 200
+          }
+        }
+      ]
+    },
+    "structure900-o0": {
+      "kbId": "bf46c56c-52cd-4be7-8fc2-3fcd357d3d2b",
+      "profile": {
+        "id": "structure900-o0",
+        "strategy": "structure-v1",
+        "size": 900,
+        "overlap": 0
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "f9adaff8-cf43-463d-8ea8-70f0ae84c1d8",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "fb4ec506-ef68-4530-84e6-4533ecc75acc",
+          "createdAt": "2026-09-28T08:07:45.914567Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "c2e1e5da-003d-49b3-98fc-c541a68e5ddf",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "69b011ce-26ae-4247-8870-0d47cebe879d",
+          "createdAt": "2026-09-28T08:07:45.924045Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "14654e23-7db0-4293-8c8c-3dec2b473bd7",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "72361fa4-a1a0-4137-8699-0b1168ce3145",
+          "createdAt": "2026-09-28T08:07:45.933169Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "4705f644-9e6c-40ac-9996-c4d7bfea3740",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "775378bf-de6a-4684-83a6-564f6cb29f16",
+          "createdAt": "2026-09-28T08:07:45.941482Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "2df05b3c-dfa8-41d1-b5ae-314c6ac59fcb",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "47544313-089b-4b9c-b3f9-df2015bd990d",
+          "createdAt": "2026-09-28T08:07:45.950445Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "bf1be090-7502-4983-aa53-ba62d4107189",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "df494f79-695a-493a-9657-4e43cf797165",
+          "createdAt": "2026-09-28T08:07:45.959733Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "c7b53fd1-7989-4667-93bc-21ce250c0c45",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "23eaaf3a-03cf-4e78-95ff-103ee071d9ca",
+          "createdAt": "2026-09-28T08:07:45.968072Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "3989aa6b-a429-489a-af88-f4c203beb7ef",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "a44050d9-8bc9-4d89-9a7e-2331ec280fbe",
+          "createdAt": "2026-09-28T08:07:45.976864Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "85b48b66-dc04-441a-9a1e-a2ddef69dbd3",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "8d5593f7-5a8d-4a73-831d-0a4459e16052",
+          "createdAt": "2026-09-28T08:07:45.984966Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "eedc2427-92c6-4f89-bd4a-fa5d0d075d74",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "b9ff0f88-90f8-4392-ab3b-c03da80a9a76",
+          "createdAt": "2026-09-28T08:07:45.993608Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "bd13f9bf-1964-4e80-b064-81b51468a44f",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "7613cc76-c2fb-4742-a4ef-40488ca5a704",
+          "createdAt": "2026-09-28T08:07:46.002720Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        },
+        {
+          "id": "4204b0a4-9ade-4bcd-97f7-a16c32fd4f1f",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "ebc87f2e-8c68-4f61-95cb-6d512c589f13",
+          "createdAt": "2026-09-28T08:07:46.011546Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 0
+          }
+        }
+      ]
+    },
+    "structure900-o100": {
+      "kbId": "a5386537-336a-4e53-9f16-b199e50c2134",
+      "profile": {
+        "id": "structure900-o100",
+        "strategy": "structure-v1",
+        "size": 900,
+        "overlap": 100
+      },
+      "ready": true,
+      "documents": [
+        {
+          "id": "fc803263-8960-4ede-a8ed-0efb99502eb5",
+          "name": "ember-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "c9435c0c-3fb8-416d-a725-fa5f8385327e",
+          "createdAt": "2026-09-28T08:08:36.635622Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "7121fda8-6e95-40fc-b191-585d36d5bfa3",
+          "name": "ember-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "e0b69d0e-0379-4964-ae1c-86ecb9f1b0f3",
+          "createdAt": "2026-09-28T08:08:36.644595Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "1c461996-babc-474d-8a3e-e9e35c68bc4a",
+          "name": "harbor-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "80a713bd-f032-48fa-9c0e-e20183d50f81",
+          "createdAt": "2026-09-28T08:08:36.653866Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "5aa2a89b-ae58-4194-be5f-978c7e15e8f7",
+          "name": "harbor-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "de4ff5fb-4612-49a4-a557-d4d07108c4f8",
+          "createdAt": "2026-09-28T08:08:36.662326Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "0288a8d3-9d4f-4c62-afcb-464fe7e0b194",
+          "name": "lumen-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "0fd5cf60-d792-4ed4-aaaf-76bc739327da",
+          "createdAt": "2026-09-28T08:08:36.670735Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "e00cf411-36f0-4942-a674-3d7dff64b347",
+          "name": "lumen-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "19c0fa9f-de89-4ab0-ba28-4d8cadb3f83e",
+          "createdAt": "2026-09-28T08:08:36.678362Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "c212f55f-f785-47c8-9817-29cbb2fab045",
+          "name": "moss-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "bcdc0d56-0dc6-495b-a652-98f29394521a",
+          "createdAt": "2026-09-28T08:08:36.686160Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "c0f4b2c3-b0fd-41bd-b20d-47736936e193",
+          "name": "moss-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "fbf7407f-d2d8-4095-a7cf-6602905ec944",
+          "createdAt": "2026-09-28T08:08:36.694344Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "8e744d9b-fbff-4b3c-a934-508fd008fc30",
+          "name": "quartz-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "3ca10d1a-0307-49c2-a112-c3e9951a7421",
+          "createdAt": "2026-09-28T08:08:36.702922Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "6edab4c1-e4ef-4321-ac4f-e781ff7b0ac3",
+          "name": "quartz-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "9efdbcdc-657f-4228-977a-a378e4ae5053",
+          "createdAt": "2026-09-28T08:08:36.711191Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "8209175e-cd7e-4c8e-87ec-44aa6a41e2c7",
+          "name": "tide-cards.pdf",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "b7585b70-bb83-4b39-b1b4-a9e3a22a8b14",
+          "createdAt": "2026-09-28T08:08:36.719016Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        },
+        {
+          "id": "c1f8f2b1-e1d5-42b4-a1a1-c7e3fb486c0d",
+          "name": "tide-handbook.md",
+          "status": "SUCCESS",
+          "error": null,
+          "activeVersionId": "fa0eb3c7-cc64-4b05-ac88-64545358d6db",
+          "createdAt": "2026-09-28T08:08:36.726990Z",
+          "activeProfile": {
+            "strategy": "structure-v1",
+            "size": 900,
+            "overlap": 100
+          }
+        }
+      ]
+    }
+  },
+  "variants": {
+    "a-legacy900": {
+      "id": "a-legacy900",
+      "profileId": "legacy900",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-legacy900.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8892857142857142,
+          "errorCount": 6,
+          "errorRate": 0.375,
+          "citationValidCount": 10,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 355.875,
+            "p50": 305,
+            "p95": 846
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10101.75,
+            "p50": 9158,
+            "p95": 21156
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 14699
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1573
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.7142857142857143,
+          "mrr": 0.6904761904761905,
+          "errorCount": 2,
+          "errorRate": 0.125,
+          "citationValidCount": 14,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 337.4375,
+            "p50": 316,
+            "p95": 479
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 6944.5625,
+            "p50": 3928,
+            "p95": 27272
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 17172
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1104
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "a-structure900": {
+      "id": "a-structure900",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-structure900.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 1,
+          "errorRate": 0.0625,
+          "citationValidCount": 15,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 333.5625,
+            "p50": 278,
+            "p95": 580
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 11139.5625,
+            "p50": 9316,
+            "p95": 23866
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28040
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1589
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.9285714285714286,
+          "mrr": 0.7976190476190476,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 325.1875,
+            "p50": 301,
+            "p95": 543
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 12378.75,
+            "p50": 6294,
+            "p95": 42256
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 34016
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1303
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "a-structure600": {
+      "id": "a-structure600",
+      "profileId": "structure600",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-structure600.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 1,
+          "errorRate": 0.0625,
+          "citationValidCount": 15,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 333.5625,
+            "p50": 302,
+            "p95": 537
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 8707.9375,
+            "p50": 10501,
+            "p95": 16496
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 26996
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1593
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.8928571428571429,
+          "mrr": 0.7261904761904762,
+          "errorCount": 2,
+          "errorRate": 0.125,
+          "citationValidCount": 14,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 345.3125,
+            "p50": 303,
+            "p95": 583
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 9317.3125,
+            "p50": 8299,
+            "p95": 27283
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 31295
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1539
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "a-structure1200": {
+      "id": "a-structure1200",
+      "profileId": "structure1200",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-structure1200.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.9285714285714286,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 338.8125,
+            "p50": 286,
+            "p95": 627
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10527.6875,
+            "p50": 6070,
+            "p95": 31391
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 27558
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1474
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.8928571428571429,
+          "mrr": 0.8571428571428571,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 315.125,
+            "p50": 283,
+            "p95": 535
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 8484.9375,
+            "p50": 6352,
+            "p95": 27421
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 34870
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1561
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "a-structure900-o0": {
+      "id": "a-structure900-o0",
+      "profileId": "structure900-o0",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-structure900-o0.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.875,
+          "errorCount": 1,
+          "errorRate": 0.0625,
+          "citationValidCount": 15,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 306.5625,
+            "p50": 284,
+            "p95": 523
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10221.25,
+            "p50": 5596,
+            "p95": 28967
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 26443
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1556
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.8571428571428571,
+          "mrr": 0.744047619047619,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 332.25,
+            "p50": 292,
+            "p95": 541
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 8862.8125,
+            "p50": 6344,
+            "p95": 29252
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 31338
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1744
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "a-structure900-o100": {
+      "id": "a-structure900-o100",
+      "profileId": "structure900-o100",
+      "options": {
+        "candidateK": 20,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/a-structure900-o100.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8273809523809523,
+          "errorCount": 2,
+          "errorRate": 0.125,
+          "citationValidCount": 14,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 384.5625,
+            "p50": 282,
+            "p95": 931
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 9552.0625,
+            "p50": 4744,
+            "p95": 39148
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 26725
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1440
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.8928571428571429,
+          "mrr": 0.7261904761904762,
+          "errorCount": 1,
+          "errorRate": 0.0625,
+          "citationValidCount": 15,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 360.625,
+            "p50": 290,
+            "p95": 1023
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 9240,
+            "p50": 4219,
+            "p95": 25499
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 31963
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1504
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "b1-k10": {
+      "id": "b1-k10",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 10,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/b1-k10.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 301.8125,
+            "p50": 285,
+            "p95": 380
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 7408.5625,
+            "p50": 6068,
+            "p95": 14130
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28041
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1247
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 0.9642857142857143,
+          "mrr": 0.8154761904761905,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 334.875,
+            "p50": 305,
+            "p95": 488
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10471.875,
+            "p50": 10201,
+            "p95": 34033
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 37327
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1297
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "b1-k40": {
+      "id": "b1-k40",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/b1-k40.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 359.125,
+            "p50": 308,
+            "p95": 690
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10266.75,
+            "p50": 9887,
+            "p95": 24516
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28041
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1475
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8119047619047619,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 324.875,
+            "p50": 308,
+            "p95": 487
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 11959.5625,
+            "p50": 7022,
+            "p95": 33275
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 34009
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1411
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "b2-w0_25": {
+      "id": "b2-w0_25",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 0.25,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/b2-w0_25.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 330.1875,
+            "p50": 286,
+            "p95": 895
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 9118.1875,
+            "p50": 5084,
+            "p95": 27605
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28041
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1548
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.7976190476190476,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 341.3125,
+            "p50": 305,
+            "p95": 536
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 7305.4375,
+            "p50": 6266,
+            "p95": 21710
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28228
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1420
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "b2-w0_5": {
+      "id": "b2-w0_5",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 0.5,
+        "rerank": false,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/b2-w0_5.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.8928571428571429,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 349.5625,
+            "p50": 303,
+            "p95": 876
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10786.0625,
+            "p50": 7246,
+            "p95": 32344
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 28039
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1290
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.7857142857142857,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 305.5625,
+            "p50": 295,
+            "p95": 398
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 5746.5,
+            "p50": 3928,
+            "p95": 15254
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 29810
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1343
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankCompletion": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "c-rerank": {
+      "id": "c-rerank",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/c-rerank.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.9166666666666667,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 1088.5625,
+            "p50": 1050,
+            "p95": 1407
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 9924.375,
+            "p50": 5496,
+            "p95": 26518
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 27838
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1304
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 91051
+            },
+            "rerankCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.9166666666666667,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 1291.5625,
+            "p50": 1288,
+            "p95": 2218
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 10485.125,
+            "p50": 6007,
+            "p95": 25425
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 27833
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1523
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 118362
+            },
+            "rerankCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "d-compact": {
+      "id": "d-compact",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "compact"
+      },
+      "rawFile": "docs/results/phase2/optimization/d-compact.raw.json",
+      "summary": {
+        "vector": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.9166666666666667,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 1088.75,
+            "p50": 977,
+            "p95": 2465
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 8578.375,
+            "p50": 8302,
+            "p95": 16184
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 26186
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1179
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 91051
+            },
+            "rerankCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 16,
+          "answerable": 14,
+          "recallAtK": 1,
+          "mrr": 0.9166666666666667,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 16,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 16,
+            "mean": 1114.875,
+            "p50": 992,
+            "p95": 1660
+          },
+          "totalMs": {
+            "count": 16,
+            "mean": 7428.8125,
+            "p50": 7397,
+            "p95": 12401
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 26180
+            },
+            "chatCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 1148
+            },
+            "embeddingPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "embeddingTotal": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 311
+            },
+            "rerankPrompt": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 118372
+            },
+            "rerankCompletion": {
+              "availableCount": 16,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 16,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-0": {
+      "id": "dev-confirm-0",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-0.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1024.5,
+            "p50": 925,
+            "p95": 1168
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9096.375,
+            "p50": 7504,
+            "p95": 14341
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 20084
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 562
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 170
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 170
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 47190
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1103.625,
+            "p50": 976,
+            "p95": 1868
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9640.375,
+            "p50": 8238,
+            "p95": 15564
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 20088
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 592
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 170
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 170
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 59121
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-1": {
+      "id": "dev-confirm-1",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-1.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1052.375,
+            "p50": 988,
+            "p95": 1430
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 11389.625,
+            "p50": 10710,
+            "p95": 21536
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 19777
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 1393
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 204
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 204
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 48956
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 1,
+          "errorRate": 0.125,
+          "citationValidCount": 7,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1069.625,
+            "p50": 917,
+            "p95": 1463
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 13223.125,
+            "p50": 9383,
+            "p95": 22718
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 19778
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 1005
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 204
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 204
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 59157
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-3": {
+      "id": "dev-confirm-3",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-3.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 996,
+            "p50": 1021,
+            "p95": 1079
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9596.75,
+            "p50": 6020,
+            "p95": 26993
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12198
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 578
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 187
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 187
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 46095
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 1,
+          "errorRate": 0.125,
+          "citationValidCount": 7,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1133.125,
+            "p50": 995,
+            "p95": 1747
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 8037.375,
+            "p50": 6806,
+            "p95": 15459
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12197
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 501
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 187
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 187
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 55989
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-2": {
+      "id": "dev-confirm-2",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-2.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 5,
+          "recallAtK": 1,
+          "mrr": 0.9,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 3,
+          "unanswerable": 3,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1141,
+            "p50": 948,
+            "p95": 1915
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 17141.5,
+            "p50": 11686,
+            "p95": 31817
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 18555
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 643
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 137
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 137
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 46736
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 5,
+          "recallAtK": 1,
+          "mrr": 0.9,
+          "errorCount": 1,
+          "errorRate": 0.125,
+          "citationValidCount": 7,
+          "correctAbstentionCount": 3,
+          "unanswerable": 3,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1012.25,
+            "p50": 933,
+            "p95": 1236
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7441.5,
+            "p50": 6182,
+            "p95": 12808
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 18553
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 694
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 137
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 137
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 51599
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-5": {
+      "id": "dev-confirm-5",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-5.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 4,
+          "recallAtK": 1,
+          "mrr": 0.8333333333333334,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1066.5,
+            "p50": 938,
+            "p95": 1311
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7859,
+            "p50": 5450,
+            "p95": 14844
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 15216
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 398
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 124
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 124
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 43431
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 4,
+          "recallAtK": 1,
+          "mrr": 0.8333333333333334,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1084.875,
+            "p50": 955,
+            "p95": 1499
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 4949,
+            "p50": 4727,
+            "p95": 6454
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 15215
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 222
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 124
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 124
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 49171
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-4": {
+      "id": "dev-confirm-4",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-4.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 926.125,
+            "p50": 926,
+            "p95": 960
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7083.25,
+            "p50": 6737,
+            "p95": 11837
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12383
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 578
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 44484
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1055.25,
+            "p50": 1009,
+            "p95": 1262
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9624.625,
+            "p50": 6728,
+            "p95": 23525
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12390
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 546
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 55582
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-6": {
+      "id": "dev-confirm-6",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-6.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1311.5,
+            "p50": 985,
+            "p95": 3036
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9104.25,
+            "p50": 6323,
+            "p95": 17730
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12875
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 452
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 48993
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 1,
+          "errorRate": 0.125,
+          "citationValidCount": 7,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1090.875,
+            "p50": 1036,
+            "p95": 1353
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9964.375,
+            "p50": 9417,
+            "p95": 13919
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12810
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 792
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 57773
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-7": {
+      "id": "dev-confirm-7",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-7.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 7,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 1,
+          "unanswerable": 1,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1215.625,
+            "p50": 993,
+            "p95": 1952
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 8737.625,
+            "p50": 7357,
+            "p95": 16733
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13535
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 590
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 177
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 177
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 50773
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 7,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 1,
+          "unanswerable": 1,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1021.75,
+            "p50": 997,
+            "p95": 1155
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 13033.25,
+            "p50": 10214,
+            "p95": 27370
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13538
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 619
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 177
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 177
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 59665
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-8": {
+      "id": "dev-confirm-8",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-8.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 0.8888888888888888,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1100.75,
+            "p50": 1029,
+            "p95": 1343
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7068.75,
+            "p50": 6333,
+            "p95": 15051
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12607
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 461
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 153
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 153
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 52004
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 0.8888888888888888,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1016,
+            "p50": 984,
+            "p95": 1321
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 8919,
+            "p50": 6128,
+            "p95": 21437
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12607
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 557
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 153
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 153
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 56523
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-9": {
+      "id": "dev-confirm-9",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-9.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1154,
+            "p50": 982,
+            "p95": 1591
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 8888.5,
+            "p50": 7069,
+            "p95": 19048
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12129
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 772
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 178
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 178
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 51920
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1043.75,
+            "p50": 989,
+            "p95": 1405
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9666.75,
+            "p50": 7441,
+            "p95": 16069
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12131
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 752
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 178
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 178
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 61230
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "dev-confirm-10": {
+      "id": "dev-confirm-10",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/dev-confirm-10.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 4,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 986.5,
+            "p50": 902,
+            "p95": 1294
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 6669,
+            "p50": 4641,
+            "p95": 17832
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13729
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 411
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 141
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 141
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 39752
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 4,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1011.625,
+            "p50": 1011,
+            "p95": 1210
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7006.75,
+            "p50": 4805,
+            "p95": 21629
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13728
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 400
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 141
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 141
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 46506
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-0": {
+      "id": "test-frozen-0",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-0.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 979.25,
+            "p50": 902,
+            "p95": 1486
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7683.875,
+            "p50": 6887,
+            "p95": 13683
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12764
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 416
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 147
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 147
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 45960
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1074,
+            "p50": 1066,
+            "p95": 1227
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 8789.5,
+            "p50": 4688,
+            "p95": 22439
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12765
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 467
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 147
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 147
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 52687
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-1": {
+      "id": "test-frozen-1",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-1.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1084.75,
+            "p50": 990,
+            "p95": 1635
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 10684.5,
+            "p50": 6314,
+            "p95": 38287
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 15169
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 696
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 202
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 202
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 51852
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1163.375,
+            "p50": 944,
+            "p95": 1568
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 10374.375,
+            "p50": 7951,
+            "p95": 18646
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 15169
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 828
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 202
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 202
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 59665
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-3": {
+      "id": "test-frozen-3",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-3.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1115.25,
+            "p50": 1021,
+            "p95": 1481
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 7405.25,
+            "p50": 4543,
+            "p95": 13678
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12771
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 317
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 144
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 144
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 42591
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1012.25,
+            "p50": 947,
+            "p95": 1329
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 6662.5,
+            "p50": 4900,
+            "p95": 16914
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12775
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 436
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 144
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 144
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 53003
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-2": {
+      "id": "test-frozen-2",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-2.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1227.5,
+            "p50": 1010,
+            "p95": 2082
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9716,
+            "p50": 6801,
+            "p95": 24153
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13408
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 651
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 53546
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 6,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 2,
+          "unanswerable": 2,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1182.25,
+            "p50": 1066,
+            "p95": 1622
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 9922.375,
+            "p50": 6253,
+            "p95": 34559
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 13941
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 554
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 60498
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-4": {
+      "id": "test-frozen-4",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-4.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1021.625,
+            "p50": 947,
+            "p95": 1415
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 11124.375,
+            "p50": 9422,
+            "p95": 21926
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12210
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 442
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 39259
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1133.625,
+            "p50": 1082,
+            "p95": 1470
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 11721.375,
+            "p50": 5121,
+            "p95": 28529
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12213
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 743
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 167
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 59177
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-5": {
+      "id": "test-frozen-5",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-5.raw.json",
+      "summary": {
+        "vector": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 929.25,
+            "p50": 898,
+            "p95": 1001
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 10978,
+            "p50": 6825,
+            "p95": 22888
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12821
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 846
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 47313
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 8,
+          "answerable": 8,
+          "recallAtK": 1,
+          "mrr": 1,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 8,
+          "correctAbstentionCount": 0,
+          "unanswerable": 0,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 8,
+            "mean": 1415.75,
+            "p50": 1162,
+            "p95": 2700
+          },
+          "totalMs": {
+            "count": 8,
+            "mean": 11940.5,
+            "p50": 10675,
+            "p95": 22736
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 12821
+            },
+            "chatCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 874
+            },
+            "embeddingPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "embeddingTotal": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 176
+            },
+            "rerankPrompt": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 58815
+            },
+            "rerankCompletion": {
+              "availableCount": 8,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 8,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    },
+    "test-frozen-6": {
+      "id": "test-frozen-6",
+      "profileId": "structure900",
+      "options": {
+        "candidateK": 40,
+        "keywordWeight": 1,
+        "rerank": true,
+        "citationStyle": "uuid"
+      },
+      "rawFile": "docs/results/phase2/optimization/test-frozen-6.raw.json",
+      "summary": {
+        "vector": {
+          "count": 4,
+          "answerable": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 4,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 4,
+            "mean": 1110.75,
+            "p50": 896,
+            "p95": 1533
+          },
+          "totalMs": {
+            "count": 4,
+            "mean": 5225,
+            "p50": 3248,
+            "p95": 10108
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 6630
+            },
+            "chatCompletion": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 171
+            },
+            "embeddingPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 58
+            },
+            "embeddingTotal": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 58
+            },
+            "rerankPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 19154
+            },
+            "rerankCompletion": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 4,
+              "observedSum": null
+            }
+          }
+        },
+        "hybrid": {
+          "count": 4,
+          "answerable": 0,
+          "recallAtK": null,
+          "mrr": null,
+          "errorCount": 0,
+          "errorRate": 0,
+          "citationValidCount": 4,
+          "correctAbstentionCount": 4,
+          "unanswerable": 4,
+          "humanCorrectness": null,
+          "retrievalMs": {
+            "count": 4,
+            "mean": 952,
+            "p50": 950,
+            "p95": 1010
+          },
+          "totalMs": {
+            "count": 4,
+            "mean": 7012,
+            "p50": 3817,
+            "p95": 12267
+          },
+          "usage": {
+            "chatPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 6635
+            },
+            "chatCompletion": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 134
+            },
+            "embeddingPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 58
+            },
+            "embeddingTotal": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 58
+            },
+            "rerankPrompt": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 21228
+            },
+            "rerankCompletion": {
+              "availableCount": 4,
+              "unavailableCount": 0,
+              "observedSum": 0
+            },
+            "rerankTotal": {
+              "availableCount": 0,
+              "unavailableCount": 4,
+              "observedSum": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "selections": {
+    "a": "a-structure900",
+    "b1": "b1-k40",
+    "b2": "b1-k40",
+    "c": "c-rerank",
+    "d": "c-rerank"
+  },
+  "compactComparison": {
+    "control": "c-rerank",
+    "variant": "d-compact",
+    "comparable": true,
+    "pairedRows": 32,
+    "scoreDriftCases": [
+      "harbor-026:vector",
+      "harbor-026:hybrid",
+      "moss-026:hybrid",
+      "lumen-003:vector",
+      "quartz-001:hybrid",
+      "moss-004:hybrid",
+      "harbor-005:vector",
+      "harbor-005:hybrid",
+      "quartz-007:vector",
+      "quartz-007:hybrid",
+      "lumen-008:vector",
+      "lumen-008:hybrid",
+      "harbor-022:vector",
+      "moss-022:vector",
+      "moss-022:hybrid",
+      "lumen-016:vector",
+      "lumen-016:hybrid",
+      "quartz-019:vector",
+      "moss-014:vector",
+      "harbor-014:vector",
+      "harbor-014:hybrid",
+      "quartz-010:vector",
+      "quartz-010:hybrid",
+      "lumen-010:vector"
+    ],
+    "rule": "Same evidence IDs/order/text/coordinates, Recall/MRR, question, source snapshot, model, dataset and retrieval options; citationStyle changes. Provider score drift is disclosed, not hidden. Single paired runs do not prove causality or semantic answer correctness."
+  },
+  "confirmation": {
+    "candidate": "c-rerank",
+    "sourceIds": [
+      "c-rerank",
+      "dev-confirm-0",
+      "dev-confirm-1",
+      "dev-confirm-2",
+      "dev-confirm-3",
+      "dev-confirm-4",
+      "dev-confirm-5",
+      "dev-confirm-6",
+      "dev-confirm-7",
+      "dev-confirm-8",
+      "dev-confirm-9",
+      "dev-confirm-10"
+    ],
+    "summary": {
+      "vector": {
+        "count": 104,
+        "answerable": 88,
+        "recallAtK": 1,
+        "mrr": 0.9659090909090909,
+        "errorCount": 0,
+        "errorRate": 0,
+        "citationValidCount": 104,
+        "correctAbstentionCount": 16,
+        "unanswerable": 16,
+        "humanCorrectness": null,
+        "retrievalMs": {
+          "count": 104,
+          "mean": 1088.6153846153845,
+          "p50": 988,
+          "p95": 1557
+        },
+        "totalMs": {
+          "count": 104,
+          "mean": 9421.798076923076,
+          "p50": 7613,
+          "p95": 22682
+        },
+        "usage": {
+          "chatPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 190926
+          },
+          "chatCompletion": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 8142
+          },
+          "embeddingPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 2134
+          },
+          "embeddingTotal": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 2134
+          },
+          "rerankPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 611385
+          },
+          "rerankCompletion": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 0
+          },
+          "rerankTotal": {
+            "availableCount": 0,
+            "unavailableCount": 104,
+            "observedSum": null
+          }
+        }
+      },
+      "hybrid": {
+        "count": 104,
+        "answerable": 88,
+        "recallAtK": 1,
+        "mrr": 0.9659090909090909,
+        "errorCount": 4,
+        "errorRate": 0.038461538461538464,
+        "citationValidCount": 100,
+        "correctAbstentionCount": 16,
+        "unanswerable": 16,
+        "humanCorrectness": null,
+        "retrievalMs": {
+          "count": 104,
+          "mean": 1094.298076923077,
+          "p50": 1010,
+          "p95": 1513
+        },
+        "totalMs": {
+          "count": 104,
+          "mean": 9421.259615384615,
+          "p50": 7441,
+          "p95": 22653
+        },
+        "usage": {
+          "chatPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 190868
+          },
+          "chatCompletion": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 8203
+          },
+          "embeddingPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 2134
+          },
+          "embeddingTotal": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 2134
+          },
+          "rerankPrompt": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 730678
+          },
+          "rerankCompletion": {
+            "availableCount": 104,
+            "unavailableCount": 0,
+            "observedSum": 0
+          },
+          "rerankTotal": {
+            "availableCount": 0,
+            "unavailableCount": 104,
+            "observedSum": null
+          }
+        }
+      }
+    },
+    "note": "Selected 16-case run reused, remaining 88 cases run once; all failures retained."
+  },
+  "finalConfiguration": {
+    "frozenAt": "2026-09-29T05:36:15.129Z",
+    "candidate": "c-rerank",
+    "profileId": "structure900",
+    "options": {
+      "candidateK": 40,
+      "keywordWeight": 1,
+      "rerank": true,
+      "citationStyle": "uuid"
+    },
+    "eligibleForRecommendation": true,
+    "adoptAsDefault": false,
+    "defaultDecision": "Keep universal legacy defaults; experimental pipeline remains explicit opt-in because this is a small self-authored corpus and reranker requires optional credentials.",
+    "baselineScore": {
+      "recall": 0.8210227272727273,
+      "mrr": 0.8041666666666667,
+      "errors": 20
+    },
+    "devScore": {
+      "recall": 1,
+      "mrr": 0.9659090909090909,
+      "errors": 4
+    },
+    "rule": "Full dev evidence only; test not yet read. Experimental candidate evaluated even if defaults retained."
+  }
+}

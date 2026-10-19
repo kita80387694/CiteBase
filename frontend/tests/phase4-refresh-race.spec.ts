@@ -1,0 +1,26 @@
+import { test, expect } from '@playwright/test';
+test('切换知识库后丢弃旧知识库迟到的真实刷新响应', async ({ page }) => {
+  await page.goto('/'); await page.getByRole('button', { name: '进入 CiteBase' }).click();
+  await expect(page.locator('#knowledge-base')).toBeVisible();
+  const token = await page.evaluate(() => localStorage.getItem('citebase.token'));
+  const headers = { Authorization: `Bearer ${token}` }, stamp = Date.now();
+  const a = await (await page.request.post('/api/knowledge-bases', { headers, data: { name: `RaceA-${stamp}` } })).json();
+  const b = await (await page.request.post('/api/knowledge-bases', { headers, data: { name: `RaceB-${stamp}` } })).json();
+  const uploaded = await page.request.post(`/api/knowledge-bases/${a.id}/documents`, { headers, multipart: { file: { name: `old-source-${stamp}.txt`, mimeType: 'text/plain', buffer: Buffer.from('旧知识库独立资料') } } }); expect(uploaded.ok()).toBe(true);
+  await page.getByRole('button', { name: '刷新数据', exact: true }).click();
+  await expect(page.locator(`#knowledge-base option[value="${a.id}"]`)).toHaveCount(1);
+  await page.locator('#knowledge-base').selectOption(a.id);
+  await expect(page.getByRole('row').filter({ hasText: `old-source-${stamp}.txt` })).toBeVisible();
+  await expect(page.getByRole('button', { name: '刷新数据', exact: true })).toBeEnabled();
+  let release!: () => void; const barrier = new Promise<void>(resolve => { release = resolve; });
+  let held = false, finished = false;
+  await page.route(`**/api/knowledge-bases/${a.id}/documents`, async route => { const response = await route.fetch(); held = true; await barrier; await route.fulfill({ response }); finished = true; });
+  await page.getByRole('button', { name: '刷新数据', exact: true }).click();
+  await expect.poll(() => held).toBe(true);
+  await page.locator('#knowledge-base').selectOption(b.id);
+  await expect(page.getByRole('heading', { name: '还没有文档' })).toBeVisible();
+  release(); await expect.poll(() => finished).toBe(true);
+  await expect(page.locator('#knowledge-base')).toHaveValue(b.id);
+  await expect(page.getByRole('heading', { name: '还没有文档' })).toBeVisible();
+  await expect(page.getByRole('row').filter({ hasText: `old-source-${stamp}.txt` })).toHaveCount(0);
+});

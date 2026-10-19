@@ -1,0 +1,2471 @@
+{
+  "id": "a05ba8c6-2ffc-49aa-9394-3342bf4aee73",
+  "name": "baseline-dev-80-f48514ed",
+  "status": "COMPLETED_WITH_ERRORS",
+  "modelMode": "real",
+  "createdAt": "2026-09-28T07:28:52.156526285Z",
+  "error": "部分题目失败，请查看逐题原因；失败题未排除出指标",
+  "config": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 20,
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "springAiVersion": "1.1.8",
+      "provider": "OpenAI-compatible via Spring AI",
+      "timeoutSeconds": 60,
+      "embeddingEndpoint": "https://api.siliconflow.cn",
+      "chatEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "strideChars": 700,
+      "strategy": "page-paragraph-window-v1",
+      "maxChars": 900,
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "dataset": {
+      "version": "citebase-phase2-v1",
+      "questions": [
+        {
+          "id": "lumen-003",
+          "question": "Lumen 正式复核报告保存几年？",
+          "answerable": true,
+          "expectedAnswer": "5年",
+          "evidence": [
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 8,
+              "paragraph": 1,
+              "quote": "Lumen archival card: formal review reports are retained for 5 years.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 68,
+              "groupId": "g1"
+            }
+          ],
+          "category": "事实",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-004",
+          "question": "Lumen 没改内容只是重发交付包，还需要换包号或校验值吗？",
+          "answerable": true,
+          "expectedAnswer": "不需要，沿用相同包号和哈希",
+          "evidence": [
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 4,
+              "paragraph": 1,
+              "quote": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 101,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-005",
+          "question": "Lumen 遇到不能解码的文本，能用替代字符凑合导入吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，拒绝畸形UTF-8",
+          "evidence": [
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 13,
+              "paragraph": 1,
+              "quote": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 106,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-006",
+          "question": "Lumen 看不见声源但会影响理解的报警声，听障字幕是否需要表现？",
+          "answerable": true,
+          "expectedAnswer": "需要，标记必要画外报警",
+          "evidence": [
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 10,
+              "paragraph": 1,
+              "quote": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 101,
+              "groupId": "g1"
+            }
+          ],
+          "category": "同义",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-007",
+          "question": "Lumen CPS 指什么，中文上限是多少？",
+          "answerable": true,
+          "expectedAnswer": "每秒显示字符数，每秒12个汉字",
+          "evidence": [
+            {
+              "documentName": "lumen-handbook.md",
+              "page": 1,
+              "paragraph": 4,
+              "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+              "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+              "startOffset": 138,
+              "endOffset": 181,
+              "groupId": "g1"
+            }
+          ],
+          "category": "缩写",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-008",
+          "question": "Lumen SDH 和 QC 各自指什么？",
+          "answerable": true,
+          "expectedAnswer": "聋人和听障者字幕；质量控制包括时间轴",
+          "evidence": [
+            {
+              "documentName": "lumen-handbook.md",
+              "page": 1,
+              "paragraph": 5,
+              "quote": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+              "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+              "startOffset": 183,
+              "endOffset": 227,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 7,
+              "paragraph": 1,
+              "quote": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 97,
+              "groupId": "g2"
+            }
+          ],
+          "category": "缩写",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-009",
+          "question": "Lumen 中文正式版能沿用英文试映版每行42字符规则吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，中文每行16字",
+          "evidence": [
+            {
+              "documentName": "lumen-handbook.md",
+              "page": 1,
+              "paragraph": 2,
+              "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+              "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+              "startOffset": 53,
+              "endOffset": 94,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "lumen-handbook.md",
+              "page": 1,
+              "paragraph": 10,
+              "quote": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+              "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+              "startOffset": 571,
+              "endOffset": 610,
+              "groupId": "g2"
+            }
+          ],
+          "category": "近事实干扰",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        },
+        {
+          "id": "lumen-010",
+          "question": "Lumen 紧急修订承诺4小时，能省掉时间轴复核吗？",
+          "answerable": true,
+          "expectedAnswer": "不能，两道复核均需通过",
+          "evidence": [
+            {
+              "documentName": "lumen-handbook.md",
+              "page": 1,
+              "paragraph": 12,
+              "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+              "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+              "startOffset": 661,
+              "endOffset": 704,
+              "groupId": "g1"
+            },
+            {
+              "documentName": "lumen-cards.pdf",
+              "page": 6,
+              "paragraph": 1,
+              "quote": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+              "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+              "startOffset": 0,
+              "endOffset": 107,
+              "groupId": "g2"
+            }
+          ],
+          "category": "近事实干扰",
+          "split": "dev",
+          "group": "lumen",
+          "topic": "lumen"
+        }
+      ],
+      "seed": 20260928,
+      "split": "all"
+    },
+    "dataVersions": [
+      {
+        "id": "00ea247c-0228-46aa-b985-3b78ee4d95d5",
+        "name": "ember-cards.pdf",
+        "version_id": "2d6752e2-4c44-4390-a44c-d31c60311ea7",
+        "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0"
+      },
+      {
+        "id": "11aa5a50-b14d-4b07-9963-7234302b30e1",
+        "name": "tide-handbook.md",
+        "version_id": "17d36eb3-1a9e-413b-9831-e2385f705d88",
+        "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c"
+      },
+      {
+        "id": "19da8a81-c3c2-491b-93a2-d1858097e351",
+        "name": "tide-cards.pdf",
+        "version_id": "833e86a9-df8d-4e39-8864-a6f699fb531c",
+        "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52"
+      },
+      {
+        "id": "2808b7ab-ace2-4ab2-9daa-0f88534744c0",
+        "name": "harbor-cards.pdf",
+        "version_id": "4d4b8575-1752-4d7d-92cb-0a2cf69e2cfc",
+        "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65"
+      },
+      {
+        "id": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+        "name": "lumen-handbook.md",
+        "version_id": "553badc6-706b-4883-96b0-da26bf660eba",
+        "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb"
+      },
+      {
+        "id": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+        "name": "lumen-cards.pdf",
+        "version_id": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+        "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d"
+      },
+      {
+        "id": "7ebfa7bb-5c4a-44ea-a0d9-f7040cf72000",
+        "name": "moss-handbook.md",
+        "version_id": "41620c2f-a406-4e5a-8da8-b33096d6b8ba",
+        "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e"
+      },
+      {
+        "id": "93180857-f249-4663-9974-170f89012888",
+        "name": "harbor-handbook.md",
+        "version_id": "a8798330-d112-4d10-9bd7-c7303767d397",
+        "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2"
+      },
+      {
+        "id": "ad8324d1-b155-49d5-b698-5c308b3371bd",
+        "name": "moss-cards.pdf",
+        "version_id": "daf75a10-35b4-4c33-a7ae-9c324c00b5f1",
+        "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7"
+      },
+      {
+        "id": "dd1a62e2-d8f3-4ecf-9cb6-e89ad02a97f5",
+        "name": "ember-handbook.md",
+        "version_id": "b794155e-c0e1-46b0-ad00-321a90d9c287",
+        "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b"
+      },
+      {
+        "id": "e12a1139-a39c-49f7-9e41-7735c7189244",
+        "name": "quartz-cards.pdf",
+        "version_id": "52647ffa-5cda-4e76-9524-76fc7fb8268a",
+        "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb"
+      },
+      {
+        "id": "f4ec1d9c-f562-4560-83be-f026505821da",
+        "name": "quartz-handbook.md",
+        "version_id": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+        "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad"
+      }
+    ]
+  },
+  "summary": {
+    "vector": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.875,
+      "mrr": 0.78125,
+      "retrievalMs": 294.25,
+      "totalMs": 10228.875,
+      "errorCount": 1
+    },
+    "hybrid": {
+      "count": 8,
+      "answerableCount": 8,
+      "recallAtK": 0.4375,
+      "mrr": 0.5,
+      "retrievalMs": 366,
+      "totalMs": 13057.25,
+      "errorCount": 0
+    }
+  },
+  "results": [
+    {
+      "id": "12fac0c3-9b79-4e9f-a5ef-7a0f6f17efb7",
+      "question": "Lumen 正式复核报告保存几年？",
+      "answer": "根据证据，Lumen 正式复核报告保存 5 年 [7f58cbba-d0d9-4e9f-9b3c-702e56571bbc]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "7f58cbba-d0d9-4e9f-9b3c-702e56571bbc",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Lumen archival card: formal review reports are retained for 5 years.",
+          "score": 0.7071208953857472
+        },
+        {
+          "id": "4fb8cfed-30f6-4091-8df7-9b6cc92f56a0",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 877,
+          "endOffset": 922,
+          "text": "Lumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。",
+          "score": 0.6493981689573437
+        },
+        {
+          "id": "d007198c-32d8-45d9-9c41-5f4ad66bebdc",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "score": 0.6202977895736739
+        },
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.593640411279178
+        },
+        {
+          "id": "bcf0d449-7d5f-4051-8322-22c478087742",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 107,
+          "text": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "score": 0.5396949648857156
+        }
+      ],
+      "citations": [
+        {
+          "id": "7f58cbba-d0d9-4e9f-9b3c-702e56571bbc",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 8,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 68,
+          "text": "Lumen archival card: formal review reports are retained for 5 years.",
+          "score": 0.7071208953857472
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 264,
+      "totalMs": 3300,
+      "promptTokens": 828,
+      "completionTokens": 41,
+      "error": null,
+      "caseId": "lumen-003",
+      "category": "事实",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "5年",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 8,
+          "paragraph": 1,
+          "quote": "Lumen archival card: formal review reports are retained for 5 years.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 68,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": true,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "5f2ace45-faa9-4757-9e3f-38159f6a2dab",
+      "question": "Lumen 正式复核报告保存几年？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "4fb8cfed-30f6-4091-8df7-9b6cc92f56a0",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 877,
+          "endOffset": 922,
+          "text": "Lumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.030117753623188408
+        },
+        {
+          "id": "efd1946a-694d-4d99-a735-8383a9e7168c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 385,
+          "endOffset": 471,
+          "text": "Lumen 复核等级表\n| 等级 | 问题 | 阻断交付 |\n| L1 | 多余空格 | 否 |\n| L2 | 专名不一致 | 是 |\n| L3 | 时间轴错位 | 是 |",
+          "score": 0.028814262023217248
+        },
+        {
+          "id": "8fc0d14c-6111-41fb-9d28-d5c726ef708d",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "score": 0.028258706467661692
+        },
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.028205128205128206
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 310,
+      "totalMs": 2954,
+      "promptTokens": 859,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "lumen-003",
+      "category": "事实",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "5年",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 8,
+          "paragraph": 1,
+          "quote": "Lumen archival card: formal review reports are retained for 5 years.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 68,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "a9f2a7a9-e4fd-4e02-aa6d-835f50894a76",
+      "question": "Lumen 没改内容只是重发交付包，还需要换包号或校验值吗？",
+      "answer": "根据当前资料，如果Lumen没有修改内容只是重发交付包，则不需要更换包号或校验值。证据表明，当内容没有改变时，重试交付会保持相同的包ID和校验值 [91ef9c9e-695d-4b46-8a78-f1bf8120c6d9]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d007198c-32d8-45d9-9c41-5f4ad66bebdc",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "score": 0.7868238198897681
+        },
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.7035206765985693
+        },
+        {
+          "id": "808f6489-a90a-45d1-b2a3-22fbd6049600",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "score": 0.6824035455229012
+        },
+        {
+          "id": "91ef9c9e-695d-4b46-8a78-f1bf8120c6d9",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+          "score": 0.6416640472908037
+        },
+        {
+          "id": "4fb8cfed-30f6-4091-8df7-9b6cc92f56a0",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 17,
+          "startOffset": 877,
+          "endOffset": 922,
+          "text": "Lumen 每次正式发布保存字幕文件哈希、画面版本号和复核报告三者关联，用于追踪下游缓存。",
+          "score": 0.6244321055541072
+        }
+      ],
+      "citations": [
+        {
+          "id": "91ef9c9e-695d-4b46-8a78-f1bf8120c6d9",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 4,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+          "score": 0.6416640472908037
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 303,
+      "totalMs": 16736,
+      "promptTokens": 848,
+      "completionTokens": 73,
+      "error": null,
+      "caseId": "lumen-004",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不需要，沿用相同包号和哈希",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 0.25,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "fbb8792e-1676-4ecb-83cf-2ff880d65624",
+      "question": "Lumen 没改内容只是重发交付包，还需要换包号或校验值吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "d007198c-32d8-45d9-9c41-5f4ad66bebdc",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "808f6489-a90a-45d1-b2a3-22fbd6049600",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "bd3fe3b9-d6d5-49b7-99f3-470e90e26aaa",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 1813,
+          "endOffset": 2713,
+          "text": "，也不代表有权放行；温度和数据质量更是不同维度。交班清单按箱号逐项列出告警状态、当前库位、负责岗位与尚未完成的检查，避免只交接“有一个箱子有问题”这样的口头摘要。接班人逐项核对签收状态，不通过颜色相似的屏幕图标推断业务结果。交接本不代替系统正式记录，但它应指向可查的事件编号。\n第五步，信息岗接到修改到站时间的请求。请求者说照片创建时间晚于到站时间，希望系统以照片时间代替到站时间，从而让签收看起来没有延误。信息岗拒绝直接覆盖，而是要求说明原记录是否确有录入错误，并由授权岗位提交修订单。照片时间、实际到站时刻、上传时刻和质量复核时刻都描述不同事件，不能互相替代。经过核对，如果确为录入错误，应留下原值、修正值、操作身份与理由，而非只保留一个无法解释来源的新数字。报表修正也应能追溯到这条修订记录。\n第六步，运输方想借用测试箱演练一次到站流程，现场给测试箱贴上独立的模拟编号。演练使用的照片和轨迹仅用于检查交接界面与岗位操作，不能混入生产签收统计。演练期间工作人员故意模拟缺失采样和封条异常，以观察失败状态是否可见；演练不是要证明箱内货品具有某种实际效力。完成后，复盘记录应说明哪些行为被验证、哪些仅由测试数据模拟，避免把顺利走完界面当成真实运输质量已达标。生产数据与演练资料在记录身份上保持可区分。\n第七步，下游收货台只收到了一张签收单截图。截图中的箱号可读，但缺少质量放行码；下游不能因为图片上有一个“成功”字样就认为交接条件完整。工作人员请求补充对应的结构化凭据并核对批次，不转发包含其他箱子内容的整屏照片。若原件资料丢失，应按已有事件号恢复关联而不是重新签一张不存在的单。运输承诺、系统签收和质量放行在业务上互相关联，但不应简化为一个无法说明责任边界的布尔标记。\n第八步，库位盘点人员看见一只待复核箱摆在正常货架旁。即使尚未发生混放，仍应纠正库位并记录此次移动的原因。移动记录需关联箱号、原库位和新库位，不能仅写“清理现场”。另一名人员同时核对系统中的库位状态，确认移动动作与记录一致。现场管理没有把不合格推定扩展到附近所有箱子，也没有因为暂未看到损坏就撤销原复核要求。逐箱确认比凭相邻位置猜",
+          "score": 0.029083245521601686
+        },
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.029030910609857977
+        },
+        {
+          "id": "2f75f520-125c-4b7c-99c3-732ca9df7f34",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 838,
+          "endOffset": 875,
+          "text": "Lumen 片尾署名只使用项目确认的译者名，软件登录用户名不自动作为署名。",
+          "score": 0.028404512489927477
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 524,
+      "totalMs": 4295,
+      "promptTokens": 1372,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "lumen-004",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不需要，沿用相同包号和哈希",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 4,
+          "paragraph": 1,
+          "quote": "Lumen retry card: delivery retries keep the same package ID and checksum when\nno content has changed.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "838d88b2-7957-4371-ae0e-4169e4dfeeef",
+      "question": "Lumen 遇到不能解码的文本，能用替代字符凑合导入吗？",
+      "answer": "根据证据，Lumen 遇到不能解码的文本时，不能使用替代字符凑合导入。证据指出，格式错误的 UTF-8 输入会被拒绝，而不是静默替换无法解码的字符 [99baaef7-2aab-490d-a12c-de8dced2815f]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "99baaef7-2aab-490d-a12c-de8dced2815f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 106,
+          "text": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+          "score": 0.7010170995582892
+        },
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.6832449624988471
+        },
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.6772379471517845
+        },
+        {
+          "id": "8fc0d14c-6111-41fb-9d28-d5c726ef708d",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "score": 0.6420614932738856
+        },
+        {
+          "id": "d1fa78fb-6857-4e70-832c-bd9bef9de824",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 279,
+          "endOffset": 383,
+          "text": "Lumen 交付格式表\n| 渠道 | 格式 | 字符编码 |\n| 网页播放器 | WebVTT | UTF-8 |\n| 档案库 | SRT | UTF-8 |\n| 放映服务器 | TTML | UTF-8 |",
+          "score": 0.6361779977030184
+        }
+      ],
+      "citations": [
+        {
+          "id": "99baaef7-2aab-490d-a12c-de8dced2815f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 13,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 106,
+          "text": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+          "score": 0.7010170995582892
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 266,
+      "totalMs": 22794,
+      "promptTokens": 873,
+      "completionTokens": 66,
+      "error": null,
+      "caseId": "lumen-005",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，拒绝畸形UTF-8",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 13,
+          "paragraph": 1,
+          "quote": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 106,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "8e278870-f0d9-4da2-9b78-b677ca8f387a",
+      "question": "Lumen 遇到不能解码的文本，能用替代字符凑合导入吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "d1fa78fb-6857-4e70-832c-bd9bef9de824",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 7,
+          "startOffset": 279,
+          "endOffset": 383,
+          "text": "Lumen 交付格式表\n| 渠道 | 格式 | 字符编码 |\n| 网页播放器 | WebVTT | UTF-8 |\n| 档案库 | SRT | UTF-8 |\n| 放映服务器 | TTML | UTF-8 |",
+          "score": 0.029877369007803793
+        },
+        {
+          "id": "808f6489-a90a-45d1-b2a3-22fbd6049600",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "score": 0.02964426877470356
+        },
+        {
+          "id": "d007198c-32d8-45d9-9c41-5f4ad66bebdc",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "score": 0.028790389395194696
+        },
+        {
+          "id": "2f75f520-125c-4b7c-99c3-732ca9df7f34",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 16,
+          "startOffset": 838,
+          "endOffset": 875,
+          "text": "Lumen 片尾署名只使用项目确认的译者名，软件登录用户名不自动作为署名。",
+          "score": 0.028083267871170464
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 313,
+      "totalMs": 4407,
+      "promptTokens": 871,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "lumen-005",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，拒绝畸形UTF-8",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 13,
+          "paragraph": 1,
+          "quote": "Lumen import card: malformed UTF-8 input is rejected instead of silently\nreplacing undecodable characters.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 106,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "e5397f0c-299f-4136-b6e7-197a1e0d9690",
+      "question": "Lumen 看不见声源但会影响理解的报警声，听障字幕是否需要表现？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.7040013427732824
+        },
+        {
+          "id": "8fc0d14c-6111-41fb-9d28-d5c726ef708d",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "score": 0.6844397783279419
+        },
+        {
+          "id": "9586705f-bd12-49a5-bdd8-dc8a8ab8042c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。",
+          "score": 0.6751031279563904
+        },
+        {
+          "id": "d0b93465-c6ac-4f4b-a3de-e27fc78359a6",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "score": 0.6678823829784166
+        },
+        {
+          "id": "808f6489-a90a-45d1-b2a3-22fbd6049600",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "score": 0.6658499439313994
+        }
+      ],
+      "citations": [],
+      "citationValid": false,
+      "abstained": true,
+      "retrievalMs": 290,
+      "totalMs": 7141,
+      "promptTokens": 849,
+      "completionTokens": 103,
+      "error": "模型引用不属于本次检索结果",
+      "caseId": "lumen-006",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "需要，标记必要画外报警",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 10,
+          "paragraph": 1,
+          "quote": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "1c8b9f10-127a-4884-96bb-a35b31abba18",
+      "question": "Lumen 看不见声源但会影响理解的报警声，听障字幕是否需要表现？",
+      "answer": "根据证据，Lumen 将 SDH（听障字幕）定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示 [8659e5e1-06db-4fe4-9672-a77b98fcd9d1]。因此，对于“看不见声源但会影响理解的报警声”，由于它属于“必要的非对白声音提示”，在 Lumen 的听障字幕中是需要表现的。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "808f6489-a90a-45d1-b2a3-22fbd6049600",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 51,
+          "text": "Lumen 字幕项目以镜头版本号绑定交付包；同一影片的新剪辑版必须建立新版本关联，不能只改字幕文件名。",
+          "score": 0.0315136476426799
+        },
+        {
+          "id": "8fc0d14c-6111-41fb-9d28-d5c726ef708d",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "d0b93465-c6ac-4f4b-a3de-e27fc78359a6",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "score": 0.03125
+        },
+        {
+          "id": "d02fcec5-a777-49a2-a4f9-86039fd2b024",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "score": 0.030886196246139225
+        }
+      ],
+      "citations": [
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.032266458495966696
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 396,
+      "totalMs": 16843,
+      "promptTokens": 870,
+      "completionTokens": 95,
+      "error": null,
+      "caseId": "lumen-006",
+      "category": "同义",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 0,
+      "allEvidenceHit": false,
+      "expectedAnswer": "需要，标记必要画外报警",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 10,
+          "paragraph": 1,
+          "quote": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 101,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 0,
+      "mrr": 0,
+      "evidenceHit": false,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "3bbaed87-d711-4b47-b42f-0751a1e07636",
+      "question": "Lumen CPS 指什么，中文上限是多少？",
+      "answer": "根据证据，Lumen CPS 指每秒显示字符数 [ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e]。中文字幕的阅读速度上限是每秒不超过12个汉字 [ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.7137835196385682
+        },
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.6221842991003823
+        },
+        {
+          "id": "f50e2e56-7b27-4bac-8883-982ca6e792e5",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "score": 0.5532853438471177
+        },
+        {
+          "id": "cd6243d8-4d70-415f-9566-cada22864072",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 229,
+          "endOffset": 277,
+          "text": "Lumen 时间码以25帧每秒的项目帧率检查，项目帧率改变时必须重新换算，不允许只替换头部字段。",
+          "score": 0.5525034932790115
+        },
+        {
+          "id": "d0b93465-c6ac-4f4b-a3de-e27fc78359a6",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "score": 0.5524530575410505
+        }
+      ],
+      "citations": [
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.7137835196385682
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 244,
+      "totalMs": 4955,
+      "promptTokens": 831,
+      "completionTokens": 81,
+      "error": null,
+      "caseId": "lumen-007",
+      "category": "缩写",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "每秒显示字符数，每秒12个汉字",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 138,
+          "endOffset": 181,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "216b7880-d437-4617-bfef-63c3a056b31b",
+      "question": "Lumen CPS 指什么，中文上限是多少？",
+      "answer": "根据证据，Lumen CPS 定义为每秒显示字符数 [ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e]。关于中文上限，证据指出中文字幕阅读速度不得超过每秒12个汉字 [ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "d02fcec5-a777-49a2-a4f9-86039fd2b024",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "score": 0.031544957774465976
+        },
+        {
+          "id": "f50e2e56-7b27-4bac-8883-982ca6e792e5",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "score": 0.03149801587301587
+        },
+        {
+          "id": "1d3a6305-70fa-4129-adc4-de03071a39ce",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 3,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 98,
+          "text": "Lumen glossary card: approved terminology changes require a language lead\nsignature before export.",
+          "score": 0.029418126757516764
+        }
+      ],
+      "citations": [
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.03252247488101534
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 300,
+      "totalMs": 4972,
+      "promptTokens": 860,
+      "completionTokens": 84,
+      "error": null,
+      "caseId": "lumen-007",
+      "category": "缩写",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 1,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": true,
+      "expectedAnswer": "每秒显示字符数，每秒12个汉字",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 4,
+          "quote": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 138,
+          "endOffset": 181,
+          "groupId": "g1"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "6bc847d2-76d7-47dd-8232-0294b2743b69",
+      "question": "Lumen SDH 和 QC 各自指什么？",
+      "answer": "根据提供的证据：\n\n- **QC** 在 Lumen 术语中代表质量控制，它不仅包括拼写检查，还包括计时检查 [3c1518c9-ba25-4b91-b016-5deaecca25d4]。\n- **SDH** 在 Lumen 中被定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示 [8659e5e1-06db-4fe4-9672-a77b98fcd9d1]。SDH 提示用于识别重要的画外警报和有意义的音乐变化 [0d4c303e-22aa-44b0-ae9a-196743658b6f]。当对白与关键声音重叠时，SDH 字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词 [9586705f-bd12-49a5-bdd8-dc8a8ab8042c]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "3c1518c9-ba25-4b91-b016-5deaecca25d4",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "score": 0.5920266089447325
+        },
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.5903158080201419
+        },
+        {
+          "id": "0d4c303e-22aa-44b0-ae9a-196743658b6f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "score": 0.5638012458026783
+        },
+        {
+          "id": "9586705f-bd12-49a5-bdd8-dc8a8ab8042c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。",
+          "score": 0.5317566394805908
+        },
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.49751052260398865
+        }
+      ],
+      "citations": [
+        {
+          "id": "3c1518c9-ba25-4b91-b016-5deaecca25d4",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "score": 0.5920266089447325
+        },
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.5903158080201419
+        },
+        {
+          "id": "0d4c303e-22aa-44b0-ae9a-196743658b6f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "score": 0.5638012458026783
+        },
+        {
+          "id": "9586705f-bd12-49a5-bdd8-dc8a8ab8042c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。",
+          "score": 0.5317566394805908
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 360,
+      "totalMs": 11821,
+      "promptTokens": 842,
+      "completionTokens": 202,
+      "error": null,
+      "caseId": "lumen-008",
+      "category": "缩写",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "聋人和听障者字幕；质量控制包括时间轴",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 183,
+          "endOffset": 227,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 97,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "befbf735-5a70-4ecd-be3b-56cbbdbc94b9",
+      "question": "Lumen SDH 和 QC 各自指什么？",
+      "answer": "根据提供的证据：\n- **QC** 在 Lumen 术语中代表质量控制，它不仅包括拼写检查，还包括计时检查 [3c1518c9-ba25-4b91-b016-5deaecca25d4]。\n- **SDH** 在 Lumen 中被定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示 [8659e5e1-06db-4fe4-9672-a77b98fcd9d1]。具体来说，SDH 提示用于标识重要的屏幕外警报和有意义的音乐变化 [0d4c303e-22aa-44b0-ae9a-196743658b6f]。当对白与关键声音重叠时，SDH 字幕应区分说话内容和声音提示 [9586705f-bd12-49a5-bdd8-dc8a8ab8042c]。此外，在文件命名中，简体中文听障字幕的后缀为 `zh-Hans-SDH` [d02fcec5-a777-49a2-a4f9-86039fd2b024]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "3c1518c9-ba25-4b91-b016-5deaecca25d4",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "0d4c303e-22aa-44b0-ae9a-196743658b6f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "9586705f-bd12-49a5-bdd8-dc8a8ab8042c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。",
+          "score": 0.03125
+        },
+        {
+          "id": "d02fcec5-a777-49a2-a4f9-86039fd2b024",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "score": 0.030536130536130537
+        }
+      ],
+      "citations": [
+        {
+          "id": "3c1518c9-ba25-4b91-b016-5deaecca25d4",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 7,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 97,
+          "text": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "8659e5e1-06db-4fe4-9672-a77b98fcd9d1",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 5,
+          "startOffset": 183,
+          "endOffset": 227,
+          "text": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "0d4c303e-22aa-44b0-ae9a-196743658b6f",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 10,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 101,
+          "text": "Lumen accessibility card: SDH cues identify essential off-screen alarms and\nmeaningful music changes.",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "9586705f-bd12-49a5-bdd8-dc8a8ab8042c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 14,
+          "startOffset": 747,
+          "endOffset": 797,
+          "text": "Lumen 当对白与关键声音重叠时，SDH字幕应区分说话内容和声音提示，不将声音描述伪装为人物台词。",
+          "score": 0.03125
+        },
+        {
+          "id": "d02fcec5-a777-49a2-a4f9-86039fd2b024",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "score": 0.030536130536130537
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 394,
+      "totalMs": 52531,
+      "promptTokens": 868,
+      "completionTokens": 243,
+      "error": null,
+      "caseId": "lumen-008",
+      "category": "缩写",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "聋人和听障者字幕；质量控制包括时间轴",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 5,
+          "quote": "Lumen 将 SDH 定义为面向聋人和听障者的字幕，必须额外包含必要的非对白声音提示。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 183,
+          "endOffset": 227,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 7,
+          "paragraph": 1,
+          "quote": "Lumen terminology: QC means quality control and includes timing checks, not\nonly spelling checks.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 97,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "19441e8d-21e7-4d2b-bcbc-0e6d1783e13b",
+      "question": "Lumen 中文正式版能沿用英文试映版每行42字符规则吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.7984974860249465
+        },
+        {
+          "id": "f50e2e56-7b27-4bac-8883-982ca6e792e5",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "score": 0.6831631079163949
+        },
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.6692008178949855
+        },
+        {
+          "id": "d0b93465-c6ac-4f4b-a3de-e27fc78359a6",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "score": 0.6254967191065433
+        },
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.6240429058100536
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 310,
+      "totalMs": 6896,
+      "promptTokens": 835,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "lumen-009",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，中文每行16字",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 53,
+          "endOffset": 94,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 571,
+          "endOffset": 610,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "f31679c2-cd87-461c-9de3-705d4c8c83b5",
+      "question": "Lumen 中文正式版能沿用英文试映版每行42字符规则吗？",
+      "answer": "根据证据，Lumen 中文正式版不能沿用英文试映版每行42字符的规则。证据明确指出：“Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。” [1c18c9af-cae9-4f85-b47d-4d7dcad58000]。相反，中文正式版有独立的字数限制：“Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。” [f50e2e56-7b27-4bac-8883-982ca6e792e5]。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "f50e2e56-7b27-4bac-8883-982ca6e792e5",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "score": 0.03128054740957967
+        },
+        {
+          "id": "ae3a2ddf-196d-4fd0-aa65-3d9cbefdca8e",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 4,
+          "startOffset": 138,
+          "endOffset": 181,
+          "text": "Lumen 将 CPS 定义为每秒显示字符数；中文字幕阅读速度不得超过每秒12个汉字。",
+          "score": 0.03076923076923077
+        },
+        {
+          "id": "d02fcec5-a777-49a2-a4f9-86039fd2b024",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 9,
+          "startOffset": 473,
+          "endOffset": 569,
+          "text": "Lumen 文件命名表\n| 内容 | 后缀 |\n| 简体中文普通字幕 | zh-Hans |\n| 繁体中文普通字幕 | zh-Hant |\n| 简体中文听障字幕 | zh-Hans-SDH |",
+          "score": 0.030017921146953404
+        },
+        {
+          "id": "8fc0d14c-6111-41fb-9d28-d5c726ef708d",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 11,
+          "startOffset": 612,
+          "endOffset": 659,
+          "text": "Lumen 未锁定画面前的字幕只能标记为预览，不得发送为正式版；画面锁定标志由剪辑负责人设置。",
+          "score": 0.029957522915269395
+        }
+      ],
+      "citations": [
+        {
+          "id": "1c18c9af-cae9-4f85-b47d-4d7dcad58000",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 10,
+          "startOffset": 571,
+          "endOffset": 610,
+          "text": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "f50e2e56-7b27-4bac-8883-982ca6e792e5",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 2,
+          "startOffset": 53,
+          "endOffset": 94,
+          "text": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "score": 0.03128054740957967
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 381,
+      "totalMs": 8319,
+      "promptTokens": 872,
+      "completionTokens": 139,
+      "error": null,
+      "caseId": "lumen-009",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，中文每行16字",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 2,
+          "quote": "Lumen 中文字幕每行最多16个汉字，最多两行；标点计入字数，时间轴标记不计入。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 53,
+          "endOffset": 94,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 10,
+          "quote": "Lumen 英文试映版允许每行42个拉丁字符；该限制不能直接用于中文正式交付。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 571,
+          "endOffset": 610,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "c8a46af0-7bb6-4c68-a524-3c8253b1f727",
+      "question": "Lumen 紧急修订承诺4小时，能省掉时间轴复核吗？",
+      "answer": "根据证据，Lumen 紧急修订承诺4小时，不能省掉时间轴复核。\n\n证据表明，Lumen 发布前必须同时通过语言校对和时间轴复核 [b09169f4-b0fc-473e-8003-f3ab189544bf]。即使对于紧急修订，其4小时的审核目标也不能免除任何审核环节 [bcf0d449-7d5f-4051-8322-22c478087742]。",
+      "mode": "vector",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.6735507249832153
+        },
+        {
+          "id": "bcf0d449-7d5f-4051-8322-22c478087742",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 107,
+          "text": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "score": 0.6561189088892297
+        },
+        {
+          "id": "d007198c-32d8-45d9-9c41-5f4ad66bebdc",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 15,
+          "startOffset": 799,
+          "endOffset": 836,
+          "text": "Lumen 发现旧交付包错误时创建修订版并记录原包号，不能删除原审核意见。",
+          "score": 0.6164182791959225
+        },
+        {
+          "id": "cd6243d8-4d70-415f-9566-cada22864072",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 6,
+          "startOffset": 229,
+          "endOffset": 277,
+          "text": "Lumen 时间码以25帧每秒的项目帧率检查，项目帧率改变时必须重新换算，不允许只替换头部字段。",
+          "score": 0.6014574766159058
+        },
+        {
+          "id": "d0b93465-c6ac-4f4b-a3de-e27fc78359a6",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 3,
+          "startOffset": 96,
+          "endOffset": 136,
+          "text": "Lumen 单条字幕最短停留1.2秒，最长停留6秒；跨镜头字幕还需检查镜头边界。",
+          "score": 0.5888352920563804
+        }
+      ],
+      "citations": [
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.6735507249832153
+        },
+        {
+          "id": "bcf0d449-7d5f-4051-8322-22c478087742",
+          "documentId": "67ecb67b-b4b4-4611-a6b4-e1a2bd37c923",
+          "documentName": "lumen-cards.pdf",
+          "versionId": "7781ef3f-9c6b-4d4e-9547-21b01cdc524c",
+          "page": 6,
+          "paragraph": 1,
+          "startOffset": 0,
+          "endOffset": 107,
+          "text": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "score": 0.6561189088892297
+        }
+      ],
+      "citationValid": true,
+      "abstained": false,
+      "retrievalMs": 317,
+      "totalMs": 8188,
+      "promptTokens": 836,
+      "completionTokens": 96,
+      "error": null,
+      "caseId": "lumen-010",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 2,
+      "allEvidenceHit": true,
+      "expectedAnswer": "不能，两道复核均需通过",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 661,
+          "endOffset": 704,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 6,
+          "paragraph": 1,
+          "quote": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 107,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 1,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    },
+    {
+      "id": "2e0330bb-058f-4ada-88e3-9cd136db2eab",
+      "question": "Lumen 紧急修订承诺4小时，能省掉时间轴复核吗？",
+      "answer": "无法根据当前资料回答：证据不足。",
+      "mode": "hybrid",
+      "modelMode": "real",
+      "evidence": [
+        {
+          "id": "b09169f4-b0fc-473e-8003-f3ab189544bf",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 12,
+          "startOffset": 661,
+          "endOffset": 704,
+          "text": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "c39859e2-5ad5-4fda-8e0a-489d1c953d89",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 2513,
+          "endOffset": 3413,
+          "text": "质量放行在业务上互相关联，但不应简化为一个无法说明责任边界的布尔标记。\n第八步，库位盘点人员看见一只待复核箱摆在正常货架旁。即使尚未发生混放，仍应纠正库位并记录此次移动的原因。移动记录需关联箱号、原库位和新库位，不能仅写“清理现场”。另一名人员同时核对系统中的库位状态，确认移动动作与记录一致。现场管理没有把不合格推定扩展到附近所有箱子，也没有因为暂未看到损坏就撤销原复核要求。逐箱确认比凭相邻位置猜测状态更可靠，也使后续追溯能够指出究竟是哪一步发生了变化。\n第九步，质量岗决定放行一个经过复核的箱子，同时要求保留复核过程照片。档案员按复核场景选择对应保留类别，而不是因为最终结果是放行就把资料误归为从未复核的正常签收。不同资料种类各有用途：签收凭据说明交接身份，照片支持现场观察，探头记录展示时间序列，修订单说明历史修正。删除某一份重复图片不应删除其关联的签收事件；同样，保存一张图片也不能代替保存完整的事件链。盘点任务应分别核对这些资料的可用性。\n第十步，日终统计发现多个终端显示的时刻相差数小时。信息岗首先检查显示时区，而不是立刻推定到站记录有误。系统交换值携带明确的UTC标记，本地屏幕为值班人员显示本地时间；人工复核保留原始时区便于还原现场语境。如果一份记录丢失了时区，应标明待核验而不是随意补一个偏移。统计人员在转换后再排序事件，尤其避免把午夜附近的跨日记录错误合并到上一批次。时间显示是视图问题，真正的事件身份不应随显示格式变化。\n第十一步，复盘会议收到一个“减少红灯数量”的建议。负责人明确，展示层可以优化告警说明，使值班员更容易找到责任岗位，但不能为了减少红灯而修改触发规则、删除异常采样或提前撤销复核。记录者将改进建议拆成界面可读性、交接培训和探头维护三个问题，分别安排跟进。技术人员只就数据丢失提出诊断假设，不为质量岗下结论。会议纪要同时写明已观察到的现象与尚无证据支持的推测，避免事后把一个合理猜想当作已经验收的解决方案。\n最后，第二天复查关注的是每只箱的证据链能否重建：从实际到站、现场检查、状态变化到最终凭据，每个步骤都有可核对的编号和责任主体。复盘没有规定新的产品效力结",
+          "score": 0.03047794966520434
+        },
+        {
+          "id": "efd1946a-694d-4d99-a735-8383a9e7168c",
+          "documentId": "589df4a9-2ef7-48b7-a973-3c00ea584f42",
+          "documentName": "lumen-handbook.md",
+          "versionId": "553badc6-706b-4883-96b0-da26bf660eba",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 385,
+          "endOffset": 471,
+          "text": "Lumen 复核等级表\n| 等级 | 问题 | 阻断交付 |\n| L1 | 多余空格 | 否 |\n| L2 | 专名不一致 | 是 |\n| L3 | 时间轴错位 | 是 |",
+          "score": 0.030303030303030304
+        },
+        {
+          "id": "d0f8ac51-6277-41c9-bc87-8bde7004888c",
+          "documentId": "f4ec1d9c-f562-4560-83be-f026505821da",
+          "documentName": "quartz-handbook.md",
+          "versionId": "a84dd258-b4cb-4fa9-b25a-363d59dda35c",
+          "page": 1,
+          "paragraph": 8,
+          "startOffset": 396,
+          "endOffset": 486,
+          "text": "Quartz 取消规则表\n| 提前时间 | 名额处理 |\n| 至少24小时 | 立即返还 |\n| 6至不足24小时 | 预约岗确认后返还 |\n| 不足6小时 | 不返还当日名额 |",
+          "score": 0.029877369007803793
+        },
+        {
+          "id": "e3e9642f-e8c5-4ea1-9dd5-e23e64b9124a",
+          "documentId": "93180857-f249-4663-9974-170f89012888",
+          "documentName": "harbor-handbook.md",
+          "versionId": "a8798330-d112-4d10-9bd7-c7303767d397",
+          "page": 1,
+          "paragraph": 19,
+          "startOffset": 3213,
+          "endOffset": 3558,
+          "text": "常采样或提前撤销复核。记录者将改进建议拆成界面可读性、交接培训和探头维护三个问题，分别安排跟进。技术人员只就数据丢失提出诊断假设，不为质量岗下结论。会议纪要同时写明已观察到的现象与尚无证据支持的推测，避免事后把一个合理猜想当作已经验收的解决方案。\n最后，第二天复查关注的是每只箱的证据链能否重建：从实际到站、现场检查、状态变化到最终凭据，每个步骤都有可核对的编号和责任主体。复盘没有规定新的产品效力结论，也没有创造新的赔偿金额。它强调如何在网络异常、跨班次、重复上传和人工复核同时出现时保持原始记录可信。读者需要区分本附录的过程叙述与前文列出的固定阈值；某一事件“等待了一会儿”这样的自然语言不能被拿来替代明确分钟数。未来修订应新增版本并说明依据，而不是把复盘故事悄悄改写成另一套运行标准。",
+          "score": 0.029631255487269532
+        }
+      ],
+      "citations": [],
+      "citationValid": true,
+      "abstained": true,
+      "retrievalMs": 310,
+      "totalMs": 10137,
+      "promptTokens": 1587,
+      "completionTokens": 9,
+      "error": null,
+      "caseId": "lumen-010",
+      "category": "近事实干扰",
+      "split": "dev",
+      "group": "lumen",
+      "topic": "lumen",
+      "evidenceGroupCount": 2,
+      "hitEvidenceGroupCount": 1,
+      "allEvidenceHit": false,
+      "expectedAnswer": "不能，两道复核均需通过",
+      "answerable": true,
+      "expectedEvidence": [
+        {
+          "documentName": "lumen-handbook.md",
+          "page": 1,
+          "paragraph": 12,
+          "quote": "Lumen 发布前须同时通过语言校对和时间轴复核；语言校对通过并不自动证明时间码正确。",
+          "sourceHash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+          "startOffset": 661,
+          "endOffset": 704,
+          "groupId": "g1"
+        },
+        {
+          "documentName": "lumen-cards.pdf",
+          "page": 6,
+          "paragraph": 1,
+          "quote": "Lumen turnaround card: urgent fixes have a 4-hour review target; urgency does\nnot waive either review gate.",
+          "sourceHash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+          "startOffset": 0,
+          "endOffset": 107,
+          "groupId": "g2"
+        }
+      ],
+      "recallAtK": 0.5,
+      "mrr": 1,
+      "evidenceHit": true,
+      "answerCorrect": null,
+      "referenceAnswerMatch": false,
+      "abstentionCorrect": null
+    }
+  ],
+  "breakdowns": {
+    "category": {
+      "事实": {
+        "vector": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 264,
+          "totalMs": 3300
+        },
+        "hybrid": {
+          "count": 1,
+          "answerableCount": 1,
+          "errorCount": 0,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": 310,
+          "totalMs": 2954
+        }
+      },
+      "同义": {
+        "vector": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 1,
+          "recallAtK": 0.6666666666666666,
+          "mrr": 0.4166666666666667,
+          "retrievalMs": 286.3333333333333,
+          "totalMs": 15557
+        },
+        "hybrid": {
+          "count": 3,
+          "answerableCount": 3,
+          "errorCount": 0,
+          "recallAtK": 0,
+          "mrr": 0,
+          "retrievalMs": 411,
+          "totalMs": 8515
+        }
+      },
+      "缩写": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 302,
+          "totalMs": 8388
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 347,
+          "totalMs": 28751.5
+        }
+      },
+      "近事实干扰": {
+        "vector": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 1,
+          "mrr": 1,
+          "retrievalMs": 313.5,
+          "totalMs": 7542
+        },
+        "hybrid": {
+          "count": 2,
+          "answerableCount": 2,
+          "errorCount": 0,
+          "recallAtK": 0.75,
+          "mrr": 1,
+          "retrievalMs": 345.5,
+          "totalMs": 9228
+        }
+      }
+    },
+    "split": {
+      "dev": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 0.78125,
+          "retrievalMs": 294.25,
+          "totalMs": 10228.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.4375,
+          "mrr": 0.5,
+          "retrievalMs": 366,
+          "totalMs": 13057.25
+        }
+      }
+    },
+    "group": {
+      "lumen": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 0.78125,
+          "retrievalMs": 294.25,
+          "totalMs": 10228.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.4375,
+          "mrr": 0.5,
+          "retrievalMs": 366,
+          "totalMs": 13057.25
+        }
+      }
+    },
+    "topic": {
+      "lumen": {
+        "vector": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 1,
+          "recallAtK": 0.875,
+          "mrr": 0.78125,
+          "retrievalMs": 294.25,
+          "totalMs": 10228.875
+        },
+        "hybrid": {
+          "count": 8,
+          "answerableCount": 8,
+          "errorCount": 0,
+          "recallAtK": 0.4375,
+          "mrr": 0.5,
+          "retrievalMs": 366,
+          "totalMs": 13057.25
+        }
+      }
+    }
+  }
+}

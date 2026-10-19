@@ -1,0 +1,293 @@
+{
+  "version": "phase3-agent-v1",
+  "collectorSha256": "34c5aeae84739998381daebb9c7de20fcf39fb55643c40c2ddb485c8c3de00d7",
+  "runtime": {
+    "capturedAt": "2026-09-29T06:28:59.005Z",
+    "commit": "8eb9a43bc41ce3e5a4efb2ff8b2bd26fece307e4",
+    "branch": "feat/citebase-phase2",
+    "sourceSha256": "1e3e707909b9419207657f01dec7925d824f25cd861359bfbfd81d001232f7c2",
+    "fileHashes": {
+      "backend/Dockerfile": "394b3dcf492ecb8066d2fdaa45fe97f6d18291fa8767d431f8b9a30bd4efc853",
+      "backend/pom.xml": "6746b8e7c08e15afe730f3c3f7d441cd5bd82e9a564bc78bbc2d799b91d39424",
+      "backend/src/main/java/io/citebase/AccessService.java": "128cfcdaa07bbe91dbb3f58b705e2b98045b4dd1c4e7b74a229f4276cc3d84fe",
+      "backend/src/main/java/io/citebase/AgentController.java": "d2cdf1b24ac3618215e05470a4c2692d55e241d428b43df72e3eef76b84c1787",
+      "backend/src/main/java/io/citebase/AgentDecision.java": "b8d16a772794ed34079f57c52f3360e5060ba58ff4055073ded9a5b70ebbe8f0",
+      "backend/src/main/java/io/citebase/AgentInput.java": "2a9b3d6258091bdd43edec3348b3ca765aacb656862d6bf58eb8ea93d6c0f4d3",
+      "backend/src/main/java/io/citebase/AgentPlannerConfiguration.java": "e786e4203b7161c54d456d822e5472f511a814ba1b0b7547b0be349af25315ca",
+      "backend/src/main/java/io/citebase/AgentPlannerGateway.java": "ac39f46796be31e9afa64b228b16866c171ce66c2d564f3fb7d3137d89cf9cc8",
+      "backend/src/main/java/io/citebase/AgentPolicy.java": "1b16e61d97e7801d5344f371f615be33a97eb5c6121f08f2ed32fd1da3af32ae",
+      "backend/src/main/java/io/citebase/AgentProviderDeadline.java": "2c2d9396bb1c19cde2270420d971ed0d7166c6712e98c3093cf791b330371e00",
+      "backend/src/main/java/io/citebase/AgentRunRepository.java": "356b5e1689174d66aaf48c0780735a61ea81c73ca209401b42d377790086347d",
+      "backend/src/main/java/io/citebase/AgentService.java": "9b376b1ab53c4c1c7e1e953cca20ac5f85de07c85c92a499ccc38c7a2042ab56",
+      "backend/src/main/java/io/citebase/AgentToolService.java": "eb118cfdfccefcec0a2a028561894704fa5c8a0bc62a56985c2f622c311182ca",
+      "backend/src/main/java/io/citebase/ApiErrors.java": "89e87ee3dcc8f2d768b27d024fa20d761a1a34fdd99b67676bead7a20eb330b2",
+      "backend/src/main/java/io/citebase/Application.java": "3a1f84daffeb0e57ceafbba03cdfa5f06a52eff5a9ffa396ec4719356c42fe80",
+      "backend/src/main/java/io/citebase/AuthService.java": "ca5986c1bceae03fa1bdca9743f4693ef343ef6e342ac114338aa5ca9f5e8698",
+      "backend/src/main/java/io/citebase/ChunkProfile.java": "331c923b0104d319e3bbdfa3a117500a9d4a4417cb363f6ef2e8cbbed6fb6a1d",
+      "backend/src/main/java/io/citebase/CitationAliases.java": "bc7436badc60da6cd379d32f09ce16a5be91fb0ee656304b1bb7c4c04b1f5930",
+      "backend/src/main/java/io/citebase/Citations.java": "0bae008728ac633f0b7f710e958c1776db1f032f5cf69f1a6ed2de19096b4b14",
+      "backend/src/main/java/io/citebase/CoreController.java": "1d2487a56da778ce7b06f3e1450194345a35579ab6d7aad01d8693af717e8865",
+      "backend/src/main/java/io/citebase/DocumentParser.java": "2613804a75a6a77772af34ab1f92fb9279c93a790ea51701a8f52966af1feebe",
+      "backend/src/main/java/io/citebase/DocumentService.java": "de91189a4a9e87f3476f988eb4a4e92d374a669eb30fb6c1ea7ddf91e53b34b9",
+      "backend/src/main/java/io/citebase/EmbeddingResult.java": "8f76b012d9e6e28a6b926c07a580323dcaa3568ada0e28d524b9420aff116142",
+      "backend/src/main/java/io/citebase/EvaluationInput.java": "5b864890a924522bb611bd77bfe9f4c312239038a1dee4cd06118555cdb737b4",
+      "backend/src/main/java/io/citebase/EvaluationLabels.java": "78e33c79092ea6bbcbb12639d3104737c6022c03b7b883934327c51e28e17ae6",
+      "backend/src/main/java/io/citebase/EvaluationMetrics.java": "f326cd5d2bb82d8b4d8092330a4370263ea27d052c5c7fe4df83dc329f36695d",
+      "backend/src/main/java/io/citebase/EvaluationScoringService.java": "7aefed3b40fc1406e77a7f260e66fc939bb0c399b6358c2f67cd229cda854737",
+      "backend/src/main/java/io/citebase/EvaluationService.java": "3cc5324908aeccf29f5bf2966b495f5b838fa9636fee6256f792858478d50b43",
+      "backend/src/main/java/io/citebase/Evidence.java": "16f28e75470c8f72766e7775d677525f6d47f0327df374efd864cf54f50b8914",
+      "backend/src/main/java/io/citebase/Generation.java": "74c74714c430bfc13352e6ecc5f2f580271e4c00277715154e711e36dbb5f2a3",
+      "backend/src/main/java/io/citebase/IndexWorker.java": "c82b4a2218aa8cea12cafb2a3c77a17f7450630eb4c0628a6cab0afe97359e61",
+      "backend/src/main/java/io/citebase/Lexical.java": "3f7fb9c33ee9a34f54cd441817d858b719624f838db7907a3d77e53c9639e1b0",
+      "backend/src/main/java/io/citebase/MockAgentPlannerGateway.java": "737d825f0438d3c71ad6ab4c4e8a263a186502f2c7b6ee8a8e5541316429ba9c",
+      "backend/src/main/java/io/citebase/MockModelGateway.java": "0a66fcc6f40e565c82ab1f13ca6ce0939557adf44a7f8b412916325b84c4b6f7",
+      "backend/src/main/java/io/citebase/ModelConfiguration.java": "acae1bd075380927b13e669ffdd56b4a62aabf50b1b7f3fb1590811bd6dcfdf4",
+      "backend/src/main/java/io/citebase/ModelGateway.java": "c80e3df5230cd9a3a4a01e8326916bb0a1a8c42bc20cc8c135ae70cd838fae4c",
+      "backend/src/main/java/io/citebase/QuestionResult.java": "4ae8536b4c6dd5117a8a8e2fa99b869dded1d8f9b773f694bd234c4c72b3eda9",
+      "backend/src/main/java/io/citebase/QuestionService.java": "376eec1efae46bdecf4d66081b5b99ae2c0d80c7f7dabd14c2e87a979254b116",
+      "backend/src/main/java/io/citebase/RagController.java": "7258dab0dbcac821237fcbd8ee17970c98728376411644639c80abd59d121233",
+      "backend/src/main/java/io/citebase/RerankGateway.java": "29e06a92f643a7a58ca8a18a4e88f8142cbb2f6557ca5bd910cc87fb7976bd53",
+      "backend/src/main/java/io/citebase/RetrievalOptions.java": "7ec4b0fc9d3d6cfaab2383f4a7157bada0f760cfcda34fa21419d997a2626ad9",
+      "backend/src/main/java/io/citebase/RetrievalOutcome.java": "c9e5c38b68d476ecca980c3432bb708c11d565b345150f335f0b5427b473b009",
+      "backend/src/main/java/io/citebase/RetrievalService.java": "817fd3022fe199d18f8d9f82dd35fe6456f020b736edb05852285a135365f226",
+      "backend/src/main/java/io/citebase/SiliconFlowRerankGateway.java": "822e0bfc52ddf45de3975fa585fc3702543b6802891ce8eff543e4a568933edb",
+      "backend/src/main/java/io/citebase/SpringAiAgentPlannerGateway.java": "b206bf513ad62d38aa71015ff7b00b49de15b7b7a676d62a35193f0b57063f8c",
+      "backend/src/main/java/io/citebase/SpringAiGateway.java": "1492803ec2c4f7e2bdbf84765b726dde891ce3f6d2cf38d616f56287b7772738",
+      "backend/src/main/resources/application.yml": "7fff8f5f2abc5265beb93c5bf7ad5c6d11d46a383b48b829568763008911e9d0",
+      "backend/src/main/resources/db/migration/V1__core.sql": "7be7f0507dae5db4d4f42c9d09f8dcd395d4afebf5360993e9a2b5f7bd78ab00",
+      "backend/src/main/resources/db/migration/V2__questions_evaluations.sql": "5706d1b831ebda7d4b2b885c609fc4689510abd12210dacdbd56cd4832c86593",
+      "backend/src/main/resources/db/migration/V3__manual_evaluation_scores.sql": "2e0c4b87b3b112ace03dd6bfdf6b1b19d246e9263da754de41e0d1e99c5b9547",
+      "backend/src/main/resources/db/migration/V4__chunk_profiles.sql": "f694fe690a7adf5539214a7c83d18f959e5ca04fb5c6cacc68398049a536766a",
+      "backend/src/main/resources/db/migration/V5__agent_runs.sql": "7bb6ea07877b8847b754d428f9c387fbab664c6eeacdfa7319a6a3fe93bd945b"
+    },
+    "image": "citebase-phase2-backend",
+    "imageId": "sha256:edd8e15ea8d8e311546f723385cfcadc188c20311dcc0e9ae4bb8df652090700",
+    "workingTreeStatus": "",
+    "precondition": "Captured immediately after build with backend source changes frozen; source hash represents backend runtime sources, not evaluation outcomes."
+  },
+  "snapshot": [
+    {
+      "id": "24c3f2f7-4be4-4733-9e47-db06cdf80cde",
+      "name": "moss-handbook.md",
+      "chunk_size": 900,
+      "version_id": "847bcd58-e4f5-4032-ae13-bb75d5c04c12",
+      "content_hash": "c527bfa44215fe6212a8680ecdb1b480f4ef9d6ef246a7c6706028025d48815e",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "24ebb78a-0a33-422a-b468-259405b3c65d",
+      "name": "lumen-handbook.md",
+      "chunk_size": 900,
+      "version_id": "63ac71b5-471b-4929-ad90-8990985ab0da",
+      "content_hash": "408ae446fdc67b3f30c86bf61ae7d032897ff57f2551cddbc5019f48bdfd6ffb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "506801ea-a8d3-46d0-a398-a28ee3e96aa3",
+      "name": "quartz-handbook.md",
+      "chunk_size": 900,
+      "version_id": "501a9fa1-9157-4d5a-b86a-1232f01a2428",
+      "content_hash": "e7d8aa21b6c4f6fe6ecb40bcabb62da7fe3a3a0fe7636fee3616d85ede5d9aad",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "5d2f7898-8951-4d8c-9d47-1b97c71005a8",
+      "name": "ember-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "57a166d3-fb44-4a72-b364-15157bb1a501",
+      "content_hash": "5b48db08be7354090962399ab5d6d79f525d58471657986cd3f2202be3aa1ff0",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "943892db-09e1-482b-93b2-135eac4d5e08",
+      "name": "harbor-handbook.md",
+      "chunk_size": 900,
+      "version_id": "a585f4bb-0f7b-4354-b1bd-c8597f7864b2",
+      "content_hash": "6d46483b7803a1cc10b0fa595b057cd409e9c8f5ccd4a70a4efaa66180c201e2",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a82a4c53-bfb2-4c70-987c-4cfc48bf1655",
+      "name": "lumen-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "6998a2ea-926f-4a2f-9fc7-5791e2a63a61",
+      "content_hash": "c9f4e7413c45aacec4e40cda33768cce181ff1717973f58c139514f2c870099d",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a87fac7e-fae6-45ba-a05f-f7a57504777d",
+      "name": "ember-handbook.md",
+      "chunk_size": 900,
+      "version_id": "408330a9-e667-426f-a196-85338c50b009",
+      "content_hash": "3edacbd7ff8996bf9742633db1f6c0a37a4d19c336dd4d807daff95a7886b31b",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "a9fea87d-40ad-45e0-b8aa-7eda316493b8",
+      "name": "harbor-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "3ef08927-ab08-4f61-9eb9-74f021f35d64",
+      "content_hash": "05db85c17112dbfbe17108de7b9168c80cbcc2f442c1f6e1af9664e67348da65",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "be17f0a5-6aad-42df-b5c4-925d0e0327bb",
+      "name": "tide-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "006b3945-79a3-4bb3-b502-53bb2ebc3ea7",
+      "content_hash": "e456ce5d738efed7542720c17e93b960c0538821bad6ae992fa34ecfd549de52",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "ce24a357-0aa0-4ee5-9cc0-f3d23b8aa440",
+      "name": "tide-handbook.md",
+      "chunk_size": 900,
+      "version_id": "260b74f4-77ed-4772-bc97-46cdc8d7eb14",
+      "content_hash": "f7db867b10f55d0a0a4f17695331b029841fe6357f19008f2578951fbb317f1c",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "e3d0bac3-73cb-40f4-8999-21ebe71c7814",
+      "name": "moss-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "ba917ed1-45a9-4cf7-9833-b21064ce7fc9",
+      "content_hash": "a2e19039c8ed81d3dca3e12da4796456a3a9c46f4078e4a9b06f09cc6a40ade7",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    },
+    {
+      "id": "eecf7b61-9e9b-41ba-b48e-59e7efe76de7",
+      "name": "quartz-cards.pdf",
+      "chunk_size": 900,
+      "version_id": "cabafdd9-cf17-4ae0-aaff-2dd636e29267",
+      "content_hash": "593c8e505b48eb329ac05b57ca3192902d41a32786436b744f168ee0b6028beb",
+      "chunk_overlap": 200,
+      "chunk_strategy": "structure-v1"
+    }
+  ],
+  "modelConfig": {
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3"
+  },
+  "kbId": "270bc4aa-0688-4c81-a684-55f7bf222bd7",
+  "options": {
+    "candidateK": 40,
+    "keywordWeight": 1,
+    "rerank": true,
+    "citationStyle": "uuid"
+  },
+  "budget": {
+    "maxPlannerSteps": 4,
+    "maxTools": 4,
+    "maxSearch": 2,
+    "maxEvidence": 12,
+    "maxEvidenceChars": 20000,
+    "deadlineSeconds": 120,
+    "maxPlannerOutputTokens": 256,
+    "maxFinalOutputTokens": 1024,
+    "maxExternalCalls": 10
+  },
+  "devHash": "aa58942194f13f08024a64c6bbaac6f9ee05db77832255c086ad0288a4274509",
+  "testHash": "cf42d4e16510aefd14fe3402c9dbb3d3e2f9bfbbc3cda5ca41e25f5c4d865ba0",
+  "baselineConfig": {
+    "modelMode": "real",
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "embeddingModel": "BAAI/bge-m3",
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "rrfConstant": 60,
+    "candidateK": 40,
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "temperature": 0,
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "minimumSimilarity": null,
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation"
+  },
+  "serverConfig": {
+    "topK": 5,
+    "fusion": "keyword-vector RRF",
+    "chunking": {
+      "details": "dataVersions contains actual chunk_strategy/chunk_size/chunk_overlap",
+      "strategy": "per-active-document-version",
+      "offsetUnit": "UTF-16"
+    },
+    "provider": {
+      "provider": "OpenAI-compatible via Spring AI",
+      "chatEndpoint": "https://api.siliconflow.cn",
+      "timeoutSeconds": 60,
+      "springAiVersion": "1.1.8",
+      "embeddingEndpoint": "https://api.siliconflow.cn"
+    },
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "SiliconFlow-compatible /v1/rerank",
+      "configured": true,
+      "timeoutSeconds": 10
+    },
+    "chatModel": "deepseek-ai/DeepSeek-V3.2",
+    "modelMode": "real",
+    "candidateK": 40,
+    "concurrency": 2,
+    "rrfConstant": 60,
+    "temperature": 0,
+    "agentPlanner": {
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "endpoint": "https://api.siliconflow.cn",
+      "provider": "Spring AI tools; Java execution",
+      "toolChoice": "required",
+      "temperature": 0,
+      "protocolVersion": "single-whitelisted-tool-v2",
+      "parallelToolCalls": false,
+      "internalToolExecutionEnabled": false
+    },
+    "embeddingModel": "BAAI/bge-m3",
+    "keywordAnalyzer": "Latin words + Han bigrams v1",
+    "abstentionPolicy": "empty evidence or model-declared insufficiency or invalid citation",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 40,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    },
+    "minimumSimilarity": null,
+    "agentPolicyVersion": "bounded-agent-v1"
+  },
+  "comparison": "Same phase2 frozen test52, vector/hybrid, topK5; no test-based tuning. Agent accumulated evidence capped separately.",
+  "independentTestLimitation": "This set was already used once for the preregistered phase2 comparison. It is a fixed common benchmark, not newly unseen data for phase3.",
+  "frozenAt": "2026-09-29T06:32:32.341Z"
+}

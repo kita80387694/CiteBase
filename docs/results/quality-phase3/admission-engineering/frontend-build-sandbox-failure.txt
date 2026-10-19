@@ -1,0 +1,20 @@
+
+> citebase-web@1.0.0 build
+> tsc -b && vite build
+
+vite v6.4.3 building for production...
+✓ 0 modules transformed.
+✗ Build failed in 38ms
+error during build:
+[vite:build-html] EPERM: operation not permitted, realpath 'F:\CiteBase\frontend\src\main.tsx'
+file: F:/CiteBase/frontend/index.html
+    at node:fs:2849:18
+    at getRealPath (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:16363:16)
+    at tryResolveRealFileOrType (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:16354:20)
+    at tryCleanFsResolve (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:15954:22)
+    at tryFsResolve (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:15947:15)
+    at Object.resolveId (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:15747:19)
+    at Object.handler (file:///F:/CiteBase/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:46618:15)
+    at file:///F:/CiteBase/frontend/node_modules/rollup/dist/es/shared/node-entry.js:23318:40
+    at async PluginDriver.hookFirstAndGetPlugin (file:///F:/CiteBase/frontend/node_modules/rollup/dist/es/shared/node-entry.js:23200:28)
+    at async resolveId (file:///F:/CiteBase/frontend/node_modules/rollup/dist/es/shared/node-entry.js:21653:26)
