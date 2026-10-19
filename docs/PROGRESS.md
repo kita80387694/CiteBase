@@ -326,3 +326,7 @@ Docker修复追加：拉取成功后BuildKit客户端仍直连auth超时，保�
 2026-10-19 08:06:39Z 调查后续采正常结束exit0，collection-state.collectionCompleted=true，80任务/240结果无pending，三个运行段与两个中断任务及单条provider timeout全部保留。完整工程报告与匿名包在assisted-cost-independent-review-v1，控制/候选各120行、各6失败；调用账本完整360/240次（含UNKNOWN，不等于账单），索引单列。尚未根据调用下降宣称质量非劣或改变默认。匿名A/B各144评分分四批，覆盖240主评+48复核，隔离于配置映射；评分正在进行，真人覆盖0。新工程/Compose/长评测阶段本地提交3ce1d8d789d5945e5949f7b620c38a78c2d995f8，未推送/合并。
 
 2026-10-19 最终成本评分：A/B各144份逐项匿名评分完成，240主评+48复核共288，比较无维度争议，因此没有裁决。comparison-initial.json完整且qualitySelectable=true；summary.json采集/评分complete=true，但候选证据decision=INCOMPLETE_EVIDENCE（引用NA）且正确率门槛明确失败。控制75/120、候选68/120；40问题等权差−.06875、95%区间[-.14375,0]。调用360→240不换取默认：原配置保留。原始NA/失败/UNKNOWN和三处新分类退化完整保留，真人0。主线程运行summary、independent及调查续采三组脚本22/22通过、0跳过；后端生产代码未改变，不重复宣称本轮重跑279。当前mock/real后端与数据库健康。文档更新及最终归档中。
+
+2026-10-19 最终交付：独立只读审计核对240/288/40、负面结论、Compose/数据/E2E/长评测证据，未发现实质验收缺口；发现README两处当前态过时，已原位修正并纳入6bbeda05ee186bd7ac5159d96db26069fa27a547。388文件归档全部原始输出/恢复链/匿名评分及报告，提交前387候选文件约28MB检查无.env真实密钥或sk模式泄漏，源码TODO/FIXME/NotImplemented/UnsupportedOperationException扫描无命中，非原始日志diff whitespace通过。当前分支feat/citebase-phase3；基线f4508e2770d2e9340d13f7a7181d82b19a8c3304；该归档累计19个本地提交，随后仅本条验收状态提交。相对基线新增盲评与V9/V10、Agent生成策略、成本开关与隔离缓存、监控/准入及完整实验；1777文件约129万插入主要来自不可变原始JSON证据，不代表代码规模。
+
+最终Git检查：已跟踪文件无未提交变更，唯一未跟踪docs/results/quality-phase3/assisted-review-20261001/为用户已有资料，未改动/未暂存；.env、.tools凭据/备份/日志、依赖及构建目录继续忽略，不纳入提交。未推送、合并、改可见性或删卷。Docker修复使用既有本机代理，未购买/改系统DNS；真实25186与最新mock25181当前可用。完成指用户修订范围的工程、实验与交付；不表示候选质量通过、真人评审发生或生产容量已验证。默认保留、引用NA、未知调用及网络分段限制永久记录。
