@@ -322,3 +322,7 @@
 2026-10-19 新增调查续采入口5/5测试通过，仅精确绑定已调查timeout的raw/journal/task哈希，未登记错误仍停止。调查登记在新恢复目录investigated-timeout-clearance.json；统一session96751正在继续剩余题目，已有ci-36-candidate新增4行。源码provenance独立保存，旧collector不改。长评测补验two-process-1792396487112通过：12混合操作在长任务RUNNING期间全部完成、14项checkpoint取消后不变；首跑端口拒绝保留，两个JVM/gate已退出，详见LOAD_TESTING。
 
 Docker修复追加：拉取成功后BuildKit客户端仍直连auth超时，保留compose-client-proxy-failure-20261019.txt；仅本次构建进程设置HTTP_PROXY/HTTPS_PROXY指向既有7890及本地NO_PROXY后，Compose up --build --wait exit0、三服务healthy。新后端启动前pg_dump数据备份与启动后对比，app_user/knowledge_base/document/document_version/chunk分别2/17/10/10/187行，列及数据排序哈希一致；首次schema备份遇PG启动中，等待后重取成功。样例准备两次5文档ID/活动版本完全一致。新Compose平台E2E 1/1通过32.4秒，7张截图另名保存未覆盖旧图；主线程亲查引用面板、评测结果、审计记录。E2E模拟评分明确标识，不计真人评审。
+
+2026-10-19 08:06:39Z 调查后续采正常结束exit0，collection-state.collectionCompleted=true，80任务/240结果无pending，三个运行段与两个中断任务及单条provider timeout全部保留。完整工程报告与匿名包在assisted-cost-independent-review-v1，控制/候选各120行、各6失败；调用账本完整360/240次（含UNKNOWN，不等于账单），索引单列。尚未根据调用下降宣称质量非劣或改变默认。匿名A/B各144评分分四批，覆盖240主评+48复核，隔离于配置映射；评分正在进行，真人覆盖0。新工程/Compose/长评测阶段本地提交3ce1d8d789d5945e5949f7b620c38a78c2d995f8，未推送/合并。
+
+2026-10-19 最终成本评分：A/B各144份逐项匿名评分完成，240主评+48复核共288，比较无维度争议，因此没有裁决。comparison-initial.json完整且qualitySelectable=true；summary.json采集/评分complete=true，但候选证据decision=INCOMPLETE_EVIDENCE（引用NA）且正确率门槛明确失败。控制75/120、候选68/120；40问题等权差−.06875、95%区间[-.14375,0]。调用360→240不换取默认：原配置保留。原始NA/失败/UNKNOWN和三处新分类退化完整保留，真人0。主线程运行summary、independent及调查续采三组脚本22/22通过、0跳过；后端生产代码未改变，不重复宣称本轮重跑279。当前mock/real后端与数据库健康。文档更新及最终归档中。

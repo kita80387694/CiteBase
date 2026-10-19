@@ -100,3 +100,6 @@ Agent依靠任务租约避免多实例重复领取；无法安全恢复的执行
 运维有两种明确作用域：普通 Bearer 用户的 `/api/operations/summary` 在每个聚合SQL内先按本人过滤；`/api/operations/local` 只接受独立 `OPERATIONS_TOKEN`，读取本 JVM 的资源与任务/连接池指标，普通用户令牌不授权跨租户实例汇总。后者token至少32字符，应由受限运维客户端持有，不放前端配置。V10 `work_task_event` 记录已提交的任务转移、租约回收与未知调用事件，不回填历史；任务删除时级联撤回。
 
 `TaskWorker` 的执行计时按尝试 outcome 区分成功、延期、取消、重试等待、租约丢失和持久化不可用；fence拒绝计数直接记录尝试，不因事务回滚消失。领取数据库失败退避5秒，固定无敏感正文的警告每实例30秒至多一次。liveness只反映进程状态，readiness另检查数据库；连接获取上限2.5秒、SQL查询上限2秒，探测不调用模型。详见 [运维契约](API-CONTRACT-OPERATIONS.md) 与 [任务说明](TASKS.md)。
+
+
+第三阶段准入补充：AdmissionService在任务创建事务内通过PostgreSQL advisory事务锁串行核对全局/用户非终态容量（默认256/64），幂等重放先返回旧任务，容量拒绝回滚创建。QUEUED/RUNNING/RETRY_WAIT/CANCEL_REQUESTED均占用容量，终态释放；所有实例须配置一致。同步RAG/诊断在授权核验后使用每JVM有界信号量（默认4），finally释放，拒绝HTTP429并返回Retry-After（默认3秒）；没有全局供应商QPS保证，前端手动重试并保留输入。实际双JVM准入证据见LOAD_TESTING。冻结成本实验240行/288辅助评分完成，候选未证明质量可接受，默认不变，见COST_INDEPENDENT_RESULTS。

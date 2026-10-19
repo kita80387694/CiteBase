@@ -1,0 +1,200 @@
+{
+  "id": "99f3c0ce-804f-41b6-a475-fd382687c2fa",
+  "kind": "EVALUATION",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "99f3c0ce-804f-41b6-a475-fd382687c2fa",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-29-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-29-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+              "groupId": "g1",
+              "endOffset": 133,
+              "paragraph": 2,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 67,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；仅说明检测条件下萌发表现"
+        },
+        {
+          "id": "ci-29-1",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "拒绝过度推断",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+              "groupId": "g1",
+              "endOffset": 133,
+              "paragraph": 2,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 67,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 得到V-PASS能承诺来年田间产量吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；仅说明检测条件下萌发表现"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-364c5e84ed5f189c73dda6473a7292472e4f2f26d7a67d17c1d547354b5a",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 3
+  },
+  "errorCode": "ATTEMPTS_EXHAUSTED",
+  "errorSummary": "任务停止：ATTEMPTS_EXHAUSTED",
+  "createdAt": "2026-10-10T13:23:24.216156Z",
+  "startedAt": "2026-10-10T13:23:24.426681Z",
+  "finishedAt": "2026-10-19T07:25:49.699127Z",
+  "availableAt": "2026-10-10T13:23:24.216156Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "评测已完成所有题目；重新评测请新建任务",
+  "externalCalls": [
+    {
+      "callId": "d71ba849-d4d7-4be9-9741-6d8c0bec4e8f",
+      "operationKey": "bb595e4e-7ff4-4e7c-9a90-81e3ede8d929:embedding:32ed6057-97d3-498b-ae14-5ba6c7a2d20b",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-10T13:23:24.447644Z",
+      "finishedAt": "2026-10-10T13:23:24.565264Z"
+    },
+    {
+      "callId": "274a4d9d-4dfe-4124-ad6b-c916c6edce09",
+      "operationKey": "bb595e4e-7ff4-4e7c-9a90-81e3ede8d929:generation:edabdbaf-6135-4678-96e1-b5e9b5387e2b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:23:24.570538Z",
+      "finishedAt": "2026-10-10T13:23:27.140998Z"
+    },
+    {
+      "callId": "73b09683-540a-4641-adf9-fb8de1f34c3e",
+      "operationKey": "917ff31c-7cfb-41ab-a023-f3bf0a30766d:embedding:2167bf01-c042-4238-9944-442c8a4184ff",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-10T13:23:27.159225Z",
+      "finishedAt": "2026-10-10T13:23:27.247957Z"
+    },
+    {
+      "callId": "c03c4810-0988-4ce4-9080-d3491ecfcda1",
+      "operationKey": "917ff31c-7cfb-41ab-a023-f3bf0a30766d:generation:580413be-d03d-481d-b2ba-70eb98d14a38",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1715,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:23:27.254889Z",
+      "finishedAt": "2026-10-10T13:23:33.375628Z"
+    },
+    {
+      "callId": "77ce474a-3916-4cf4-9d0e-551332b34f17",
+      "operationKey": "50de9bd7-0e00-4379-8cc6-d211b637c08d:embedding:a9c091e9-1354-41a1-9a6d-e1e77e6b606e",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-10T13:23:33.391645Z",
+      "finishedAt": "2026-10-10T13:23:33.474492Z"
+    },
+    {
+      "callId": "ea292b81-e28d-478d-b3cf-d10fc9fada3f",
+      "operationKey": "50de9bd7-0e00-4379-8cc6-d211b637c08d:generation:91b8f38c-3d6d-47db-b2bc-14c723039988",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1719,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:23:33.479024Z",
+      "finishedAt": "2026-10-10T13:23:36.147987Z"
+    },
+    {
+      "callId": "10f82ef6-6795-4b74-834b-1a08e4844247",
+      "operationKey": "4ef1fc0a-827a-4445-8a6a-34361b79b6ce:embedding:d38449c9-8342-4320-bea3-fd0780074dd6",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 19,
+        "promptTokens": 19
+      },
+      "startedAt": "2026-10-10T13:23:36.183551Z",
+      "finishedAt": "2026-10-10T13:23:36.276106Z"
+    },
+    {
+      "callId": "53bca6a4-154a-4fa8-a631-b219bb59a1a6",
+      "operationKey": "4ef1fc0a-827a-4445-8a6a-34361b79b6ce:generation:004d45bc-5bb9-4061-bb9e-7c50ca8328ed",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "UNKNOWN",
+      "outcome": "PROCESS_INTERRUPTED",
+      "usage": null,
+      "startedAt": "2026-10-10T13:23:36.287246Z",
+      "finishedAt": "2026-10-19T07:25:49.569202Z"
+    }
+  ]
+}

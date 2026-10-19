@@ -1,0 +1,49 @@
+{
+  "baseCaseId": "aster-010",
+  "batchId": "ci-6",
+  "group": "cold",
+  "arm": "control",
+  "questions": [
+    {
+      "caseId": "ci-6-0",
+      "phase": "cold",
+      "repeat": 0
+    }
+  ],
+  "runId": "1d72664c-9a7e-4edd-811f-9e89c988c0de",
+  "cache": [
+    {
+      "caseId": "ci-6-0",
+      "phase": "cold",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-6-0",
+      "phase": "cold",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    }
+  ],
+  "source": "ASSISTED"
+}

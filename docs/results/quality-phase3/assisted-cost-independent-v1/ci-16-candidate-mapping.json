@@ -1,0 +1,49 @@
+{
+  "baseCaseId": "flint-016",
+  "batchId": "ci-16",
+  "group": "cold",
+  "arm": "candidate",
+  "questions": [
+    {
+      "caseId": "ci-16-0",
+      "phase": "cold",
+      "repeat": 0
+    }
+  ],
+  "runId": "ea642c27-a76c-4e17-96ed-4f4939db774f",
+  "cache": [
+    {
+      "caseId": "ci-16-0",
+      "phase": "cold",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-16-0",
+      "phase": "cold",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    }
+  ],
+  "source": "ASSISTED"
+}

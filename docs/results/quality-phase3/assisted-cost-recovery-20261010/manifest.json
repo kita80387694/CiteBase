@@ -1,0 +1,636 @@
+{
+  "schema": "citebase-assisted-cost-recovery-v1",
+  "createdAt": "2026-10-10T13:05:23.217Z",
+  "registrationSha256": "89d15e4d2fc6475a5776829e23e608b02cb469c16a8fa11aa1089b4fad180d28",
+  "originalRuntime": {
+    "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+    "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+    "containerName": "citebase-quality-assisted-backend-1",
+    "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+    "apiUrl": "http://localhost:28096",
+    "modelConfig": {
+      "chatModel": "deepseek-ai/DeepSeek-V3.2",
+      "embeddingModel": "BAAI/bge-m3",
+      "reranker": {
+        "model": "BAAI/bge-reranker-v2-m3",
+        "endpoint": "https://api.siliconflow.cn",
+        "provider": "SiliconFlow-compatible /v1/rerank",
+        "configured": true,
+        "timeoutSeconds": 10
+      }
+    },
+    "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+    "startedAt": "2026-10-01T07:00:36.115948384Z"
+  },
+  "currentRuntime": {
+    "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+    "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+    "containerName": "citebase-quality-assisted-backend-1",
+    "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+    "apiUrl": "http://localhost:28096",
+    "modelConfig": {
+      "chatModel": "deepseek-ai/DeepSeek-V3.2",
+      "embeddingModel": "BAAI/bge-m3",
+      "reranker": {
+        "model": "BAAI/bge-reranker-v2-m3",
+        "endpoint": "https://api.siliconflow.cn",
+        "provider": "SiliconFlow-compatible /v1/rerank",
+        "configured": true,
+        "timeoutSeconds": 10
+      }
+    },
+    "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+    "startedAt": "2026-10-10T12:53:01.75949001Z"
+  },
+  "segments": [
+    {
+      "id": "original",
+      "runtime": {
+        "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+        "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+        "containerName": "citebase-quality-assisted-backend-1",
+        "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+        "apiUrl": "http://localhost:28096",
+        "modelConfig": {
+          "chatModel": "deepseek-ai/DeepSeek-V3.2",
+          "embeddingModel": "BAAI/bge-m3",
+          "reranker": {
+            "model": "BAAI/bge-reranker-v2-m3",
+            "endpoint": "https://api.siliconflow.cn",
+            "provider": "SiliconFlow-compatible /v1/rerank",
+            "configured": true,
+            "timeoutSeconds": 10
+          }
+        },
+        "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+        "startedAt": "2026-10-01T07:00:36.115948384Z"
+      }
+    },
+    {
+      "id": "recovery",
+      "runtime": {
+        "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+        "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+        "containerName": "citebase-quality-assisted-backend-1",
+        "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+        "apiUrl": "http://localhost:28096",
+        "modelConfig": {
+          "chatModel": "deepseek-ai/DeepSeek-V3.2",
+          "embeddingModel": "BAAI/bge-m3",
+          "reranker": {
+            "model": "BAAI/bge-reranker-v2-m3",
+            "endpoint": "https://api.siliconflow.cn",
+            "provider": "SiliconFlow-compatible /v1/rerank",
+            "configured": true,
+            "timeoutSeconds": 10
+          }
+        },
+        "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+        "startedAt": "2026-10-10T12:53:01.75949001Z"
+      }
+    }
+  ],
+  "continuousLatencyComparable": false,
+  "interpretation": "Explicit restart segments; request latency and end-to-end duration are not a continuous experiment. UNKNOWN external calls may have incurred unobserved usage and are retained without retry.",
+  "originalFiles": [
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\candidate-config.json",
+      "sha256": "b326938fca1cdc0d0c814c2797a6d73aec8f8d1dcf6f12325a019183435f8eae"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-0-candidate-mapping.json",
+      "sha256": "fcd55cdc2e9b5ce9e66e0f1e1ec3be95ae78cb68f2b6f6fd99baff6e8b4928bd"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-0-control-mapping.json",
+      "sha256": "45f440e9c5e71dfe1099962d802ac3a5cd3d5ea756d1af96405abd41313b4f88"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-1-candidate-mapping.json",
+      "sha256": "1ee66f53ab476038ddc589154b70e2e38816c35bc5beba0ee09688e350c451f5"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-1-control-mapping.json",
+      "sha256": "649e73f3e7c78b09bd8602f76c68ec9b8b3647f5a57bb9ad6f7da9998a5c624e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-10-candidate-mapping.json",
+      "sha256": "62cef33986a4ec585b773bb905892bb18305fc86a79731848cb48d799a01658e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-10-control-mapping.json",
+      "sha256": "e97eefc6fd59326c3f4a1f4585d2aef5018d4f142996108091dde1ed0824bc29"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-11-candidate-mapping.json",
+      "sha256": "5fc7b97cad36c5f53c4b0f0007e8595df3f472898e6dec875c6b54e0115c3fba"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-11-control-mapping.json",
+      "sha256": "7d2e8dc2ade298e2bbcf3c32d20dbb48053f3bef96632ac1b2600ff67b5f7964"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-2-candidate-mapping.json",
+      "sha256": "e4f028b4672c6d4eb8d178a5adff0f13e71cc2cd370eca27ab0b135686722c05"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-2-control-mapping.json",
+      "sha256": "1e690f76df7d409c64ffcd14f540c762c3100cd0855559d1d40dc4a68a0f6eac"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-3-candidate-mapping.json",
+      "sha256": "99ad38922e9db124d550e7cb0852feefe96c5c3039dfe8824b1a0c0a3a9a9c06"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-3-control-mapping.json",
+      "sha256": "9e85b100117c6314fc9d695e04781a643c943d386db7624a45c7391754828641"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-4-candidate-mapping.json",
+      "sha256": "24b9922bf69670aecaf6d4acc94d444e67ea3a91c330b22023ea7ae7ebf326a6"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-4-control-mapping.json",
+      "sha256": "c67a812debc3e189f0825fc1de8b98389dc2776fd3f3fef83c7d5aa7ca646f15"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-5-candidate-mapping.json",
+      "sha256": "2d0f9cf4a71ed467a33a28accaa9488f09561ba1712f631d25f824d62360589b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-5-control-mapping.json",
+      "sha256": "55e9d40cdbe2ffd9c414c9d387e432a1c06b1039ba2cee953055af9fe2d4daed"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-6-candidate-mapping.json",
+      "sha256": "8011bf4a65742128ceda9de829437acf26bed2ed01892ac64fb1671d49000319"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-6-control-mapping.json",
+      "sha256": "bc7d17017772077edf979c72f6232cdb2939df915c3299dfa626b3871b980889"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-7-candidate-mapping.json",
+      "sha256": "88b91981d155bd489a5961ba173129bdbc66ed563dde3ee651e6059876dc6593"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-7-control-mapping.json",
+      "sha256": "6a6d6bdb07c6c3595ba964ac9cb9ce1fcce1faf3140ccbd95c5f0154bb176be1"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-8-candidate-mapping.json",
+      "sha256": "925ac46ba8c584aa011581e7f137a8bc62d729720882413a4ccc7f5b7f306a6b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-8-control-mapping.json",
+      "sha256": "0f487afa39686bce847b3c702230492f2924637e96d77812ad86257f8c05dae9"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-9-candidate-mapping.json",
+      "sha256": "5348138a896a4637ba08b017de5b5185aa84a55aaebe2bbf336fa4d94f3afe27"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\ci-9-control-mapping.json",
+      "sha256": "814a826ec0c66a5e1f4f8558407111445b0603f7958346c6f5a35e02646e8b4f"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\collector-provenance.json",
+      "sha256": "c4cad1868d1104f97dd8b9517daa0eb5427a978008b7f79e84b0a5277cb19b92"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\control-config.json",
+      "sha256": "6c5a38cdd0962229318d63b0ec4463acf6d16ca3ef236e483330c0c22f69900a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\freeze.json",
+      "sha256": "cde2b376ae49bf13321a00ff34d73776cf31e8335778f96d7de54e7387d19f8b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\indexed-documents.json",
+      "sha256": "d270fcc29597ef0ec6b417955303fabb7ac7b232b73b67c4cfb04bce86bbcee0"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\registration.json",
+      "sha256": "f045566c83d2665bd5c689594625b6a398862153dfe7f100358043a2f8fd5c4d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-0-candidate.raw.json",
+      "sha256": "c5c3971fd7dd4758fb461bcdef165bf969b34eb497088258434348220bf85f7e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-0-candidate.state.json",
+      "sha256": "9974ad9cbe694ffb09b74949261571b6247dff0b2e89dea905a71d0307e40dc4"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-0-control.raw.json",
+      "sha256": "02cf2c3634202f6db5fa61a0765f09f9f28de23583dcc57aec4bd3ea46cc75bc"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-0-control.state.json",
+      "sha256": "7597180c57b880a12156bd984dd43a470701d85c76ddeb7c68481287b044eb8d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-1-candidate.raw.json",
+      "sha256": "3237fd461a3ccf42165c5d9f76431c08533635c357e3a86d9a03cc6420c1e883"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-1-candidate.state.json",
+      "sha256": "48f4da99c14dc8751ea16f1ad6c6b052d1bd0a0bdbd0910e5a95e2fd4fcff421"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-1-control.raw.json",
+      "sha256": "e5153dc6114ca22a7bbcf3afcf6c24be2adb073ce391ccb8eb1ab8a110deefc6"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-1-control.state.json",
+      "sha256": "6a43e572beffa4d3e80b6df61c2e19ab6496884d30b3b67ee27eaa2e4aa71c74"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-10-candidate.raw.json",
+      "sha256": "321cbcb1c83c142245056ca50a600d0fe1d257b87c4a2ab0f05c55792d59da7f"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-10-candidate.state.json",
+      "sha256": "6c546fc6db4301aaae3c396df20cf98803787e5680c687baad6d2727f747ff44"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-10-control.raw.json",
+      "sha256": "270c988dbbd41faeb68b6492295d7ae45aae3ee56217ba81051601daac53569b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-10-control.state.json",
+      "sha256": "d6f598afaf8e3cdd972d18eb0715bdcb028dd3b64361fb032e5d1c7830cced78"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-11-candidate.raw.json",
+      "sha256": "2c91bfea4545722e731aa6d592270e965d0de7353117fbbaae4fb07ad2a76b9e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-11-candidate.state.json",
+      "sha256": "6a49d08adf3bde60e1b4111e6448f5c030ee7c2d24c2693f61f35f133230a6b4"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-11-control.raw.json",
+      "sha256": "4024ab61c77d2f9c6c8fca5eff770cc5f6dba726328de15f4d77bd7eabb0cece"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-11-control.state.json",
+      "sha256": "0b4fa62d50bd609798c2c572e08ab82234daee295fda27038fa5f7d548c70868"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-12-candidate.state.json",
+      "sha256": "15a4473a8caa960255691e73d9535819a7e7f1924ed9bbe7ade8af53db299c67"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-2-candidate.raw.json",
+      "sha256": "d666b0d6ec8828c7670362e4ce4a957b723b53850d6e1a438b189d0f5e81b350"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-2-candidate.state.json",
+      "sha256": "b53c3b12ca9e440fe59cc52e9f089c68300690678988e3a27b25c6c14d983904"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-2-control.raw.json",
+      "sha256": "a9046a5a86a1b3f87e70fe495206aa7b93c603534dfcf1b8b5cf082d6c94bdf4"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-2-control.state.json",
+      "sha256": "ac45a4384f8aa5f70c4954e443f827a598c9c33d1db89dd7172e6a886ae7dbd2"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-3-candidate.raw.json",
+      "sha256": "330b707041725c7fe67d3249bb7713249f9aeb6f31985e79bbb0c0ad39fc49fd"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-3-candidate.state.json",
+      "sha256": "b0a269f5812b3f5584616dd18149a3d408116a77bdb28812284dafb3392607bf"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-3-control.raw.json",
+      "sha256": "f9b03982d09e49df50ee665522f9f994d805c3278999088df7990172f659f1ff"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-3-control.state.json",
+      "sha256": "ab0eadebf9974b5795ad1dcbe906580dded196ffbd3abfe21fef445929162e6d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-4-candidate.raw.json",
+      "sha256": "8cb25e660f1a7e5c0ba00abf46a806af2547695ba2bc0a8bfa4e373cb1ed1a31"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-4-candidate.state.json",
+      "sha256": "b308675ccbc87356bf7e1ffce79d2312fa9c5466113fdd7e18be31d45a189a9c"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-4-control.raw.json",
+      "sha256": "ad03aed63c19ba714d26d70635d3ce78b17203c26f9a3093c4688ca171e1ba17"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-4-control.state.json",
+      "sha256": "0c054b8f04b8310dff125053b348802d70f4d63f4c5b9317e3ee310079759648"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-5-candidate.raw.json",
+      "sha256": "3911df1d0f6361e4e14393909662b7cd2977630ad876a0a1491f914ead66263f"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-5-candidate.state.json",
+      "sha256": "ef70a06a7bfcf750cfafc755099996d1b08ded60db4ef34da71e405030987e3e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-5-control.raw.json",
+      "sha256": "5a974bd35729aa2572aabc3e7162e3be2f8f08b6a93e0cc0ff7c9de7a61460ba"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-5-control.state.json",
+      "sha256": "1a647ecb3f7e4417f83da6f0afaa7fbd70d9c93b3851582ed54631fb276cafd2"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-6-candidate.raw.json",
+      "sha256": "f358550e9ffca3319bff2f6374b103a54cb542402d5db1d200243658f23b1c54"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-6-candidate.state.json",
+      "sha256": "4cf555d46f9108a66bfc827190b1f1abc92cfb45e5e1ab2d49e0c738d7e555b2"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-6-control.raw.json",
+      "sha256": "9123d46497e5b028dc0f535aff654f1bb8f75331bba0011e1358ea4d98c5ec69"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-6-control.state.json",
+      "sha256": "5c5af9defcb3f32fd63fc303017b1d54a4e9a85e18c4b64ff2ab2d5b5e5d8237"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-7-candidate.raw.json",
+      "sha256": "640473417655a61b8d2881428073d811f39605157f01766043abf21b2af7d459"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-7-candidate.state.json",
+      "sha256": "e1ff9e4f7c3974a198ee0f48ad292da368fd5e834c0ed200f30a037c68b4652d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-7-control.raw.json",
+      "sha256": "07a325c171198252f51af2d4bd6aa7994cb64046681e6c9fbac3b4071a3dfc6c"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-7-control.state.json",
+      "sha256": "57be652e571fd2ffe92325fd468087539067304592163f34172f8438c6288847"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-8-candidate.raw.json",
+      "sha256": "8bf4988566dd5cec73e198504c84166e2c7cbf193a395127809ad7393b7d8083"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-8-candidate.state.json",
+      "sha256": "a0d9d60748ce0eabc2ae9e8858e6f03ac61eaf293bbb410405c903eb2cc177ba"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-8-control.raw.json",
+      "sha256": "eb3cc85ac32bd7887230ab29dd4776ca260e7ca0ccd613237d2001d699170e57"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-8-control.state.json",
+      "sha256": "769c64225d65e654cacd4e67250a9f7579584ca9e3f6d51a0887230b1e5ada2f"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-9-candidate.raw.json",
+      "sha256": "170611b78cc4a0091394c4e5527406601e931b40b268be5111625391f369c161"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-9-candidate.state.json",
+      "sha256": "12fea04f114082e121e851e708a524ed97524b468d35749dadce10c96ad71945"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-9-control.raw.json",
+      "sha256": "729e82cbbddd040f5b962e52dc41c0d04958b394fd4fc56f75ed78dda427a60d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runs\\CostIndependent-89d15e4d2fc6475a5776-ci-9-control.state.json",
+      "sha256": "05b955765806f69effaff3845d18f77678661c1cd4ebe4954c23e22cf94b6cc3"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\runtime.json",
+      "sha256": "6f6e88fe69546e3e8f1ef23e3940a3dac32c3ab350b32b1e2b583e963119ba48"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\snapshot.json",
+      "sha256": "36caa7b98aa63dc3ab605c0fcec1506b872565f40b064bc38cd36d7d68554e2f"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\state.json",
+      "sha256": "8476340050cb6a9051557463417ab8c5039f703725e7445bd7e8a05bba74ec22"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-0-candidate.json",
+      "sha256": "b4517337a391870ac191ac6d2b87502f09da792ec9e6723c12185de03b1f7ae7"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-0-control.json",
+      "sha256": "0eabb22ddbd733451435f0516d33ad909eef472e45eb850eb8689991bee231d3"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-1-candidate.json",
+      "sha256": "78290bd727937d7d6e5702c808c64a7bfe6c3e0cfb5646939740f09581f76fe9"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-1-control.json",
+      "sha256": "8449d89fb72640ca24ca0d7ac0b70cd10bb830e4967032304d2d43b967223645"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-10-candidate.json",
+      "sha256": "8b4e6d689151c2da8adc75eaefc398c6d073e13b21117f59231507d71f1bf26a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-10-control.json",
+      "sha256": "1b935ff5abe32f815f390ad5eb669b2741c213358518a0d32e40a9ea6e52e4f9"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-11-candidate.json",
+      "sha256": "71a72928eaea6d6f93c26c258845fe951c50b43cb932cc7eb10d1d34636993ca"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-11-control.json",
+      "sha256": "031d3f422f33db348c2828226004ce6a8f0e566b7752090691ac7e29403b6318"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-2-candidate.json",
+      "sha256": "05cd8821095de510176fe7fb7ce4c79acff7f189c9da76db3f67fbe06cde600a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-2-control.json",
+      "sha256": "37ce8a82b6ed9a1bc83bb64ba9375600aa455f84f0b2543f96f1f390a51cf550"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-3-candidate.json",
+      "sha256": "c0ee312d2df4e8f1054e43c3e2d99adf187bab21c2a0dd5b2c16e0666ea1dd2a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-3-control.json",
+      "sha256": "dd49c3bd9404f2545475b7ea657cb0c3c23bf95c68de102bc225f571bcd7222b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-4-candidate.json",
+      "sha256": "d1f5a9bcabea11124c9367211446c4865acc6ff05f9001520deda9d5b2bde273"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-4-control.json",
+      "sha256": "6e47adeb62c18c90f66f98eea49f80a4660a43aa8623af0de9df10c71305037a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-5-candidate.json",
+      "sha256": "da48bef6f5ede5e48399407b82420d68a27d0aefa1192502670db3965dd9894d"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-5-control.json",
+      "sha256": "92341ddea52fefce7e13fc48cac5967c98815c9b1aa78762652f1d08aa5e82fd"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-6-candidate.json",
+      "sha256": "ab63bf4478c672a02a40fab6197c7344c87eabbae88f8a9d2bbe16efa133c954"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-6-control.json",
+      "sha256": "0e77db36310590674b9106a930d316bc218ab566507793ee0801f72c97b1ec5a"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-7-candidate.json",
+      "sha256": "832cb4b6c4ec6341462ecaf398f3eb965a02a25d22a46a2e347879118a9fd7de"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-7-control.json",
+      "sha256": "b5472932a508d84357d7bece0d50a24653f16f8b253b517c5c54719f61b495a8"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-8-candidate.json",
+      "sha256": "d7b15e8c44d89718c29d6cd095235f177ab511d9d44fd1c2df97fa5affba3e06"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-8-control.json",
+      "sha256": "e708e93955cefc60c77a3313091d5f222d1a9e284a02d723d9b48d6aa7db8b26"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-9-candidate.json",
+      "sha256": "e181861e1428dc14a6abb05d1897811f82301701acfd9a784337e861e37d8b48"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\ci-9-control.json",
+      "sha256": "4d68d18dfcff2b92a677eae92243d9050ecb3443e9f32fc34c41fa59d3f800df"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-239f1faf-f7e2-42ca-bc9a-a11bc769220f.json",
+      "sha256": "71479ed3c50fa78dc424501ffc7710e01d19a85df6388e02d3ca67ee79a4b2bf"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-3d8954a9-2f8d-4d35-b525-35308b019bd5.json",
+      "sha256": "79a52f28d8df90c4060de26310644acf9109f42e23ba195b754aa69953b7d040"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-70b012dc-26fb-4dda-8ad6-43136770d8d0.json",
+      "sha256": "a142dc181e84cb12c1e336d02534bdbf09c7bd0ac1b964e2f597f8dee8c54848"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-766a3460-2a20-42f2-922d-7f3fc32f7ff4.json",
+      "sha256": "fd9fb4d0cb343acff4134809d05338626e64466352d3a16bd2dc995e96d8d577"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-8b8f5553-50e5-4ac1-b9c5-c4206dd91bef.json",
+      "sha256": "92d80deeee7db06b8bc28f1ffc914c68b1d59e86f89537a8ee7498d895b6e76b"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-9e8c4bb8-004a-4aec-8438-ac61ff710558.json",
+      "sha256": "492433950badd4ce5e59dcbeb791cb43ba1d788ea9b8f236e3b99b1271492869"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-a6aac60a-fd01-45c7-afb5-b83948ee9e05.json",
+      "sha256": "937eed86fc5a6246ccbed17f50bbd1c7977a364975d15798a7a63b6476457e3c"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-be9e447c-87c5-4ef3-8233-75797e9e4f13.json",
+      "sha256": "e5302699555eb0755a22c4d4d6d089fcf110d5b8d16731d6e44351b8cffe51a4"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-cc6d7bca-6429-4c1f-872a-3da81c19c06f.json",
+      "sha256": "0c63c7100b842e9c4411e3bc5858f20990cc2e23eb92500f0cafa08293346e34"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-ef8f5516-8627-4f3a-ba56-929ddcd6c274.json",
+      "sha256": "cfa6d5e72a798fad890987222d7902b3e5fc3304dc43fc166ef356247ceb913e"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-f917ca3f-e295-4800-b939-8a2e29eaf6e0.json",
+      "sha256": "2aa6945223f20ee35d4558bb23389cee521c1c9b10505edd8f1e2786514dc5c1"
+    },
+    {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-independent-v1\\tasks\\index-ff2ca4d9-ce7c-421a-869d-828f4e61f700.json",
+      "sha256": "4701406ed41edb538df492bc1b7cdcae14d4da567ee0b9cc80377a97a168b11c"
+    }
+  ],
+  "interrupted": {
+    "evaluation": {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-recovery-20261010\\interrupted-evaluation.json",
+      "sha256": "6589aa7b20e5f938ebd128d8369abdadc738fbbb98435f6944d3281eb2a59269"
+    },
+    "task": {
+      "file": "F:\\CiteBase\\docs\\results\\quality-phase3\\assisted-cost-recovery-20261010\\interrupted-task.json",
+      "sha256": "f975c5a9faff6396388ee5d57566650e060355575328fdd17b53f9d8ecd12a5b"
+    },
+    "runId": "5189ed55-3f31-4727-962d-a5360265671d",
+    "journalId": "CostIndependent-89d15e4d2fc6475a5776-ci-12-candidate",
+    "externalCalls": [
+      {
+        "callId": "ff28212d-c301-4687-86b7-c064ccb3c72b",
+        "operationKey": "77f0fddb-d117-40bc-848b-b668bc162724:embedding:54eca7b7-648e-48f2-a24b-3db548bcb135",
+        "fencingToken": 1,
+        "provider": "embedding",
+        "status": "RETURNED",
+        "outcome": "RETURNED",
+        "usage": {
+          "totalTokens": 22,
+          "promptTokens": 22
+        },
+        "startedAt": "2026-10-01T08:21:40.457947Z",
+        "finishedAt": "2026-10-01T08:21:40.736069Z"
+      },
+      {
+        "callId": "4425e618-5c5d-4c9a-9c3a-514a18f65fa1",
+        "operationKey": "77f0fddb-d117-40bc-848b-b668bc162724:generation:b7268ddd-c766-433b-be96-af8eb47cf179",
+        "fencingToken": 1,
+        "provider": "generation",
+        "status": "RETURNED",
+        "outcome": "RETURNED",
+        "usage": {
+          "promptTokens": 1697,
+          "completionTokens": 9
+        },
+        "startedAt": "2026-10-01T08:21:40.745392Z",
+        "finishedAt": "2026-10-01T08:21:42.859014Z"
+      },
+      {
+        "callId": "15510595-e6f1-40be-b46f-2b2bcbc13945",
+        "operationKey": "90604ec9-3074-4ff5-8f6f-fe0f305f70c3:embedding:32b77cf5-3b4b-486f-9f2f-0a48b6f8d1ac",
+        "fencingToken": 1,
+        "provider": "embedding",
+        "status": "RETURNED",
+        "outcome": "RETURNED",
+        "usage": {
+          "totalTokens": 22,
+          "promptTokens": 22
+        },
+        "startedAt": "2026-10-01T08:21:42.887932Z",
+        "finishedAt": "2026-10-01T08:21:43.169607Z"
+      },
+      {
+        "callId": "370c31bb-39fb-4d0b-aca3-ce850c642a13",
+        "operationKey": "90604ec9-3074-4ff5-8f6f-fe0f305f70c3:generation:414b1491-4770-43d9-9f39-4bf33c8c976b",
+        "fencingToken": 1,
+        "provider": "generation",
+        "status": "UNKNOWN",
+        "outcome": "PROCESS_INTERRUPTED",
+        "usage": null,
+        "startedAt": "2026-10-01T08:21:43.180088Z",
+        "finishedAt": "2026-10-10T12:53:06.829090Z"
+      }
+    ]
+  }
+}

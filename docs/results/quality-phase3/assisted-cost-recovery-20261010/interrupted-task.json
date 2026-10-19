@@ -1,0 +1,122 @@
+{
+  "id": "5189ed55-3f31-4727-962d-a5360265671d",
+  "kind": "EVALUATION",
+  "status": "FAILED",
+  "attempts": 1,
+  "workTaskId": "5189ed55-3f31-4727-962d-a5360265671d",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-12-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-12-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 将匿名化定义为替换公开文本中的身份标识；原始授权记录仍由档案员保管，不随匿名文本公开。",
+              "groupId": "g1",
+              "endOffset": 106,
+              "paragraph": 2,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 57,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 为匿名发布替换姓名后，原授权能一起公开吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；原授权由档案员保管"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-daf28ca411901b8efa58b641154c7da84f5831a64b0d4720610a584d4bce",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 1
+  },
+  "errorCode": "ATTEMPTS_EXHAUSTED",
+  "errorSummary": "任务停止：ATTEMPTS_EXHAUSTED",
+  "createdAt": "2026-10-01T08:21:39.959952Z",
+  "startedAt": "2026-10-01T08:21:40.431860Z",
+  "finishedAt": "2026-10-10T12:53:06.964435Z",
+  "availableAt": "2026-10-01T08:21:39.959952Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": "评测已完成所有题目；重新评测请新建任务",
+  "externalCalls": [
+    {
+      "callId": "ff28212d-c301-4687-86b7-c064ccb3c72b",
+      "operationKey": "77f0fddb-d117-40bc-848b-b668bc162724:embedding:54eca7b7-648e-48f2-a24b-3db548bcb135",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-10-01T08:21:40.457947Z",
+      "finishedAt": "2026-10-01T08:21:40.736069Z"
+    },
+    {
+      "callId": "4425e618-5c5d-4c9a-9c3a-514a18f65fa1",
+      "operationKey": "77f0fddb-d117-40bc-848b-b668bc162724:generation:b7268ddd-c766-433b-be96-af8eb47cf179",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1697,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:21:40.745392Z",
+      "finishedAt": "2026-10-01T08:21:42.859014Z"
+    },
+    {
+      "callId": "15510595-e6f1-40be-b46f-2b2bcbc13945",
+      "operationKey": "90604ec9-3074-4ff5-8f6f-fe0f305f70c3:embedding:32b77cf5-3b4b-486f-9f2f-0a48b6f8d1ac",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 22,
+        "promptTokens": 22
+      },
+      "startedAt": "2026-10-01T08:21:42.887932Z",
+      "finishedAt": "2026-10-01T08:21:43.169607Z"
+    },
+    {
+      "callId": "370c31bb-39fb-4d0b-aca3-ce850c642a13",
+      "operationKey": "90604ec9-3074-4ff5-8f6f-fe0f305f70c3:generation:414b1491-4770-43d9-9f39-4bf33c8c976b",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "UNKNOWN",
+      "outcome": "PROCESS_INTERRUPTED",
+      "usage": null,
+      "startedAt": "2026-10-01T08:21:43.180088Z",
+      "finishedAt": "2026-10-10T12:53:06.829090Z"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "baseCaseId": "flint-011",
+  "batchId": "ci-21",
+  "group": "warm",
+  "arm": "control",
+  "questions": [
+    {
+      "caseId": "ci-21-0",
+      "phase": "cold",
+      "repeat": 0
+    },
+    {
+      "caseId": "ci-21-1",
+      "phase": "warm",
+      "repeat": 1
+    }
+  ],
+  "runId": "ede3d338-5da8-4945-84f4-1df6df129fc8",
+  "cache": [
+    {
+      "caseId": "ci-21-0",
+      "phase": "cold",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-21-0",
+      "phase": "cold",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-21-1",
+      "phase": "warm",
+      "mode": "vector",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    },
+    {
+      "caseId": "ci-21-1",
+      "phase": "warm",
+      "mode": "hybrid",
+      "observed": {
+        "scope": "EVALUATION_SNAPSHOT",
+        "config": {
+          "scope": "process-local",
+          "version": "authorized-retrieval-v1",
+          "maxBytes": 8000000,
+          "maxEntries": 128,
+          "ttlSeconds": 300
+        },
+        "status": "OFF"
+      }
+    }
+  ],
+  "source": "ASSISTED"
+}

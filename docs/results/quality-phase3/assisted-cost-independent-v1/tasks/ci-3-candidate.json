@@ -1,0 +1,114 @@
+{
+  "id": "21ad0d92-920a-4928-90cc-35198a909489",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "21ad0d92-920a-4928-90cc-35198a909489",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-3-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-3-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "不可回答",
+          "evidence": [],
+          "question": "Aster 保存柜应买哪家公司的产品？",
+          "answerable": false,
+          "expectedAnswer": null
+        }
+      ]
+    },
+    "idempotencyKey": "p2-9ea6703e14898aaeba2508b716d9f2cf664799bad818e0dd939c22175895",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-01T08:15:32.036827Z",
+  "startedAt": "2026-10-01T08:15:32.482495Z",
+  "finishedAt": "2026-10-01T08:15:36.804314Z",
+  "availableAt": "2026-10-01T08:15:32.036827Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "41999ef9-777d-48a3-85f3-6e2974dfff94",
+      "operationKey": "5f841721-7ff9-4812-9f1d-d26f75b50bf7:embedding:c70503e5-a364-43ea-892f-4c6b5272dae1",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-10-01T08:15:32.497583Z",
+      "finishedAt": "2026-10-01T08:15:33.011342Z"
+    },
+    {
+      "callId": "3fe4c66c-281b-4212-97ca-aa8b5959cf57",
+      "operationKey": "5f841721-7ff9-4812-9f1d-d26f75b50bf7:generation:b5d86181-8746-4b37-bb8e-5952bcb0a5e5",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1777,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:15:33.016836Z",
+      "finishedAt": "2026-10-01T08:15:34.577864Z"
+    },
+    {
+      "callId": "dcdab660-5568-4071-977e-5cf209ea29a6",
+      "operationKey": "d54223d7-590a-4236-ad32-84f3e6664cd7:embedding:9fd5b770-b5be-4139-b94f-438e968d0235",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-10-01T08:15:34.603093Z",
+      "finishedAt": "2026-10-01T08:15:34.878971Z"
+    },
+    {
+      "callId": "5ca92e27-239c-459f-9616-edf373d8bf37",
+      "operationKey": "d54223d7-590a-4236-ad32-84f3e6664cd7:generation:859c7890-df27-4e61-be2f-6175f1c72194",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1761,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-01T08:15:34.888202Z",
+      "finishedAt": "2026-10-01T08:15:36.789697Z"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "id": "4fbb95c1-ca52-4ebf-bf2b-d332633ffc6e",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "4fbb95c1-ca52-4ebf-bf2b-d332633ffc6e",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-21-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-21-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+              "groupId": "g1",
+              "endOffset": 266,
+              "paragraph": 5,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 225,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录"
+        },
+        {
+          "id": "ci-21-1",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 修改文字稿需保留原句、修改后文本及确认人，事实订正与语言整理分开记录。",
+              "groupId": "g1",
+              "endOffset": 266,
+              "paragraph": 5,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 225,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 改错字与订正史实可以只留最终一句话吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；保留原句、修改文本、确认人且分开记录"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-1e031d1a43a04e64710a54abf4a823c4659dd9d4ad650f330ac7bb4a6822",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:13:53.606690Z",
+  "startedAt": "2026-10-10T13:13:53.628806Z",
+  "finishedAt": "2026-10-10T13:14:05.803716Z",
+  "availableAt": "2026-10-10T13:13:53.606690Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "220044cb-1a81-475a-a416-55afa310ff52",
+      "operationKey": "e79ee31f-779d-49a5-89f6-4ced530b117c:embedding:e3e788d2-1476-44e7-a43b-2bec7af5a183",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:13:53.647487Z",
+      "finishedAt": "2026-10-10T13:13:53.736545Z"
+    },
+    {
+      "callId": "0c731bc8-7419-4707-976e-78a6e3651161",
+      "operationKey": "e79ee31f-779d-49a5-89f6-4ced530b117c:generation:fc08497f-408f-4f18-a81b-7505613d716a",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1698,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:13:53.741616Z",
+      "finishedAt": "2026-10-10T13:13:55.859264Z"
+    },
+    {
+      "callId": "7f813d91-a639-443e-a5b4-6e9db755850d",
+      "operationKey": "72dfb87f-315a-4f4b-a30b-62ee2da9e672:embedding:982d90df-fa8f-4465-929a-814b015cb568",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:13:55.876383Z",
+      "finishedAt": "2026-10-10T13:13:55.962636Z"
+    },
+    {
+      "callId": "96bb8ed4-8fdf-42a6-9791-dab547b7e499",
+      "operationKey": "72dfb87f-315a-4f4b-a30b-62ee2da9e672:generation:1742e032-cd82-40c3-ac01-bc6d26ef49bc",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1712,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:13:55.971108Z",
+      "finishedAt": "2026-10-10T13:13:58.081685Z"
+    },
+    {
+      "callId": "cc0c2c7d-ee65-4012-ab40-82308e12d02c",
+      "operationKey": "478b2e58-af9f-469e-90f4-0409cce91c96:embedding:92120404-c283-44fb-9512-7518f372654c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:13:58.112911Z",
+      "finishedAt": "2026-10-10T13:13:58.207121Z"
+    },
+    {
+      "callId": "38dc11f9-cd9e-4c63-a52d-8bb314f53504",
+      "operationKey": "478b2e58-af9f-469e-90f4-0409cce91c96:generation:3322d11a-34c3-470a-affe-8fba92b55068",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1698,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:13:58.212023Z",
+      "finishedAt": "2026-10-10T13:14:04.136321Z"
+    },
+    {
+      "callId": "25f6ac3f-e5da-4c81-abbb-0b3af39249e8",
+      "operationKey": "ee346ecb-637d-4eae-922f-ea0396828c06:embedding:894bb002-aa80-43ec-ad40-bc884d5b9fd8",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:14:04.153632Z",
+      "finishedAt": "2026-10-10T13:14:04.244142Z"
+    },
+    {
+      "callId": "c9626f75-301d-4a6c-bb7b-a9647d5d81c0",
+      "operationKey": "ee346ecb-637d-4eae-922f-ea0396828c06:generation:34073418-6fd3-4590-90ea-bea3ee190977",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1712,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:14:04.252617Z",
+      "finishedAt": "2026-10-10T13:14:05.790274Z"
+    }
+  ]
+}

@@ -43,3 +43,8 @@ humanCorrectness、humanCitationSupport、selectedDefault保持null，defaultCha
 旧 `cost-exploration/` 采集了24/64行，其中 conditional5 的8行全部 `CONFIG_CHANGED`，该任务外部调用0；完整部分报告为 `cost-interrupted-report.json`，失败日志为 `engineering/cost-first-collection-failure.txt`。原因是 JSONB 读回的 Long/Integer 数值等价比较缺陷。修复后使用新注册、新运行环境重新执行，旧结果不覆盖、不混入新实验的零失败分母。重启破坏了旧缓存连续性，也不能把新实验称为原 warm 运行续跑。
 
 仍缺真人正确性、引用支持及非劣化评审；独立测试没有参与此次成本选择，也未据此完成正式独立测试验收。缓存TTL失效次数未独立观测，多worker各自缓存的命中率不能由单实例小实验外推。保留全部原始结果与未提升项；默认配置不变。
+
+
+## 2026-10-19 最终成本独立验证
+
+240条真实结果和288份匿名ASSISTED评分已完成，HUMAN覆盖0；两臂各6/120失败，调用360→240，但辅助正确75/120→68/120，40问题聚类差95%区间[-14.375,0]个百分点，未达到预登记门槛。引用支持存在不可评估项，不能写作全面质量通过；原默认保留。完整指标、冷/重复/混合请求、实际用量、恢复与网络环境限制、复算命令见[COST_INDEPENDENT_RESULTS](COST_INDEPENDENT_RESULTS.md)。历史“进行中/未完成”描述仅对应当时阶段，不代表本次采集状态。

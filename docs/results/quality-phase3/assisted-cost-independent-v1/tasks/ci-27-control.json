@@ -1,0 +1,330 @@
+{
+  "id": "448c42d4-998e-425f-a3c3-15651ae90cea",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "448c42d4-998e-425f-a3c3-15651ae90cea",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-27-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-27-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。",
+              "groupId": "g1",
+              "endOffset": 223,
+              "paragraph": 4,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 180,
+              "documentName": "flint-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+              "groupId": "g2",
+              "endOffset": 228,
+              "paragraph": 4,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 143,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 一段话听不清但已有时间码，可以编顺句子通过审核吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；标听辨不清，不补写未说内容"
+        },
+        {
+          "id": "ci-27-1",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "跨文档",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 转写不清的语句标记听辨不清并附时间码，不得为了行文流畅补写受访者未说的话。",
+              "groupId": "g1",
+              "endOffset": 223,
+              "paragraph": 4,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 180,
+              "documentName": "flint-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Flint 审核表\n| 问题 | 处理 |\n| 第三人身份暴露 | 遮蔽后重新审核 |\n| 时间码缺失 | 补定位后审核 |\n| 不同版本句子冲突 | 保留版本并核验 |",
+              "groupId": "g2",
+              "endOffset": 228,
+              "paragraph": 4,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 143,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 一段话听不清但已有时间码，可以编顺句子通过审核吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；标听辨不清，不补写未说内容"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-b305e5177b11c5e4ecdbb07724b865f20a620bf9ab8ed1d70de943369444",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:20:31.937876Z",
+  "startedAt": "2026-10-10T13:20:32.048330Z",
+  "finishedAt": "2026-10-10T13:21:09.625746Z",
+  "availableAt": "2026-10-10T13:20:31.937876Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "9abf6149-9d5e-4dad-aae7-edc9b54e5fd9",
+      "operationKey": "510d79bd-b2ec-4d18-9e12-4ebff33f8a39:embedding:e18c7546-8c13-4085-a81a-4543e86ebcd5",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 24,
+        "promptTokens": 24
+      },
+      "startedAt": "2026-10-10T13:20:32.062703Z",
+      "finishedAt": "2026-10-10T13:20:32.171333Z"
+    },
+    {
+      "callId": "d3bbc941-9592-4ad2-9e7c-10ff9db0fa03",
+      "operationKey": "510d79bd-b2ec-4d18-9e12-4ebff33f8a39:rerank:b6c104ff-b9ef-4722-93f8-84503b03c21c",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2794,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:20:32.177916Z",
+      "finishedAt": "2026-10-10T13:20:32.396333Z"
+    },
+    {
+      "callId": "90e667f6-2576-4124-b34f-2d951734e2e5",
+      "operationKey": "510d79bd-b2ec-4d18-9e12-4ebff33f8a39:generation:ff1f6924-ede8-4807-bc9e-ccaa0c9aac9f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 78
+      },
+      "startedAt": "2026-10-10T13:20:32.399732Z",
+      "finishedAt": "2026-10-10T13:20:46.623484Z"
+    },
+    {
+      "callId": "c2da7658-b72a-43c6-b687-34128ae59dd0",
+      "operationKey": "f4dc1481-7000-4ec8-b7da-4aa06437caa6:embedding:9fcaa62e-b180-4bbd-8ef7-5426134a2391",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 24,
+        "promptTokens": 24
+      },
+      "startedAt": "2026-10-10T13:20:46.641890Z",
+      "finishedAt": "2026-10-10T13:20:46.740703Z"
+    },
+    {
+      "callId": "c9459071-609f-4a72-85ff-7d6b7c2672b1",
+      "operationKey": "f4dc1481-7000-4ec8-b7da-4aa06437caa6:rerank:6d6805ce-ad40-4792-a43b-674a8fa28550",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2794,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:20:46.750804Z",
+      "finishedAt": "2026-10-10T13:20:46.947088Z"
+    },
+    {
+      "callId": "acddf4ac-c990-47b6-935a-35b7689ce01e",
+      "operationKey": "f4dc1481-7000-4ec8-b7da-4aa06437caa6:generation:80d84561-bf9b-4b68-9a30-5394ad132077",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1722,
+        "completionTokens": 89
+      },
+      "startedAt": "2026-10-10T13:20:46.950524Z",
+      "finishedAt": "2026-10-10T13:20:58.444476Z"
+    },
+    {
+      "callId": "0119b006-c614-4a2d-87a9-3318bce15a1d",
+      "operationKey": "d44d12e0-033d-4b55-b2d0-e96c023d0840:embedding:1aa29c34-ca61-4ab1-9654-ab171b557fcb",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 24,
+        "promptTokens": 24
+      },
+      "startedAt": "2026-10-10T13:20:58.463074Z",
+      "finishedAt": "2026-10-10T13:20:58.551821Z"
+    },
+    {
+      "callId": "41e9b9a1-66c2-44c1-857e-581c310289db",
+      "operationKey": "d44d12e0-033d-4b55-b2d0-e96c023d0840:rerank:dcb944fb-b928-4f21-ac67-9a33de10952c",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2794,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:20:58.557730Z",
+      "finishedAt": "2026-10-10T13:20:58.752606Z"
+    },
+    {
+      "callId": "46c93707-e631-40e0-8d41-79c7107fdabc",
+      "operationKey": "d44d12e0-033d-4b55-b2d0-e96c023d0840:generation:832b0669-d7a7-4bd3-8180-c7f3fb976706",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:20:58.755794Z",
+      "finishedAt": "2026-10-10T13:21:02.646113Z"
+    },
+    {
+      "callId": "866c1d0c-c2b9-4004-b741-4b793b9a5dfd",
+      "operationKey": "9a2803ca-e9e6-4b1d-9a3e-cb8d9d72f286:embedding:c5f80054-27ff-4c70-8b93-3487b442d06f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 24,
+        "promptTokens": 24
+      },
+      "startedAt": "2026-10-10T13:21:02.676136Z",
+      "finishedAt": "2026-10-10T13:21:02.868849Z"
+    },
+    {
+      "callId": "bebe0ef3-23c4-429a-b581-a5ae3601df15",
+      "operationKey": "9a2803ca-e9e6-4b1d-9a3e-cb8d9d72f286:rerank:61d9832f-b6fb-4ee0-932d-672310e79d05",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2794,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2794,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:21:02.886449Z",
+      "finishedAt": "2026-10-10T13:21:03.117404Z"
+    },
+    {
+      "callId": "71aa2974-d73c-4ed9-a5f6-62aabe56cb13",
+      "operationKey": "9a2803ca-e9e6-4b1d-9a3e-cb8d9d72f286:generation:1d974d17-3306-448c-a612-eb25ff775564",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1721,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:21:03.122129Z",
+      "finishedAt": "2026-10-10T13:21:09.602566Z"
+    }
+  ]
+}

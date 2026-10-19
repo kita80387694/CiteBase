@@ -1,0 +1,198 @@
+{
+  "id": "981d499f-dcd5-42b1-b7c0-14efd5c08250",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "981d499f-dcd5-42b1-b7c0-14efd5c08250",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-17-control",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-17-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 种子样本库的接收编号采用 AST 前缀。每份样本必须有采集地点和采集日期；缺任一项时登记为待补录，不能进入可分发库存。",
+              "groupId": "g1",
+              "endOffset": 65,
+              "paragraph": 1,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 0,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 的活力检测每批取 30 粒，萌发不少于 24 粒标记 V-PASS；检测只说明本批检测条件下的萌发表现，不承诺田间产量。",
+              "groupId": "g2",
+              "endOffset": 133,
+              "paragraph": 2,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 67,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+              "groupId": "g3",
+              "endOffset": 267,
+              "paragraph": 4,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 214,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 30粒中萌发24粒但缺采集日期，能分发吗？",
+          "answerable": true,
+          "expectedAnswer": "不能；检测达标但资料不完整"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-fe8722a99f429ac5da9656f8fae8f154ff6e40320dba281b081956b8a4fd",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 20,
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:10:11.411651Z",
+  "startedAt": "2026-10-10T13:10:11.594331Z",
+  "finishedAt": "2026-10-10T13:10:20.648248Z",
+  "availableAt": "2026-10-10T13:10:11.411651Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "9275d9f2-00a1-4f0e-bcef-942b84d35436",
+      "operationKey": "c896211b-1070-41a9-9980-099e83285e51:embedding:c9ac9c83-189e-41b0-ae89-4ce52955c8cf",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:10:11.612945Z",
+      "finishedAt": "2026-10-10T13:10:11.737088Z"
+    },
+    {
+      "callId": "252ddc7e-38e9-480e-bd85-f100daf8909a",
+      "operationKey": "c896211b-1070-41a9-9980-099e83285e51:rerank:ffc22df6-de7a-4b00-a3b1-9dfa71a47858",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:10:11.743992Z",
+      "finishedAt": "2026-10-10T13:10:11.946400Z"
+    },
+    {
+      "callId": "e4ab4cf5-b8e2-4832-82c3-760cede0c4bb",
+      "operationKey": "c896211b-1070-41a9-9980-099e83285e51:generation:d3535f79-6c69-4daa-b9f4-d6f98e2335d0",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1762,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:10:11.950227Z",
+      "finishedAt": "2026-10-10T13:10:15.012166Z"
+    },
+    {
+      "callId": "c8dbcee4-821e-4f6f-a355-3e4125fb37f8",
+      "operationKey": "e94f0d95-c85b-4a2d-a364-c80e0f85d181:embedding:667aa8cf-44cd-4f57-96a2-7f0b3f439a8a",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 21,
+        "promptTokens": 21
+      },
+      "startedAt": "2026-10-10T13:10:15.038628Z",
+      "finishedAt": "2026-10-10T13:10:15.134957Z"
+    },
+    {
+      "callId": "0d07fa50-19c0-49c0-bde3-076097d6e1da",
+      "operationKey": "e94f0d95-c85b-4a2d-a364-c80e0f85d181:rerank:884feb3d-d736-45c0-9f3d-1b7276603593",
+      "fencingToken": 1,
+      "provider": "rerank",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "billedUnits": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "search_units": 0,
+          "output_tokens": 0,
+          "classifications": 0
+        },
+        "totalTokens": null,
+        "promptTokens": 2758,
+        "providerTokens": {
+          "image_tokens": 0,
+          "input_tokens": 2758,
+          "output_tokens": 0
+        },
+        "completionTokens": 0
+      },
+      "startedAt": "2026-10-10T13:10:15.146658Z",
+      "finishedAt": "2026-10-10T13:10:15.334332Z"
+    },
+    {
+      "callId": "99a80c42-8ec0-4335-a832-f7d9567a085d",
+      "operationKey": "e94f0d95-c85b-4a2d-a364-c80e0f85d181:generation:6e235188-2866-4a5f-af68-062e06eca27d",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1763,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:10:15.340086Z",
+      "finishedAt": "2026-10-10T13:10:20.626278Z"
+    }
+  ]
+}

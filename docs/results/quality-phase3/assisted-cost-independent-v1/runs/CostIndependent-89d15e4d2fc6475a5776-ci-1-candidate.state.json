@@ -1,0 +1,41 @@
+{
+  "id": "CostIndependent-89d15e4d2fc6475a5776-ci-1-candidate",
+  "spec": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "datasetSha256": "f6711a26993286a96d624aeed7c2910ea7c191cddee65f11af5a9021b6e13884",
+    "options": {
+      "candidateK": 5,
+      "keywordWeight": 1,
+      "rerank": true,
+      "citationStyle": "uuid",
+      "rerankPolicy": "candidate-pressure-v1"
+    },
+    "topK": 5,
+    "runtime": {
+      "commit": "7bebd55abcbe82adfedcfcb251d14ae5d8e07645",
+      "sourceSha256": "efe3b4cebd9bbf8f59eb3a60529d9f149aa17801aa594bfd9e767cf76becab33",
+      "containerName": "citebase-quality-assisted-backend-1",
+      "containerImageId": "sha256:81e4ac41faac06963a6fea0c341edce525e19c30c99f0d5c8f4418aa900eb872",
+      "apiUrl": "http://localhost:28096",
+      "modelConfig": {
+        "chatModel": "deepseek-ai/DeepSeek-V3.2",
+        "embeddingModel": "BAAI/bge-m3",
+        "reranker": {
+          "model": "BAAI/bge-reranker-v2-m3",
+          "endpoint": "https://api.siliconflow.cn",
+          "provider": "SiliconFlow-compatible /v1/rerank",
+          "configured": true,
+          "timeoutSeconds": 10
+        }
+      },
+      "containerId": "4332d8d50194f68083446bdd0115f432841f5d267b4dd49d9f6218dff4e34814",
+      "startedAt": "2026-10-01T07:00:36.115948384Z"
+    }
+  },
+  "expectedRows": 2,
+  "status": "SUCCEEDED",
+  "createdAt": "2026-10-01T08:15:51.703Z",
+  "runId": "9cdc3615-ae6b-40f4-8b5b-b74dd5de0e48",
+  "completedAt": "2026-10-01T08:16:06.910Z",
+  "rawSha256": "3237fd461a3ccf42165c5d9f76431c08533635c357e3a86d9a03cc6420c1e883"
+}

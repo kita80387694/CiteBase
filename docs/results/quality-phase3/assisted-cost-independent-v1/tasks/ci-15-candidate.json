@@ -1,0 +1,125 @@
+{
+  "id": "6525cdd3-5831-472b-a177-98801553f00b",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "6525cdd3-5831-472b-a177-98801553f00b",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-15-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-15-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "事实",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 公开发布前由编辑检查授权范围，档案员核对匿名化结果；两项通过后才可发布。",
+              "groupId": "g1",
+              "endOffset": 42,
+              "paragraph": 1,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 0,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 谁检查授权范围，谁核对匿名化？",
+          "answerable": true,
+          "expectedAnswer": "编辑检查授权；档案员核对匿名化"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-37b866f3c9059eec50e329dfa88ec61d0cd3a186810ecf6e87cd9621a14b",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:07:59.280705Z",
+  "startedAt": "2026-10-10T13:07:59.772233Z",
+  "finishedAt": "2026-10-10T13:09:01.372445Z",
+  "availableAt": "2026-10-10T13:07:59.280705Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "00928769-22c5-40f9-88e5-42454ac9d767",
+      "operationKey": "542e6ca6-e66f-4e91-8fe8-69749dab278d:embedding:ec235da1-eabb-44ee-8321-053c58cbc3bc",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:07:59.792596Z",
+      "finishedAt": "2026-10-10T13:07:59.907035Z"
+    },
+    {
+      "callId": "e2dd23ab-c9b1-4a0e-93ab-700bff9f0371",
+      "operationKey": "542e6ca6-e66f-4e91-8fe8-69749dab278d:generation:639c71a8-ec50-4829-96e0-f8dc7620311d",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1690,
+        "completionTokens": 44
+      },
+      "startedAt": "2026-10-10T13:07:59.914265Z",
+      "finishedAt": "2026-10-10T13:08:44.859130Z"
+    },
+    {
+      "callId": "2be761ed-2b70-4c88-8bcc-c40c9318ddd9",
+      "operationKey": "72a0e609-1bd3-4f62-aa19-57bfad7e716c:embedding:48ea028d-8634-4067-a40f-465393702400",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 18,
+        "promptTokens": 18
+      },
+      "startedAt": "2026-10-10T13:08:44.880718Z",
+      "finishedAt": "2026-10-10T13:08:44.972090Z"
+    },
+    {
+      "callId": "f246553c-b1a3-4797-8e86-c4b3291ac2dd",
+      "operationKey": "72a0e609-1bd3-4f62-aa19-57bfad7e716c:generation:8b5c08bd-21a9-4e3b-8ddf-f3f3a39a3053",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1731,
+        "completionTokens": 44
+      },
+      "startedAt": "2026-10-10T13:08:44.982068Z",
+      "finishedAt": "2026-10-10T13:09:01.357205Z"
+    }
+  ]
+}

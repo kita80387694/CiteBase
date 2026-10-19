@@ -1,0 +1,135 @@
+{
+  "id": "bbfef38c-d9a8-4a3d-b50a-3227d906b0ac",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "bbfef38c-d9a8-4a3d-b50a-3227d906b0ac",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-14-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-14-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "跨段落",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 分发必须同时满足资料完整、V-PASS 和库存不少于 80 粒。仅具有接收编号不代表允许分发。",
+              "groupId": "g1",
+              "endOffset": 267,
+              "paragraph": 4,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 214,
+              "documentName": "aster-a.md"
+            },
+            {
+              "page": 1,
+              "quote": "Aster 中的保留量是每批至少留下 50 粒。分发批准不能覆盖保留量约束；从 80 粒库存最多取出 30 粒。",
+              "groupId": "g2",
+              "endOffset": 377,
+              "paragraph": 6,
+              "sourceHash": "55c59355795c48cc0987593f4800a7be3b7d400912782d2aa4ec713f242154f3",
+              "startOffset": 321,
+              "documentName": "aster-a.md"
+            }
+          ],
+          "question": "Aster 80粒库存且其他条件都合格，一次最多分发多少粒？",
+          "answerable": true,
+          "expectedAnswer": "30粒，保留50粒"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-7a56757e4be519bb5b93e1cb52a9c660b0ee29840c34de9323374f43ce39",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:07:00.912263Z",
+  "startedAt": "2026-10-10T13:07:01.118349Z",
+  "finishedAt": "2026-10-10T13:07:42.728922Z",
+  "availableAt": "2026-10-10T13:07:00.912263Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "8597d90b-acc1-4db5-9f74-dcf34f85ba16",
+      "operationKey": "bf8adc4f-607a-4fe8-b6ac-e8b0ab912913:embedding:8feb37d7-c26e-426e-97a0-02a6863e939b",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:07:01.137927Z",
+      "finishedAt": "2026-10-10T13:07:01.239372Z"
+    },
+    {
+      "callId": "09b3c39e-2b77-4d3c-9200-ecf4795c6276",
+      "operationKey": "bf8adc4f-607a-4fe8-b6ac-e8b0ab912913:generation:399795a2-61cd-42f6-ba82-90541d10fe42",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 120
+      },
+      "startedAt": "2026-10-10T13:07:01.245044Z",
+      "finishedAt": "2026-10-10T13:07:38.077806Z"
+    },
+    {
+      "callId": "f701d7c9-cfee-4bb0-9284-9f6c07b1d0a5",
+      "operationKey": "9443b0d7-57c8-47a5-8e8c-11f7efa57394:embedding:1e5d5491-6b16-4403-b846-058d1037b5bb",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:07:38.122280Z",
+      "finishedAt": "2026-10-10T13:07:38.231034Z"
+    },
+    {
+      "callId": "64f79684-5c31-470e-99ad-2bfec0588acc",
+      "operationKey": "9443b0d7-57c8-47a5-8e8c-11f7efa57394:generation:eeaecf49-a4d7-411d-b76d-b23c44ca0262",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1764,
+        "completionTokens": 57
+      },
+      "startedAt": "2026-10-10T13:07:38.249856Z",
+      "finishedAt": "2026-10-10T13:07:42.711808Z"
+    }
+  ]
+}

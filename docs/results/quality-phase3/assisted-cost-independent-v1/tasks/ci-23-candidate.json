@@ -1,0 +1,203 @@
+{
+  "id": "44e48577-7b87-42a6-8346-188a59f1497c",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "44e48577-7b87-42a6-8346-188a59f1497c",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-23-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-23-0",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+              "groupId": "g1",
+              "endOffset": 175,
+              "paragraph": 4,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 133,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 同一张领用单再次补寄时，编号如何处理？",
+          "answerable": true,
+          "expectedAnswer": "原单号加新的补发序号"
+        },
+        {
+          "id": "ci-23-1",
+          "group": "aster",
+          "split": "test",
+          "topic": "aster",
+          "category": "同义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Aster 同一分发单的补发沿用原单号并新增补发序号；不能新开一单来绕过保留量检查。",
+              "groupId": "g1",
+              "endOffset": 175,
+              "paragraph": 4,
+              "sourceHash": "eabd06d18d8d9ac4df77d89e2fbd5e9d450c0aa205abd4f04f211f6579ef4f8a",
+              "startOffset": 133,
+              "documentName": "aster-b.md"
+            }
+          ],
+          "question": "Aster 同一张领用单再次补寄时，编号如何处理？",
+          "answerable": true,
+          "expectedAnswer": "原单号加新的补发序号"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-7c34cf75bc70b3afd6d1f50303cfa5bd38b0aae0aaf6ad4d86fcd7d6f2b1",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:16:10.268568Z",
+  "startedAt": "2026-10-10T13:16:10.453738Z",
+  "finishedAt": "2026-10-10T13:16:28.521532Z",
+  "availableAt": "2026-10-10T13:16:10.268568Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "ab0cbc4c-9a1d-4273-be19-d83124b4d45f",
+      "operationKey": "bc2f818c-d708-44e0-b0cf-f41d2be08fcf:embedding:ac801471-e79d-4aff-a71d-ed447c1d61f7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:16:10.469208Z",
+      "finishedAt": "2026-10-10T13:16:10.556173Z"
+    },
+    {
+      "callId": "9b0e1a8a-cb43-4706-bd06-1f85dd8a9b28",
+      "operationKey": "bc2f818c-d708-44e0-b0cf-f41d2be08fcf:generation:36cfad5c-6aea-4cb1-a348-6301caa5af60",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1781,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:16:10.563204Z",
+      "finishedAt": "2026-10-10T13:16:15.039416Z"
+    },
+    {
+      "callId": "fb47dec2-27b0-48ed-bcfa-bbd56fdd31e4",
+      "operationKey": "cb2e65c4-f723-434a-bb98-370a19b1b31c:embedding:ceb11ad8-c588-46f6-a196-47122c07397f",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:16:15.057486Z",
+      "finishedAt": "2026-10-10T13:16:15.166137Z"
+    },
+    {
+      "callId": "ea898941-28dd-4fcd-acce-97a7a24b9e69",
+      "operationKey": "cb2e65c4-f723-434a-bb98-370a19b1b31c:generation:e230bf3b-bcb2-4314-af33-6539d0946ebd",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1759,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:16:15.176033Z",
+      "finishedAt": "2026-10-10T13:16:22.267293Z"
+    },
+    {
+      "callId": "9e3c3510-ea2a-41f9-bc30-ee9aabb80247",
+      "operationKey": "92b52a47-d541-4495-92b8-f37c6b61b623:embedding:133244e6-28a4-4826-9e0d-932629005779",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:16:22.287700Z",
+      "finishedAt": "2026-10-10T13:16:22.384448Z"
+    },
+    {
+      "callId": "38c6885a-3acb-44a3-8f56-1fceb4d57d2f",
+      "operationKey": "92b52a47-d541-4495-92b8-f37c6b61b623:generation:8815bafc-df6e-4bde-93f9-dafaa0fef228",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1781,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:16:22.391004Z",
+      "finishedAt": "2026-10-10T13:16:26.153001Z"
+    },
+    {
+      "callId": "5b53c822-8ff3-4e0a-9cd6-1eaf63a9d6e6",
+      "operationKey": "b1ce8990-593a-4032-9f26-6bb1a8e232d9:embedding:dd4ecbea-1286-43b3-9368-d66003b00c00",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 20,
+        "promptTokens": 20
+      },
+      "startedAt": "2026-10-10T13:16:26.181039Z",
+      "finishedAt": "2026-10-10T13:16:26.280510Z"
+    },
+    {
+      "callId": "3e6a90fe-d5d2-47b7-87e1-76583a65ea6d",
+      "operationKey": "b1ce8990-593a-4032-9f26-6bb1a8e232d9:generation:871e9eac-11e7-4f92-962e-df1ba230b77e",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1759,
+        "completionTokens": 9
+      },
+      "startedAt": "2026-10-10T13:16:26.300436Z",
+      "finishedAt": "2026-10-10T13:16:28.508827Z"
+    }
+  ]
+}

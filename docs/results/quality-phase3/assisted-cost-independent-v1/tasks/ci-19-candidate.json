@@ -1,0 +1,125 @@
+{
+  "id": "8c16f117-5275-4b59-912f-a61de6ed9de2",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "8c16f117-5275-4b59-912f-a61de6ed9de2",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-19-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-19-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "歧义",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 口述历史工作室在录音前取得受访者授权。授权分别勾选内部整理和公开发布，允许内部整理不等于允许公开。",
+              "groupId": "g1",
+              "endOffset": 55,
+              "paragraph": 1,
+              "sourceHash": "fe426d00d185f0251be42f6915cb3188b57e79dd2c2ed72bd2bb0a7fd3232869",
+              "startOffset": 0,
+              "documentName": "flint-a.md"
+            }
+          ],
+          "question": "Flint 允许内部整理是否包含公开发布？",
+          "answerable": true,
+          "expectedAnswer": "不包含，分别授权"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-ec8cfddb50d69656c3567ae78b9e919b6d52b08d53e9a1e3b40f52919d4b",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 2,
+    "failed": 0,
+    "completed": 2
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:11:34.032546Z",
+  "startedAt": "2026-10-10T13:11:34.304858Z",
+  "finishedAt": "2026-10-10T13:11:50.452428Z",
+  "availableAt": "2026-10-10T13:11:34.032546Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "6ec52f46-e67d-49ce-b276-af1aab855e77",
+      "operationKey": "4598ee93-eb14-4d71-a3a2-c1c940931481:embedding:c0fac387-a293-4685-8718-651bdeb9c4bf",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-10-10T13:11:34.321192Z",
+      "finishedAt": "2026-10-10T13:11:34.418741Z"
+    },
+    {
+      "callId": "d8e7af64-a8d7-474a-9ba1-e52a79b6759a",
+      "operationKey": "4598ee93-eb14-4d71-a3a2-c1c940931481:generation:e7aa7d85-ca3c-42d3-8aa3-6c5a9643c0ca",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1690,
+        "completionTokens": 90
+      },
+      "startedAt": "2026-10-10T13:11:34.426444Z",
+      "finishedAt": "2026-10-10T13:11:43.235259Z"
+    },
+    {
+      "callId": "08e24f7b-6deb-42b7-80ea-c9139b536de0",
+      "operationKey": "41e6a4e8-1bc9-475b-b818-a8006a8a05f4:embedding:504efd3b-0038-4331-ae39-b5da17f90e9c",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 14,
+        "promptTokens": 14
+      },
+      "startedAt": "2026-10-10T13:11:43.262953Z",
+      "finishedAt": "2026-10-10T13:11:43.363360Z"
+    },
+    {
+      "callId": "fcd6468f-3bcb-4f2b-99a0-41ef271f7f1c",
+      "operationKey": "41e6a4e8-1bc9-475b-b818-a8006a8a05f4:generation:23bb8c6d-9201-4081-a426-026b3ad6b9e7",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1729,
+        "completionTokens": 56
+      },
+      "startedAt": "2026-10-10T13:11:43.380356Z",
+      "finishedAt": "2026-10-10T13:11:50.430655Z"
+    }
+  ]
+}

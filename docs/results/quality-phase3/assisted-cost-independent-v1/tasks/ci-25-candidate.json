@@ -1,0 +1,203 @@
+{
+  "id": "4628c45f-9a50-4c7e-a049-84c4ed291cf5",
+  "kind": "EVALUATION",
+  "status": "SUCCEEDED",
+  "attempts": 1,
+  "workTaskId": "4628c45f-9a50-4c7e-a049-84c4ed291cf5",
+  "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+  "maxAttempts": 1,
+  "retryGeneration": 0,
+  "payload": {
+    "kbId": "aa4e6fe0-e6fe-48f7-a83b-d7a76fd762ab",
+    "name": "p2opt-CostIndependent-89d15e4d2fc6475a5776-ci-25-candidate",
+    "topK": 5,
+    "dataset": {
+      "seed": null,
+      "split": null,
+      "version": "citebase-phase3-quality-v1",
+      "questions": [
+        {
+          "id": "ci-25-0",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+              "groupId": "g1",
+              "endOffset": 141,
+              "paragraph": 3,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 96,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 引用访谈需哪三个定位字段？",
+          "answerable": true,
+          "expectedAnswer": "访谈编号、时间码、文字稿版本"
+        },
+        {
+          "id": "ci-25-1",
+          "group": "flint",
+          "split": "test",
+          "topic": "flint",
+          "category": "证据充分",
+          "evidence": [
+            {
+              "page": 1,
+              "quote": "Flint 引用访谈必须包含访谈编号、录音时间码和文字稿版本；不以受访者姓名作为唯一定位。",
+              "groupId": "g1",
+              "endOffset": 141,
+              "paragraph": 3,
+              "sourceHash": "4f3b2c6aebdbc8c8f561d0cc3bd04ca9020631aba0fcdfec345856f68fdfe096",
+              "startOffset": 96,
+              "documentName": "flint-b.md"
+            }
+          ],
+          "question": "Flint 引用访谈需哪三个定位字段？",
+          "answerable": true,
+          "expectedAnswer": "访谈编号、时间码、文字稿版本"
+        }
+      ]
+    },
+    "idempotencyKey": "p2-d1b3c24ea592bbf20f869f4634dcba0d7f540e45353ba8c87230d970e031",
+    "retrievalOptions": {
+      "rerank": true,
+      "candidateK": 5,
+      "rerankPolicy": "candidate-pressure-v1",
+      "citationStyle": "uuid",
+      "keywordWeight": 1
+    }
+  },
+  "progress": {
+    "unit": "question_modes",
+    "total": 4,
+    "failed": 0,
+    "completed": 4
+  },
+  "errorCode": null,
+  "errorSummary": null,
+  "createdAt": "2026-10-10T13:18:50.315223Z",
+  "startedAt": "2026-10-10T13:18:50.816947Z",
+  "finishedAt": "2026-10-10T13:19:30.703267Z",
+  "availableAt": "2026-10-10T13:18:50.315223Z",
+  "canCancel": false,
+  "canRetry": false,
+  "retryBlockedReason": null,
+  "externalCalls": [
+    {
+      "callId": "7b862951-5409-413e-922a-66e3cad5dfd4",
+      "operationKey": "670b499d-b4ee-4dd7-8d40-c79779ca8f99:embedding:d0859e60-faf9-42f0-8957-73c84d6e8aae",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:18:50.837896Z",
+      "finishedAt": "2026-10-10T13:18:50.939943Z"
+    },
+    {
+      "callId": "5daf6e89-e72a-4490-8ef2-ea6419b75426",
+      "operationKey": "670b499d-b4ee-4dd7-8d40-c79779ca8f99:generation:3a332617-02f8-43a4-8176-fe2d00c16310",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1725,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-10-10T13:18:50.946863Z",
+      "finishedAt": "2026-10-10T13:18:54.552393Z"
+    },
+    {
+      "callId": "51b04a8a-ce89-4e11-a9b7-2b9e8d17eb69",
+      "operationKey": "6c227da5-9fea-46ee-973f-52116a7f0e35:embedding:a0580150-2c5d-48f0-97ea-068a99b75322",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:18:54.579597Z",
+      "finishedAt": "2026-10-10T13:18:54.721683Z"
+    },
+    {
+      "callId": "47db1a80-91d6-4c36-bc28-da4f3ad9b51c",
+      "operationKey": "6c227da5-9fea-46ee-973f-52116a7f0e35:generation:4772eebf-bbd1-405a-929b-0319f64de32f",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1725,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-10-10T13:18:54.736735Z",
+      "finishedAt": "2026-10-10T13:19:06.116148Z"
+    },
+    {
+      "callId": "c1157196-6cec-4a64-b9b2-2ac060854f43",
+      "operationKey": "b8c4691e-2859-44dd-b3e7-6375b1fa7127:embedding:356d96df-12a4-4971-a542-6b7b86b0b527",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:19:06.134059Z",
+      "finishedAt": "2026-10-10T13:19:06.233067Z"
+    },
+    {
+      "callId": "5d6f8b02-11d4-482c-886a-02d064d9f407",
+      "operationKey": "b8c4691e-2859-44dd-b3e7-6375b1fa7127:generation:dc8bf096-6a7b-4ce4-993a-6a6fce6dc933",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1725,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-10-10T13:19:06.239168Z",
+      "finishedAt": "2026-10-10T13:19:14.490635Z"
+    },
+    {
+      "callId": "198009f8-a4b5-4900-916c-b39e3408e409",
+      "operationKey": "9c6d0559-dae7-498b-b2c5-98814ac356ed:embedding:d1e14d26-7602-43f8-9274-0a832c7127f7",
+      "fencingToken": 1,
+      "provider": "embedding",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "totalTokens": 16,
+        "promptTokens": 16
+      },
+      "startedAt": "2026-10-10T13:19:14.514590Z",
+      "finishedAt": "2026-10-10T13:19:14.605741Z"
+    },
+    {
+      "callId": "7fd648b2-8c11-49d4-9d07-0394c79d6a93",
+      "operationKey": "9c6d0559-dae7-498b-b2c5-98814ac356ed:generation:30e5af5e-50e0-4648-a4e5-305462441155",
+      "fencingToken": 1,
+      "provider": "generation",
+      "status": "RETURNED",
+      "outcome": "RETURNED",
+      "usage": {
+        "promptTokens": 1725,
+        "completionTokens": 48
+      },
+      "startedAt": "2026-10-10T13:19:14.614958Z",
+      "finishedAt": "2026-10-10T13:19:30.684607Z"
+    }
+  ]
+}
