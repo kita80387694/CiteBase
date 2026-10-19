@@ -89,6 +89,10 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   expect(Object.keys(answer.diagnostics.aliasMap).length).toBeGreaterThan(0);
   expect(answer.usage.rerank).toBeNull();
   expect(answer.usage.embedding).toBeNull();
+  expect(answer.diagnostics.cost.currentProviderCalls).toEqual({
+    embedding: 0,
+    rerank: 0,
+  });
   expect(answer.diagnostics.timings.generationMs).toBeGreaterThanOrEqual(0);
   expect(answer.diagnostics.candidateCounts.selected).toBeGreaterThan(0);
   const answerCard = page.locator(".answer-card").first();
@@ -96,9 +100,10 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   await expect(answerCard.locator(".rerank-status")).toContainText(
     "关闭 · 未调用",
   );
-  await expect(answerCard.locator(".provider-usage")).toContainText(
-    "供应商未返回（null）",
-  );
+  await expect(answerCard.locator(".provider-usage > p")).toHaveText([
+    "Embedding 用量：本次未调用供应商（null）",
+    "Reranker 用量：本次未调用供应商（null）",
+  ]);
   await expect(answerCard.locator(".stage-timings")).toContainText("回答生成");
   await answerCard.locator(".retrieval-diagnostics").scrollIntoViewIfNeeded();
   await page.screenshot({
@@ -197,6 +202,10 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
   const failed = await (await failedResponse).json();
   expect(failed.error).toContain("MOCK模式不调用真实reranker");
   expect(failed.usage.rerank).toBeNull();
+  expect(failed.diagnostics.cost.currentProviderCalls).toEqual({
+    embedding: 0,
+    rerank: 0,
+  });
   expect(failed.retrievalOptions.rerank).toBe(true);
   const failedCard = page.locator(".answer-card").first();
   await expect(failedCard.locator(".badge.failed")).toHaveText(
@@ -206,9 +215,10 @@ test("阶段二 Mock：切分版本、可配检索、紧凑引用与真实诊断
     "MOCK模式不调用真实reranker",
   );
   await failedCard.locator(".retrieval-diagnostics summary").first().click();
-  await expect(failedCard.locator(".provider-usage")).toContainText(
-    "供应商未返回（null）",
-  );
+  await expect(failedCard.locator(".provider-usage > p")).toHaveText([
+    "Embedding 用量：本次未调用供应商（null）",
+    "Reranker 用量：本次未调用供应商（null）",
+  ]);
   await failedCard.scrollIntoViewIfNeeded();
   await page.screenshot({
     path: `../docs/screenshots/${process.env.E2E_SCREENSHOT_PREFIX || "phase2-"}stage2-rerank-error.png`,
