@@ -180,3 +180,7 @@ Windows本地启动可运行 `scripts/start-local.ps1` 自动读取.env（需先
 使用说明：[阶段计划](docs/PHASE3_PLAN.md)、[成本配置](docs/RETRIEVAL_COST.md)、[运维手册](docs/OPERATIONS.md)、[负载复现](docs/LOAD_TESTING.md)。普通登录后的运维页仅显示所属用户的数据；实例资源探针另需本机配置 `OPERATIONS_TOKEN`，不要提交或公开该令牌。实际双进程故障及混合负载13项检查通过，794个测量操作零失败；mock适配器结果不能代表真实模型吞吐。真实评审环境已保留数据升级至V10，80答案与96分配未改变。
 
 2026-10-10 验证更新：新增任务容量准入和同步问答并发限制，279项后端测试均实际执行通过（268项全量通过、11项专用PG补跑通过），前端构建和429手动重试交互通过。Docker已有容器已恢复运行，但新版Compose构建被镜像仓库token请求超时阻断，不能以旧镜像启动代替本次构建验收。独立成本实验正在按冻结配置分段续采；完整验收状态见 [验收证据](docs/PHASE3_ACCEPTANCE.md)。
+
+2026-10-19 更新：镜像网络修复后，新源码 `docker compose up --build --wait` 已成功，前后端及数据库健康；原用户、知识库、文档、版本、分块备份逐表哈希保持一致。样例准备连续执行两次，5份文档ID和活动版本一致；新容器上的登录、上传、引用、异步评测和评分审计浏览器流程通过（mock，仅证明工程流程）。
+
+Windows若Docker拉取可用但BuildKit在`auth.docker.io/token`仍超时，构建客户端可能未使用系统代理。先验证本机已有代理，在当前PowerShell进程中显式设置`HTTP_PROXY`、`HTTPS_PROXY`（例如本机实际可用的`http://127.0.0.1:7890`），并设置`NO_PROXY=localhost,127.0.0.1,::1`，然后运行Compose。该地址只是本机验证实例，不能假定所有机器都有此代理；不要将代理凭据写入仓库。Docker Desktop主机代理还须在Settings → Resources → Proxies设置。首次启动需要下载固定版本基础镜像和依赖。

@@ -310,3 +310,15 @@
 成本总结脚本主线程重跑7/7通过，正常正确拒答的citationSupport=NA按已登记协议视为不适用，其他不可评估情况仍保持未知；按预登记比较总失败，同时披露逐对新增/恢复失败，不隐藏抵消。新版Compose在原隔离mock项目重新构建验证中；真实评测容器保持原镜像。尚未完成成本独立采集和辅助评分，不标记目标完成。
 
 2026-10-19 本地提交c481fc6归档成本汇总与验证口径。新Compose仍因auth.docker.io连接超时失败，完整日志admission-engineering/compose-network-failure-20261019.txt，未将其计通过。追加不可变恢复链实现后，主线程组合29项测试通过；实际prepare验证原manifest、全部已保存结果哈希及同容器/镜像/模型的新StartedAt。原152行加取回中断4行共156行保留，剩余84行由后台PID60580续采（已实际核实进程存在），日志.tools/assisted-cost-recover-20261019.txt，终态见对应exit.json及新恢复目录collection-state.json。三个登记运行段不当连续延迟样本；原未知调用不重提，最终报告、辅助评分及Compose验收仍待完成。
+
+2026-10-19 后续：恢复链/汇总最终组合31/31通过，本地提交8f7ee6b；初次旧fixture缺少interrupted导出、扩展fixture来源重复均保留失败日志，补齐真实结构及来源去重后通过。独立采集推进212/240后原PID53612/60580已不存在且没有exit文件，原因未知；核查无缺raw的journal、服务端非终态任务为空，未猜测完成、未重提交。用同一冻结chain脚本与manifest续采剩余28行，统一exec session12258，日志.tools/assisted-cost-resume-20261019.txt。
+
+用户授权修复镜像网络后，诊断发现系统DNS解析auth.docker.io为不可达地址；现有本地7890代理访问token=200、registry=401（未认证正常挑战）。通过Docker Desktop设置将主机代理从System改为Manual，HTTP/HTTPS指向既有http://127.0.0.1:7890，排除localhost、127.0.0.1、::1及*.docker.internal；原配置备份仅在.tools/docker-settings-before-proxy-20261019.json。未改系统DNS、未重启Docker，原真实后端StartedAt保持2026-10-19T07:25:44.93413333Z。固定node:22.14.0-alpine真实拉取成功，日志admission-engineering/docker-proxy-pull-20261019.txt；完整Compose尚待补验。此网络配置变更发生在212条已保存结果之后，剩余28条续采须披露环境变化，延迟不作因果性能结论；模型、索引、题目、检索参数未改。
+
+最终审计发现旧混合负载每次评测仅1题，不能覆盖原要求的长评测共存。新增40题×2模式与INDEX/RAG/Agent混合补验脚本及2项fixture通过，等待真实采集结束后在两个独立JVM和专用PG运行；不将脚本实现视为场景通过。
+
+采集停止原因进一步查明：session12258重读既有ci-36-control结果时以Infrastructure failure retained退出（exit=1），并未重新调用模型。该任务e6012a26-c593-485d-ac87-7108dbd56b9c的ci-36-1/vector为PROVIDER_TIMEOUT，generation账本07:38:58.774151Z至07:39:58.784318Z约60秒；随后hybrid generation约6.4秒正常。RETURNED仅表示适配器调用结束，不能等同供应商成功或有token用量。原错误与12次调用完整保留，需要精确绑定该原始文件/错误/调查记录的新续采入口；冻结collector不修改、失败行不改、不重跑。当前真实采集无在途请求，长评测补验获准在独立端口开始；代理修复与原生成超时不混为同一原因。
+
+2026-10-19 新增调查续采入口5/5测试通过，仅精确绑定已调查timeout的raw/journal/task哈希，未登记错误仍停止。调查登记在新恢复目录investigated-timeout-clearance.json；统一session96751正在继续剩余题目，已有ci-36-candidate新增4行。源码provenance独立保存，旧collector不改。长评测补验two-process-1792396487112通过：12混合操作在长任务RUNNING期间全部完成、14项checkpoint取消后不变；首跑端口拒绝保留，两个JVM/gate已退出，详见LOAD_TESTING。
+
+Docker修复追加：拉取成功后BuildKit客户端仍直连auth超时，保留compose-client-proxy-failure-20261019.txt；仅本次构建进程设置HTTP_PROXY/HTTPS_PROXY指向既有7890及本地NO_PROXY后，Compose up --build --wait exit0、三服务healthy。新后端启动前pg_dump数据备份与启动后对比，app_user/knowledge_base/document/document_version/chunk分别2/17/10/10/187行，列及数据排序哈希一致；首次schema备份遇PG启动中，等待后重取成功。样例准备两次5文档ID/活动版本完全一致。新Compose平台E2E 1/1通过32.4秒，7张截图另名保存未覆盖旧图；主线程亲查引用面板、评测结果、审计记录。E2E模拟评分明确标识，不计真人评审。

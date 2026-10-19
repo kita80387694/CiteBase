@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: only exact investigated failure is accepted, without changing result or zeroing error
+ok 1 - only exact investigated failure is accepted, without changing result or zeroing error
+  ---
+  duration_ms: 112.2044
+  ...
+# Subtest: changed hash, journal binding, config/source error and missing clearance fail closed
+ok 2 - changed hash, journal binding, config/source error and missing clearance fail closed
+  ---
+  duration_ms: 286.773
+  ...
+# Subtest: continuation reuses all saved results, retains timeout, submits only missing work, and new error stops before next item
+ok 3 - continuation reuses all saved results, retains timeout, submits only missing work, and new error stops before next item
+  ---
+  duration_ms: 73.5389
+  ...
+# Subtest: copied collector retains all frozen checks except explicitly investigated infrastructure gate
+not ok 4 - copied collector retains all frozen checks except explicitly investigated infrastructure gate
+  ---
+  duration_ms: 1.6025
+  location: 'F:\\CiteBase\\scripts\\quality-assisted-cost-continue-investigated.test.mjs:65:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'export async function executeInvestigated(stage,root,plan,api,{guard=()=>costDeploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation,clearance}={}){\r\n' +
+    - 'export async function executeInvestigated(stage,root,plan,api,{guard=()=>costDeploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation,clearance}={}){\n' +
+        " assert.equal(stage,'collect','Investigated continuation is collect-only');validateClearance(root,plan,clearance);\r\n" +
+        " assert(['seed','smoke','collect'].includes(stage));guard();assert.deepEqual(register(plan.freeze,plan.freeze.runtime,bytes),plan);const dataset=JSON.parse(bytes(plan.freeze.dataset.file));fs.mkdirSync(root,{recursive:true});immutable(`${root}/registration.json`,plan);\r\n" +
+        " const dependencies=['quality-assisted-cost-independent.mjs','quality-assisted-independent.mjs','quality-assisted-agent-collector.mjs','phase2-client.mjs','phase2-comparability.mjs','phase2-metrics.mjs'];immutable(`${root}/collector-provenance.json`,{scope:'collector-not-backend',files:Object.fromEntries(dependencies.map(n=>[n,sha(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)),n)))]))});\r\n" +
+        ' const journal=`${root}/state.json`,id=sha(JSON.stringify(plan)),prefix=`CostIndependent-${id.slice(0,20)}`;const state=fs.existsSync(journal)?read(journal):{registrationSha256:id};assert.equal(state.registrationSha256,id);const persist=()=>save(journal,state);persist();\r\n' +
+        " if(!state.kbId){assert.equal(stage,'seed');const found=(await api.request('/api/knowledge-bases')).filter(k=>k.name===prefix);assert(found.length<=1);if(!state.createIntent){assert.equal(found.length,0,'Do not adopt unrelated KB');state.createIntent={name:prefix};persist();}guard();state.kbId=(found[0]??await api.request('/api/knowledge-bases',{name:prefix})).id;persist();}\r\n" +
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: |-
+    export async function executeInvestigated(stage,root,plan,api,{guard=()=>costDeploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation,clearance}={}){
+     assert.equal(stage,'collect','Investigated continuation is collect-only');validateClearance(root,plan,clearance);
+     assert(['seed','smoke','collect'].includes(stage));guard();assert.deepEqual(register(plan.freeze,plan.freeze.runtime,bytes),plan);const dataset=JSON.parse(bytes(plan.freeze.dataset.file));fs.mkdirSync(root,{recursive:true});immutable(`${root}/registration.json`,plan);
+     const dependencies=['quality-assisted-cost-independent.mjs','quality-assisted-independent.mjs','quality-assisted-agent-collector.mjs','phase2-client.mjs','phase2-comparability.mjs','phase2-metrics.mjs'];immutable(`${root}/collector-provenance.json`,{scope:'collector-not-backend',files:Object.fromEntries(dependencies.map(n=>[n,sha(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)),n)))]))});
+     const journal=`${root}/state.json`,id=sha(JSON.stringify(plan)),prefix=`CostIndependent-${id.slice(0,20)}`;const state=fs.existsSync(journal)?read(journal):{registrationSha256:id};assert.equal(state.registrationSha256,id);const persist=()=>save(journal,state);persist();
+     if(!state.kbId){assert.equal(stage,'seed');const found=(await api.request('/api/knowledge-bases')).filter(k=>k.name===prefix);assert(found.length<=1);if(!state.createIntent){assert.equal(found.length,0,'Do not adopt unrelated KB');state.createIntent={name:prefix};persist();}guard();state.kbId=(found[0]??await api.request('/api/knowledge-bases',{name:prefix})).id;persist();}
+     fs.mkdirSync(`${root}/tasks`,{recursive:true});
+     const audit=async(taskId,label)=>{const file=`${root}/tasks/${label}.json`;if(fs.existsSync(file))return;let task;for(let p=0;p<120;p++){task=await api.request(`/api/tasks/${taskId}`);if(['SUCCEEDED','FAILED','CANCELLED'].includes(task.status))break;await wait(1000);}assert(['SUCCEEDED','FAILED','CANCELLED'].includes(task.status),'Task pending: resume same journal');immutable(file,task);};
+     if(stage==='seed'){const initial=await api.request(`/api/knowledge-bases/${state.kbId}/documents`);assert(initial.every(d=>plan.documents.some(m=>m.documentName===d.name)));for(const d of plan.documents){guard();const file=path.join(path.dirname(plan.freeze.manifest.file),'documents',d.documentName);assert.equal(sha(bytes(file)),d.sourceHash);await api.upload(state.kbId,file,plan.freeze.chunkProfile);}let ok=false;for(let p=0;p<600;p++){const docs=await api.request(`/api/knowledge-bases/${state.kbId}/documents`);assert(!docs.some(d=>d.status==='FAILED'));if(docs.length===12&&docs.every(d=>d.status==='SUCCESS')){state.documents=docs;ok=true;break;}await wait(1000);}assert(ok,'Index pending');immutable(`${root}/indexed-documents.json`,state.documents);for(const t of await api.request(`/api/tasks?kbId=${state.kbId}&kind=INDEX`))await audit(t.id,`index-${t.id}`);state.indexed=true;persist();return state;}
+     assert(state.indexed,'Seed first');if(stage==='collect')assert(state.smokeCompleted,'Smoke first');
+     for(const item of plan.items.filter(x=>stage==='collect'||plan.smokeCaseIds.includes(x.baseCaseId))){guard();const q=dataset.questions.find(q=>q.id===item.baseCaseId),key=`${item.batchId}-${item.arm}`;const opts=item.arm==='control'?plan.freeze.baselineOptions:plan.freeze.selectedOptions;
+     const run=await evaluate(api,{root:`${root}/runs`,id:`${prefix}-${key}`,kbId:state.kbId,dataset:{version:dataset.version,questions:item.questions.map(x=>({...q,id:x.caseId}))},options:opts,topK:5,runtime:plan.freeze.runtime});
+     assert.equal(run.results.length,item.questions.length*2);assert.deepEqual(run.results.map(r=>[r.caseId,r.mode]).sort(),item.questions.flatMap(x=>['vector','hybrid'].map(m=>[x.caseId,m])).sort());verifySnapshot(run.config.dataVersions,state.documents);immutable(`${root}/snapshot.json`,run.config.dataVersions);
+     const config={...run.config};delete config.dataset;immutable(`${root}/${item.arm}-config.json`,config);for(const[k,v]of Object.entries(plan.freeze.runtime.modelConfig))assert.deepEqual(run.config[k],v,`Model configuration drift: ${k}`);await audit(run.taskId??run.id,key);
+     immutable(`${root}/${key}-mapping.json`,{...item,runId:run.id,cache:run.results.map(r=>({caseId:r.caseId,phase:item.questions.find(q=>q.caseId===r.caseId).phase,mode:r.mode,observed:r.diagnostics?.cost?.cache??null})),source:'ASSISTED'});
+     for(const row of run.results){if(!row.error){assert(row.citationValid);for(const c of row.citations??[])await api.request(`/api/evaluations/${run.id}/citations/${typeof c==='string'?c:c.id}`);}}assertInfrastructureCleared(root,plan,clearance,run);
+     }
+     if(stage==='smoke')state.smokeCompleted=true;else state.collectionCompleted=true;persist();return state;
+    }
+  actual: |-
+    export async function executeInvestigated(stage,root,plan,api,{guard=()=>costDeploymentGuard(plan.freeze.runtime),bytes=fs.readFileSync,wait=pause,evaluate=evaluation,clearance}={}){
+     assert.equal(stage,'collect','Investigated continuation is collect-only');validateClearance(root,plan,clearance);
+     assert(['seed','smoke','collect'].includes(stage));guard();assert.deepEqual(register(plan.freeze,plan.freeze.runtime,bytes),plan);const dataset=JSON.parse(bytes(plan.freeze.dataset.file));fs.mkdirSync(root,{recursive:true});immutable(`${root}/registration.json`,plan);
+     const dependencies=['quality-assisted-cost-independent.mjs','quality-assisted-independent.mjs','quality-assisted-agent-collector.mjs','phase2-client.mjs','phase2-comparability.mjs','phase2-metrics.mjs'];immutable(`${root}/collector-provenance.json`,{scope:'collector-not-backend',files:Object.fromEntries(dependencies.map(n=>[n,sha(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)),n)))]))});
+     const journal=`${root}/state.json`,id=sha(JSON.stringify(plan)),prefix=`CostIndependent-${id.slice(0,20)}`;const state=fs.existsSync(journal)?read(journal):{registrationSha256:id};assert.equal(state.registrationSha256,id);const persist=()=>save(journal,state);persist();
+     if(!state.kbId){assert.equal(stage,'seed');const found=(await api.request('/api/knowledge-bases')).filter(k=>k.name===prefix);assert(found.length<=1);if(!state.createIntent){assert.equal(found.length,0,'Do not adopt unrelated KB');state.createIntent={name:prefix};persist();}guard();state.kbId=(found[0]??await api.request('/api/knowledge-bases',{name:prefix})).id;persist();}
+     fs.mkdirSync(`${root}/tasks`,{recursive:true});
+     const audit=async(taskId,label)=>{const file=`${root}/tasks/${label}.json`;if(fs.existsSync(file))return;let task;for(let p=0;p<120;p++){task=await api.request(`/api/tasks/${taskId}`);if(['SUCCEEDED','FAILED','CANCELLED'].includes(task.status))break;await wait(1000);}assert(['SUCCEEDED','FAILED','CANCELLED'].includes(task.status),'Task pending: resume same journal');immutable(file,task);};
+     if(stage==='seed'){const initial=await api.request(`/api/knowledge-bases/${state.kbId}/documents`);assert(initial.every(d=>plan.documents.some(m=>m.documentName===d.name)));for(const d of plan.documents){guard();const file=path.join(path.dirname(plan.freeze.manifest.file),'documents',d.documentName);assert.equal(sha(bytes(file)),d.sourceHash);await api.upload(state.kbId,file,plan.freeze.chunkProfile);}let ok=false;for(let p=0;p<600;p++){const docs=await api.request(`/api/knowledge-bases/${state.kbId}/documents`);assert(!docs.some(d=>d.status==='FAILED'));if(docs.length===12&&docs.every(d=>d.status==='SUCCESS')){state.documents=docs;ok=true;break;}await wait(1000);}assert(ok,'Index pending');immutable(`${root}/indexed-documents.json`,state.documents);for(const t of await api.request(`/api/tasks?kbId=${state.kbId}&kind=INDEX`))await audit(t.id,`index-${t.id}`);state.indexed=true;persist();return state;}
+     assert(state.indexed,'Seed first');if(stage==='collect')assert(state.smokeCompleted,'Smoke first');
+     for(const item of plan.items.filter(x=>stage==='collect'||plan.smokeCaseIds.includes(x.baseCaseId))){guard();const q=dataset.questions.find(q=>q.id===item.baseCaseId),key=`${item.batchId}-${item.arm}`;const opts=item.arm==='control'?plan.freeze.baselineOptions:plan.freeze.selectedOptions;
+     const run=await evaluate(api,{root:`${root}/runs`,id:`${prefix}-${key}`,kbId:state.kbId,dataset:{version:dataset.version,questions:item.questions.map(x=>({...q,id:x.caseId}))},options:opts,topK:5,runtime:plan.freeze.runtime});
+     assert.equal(run.results.length,item.questions.length*2);assert.deepEqual(run.results.map(r=>[r.caseId,r.mode]).sort(),item.questions.flatMap(x=>['vector','hybrid'].map(m=>[x.caseId,m])).sort());verifySnapshot(run.config.dataVersions,state.documents);immutable(`${root}/snapshot.json`,run.config.dataVersions);
+     const config={...run.config};delete config.dataset;immutable(`${root}/${item.arm}-config.json`,config);for(const[k,v]of Object.entries(plan.freeze.runtime.modelConfig))assert.deepEqual(run.config[k],v,`Model configuration drift: ${k}`);await audit(run.taskId??run.id,key);
+     immutable(`${root}/${key}-mapping.json`,{...item,runId:run.id,cache:run.results.map(r=>({caseId:r.caseId,phase:item.questions.find(q=>q.caseId===r.caseId).phase,mode:r.mode,observed:r.diagnostics?.cost?.cache??null})),source:'ASSISTED'});
+     for(const row of run.results){if(!row.error){assert(row.citationValid);for(const c of row.citations??[])await api.request(`/api/evaluations/${run.id}/citations/${typeof c==='string'?c:c.id}`);}}assertInfrastructureCleared(root,plan,clearance,run);
+     }
+     if(stage==='smoke')state.smokeCompleted=true;else state.collectionCompleted=true;persist();return state;
+    }
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///F:/CiteBase/scripts/quality-assisted-cost-continue-investigated.test.mjs:71:9)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 3
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 688.3348
