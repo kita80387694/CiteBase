@@ -63,7 +63,7 @@ test('failed task preserves successful checkpoint rows and unknown calls stay co
 test('nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim',()=>{
  const f=fixture(),root=fs.mkdtempSync(path.join(os.tmpdir(),'cost-independent-fixture-'));
  try{
-  const old={...f.plan.freeze.runtime,containerImageId:'sha256:synthetic-image',containerId:'old',startedAt:'2026-10-01T00:00:00Z'},current={...old,containerId:'new',startedAt:'2026-10-10T00:00:00Z'};f.plan.freeze.runtime=old;
+  const old={...f.plan.freeze.runtime,containerImageId:'sha256:synthetic-image',containerId:'old',startedAt:'2026-10-01T00:00:00Z'},current={...old,startedAt:'2026-10-10T00:00:00Z'};f.plan.freeze.runtime=old;
   fs.mkdirSync(path.join(root,'runs'));const recoveryDir=path.join(root,'recovery');fs.mkdirSync(recoveryDir);const registrationFile=path.join(root,'registration.json');fs.writeFileSync(registrationFile,JSON.stringify(f.plan));
   const prefix=`CostIndependent-${hash(JSON.stringify(f.plan)).slice(0,20)}`;
   for(const [index,item]of f.plan.items.entries()){
@@ -71,7 +71,8 @@ test('nine-day recovery keeps 48 old rows and segment provenance without continu
    fs.writeFileSync(stem+'.raw.json',JSON.stringify({id:`run-${index}`,status:'SUCCEEDED',results:f.rows.filter(r=>r.arm===item.arm&&r.baseCaseId===item.baseCaseId).map(r=>({...r.result,caseId:r.caseId,mode:r.mode}))}));
    fs.writeFileSync(stem+'.state.json',JSON.stringify({spec:{runtime,options:{cache:false}},createdAt:date+'T01:00:00Z',completedAt:date+'T02:00:00Z'}));
   }
-  const manifest={schema:'citebase-assisted-cost-recovery-v1',registrationSha256:hash(JSON.stringify(f.plan)),originalRuntime:old,currentRuntime:current,continuousLatencyComparable:false,segments:[{id:'original',runtime:old},{id:'recovery',runtime:current}],originalFiles:[{file:registrationFile,sha256:hash(fs.readFileSync(registrationFile))}]};fs.writeFileSync(path.join(recoveryDir,'manifest.json'),JSON.stringify(manifest));
+  const exports={};for(const kind of ['evaluation','task']){const file=path.join(recoveryDir,`interrupted-${kind}.json`);fs.writeFileSync(file,JSON.stringify({id:'interrupted',status:'FAILED',externalCalls:[]}));exports[kind]={file,sha256:hash(fs.readFileSync(file))};}
+  const manifest={schema:'citebase-assisted-cost-recovery-v1',interrupted:exports,registrationSha256:hash(JSON.stringify(f.plan)),originalRuntime:old,currentRuntime:current,continuousLatencyComparable:false,segments:[{id:'original',runtime:old},{id:'recovery',runtime:current}],originalFiles:[{file:registrationFile,sha256:hash(fs.readFileSync(registrationFile))}]};fs.writeFileSync(path.join(recoveryDir,'manifest.json'),JSON.stringify(manifest));
   const report=loadCostIndependent(root,false,recoveryDir),p=report.runtimeProvenance;assert.equal(report.terminalRows,240);assert.equal(p.continuousLatencyComparable,false);assert.deepEqual(p.segments.map(s=>s.rows),[48,192]);assert.equal(p.rowSources.length,240);assert.equal(p.segments[0].collectionStartedAt,'2026-10-01T01:00:00Z');assert.equal(p.segments[1].collectionStartedAt,'2026-10-10T01:00:00Z');assert(p.rowSources.every(r=>r.runtime&&r.inputs.length===2&&r.requestOptions.cache===false));assert(report.inputs.some(i=>i.file===path.join(recoveryDir,'manifest.json')));assert.deepEqual(p.initialRuntime,old);
   manifest.originalFiles[0].sha256='0'.repeat(64);fs.writeFileSync(path.join(recoveryDir,'manifest.json'),JSON.stringify(manifest));assert.throws(()=>loadCostIndependent(root,false,recoveryDir),/Recovery source changed/);
  }finally{assert(root.startsWith(path.join(os.tmpdir(),'cost-independent-fixture-')));fs.rmSync(root,{recursive:true});}

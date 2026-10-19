@@ -1,0 +1,141 @@
+TAP version 13
+# Subtest: segmented recovery preserves failed task, successful checkpoint, unknown usage, and all original states
+ok 1 - segmented recovery preserves failed task, successful checkpoint, unknown usage, and all original states
+  ---
+  duration_ms: 132.2502
+  ...
+# Subtest: rejects runtime identity, source, model and cache changes before collection
+ok 2 - rejects runtime identity, source, model and cache changes before collection
+  ---
+  duration_ms: 79.8701
+  ...
+# Subtest: rejects altered evidence identity, version, config and incomplete keys
+ok 3 - rejects altered evidence identity, version, config and incomplete keys
+  ---
+  duration_ms: 218.4198
+  ...
+# Subtest: manifest hashes prevent changing original raw or supplied terminal audit
+ok 4 - manifest hashes prevent changing original raw or supplied terminal audit
+  ---
+  duration_ms: 82.2394
+  ...
+# Subtest: external call audit compares SQL and API naming without losing microseconds or UNKNOWN outcomes
+ok 5 - external call audit compares SQL and API naming without losing microseconds or UNKNOWN outcomes
+  ---
+  duration_ms: 0.6168
+  ...
+# Subtest: live version drift refuses new work and original journal is retained on failure
+ok 6 - live version drift refuses new work and original journal is retained on failure
+  ---
+  duration_ms: 54.0133
+  ...
+# Subtest: preregistered gates retain UNKNOWN/indexing and no default change
+ok 7 - preregistered gates retain UNKNOWN/indexing and no default change
+  ---
+  duration_ms: 3.7677
+  ...
+# Subtest: strict CI boundary, lower call saving, new citation and unsupported flags fail gates
+ok 8 - strict CI boundary, lower call saving, new citation and unsupported flags fail gates
+  ---
+  duration_ms: 3.6026
+  ...
+# Subtest: partial, disputed, missing ledger and NA cannot declare support
+ok 9 - partial, disputed, missing ledger and NA cannot declare support
+  ---
+  duration_ms: 2.7134
+  ...
+# Subtest: wrong sample counts and frozen runtime rejected
+ok 10 - wrong sample counts and frozen runtime rejected
+  ---
+  duration_ms: 2.6309
+  ...
+# Subtest: read-only CLI hashes source bytes and refuses overwriting output
+ok 11 - read-only CLI hashes source bytes and refuses overwriting output
+  ---
+  duration_ms: 310.4678
+  ...
+# Subtest: protocol-permitted citation NA on correct refusal is non-error, other NA remains unresolved
+ok 12 - protocol-permitted citation NA on correct refusal is non-error, other NA remains unresolved
+  ---
+  duration_ms: 12.09
+  ...
+# Subtest: failure gate compares preregistered totals and separately discloses offsetting pair regressions
+ok 13 - failure gate compares preregistered totals and separately discloses offsetting pair regressions
+  ---
+  duration_ms: 1.4941
+  ...
+# Subtest: 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+ok 14 - 240 anonymous answers, 48 duplicate reviews, balanced 144 assignments and 40/40/40/24 batches
+  ---
+  duration_ms: 44.3442
+  ...
+# Subtest: partial rows and absent ledger stay pending and unknown; failures retained
+ok 15 - partial rows and absent ledger stay pending and unknown; failures retained
+  ---
+  duration_ms: 27.8247
+  ...
+# Subtest: missing tokens are null and partial ledger calls are observed only
+ok 16 - missing tokens are null and partial ledger calls are observed only
+  ---
+  duration_ms: 9.3019
+  ...
+# Subtest: comparison clusters forty questions; failures zero and missing/NA null
+ok 17 - comparison clusters forty questions; failures zero and missing/NA null
+  ---
+  duration_ms: 83.5557
+  ...
+# Subtest: duplicate rows, modified gold, forged pairing and unsigned answer rejected
+ok 18 - duplicate rows, modified gold, forged pairing and unsigned answer rejected
+  ---
+  duration_ms: 57.9296
+  ...
+# Subtest: pending and malformed synthetic raw files produce partial hashed report
+ok 19 - pending and malformed synthetic raw files produce partial hashed report
+  ---
+  duration_ms: 234.1795
+  ...
+# Subtest: comparison CLI writes hashed synthetic inputs without changing defaults
+ok 20 - comparison CLI writes hashed synthetic inputs without changing defaults
+  ---
+  duration_ms: 209.9216
+  ...
+# Subtest: failed task preserves successful checkpoint rows and unknown calls stay counted
+ok 21 - failed task preserves successful checkpoint rows and unknown calls stay counted
+  ---
+  duration_ms: 27.6536
+  ...
+# Subtest: nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+not ok 22 - nine-day recovery keeps 48 old rows and segment provenance without continuous latency claim
+  ---
+  duration_ms: 261.5877
+  location: 'F:\\CiteBase\\scripts\\quality-cost-independent.test.mjs:63:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'evaluation')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    verifyManifest (file:///F:/CiteBase/scripts/quality-assisted-cost-recover.mjs:38:73)
+    verifyChain (file:///F:/CiteBase/scripts/quality-assisted-cost-recover-chain.mjs:17:61)
+    loadCostIndependent (file:///F:/CiteBase/scripts/quality-cost-independent-packets.mjs:28:442)
+    TestContext.<anonymous> (file:///F:/CiteBase/scripts/quality-cost-independent.test.mjs:75:16)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: arm ledgers attribute actual rerank model, isolate indexing, preserve missing tokens and phase denominators
+ok 23 - arm ledgers attribute actual rerank model, isolate indexing, preserve missing tokens and phase denominators
+  ---
+  duration_ms: 22.782
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 22
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1259.8412

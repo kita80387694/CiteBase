@@ -308,3 +308,5 @@
 2026-10-19 恢复检查：上一轮新增summary实现与测试、README/简历验证口径更新，属于实际进展；本轮确认原PID77068已不存在，Docker引擎可用但原真实容器已退出。只启动原容器，未重建、未更改模型或冻结配置。152条原始结果已保存；ci-29-candidate任务99f3c0ce-804f-41b6-a475-fd382687c2fa在恢复后FAILED，导出保留4行（3成功检查点、1 ATTEMPTS_EXHAUSTED）及7 RETURNED+1 UNKNOWN调用。新导出在assisted-cost-recovery-20261019，旧恢复manifest及原始结果不覆盖。需要追加第三运行时段并验证恢复链后才能续采，不能直接重复运行旧恢复脚本。
 
 成本总结脚本主线程重跑7/7通过，正常正确拒答的citationSupport=NA按已登记协议视为不适用，其他不可评估情况仍保持未知；按预登记比较总失败，同时披露逐对新增/恢复失败，不隐藏抵消。新版Compose在原隔离mock项目重新构建验证中；真实评测容器保持原镜像。尚未完成成本独立采集和辅助评分，不标记目标完成。
+
+2026-10-19 本地提交c481fc6归档成本汇总与验证口径。新Compose仍因auth.docker.io连接超时失败，完整日志admission-engineering/compose-network-failure-20261019.txt，未将其计通过。追加不可变恢复链实现后，主线程组合29项测试通过；实际prepare验证原manifest、全部已保存结果哈希及同容器/镜像/模型的新StartedAt。原152行加取回中断4行共156行保留，剩余84行由后台PID60580续采（已实际核实进程存在），日志.tools/assisted-cost-recover-20261019.txt，终态见对应exit.json及新恢复目录collection-state.json。三个登记运行段不当连续延迟样本；原未知调用不重提，最终报告、辅助评分及Compose验收仍待完成。
