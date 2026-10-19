@@ -304,3 +304,7 @@
 独立成本分段续采已启动PID77068，日志.tools/assisted-cost-recover-20261010.txt及exit.json；原始48行与中断2行保留，当前runtime只允许StartedAt变动，源/镜像/模型/端口及非缓存配置冻结。旧state原字节保留，恢复状态另存manifest/recovery-state。采集仍未完成，不计质量或成本验收通过。
 
 2026-10-10 后续审计：分段成本报告增加run.taskId到账本的控制/候选归属、索引单列、mode/phase计划与缺失分母、rerank模型冻结来源；10合成测试通过。阶段审计矩阵PHASE3_ACCEPTANCE.md新增，PHASE3_PLAN统一为当前授权口径，未将历史真人阻塞或旧测试冒充当前完成。官方ECR同版本node镜像拉取也匿名token超时；原日志保留且已请求恢复镜像网络，无系统DNS/代理修改。成本PID77068已核实活跃并推进至ci-20-candidate（至少84/240行），尚未形成最终质量/成本结论。
+
+2026-10-19 恢复检查：上一轮新增summary实现与测试、README/简历验证口径更新，属于实际进展；本轮确认原PID77068已不存在，Docker引擎可用但原真实容器已退出。只启动原容器，未重建、未更改模型或冻结配置。152条原始结果已保存；ci-29-candidate任务99f3c0ce-804f-41b6-a475-fd382687c2fa在恢复后FAILED，导出保留4行（3成功检查点、1 ATTEMPTS_EXHAUSTED）及7 RETURNED+1 UNKNOWN调用。新导出在assisted-cost-recovery-20261019，旧恢复manifest及原始结果不覆盖。需要追加第三运行时段并验证恢复链后才能续采，不能直接重复运行旧恢复脚本。
+
+成本总结脚本主线程重跑7/7通过，正常正确拒答的citationSupport=NA按已登记协议视为不适用，其他不可评估情况仍保持未知；按预登记比较总失败，同时披露逐对新增/恢复失败，不隐藏抵消。新版Compose在原隔离mock项目重新构建验证中；真实评测容器保持原镜像。尚未完成成本独立采集和辅助评分，不标记目标完成。
